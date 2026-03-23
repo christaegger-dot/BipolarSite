@@ -107,7 +107,8 @@
 
   .reveal{opacity:0;transform:translateY(24px);transition:all 0.6s cubic-bezier(0.25,0.46,0.45,0.94)}.reveal.visible{opacity:1;transform:translateY(0)}
 
-  @media(max-width:900px){.nav-links{display:none}.nav-toggle{display:flex}.toc ol{grid-template-columns:1fr}.handout-list{grid-template-columns:1fr 1fr}}
+  @media(max-width:900px){.nav-links{display:none}.nav-toggle{display:flex}.nav-inner{position:relative}.toc ol{grid-template-columns:1fr}.handout-list{grid-template-columns:1fr 1fr}}
+  @media(max-width:900px){.nav-links.nav-open{display:flex;position:absolute;top:calc(100% + 10px);left:2rem;right:2rem;flex-direction:column;align-items:stretch;gap:6px;padding:12px;background:rgba(254,252,248,0.98);border:1px solid rgba(45,40,35,0.08);border-radius:16px;box-shadow:0 12px 30px rgba(45,40,35,0.14);z-index:60}.nav-links.nav-open a{display:block;padding:10px 12px}}
   @media(max-width:600px){.module-hero{padding:100px 1.2rem 40px}.content{padding:0 1.2rem}.closing{padding:36px 24px}.handout-list{grid-template-columns:1fr}}
   *:focus-visible{outline:2px solid var(--sage-500);outline-offset:2px;border-radius:4px}
   @media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
@@ -120,13 +121,13 @@
 
 <nav id="navbar"><div class="nav-inner">
   <a href="/" class="nav-brand"><div class="nav-logo">PUK</div><div class="nav-brand-text">Bipolare Störung</div></a>
-  <div class="nav-links"><a href="/">Startseite</a><a href="/#module">Module</a><a href="/notfall/" class="nav-sos">SOS Krise</a></div>
-  <button class="nav-toggle" aria-label="Menü"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  <div class="nav-links" id="primary-nav"><a href="/">Startseite</a><a href="/#module">Module</a><a href="/notfall/" class="nav-sos">SOS Krise</a></div>
+  <button type="button" class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="primary-nav"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
 </div></nav>
 <div class="reading-progress"><div class="reading-progress-fill" id="readingProgress"></div></div>
 
 <header class="module-hero"><div class="module-hero-inner">
-  <div class="breadcrumb"><a href="/downloads/notfallkarte-kanton-zuerich-puk.pdf" target="_blank">Startseite</a><span>›</span><a href="/handouts/a8_warnsignale.pdf" target="_blank">Modul 7</a><span>›</span><span>Unterstützung und Ressourcen</span></div>
+  <div class="breadcrumb"><a href="/">Startseite</a><span>›</span><a href="/modul/7/">Modul 7</a><span>›</span><span>Unterstützung und Ressourcen</span></div>
     <svg class="hero-icon" aria-hidden="true" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="2"/><polygon points="20,8 23,18 20,16 17,18" fill="currentColor" opacity="0.4"/><polygon points="20,32 17,22 20,24 23,22" fill="currentColor" opacity="0.2"/><circle cx="20" cy="20" r="2" fill="currentColor" opacity="0.5"/></svg>
   <div class="module-badge">Modul 8 / 8</div>
   <h1>Unterstützung und Ressourcen</h1>
@@ -262,7 +263,7 @@
     <div class="dl-body">
       <h4>Was stabilisiert — was schadet</h4>
       <p>Das wichtigste Kurzblatt: Kommunikation, Selbstfürsorge, Grenzsetzung und Frühwarnzeichen auf einer Seite. Gut geeignet als tägliche Erinnerung am Kühlschrank.</p>
-      <a class="dl-btn" href="/downloads/kurzblatt-was-stabilisiert-was-schadet-puk-zuerich.pdf" target="_blank">Kurzblatt herunterladen <span class="dl-meta">PDF · 1 Seite A4</span></a>
+      <a class="dl-btn" href="/downloads/kurzblatt-was-stabilisiert-was-schadet-puk-zuerich.pdf" target="_blank" rel="noopener">Kurzblatt herunterladen <span class="dl-meta">PDF · 1 Seite A4</span></a>
     </div>
   </div>
 
@@ -271,7 +272,7 @@
     <div class="dl-body">
       <h4>Krisenplan-Vorlage</h4>
       <p>Ausfüllbare Vorlage mit Frühwarnzeichen, Kontaktpersonen, Medikamenten und Klinikwunsch. Am besten gemeinsam in einer stabilen Phase ausfüllen — nicht erst in der Krise.</p>
-      <a class="dl-btn" href="/downloads/krisenplan-vorlage-bipolare-stoerung-puk-zuerich.pdf" target="_blank">Krisenplan herunterladen <span class="dl-meta">PDF · 1 Seite A4 · ausfüllbar</span></a>
+      <a class="dl-btn" href="/downloads/krisenplan-vorlage-bipolare-stoerung-puk-zuerich.pdf" target="_blank" rel="noopener">Krisenplan herunterladen <span class="dl-meta">PDF · 1 Seite A4 · ausfüllbar</span></a>
     </div>
   </div>
 
@@ -280,7 +281,7 @@
     <div class="dl-body">
       <h4>Notfallkarte Kanton Zürich</h4>
       <p>Alle Notfallnummern mit Erklärung — wann welche Nummer, situationsdifferenziert. Ausdrucken und griffbereit halten (Portemonnaie, Handyhülle, Kühlschrank).</p>
-      <a class="dl-btn dl-btn-sos" href="/downloads/notfallkarte-kanton-zuerich-puk.pdf" target="_blank">Notfallkarte herunterladen <span class="dl-meta">PDF · 1 Seite A4</span></a>
+      <a class="dl-btn dl-btn-sos" href="/downloads/notfallkarte-kanton-zuerich-puk.pdf" target="_blank" rel="noopener">Notfallkarte herunterladen <span class="dl-meta">PDF · 1 Seite A4</span></a>
     </div>
   </div>
 
@@ -289,30 +290,30 @@
   <p class="reveal" style="font-size:0.85rem;color:var(--text-muted);margin-bottom:20px">Jedes Handout fasst ein Kernthema auf 1–2 Seiten zusammen. Auch zum Weitergeben an Partner, Familie oder Fachpersonen geeignet.</p>
 
   <div class="handout-list reveal">
-    <a href="/handouts/a8_warnsignale.pdf" target="_blank" class="handout-chip"><span class="hc-badge">M1</span><span class="hc-body"><span class="hc-title">Warnsignale</span><span class="hc-size">PDF · 1 MB</span></span></a>
-    <a href="/handouts/b1_18_belastungen.pdf" target="_blank" class="handout-chip"><span class="hc-badge">M2</span><span class="hc-body"><span class="hc-title">18 Belastungen</span><span class="hc-size">PDF · 971 KB</span></span></a>
-    <a href="/handouts/c4_manie.pdf" target="_blank" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Umgang mit Manie</span><span class="hc-size">PDF · 997 KB</span></span></a>
-    <a href="/handouts/c5_depression.pdf" target="_blank" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Umgang mit Depression</span><span class="hc-size">PDF · 993 KB</span></span></a>
-    <a href="/handouts/b10_trennung_scheidung.pdf" target="_blank" class="handout-chip"><span class="hc-badge">M3</span><span class="hc-body"><span class="hc-title">Beziehung an Grenzen</span><span class="hc-size">PDF · 921 KB</span></span></a>
-    <a href="/handouts/a4_ambiguous_loss.pdf" target="_blank" class="handout-chip"><span class="hc-badge">M4</span><span class="hc-body"><span class="hc-title">Ambiguous Loss</span><span class="hc-size">PDF · 879 KB</span></span></a>
-    <a href="/handouts/b2_erosion_solidaritaet.pdf" target="_blank" class="handout-chip"><span class="hc-badge">M4</span><span class="hc-body"><span class="hc-title">Erosion der Solidarität</span><span class="hc-size">PDF · 850 KB</span></span></a>
-    <a href="/handouts/b4_mechanismen_erosion.pdf" target="_blank" class="handout-chip"><span class="hc-badge">M4</span><span class="hc-body"><span class="hc-title">Mechanismen der Erosion</span><span class="hc-size">PDF · 812 KB</span></span></a>
-    <a href="/handouts/b3_kritische_zeitpunkte.pdf" target="_blank" class="handout-chip"><span class="hc-badge">M4</span><span class="hc-body"><span class="hc-title">Kritische Zeitpunkte</span><span class="hc-size">PDF · 866 KB</span></span></a>
-    <a href="/handouts/expressed_emotions.pdf" target="_blank" class="handout-chip"><span class="hc-badge">M5</span><span class="hc-body"><span class="hc-title">Expressed Emotions</span><span class="hc-size">PDF · 961 KB</span></span></a>
-    <a href="/handouts/b5_loyalitaetskonflikte.pdf" target="_blank" class="handout-chip"><span class="hc-badge">M5</span><span class="hc-body"><span class="hc-title">Loyalitätskonflikte</span><span class="hc-size">PDF · 800 KB</span></span></a>
-    <a href="/handouts/a3_ambivalente_loyalitaet.pdf" target="_blank" class="handout-chip"><span class="hc-badge">M5</span><span class="hc-body"><span class="hc-title">Ambivalente Loyalität</span><span class="hc-size">PDF · 906 KB</span></span></a>
-    <a href="/handouts/a5_affiliate_stigma.pdf" target="_blank" class="handout-chip"><span class="hc-badge">M5</span><span class="hc-body"><span class="hc-title">Stigma der Angehörigen</span><span class="hc-size">PDF · 834 KB</span></span></a>
-    <a href="/handouts/c1_krisenplan.pdf" target="_blank" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Krisenplan erstellen</span><span class="hc-size">PDF · 855 KB</span></span></a>
-    <a href="/handouts/grenzsetzung.pdf" target="_blank" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Grenzsetzung</span><span class="hc-size">PDF · 826 KB</span></span></a>
-    <a href="/handouts/c2_suizidgedanken.pdf" target="_blank" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Suizidgedanken</span><span class="hc-size">PDF · 869 KB</span></span></a>
-    <a href="/handouts/c3_psychose_wahn.pdf" target="_blank" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Psychose / Wahn</span><span class="hc-size">PDF · 992 KB</span></span></a>
-    <a href="/handouts/b7_behandlung_ambivalenz.pdf" target="_blank" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Behandlung &amp; Ambivalenz</span><span class="hc-size">PDF · 948 KB</span></span></a>
-    <a href="/handouts/c6_selbstfuersorge.pdf" target="_blank" class="handout-chip"><span class="hc-badge">M7</span><span class="hc-body"><span class="hc-title">Selbstfürsorge-Plan</span><span class="hc-size">PDF · 776 KB</span></span></a>
-    <a href="/handouts/d4_solidaritaet_wellen.pdf" target="_blank" class="handout-chip"><span class="hc-badge">M7</span><span class="hc-body"><span class="hc-title">Solidarität in Wellen</span><span class="hc-size">PDF · 800 KB</span></span></a>
-    <a href="/handouts/transformationsreise.pdf" target="_blank" class="handout-chip"><span class="hc-badge">M7</span><span class="hc-body"><span class="hc-title">Transformationsreise</span><span class="hc-size">PDF · 773 KB</span></span></a>
-    <a href="/handouts/trialog.pdf" target="_blank" class="handout-chip"><span class="hc-badge">M7</span><span class="hc-body"><span class="hc-title">Trialog</span><span class="hc-size">PDF · 804 KB</span></span></a>
-    <a href="/handouts/b6_geschlechtsspezifisch.pdf" target="_blank" class="handout-chip"><span class="hc-badge">M7</span><span class="hc-body"><span class="hc-title">Geschlechtsspez. Nuancen</span><span class="hc-size">PDF · 927 KB</span></span></a>
-    <a href="/handouts/b9_depression_partner.pdf" target="_blank" class="handout-chip"><span class="hc-badge">M7</span><span class="hc-body"><span class="hc-title">Depression bei Angehörigen</span><span class="hc-size">PDF · 825 KB</span></span></a>
+    <a href="/handouts/a8_warnsignale.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M1</span><span class="hc-body"><span class="hc-title">Warnsignale</span><span class="hc-size">PDF · 1 MB</span></span></a>
+    <a href="/handouts/b1_18_belastungen.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M2</span><span class="hc-body"><span class="hc-title">18 Belastungen</span><span class="hc-size">PDF · 971 KB</span></span></a>
+    <a href="/handouts/c4_manie.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Umgang mit Manie</span><span class="hc-size">PDF · 997 KB</span></span></a>
+    <a href="/handouts/c5_depression.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Umgang mit Depression</span><span class="hc-size">PDF · 993 KB</span></span></a>
+    <a href="/handouts/b10_trennung_scheidung.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M3</span><span class="hc-body"><span class="hc-title">Beziehung an Grenzen</span><span class="hc-size">PDF · 921 KB</span></span></a>
+    <a href="/handouts/a4_ambiguous_loss.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M4</span><span class="hc-body"><span class="hc-title">Ambiguous Loss</span><span class="hc-size">PDF · 879 KB</span></span></a>
+    <a href="/handouts/b2_erosion_solidaritaet.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M4</span><span class="hc-body"><span class="hc-title">Erosion der Solidarität</span><span class="hc-size">PDF · 850 KB</span></span></a>
+    <a href="/handouts/b4_mechanismen_erosion.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M4</span><span class="hc-body"><span class="hc-title">Mechanismen der Erosion</span><span class="hc-size">PDF · 812 KB</span></span></a>
+    <a href="/handouts/b3_kritische_zeitpunkte.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M4</span><span class="hc-body"><span class="hc-title">Kritische Zeitpunkte</span><span class="hc-size">PDF · 866 KB</span></span></a>
+    <a href="/handouts/expressed_emotions.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M5</span><span class="hc-body"><span class="hc-title">Expressed Emotions</span><span class="hc-size">PDF · 961 KB</span></span></a>
+    <a href="/handouts/b5_loyalitaetskonflikte.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M5</span><span class="hc-body"><span class="hc-title">Loyalitätskonflikte</span><span class="hc-size">PDF · 800 KB</span></span></a>
+    <a href="/handouts/a3_ambivalente_loyalitaet.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M5</span><span class="hc-body"><span class="hc-title">Ambivalente Loyalität</span><span class="hc-size">PDF · 906 KB</span></span></a>
+    <a href="/handouts/a5_affiliate_stigma.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M5</span><span class="hc-body"><span class="hc-title">Stigma der Angehörigen</span><span class="hc-size">PDF · 834 KB</span></span></a>
+    <a href="/handouts/c1_krisenplan.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Krisenplan erstellen</span><span class="hc-size">PDF · 855 KB</span></span></a>
+    <a href="/handouts/grenzsetzung.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Grenzsetzung</span><span class="hc-size">PDF · 826 KB</span></span></a>
+    <a href="/handouts/c2_suizidgedanken.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Suizidgedanken</span><span class="hc-size">PDF · 869 KB</span></span></a>
+    <a href="/handouts/c3_psychose_wahn.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Psychose / Wahn</span><span class="hc-size">PDF · 992 KB</span></span></a>
+    <a href="/handouts/b7_behandlung_ambivalenz.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Behandlung &amp; Ambivalenz</span><span class="hc-size">PDF · 948 KB</span></span></a>
+    <a href="/handouts/c6_selbstfuersorge.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M7</span><span class="hc-body"><span class="hc-title">Selbstfürsorge-Plan</span><span class="hc-size">PDF · 776 KB</span></span></a>
+    <a href="/handouts/d4_solidaritaet_wellen.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M7</span><span class="hc-body"><span class="hc-title">Solidarität in Wellen</span><span class="hc-size">PDF · 800 KB</span></span></a>
+    <a href="/handouts/transformationsreise.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M7</span><span class="hc-body"><span class="hc-title">Transformationsreise</span><span class="hc-size">PDF · 773 KB</span></span></a>
+    <a href="/handouts/trialog.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M7</span><span class="hc-body"><span class="hc-title">Trialog</span><span class="hc-size">PDF · 804 KB</span></span></a>
+    <a href="/handouts/b6_geschlechtsspezifisch.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M7</span><span class="hc-body"><span class="hc-title">Geschlechtsspez. Nuancen</span><span class="hc-size">PDF · 927 KB</span></span></a>
+    <a href="/handouts/b9_depression_partner.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M7</span><span class="hc-body"><span class="hc-title">Depression bei Angehörigen</span><span class="hc-size">PDF · 825 KB</span></span></a>
   </div>
 
   <!-- CLOSING -->
@@ -345,11 +346,13 @@
   <p>Fachstelle Angehörigenarbeit · Lenggstrasse 31, 8032 Zürich</p>
   <p>Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026</p>
   <p style="margin-top:8px">Diese Inhalte ersetzen keine professionelle Beratung.</p>
-  <div class="footer-links"><a href="/notfall/">Impressum</a><a href="/impressum/#datenschutz">Datenschutz</a><a href="/impressum/#barrierefreiheit">Barrierefreiheit</a><a href="/notfall/" style="color:var(--alert-red)">Notfall & Krisenhilfe</a></div>
+  <div class="footer-links"><a href="/impressum/">Impressum</a><a href="/impressum/#datenschutz">Datenschutz</a><a href="/impressum/#barrierefreiheit">Barrierefreiheit</a><a href="/notfall/" style="color:var(--alert-red)">Notfall & Krisenhilfe</a></div>
 </div></footer>
 
 <script>
   const nav=document.getElementById('navbar');window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>20));
+  const navToggle=document.querySelector('.nav-toggle');const navLinks=document.getElementById('primary-nav');
+  if(navToggle&&navLinks){const closeNav=()=>{navLinks.classList.remove('nav-open');navToggle.setAttribute('aria-expanded','false');navToggle.setAttribute('aria-label','Menü öffnen')};navToggle.addEventListener('click',()=>{const isOpen=navLinks.classList.toggle('nav-open');navToggle.setAttribute('aria-expanded',isOpen?'true':'false');navToggle.setAttribute('aria-label',isOpen?'Menü schliessen':'Menü öffnen')});navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeNav));document.addEventListener('keydown',e=>{if(e.key==='Escape')closeNav()});document.addEventListener('click',e=>{if(!nav.contains(e.target))closeNav()});window.addEventListener('resize',()=>{if(window.innerWidth>900)closeNav()})}
   const pb=document.getElementById('readingProgress');window.addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-window.innerHeight;pb.style.width=h>0?(window.scrollY/h*100)+'%':'0%'});
   const obs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*60);obs.unobserve(e.target)}})},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));

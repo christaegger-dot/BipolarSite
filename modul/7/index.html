@@ -127,7 +127,8 @@
 
   .reveal{opacity:0;transform:translateY(24px);transition:all 0.6s cubic-bezier(0.25,0.46,0.45,0.94)}.reveal.visible{opacity:1;transform:translateY(0)}
 
-  @media(max-width:900px){.nav-links{display:none}.nav-toggle{display:flex}.toc ol{grid-template-columns:1fr}.selfcare-grid{grid-template-columns:1fr}.wish-cards{grid-template-columns:1fr}.trialog-visual{grid-template-columns:1fr}.ptg-grid{grid-template-columns:1fr}.coping-grid{grid-template-columns:1fr}.handouts-grid{grid-template-columns:1fr}}
+  @media(max-width:900px){.nav-links{display:none}.nav-toggle{display:flex}.nav-inner{position:relative}.toc ol{grid-template-columns:1fr}.selfcare-grid{grid-template-columns:1fr}.wish-cards{grid-template-columns:1fr}.trialog-visual{grid-template-columns:1fr}.ptg-grid{grid-template-columns:1fr}.coping-grid{grid-template-columns:1fr}.handouts-grid{grid-template-columns:1fr}}
+  @media(max-width:900px){.nav-links.nav-open{display:flex;position:absolute;top:calc(100% + 10px);left:2rem;right:2rem;flex-direction:column;align-items:stretch;gap:6px;padding:12px;background:rgba(254,252,248,0.98);border:1px solid rgba(45,40,35,0.08);border-radius:16px;box-shadow:0 12px 30px rgba(45,40,35,0.14);z-index:60}.nav-links.nav-open a{display:block;padding:10px 12px}}
   @media(max-width:600px){.module-hero{padding:100px 1.2rem 40px}.content{padding:0 1.2rem}.next-module-card{flex-direction:column;text-align:center}.takeaways{padding:28px 24px}}
   *:focus-visible{outline:2px solid var(--sage-500);outline-offset:2px;border-radius:4px}
   @media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
@@ -141,8 +142,8 @@
 
 <nav id="navbar"><div class="nav-inner">
   <a href="/" class="nav-brand"><div class="nav-logo">PUK</div><div class="nav-brand-text">Bipolare Störung</div></a>
-  <div class="nav-links"><a href="/">Startseite</a><a href="/#module">Module</a><a href="/notfall/" class="nav-sos">SOS Krise</a></div>
-  <button class="nav-toggle" aria-label="Menü"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  <div class="nav-links" id="primary-nav"><a href="/">Startseite</a><a href="/#module">Module</a><a href="/notfall/" class="nav-sos">SOS Krise</a></div>
+  <button type="button" class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="primary-nav"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
 </div></nav>
 <div class="reading-progress"><div class="reading-progress-fill" id="readingProgress"></div></div>
 
@@ -374,10 +375,10 @@
   <div class="handouts reveal">
     <div class="handouts-title">Passende Handouts</div>
     <div class="handouts-grid">
-      <a href="/handouts/c6_selbstfuersorge.pdf" target="_blank" class="handout-card"><div class="handout-icon green">PDF</div><div><div class="handout-card-title">Selbstfürsorge-Plan</div><div class="handout-card-sub">Körper, Seele, Beziehung</div></div></a>
-      <a href="/handouts/d4_solidaritaet_wellen.pdf" target="_blank" class="handout-card"><div class="handout-icon green">PDF</div><div><div class="handout-card-title">Solidarität in Wellen</div><div class="handout-card-sub">Die fünf Säulen im Überblick</div></div></a>
-      <a href="/handouts/transformationsreise.pdf" target="_blank" class="handout-card"><div class="handout-icon green">PDF</div><div><div class="handout-card-title">Trialog</div><div class="handout-card-sub">Gemeinsam statt übereinander</div></div></a>
-      <a href="/handouts/transformationsreise.pdf" target="_blank" class="handout-card"><div class="handout-icon green">PDF</div><div><div class="handout-card-title">Transformationsreise</div><div class="handout-card-sub">Was aus der Krise entstehen kann</div></div></a>
+      <a href="/handouts/c6_selbstfuersorge.pdf" target="_blank" rel="noopener" class="handout-card"><div class="handout-icon green">PDF</div><div><div class="handout-card-title">Selbstfürsorge-Plan</div><div class="handout-card-sub">Körper, Seele, Beziehung</div></div></a>
+      <a href="/handouts/d4_solidaritaet_wellen.pdf" target="_blank" rel="noopener" class="handout-card"><div class="handout-icon green">PDF</div><div><div class="handout-card-title">Solidarität in Wellen</div><div class="handout-card-sub">Die fünf Säulen im Überblick</div></div></a>
+      <a href="/handouts/trialog.pdf" target="_blank" rel="noopener" class="handout-card"><div class="handout-icon green">PDF</div><div><div class="handout-card-title">Trialog</div><div class="handout-card-sub">Gemeinsam statt übereinander</div></div></a>
+      <a href="/handouts/transformationsreise.pdf" target="_blank" rel="noopener" class="handout-card"><div class="handout-icon green">PDF</div><div><div class="handout-card-title">Transformationsreise</div><div class="handout-card-sub">Was aus der Krise entstehen kann</div></div></a>
     </div>
   </div>
 
@@ -400,11 +401,13 @@
   <p>Fachstelle Angehörigenarbeit · Lenggstrasse 31, 8032 Zürich</p>
   <p>Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026</p>
   <p style="margin-top:8px">Diese Inhalte ersetzen keine professionelle Beratung.</p>
-  <div class="footer-links"><a href="/notfall/">Impressum</a><a href="/impressum/#datenschutz">Datenschutz</a><a href="/impressum/#barrierefreiheit">Barrierefreiheit</a><a href="/notfall/" style="color:var(--alert-red)">Notfall & Krisenhilfe</a></div>
+  <div class="footer-links"><a href="/impressum/">Impressum</a><a href="/impressum/#datenschutz">Datenschutz</a><a href="/impressum/#barrierefreiheit">Barrierefreiheit</a><a href="/notfall/" style="color:var(--alert-red)">Notfall & Krisenhilfe</a></div>
 </div></footer>
 
 <script>
   const nav=document.getElementById('navbar');window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>20));
+  const navToggle=document.querySelector('.nav-toggle');const navLinks=document.getElementById('primary-nav');
+  if(navToggle&&navLinks){const closeNav=()=>{navLinks.classList.remove('nav-open');navToggle.setAttribute('aria-expanded','false');navToggle.setAttribute('aria-label','Menü öffnen')};navToggle.addEventListener('click',()=>{const isOpen=navLinks.classList.toggle('nav-open');navToggle.setAttribute('aria-expanded',isOpen?'true':'false');navToggle.setAttribute('aria-label',isOpen?'Menü schliessen':'Menü öffnen')});navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeNav));document.addEventListener('keydown',e=>{if(e.key==='Escape')closeNav()});document.addEventListener('click',e=>{if(!nav.contains(e.target))closeNav()});window.addEventListener('resize',()=>{if(window.innerWidth>900)closeNav()})}
   const pb=document.getElementById('readingProgress');window.addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-window.innerHeight;pb.style.width=h>0?(window.scrollY/h*100)+'%':'0%'});
   const obs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*60);obs.unobserve(e.target)}})},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));

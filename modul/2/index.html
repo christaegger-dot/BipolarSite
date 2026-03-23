@@ -254,13 +254,14 @@
 
   /* RESPONSIVE */
   @media (max-width: 900px) {
-    .nav-links { display: none; } .nav-toggle { display: flex; }
+    .nav-links { display: none; } .nav-toggle { display: flex; } .nav-inner { position: relative; }
     .toc ol { grid-template-columns: 1fr; }
     .do-dont { grid-template-columns: 1fr; }
     .cycle-steps { grid-template-columns: 1fr; }
     .handouts-grid { grid-template-columns: 1fr; }
     .eisberg-visual { grid-template-columns: 1fr; }
   }
+  @media (max-width: 900px) { .nav-links.nav-open { display: flex; position: absolute; top: calc(100% + 10px); left: 2rem; right: 2rem; flex-direction: column; align-items: stretch; gap: 6px; padding: 12px; background: rgba(254,252,248,0.98); border: 1px solid rgba(45,40,35,0.08); border-radius: 16px; box-shadow: 0 12px 30px rgba(45,40,35,0.14); z-index: 60; } .nav-links.nav-open a { display: block; padding: 10px 12px; } }
   @media (max-width: 600px) {
     .module-hero { padding: 100px 1.2rem 40px; }
     .content { padding: 0 1.2rem; }
@@ -284,12 +285,12 @@
       <div class="nav-logo">PUK</div>
       <div class="nav-brand-text">Bipolare Störung</div>
     </a>
-    <div class="nav-links">
+    <div class="nav-links" id="primary-nav">
       <a href="/">Startseite</a>
       <a href="/#module">Module</a>
       <a href="/notfall/" class="nav-sos">SOS Krise</a>
     </div>
-    <button class="nav-toggle" aria-label="Menü"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <button type="button" class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="primary-nav"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   </div>
 </nav>
 
@@ -299,7 +300,7 @@
 <header class="module-hero">
   <div class="module-hero-inner">
     <div class="breadcrumb">
-      <a href="/modul/1/">Startseite</a><span>›</span><a href="/modul/1/">Modul 1</a><span>›</span><span>Was das mit Ihnen macht</span>
+      <a href="/">Startseite</a><span>›</span><a href="/modul/1/">Modul 1</a><span>›</span><span>Was das mit Ihnen macht</span>
     </div>
     <svg class="hero-icon" aria-hidden="true" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="2" y1="18" x2="38" y2="18" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.5"/><polygon points="20,4 28,16 12,16" fill="currentColor" opacity="0.3"/><polygon points="14,20 26,20 30,34 10,34" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="1.5"/></svg>
     <div class="module-badge">Modul 2 / 8</div>
@@ -543,7 +544,7 @@
   <div class="alert-box reveal">
     <div class="alert-box-icon">⚠</div>
     <div>
-      <p><strong>Bei akuter Suizidgefahr:</strong> <a href="tel:+41800336655">0800 33 66 55</a> (Psychiatrischer Notfalldienst ZH, 24/7, kostenlos). Konkrete Krisenplan-Werkzeuge finden Sie in <a href="/notfall/">Modul 6</a>. Alle Notfallnummern auf der <a href="/notfall/">Notfallseite →</a></p>
+      <p><strong>Bei akuter Suizidgefahr:</strong> <a href="tel:+41800336655">0800 33 66 55</a> (Psychiatrischer Notfalldienst ZH, 24/7, kostenlos). Konkrete Krisenplan-Werkzeuge finden Sie in <a href="/modul/6/">Modul 6</a>. Alle Notfallnummern auf der <a href="/notfall/">Notfallseite →</a></p>
     </div>
   </div>
 
@@ -623,21 +624,21 @@
   <div class="handouts reveal">
     <div class="handouts-title">Passende Handouts</div>
     <div class="handouts-grid">
-      <a href="/handouts/b1_18_belastungen.pdf" target="_blank" class="handout-card">
+      <a href="/handouts/b1_18_belastungen.pdf" target="_blank" rel="noopener" class="handout-card">
         <div class="handout-icon green">PDF</div>
         <div>
           <div class="handout-card-title">18 Belastungen von Angehörigen</div>
           <div class="handout-card-sub">Übersicht und Selbsteinschätzung</div>
         </div>
       </a>
-      <a href="/handouts/a5_affiliate_stigma.pdf" target="_blank" class="handout-card">
+      <a href="/handouts/a5_affiliate_stigma.pdf" target="_blank" rel="noopener" class="handout-card">
         <div class="handout-icon green">PDF</div>
         <div>
           <div class="handout-card-title">Stigma der Angehörigen</div>
           <div class="handout-card-sub">Affiliate Stigma verstehen</div>
         </div>
       </a>
-      <a href="/handouts/b9_depression_partner.pdf" target="_blank" class="handout-card">
+      <a href="/handouts/b9_depression_partner.pdf" target="_blank" rel="noopener" class="handout-card">
         <div class="handout-icon red">PDF</div>
         <div>
           <div class="handout-card-title">Wenn die Belastung auf die Psyche schlägt</div>
@@ -679,6 +680,24 @@
 
 <script>
   const nav = document.getElementById('navbar');
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.getElementById('primary-nav');
+  if (navToggle && navLinks) {
+    const closeNav = () => {
+      navLinks.classList.remove('nav-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Menü öffnen');
+    };
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('nav-open');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      navToggle.setAttribute('aria-label', isOpen ? 'Menü schliessen' : 'Menü öffnen');
+    });
+    navLinks.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeNav));
+    document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeNav(); });
+    document.addEventListener('click', (event) => { if (!nav.contains(event.target)) closeNav(); });
+    window.addEventListener('resize', () => { if (window.innerWidth > 900) closeNav(); });
+  }
   window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
 
   const progressBar = document.getElementById('readingProgress');

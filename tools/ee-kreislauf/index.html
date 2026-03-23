@@ -22,6 +22,7 @@ body{font-family:'DM Sans',sans-serif;color:#2e2a25;background:#fefcf8;min-heigh
 .svg-wrap svg{width:100%;height:auto}
 .svg-wrap circle{cursor:pointer;transition:all 0.3s}
 .svg-wrap circle:hover{filter:brightness(0.95)}
+.svg-wrap [role="button"]:focus{filter:drop-shadow(0 0 0.35rem rgba(116,138,90,0.45))}
 .svg-wrap .arrow{transition:opacity 0.5s}
 .interrupted .arrow{opacity:0.2;stroke-dasharray:8 6}
 .center-text{font-family:'Source Serif 4',Georgia,serif;transition:fill 0.3s}
@@ -61,22 +62,22 @@ body{font-family:'DM Sans',sans-serif;color:#2e2a25;background:#fefcf8;min-heigh
       <text x="200" y="194" text-anchor="middle" class="center-text" font-size="14" font-weight="600" fill="#3d3128" id="centerText1">Chronische</text>
       <text x="200" y="212" text-anchor="middle" class="center-text" font-size="14" font-weight="600" fill="#3d3128" id="centerText2">Anspannung</text>
       <!-- Nodes -->
-      <circle cx="200" cy="52" r="42" fill="#fdf6ea" stroke="#c4933b" stroke-width="2" onclick="sel(0)"/>
+      <circle id="station0" cx="200" cy="52" r="42" fill="#fdf6ea" stroke="#c4933b" stroke-width="2" role="button" tabindex="0" aria-label="Station 1: Schuld" aria-pressed="false" onclick="sel(0)"/>
       <text x="200" y="46" text-anchor="middle" font-family="DM Sans" font-size="9" font-weight="700" fill="#c4933b">1</text>
       <text x="200" y="62" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="600" fill="#8a6e30">Schuld</text>
-      <circle cx="348" cy="200" r="42" fill="#fef2f0" stroke="#c75450" stroke-width="2" onclick="sel(1)"/>
+      <circle id="station1" cx="348" cy="200" r="42" fill="#fef2f0" stroke="#c75450" stroke-width="2" role="button" tabindex="0" aria-label="Station 2: Überengagement" aria-pressed="false" onclick="sel(1)"/>
       <text x="348" y="193" text-anchor="middle" font-family="DM Sans" font-size="9" font-weight="700" fill="#c75450">2</text>
       <text x="348" y="210" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="600" fill="#8a4240">Über-</text>
       <text x="348" y="222" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="600" fill="#8a4240">engagement</text>
-      <circle cx="200" cy="348" r="42" fill="#eef3f8" stroke="#5b7fa5" stroke-width="2" onclick="sel(2)"/>
+      <circle id="station2" cx="200" cy="348" r="42" fill="#eef3f8" stroke="#5b7fa5" stroke-width="2" role="button" tabindex="0" aria-label="Station 3: Erschöpfung" aria-pressed="false" onclick="sel(2)"/>
       <text x="200" y="342" text-anchor="middle" font-family="DM Sans" font-size="9" font-weight="700" fill="#5b7fa5">3</text>
       <text x="200" y="358" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="600" fill="#4a6580">Erschöpfung</text>
-      <circle cx="52" cy="200" r="42" fill="#f6f7f4" stroke="#6b9a6b" stroke-width="2" onclick="sel(3)"/>
+      <circle id="station3" cx="52" cy="200" r="42" fill="#f6f7f4" stroke="#6b9a6b" stroke-width="2" role="button" tabindex="0" aria-label="Station 4: Kritik" aria-pressed="false" onclick="sel(3)"/>
       <text x="52" y="194" text-anchor="middle" font-family="DM Sans" font-size="9" font-weight="700" fill="#6b9a6b">4</text>
       <text x="52" y="210" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="600" fill="#3d4a30">Kritik</text>
     </svg>
   </div>
-  <div class="detail" id="detail"></div>
+  <div class="detail" id="detail" aria-live="polite"></div>
   <button class="break-btn" id="breakBtn" onclick="doBreak()">Kreislauf unterbrechen</button>
   <p class="tf">Basierend auf: Butzlaff & Hooley (1998); Miklowitz et al. (2003)<br>Psychiatrische Universitätsklinik Zürich · Fachstelle Angehörigenarbeit</p>
 </div>
@@ -91,6 +92,7 @@ let active=null,broken=false;
 function sel(i){active=active===i?null:i;rn()}
 function doBreak(){broken=!broken;document.getElementById('svgWrap').classList.toggle('interrupted',broken);document.getElementById('breakBtn').classList.toggle('active',broken);document.getElementById('centerText1').textContent=broken?'✓':'Chronische';document.getElementById('centerText2').textContent=broken?'Unterbrochen':'Anspannung';if(broken){document.getElementById('centerText1').setAttribute('fill','#6b9a6b');document.getElementById('centerText2').setAttribute('fill','#6b9a6b')}else{document.getElementById('centerText1').setAttribute('fill','#3d3128');document.getElementById('centerText2').setAttribute('fill','#3d3128')}}
 function rn(){
+  [0,1,2,3].forEach(i=>document.getElementById('station'+i).setAttribute('aria-pressed',active===i?'true':'false'));
   const d=document.getElementById('detail');
   if(active!==null){
     const s=stations[active];
@@ -98,6 +100,8 @@ function rn(){
     d.innerHTML=`<div class="detail-num" style="color:${s.c}">Station ${active+1} — ${s.n}</div><h3>${s.n}</h3><p>${s.desc}</p><p style="font-size:0.82rem;color:#706860;font-style:italic">${s.mech}</p><div class="detail-exit"><div class="exit-lbl">Ausweg</div><p>${s.exit}</p></div>`;
   }else{d.className='detail'}
 }
+function onSvgKey(event,index){if(event.key==='Enter'||event.key===' '){event.preventDefault();sel(index)}}
+[0,1,2,3].forEach(i=>document.getElementById('station'+i).addEventListener('keydown',event=>onSvgKey(event,i)));
 </script>
 </body>
 </html>
