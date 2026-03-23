@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Psychoedukation für Angehörige von Menschen mit bipolarer Störung. 8 Module: Wissen, Belastung, Beziehung, Erschöpfung, Loyalität, Werkzeuge, Resilienz, Ressourcen. PUK Zürich.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bipolare Störung – Psychoedukation für Angehörige | PUK Zürich</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,300;1,8..60,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sage-50: #f6f7f4;
+    --sage-100: #eaede4;
+    --sage-200: #d5dbc9;
+    --sage-300: #b4bfa0;
+    --sage-400: #748a5a;
+    --sage-500: #6b7d52;
+    --sage-600: #566642;
+    --sage-700: #3d4a30;
+    --warm-50: #fdfbf7;
+    --warm-100: #f9f4eb;
+    --warm-200: #f0e6d3;
+    --warm-300: #e2d0b4;
+    --warm-400: #c9a87a;
+    --clay-500: #b8956a;
+    --clay-600: #9a7a55;
+    --earth-700: #5c4a38;
+    --earth-800: #3d3128;
+    --earth-900: #2a211b;
+    --cream: #fefcf8;
+    --text: #2e2a25;
+    --text-secondary: #5e564e;
+    --text-muted: #706860;
+    --alert-red: #c75450;
+    --alert-red-bg: #fdf2f1;
+    --alert-red-border: #f0c5c3;
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 22px;
+    --radius-xl: 32px;
+    --shadow-soft: 0 2px 16px rgba(45,40,35,0.06);
+    --shadow-card: 0 4px 24px rgba(45,40,35,0.08);
+    --shadow-elevated: 0 8px 40px rgba(45,40,35,0.12);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: var(--cream);
+    line-height: 1.65;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ══════════ NOISE TEXTURE ══════════ */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  /* ══════════ NAVIGATION ══════════ */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(254,252,248,0.85);
+    backdrop-filter: blur(20px) saturate(1.4);
+    -webkit-backdrop-filter: blur(20px) saturate(1.4);
+    border-bottom: 1px solid rgba(45,40,35,0.06);
+    transition: all 0.4s ease;
+  }
+
+  nav.scrolled {
+    box-shadow: 0 1px 12px rgba(45,40,35,0.08);
+  }
+
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .nav-logo {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--sage-400), var(--sage-600));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: -0.5px;
+    flex-shrink: 0;
+  }
+
+  .nav-brand-text {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+  }
+
+  .nav-brand-sub {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    transition: all 0.25s ease;
+    font-weight: 500;
+  }
+
+  .nav-links a:hover {
+    background: var(--sage-100);
+    color: var(--sage-700);
+  }
+
+  .nav-sos {
+    background: var(--alert-red-bg) !important;
+    color: var(--alert-red) !important;
+    font-weight: 600 !important;
+    border: 1px solid var(--alert-red-border) !important;
+  }
+
+  .nav-sos:hover {
+    background: var(--alert-red) !important;
+    color: white !important;
+  }
+
+  /* ══════════ HERO ══════════ */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px 2rem 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 800px;
+    height: 800px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--sage-100) 0%, transparent 70%);
+    opacity: 0.7;
+    animation: float-slow 20s ease-in-out infinite;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -10%;
+    left: -5%;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--warm-200) 0%, transparent 70%);
+    opacity: 0.5;
+    animation: float-slow 25s ease-in-out infinite reverse;
+  }
+
+  @keyframes float-slow {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(30px, -20px) scale(1.05); }
+  }
+
+  .hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--sage-100);
+    color: var(--sage-700);
+    padding: 8px 18px;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--sage-400);
+  }
+
+  .hero h1 {
+    font-family: 'Source Serif 4', serif;
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    color: var(--earth-900);
+    max-width: 780px;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.8s ease 0.1s both;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--sage-500);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.05rem, 2vw, 1.2rem);
+    color: var(--text-secondary);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+    animation: fadeUp 0.8s ease 0.2s both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ══════════ QUICK ACTIONS ══════════ */
+  .quick-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    max-width: 960px;
+    animation: fadeUp 0.8s ease 0.3s both;
+  }
+
+  .quick-card {
+    text-decoration: none;
+    color: var(--text);
+    background: white;
+    border: 1px solid rgba(45,40,35,0.07);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .quick-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--sage-300);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .quick-card:hover::before { transform: scaleX(1); }
+
+  .quick-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
+    border-color: var(--sage-200);
+  }
+
+  .quick-card.alert {
+    border-color: var(--alert-red-border);
+    background: var(--alert-red-bg);
+  }
+
+  .quick-card.alert::before {
+    background: var(--alert-red);
+  }
+
+  .quick-card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin-bottom: 14px;
+    background: var(--sage-100);
+    color: var(--sage-600);
+  }
+
+  .quick-card.alert .quick-card-icon {
+    background: rgba(199,84,80,0.12);
+    color: var(--alert-red);
+  }
+
+  .quick-card-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+
+  .quick-card-desc {
+    font-size: 0.83rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+
+  /* ══════════ SECTION GENERIC ══════════ */
+  section {
+    padding: 80px 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--sage-500);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+    color: var(--earth-900);
+    margin-bottom: 12px;
+  }
+
+  .section-desc {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    max-width: 540px;
+    line-height: 1.65;
+    margin-bottom: 3rem;
+  }
+
+  /* ══════════ PROGRESS BAR ══════════ */
+  .progress-section {
+    padding: 0 2rem 40px;
+  }
+
+  .progress-bar-outer {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border: 1px solid rgba(45,40,35,0.06);
+    border-radius: var(--radius-lg);
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .progress-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    white-space: nowrap;
+  }
+
+  .progress-track {
+    flex: 1;
+    height: 8px;
+    background: var(--sage-100);
+    border-radius: 100px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--sage-400), var(--sage-500));
+    border-radius: 100px;
+    transition: width 1.5s ease;
+  }
+
+  .progress-count {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--sage-600);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ══════════ MODULE GRID ══════════ */
+  .modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .module-card {
+    text-decoration: none;
+    color: var(--text);
+    background: white;
+    border: 1px solid rgba(45,40,35,0.06);
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .module-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-elevated);
+    border-color: var(--sage-200);
+  }
+
+  .module-number {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--sage-400);
+  }
+
+  .module-card h3 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+    color: var(--earth-800);
+  }
+
+  .module-card p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .module-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 14px;
+    border-top: 1px solid rgba(45,40,35,0.05);
+    margin-top: auto;
+  }
+
+  .module-time {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .module-arrow {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--sage-50);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--sage-500);
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+  }
+
+  .module-card:hover .module-arrow {
+    background: var(--sage-500);
+    color: white;
+    transform: translateX(3px);
+  }
+
+  /* ══════════ DECORATIVE DIVIDER ══════════ */
+  .wave-divider {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    margin: -1px 0;
+  }
+
+  .wave-divider svg {
+    width: 100%;
+    height: 60px;
+    display: block;
+  }
+
+  /* ══════════ CTA BAND ══════════ */
+  .cta-band {
+    background: var(--sage-700);
+    padding: 60px 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-band::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(141,156,115,0.3) 0%, transparent 60%);
+  }
+
+  .cta-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cta-band h2 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+
+  .cta-band p {
+    color: rgba(255,255,255,0.75);
+    font-size: 0.95rem;
+    margin-bottom: 28px;
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    color: var(--sage-700);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 14px 32px;
+    border-radius: 100px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+  }
+
+  /* ══════════ FOOTER ══════════ */
+  footer {
+    background: var(--earth-900);
+    color: rgba(255,255,255,0.6);
+    padding: 60px 2rem 40px;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 48px;
+  }
+
+  .footer-brand h3 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.15rem;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .footer-brand p {
+    font-size: 0.82rem;
+    line-height: 1.7;
+    margin-bottom: 4px;
+  }
+
+  .footer-col h4 {
+    color: rgba(255,255,255,0.4);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+
+  .footer-col a {
+    display: block;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 0.85rem;
+    padding: 4px 0;
+    transition: color 0.2s ease;
+  }
+
+  .footer-col a:hover { color: white; }
+
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 40px auto 0;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  .footer-bottom a {
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    margin-left: 20px;
+    transition: color 0.2s ease;
+  }
+
+  .footer-bottom a:hover { color: rgba(255,255,255,0.7); }
+
+  /* ══════════ SCROLL REVEAL ══════════ */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ══════════ MOBILE NAV ══════════ */
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: var(--text);
+  }
+
+  .nav-toggle svg { width: 24px; height: 24px; }
+
+  /* ══════════ RESPONSIVE ══════════ */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+    .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    .quick-actions { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: 110px 1.2rem 60px; min-height: auto; }
+    .hero h1 { font-size: 2rem; }
+    section { padding: 50px 1.2rem; }
+    .quick-actions { grid-template-columns: 1fr; }
+    .modules-grid { grid-template-columns: 1fr; }
+    .progress-bar-outer { flex-direction: column; gap: 12px; padding: 20px; }
+    .cta-band { padding: 50px 1.2rem; }
+    .nav-inner { padding: 0 1.2rem; }
+  }
+  *:focus-visible{outline:2px solid var(--sage-500);outline-offset:2px;border-radius:4px}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
+  .skip-link:focus{position:fixed!important;top:12px;left:12px;width:auto;height:auto;padding:12px 20px;background:var(--sage-700);color:white;border-radius:8px;font-size:0.85rem;font-weight:600;z-index:10000;text-decoration:none}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:999">Direkt zum Inhalt</a>
+
+<!-- ══════════ NAVIGATION ══════════ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">
+      <div class="nav-logo">PUK</div>
+      <div>
+        <div class="nav-brand-text">Bipolare Störung</div>
+        <div class="nav-brand-sub">Psychoedukation für Angehörige</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#module">Module</a>
+      <a href="/notfall/" class="nav-sos">SOS Krise</a>
+    </div>
+    <button class="nav-toggle" aria-label="Menü öffnen">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<header class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Psychiatrische Universitätsklinik Zürich · Fachstelle Angehörigenarbeit</div>
+    <h1>Als Angehörige*r von Menschen mit <em>bipolarer Störung</em></h1>
+    <p class="hero-subtitle">Sie tragen eine unsichtbare Last. Diese Seite ist für Sie — um zu verstehen, was passiert, belastende Muster zu erkennen und konkrete Wege zu finden.</p>
+
+    <div class="quick-actions">
+      <a href="/notfall/" class="quick-card alert">
+        <div class="quick-card-icon">⚡</div>
+        <div class="quick-card-title">Akute Krise</div>
+        <div class="quick-card-desc">Krisenplan, Notfallnummern, sofort handeln</div>
+      </a>
+      <a href="/modul/1/" class="quick-card">
+        <div class="quick-card-icon">🔍</div>
+        <div class="quick-card-title">Gerade erfahren</div>
+        <div class="quick-card-desc">Die Diagnose verstehen, Orientierung finden</div>
+      </a>
+      <a href="/modul/4/" class="quick-card">
+        <div class="quick-card-icon">🌿</div>
+        <div class="quick-card-title">Erschöpft</div>
+        <div class="quick-card-desc">Eigene Belastung erkennen, Kraft tanken</div>
+      </a>
+      <a href="/modul/7/" class="quick-card">
+        <div class="quick-card-icon">💛</div>
+        <div class="quick-card-title">Langfristig stärken</div>
+        <div class="quick-card-desc">Resilienz, Paardynamik, persönliches Wachstum</div>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+
+<!-- ══════════ PROGRESS ══════════ -->
+<div class="progress-section">
+  <div class="progress-bar-outer">
+    <span class="progress-label">Ihr Fortschritt</span>
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <span class="progress-count">0 / 8 Module</span>
+  </div>
+</div>
+
+<!-- ══════════ MODULES ══════════ -->
+<section id="module">
+  <div class="section-label reveal">Lernpfad</div>
+  <h2 class="section-title reveal">8 Module — in Ihrem Tempo</h2>
+  <p class="section-desc reveal">Jedes Modul dauert ca. 7–17 Minuten. Lesen Sie einzeln oder der Reihe nach.</p>
+
+  <div class="modules-grid">
+
+    <a href="/modul/1/" class="module-card reveal">
+      <span class="module-number">Modul 1</span>
+      <h3>Die bipolare Störung verstehen</h3>
+      <p>Was die Erkrankung ist, wie sich Manie und Depression zeigen — und warum Wissen Ihr stärkstes Werkzeug ist.</p>
+      <div class="module-card-footer">
+        <span class="module-time">⏱ 10–12 Min.</span>
+        <span class="module-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="/modul/2/" class="module-card reveal">
+      <span class="module-number">Modul 2</span>
+      <h3>Was das mit Ihnen macht</h3>
+      <p>Ihre Belastung ist real, kumuliert über Jahre und zu 80% unsichtbar — der Belastungs-Eisberg und seine Folgen.</p>
+      <div class="module-card-footer">
+        <span class="module-time">⏱ 12–14 Min.</span>
+        <span class="module-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="/modul/3/" class="module-card reveal">
+      <span class="module-number">Modul 3</span>
+      <h3>Wie Beziehungen unter Druck geraten</h3>
+      <p>Rollenverschiebung, Identitätsverlust, Vertrauensbrüche — und die Frage «Gehen oder Bleiben».</p>
+      <div class="module-card-footer">
+        <span class="module-time">⏱ 14–17 Min.</span>
+        <span class="module-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="/modul/4/" class="module-card reveal">
+      <span class="module-number">Modul 4</span>
+      <h3>Wenn die Kraft nachlässt</h3>
+      <p>Schleichende Erschöpfung, ungreifbarer Verlust, Schonhaltung — wie Belastung sich über die Zeit aufbaut.</p>
+      <div class="module-card-footer">
+        <span class="module-time">⏱ 10–12 Min.</span>
+        <span class="module-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="/modul/5/" class="module-card reveal">
+      <span class="module-number">Modul 5</span>
+      <h3>Loyalitätskonflikte und schwierige Entscheidungen</h3>
+      <p>Das Spannungsfeld zwischen Fürsorge und Selbstschutz — und warum gut gemeinte Reaktionen Stress erzeugen.</p>
+      <div class="module-card-footer">
+        <span class="module-time">⏱ 12–14 Min.</span>
+        <span class="module-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="/modul/6/" class="module-card reveal">
+      <span class="module-number">Modul 6</span>
+      <h3>Was Sie konkret tun können</h3>
+      <p>Krisenplan, Grenzsetzung, Kommunikation, Schweigepflichtentbindung — konkrete Werkzeuge.</p>
+      <div class="module-card-footer">
+        <span class="module-time">⏱ 14–17 Min.</span>
+        <span class="module-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="/modul/7/" class="module-card reveal">
+      <span class="module-number">Modul 7</span>
+      <h3>Resilienz und Selbstfürsorge</h3>
+      <p>Kommunikation verbessern, Solidarität stabilisieren, gemeinsam wachsen — für die lange Strecke.</p>
+      <div class="module-card-footer">
+        <span class="module-time">⏱ 12–14 Min.</span>
+        <span class="module-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="/modul/8/" class="module-card reveal">
+      <span class="module-number">Modul 8</span>
+      <h3>Ressourcen und Unterstützung</h3>
+      <p>Fachstellen, Selbsthilfegruppen, Notfallnummern — alles Wichtige im Überblick.</p>
+      <div class="module-card-footer">
+        <span class="module-time">⏱ 7–10 Min.</span>
+        <span class="module-arrow">→</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ══════════ CTA ══════════ -->
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
+    <path d="M0,60 C360,0 720,60 1080,20 C1260,0 1380,30 1440,10 L1440,60 Z" fill="var(--sage-700)"/>
+  </svg>
+</div>
+<div class="cta-band">
+  <div class="cta-inner">
+    <h2>Sie sind nicht allein.</h2>
+    <p>Starten Sie mit dem ersten Modul — oder springen Sie direkt dorthin, wo es Sie gerade am meisten betrifft.</p>
+    <a href="/modul/1/" class="cta-btn">Mit Modul 1 beginnen →</a>
+  </div>
+</div>
+
+</main>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>Psychiatrische Universitätsklinik Zürich</h3>
+      <p>Fachstelle Angehörigenarbeit</p>
+      <p>Lenggstrasse 31, Postfach, 8032 Zürich</p>
+      <p><a href="tel:+41583843800" style="color: rgba(255,255,255,0.6);">+41 58 384 38 00</a></p>
+      <p style="margin-top: 12px; font-size: 0.75rem;">Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026</p>
+    </div>
+    <div class="footer-col">
+      <h4>Schnellzugriff</h4>
+      <a href="/modul/1/">Modul 1 – Verstehen</a>
+      <a href="/modul/4/">Modul 4 – Erschöpfung</a>
+      <a href="/modul/6/">Modul 6 – Handeln</a>
+      <a href="/modul/8/">Modul 8 – Ressourcen</a>
+    </div>
+    <div class="footer-col">
+      <h4>Hilfe & Info</h4>
+      <a href="/notfall/" style="color: var(--alert-red);">Notfall & Krisenhilfe →</a>
+      <a href="/impressum/">Impressum</a>
+      <a href="/impressum/#datenschutz">Datenschutz</a>
+      <a href="/impressum/#barrierefreiheit">Barrierefreiheit</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Psychiatrische Universitätsklinik Zürich · Diese Inhalte ersetzen keine professionelle Beratung.</span>
+    <div>
+      <a href="/impressum/">Impressum</a>
+      <a href="/impressum/#datenschutz">Datenschutz</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

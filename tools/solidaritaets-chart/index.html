@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Solidaritätsverlauf: Wie sich Belastbarkeit und Stimmung über mehrere Episoden entwickeln. Konzeptionelles Modell. PUK Zürich.">
+<title>Solidaritäts-Chart | PUK Zürich</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;color:#2e2a25;background:#fefcf8;min-height:100vh;display:flex;flex-direction:column;align-items:center;-webkit-font-smoothing:antialiased}
+.tool-nav{width:100%;background:rgba(254,252,248,0.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(45,40,35,0.06);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
+.tool-back{display:flex;align-items:center;gap:8px;text-decoration:none;color:#706860;font-size:0.82rem;font-weight:500}.tool-back:hover{color:#3d4a30}
+.tool-back svg{width:16px;height:16px}
+.tool-brand{font-family:'Source Serif 4',serif;font-size:0.85rem;font-weight:600;color:#2e2a25}
+.wrap{width:100%;max-width:640px;padding:32px 20px 48px;flex:1}
+.hdr{text-align:center;margin-bottom:24px}
+.badge{display:inline-flex;background:#eaede4;color:#3d4a30;padding:5px 14px;border-radius:100px;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px}
+.hdr h1{font-family:'Source Serif 4',Georgia,serif;font-size:clamp(1.3rem,3.5vw,1.7rem);font-weight:700;color:#2a211b;margin:0 0 8px;letter-spacing:-0.02em}
+.hdr p{font-size:0.85rem;color:#706860;line-height:1.6}
+.legend{display:flex;gap:16px;justify-content:center;margin-bottom:16px;flex-wrap:wrap}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:0.72rem;color:#706860;cursor:pointer;padding:4px 8px;border-radius:6px;transition:background 0.2s}
+.legend-item:hover{background:rgba(45,40,35,0.04)}
+.legend-line{width:20px;height:3px;border-radius:2px}
+.chart-wrap{width:100%;background:#fff;border-radius:18px;border:1px solid rgba(45,40,35,0.06);box-shadow:0 2px 16px rgba(45,40,35,0.06);padding:20px;margin-bottom:16px;overflow-x:auto}
+.chart-wrap svg{width:100%;height:auto;display:block}
+.episodes{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;justify-content:center}
+.ep-btn{padding:8px 16px;border-radius:10px;border:1px solid rgba(45,40,35,0.08);background:#fff;font-size:0.78rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;-webkit-appearance:none}
+.ep-btn.active{color:#fff}
+.detail{background:#fff;border-radius:18px;border:1px solid rgba(45,40,35,0.06);box-shadow:0 4px 24px rgba(45,40,35,0.08);padding:24px;margin-bottom:16px;display:none}
+.detail.vis{display:block}
+.detail h3{font-family:'Source Serif 4',Georgia,serif;font-size:1rem;font-weight:700;color:#2e2a25;margin:0 0 12px}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.detail-col{padding:12px;border-radius:10px;font-size:0.82rem;line-height:1.5}
+.detail-col h4{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px}
+.toggle-wrap{text-align:center;margin-bottom:16px}
+.toggle-btn{padding:10px 20px;border-radius:10px;border:2px solid #6b9a6b;background:#fff;color:#6b9a6b;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s}
+.toggle-btn.on{background:#6b9a6b;color:#fff}
+.disc{text-align:center;font-size:0.72rem;color:#706860;background:#f6f7f4;border-radius:10px;padding:12px 16px;margin-bottom:16px;line-height:1.5}
+.tf{text-align:center;font-size:0.68rem;color:#b4bfa0;margin-top:20px;line-height:1.5}
+*:focus-visible{outline:2px solid #748a5a;outline-offset:2px;border-radius:4px}
+@media(prefers-reduced-motion:reduce){*{transition-duration:0.01ms!important}}
+@media(max-width:500px){.detail-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="tool-nav"><a href="/modul/4/" class="tool-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>Zurück zu Modul 4</a><span class="tool-brand">PUK Zürich</span></nav>
+<div class="wrap">
+  <div class="hdr"><div class="badge">Modul 4 — Interaktiv</div><h1>Solidaritätsverlauf über Episoden</h1><p>Wie sich Belastbarkeit und Stimmung über Zeit entwickeln. Klicken Sie auf eine Episode.</p></div>
+  <div class="legend">
+    <div class="legend-item"><div class="legend-line" style="background:#c4933b"></div>Belastbarkeit</div>
+    <div class="legend-item"><div class="legend-line" style="background:#5b7fa5"></div>Stimmung (erkrankte Person)</div>
+    <div class="legend-item" id="legSupport" style="display:none"><div class="legend-line" style="background:#6b9a6b;border-style:dashed"></div>Mit Unterstützung</div>
+  </div>
+  <div class="chart-wrap">
+    <svg viewBox="0 0 600 280" role="img" aria-label="Konzeptionelles Modell: Belastbarkeit und Stimmung über mehrere Episoden">
+      <!-- Grid -->
+      <line x1="60" y1="20" x2="60" y2="240" stroke="#eaede4" stroke-width="1"/>
+      <line x1="60" y1="130" x2="580" y2="130" stroke="#eaede4" stroke-width="1" stroke-dasharray="4 4"/>
+      <line x1="60" y1="240" x2="580" y2="240" stroke="#eaede4" stroke-width="1"/>
+      <text x="55" y="26" text-anchor="end" font-size="9" fill="#b4bfa0">Hoch</text>
+      <text x="55" y="134" text-anchor="end" font-size="9" fill="#b4bfa0">Mittel</text>
+      <text x="55" y="244" text-anchor="end" font-size="9" fill="#b4bfa0">Niedrig</text>
+      <!-- Episode bands -->
+      <rect id="ep0" x="80" y="20" width="120" height="220" fill="rgba(196,147,59,0.06)" rx="4" style="cursor:pointer" onclick="selEp(0)"/>
+      <rect id="ep1" x="240" y="20" width="140" height="220" fill="rgba(199,84,80,0.06)" rx="4" style="cursor:pointer" onclick="selEp(1)"/>
+      <rect id="ep2" x="420" y="20" width="160" height="220" fill="rgba(91,127,165,0.06)" rx="4" style="cursor:pointer" onclick="selEp(2)"/>
+      <text x="140" y="256" text-anchor="middle" font-size="9" fill="#b4bfa0">Hypomanie</text>
+      <text x="310" y="256" text-anchor="middle" font-size="9" fill="#b4bfa0">Schwere Manie</text>
+      <text x="500" y="256" text-anchor="middle" font-size="9" fill="#b4bfa0">Lange Depression</text>
+      <!-- Belastbarkeit curve (amber) -->
+      <path d="M80,60 Q140,50 160,80 Q200,120 240,100 Q280,70 310,150 Q340,210 380,190 Q420,170 460,180 Q500,195 540,200 Q560,205 580,210" fill="none" stroke="#c4933b" stroke-width="3" stroke-linecap="round" id="curveBel"/>
+      <!-- Stimmung curve (blue) -->
+      <path d="M80,120 Q120,60 160,40 Q200,80 230,130 Q260,30 310,20 Q340,60 380,130 Q420,170 460,200 Q500,220 540,210 Q560,200 580,190" fill="none" stroke="#5b7fa5" stroke-width="3" stroke-linecap="round" id="curveSt"/>
+      <!-- Support curve (green, hidden) -->
+      <path d="M80,60 Q140,55 160,70 Q200,90 240,80 Q280,70 310,110 Q340,140 380,130 Q420,120 460,125 Q500,130 540,128 Q560,126 580,130" fill="none" stroke="#6b9a6b" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="8 5" opacity="0" id="curveSup"/>
+    </svg>
+  </div>
+  <div class="episodes">
+    <button class="ep-btn" style="--c:#c4933b" onclick="selEp(0)">Hypomanie</button>
+    <button class="ep-btn" style="--c:#c75450" onclick="selEp(1)">Schwere Manie</button>
+    <button class="ep-btn" style="--c:#5b7fa5" onclick="selEp(2)">Lange Depression</button>
+  </div>
+  <div class="detail" id="detail"></div>
+  <div class="toggle-wrap"><button class="toggle-btn" id="toggleBtn" onclick="toggleSupport()">Mit Unterstützung anzeigen</button></div>
+  <div class="disc"><strong>Konzeptionelles Modell</strong> — vereinfachte Darstellung zur Veranschaulichung. Individuelle Verläufe können erheblich abweichen. Quellen: Perlick et al. (2007); Reinares et al. (2016); Miklowitz (2010).</div>
+  <p class="tf">Psychiatrische Universitätsklinik Zürich · Fachstelle Angehörigenarbeit</p>
+</div>
+<script>
+const eps=[
+  {name:"Hypomanie",col:"#c4933b",bg:"rgba(196,147,59,0.1)",impact:"Leicht",bel:"Belastbarkeit sinkt leicht. Der erhöhte Energielevel des Partners irritiert, Schlaf wird schlechter.",stim:"Stimmung steigt — euphorisch, produktiv, schlafreduziert. Für den Partner oft schwer einzuordnen."},
+  {name:"Schwere Manie",col:"#c75450",bg:"rgba(199,84,80,0.1)",impact:"Stark",bel:"Belastbarkeit bricht ein. Finanzielle Risiken, Konflikte, Schlafentzug. Oft der Punkt, an dem Solidarität erodiert.",stim:"Extremer Stimmungsausschlag nach oben — Grössenideen, Impulsivität, möglicherweise Psychose. Hospitalisation wahrscheinlich."},
+  {name:"Lange Depression",col:"#5b7fa5",bg:"rgba(91,127,165,0.1)",impact:"Mittel–Hoch",bel:"Belastbarkeit sinkt langsam aber stetig. Die Monotonie der Depression zermürbt anders als die Manie — schleichend.",stim:"Tiefe Niedergeschlagenheit über Wochen bis Monate. Antriebslosigkeit, Rückzug, Suizidgedanken möglich."}
+];
+let activeEp=null,showSup=false;
+function selEp(i){activeEp=activeEp===i?null:i;rn()}
+function toggleSupport(){showSup=!showSup;document.getElementById('curveSup').setAttribute('opacity',showSup?'1':'0');document.getElementById('toggleBtn').classList.toggle('on',showSup);document.getElementById('toggleBtn').textContent=showSup?'Unterstützung ausblenden':'Mit Unterstützung anzeigen';document.getElementById('legSupport').style.display=showSup?'flex':'none'}
+function rn(){
+  // Episode buttons
+  document.querySelectorAll('.ep-btn').forEach((btn,i)=>{
+    const a=activeEp===i;
+    btn.classList.toggle('active',a);
+    btn.style.background=a?eps[i].col:'#fff';
+    btn.style.color=a?'#fff':'#5e564e';
+    btn.style.borderColor=a?eps[i].col:'rgba(45,40,35,0.08)';
+  });
+  // Episode bands
+  [0,1,2].forEach(i=>{
+    document.getElementById('ep'+i).setAttribute('fill',activeEp===i?eps[i].bg:'rgba(0,0,0,0.02)');
+  });
+  // Detail
+  const d=document.getElementById('detail');
+  if(activeEp!==null){
+    const e=eps[activeEp];
+    d.className='detail vis';
+    d.innerHTML=`<h3>${e.name} <span style="font-size:0.72rem;font-weight:600;color:${e.col};background:${e.bg};padding:2px 8px;border-radius:6px;margin-left:8px">Impact: ${e.impact}</span></h3>
+    <div class="detail-grid"><div class="detail-col" style="background:#fdf6ea"><h4 style="color:#c4933b">Belastbarkeit</h4><p style="color:#5e564e">${e.bel}</p></div><div class="detail-col" style="background:#eef3f8"><h4 style="color:#5b7fa5">Stimmung</h4><p style="color:#5e564e">${e.stim}</p></div></div>`;
+  }else{d.className='detail'}
+}
+</script>
+</body>
+</html>

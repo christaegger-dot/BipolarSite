@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Was die bipolare Störung ist, wie Manie und Depression sich im Alltag zeigen und welche Behandlung hilft. Für Angehörige. PUK Zürich.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modul 1: Die bipolare Störung verstehen | PUK Zürich</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,300;1,8..60,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sage-50: #f6f7f4;
+    --sage-100: #eaede4;
+    --sage-200: #d5dbc9;
+    --sage-300: #b4bfa0;
+    --sage-400: #748a5a;
+    --sage-500: #6b7d52;
+    --sage-600: #566642;
+    --sage-700: #3d4a30;
+    --warm-50: #fdfbf7;
+    --warm-100: #f9f4eb;
+    --warm-200: #f0e6d3;
+    --warm-300: #e2d0b4;
+    --warm-400: #c9a87a;
+    --clay-500: #b8956a;
+    --earth-700: #5c4a38;
+    --earth-800: #3d3128;
+    --earth-900: #2a211b;
+    --cream: #fefcf8;
+    --text: #2e2a25;
+    --text-secondary: #5e564e;
+    --text-muted: #706860;
+    --alert-red: #c75450;
+    --alert-red-bg: #fdf2f1;
+    --alert-red-border: #f0c5c3;
+    --blue-phase: #5b7fa5;
+    --blue-phase-light: #eef3f8;
+    --amber-phase: #c4933b;
+    --amber-phase-light: #fdf6ea;
+    --green-phase: #6b9a6b;
+    --green-phase-light: #f0f6f0;
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 22px;
+    --radius-xl: 32px;
+    --shadow-soft: 0 2px 16px rgba(45,40,35,0.06);
+    --shadow-card: 0 4px 24px rgba(45,40,35,0.08);
+    --shadow-elevated: 0 8px 40px rgba(45,40,35,0.12);
+    --content-width: 740px;
+    --wide-width: 960px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: var(--cream);
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Noise */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  /* ══════════ NAV ══════════ */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(254,252,248,0.88);
+    backdrop-filter: blur(20px) saturate(1.4);
+    -webkit-backdrop-filter: blur(20px) saturate(1.4);
+    border-bottom: 1px solid rgba(45,40,35,0.06);
+  }
+  nav.scrolled { box-shadow: 0 1px 12px rgba(45,40,35,0.08); }
+  .nav-inner {
+    max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between; height: 64px;
+  }
+  .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); }
+  .nav-logo {
+    width: 34px; height: 34px; border-radius: 9px;
+    background: linear-gradient(135deg, var(--sage-400), var(--sage-600));
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-weight: 700; font-size: 13px; letter-spacing: -0.5px; flex-shrink: 0;
+  }
+  .nav-brand-text { font-family: 'Source Serif 4', serif; font-size: 1rem; font-weight: 600; letter-spacing: -0.3px; }
+  .nav-links { display: flex; gap: 4px; align-items: center; }
+  .nav-links a {
+    text-decoration: none; font-size: 0.8rem; color: var(--text-secondary);
+    padding: 6px 12px; border-radius: var(--radius-sm); transition: all 0.25s ease; font-weight: 500;
+  }
+  .nav-links a:hover { background: var(--sage-100); color: var(--sage-700); }
+  .nav-sos {
+    background: var(--alert-red-bg) !important; color: var(--alert-red) !important;
+    font-weight: 600 !important; border: 1px solid var(--alert-red-border) !important;
+  }
+  .nav-sos:hover { background: var(--alert-red) !important; color: white !important; }
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; color: var(--text); }
+  .nav-toggle svg { width: 22px; height: 22px; }
+
+  /* ══════════ MODULE HERO ══════════ */
+  .module-hero {
+    padding: 120px 2rem 60px;
+    position: relative; overflow: hidden;
+  }
+  .module-hero::before {
+    content: ''; position: absolute; top: -30%; right: -15%; width: 700px; height: 700px; border-radius: 50%;
+    background: radial-gradient(circle, var(--sage-100) 0%, transparent 70%); opacity: 0.6;
+  }
+  .module-hero-inner {
+    max-width: var(--content-width); margin: 0 auto; position: relative; z-index: 2;
+  }
+  .breadcrumb {
+    font-size: 0.8rem; color: var(--text-muted); margin-bottom: 20px; display: flex; align-items: center; gap: 8px;
+  }
+  .breadcrumb a { color: var(--sage-500); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .hero-icon { width: 40px; height: 40px; color: var(--sage-400); opacity: 0.7; margin-bottom: 12px; display: block; }
+  .module-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--sage-100); color: var(--sage-700);
+    padding: 6px 16px; border-radius: 100px;
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .module-hero h1 {
+    font-family: 'Source Serif 4', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700; line-height: 1.2;
+    letter-spacing: -0.03em; color: var(--earth-900); margin-bottom: 16px;
+  }
+  .module-meta {
+    display: flex; align-items: center; gap: 20px;
+    font-size: 0.85rem; color: var(--text-muted); margin-bottom: 28px;
+  }
+  .module-meta span { display: flex; align-items: center; gap: 6px; }
+
+  /* ══════════ TOC ══════════ */
+  .toc {
+    background: white; border: 1px solid rgba(45,40,35,0.06);
+    border-radius: var(--radius-lg); padding: 28px 32px;
+    margin-bottom: 48px; box-shadow: var(--shadow-soft);
+  }
+  .toc-title {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--sage-500); margin-bottom: 14px;
+  }
+  .toc ol {
+    list-style: none; counter-reset: toc-counter;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4px 20px;
+  }
+  .toc li { counter-increment: toc-counter; }
+  .toc li a {
+    text-decoration: none; color: var(--text-secondary); font-size: 0.88rem;
+    display: block; padding: 8px 0 8px 28px; position: relative;
+    transition: color 0.2s;
+  }
+  .toc li a::before {
+    content: counter(toc-counter); font-size: 0.7rem; font-weight: 700;
+    color: var(--sage-400); position: absolute; left: 0; top: 10px;
+  }
+  .toc li a:hover { color: var(--sage-600); }
+  .toc-desc { display: block; font-size: 0.72rem; color: var(--text-muted); line-height: 1.35; margin-top: 2px; font-weight: 400; }
+  .toc li a.active { color: var(--sage-700); font-weight: 700; }
+  .toc li a.active::after { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--sage-400); margin-left: 8px; vertical-align: middle; }
+
+  /* ══════════ PROSE ══════════ */
+  .content { max-width: var(--content-width); margin: 0 auto; padding: 0 2rem; }
+  .content h2 {
+    scroll-margin-top: 84px;
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.65rem; font-weight: 700; line-height: 1.25;
+    letter-spacing: -0.02em; color: var(--earth-900);
+    margin: 64px 0 20px; padding-top: 20px;
+    border-top: 1px solid rgba(45,40,35,0.06);
+  }
+  .content h2:first-of-type { border-top: none; margin-top: 0; }
+  .content h3 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.25rem; font-weight: 600; line-height: 1.35;
+    color: var(--earth-800); margin: 40px 0 14px;
+  }
+  .content p {
+    font-size: 1rem; color: var(--text-secondary); margin-bottom: 18px; line-height: 1.75;
+  }
+  .content strong { color: var(--text); font-weight: 600; }
+
+  /* ══════════ QUOTE BLOCK ══════════ */
+  .quote-block {
+    background: var(--warm-100); border-radius: var(--radius-lg);
+    padding: 32px 36px; margin: 36px 0; position: relative;
+  }
+  .quote-block::before {
+    content: '«'; font-family: 'Source Serif 4', serif;
+    font-size: 4rem; color: var(--warm-400); position: absolute;
+    top: 12px; left: 20px; line-height: 1; opacity: 0.5;
+  }
+  .quote-block blockquote {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.1rem; font-style: italic; color: var(--earth-700);
+    line-height: 1.65; padding-left: 12px;
+  }
+  .quote-block cite {
+    display: block; margin-top: 14px; font-style: normal;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem; color: var(--text-muted); padding-left: 12px;
+  }
+
+  /* ══════════ PHASE TABS ══════════ */
+  .phase-explorer {
+    background: white; border: 1px solid rgba(45,40,35,0.06);
+    border-radius: var(--radius-xl); padding: 0; margin: 40px 0 48px;
+    box-shadow: var(--shadow-card); overflow: hidden;
+  }
+  .phase-tabs {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: 1px solid rgba(45,40,35,0.06);
+  }
+  .phase-tab {
+    padding: 18px 16px; text-align: center; cursor: pointer;
+    font-size: 0.85rem; font-weight: 600; color: var(--text-muted);
+    transition: all 0.3s ease; border: none; background: none;
+    border-bottom: 3px solid transparent; position: relative;
+  }
+  .phase-tab:hover { background: rgba(45,40,35,0.02); }
+  .phase-tab.active-mania { color: var(--amber-phase); border-bottom-color: var(--amber-phase); background: var(--amber-phase-light); }
+  .phase-tab.active-stable { color: var(--green-phase); border-bottom-color: var(--green-phase); background: var(--green-phase-light); }
+  .phase-tab.active-depression { color: var(--blue-phase); border-bottom-color: var(--blue-phase); background: var(--blue-phase-light); }
+
+  .phase-tab-icon { font-size: 1.1rem; display: block; margin-bottom: 4px; }
+
+  .phase-content { padding: 32px; display: none; }
+  .phase-content.visible { display: block; animation: fadeIn 0.4s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  .phase-header {
+    font-family: 'Source Serif 4', serif; font-size: 1.2rem; font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .phase-subtitle { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 24px; }
+
+  .symptom-card {
+    background: var(--cream); border-radius: var(--radius-md);
+    padding: 20px 24px; margin-bottom: 14px;
+    border-left: 4px solid transparent;
+  }
+  .symptom-card.mania { border-left-color: var(--amber-phase); }
+  .symptom-card.stable { border-left-color: var(--green-phase); }
+  .symptom-card.depression { border-left-color: var(--blue-phase); }
+
+  .symptom-title { font-weight: 700; font-size: 0.92rem; margin-bottom: 4px; }
+  .symptom-desc { font-size: 0.86rem; color: var(--text-secondary); margin-bottom: 8px; }
+  .symptom-partner {
+    font-size: 0.82rem; color: var(--text-muted); font-style: italic;
+    padding-left: 14px; border-left: 2px solid rgba(45,40,35,0.08);
+  }
+
+  .phase-note {
+    background: var(--sage-50); border-radius: var(--radius-md);
+    padding: 16px 20px; margin-top: 20px; font-size: 0.88rem; color: var(--sage-700);
+  }
+  .phase-note strong { color: var(--sage-700); }
+
+  /* ══════════ ACCORDION (Bipolar I / II) ══════════ */
+  .accordion-group { margin: 36px 0; }
+  .accordion-item {
+    background: white; border: 1px solid rgba(45,40,35,0.07);
+    border-radius: var(--radius-lg); margin-bottom: 12px;
+    overflow: hidden; transition: box-shadow 0.3s ease;
+  }
+  .accordion-item:hover { box-shadow: var(--shadow-soft); }
+  .accordion-header {
+    width: 100%; padding: 22px 28px; cursor: pointer;
+    display: flex; align-items: center; justify-content: space-between;
+    background: none; border: none; text-align: left; font-family: 'DM Sans', sans-serif;
+  }
+  .accordion-header-left { display: flex; align-items: center; gap: 14px; }
+  .accordion-icon-badge {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: var(--sage-100); display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; color: var(--sage-600); flex-shrink: 0;
+  }
+  .accordion-label-group {}
+  .accordion-title { font-weight: 700; font-size: 0.95rem; color: var(--text); }
+  .accordion-subtitle { font-size: 0.8rem; color: var(--text-muted); margin-top: 2px; }
+  .accordion-chevron {
+    width: 28px; height: 28px; border-radius: 50%; background: var(--sage-50);
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.35s ease; color: var(--sage-400); font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+  .accordion-item.open .accordion-chevron { transform: rotate(180deg); background: var(--sage-200); }
+  .accordion-body {
+    max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+  .accordion-item.open .accordion-body { max-height: 600px; }
+  .accordion-body-inner { padding: 0 28px 24px; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.75; }
+  .accordion-body-inner p { margin-bottom: 12px; }
+
+  /* ══════════ WAVE CHART ══════════ */
+  .wave-chart-section {
+    background: white; border: 1px solid rgba(45,40,35,0.06);
+    border-radius: var(--radius-xl); padding: 36px; margin: 48px 0;
+    box-shadow: var(--shadow-soft);
+  }
+  .wave-chart-section h3 {
+    font-family: 'Source Serif 4', serif; font-size: 1.15rem; font-weight: 600;
+    margin-bottom: 8px; color: var(--earth-800);
+  }
+  .wave-chart-section > p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 24px; }
+  .wave-chart {
+    width: 100%; margin-bottom: 20px;
+  }
+  .wave-chart svg { width: 100%; height: auto; display: block; }
+  .wave-caption { font-size: 0.78rem; color: var(--text-muted); line-height: 1.6; }
+
+  /* ══════════ TREATMENT GRID ══════════ */
+  .treatment-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 28px 0 40px;
+  }
+  .treatment-card {
+    background: white; border: 1px solid rgba(45,40,35,0.06);
+    border-radius: var(--radius-lg); padding: 26px;
+    transition: all 0.3s ease;
+  }
+  .treatment-card:hover { box-shadow: var(--shadow-soft); transform: translateY(-2px); }
+  .treatment-card-icon {
+    width: 42px; height: 42px; border-radius: 11px;
+    background: var(--sage-100); color: var(--sage-600);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; margin-bottom: 14px; font-weight: 700;
+  }
+  .treatment-card h4 { font-weight: 700; font-size: 0.92rem; margin-bottom: 8px; color: var(--text); }
+  .treatment-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+
+  /* ══════════ ALERT BOX ══════════ */
+  .alert-box {
+    background: var(--alert-red-bg); border: 1px solid var(--alert-red-border);
+    border-radius: var(--radius-lg); padding: 24px 28px; margin: 32px 0;
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+  .alert-box-icon {
+    width: 38px; height: 38px; border-radius: 10px; flex-shrink: 0;
+    background: rgba(199,84,80,0.12); color: var(--alert-red);
+    display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+  }
+  .alert-box p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.65; }
+  .alert-box a { color: var(--alert-red); font-weight: 600; }
+
+  /* ══════════ REFLECTION ══════════ */
+  .reflection {
+    background: linear-gradient(135deg, var(--warm-100), var(--sage-50));
+    border-radius: var(--radius-xl); padding: 36px; margin: 48px 0;
+    position: relative; overflow: hidden;
+  }
+  .reflection::before {
+    content: ''; position: absolute; top: -40px; right: -40px;
+    width: 180px; height: 180px; border-radius: 50%;
+    background: rgba(141,156,115,0.1);
+  }
+  .reflection-label {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--sage-500); margin-bottom: 12px;
+  }
+  .reflection h3 {
+    font-family: 'Source Serif 4', serif; font-size: 1.15rem; font-weight: 600;
+    color: var(--earth-800); margin-bottom: 14px; line-height: 1.35;
+  }
+  .reflection p { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7; position: relative; z-index: 1; }
+
+  /* ══════════ KEY TAKEAWAYS ══════════ */
+  .takeaways {
+    background: var(--sage-700); color: white; border-radius: var(--radius-xl);
+    padding: 40px; margin: 48px 0; position: relative; overflow: hidden;
+  }
+  .takeaways::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 20% 80%, rgba(141,156,115,0.25) 0%, transparent 60%);
+  }
+  .takeaways-inner { position: relative; z-index: 2; }
+  .takeaways h3 {
+    color: white; font-family: 'Source Serif 4', serif; font-size: 1.3rem; font-weight: 600;
+    margin-bottom: 24px;
+  }
+  .takeaway-item {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 12px 0; border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .takeaway-item:first-of-type { border-top: none; }
+  .takeaway-check {
+    width: 24px; height: 24px; border-radius: 6px; flex-shrink: 0;
+    background: rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center;
+    font-size: 0.7rem; margin-top: 2px;
+  }
+  .takeaway-item p { font-size: 0.92rem; line-height: 1.65; color: rgba(255,255,255,0.88); }
+  .takeaway-item strong { color: white; }
+
+  /* ══════════ SOURCES ══════════ */
+  .sources {
+    background: var(--sage-50); border-radius: var(--radius-lg);
+    padding: 28px 32px; margin: 48px 0;
+  }
+  .sources h4 {
+    font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--sage-500); margin-bottom: 14px;
+  }
+  .sources ul { list-style: none; max-height: 0; overflow: hidden; transition: max-height 0.5s ease; }
+  .sources.sources-open ul { max-height: 2000px; }
+  .sources h4::after { content: " ▾"; font-size: 0.7rem; opacity: 0.5; }
+  .sources.sources-open h4::after { content: " ▴"; }
+  .sources li {
+    font-size: 0.82rem; color: var(--text-muted); padding: 6px 0;
+    padding-left: 16px; position: relative; line-height: 1.6;
+  }
+  .sources li::before { content: '·'; position: absolute; left: 0; font-weight: 700; color: var(--sage-300); }
+
+  /* ══════════ HANDOUTS ══════════ */
+  .handouts { margin: 48px 0; }
+  .handouts-title {
+    font-family: 'Source Serif 4', serif; font-size: 1.2rem; font-weight: 600;
+    color: var(--earth-800); margin-bottom: 20px;
+  }
+  .handouts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .handout-card {
+    background: white; border: 1px solid rgba(45,40,35,0.06);
+    border-radius: var(--radius-md); padding: 20px; text-decoration: none; color: var(--text);
+    display: flex; align-items: center; gap: 16px; transition: all 0.3s ease;
+  }
+  .handout-card:hover { box-shadow: var(--shadow-soft); transform: translateY(-2px); border-color: var(--sage-200); }
+  .handout-icon {
+    width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0;
+    background: var(--alert-red-bg); color: var(--alert-red);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem; font-weight: 700;
+  }
+  .handout-icon.green { background: var(--sage-100); color: var(--sage-600); }
+  .handout-card-text {}
+  .handout-card-title { font-weight: 600; font-size: 0.88rem; margin-bottom: 2px; }
+  .handout-card-sub { font-size: 0.75rem; color: var(--text-muted); }
+
+  /* ══════════ NEXT MODULE ══════════ */
+  .next-module {
+    margin: 64px 0 0;
+    border-top: 1px solid rgba(45,40,35,0.06);
+    padding-top: 48px;
+  }
+  .next-module-card {
+    background: white; border: 1px solid rgba(45,40,35,0.06);
+    border-radius: var(--radius-xl); padding: 36px; text-decoration: none; color: var(--text);
+    display: flex; align-items: center; justify-content: space-between; gap: 32px;
+    transition: all 0.4s ease;
+  }
+  .next-module-card:hover { box-shadow: var(--shadow-elevated); transform: translateY(-3px); border-color: var(--sage-200); }
+  .next-module-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--sage-500); margin-bottom: 8px; }
+  .next-module-title { font-family: 'Source Serif 4', serif; font-size: 1.3rem; font-weight: 600; color: var(--earth-800); margin-bottom: 8px; }
+  .next-module-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.55; }
+  .next-module-arrow {
+    width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0;
+    background: var(--sage-100); color: var(--sage-600);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; transition: all 0.3s ease;
+  }
+  .next-module-card:hover .next-module-arrow { background: var(--sage-500); color: white; transform: translateX(4px); }
+
+  /* ══════════ FOOTER ══════════ */
+  footer {
+    background: var(--earth-900); color: rgba(255,255,255,0.6); padding: 48px 2rem 32px; margin-top: 80px;
+  }
+  .footer-inner { max-width: var(--content-width); margin: 0 auto; text-align: center; }
+  .footer-inner p { font-size: 0.8rem; line-height: 1.7; margin-bottom: 4px; }
+  .footer-inner a { color: rgba(255,255,255,0.5); text-decoration: none; }
+  .footer-inner a:hover { color: white; }
+  .footer-links { margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.75rem; }
+  .footer-links a { margin: 0 10px; }
+
+  /* ══════════ READING PROGRESS ══════════ */
+  .reading-progress {
+    position: fixed; top: 64px; left: 0; right: 0; height: 3px;
+    background: var(--sage-100); z-index: 99;
+  }
+  .reading-progress-fill {
+    height: 100%; width: 0%; background: linear-gradient(90deg, var(--sage-400), var(--sage-500));
+    transition: width 0.15s ease;
+  }
+
+  /* ══════════ SCROLL REVEAL ══════════ */
+  .reveal { opacity: 0; transform: translateY(24px); transition: all 0.6s cubic-bezier(0.25,0.46,0.45,0.94); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ══════════ RESPONSIVE ══════════ */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+    .treatment-grid { grid-template-columns: 1fr; }
+    .toc ol { grid-template-columns: 1fr; }
+    .handouts-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .module-hero { padding: 100px 1.2rem 40px; }
+    .content { padding: 0 1.2rem; }
+    .phase-tabs { grid-template-columns: 1fr; }
+    .phase-content { padding: 24px 20px; }
+    .next-module-card { flex-direction: column; text-align: center; }
+    .takeaways { padding: 28px 24px; }
+  }
+  *:focus-visible{outline:2px solid var(--sage-500);outline-offset:2px;border-radius:4px}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
+  .skip-link:focus{position:fixed!important;top:12px;left:12px;width:auto;height:auto;padding:12px 20px;background:var(--sage-700);color:white;border-radius:8px;font-size:0.85rem;font-weight:600;z-index:10000;text-decoration:none}
+  .sources-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;cursor:pointer;padding:0;font:inherit;color:inherit;text-align:left}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:999">Direkt zum Inhalt</a>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">
+      <div class="nav-logo">PUK</div>
+      <div class="nav-brand-text">Bipolare Störung</div>
+    </a>
+    <div class="nav-links">
+      <a href="/">Startseite</a>
+      <a href="/#module">Module</a>
+      <a href="/notfall/" class="nav-sos">SOS Krise</a>
+    </div>
+    <button class="nav-toggle" aria-label="Menü"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</nav>
+
+<!-- READING PROGRESS -->
+<div class="reading-progress"><div class="reading-progress-fill" id="readingProgress"></div></div>
+
+<!-- MODULE HERO -->
+<header class="module-hero">
+  <div class="module-hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Startseite</a>
+      <span>›</span>
+      <a href="/#module">Module</a>
+      <span>›</span>
+      <span>Die bipolare Störung verstehen</span>
+    </div>
+    <svg class="hero-icon" aria-hidden="true" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 20c4-8 8-8 12 0s8 8 12 0 8-8 12 0" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+    <div class="module-badge">Modul 1 / 8</div>
+    <h1>Die bipolare Störung verstehen</h1>
+    <div class="module-meta">
+      <span>⏱ ca. 10–12 Minuten</span>
+      <span>📖 Grundlagenwissen</span>
+    </div>
+
+    <!-- Quote -->
+    <div class="quote-block">
+      <blockquote>Als ich endlich begriffen habe, dass seine Gereiztheit ein Symptom ist und nicht gegen mich gerichtet — das hat alles verändert. Ich war nicht weniger erschöpft, aber ich war nicht mehr wütend.</blockquote>
+      <cite>— Thomas, 51 Jahre, Ehemann (anonymisiert)</cite>
+    </div>
+
+    <!-- Learning Goals -->
+    <!-- TOC -->
+    <div class="toc">
+      <div class="toc-title">In diesem Modul</div>
+      <ol>
+        <li><a href="#phasen">Manie, Hypomanie und Depression<span class="toc-desc">Wie sich die Phasen im Alltag zeigen</span></a></li>
+        <li><a href="#typen">Bipolar I und Bipolar II<span class="toc-desc">Was die Typen unterscheidet</span></a></li>
+        <li><a href="#wellen">Ein Leben in Wellen<span class="toc-desc">Der langfristige Verlauf — ein Modell</span></a></li>
+        <li><a href="#behandlung">Behandlung — Was hilft?<span class="toc-desc">Was Behandlung leisten kann — und was nicht</span></a></li>
+        <li><a href="#handeln">Was Sie jetzt tun können<span class="toc-desc">Vier erste Schritte</span></a></li>
+      </ol>
+    </div>
+  </div>
+</header>
+
+<!-- CONTENT -->
+<main class="content" id="main-content">
+
+  <p class="reveal">Die bipolare Störung ist eine chronische Erkrankung mit extremen Stimmungsschwankungen zwischen zwei Polen. Weder Sie noch Ihr Partner sind schuld — es ist eine neurobiologische Erkrankung, die behandelbar ist.</p>
+
+  <!-- ══════════════════════════════════════════════════
+       1. PHASEN — Wiedererkennung zuerst
+       ══════════════════════════════════════════════════ -->
+  <h2 id="phasen" class="reveal">Manie, Hypomanie und Depression</h2>
+  <p class="reveal">Die bipolare Störung bewegt sich zwischen drei Zuständen. Erkunden Sie die Phasen — und was sie für Ihren Alltag als Angehörige bedeuten.</p>
+
+  <div class="phase-explorer reveal">
+    <div class="phase-tabs">
+      <button class="phase-tab active-mania" data-phase="mania" onclick="showPhase('mania')">
+        <span class="phase-tab-icon">↑</span> Manie / Hypomanie
+      </button>
+      <button class="phase-tab" data-phase="stable" onclick="showPhase('stable')">
+        <span class="phase-tab-icon">→</span> Stabile Phase
+      </button>
+      <button class="phase-tab" data-phase="depression" onclick="showPhase('depression')">
+        <span class="phase-tab-icon">↓</span> Depression
+      </button>
+    </div>
+
+    <!-- Mania -->
+    <div class="phase-content visible" id="phase-mania">
+      <div class="phase-header" style="color: var(--amber-phase);">Manie / Hypomanie</div>
+      <div class="phase-subtitle">Gehobene oder gereizte Stimmung, oft ohne Krankheitseinsicht</div>
+
+      <div class="symptom-card mania">
+        <div class="symptom-title">Übersteigertes Selbstwertgefühl</div>
+        <div class="symptom-desc">«Ich kann alles.» Realitätsverlust bis zum Grössenwahn.</div>
+        <div class="symptom-partner">Partner*in: «Er/sie hört nicht mehr auf mich — ich werde als Bremse wahrgenommen.»</div>
+      </div>
+      <div class="symptom-card mania">
+        <div class="symptom-title">Vermindertes Schlafbedürfnis</div>
+        <div class="symptom-desc">Oft nur 2–3 Stunden Schlaf bei voller Energie.</div>
+        <div class="symptom-partner">Partner*in: «Nachts um 3 Uhr wird die Wohnung umgeräumt — ich kann nicht schlafen.»</div>
+      </div>
+      <div class="symptom-card mania">
+        <div class="symptom-title">Impulsive Entscheidungen</div>
+        <div class="symptom-desc">Grosse Geldausgaben, riskante Investitionen, sexuelle Abenteuer.</div>
+        <div class="symptom-partner">Partner*in: «Er/sie hat 10'000 Fr. ausgegeben, ohne mich zu fragen.»</div>
+      </div>
+      <div class="symptom-card mania">
+        <div class="symptom-title">Reizbarkeit</div>
+        <div class="symptom-desc">Schnelle Aggression bei Widerstand oder Kritik.</div>
+        <div class="symptom-partner">Partner*in: «Jede Nachfrage wird als Angriff gewertet.»</div>
+      </div>
+
+      <div class="phase-note"><strong>Hypomanie</strong> ist eine abgeschwächte Form (typisch bei Bipolar II), die den Alltag weniger stark beeinträchtigt — aber oft in eine Manie übergehen kann.</div>
+    </div>
+
+    <!-- Stable -->
+    <div class="phase-content" id="phase-stable">
+      <div class="phase-header" style="color: var(--green-phase);">Stabile Phase (Euthymie)</div>
+      <div class="phase-subtitle">Ausgeglichene Stimmung — oft aber nicht vollständige Erholung</div>
+
+      <div class="symptom-card stable">
+        <div class="symptom-title">Keine Episode — aber keine echte Pause</div>
+        <div class="symptom-desc">Stabile Phasen sind wertvoll und wichtig für die Behandlung.</div>
+        <div class="symptom-partner">Partner*in: «Ich warte immer auf den nächsten Einbruch — auch wenn es gerade gut geht.»</div>
+      </div>
+      <div class="symptom-card stable">
+        <div class="symptom-title">Restsymptome möglich</div>
+        <div class="symptom-desc">Zwischen Episoden können milde Symptome bestehen bleiben.</div>
+        <div class="symptom-partner">Partner*in: «Ist diese gute Laune echt — oder schon der Beginn einer Manie?»</div>
+      </div>
+      <div class="symptom-card stable">
+        <div class="symptom-title">Zeit für Krisenplanung</div>
+        <div class="symptom-desc">Stabile Phasen sind der richtige Moment für wichtige Gespräche.</div>
+        <div class="symptom-partner">Partner*in: «Jetzt können wir reden — über Grenzen, Vereinbarungen, Notfallplan.»</div>
+      </div>
+
+      <div class="phase-note">Stabile Phasen sind <strong>«Friedenszeiten»</strong> — die wichtigste Zeit für Planung, Kommunikation und Erholung. Nutzen Sie sie bewusst.</div>
+    </div>
+
+    <!-- Depression -->
+    <div class="phase-content" id="phase-depression">
+      <div class="phase-header" style="color: var(--blue-phase);">Depression</div>
+      <div class="phase-subtitle">Lähmende Schwere — der Alltag wird zur unüberwindbaren Hürde</div>
+
+      <div class="symptom-card depression">
+        <div class="symptom-title">Tiefe Traurigkeit und Antriebslosigkeit</div>
+        <div class="symptom-desc">Gefühl der Leere, Hoffnungslosigkeit, bleierne Müdigkeit.</div>
+        <div class="symptom-partner">Partner*in: «Nichts, was ich sage oder tue, hilft — ich fühle mich machtlos.»</div>
+      </div>
+      <div class="symptom-card depression">
+        <div class="symptom-title">Sozialer Rückzug</div>
+        <div class="symptom-desc">Isolation, kein Interesse an Hobbys oder Kontakten.</div>
+        <div class="symptom-partner">Partner*in: «Wir sehen keine Freunde mehr — ich vereinsame mit.»</div>
+      </div>
+      <div class="symptom-card depression">
+        <div class="symptom-title">Gedankenkreisen</div>
+        <div class="symptom-desc">Konzentrationsstörungen, Schuldgefühle, manchmal Suizidgedanken.</div>
+        <div class="symptom-partner">Partner*in: «Die Angst, dass er/sie sich etwas antut, lässt mich nicht schlafen.»</div>
+      </div>
+      <div class="symptom-card depression">
+        <div class="symptom-title">Unerreichbarkeit</div>
+        <div class="symptom-desc">Physisch anwesend, emotional hinter einer Glaswand.</div>
+        <div class="symptom-partner">Partner*in: «Es ist, als würde man zusehen, wie der geliebte Mensch verschwindet.»</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Suicide alert -->
+  <div class="alert-box reveal">
+    <div class="alert-box-icon">⚠</div>
+    <div>
+      <p>Bei Suizidgedanken: Nicht allein damit bleiben. <strong>Psychiatrischer Notfalldienst ZH: <a href="tel:+41800336655">0800 33 66 55</a></strong> (24/7, kostenlos). Für Gespräch und Orientierung: Dargebotene Hand <a href="tel:143">143</a>.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════
+       2. BIPOLAR I / II — Vertiefung nach Wiedererkennung
+       ══════════════════════════════════════════════════ -->
+  <h2 id="typen" class="reveal">Bipolar I und Bipolar II</h2>
+  <p class="reveal">Sie haben die Phasen gesehen. Aber es gibt zwei Formen der Erkrankung, die sich im Alltag deutlich unterscheiden — und das verändert, was Sie als Angehörige erleben.</p>
+
+  <div class="accordion-group reveal">
+    <div class="accordion-item">
+      <button class="accordion-header" onclick="toggleAccordion(this)">
+        <div class="accordion-header-left">
+          <div class="accordion-icon-badge">I</div>
+          <div class="accordion-label-group">
+            <div class="accordion-title">Was ist Bipolar I?</div>
+            <div class="accordion-subtitle">Die «sichtbare» Form mit ausgeprägten Manien</div>
+          </div>
+        </div>
+        <div class="accordion-chevron">▼</div>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <p>Bipolar I ist die Form, die die meisten Menschen vor Augen haben, wenn sie «bipolar» hören. Die manischen Episoden sind oft unübersehbar: Ihr Partner schläft kaum noch, hat grandiose Ideen, gibt unkontrolliert Geld aus, redet ohne Pause und ist überzeugt, alles sei grossartig.</p>
+          <p>Die Manie kann so schwer werden, dass eine Hospitalisation nötig wird — was für Angehörige eine der beängstigendsten Erfahrungen überhaupt ist. Sie erleben, wie ein vertrauter Mensch sich in jemanden verwandelt, den Sie nicht wiedererkennen. Die Unberechenbarkeit macht Angst — und diese Angst ist berechtigt.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header" onclick="toggleAccordion(this)">
+        <div class="accordion-header-left">
+          <div class="accordion-icon-badge">II</div>
+          <div class="accordion-label-group">
+            <div class="accordion-title">Was ist Bipolar II?</div>
+            <div class="accordion-subtitle">Die «unsichtbare» Form mit langen Depressionen</div>
+          </div>
+        </div>
+        <div class="accordion-chevron">▼</div>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <p>Bipolar II ist weniger bekannt, aber nicht weniger belastend. Statt vollständiger Manien treten Hypomanien auf — abgeschwächte, kürzere Hochphasen von etwa 4 bis 7 Tagen. Die Hypomanie wird oft als «gute Phase» fehlinterpretiert.</p>
+          <p>Was Bipolar II besonders belastend macht: Die depressiven Phasen sind oft schwerer und dauern länger als bei Bipolar I. Die eigentliche Krankheitslast liegt in der Depression — die von aussen kaum sichtbar ist.</p>
+          <p><strong>Warum der Unterschied für Angehörige wichtig ist:</strong> Bei Bipolar II fühlen sich Angehörige besonders oft nicht ernst genommen. Das Umfeld sagt «So schlimm ist das doch nicht» — weil niemand die Hypomanie als Problem erkennt. Die eigentliche Belastung liegt in den langen depressiven Phasen, die Wochen oder Monate dauern können.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="reveal"><strong>Was beide Formen gemeinsam haben:</strong> Die bipolare Störung — ob Typ I oder Typ II — ist chronisch, behandelbar, aber nicht heilbar. Ihre Erfahrung als Angehörige ist bei beiden Formen gleich berechtigt. Was Sie durchmachen, verdient Anerkennung und Unterstützung.</p>
+
+  <div class="quote-block reveal">
+    <blockquote>Letzte Woche hat er das ganze Wochenende durchgearbeitet, drei neue Projekte gestartet und war euphorisch. Alle fanden ihn grossartig. Ich war die Einzige, die wusste: Das ist keine gute Phase. Das ist der Anfang.</blockquote>
+    <cite>— Angehörige, anonymisiert</cite>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════
+       3. WELLEN — natürliche Fortsetzung: Phasen → Langzeitverlauf
+       ══════════════════════════════════════════════════ -->
+  <h2 id="wellen" class="reveal">Ein Leben in Wellen</h2>
+  <p class="reveal">Sie kennen jetzt die Phasen und die beiden Formen. Aber wie sieht das über Jahre aus? Die bipolare Störung ist nicht heilbar, aber gut behandelbar. Selbst mit Therapie kehren Episoden im Laufe des Lebens wieder. Das erklärt, warum Angehörige dauerhaft belastet sind — nicht nur in akuten Krisen.</p>
+
+  <div class="wave-chart-section reveal">
+    <h3>Verlauf der bipolaren Störung über die Zeit</h3>
+    <p>Die blaue Linie zeigt den Krankheitsverlauf. Die gestrichelte orange Linie zeigt die kumulierende Grundbelastung der Angehörigen — sie sinkt nach jeder Episode weniger weit zurück.</p>
+    <div class="wave-chart">
+      <svg role="img" aria-label="Konzeptionelles Wellenmodell: Stimmungsverlauf bei bipolarer Störung über die Lebensspanne mit Manie-, Hypomanie- und Depressionsphasen" viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg">
+        <!-- Y-axis labels (inside SVG) -->
+        <text x="58" y="48" fill="#c4933b" font-size="11" font-weight="600" text-anchor="end" font-family="DM Sans, sans-serif">Manie</text>
+        <text x="58" y="128" fill="#6b9a6b" font-size="11" font-weight="600" text-anchor="end" font-family="DM Sans, sans-serif">Stabil</text>
+        <text x="58" y="208" fill="#5b7fa5" font-size="11" font-weight="600" text-anchor="end" font-family="DM Sans, sans-serif">Depression</text>
+
+        <!-- Axes -->
+        <line x1="70" y1="20" x2="70" y2="230" stroke="#d5dbc9" stroke-width="1.5"/>
+        <line x1="70" y1="230" x2="870" y2="230" stroke="#d5dbc9" stroke-width="1.5"/>
+
+        <!-- Grid lines -->
+        <line x1="70" y1="125" x2="870" y2="125" stroke="#d5dbc9" stroke-width="0.8" stroke-dasharray="5 4"/>
+        <line x1="70" y1="45" x2="870" y2="45" stroke="#f0e6d3" stroke-width="0.5" stroke-dasharray="4 3"/>
+        <line x1="70" y1="205" x2="870" y2="205" stroke="#eef3f8" stroke-width="0.5" stroke-dasharray="4 3"/>
+
+        <!-- Mood wave (blue) -->
+        <path d="M70,125 C110,125 130,40 170,40 C210,40 220,125 250,125 C280,125 295,185 340,195 C385,205 395,125 435,125 C465,125 478,55 508,50 C538,45 558,125 588,125 C618,125 638,175 678,180 C718,185 728,125 768,125 C788,125 808,70 838,65 C858,62 870,100 870,100"
+          fill="none" stroke="#5b7fa5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+        <!-- Caregiver burden (orange dashed, rising) -->
+        <path d="M70,160 C170,157 270,150 370,144 C470,136 570,127 670,117 C770,108 820,100 870,94"
+          fill="none" stroke="#c4933b" stroke-width="2" stroke-dasharray="7 5" stroke-linecap="round" opacity="0.7"/>
+
+        <!-- Legend -->
+        <line x1="580" y1="248" x2="604" y2="248" stroke="#5b7fa5" stroke-width="2.5"/>
+        <text x="610" y="252" fill="#5b7fa5" font-size="11" font-weight="500" font-family="DM Sans, sans-serif">Stimmung Partner</text>
+
+        <line x1="740" y1="248" x2="764" y2="248" stroke="#c4933b" stroke-width="2" stroke-dasharray="5 3" opacity="0.7"/>
+        <text x="770" y="252" fill="#c4933b" font-size="11" font-weight="500" font-family="DM Sans, sans-serif">Belastung Angehörige</text>
+
+        <!-- X-axis label -->
+        <text x="470" y="252" fill="#8a817a" font-size="11" text-anchor="middle" font-family="DM Sans, sans-serif">→ Zeit (Jahre)</text>
+      </svg>
+    </div>
+    <div class="wave-caption">Basierend auf: Goodwin & Jamison (2007); Judd et al. (2003) — Verlauf und Phasensymptomatik bei bipolarer Störung</div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════
+       4. BEHANDLUNG — medizinischer Fakten-Abschluss
+       ══════════════════════════════════════════════════ -->
+  <h2 id="behandlung" class="reveal">Behandlung — Was hilft, was ist realistisch?</h2>
+  <p class="reveal">Die bipolare Störung ist gut behandelbar, aber nicht heilbar. Das Ziel ist Stabilität — nicht «Normalität».</p>
+
+  <div class="treatment-grid reveal">
+    <div class="treatment-card">
+      <div class="treatment-card-icon">Rx</div>
+      <h4>Stimmungsstabilisierer</h4>
+      <p>Lithium, Valproat, Lamotrigin — die medikamentöse Basis. Lebenslang und meist dauerhaft nötig. Die Einstellung erfordert Geduld.</p>
+    </div>
+    <div class="treatment-card">
+      <div class="treatment-card-icon">🗣</div>
+      <h4>Psychotherapie</h4>
+      <p>KVT, interpersonelle und soziale Rhythmustherapie (IPSRT) — alle evidenzbasiert. Stärkt den Umgang mit der Erkrankung.</p>
+    </div>
+    <div class="treatment-card">
+      <div class="treatment-card-icon">📖</div>
+      <h4>Psychoedukation</h4>
+      <p>Senkt nachweislich das Rückfallrisiko. Strukturiertes Wissen für Betroffene und Angehörige — wie diese Website.</p>
+    </div>
+    <div class="treatment-card">
+      <div class="treatment-card-icon">⚖</div>
+      <h4>Realistische Erwartungen</h4>
+      <p>Auch unter optimaler Behandlung können Episoden auftreten — seltener und milder. Fortschritt heisst: weniger Krisen, nicht null Krisen.</p>
+    </div>
+  </div>
+
+  <div class="alert-box reveal">
+    <div class="alert-box-icon">!</div>
+    <div>
+      <p><strong>Wenn die Person die Behandlung ablehnt.</strong> Häufig — besonders in manischen Phasen. Drängen hilft selten. Stattdessen: sachlich informieren, Trialog anbieten, und vor allem sich selbst Hilfe holen. Sie können niemanden zur Therapie zwingen — ausser bei akuter Selbst- oder Fremdgefährdung (<a href="/notfall/">→ Notfallseite</a>).</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════
+       5. HANDLUNGSSCHRITTE — erweiterter, konkreter Abschluss
+       ══════════════════════════════════════════════════ -->
+  <h2 id="handeln" class="reveal">Was Sie jetzt tun können</h2>
+  <p class="reveal">Sie haben viel über die Erkrankung erfahren — die Phasen, den Verlauf, die Behandlung. Hier sind vier konkrete Schritte, die Sie jetzt gehen können.</p>
+
+  <div class="treatment-grid reveal" style="grid-template-columns: 1fr;">
+    <div class="treatment-card" style="display: flex; gap: 20px; align-items: flex-start;">
+      <div class="treatment-card-icon" style="font-size: 0.85rem; font-weight: 800;">1</div>
+      <div>
+        <h4>Frühwarnzeichen notieren</h4>
+        <p>Denken Sie an die letzte Episode Ihres Partners: Was waren die ersten Anzeichen? Weniger Schlaf? Gereiztheit? Rückzug? Schreiben Sie drei Frühwarnzeichen auf. Das Handout «Warnsignale — Ampelsystem» (unten) hilft dabei.</p>
+      </div>
+    </div>
+    <div class="treatment-card" style="display: flex; gap: 20px; align-items: flex-start;">
+      <div class="treatment-card-icon" style="font-size: 0.85rem; font-weight: 800;">2</div>
+      <div>
+        <h4>Professionelle Beratung einfordern</h4>
+        <p>Die Fachstelle Angehörigenarbeit PUK Zürich bietet kostenlose Beratung — auch ohne dass die erkrankte Person davon wissen muss. Sie haben ein eigenständiges Recht auf Unterstützung. Telefon: <a href="tel:+41583843800">058 384 38 00</a>.</p>
+      </div>
+    </div>
+    <div class="treatment-card" style="display: flex; gap: 20px; align-items: flex-start;">
+      <div class="treatment-card-icon" style="font-size: 0.85rem; font-weight: 800;">3</div>
+      <div>
+        <h4>Eine Vertrauensperson einweihen</h4>
+        <p>Viele Angehörige tragen die Situation allein. Gibt es eine Person — Freund*in, Geschwister, Kolleg*in — der Sie sich anvertrauen könnten? Geteiltes Wissen entlastet und schafft ein Sicherheitsnetz für Krisen.</p>
+      </div>
+    </div>
+    <div class="treatment-card" style="display: flex; gap: 20px; align-items: flex-start;">
+      <div class="treatment-card-icon" style="font-size: 0.85rem; font-weight: 800;">4</div>
+      <div>
+        <h4>Weiterlesen — im nächsten Modul</h4>
+        <p>In Modul 2 lesen Sie, was die Erkrankung langfristig mit <em>Ihnen</em> macht. Der Belastungs-Eisberg zeigt die 80% Ihrer Last, die für andere unsichtbar bleiben.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reflection -->
+  <div class="reflection reveal">
+    <div class="reflection-label">Reflexion</div>
+    <h3>Was verändert sich durch dieses Wissen?</h3>
+    <p>Viele Angehörige berichten, dass der Moment, in dem sie die Erkrankung als neurobiologisch verstanden haben, etwas verändert hat — nicht die Erschöpfung, aber die Wut. Wenn das Verhalten Ihres Partners ein Symptom ist und nicht gegen Sie gerichtet: Was bedeutet das für Ihren Alltag?</p>
+    <p style="margin-top: 12px; font-style: italic; color: var(--text-muted);">Sie müssen das nicht beantworten. Aber die Frage lohnt sich.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════
+       TAKEAWAYS — jetzt am Ende als Klammer um alles
+       ══════════════════════════════════════════════════ -->
+  <div class="takeaways reveal">
+    <div class="takeaways-inner">
+      <h3>Merken Sie sich</h3>
+      <div class="takeaway-item">
+        <div class="takeaway-check">✓</div>
+        <p><strong>Bipolare Störung ist eine neurobiologische Erkrankung</strong> — sie ist weder Ihre Schuld noch die Ihres Partners.</p>
+      </div>
+      <div class="takeaway-item">
+        <div class="takeaway-check">✓</div>
+        <p><strong>Manie und Depression sind zwei Pole</strong> — dazwischen gibt es stabile Phasen, die für Planung und Erholung genutzt werden können.</p>
+      </div>
+      <div class="takeaway-item">
+        <div class="takeaway-check">✓</div>
+        <p><strong>Behandlung wirkt</strong> — Stimmungsstabilisierer und Psychotherapie senken Häufigkeit und Schwere der Episoden nachweislich.</p>
+      </div>
+      <div class="takeaway-item">
+        <div class="takeaway-check">✓</div>
+        <p><strong>Wissen schützt</strong> — Je mehr Sie verstehen, desto weniger Angst macht das Verhalten Ihres Partners.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── SOURCES ─── -->
+  <div class="sources reveal">
+    <button type="button" class="sources-toggle" aria-expanded="false" onclick="var p=this.parentElement;p.classList.toggle('sources-open');this.setAttribute('aria-expanded',p.classList.contains('sources-open'))">
+    <h4>Wissenschaftliche Quellen</h4></button>
+    <ul>
+      <li><strong>Goodwin, F. K. & Jamison, K. R. (2007).</strong> <em>Manic-Depressive Illness: Bipolar Disorders and Recurrent Depression</em> (2. Aufl.). Oxford University Press.</li>
+      <li><strong>Judd, L. L. et al. (2003).</strong> A prospective investigation of the natural history of the long-term weekly symptomatic status of bipolar II disorder. <em>Archives of General Psychiatry, 60</em>(3), 261–269.</li>
+      <li><strong>Hirschfeld, R. M. A. et al. (2003).</strong> Perceptions and impact of bipolar disorder. <em>Journal of Clinical Psychiatry, 64</em>(2), 161–174.</li>
+      <li><strong>Merikangas, K. R. et al. (2011).</strong> Prevalence and correlates of bipolar spectrum disorder. <em>Archives of General Psychiatry, 68</em>(3), 241–251.</li>
+    </ul>
+  </div>
+
+  <!-- ─── HANDOUTS ─── -->
+  <div class="handouts reveal">
+    <div class="handouts-title">Passende Handouts</div>
+    <div class="handouts-grid">
+      <a href="/handouts/a8_warnsignale.pdf" target="_blank" class="handout-card">
+        <div class="handout-icon green">PDF</div>
+        <div class="handout-card-text">
+          <div class="handout-card-title">Warnsignale — Ampelsystem</div>
+          <div class="handout-card-sub">Frühwarnzeichen erkennen</div>
+        </div>
+      </a>
+      <a href="/handouts/c4_manie.pdf" target="_blank" class="handout-card">
+        <div class="handout-icon">PDF</div>
+        <div class="handout-card-text">
+          <div class="handout-card-title">Umgang mit Manie</div>
+          <div class="handout-card-sub">Praktische Strategien</div>
+        </div>
+      </a>
+      <a href="/handouts/c5_depression.pdf" target="_blank" class="handout-card">
+        <div class="handout-icon green">PDF</div>
+        <div class="handout-card-text">
+          <div class="handout-card-title">Umgang mit Depression</div>
+          <div class="handout-card-sub">Wenn Ihr Partner nicht erreichbar ist</div>
+        </div>
+      </a>
+      <a href="/handouts/c2_suizidgedanken.pdf" target="_blank" class="handout-card">
+        <div class="handout-icon">PDF</div>
+        <div class="handout-card-text">
+          <div class="handout-card-title">Umgang mit Suizidgedanken</div>
+          <div class="handout-card-sub">Sensibles Thema — konkrete Hilfe</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ─── NEXT MODULE ─── -->
+  <div class="next-module reveal">
+    <a href="/modul/2/" class="next-module-card">
+      <div>
+        <div class="next-module-label">Nächstes Modul</div>
+        <div class="next-module-title">Modul 2: Was das mit Ihnen macht</div>
+        <div class="next-module-desc">Ihre Belastung ist real, kumuliert über Jahre und zu 80% unsichtbar — der Belastungs-Eisberg und seine Folgen.</div>
+      </div>
+      <div class="next-module-arrow">→</div>
+    </a>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <p><strong style="color: white;">Psychiatrische Universitätsklinik Zürich</strong></p>
+    <p>Fachstelle Angehörigenarbeit · Lenggstrasse 31, 8032 Zürich</p>
+    <p>Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026</p>
+    <p style="margin-top: 8px;">Diese Inhalte ersetzen keine professionelle Beratung.</p>
+    <div class="footer-links">
+      <a href="/impressum/">Impressum</a>
+      <a href="/impressum/#datenschutz">Datenschutz</a>
+      <a href="/impressum/#barrierefreiheit">Barrierefreiheit</a>
+      <a href="/notfall/" style="color: var(--alert-red);">Notfall & Krisenhilfe</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
+
+  // Reading progress
+  const progressBar = document.getElementById('readingProgress');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.width = h > 0 ? (window.scrollY / h * 100) + '%' : '0%';
+  });
+
+  // Phase tabs
+  function showPhase(phase) {
+    document.querySelectorAll('.phase-content').forEach(el => el.classList.remove('visible'));
+    document.querySelectorAll('.phase-tab').forEach(el => {
+      el.className = 'phase-tab';
+    });
+    document.getElementById('phase-' + phase).classList.add('visible');
+    const tab = document.querySelector(`[data-phase="${phase}"]`);
+    if (phase === 'mania') tab.classList.add('active-mania');
+    if (phase === 'stable') tab.classList.add('active-stable');
+    if (phase === 'depression') tab.classList.add('active-depression');
+  }
+
+  // Accordion
+  function toggleAccordion(btn) {
+    const item = btn.closest('.accordion-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // TOC active tracking
+  const tocLinks = document.querySelectorAll('.toc a[href^="#"]');
+  const tocSections = Array.from(tocLinks).map(a => {
+    const id = a.getAttribute('href').slice(1);
+    return { link: a, el: document.getElementById(id) };
+  }).filter(s => s.el);
+  const tocObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('active'));
+        const match = tocSections.find(s => s.el === e.target);
+        if (match) match.link.classList.add('active');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '-100px 0px -60% 0px' });
+  tocSections.forEach(s => tocObs.observe(s.el));
+</script>
+
+</body>
+</html>

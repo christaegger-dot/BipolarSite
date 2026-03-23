@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Selbsttest für Angehörige: Wo stehen Sie gerade? 5 Fragen zur Orientierung. PUK Zürich.">
+<title>Selbsttest — Wo stehen Sie gerade? | PUK Zürich</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;color:#2e2a25;background:#fefcf8;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;-webkit-font-smoothing:antialiased}
+.tool-nav{position:fixed;top:0;left:0;right:0;background:rgba(254,252,248,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(45,40,35,0.06);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;z-index:50}
+.tool-back{display:flex;align-items:center;gap:8px;text-decoration:none;color:#706860;font-size:0.82rem;font-weight:500}.tool-back:hover{color:#3d4a30}
+.tool-back svg{width:16px;height:16px}
+.tool-brand{font-family:'Source Serif 4',serif;font-size:0.85rem;font-weight:600;color:#2e2a25}
+.wrap{width:100%;max-width:560px}
+.hdr{text-align:center;margin-bottom:32px}
+.badge{display:inline-flex;background:#eaede4;color:#3d4a30;padding:5px 14px;border-radius:100px;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px}
+.hdr h1{font-family:'Source Serif 4',Georgia,serif;font-size:clamp(1.4rem,3.5vw,1.9rem);font-weight:700;color:#2a211b;margin:0 0 8px;letter-spacing:-0.02em}
+.hdr p{font-size:0.85rem;color:#706860;line-height:1.6}
+.prog{display:flex;gap:6px;margin-bottom:28}.prog div{flex:1;height:4px;border-radius:2px;background:#eaede4;transition:background 0.4s}.prog .done{background:#748a5a}.prog .cur{background:#d5dbc9}
+.card{background:#fff;border-radius:22px;border:1px solid rgba(45,40,35,0.06);box-shadow:0 4px 24px rgba(45,40,35,0.08);padding:36px 32px;min-height:340px;display:flex;flex-direction:column;transition:opacity 0.3s,transform 0.3s}
+.card.fade{opacity:0;transform:translateY(12px)}
+.qhdr{display:flex;align-items:center;gap:12px;margin-bottom:24}
+.qnum{width:36px;height:36px;border-radius:10px;background:#eaede4;color:#566642;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:800;flex-shrink:0}
+.qtxt{font-family:'Source Serif 4',Georgia,serif;font-size:1.06rem;font-weight:600;color:#2e2a25;line-height:1.45}
+.opts{display:flex;flex-direction:column;gap:8px;flex:1}
+.opt{display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:14px;border:1px solid rgba(45,40,35,0.08);background:#fff;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.88rem;color:#5e564e;text-align:left;transition:all 0.2s;-webkit-appearance:none}
+.opt.sel{border:2px solid #748a5a;background:#f6f7f4;color:#3d4a30;font-weight:600}
+.opt .em{font-size:1.1rem;color:#b4bfa0;width:22px;text-align:center;line-height:1}.opt.sel .em{color:#6b7d52}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-top:24px;padding-top:16px;border-top:1px solid rgba(45,40,35,0.06)}
+.btn{padding:8px 20px;border-radius:10px;border:none;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:600;cursor:pointer;transition:background 0.2s}
+.btn-back{background:#eaede4;color:#566642}.btn-back:disabled{background:transparent;color:transparent;cursor:default}
+.btn-next{background:#6b7d52;color:#fff}.btn-next:disabled{background:#d5dbc9;cursor:default}
+.navlbl{font-size:0.75rem;color:#706860}
+.res-top{display:flex;align-items:center;gap:18px;margin-bottom:24px}
+.res-score{width:64px;height:64px;border-radius:18px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.res-score span{font-family:'Source Serif 4',Georgia,serif;font-size:1.6rem;font-weight:700}
+.res-level{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px}
+.res-title{font-family:'Source Serif 4',Georgia,serif;font-size:1.1rem;font-weight:700;color:#2e2a25;line-height:1.3}
+.bar-wrap{margin-bottom:24px}.bar-labels{display:flex;justify-content:space-between;font-size:0.68rem;color:#706860;margin-bottom:6px}
+.bar{height:8px;border-radius:4px;background:linear-gradient(90deg,#6b9a6b 0%,#c4933b 50%,#c75450 100%);position:relative}
+.bar-dot{position:absolute;top:-4px;width:16px;height:16px;border-radius:50%;background:#fff;transform:translateX(-50%);box-shadow:0 2px 8px rgba(0,0,0,0.15);transition:left 0.6s}
+.res-txt{font-size:0.93rem;color:#5e564e;line-height:1.7;margin-bottom:20px}
+.rec{border-radius:14px;padding:18px 20px;margin-bottom:24px;border-left:4px solid}
+.rec-title{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px}
+.rec-item{font-size:0.85rem;color:#5e564e;line-height:1.6;padding:4px 0 4px 18px;position:relative}
+.rec-item::before{content:'→';position:absolute;left:0;font-weight:700}
+.disc{font-size:0.75rem;color:#706860;line-height:1.55;padding:12px 16px;background:#f6f7f4;border-radius:10px;margin-bottom:20px}
+.disc strong{color:#5e564e}
+.btns{display:flex;gap:10px;padding-top:12px;border-top:1px solid rgba(45,40,35,0.06)}
+.btns button{flex:1;padding:12px;border-radius:12px;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:600;cursor:pointer}
+.btn-reset{border:1px solid rgba(45,40,35,0.08);background:#fff;color:#5e564e}
+.btn-cont{border:none;background:#6b7d52;color:#fff}
+.tf{text-align:center;font-size:0.68rem;color:#b4bfa0;margin-top:20px;line-height:1.5}
+*:focus-visible{outline:2px solid #748a5a;outline-offset:2px;border-radius:4px}
+@media(prefers-reduced-motion:reduce){*{transition-duration:0.01ms!important}}
+@media(max-width:500px){.card{padding:24px 20px}}
+</style>
+</head>
+<body>
+<nav class="tool-nav"><a href="/modul/4/" class="tool-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>Zurück zu Modul 4</a><span class="tool-brand">PUK Zürich</span></nav>
+<div class="wrap">
+  <div class="hdr"><div class="badge">Modul 4 — Selbsttest</div><h1>Wo stehen Sie gerade?</h1><p>5 kurze Fragen — nicht diagnostisch, aber orientierend.<br>Ihre Antworten werden nicht gespeichert.</p></div>
+  <div class="prog" id="prog"></div>
+  <div class="card" id="card"></div>
+  <p class="tf">Psychiatrische Universitätsklinik Zürich · Fachstelle Angehörigenarbeit</p>
+</div>
+<script>
+const Q=[
+  {id:1,t:"Ich denke oft daran, was als nächstes schiefgehen könnte — auch wenn es gerade ruhig ist."},
+  {id:2,t:"Ich habe das Gefühl, meine eigenen Bedürfnisse kommen kaum noch vor."},
+  {id:3,t:"Freunde oder Hobbys habe ich in letzter Zeit vernachlässigt."},
+  {id:4,t:"Ich fühle mich oft allein mit dieser Situation — auch wenn Menschen um mich herum sind."},
+  {id:5,t:"Manchmal frage ich mich, wie lange ich das noch durchhalte."}
+];
+const O=[{v:0,l:"Trifft nicht zu",e:"○"},{v:1,l:"Trifft selten zu",e:"◔"},{v:2,l:"Trifft manchmal zu",e:"◑"},{v:3,l:"Trifft oft zu",e:"◕"},{v:4,l:"Trifft fast immer zu",e:"●"}];
+function gr(s){
+  if(s<=6)return{lv:"niedrig",c:"#6b9a6b",bg:"#f0f5ed",bd:"#c5d9b8",ti:"Belastung im grünen Bereich",tx:"Ihre Antworten deuten darauf hin, dass Sie aktuell gut zurechtkommen. Das bedeutet nicht, dass alles einfach ist — aber Sie scheinen Strategien zu haben, die funktionieren.",rc:["Lesen Sie Modul 7 (Resilienz) — um Ihre Ressourcen weiter zu stärken.","Bleiben Sie in Kontakt mit Ihrem sozialen Netz."]};
+  if(s<=12)return{lv:"mittel",c:"#c4933b",bg:"#fdf6ea",bd:"#e8d5a8",ti:"Erhöhte Belastung — achten Sie auf sich",tx:"Ihre Antworten zeigen: Die Belastung ist spürbar. Das ist bei Angehörigen häufig — und kein Zeichen von Schwäche. Jetzt ist ein guter Zeitpunkt, aktiv gegenzusteuern.",rc:["Abschnitt 3 dieses Moduls (Schonhaltung & Identitätsverlust) könnte besonders relevant sein.","Modul 6 bietet konkrete Werkzeuge — insbesondere Grenzsetzung.","Sprechen Sie mit einer Vertrauensperson über Ihre Situation."]};
+  return{lv:"hoch",c:"#c75450",bg:"#fdf2f1",bd:"#f0c5c3",ti:"Deutliche Überlastung — Sie verdienen Unterstützung",tx:"Ihre Antworten deuten auf eine erhebliche Belastung hin. Das ist ernst zu nehmen. Sie tragen gerade sehr viel. Es wäre wichtig, dass Sie sich jetzt Hilfe holen.",rc:["Fachstelle Angehörigenarbeit PUK Zürich: 058 384 38 00 — kostenlos, vertraulich.","Hausarzt einbeziehen: Chronische Belastung hat körperliche Folgen.","VASK Zürich (044 240 48 68) bietet Selbsthilfegruppen.","Lesen Sie Abschnitt 6 dieses Moduls — konkrete Handlungsschritte."]};
+}
+let ans={},cq=0,sr=false;
+function rn(){
+  const ad=Object.keys(ans).length,sc=Object.values(ans).reduce((a,b)=>a+b,0),aa=ad===Q.length;
+  document.getElementById('prog').innerHTML=Q.map((_,i)=>`<div class="${i<ad?'done':i===cq&&!sr?'cur':''}"></div>`).join('');
+  const cd=document.getElementById('card');
+  if(!sr){
+    const q=Q[cq],cv=ans[q.id];
+    cd.innerHTML=`<div class="qhdr"><div class="qnum">${cq+1}</div><p class="qtxt">${q.t}</p></div>
+    <div class="opts">${O.map(o=>`<button class="opt${cv===o.v?' sel':''}" onclick="sa(${q.id},${o.v})"><span class="em">${o.e}</span>${o.l}</button>`).join('')}</div>
+    <div class="nav"><button class="btn btn-back" ${cq===0?'disabled':''}onclick="pv()">← Zurück</button><span class="navlbl">${cq+1} / ${Q.length}</span>
+    ${cq<Q.length-1?`<button class="btn btn-next" ${cv===undefined?'disabled':''}onclick="nx()">Weiter →</button>`:`<button class="btn btn-next" ${!aa?'disabled':''}onclick="sh()">Auswerten</button>`}</div>`;
+  }else{
+    const r=gr(sc);
+    cd.innerHTML=`<div class="res-top"><div class="res-score" style="background:${r.bg};border:2px solid ${r.bd}"><span style="color:${r.c}">${sc}</span></div><div><div class="res-level" style="color:${r.c}">${r.lv==='niedrig'?'Grüner Bereich':r.lv==='mittel'?'Gelber Bereich':'Roter Bereich'}</div><div class="res-title">${r.ti}</div></div></div>
+    <div class="bar-wrap"><div class="bar-labels"><span>0</span><span>niedrig</span><span>mittel</span><span>hoch</span><span>20</span></div><div class="bar"><div class="bar-dot" style="left:${(sc/20)*100}%;border:3px solid ${r.c}"></div></div></div>
+    <p class="res-txt">${r.tx}</p>
+    <div class="rec" style="background:${r.bg};border-color:${r.c}"><div class="rec-title" style="color:${r.c}">Empfehlungen</div>${r.rc.map(x=>`<div class="rec-item" style="--c:${r.c}"><span style="position:absolute;left:0;color:${r.c};font-weight:700">→</span>${x}</div>`).join('')}</div>
+    <div class="disc"><strong>Wichtig:</strong> Dieser Selbsttest ist keine Diagnose. Er gibt Orientierung. Fachstelle PUK: <a href="tel:+41583843800">058 384 38 00</a>.</div>
+    <div class="btns"><button class="btn-reset" onclick="rs()">Nochmal machen</button><button class="btn-cont" onclick="location.href='/modul/4/'">Weiter im Modul →</button></div>`;
+  }
+}
+function sa(id,v){ans[id]=v;rn()}
+function nx(){cq++;rn()}
+function pv(){cq--;rn()}
+function sh(){sr=true;rn()}
+function rs(){ans={};cq=0;sr=false;rn()}
+rn();
+</script>
+</body>
+</html>

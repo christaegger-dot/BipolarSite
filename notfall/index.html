@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Notfallnummern, Krisenanleitungen und Soforthilfe für Angehörige bei bipolarer Störung. Suizid, Manie, Psychose, Gewalt. PUK Zürich.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notfall — Was tun Sie jetzt? | PUK Zürich</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,300;1,8..60,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+  :root{--sage-50:#f6f7f4;--sage-100:#eaede4;--sage-200:#d5dbc9;--sage-300:#b4bfa0;--sage-400:#748a5a;--sage-500:#6b7d52;--sage-600:#566642;--sage-700:#3d4a30;--warm-100:#f9f4eb;--warm-400:#c9a87a;--earth-700:#5c4a38;--earth-800:#3d3128;--earth-900:#2a211b;--cream:#fefcf8;--text:#2e2a25;--text-secondary:#5e564e;--text-muted:#706860;--alert-red:#c75450;--alert-red-bg:#fdf2f1;--alert-red-border:#f0c5c3;--blue-phase:#5b7fa5;--blue-phase-light:#eef3f8;--amber-phase:#c4933b;--amber-phase-light:#fdf6ea;--radius-sm:8px;--radius-md:14px;--radius-lg:22px;--radius-xl:32px;--shadow-soft:0 2px 16px rgba(45,40,35,0.06);--content-width:740px}
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;font-size:16px}
+  body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--cream);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  body::before{content:'';position:fixed;inset:0;opacity:0.025;pointer-events:none;z-index:9999;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(254,252,248,0.88);backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);border-bottom:1px solid rgba(45,40,35,0.06)}nav.scrolled{box-shadow:0 1px 12px rgba(45,40,35,0.08)}
+  .nav-inner{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px}
+  .nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text)}.nav-logo{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--alert-red),#a33d3a);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:13px;flex-shrink:0}.nav-brand-text{font-family:'Source Serif 4',serif;font-size:1rem;font-weight:600}
+  .nav-links{display:flex;gap:4px;align-items:center}.nav-links a{text-decoration:none;font-size:0.8rem;color:var(--text-secondary);padding:6px 12px;border-radius:var(--radius-sm);transition:all 0.25s ease;font-weight:500}.nav-links a:hover{background:var(--sage-100);color:var(--sage-700)}
+  .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;color:var(--text)}.nav-toggle svg{width:22px;height:22px}
+
+  .hero{padding:100px 2rem 40px;text-align:center}.hero-inner{max-width:var(--content-width);margin:0 auto}
+  .hero h1{font-family:'Source Serif 4',serif;font-size:clamp(2rem,4vw,2.6rem);font-weight:700;color:var(--earth-900);margin-bottom:12px}
+  .hero p{font-size:1rem;color:var(--text-secondary);max-width:520px;margin:0 auto 32px}
+
+  .content{max-width:var(--content-width);margin:0 auto;padding:0 2rem}
+  .content h2{font-family:'Source Serif 4',serif;font-size:1.5rem;font-weight:700;color:var(--earth-900);margin:56px 0 20px;padding-top:20px;border-top:1px solid rgba(45,40,35,0.06)}
+  .content h2:first-of-type{border-top:none;margin-top:0}
+  .content h3{font-family:'Source Serif 4',serif;font-size:1.1rem;font-weight:600;color:var(--earth-800);margin:28px 0 12px}
+  .content p{font-size:1rem;color:var(--text-secondary);margin-bottom:16px;line-height:1.75}
+  .content strong{color:var(--text);font-weight:600}
+
+  /* SITUATION SELECTOR */
+  .situations{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 40px}
+  .sit-card{display:flex;align-items:center;gap:14px;padding:16px 20px;border-radius:var(--radius-lg);text-decoration:none;color:var(--text);border:1px solid rgba(45,40,35,0.06);transition:all 0.25s ease;background:white}
+  .sit-card:hover{box-shadow:var(--shadow-soft);transform:translateY(-2px)}
+  .sit-card.urgent{border-color:var(--alert-red-border);background:var(--alert-red-bg)}
+  .sit-card.urgent:hover{border-color:var(--alert-red)}
+  .sit-badge{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:800;flex-shrink:0}
+  .sit-card.urgent .sit-badge{background:rgba(199,84,80,0.15);color:var(--alert-red)}
+  .sit-card:not(.urgent) .sit-badge{background:var(--sage-100);color:var(--sage-600)}
+  .sit-text{font-size:0.85rem;line-height:1.4}
+  .sit-text strong{display:block;font-size:0.88rem;margin-bottom:2px}
+  .sit-card.urgent .sit-text strong{color:var(--alert-red)}
+
+  /* NUMBERS */
+  .numbers-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:24px 0}
+  .number-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-md);padding:16px 20px;display:flex;align-items:center;gap:14px;transition:all 0.2s}
+  .number-card:hover{box-shadow:var(--shadow-soft)}
+  .number-card a{text-decoration:none;font-family:'Source Serif 4',serif;font-size:1.15rem;font-weight:700;color:var(--alert-red)}
+  .number-label{font-size:0.82rem;color:var(--text-secondary);line-height:1.3}
+  .number-sub{font-size:0.72rem;color:var(--text-muted)}
+
+  /* FU ALERT */
+  .fu-alert{background:var(--alert-red-bg);border:2px solid var(--alert-red-border);border-radius:var(--radius-xl);padding:28px 32px;margin:32px 0;display:flex;gap:20px;align-items:flex-start}
+  .fu-alert-icon{width:44px;height:44px;border-radius:12px;flex-shrink:0;background:rgba(199,84,80,0.12);color:var(--alert-red);display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:800}
+  .fu-alert h3{font-family:'Source Serif 4',serif;font-size:1rem;font-weight:700;color:var(--alert-red);margin:0 0 8px}
+  .fu-alert p{font-size:0.88rem;color:var(--text-secondary);line-height:1.6;margin:0 0 8px}
+  .fu-alert a{color:var(--alert-red);font-weight:600}
+
+  /* MINI GUIDES */
+  .guide{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-xl);margin:20px 0;overflow:hidden;transition:box-shadow 0.3s}.guide:hover{box-shadow:var(--shadow-soft)}
+  .guide-header{width:100%;padding:20px 28px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;background:none;border:none;text-align:left;font-family:'DM Sans',sans-serif}
+  .guide-header-left{display:flex;align-items:center;gap:14px}
+  .guide-badge{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:800;flex-shrink:0}
+  .guide-badge.red{background:rgba(199,84,80,0.12);color:var(--alert-red)}
+  .guide-badge.amber{background:var(--amber-phase-light);color:var(--amber-phase)}
+  .guide-badge.blue{background:var(--blue-phase-light);color:var(--blue-phase)}
+  .guide-title{font-weight:700;font-size:0.95rem;color:var(--text)}
+  .guide-subtitle{font-size:0.78rem;color:var(--text-muted);margin-top:2px}
+  .guide-chevron{width:28px;height:28px;border-radius:50%;background:var(--sage-50);display:flex;align-items:center;justify-content:center;transition:all 0.35s ease;color:var(--sage-400);font-size:0.8rem;flex-shrink:0}
+  .guide.open .guide-chevron{transform:rotate(180deg);background:var(--sage-200)}
+  .guide-body{max-height:0;overflow:hidden;transition:max-height 0.5s cubic-bezier(0.25,0.46,0.45,0.94)}
+  .guide.open .guide-body{max-height:1200px}
+  .guide-body-inner{padding:0 28px 28px}
+  .guide-body-inner ul{list-style:none;margin:0 0 16px}
+  .guide-body-inner li{font-size:0.9rem;color:var(--text-secondary);padding:6px 0 6px 20px;position:relative;line-height:1.6}
+  .guide-body-inner li::before{content:'→';position:absolute;left:0;color:var(--sage-400);font-weight:700;font-size:0.8rem}
+  .guide-do{background:var(--sage-50);border-radius:var(--radius-md);padding:14px 18px;margin:12px 0;font-size:0.86rem;color:var(--sage-700)}
+  .guide-dont{background:var(--alert-red-bg);border-radius:var(--radius-md);padding:14px 18px;margin:12px 0;font-size:0.86rem;color:#7a3a38}
+  .guide-sos{background:var(--alert-red-bg);border:1px solid var(--alert-red-border);border-radius:var(--radius-md);padding:14px 18px;margin:12px 0;font-size:0.88rem;color:var(--alert-red);font-weight:600}
+  .guide-sos a{color:var(--alert-red);font-weight:700}
+  .guide-link{display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;color:var(--sage-500);text-decoration:none;font-weight:600;margin-top:8px}
+
+  /* GRAUZONE */
+  .grauzone{background:var(--warm-100);border-radius:var(--radius-xl);padding:32px;margin:40px 0}
+  .grauzone h3{font-family:'Source Serif 4',serif;font-size:1.05rem;font-weight:600;color:var(--earth-800);margin:20px 0 8px}
+  .grauzone h3:first-of-type{margin-top:0}
+  .grauzone p{font-size:0.9rem;color:var(--text-secondary);line-height:1.6;margin:0 0 8px}
+  .grauzone-rule{background:white;border-radius:var(--radius-md);padding:18px 22px;margin:20px 0;font-size:0.92rem;color:var(--sage-700);font-weight:600;line-height:1.5}
+
+  footer{background:var(--earth-900);color:rgba(255,255,255,0.6);padding:48px 2rem 32px;margin-top:80px}.footer-inner{max-width:var(--content-width);margin:0 auto;text-align:center}.footer-inner p{font-size:0.8rem;line-height:1.7;margin-bottom:4px}.footer-inner a{color:rgba(255,255,255,0.5);text-decoration:none}.footer-links{margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08);font-size:0.75rem}.footer-links a{margin:0 10px}
+
+  @media(max-width:900px){.nav-links{display:none}.nav-toggle{display:flex}.situations{grid-template-columns:1fr}.numbers-grid{grid-template-columns:1fr}}
+  @media(max-width:600px){.hero{padding:90px 1.2rem 30px}.content{padding:0 1.2rem}.fu-alert{flex-direction:column}}
+  *:focus-visible{outline:2px solid var(--sage-500);outline-offset:2px;border-radius:4px}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
+  .skip-link:focus{position:fixed!important;top:12px;left:12px;width:auto;height:auto;padding:12px 20px;background:var(--sage-700);color:white;border-radius:8px;font-size:0.85rem;font-weight:600;z-index:10000;text-decoration:none}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:999">Direkt zum Inhalt</a>
+
+<nav id="navbar"><div class="nav-inner">
+  <a href="/" class="nav-brand"><div class="nav-logo">SOS</div><div class="nav-brand-text">Notfall</div></a>
+  <div class="nav-links"><a href="/">Startseite</a><a href="/#module">Module</a></div>
+  <button class="nav-toggle" aria-label="Menü"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div></nav>
+
+<header class="hero"><div class="hero-inner">
+  <h1>Notfall — Was tun Sie jetzt?</h1>
+  <p>Rufen Sie im Zweifel sofort an. Hier finden Sie die richtigen Nummern und konkrete Handlungsschritte.</p>
+
+  <div class="situations">
+    <a href="#guide-suizid" class="sit-card urgent"><div class="sit-badge">!</div><div class="sit-text"><strong>Suizidgedanken</strong>144 oder 0800 33 66 55</div></a>
+    <a href="#guide-psychose" class="sit-card urgent"><div class="sit-badge">!</div><div class="sit-text"><strong>Psychose / Wahn / Paranoia</strong>0800 33 66 55</div></a>
+    <a href="#guide-manie" class="sit-card urgent"><div class="sit-badge">!</div><div class="sit-text"><strong>Manie ausser Kontrolle</strong>0800 33 66 55</div></a>
+    <a href="#guide-gewalt" class="sit-card urgent"><div class="sit-badge">!</div><div class="sit-text"><strong>Gewalt oder Bedrohung</strong>117 (Polizei)</div></a>
+    <a href="#guide-depression" class="sit-card"><div class="sit-badge">–</div><div class="sit-text"><strong>Schwere Depression</strong>143 oder 0800 33 66 55</div></a>
+    <a href="#guide-finanzen" class="sit-card"><div class="sit-badge">CHF</div><div class="sit-text"><strong>Finanzielle Eskalation</strong>Spontankäufe, Verträge, Schulden</div></a>
+  </div>
+</div></header>
+
+<main class="content" id="main-content">
+
+  <!-- NUMMERN -->
+  <h2>Alle Notfallnummern</h2>
+  <div class="numbers-grid">
+    <div class="number-card"><div><a href="tel:+41800336655">0800 33 66 55</a><div class="number-label">Psychiatrischer Notfalldienst ZH</div><div class="number-sub">24/7, kostenlos</div></div></div>
+    <div class="number-card"><div><a href="tel:144">144</a><div class="number-label">Sanität / Rettungsdienst</div><div class="number-sub">Akute Gefahr für Leib und Leben</div></div></div>
+    <div class="number-card"><div><a href="tel:117">117</a><div class="number-label">Polizei</div><div class="number-sub">Gewalt oder unmittelbare Bedrohung</div></div></div>
+    <div class="number-card"><div><a href="tel:143">143</a><div class="number-label">Dargebotene Hand</div><div class="number-sub">24/7 — auch für Angehörige</div></div></div>
+    <div class="number-card"><div><a href="tel:+41583842000">058 384 20 00</a><div class="number-label">PUK Zürich — Notfall Erwachsene</div><div class="number-sub">Ab 18 Jahre, 24/7</div></div></div>
+    <div class="number-card"><div><a href="tel:+41583846666">058 384 66 66</a><div class="number-label">PUK Zürich — Kinder/Jugendliche</div><div class="number-sub">24/7</div></div></div>
+    <div class="number-card"><div><a href="tel:+41583843800">058 384 38 00</a><div class="number-label">Fachstelle Angehörigenarbeit PUK</div><div class="number-sub">Beratung — kostenlos, vertraulich</div></div></div>
+    <div class="number-card"><div><a href="tel:+41848800858">0848 800 858</a><div class="number-label">Pro Mente Sana</div><div class="number-sub">Rechtsberatung, FU, Vorsorge</div></div></div>
+  </div>
+
+  <p style="font-size:0.88rem;color:var(--sage-500);font-weight:600"><strong>Krisenplan vorhanden?</strong> Öffnen Sie Ihren Krisenplan und folgen Sie den vereinbarten Schritten. Noch keinen? → <a href="/modul/6/" style="color:var(--sage-500)">Modul 6: Krisenplan erstellen</a></p>
+
+  <!-- FU ALERT -->
+  <div class="fu-alert">
+    <div class="fu-alert-icon">FU</div>
+    <div>
+      <h3>Fürsorgerische Unterbringung (FU)</h3>
+      <p>Wenn eine Person sich selbst oder andere gefährdet und keine Einsicht zeigt, kann eine FU in eine Klinik erfolgen — auch gegen den Willen. Das ist ein letztes Mittel und eine schwere Entscheidung.</p>
+      <p><a href="tel:+41848800858">Pro Mente Sana (0848 800 858)</a> berät kostenlos zu rechtlichen Fragen. Die Fachstelle Angehörigenarbeit der PUK unterstützt Sie bei dieser Entscheidung.</p>
+    </div>
+  </div>
+
+  <!-- MINI GUIDES -->
+  <h2>Was passiert gerade? — Mini-Guides</h2>
+  <p>Wählen Sie die Situation, die am ehesten zutrifft. Ausführliche Kommunikationswerkzeuge finden Sie in <a href="/modul/6/" style="color:var(--sage-500)">Modul 6</a>.</p>
+
+  <!-- SUIZID -->
+  <div class="guide" id="guide-suizid">
+    <button class="guide-header" onclick="toggleGuide(this)">
+      <div class="guide-header-left"><div class="guide-badge red">SOS</div><div><div class="guide-title">Suizidgedanken</div><div class="guide-subtitle">Die Person spricht davon, sich etwas anzutun</div></div></div>
+      <div class="guide-chevron">▼</div>
+    </button>
+    <div class="guide-body"><div class="guide-body-inner">
+      <ul>
+        <li>Nehmen Sie jede Äusserung ernst — auch indirekte: «Es wäre besser, wenn ich nicht mehr da wäre.»</li>
+        <li><strong>Fragen Sie direkt:</strong> «Denkst du daran, dir etwas anzutun?» Diese Frage löst Suizidgedanken <em>nicht</em> aus (Dazzi et al., 2014).</li>
+        <li>Hören Sie zu. Nicht bewerten, nicht bagatellisieren.</li>
+        <li>Sichern Sie die Umgebung: Medikamente, scharfe Gegenstände ausser Reichweite.</li>
+        <li>Bleiben Sie bei der Person, bis professionelle Hilfe eintrifft.</li>
+      </ul>
+      <div class="guide-sos">Bei konkretem Plan oder vorhandenen Mitteln: sofort <a href="tel:144">144</a> anrufen. Nicht allein bewältigen.</div>
+      <div class="guide-do">✓ Zuhören. Direkt fragen. Bei der Person bleiben. Fachpersonen einbeziehen.</div>
+      <div class="guide-dont">✗ «Das wird schon.» Bagatellisieren. Allein lassen. Versprechen erzwingen.</div>
+      <a href="/handouts/c2_suizidgedanken.pdf" target="_blank" class="guide-link">↓ Handout: Umgang mit Suizidgedanken (PDF)</a>
+    </div></div>
+  </div>
+
+  <!-- MANIE -->
+  <div class="guide" id="guide-manie">
+    <button class="guide-header" onclick="toggleGuide(this)">
+      <div class="guide-header-left"><div class="guide-badge red">!</div><div><div class="guide-title">Manie ausser Kontrolle</div><div class="guide-subtitle">Euphorie, Schlaflosigkeit, Grössenideen, Impulsivität</div></div></div>
+      <div class="guide-chevron">▼</div>
+    </button>
+    <div class="guide-body"><div class="guide-body-inner">
+      <ul>
+        <li>Schläft die Person seit 2+ Nächten kaum? Gibt sie unkontrolliert Geld aus? Ungewöhnlich reizbar oder grandios?</li>
+        <li>Sprechen Sie ruhig und kurz: ein Satz, ein Anliegen. Nicht argumentieren.</li>
+        <li>Krisenplan aktivieren — wenn vorhanden. Sonst: Behandlungsteam informieren.</li>
+        <li>Finanzen schützen: Konten, Kreditkarten, Vollmachten prüfen.</li>
+        <li>Fahren lassen? Nur wenn die Person sicher fahren kann. Im Zweifel: Nein.</li>
+      </ul>
+      <div class="guide-do">✓ Ruhig bleiben. Kurze Sätze. Sicherheit priorisieren. Behandlungsteam anrufen.</div>
+      <div class="guide-dont">✗ «Du bist manisch!» Diskutieren. Ultimaten. Allein lösen wollen.</div>
+      <div class="guide-sos">Bei Selbst-/Fremdgefährdung: <a href="tel:144">144</a> oder <a href="tel:117">117</a></div>
+      <a href="/modul/6/" class="guide-link">↓ Handout: Umgang mit Manie (PDF)</a> · <a href="/modul/6/#manie-komm" class="guide-link">→ Modul 6: Manie-Kommunikation</a>
+    </div></div>
+  </div>
+
+  <!-- DEPRESSION -->
+  <div class="guide" id="guide-depression">
+    <button class="guide-header" onclick="toggleGuide(this)">
+      <div class="guide-header-left"><div class="guide-badge blue">–</div><div><div class="guide-title">Schwere Depression</div><div class="guide-subtitle">Rückzug, Antriebslosigkeit, Hoffnungslosigkeit</div></div></div>
+      <div class="guide-chevron">▼</div>
+    </button>
+    <div class="guide-body"><div class="guide-body-inner">
+      <ul>
+        <li>Anwesenheit ist wichtiger als Worte. «Ich bin da. Du musst nichts sagen.»</li>
+        <li>Ermutigen Sie zur Kontaktaufnahme mit dem Behandlungsteam — bieten Sie an, gemeinsam anzurufen.</li>
+        <li>Medikamenten-Einnahme sanft begleiten: «Ich erinnere dich gern» statt «Schon wieder vergessen?»</li>
+        <li>Schützen Sie sich selbst: Depressive Phasen können Ihre eigene Stimmung mitsinken lassen.</li>
+      </ul>
+      <div class="guide-do">✓ Da sein. Geduld. Alltag aufrechterhalten. Eigene Grenzen wahren.</div>
+      <div class="guide-dont">✗ «Reiss dich zusammen.» Vergleiche. Ratschläge. Schuldgefühle machen.</div>
+      <div class="guide-sos">Bei Suizidgedanken: direkt fragen + <a href="tel:+41800336655">0800 33 66 55</a></div>
+      <a href="/modul/6/" class="guide-link">↓ Handout: Umgang mit Depression (PDF)</a> · <a href="/modul/6/#depression-komm" class="guide-link">→ Modul 6: Depressions-Kommunikation</a>
+    </div></div>
+  </div>
+
+  <!-- PSYCHOSE + PARANOIA -->
+  <div class="guide" id="guide-psychose">
+    <button class="guide-header" onclick="toggleGuide(this)">
+      <div class="guide-header-left"><div class="guide-badge red">◉</div><div><div class="guide-title">Psychose, Wahn oder Paranoia</div><div class="guide-subtitle">Die Person glaubt Dinge, die nicht real sind — oder beschuldigt Sie</div></div></div>
+      <div class="guide-chevron">▼</div>
+    </button>
+    <div class="guide-body"><div class="guide-body-inner">
+      <ul>
+        <li>Wahnideen und paranoide Gedanken fühlen sich für die Person absolut real an. <strong>Sie können sie nicht wegdiskutieren.</strong></li>
+        <li>Ruhig, langsam, kurze Sätze. Nicht widersprechen, nicht bestätigen: «Ich verstehe, dass du das so siehst. Ich sehe es anders.»</li>
+        <li>Dies gilt auch bei Paranoia — wenn Ihr Partner Sie beschuldigt, belogen oder betrogen zu werden. Anerkennen Sie die Gefühle, nicht den Inhalt: «Ich höre, dass du dir Sorgen machst.»</li>
+        <li>Reizarme Umgebung: wenig Licht, wenig Lärm, wenig Besucher.</li>
+        <li>Behandlungsteam sofort informieren. Psychotische Episoden erfordern fast immer professionelle Intervention.</li>
+        <li>Sichern Sie sich ab: Fluchtweg offenhalten, Kinder in Sicherheit.</li>
+      </ul>
+      <div class="guide-do">✓ Ruhe. Einfache Sprache. Gefühle anerkennen, nicht den Inhalt. Professionelle Hilfe.</div>
+      <div class="guide-dont">✗ «Das bildest du dir ein!» Diskutieren. Sich verteidigen. Allein managen.</div>
+      <div class="guide-sos">Bei Bedrohung oder Gewalt: sofort <a href="tel:117">117</a>. Ihre Sicherheit geht vor.</div>
+      <a href="/handouts/c3_psychose_wahn.pdf" target="_blank" class="guide-link">↓ Handout: Umgang mit Psychose und Wahn (PDF)</a>
+    </div></div>
+  </div>
+
+  <!-- GEWALT -->
+  <div class="guide" id="guide-gewalt">
+    <button class="guide-header" onclick="toggleGuide(this)">
+      <div class="guide-header-left"><div class="guide-badge red">!</div><div><div class="guide-title">Gewalt oder Bedrohung</div><div class="guide-subtitle">Körperliche oder verbale Gewalt, Zerstörung, Bedrohung</div></div></div>
+      <div class="guide-chevron">▼</div>
+    </button>
+    <div class="guide-body"><div class="guide-body-inner">
+      <ul>
+        <li><strong>Ihre Sicherheit geht vor.</strong> Verlassen Sie den Raum. Nehmen Sie Kinder mit.</li>
+        <li>Rufen Sie <a href="tel:117" style="color:var(--alert-red);font-weight:700">117</a> (Polizei) an. Das ist kein Verrat — es ist Schutz.</li>
+        <li>Gehen Sie zu Nachbarn, Freunden oder einem öffentlichen Ort.</li>
+        <li>Dokumentieren Sie Verletzungen (Fotos, Datum, Uhrzeit).</li>
+        <li>Opferhilfe Zürich: <a href="tel:+41442994050" style="color:var(--alert-red);font-weight:600">044 299 40 50</a> — kostenlos, vertraulich.</li>
+      </ul>
+      <div class="guide-do">✓ Raum verlassen. Kinder mitnehmen. 117 anrufen. Dokumentieren.</div>
+      <div class="guide-dont">✗ Sich verteidigen, wenn es eskaliert. Allein bleiben. Vorfall verschweigen.</div>
+      <p style="font-size:0.88rem;color:var(--text-secondary);margin-top:12px"><strong>Wichtig:</strong> Gewalt ist nie akzeptabel — auch nicht als Symptom einer Erkrankung. Das zu benennen ist kein Verrat an Ihrem Partner.</p>
+    </div></div>
+  </div>
+
+  <!-- FINANZEN AKUT -->
+  <div class="guide" id="guide-finanzen">
+    <button class="guide-header" onclick="toggleGuide(this)">
+      <div class="guide-header-left"><div class="guide-badge amber">CHF</div><div><div class="guide-title">Finanzielle Eskalation</div><div class="guide-subtitle">Spontankäufe, Verträge, Schulden während einer Manie</div></div></div>
+      <div class="guide-chevron">▼</div>
+    </button>
+    <div class="guide-body"><div class="guide-body-inner">
+      <ul>
+        <li><strong>Bank sofort kontaktieren</strong> und die Situation schildern — viele haben Protokolle für solche Fälle.</li>
+        <li>Käufe können unter Umständen angefochten werden bei nachgewiesener Geschäftsunfähigkeit (Art. 18 ZGB).</li>
+        <li><strong>KESB kontaktieren</strong> (Kindes- und Erwachsenenschutzbehörde) für schnelle Schutzmassnahmen.</li>
+        <li>Alles dokumentieren: Kontoauszüge, Verträge, Kommunikation — mit Datum und Uhrzeit.</li>
+        <li>Rechtsberatung: <a href="tel:+41848800858" style="color:var(--sage-500);font-weight:600">Pro Mente Sana (0848 800 858)</a> — kostenlos.</li>
+      </ul>
+      <div class="guide-do">✓ Bank anrufen. Dokumentieren. KESB oder Rechtsberatung kontaktieren.</div>
+      <div class="guide-dont">✗ Käufe selbst rückgängig machen wollen. Konfrontieren in der Manie. Abwarten.</div>
+      <p style="font-size:0.86rem;color:var(--text-muted);margin-top:12px">Präventive Massnahmen (Transaktionslimiten, Vorsorgevollmacht, Bankabsprachen) → <a href="/modul/6/" style="color:var(--sage-500)">Modul 6: Vorbereitung</a></p>
+    </div></div>
+  </div>
+
+  <!-- GRAUZONE -->
+  <div class="grauzone">
+    <h2 style="margin:0 0 16px;padding:0;border:none;font-size:1.3rem">Die Grauzone: Wann ist es wirklich ein Notfall?</h2>
+
+    <h3>«Es könnte schlimmer werden»</h3>
+    <p>Frühe Warnsignale, aber noch "funktionsfähig". <strong>→ Jetzt handeln.</strong> Behandlungsteam kontaktieren. Früh intervenieren ist fast immer besser als warten.</p>
+
+    <h3>«Er/sie sagt, es ist nichts»</h3>
+    <p>Die Person verneint. Sie sehen es aber. <strong>→ Vertrauen Sie Ihrer Wahrnehmung.</strong> Kontaktieren Sie das Behandlungsteam — das dürfen Sie immer, auch ohne Einwilligung.</p>
+
+    <h3>«Ich weiss nicht, ob es ernst gemeint ist»</h3>
+    <p>Suizidgedanken "nur als Witz" oder beiläufig geäussert. <strong>→ Immer ernst nehmen.</strong> Direkt fragen, dann Fachpersonen einbeziehen.</p>
+
+    <div class="grauzone-rule">Faustregel: Lieber einmal zu viel anrufen als einmal zu wenig. Der Notfalldienst ist dafür da, Ihnen bei der Einschätzung zu helfen.</div>
+  </div>
+
+  <p style="font-size:0.88rem;color:var(--text-muted);text-align:center;margin-top:32px"><strong>Diese Kurzanleitungen ersetzen keine professionelle Beratung.</strong> Sie geben Orientierung für die ersten Minuten. Wenn Sie unsicher sind, rufen Sie immer an.</p>
+
+  <p style="font-size:0.86rem;color:var(--sage-500);text-align:center;margin-top:20px"><a href="/modul/8/" style="color:var(--sage-500)">→ Alle Handouts & Downloads</a> · <a href="/modul/8/#anlaufstellen" style="color:var(--sage-500)">→ Beratungsstellen (Modul 8)</a> · <a href="/#module" style="color:var(--sage-500)">→ Module (Psychoedukation)</a></p>
+
+</main>
+
+<footer><div class="footer-inner">
+  <p><strong style="color:white">Psychiatrische Universitätsklinik Zürich</strong></p>
+  <p>Fachstelle Angehörigenarbeit · Lenggstrasse 31, 8032 Zürich</p>
+  <p>Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026</p>
+  <p style="margin-top:8px">Diese Inhalte ersetzen keine professionelle Beratung.</p>
+  <div class="footer-links"><a href="/impressum/">Impressum</a><a href="/impressum/#datenschutz">Datenschutz</a><a href="/impressum/#barrierefreiheit">Barrierefreiheit</a></div>
+</div></footer>
+
+<script>
+  const nav=document.getElementById('navbar');window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>20));
+  function toggleGuide(btn){const g=btn.closest('.guide');const wasOpen=g.classList.contains('open');document.querySelectorAll('.guide').forEach(el=>el.classList.remove('open'));if(!wasOpen)g.classList.add('open')}
+  // Auto-open guide if hash matches
+  if(window.location.hash){const t=document.querySelector(window.location.hash);if(t&&t.classList.contains('guide'))t.classList.add('open')}
+</script>
+</body>
+</html>

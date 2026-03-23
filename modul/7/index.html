@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Selbstfürsorge, fünf Säulen der Solidarität, Trialog und posttraumatisches Wachstum. Resilienz für Angehörige. PUK Zürich.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modul 7: Resilienz und Selbstfürsorge | PUK Zürich</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,300;1,8..60,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+  :root{--sage-50:#f6f7f4;--sage-100:#eaede4;--sage-200:#d5dbc9;--sage-300:#b4bfa0;--sage-400:#748a5a;--sage-500:#6b7d52;--sage-600:#566642;--sage-700:#3d4a30;--warm-50:#fdfbf7;--warm-100:#f9f4eb;--warm-200:#f0e6d3;--warm-400:#c9a87a;--earth-700:#5c4a38;--earth-800:#3d3128;--earth-900:#2a211b;--cream:#fefcf8;--text:#2e2a25;--text-secondary:#5e564e;--text-muted:#706860;--alert-red:#c75450;--alert-red-bg:#fdf2f1;--alert-red-border:#f0c5c3;--blue-phase:#5b7fa5;--blue-phase-light:#eef3f8;--amber-phase:#c4933b;--amber-phase-light:#fdf6ea;--green-phase:#6b9a6b;--radius-sm:8px;--radius-md:14px;--radius-lg:22px;--radius-xl:32px;--shadow-soft:0 2px 16px rgba(45,40,35,0.06);--shadow-card:0 4px 24px rgba(45,40,35,0.08);--content-width:740px}
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;font-size:16px}
+  body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--cream);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  body::before{content:'';position:fixed;inset:0;opacity:0.025;pointer-events:none;z-index:9999;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(254,252,248,0.88);backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);border-bottom:1px solid rgba(45,40,35,0.06)}nav.scrolled{box-shadow:0 1px 12px rgba(45,40,35,0.08)}
+  .nav-inner{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px}
+  .nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text)}.nav-logo{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--sage-400),var(--sage-600));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:13px;flex-shrink:0}.nav-brand-text{font-family:'Source Serif 4',serif;font-size:1rem;font-weight:600}
+  .nav-links{display:flex;gap:4px;align-items:center}.nav-links a{text-decoration:none;font-size:0.8rem;color:var(--text-secondary);padding:6px 12px;border-radius:var(--radius-sm);transition:all 0.25s ease;font-weight:500}.nav-links a:hover{background:var(--sage-100);color:var(--sage-700)}.nav-sos{background:var(--alert-red-bg)!important;color:var(--alert-red)!important;font-weight:600!important;border:1px solid var(--alert-red-border)!important}
+  .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;color:var(--text)}.nav-toggle svg{width:22px;height:22px}
+  .reading-progress{position:fixed;top:64px;left:0;right:0;height:3px;background:var(--sage-100);z-index:99}.reading-progress-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--sage-400),var(--sage-500));transition:width 0.15s ease}
+
+  .module-hero{padding:120px 2rem 60px;position:relative;overflow:hidden}.module-hero::before{content:'';position:absolute;top:-30%;right:-15%;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,var(--sage-100) 0%,transparent 70%);opacity:0.6}.module-hero-inner{max-width:var(--content-width);margin:0 auto;position:relative;z-index:2}
+  .breadcrumb{font-size:0.8rem;color:var(--text-muted);margin-bottom:20px;display:flex;align-items:center;gap:8px}.breadcrumb a{color:var(--sage-500);text-decoration:none}
+  .hero-icon{width:40px;height:40px;color:var(--sage-400);opacity:0.7;margin-bottom:12px;display:block}.module-badge{display:inline-flex;background:var(--sage-100);color:var(--sage-700);padding:6px 16px;border-radius:100px;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px}
+  .module-hero h1{font-family:'Source Serif 4',serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:700;line-height:1.2;letter-spacing:-0.03em;color:var(--earth-900);margin-bottom:16px}
+  .module-meta{display:flex;align-items:center;gap:20px;font-size:0.85rem;color:var(--text-muted);margin-bottom:28px}
+
+  .toc{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:28px 32px;margin-bottom:48px;box-shadow:var(--shadow-soft)}.toc-title{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--sage-500);margin-bottom:14px}
+  .toc ol{list-style:none;counter-reset:toc-counter;display:grid;grid-template-columns:1fr 1fr;gap:4px 20px}.toc li{counter-increment:toc-counter}.toc li a{text-decoration:none;color:var(--text-secondary);font-size:0.88rem;display:block;padding:8px 0 8px 28px;position:relative;transition:color 0.2s}.toc li a::before{content:counter(toc-counter);font-size:0.7rem;font-weight:700;color:var(--sage-400);position:absolute;left:0;top:10px}.toc li a:hover{color:var(--sage-600)}.toc-desc{display:block;font-size:0.72rem;color:var(--text-muted);line-height:1.35;margin-top:2px;font-weight:400}.toc li a.active{color:var(--sage-700);font-weight:700}.toc li a.active::after{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--sage-400);margin-left:8px;vertical-align:middle}
+
+  .content{max-width:var(--content-width);margin:0 auto;padding:0 2rem}
+  .content h2{scroll-margin-top:84px;font-family:'Source Serif 4',serif;font-size:1.65rem;font-weight:700;line-height:1.25;letter-spacing:-0.02em;color:var(--earth-900);margin:64px 0 20px;padding-top:20px;border-top:1px solid rgba(45,40,35,0.06)}.content h2:first-of-type{border-top:none;margin-top:0}
+  .content h3{font-family:'Source Serif 4',serif;font-size:1.15rem;font-weight:600;line-height:1.35;color:var(--earth-800);margin:32px 0 14px}
+  .content p{font-size:1rem;color:var(--text-secondary);margin-bottom:18px;line-height:1.75}.content strong{color:var(--text);font-weight:600}
+
+  .quote-block{background:var(--warm-100);border-radius:var(--radius-lg);padding:32px 36px;margin:36px 0;position:relative}.quote-block::before{content:'«';font-family:'Source Serif 4',serif;font-size:4rem;color:var(--warm-400);position:absolute;top:12px;left:20px;line-height:1;opacity:0.5}
+  .quote-block blockquote{font-family:'Source Serif 4',serif;font-size:1.05rem;font-style:italic;color:var(--earth-700);line-height:1.65;padding-left:12px}
+  .quote-block cite{display:block;margin-top:14px;font-style:normal;font-family:'DM Sans',sans-serif;font-size:0.82rem;color:var(--text-muted);padding-left:12px}
+
+  /* SELFCARE GRID */
+  .selfcare-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:28px 0}
+  .selfcare-card{padding:24px;border-radius:var(--radius-lg);border-top:4px solid}
+  .selfcare-card.body{background:var(--blue-phase-light);border-top-color:var(--blue-phase)}
+  .selfcare-card.soul{background:var(--amber-phase-light);border-top-color:var(--amber-phase)}
+  .selfcare-card.relation{background:var(--sage-50);border-top-color:var(--green-phase)}
+  .selfcare-card h4{font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px}
+  .selfcare-card.body h4{color:var(--blue-phase)}.selfcare-card.soul h4{color:var(--amber-phase)}.selfcare-card.relation h4{color:var(--green-phase)}
+  .selfcare-card ul{list-style:none}.selfcare-card li{font-size:0.86rem;padding:4px 0;line-height:1.5}
+  .selfcare-card.body li{color:#4a6580}.selfcare-card.soul li{color:#8a6e30}.selfcare-card.relation li{color:var(--sage-700)}
+
+  /* COPING */
+  .coping-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:24px 0}
+  .coping-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:22px}
+  .coping-card h4{font-size:0.88rem;font-weight:700;color:var(--text);margin-bottom:10px}
+  .coping-card ul{list-style:none}.coping-card li{font-size:0.86rem;color:var(--text-secondary);padding:3px 0 3px 16px;position:relative;line-height:1.5}
+  .coping-card li::before{content:'·';position:absolute;left:0;color:var(--sage-300);font-weight:700}
+
+  /* PILLAR CARDS */
+  .pillar-cards{display:grid;grid-template-columns:1fr;gap:12px;margin:28px 0}
+  .pillar-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:22px 26px;display:flex;gap:18px;align-items:flex-start;transition:all 0.3s ease}
+  .pillar-card:hover{box-shadow:var(--shadow-soft);transform:translateY(-2px)}
+  .pillar-num{width:36px;height:36px;border-radius:10px;background:var(--sage-100);color:var(--sage-600);display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:800;flex-shrink:0}
+  .pillar-card h4{font-size:0.92rem;font-weight:700;color:var(--text);margin-bottom:4px}
+  .pillar-card p{font-size:0.86rem;color:var(--text-secondary);line-height:1.55;margin:0}
+
+  /* WISH CARDS */
+  .wish-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0}
+  .wish-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:22px;border-left:4px solid var(--warm-400)}
+  .wish-card h4{font-size:0.88rem;font-weight:700;color:var(--earth-800);margin-bottom:6px}
+  .wish-card p{font-size:0.84rem;color:var(--text-secondary);line-height:1.55;margin:0;font-style:italic}
+
+  /* TRIALOG */
+  .trialog-visual{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:28px 0}
+  .trialog-card{text-align:center;padding:24px;border-radius:var(--radius-lg);background:white;border:1px solid rgba(45,40,35,0.06)}
+  .trialog-card .trialog-icon{font-size:1.6rem;margin-bottom:10px}
+  .trialog-card h4{font-size:0.85rem;font-weight:700;color:var(--text);margin-bottom:6px}
+  .trialog-card p{font-size:0.82rem;color:var(--text-muted);line-height:1.5;margin:0}
+
+  /* NACHKRISE */
+  .nachkrise-items{list-style:none;margin:20px 0}
+  .nachkrise-items li{font-size:0.92rem;color:var(--text-secondary);padding:8px 0 8px 24px;position:relative;line-height:1.6;border-bottom:1px solid rgba(45,40,35,0.04)}
+  .nachkrise-items li::before{content:'—';position:absolute;left:0;color:var(--amber-phase);font-weight:700}
+
+  /* CHART */
+  .chart-section{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-xl);padding:36px;margin:40px 0;box-shadow:var(--shadow-soft)}
+  .chart-section h3{font-family:'Source Serif 4',serif;font-size:1.1rem;font-weight:600;margin-bottom:8px;color:var(--earth-800)}
+  .chart-section>p{font-size:0.88rem;color:var(--text-muted);margin-bottom:20px}
+  .chart-wrap svg{width:100%;height:auto;display:block}
+  .chart-caption{font-size:0.78rem;color:var(--text-muted);line-height:1.6;margin-top:14px}
+
+  /* PTG */
+  .ptg-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0}
+  .ptg-card{background:var(--sage-50);border-radius:var(--radius-md);padding:18px;text-align:center}
+  .ptg-card .ptg-icon{font-size:1.3rem;margin-bottom:6px}
+  .ptg-card p{font-size:0.84rem;color:var(--sage-700);line-height:1.5;margin:0}
+
+  .action-grid{display:grid;grid-template-columns:1fr;gap:14px;margin:28px 0}
+  .action-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:24px;display:flex;gap:20px;align-items:flex-start;transition:all 0.3s ease}.action-card:hover{box-shadow:var(--shadow-soft);transform:translateY(-2px)}
+  .action-icon{width:42px;height:42px;border-radius:11px;background:var(--sage-100);color:var(--sage-600);display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:800;flex-shrink:0}
+  .action-card h4{font-weight:700;font-size:0.92rem;margin-bottom:6px;color:var(--text)}.action-card p{font-size:0.85rem;color:var(--text-muted);line-height:1.6;margin:0}
+
+  .reflection{background:linear-gradient(135deg,var(--warm-100),var(--sage-50));border-radius:var(--radius-xl);padding:36px;margin:48px 0;position:relative;overflow:hidden}.reflection::before{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;border-radius:50%;background:rgba(141,156,115,0.1)}
+  .reflection-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--sage-500);margin-bottom:12px}
+  .reflection h3{font-family:'Source Serif 4',serif;font-size:1.15rem;font-weight:600;color:var(--earth-800);margin-bottom:14px;line-height:1.35}
+  .reflection p{font-size:0.92rem;color:var(--text-secondary);line-height:1.7;position:relative;z-index:1;margin:0}
+
+  .takeaways{background:var(--sage-700);color:white;border-radius:var(--radius-xl);padding:40px;margin:48px 0;position:relative;overflow:hidden}.takeaways::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 80%,rgba(141,156,115,0.25) 0%,transparent 60%)}
+  .takeaways-inner{position:relative;z-index:2}.takeaways h3{color:white;font-family:'Source Serif 4',serif;font-size:1.3rem;font-weight:600;margin-bottom:24px}
+  .takeaway-item{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-top:1px solid rgba(255,255,255,0.1)}.takeaway-item:first-of-type{border-top:none}
+  .takeaway-check{width:24px;height:24px;border-radius:6px;flex-shrink:0;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-size:0.7rem;margin-top:2px}
+  .takeaway-item p{font-size:0.92rem;line-height:1.65;color:rgba(255,255,255,0.88);margin:0}.takeaway-item strong{color:white}
+
+  .sources{background:var(--sage-50);border-radius:var(--radius-lg);padding:28px 32px;margin:48px 0}.sources h4{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--sage-500);margin-bottom:14px}.sources ul{list-style:none;max-height:0;overflow:hidden;transition:max-height 0.5s ease}.sources.sources-open ul{max-height:2000px}.sources h4::after{content:" ▾";font-size:0.7rem;opacity:0.5}.sources.sources-open h4::after{content:" ▴"}.sources li{font-size:0.82rem;color:var(--text-muted);padding:6px 0 6px 16px;position:relative;line-height:1.6}.sources li::before{content:'·';position:absolute;left:0;font-weight:700;color:var(--sage-300)}
+
+  .handouts{margin:48px 0}.handouts-title{font-family:'Source Serif 4',serif;font-size:1.2rem;font-weight:600;color:var(--earth-800);margin-bottom:20px}
+  .handouts-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .handout-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-md);padding:20px;text-decoration:none;color:var(--text);display:flex;align-items:center;gap:16px;transition:all 0.3s ease}.handout-card:hover{box-shadow:var(--shadow-soft);transform:translateY(-2px);border-color:var(--sage-200)}
+  .handout-icon{width:44px;height:44px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700}.handout-icon.green{background:var(--sage-100);color:var(--sage-600)}
+  .handout-card-title{font-weight:600;font-size:0.88rem;margin-bottom:2px}.handout-card-sub{font-size:0.75rem;color:var(--text-muted)}
+
+  .next-module{margin:64px 0 0;border-top:1px solid rgba(45,40,35,0.06);padding-top:48px}
+  .next-module-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-xl);padding:36px;text-decoration:none;color:var(--text);display:flex;align-items:center;justify-content:space-between;gap:32px;transition:all 0.4s ease}.next-module-card:hover{box-shadow:0 8px 40px rgba(45,40,35,0.12);transform:translateY(-3px);border-color:var(--sage-200)}
+  .next-module-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--sage-500);margin-bottom:8px}.next-module-title{font-family:'Source Serif 4',serif;font-size:1.3rem;font-weight:600;color:var(--earth-800);margin-bottom:8px}.next-module-desc{font-size:0.88rem;color:var(--text-muted);line-height:1.55}
+  .next-module-arrow{width:56px;height:56px;border-radius:50%;flex-shrink:0;background:var(--sage-100);color:var(--sage-600);display:flex;align-items:center;justify-content:center;font-size:1.3rem;transition:all 0.3s ease}.next-module-card:hover .next-module-arrow{background:var(--sage-500);color:white;transform:translateX(4px)}
+
+  footer{background:var(--earth-900);color:rgba(255,255,255,0.6);padding:48px 2rem 32px;margin-top:80px}.footer-inner{max-width:var(--content-width);margin:0 auto;text-align:center}.footer-inner p{font-size:0.8rem;line-height:1.7;margin-bottom:4px}.footer-inner a{color:rgba(255,255,255,0.5);text-decoration:none}.footer-links{margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08);font-size:0.75rem}.footer-links a{margin:0 10px}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:all 0.6s cubic-bezier(0.25,0.46,0.45,0.94)}.reveal.visible{opacity:1;transform:translateY(0)}
+
+  @media(max-width:900px){.nav-links{display:none}.nav-toggle{display:flex}.toc ol{grid-template-columns:1fr}.selfcare-grid{grid-template-columns:1fr}.wish-cards{grid-template-columns:1fr}.trialog-visual{grid-template-columns:1fr}.ptg-grid{grid-template-columns:1fr}.coping-grid{grid-template-columns:1fr}.handouts-grid{grid-template-columns:1fr}}
+  @media(max-width:600px){.module-hero{padding:100px 1.2rem 40px}.content{padding:0 1.2rem}.next-module-card{flex-direction:column;text-align:center}.takeaways{padding:28px 24px}}
+  *:focus-visible{outline:2px solid var(--sage-500);outline-offset:2px;border-radius:4px}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
+  .skip-link:focus{position:fixed!important;top:12px;left:12px;width:auto;height:auto;padding:12px 20px;background:var(--sage-700);color:white;border-radius:8px;font-size:0.85rem;font-weight:600;z-index:10000;text-decoration:none}
+  .sources-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;cursor:pointer;padding:0;font:inherit;color:inherit;text-align:left}
+  .tool-cta{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:22px;padding:24px 28px;margin:32px 0;display:flex;gap:20px;align-items:center;box-shadow:0 2px 16px rgba(45,40,35,0.06);transition:all 0.3s ease;text-decoration:none;color:inherit}.tool-cta:hover{box-shadow:0 4px 24px rgba(45,40,35,0.1);transform:translateY(-2px)}.tool-cta-icon{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}.tool-cta-body h4{font-size:0.95rem;font-weight:700;color:var(--text);margin:0 0 4px}.tool-cta-body p{font-size:0.82rem;color:var(--text-muted);margin:0 0 8px;line-height:1.45}.tool-cta-btn{display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;font-weight:700;color:var(--sage-500);transition:color 0.2s}.tool-cta:hover .tool-cta-btn{color:var(--sage-700)}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:999">Direkt zum Inhalt</a>
+
+<nav id="navbar"><div class="nav-inner">
+  <a href="/" class="nav-brand"><div class="nav-logo">PUK</div><div class="nav-brand-text">Bipolare Störung</div></a>
+  <div class="nav-links"><a href="/">Startseite</a><a href="/#module">Module</a><a href="/notfall/" class="nav-sos">SOS Krise</a></div>
+  <button class="nav-toggle" aria-label="Menü"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div></nav>
+<div class="reading-progress"><div class="reading-progress-fill" id="readingProgress"></div></div>
+
+<header class="module-hero"><div class="module-hero-inner">
+  <div class="breadcrumb"><a href="/">Startseite</a><span>›</span><a href="/modul/6/">Modul 6</a><span>›</span><span>Resilienz und Selbstfürsorge</span></div>
+    <svg class="hero-icon" aria-hidden="true" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 36V20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M20 20c0-6-6-12-12-12 0 6 6 12 12 12z" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="1.5"/><path d="M20 24c0-5 5-10 10-10-0 5-5 10-10 10z" fill="currentColor" opacity="0.1" stroke="currentColor" stroke-width="1.5"/></svg>
+  <div class="module-badge">Modul 7 / 8</div>
+  <h1>Resilienz und Selbstfürsorge</h1>
+  <div class="module-meta"><span>⏱ ca. 12–14 Minuten</span><span>🌿 Für die lange Strecke</span></div>
+
+  <div class="quote-block">
+    <blockquote>Wir haben gelernt, als Team zu funktionieren. Er sagt mir, wenn es kippt. Ich sage ihm, wenn ich eine Pause brauche. Es ist nicht perfekt — aber es ist unseres.</blockquote>
+    <cite>— Partnerin, 49 Jahre (anonymisiert)</cite>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">In diesem Modul</div>
+    <ol>
+      <li><a href="#selbstfuersorge">Selbstfürsorge als Fundament<span class="toc-desc">Kein Luxus — Ihr Recht, und wie Sie es umsetzen</span></a></li>
+      <li><a href="#saeulen">Fünf Säulen stabiler Solidarität<span class="toc-desc">Was Paare zusammenhält — auch unter Druck</span></a></li>
+      <li><a href="#wuensche">Was erkrankte Partner sich wünschen<span class="toc-desc">Ein kurzer Blick auf die andere Seite</span></a></li>
+      <li><a href="#trialog">Trialog<span class="toc-desc">Gemeinsam statt übereinander — drei Perspektiven</span></a></li>
+      <li><a href="#danach">Der Tag danach<span class="toc-desc">Warum die Nachkrise oft schwerer ist als die Krise</span></a></li>
+      <li><a href="#wachstum">Was aus der Krise entstehen kann<span class="toc-desc">Wachstum ist möglich — aber keine Pflicht</span></a></li>
+      <li><a href="#handeln">Was Sie jetzt tun können<span class="toc-desc">Vier Schritte für die lange Strecke</span></a></li>
+    </ol>
+  </div>
+</div></header>
+
+<main class="content" id="main-content">
+
+  <p class="reveal">Dieses Modul ist anders als die vorherigen: Hier geht es nicht um Probleme, sondern um das, was trotz allem trägt und wächst. Resilienz ist kein Persönlichkeitsmerkmal — sie ist ein Prozess, der aktiv gefördert werden kann.</p>
+
+  <!-- ══════════ 1. SELBSTFÜRSORGE ══════════ -->
+  <h2 id="selbstfuersorge" class="reveal">Selbstfürsorge als Fundament</h2>
+  <p class="reveal">«Bitte setzen Sie zuerst Ihre eigene Sauerstoffmaske auf.» Wenn Sie ausbrennen, verliert Ihr Partner seine wichtigste Stütze. Aber noch wichtiger: <strong>Ihre eigene Gesundheit hat einen Wert — unabhängig von Ihrer Rolle als Angehörige*r.</strong> Selbstfürsorge ist kein Mittel zum Zweck. Sie ist ein Recht.</p>
+
+  <div class="selfcare-grid reveal">
+    <div class="selfcare-card body">
+      <h4>Körper</h4>
+      <ul>
+        <li>Eigenen Schlafrhythmus beibehalten</li>
+        <li>Regelmässige Bewegung — auch kurz</li>
+        <li>Regelmässige Mahlzeiten</li>
+        <li>Eigene Arztbesuche nicht vergessen</li>
+      </ul>
+    </div>
+    <div class="selfcare-card soul">
+      <h4>Seele</h4>
+      <ul>
+        <li>Hobbys ohne Erkrankungsbezug</li>
+        <li>Freundschaften bewusst pflegen</li>
+        <li>Eigene Gefühle reflektieren</li>
+        <li>Psychologische Unterstützung</li>
+      </ul>
+    </div>
+    <div class="selfcare-card relation">
+      <h4>Beziehung</h4>
+      <ul>
+        <li>Gemeinsame Rituale schaffen</li>
+        <li>Krisenplan in stabilen Phasen</li>
+        <li>Paartherapie als Prävention</li>
+        <li>Momente ohne Erkrankungsthema</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="reveal">Bewältigungsstrategien — drei Ansätze</h3>
+  <div class="coping-grid reveal">
+    <div class="coping-card">
+      <h4>Problemfokussiert</h4>
+      <ul>
+        <li>Psychoedukation (wie diese Website)</li>
+        <li>Krisenplan erstellen</li>
+        <li>Behandlungsteam kontaktieren</li>
+        <li>Finanzielle Absicherung</li>
+      </ul>
+    </div>
+    <div class="coping-card">
+      <h4>Emotionsfokussiert</h4>
+      <ul>
+        <li>Austausch in Selbsthilfegruppen</li>
+        <li>Entspannung (Atem, Yoga, Natur)</li>
+        <li>Soziale Unterstützung suchen</li>
+        <li>Tagebuch schreiben</li>
+      </ul>
+    </div>
+  </div>
+  <p class="reveal">Ein dritter Ansatz: <strong>Bedeutungsfokussiert</strong> — stabile Momente wertschätzen, persönliches Wachstum erkennen, die Erfahrung neu deuten. Dazu mehr am Ende dieses Moduls.</p>
+
+  <!-- ══════════ 2. FÜNF SÄULEN ══════════ -->
+  <h2 id="saeulen" class="reveal">Fünf Säulen stabiler Solidarität</h2>
+  <p class="reveal">Diese Säulen werden gebaut, wenn das Wetter ruhig ist — nicht im Sturm. Stabile Phasen sind die wichtigste Zeit für Aufbauarbeit.</p>
+
+  <div class="pillar-cards reveal">
+    <div class="pillar-card"><div class="pillar-num">1</div><div><h4>Gemeinsames Krankheitsverständnis</h4><p>Beide Partner verstehen die Erkrankung — als gemeinsame Grundlage, nicht als Schuldzuweisung.</p></div></div>
+    <div class="pillar-card"><div class="pillar-num">2</div><div><h4>Krankheitsfreie Inseln + Wertschätzung</h4><p>Bewusste Momente, die nicht von der Erkrankung bestimmt sind. Zeigen Sie Wertschätzung für das, was gelingt.</p></div></div>
+    <div class="pillar-card"><div class="pillar-num">3</div><div><h4>Grenzen + faire Lastverteilung</h4><p>Klare Absprachen, wer was trägt. Grenzen schützen die Beziehung — sie gefährden sie nicht.</p></div></div>
+    <div class="pillar-card"><div class="pillar-num">4</div><div><h4>Gemeinsamer Krisenplan</h4><p>In stabilen Phasen erstellt, im Notfall genutzt. Gibt beiden Handlungssicherheit.</p></div></div>
+    <div class="pillar-card"><div class="pillar-num">5</div><div><h4>Eigene Entlastung + Peer-Support</h4><p>Selbsthilfegruppen, eigene Therapie, Fachstelle. Solidarität zerbricht selten an zu wenig Liebe — sondern an Erschöpfung und Isolation.</p></div></div>
+  </div>
+
+  <div class="quote-block reveal">
+    <blockquote>Die Wende kam, als wir aufgehört haben, nur über die Erkrankung zu reden, und angefangen haben, wieder über uns zu reden. Wir haben einen Abend pro Woche eingeführt, an dem Bipolar tabu ist. Das hat mehr für unsere Beziehung getan als die meisten Therapiestunden.</blockquote>
+    <cite>— Daniel, 45 Jahre, Ehemann (anonymisiert)</cite>
+  </div>
+
+  <!-- ══════════ 3. PARTNER-WÜNSCHE ══════════ -->
+  
+  <a href="/tools/saeulen-check/" class="tool-cta reveal">
+    <div class="tool-cta-icon" style="background:#eef3f8">🏛️</div>
+    <div class="tool-cta-body">
+      <h4>Fünf-Säulen-Check — Selbsteinschätzung</h4>
+      <p>Wo stehen Ihre fünf Säulen? Visuelle Auswertung mit personalisierten Empfehlungen.</p>
+      <span class="tool-cta-btn">Check starten →</span>
+    </div>
+  </a>
+
+<h2 id="wuensche" class="reveal">Was erkrankte Partner sich wünschen</h2>
+  <p class="reveal">Ein kurzer Blick auf die andere Seite — nicht um Schuld zu geben, sondern um Momente der Entfremdung einzuordnen.</p>
+
+  <div class="wish-cards reveal">
+    <div class="wish-card"><h4>Nicht als Erkrankung behandelt werden</h4><p>«Ich bin mehr als meine Diagnose. Ich bin immer noch ich.»</p></div>
+    <div class="wish-card"><h4>Frühzeichen bemerkt, nicht kontrolliert</h4><p>«Sag mir, was du siehst — aber entscheide nicht für mich.»</p></div>
+    <div class="wish-card"><h4>Ehrlichkeit statt Schonhaltung</h4><p>«Ich spüre, wenn du mir etwas verheimlichst. Das macht mir mehr Angst als die Wahrheit.»</p></div>
+    <div class="wish-card"><h4>Eigene Grenzen des Partners sehen</h4><p>«Ich brauche keine perfekte Fürsorge. Ich brauche eine echte Person neben mir.»</p></div>
+  </div>
+
+  <p class="reveal">Diese Wünsche decken sich mit dem, was Sie in den vorherigen Modulen gelernt haben — offene Kommunikation, Grenzen, Krisenplan. Was gut für Sie ist, ist meistens auch gut für Ihren Partner.</p>
+
+  <!-- ══════════ 4. TRIALOG ══════════ -->
+  <h2 id="trialog" class="reveal">Trialog — Gemeinsam statt übereinander</h2>
+  <p class="reveal">Die wirksamste Versorgung entsteht, wenn drei Perspektiven zusammenwirken — auf Augenhöhe, nicht in einer Hierarchie.</p>
+
+  <div class="trialog-visual reveal">
+    <div class="trialog-card"><div class="trialog-icon">🏥</div><h4>Fachpersonen</h4><p>Fachwissen, Diagnostik, Behandlung</p></div>
+    <div class="trialog-card"><div class="trialog-icon">🤝</div><h4>Angehörige</h4><p>Alltagswissen, Beobachtungen, eigene Bedürfnisse</p></div>
+    <div class="trialog-card"><div class="trialog-icon">💚</div><h4>Betroffene</h4><p>Erfahrungswissen, Präferenzen, Selbstbestimmung</p></div>
+  </div>
+
+  <p class="reveal"><strong>Konkret:</strong> Fragen Sie das Behandlungsteam nach Angehörigengesprächen. Falls die Schweigepflichtentbindung fehlt: Fachpersonen dürfen nicht informieren, aber <em>zuhören dürfen sie immer</em>. Nutzen Sie das.</p>
+
+  <!-- ══════════ 5. TAG DANACH ══════════ -->
+  <h2 id="danach" class="reveal">Der Tag danach</h2>
+  <p class="reveal">Über Krisen wird viel gesprochen. Über das, was danach kommt, kaum. Dabei ist die Zeit nach einer Episode — die Tage und Wochen nach dem Sturm — oft genauso schwer wie die Krise selbst.</p>
+
+  <ul class="nachkrise-items reveal">
+    <li><strong>Erschöpfung:</strong> Der Körper holt nach, was während der Krise nicht sein durfte.</li>
+    <li><strong>Leere:</strong> Die Alarmbereitschaft fällt weg — und hinterlässt ein Vakuum.</li>
+    <li><strong>Wut:</strong> Auf die Erkrankung, auf das System, manchmal auf die erkrankte Person.</li>
+    <li><strong>Schuldgefühle:</strong> «Hätte ich früher handeln müssen?»</li>
+    <li><strong>Erleichterung — und Scham darüber:</strong> Erleichterung ist normal. Sie bedeutet nicht, dass Sie die Person nicht lieben.</li>
+  </ul>
+
+  <p class="reveal">Während die erkrankte Person in der Nachsorge begleitet wird, fallen Angehörige oft durch das Raster. <strong>Was Sie nach einer Krise brauchen dürfen:</strong> Zeit, um sich zu erholen. Ein Gespräch mit einer Fachperson, die Sie im Blick hat. Das Recht, nicht sofort «wieder normal» zu sein. Eine ehrliche Bilanz: Was hat funktioniert? Was nicht? Was brauche ich beim nächsten Mal anders?</p>
+
+  <div class="quote-block reveal">
+    <blockquote>Es ist nicht gut. Das sage ich ehrlich. Er hat immer noch Episoden. Aber es ist besser als vor drei Jahren. Damals konnte ich nicht mehr schlafen, nicht mehr arbeiten, nicht mehr fühlen. Heute schlafe ich meistens durch. Ich habe gelernt, dass «besser» reicht. Nicht als Ziel — sondern als etwas, worauf ich stolz sein darf.</blockquote>
+    <cite>— Brigitte, 56 Jahre, Ehefrau seit 22 Jahren (anonymisiert)</cite>
+  </div>
+
+  <!-- ══════════ 6. WACHSTUM ══════════ -->
+  <h2 id="wachstum" class="reveal">Was aus der Krise entstehen kann</h2>
+  <p class="reveal"><em>Dieser Abschnitt ist für Momente, in denen Sie etwas Abstand gewonnen haben — nicht für Zeiten akuter Erschöpfung.</em></p>
+
+  <p class="reveal">Posttraumatisches Wachstum (PTG) bedeutet nicht, dass das Leid «gut» war. Es beschreibt, dass manche Menschen durch die Auseinandersetzung mit der Krise neue Stärken entdecken. Das ist keine Pflicht und kein Massstab.</p>
+
+  <div class="ptg-grid reveal">
+    <div class="ptg-card"><div class="ptg-icon">🫀</div><p>Erhöhte Empathie und tieferes Verständnis für Leiden anderer</p></div>
+    <div class="ptg-card"><div class="ptg-icon">🌱</div><p>Persönliche Reife — Geduld, Toleranz, Bewusstsein für das Wesentliche</p></div>
+    <div class="ptg-card"><div class="ptg-icon">💪</div><p>Entdeckung eigener Ressourcen, die man vorher nicht kannte</p></div>
+    <div class="ptg-card"><div class="ptg-icon">✨</div><p>Tiefere Wertschätzung für Gesundheit, stabile Momente und echte Beziehungen</p></div>
+  </div>
+
+  <p class="reveal"><strong>Fortschritt ist wellenförmig, nicht linear.</strong> Drei Schritte vor, zwei zurück — das ist kein Scheitern. Es ist der natürliche Rhythmus unter chronischer Belastung. Was zählt, ist die Richtung über Monate und Jahre, nicht einzelne Tage.</p>
+
+  <p class="reveal"><strong>Resilienz ist lernbar.</strong> Drei Faktoren fördern sie nachweislich: soziale Unterstützung, Selbstmitgefühl und problemfokussiertes Handeln (Southwick & Charney, 2012). Sie können heute damit beginnen.</p>
+
+  <div class="quote-block reveal">
+    <blockquote>Wachstum klingt so gross. Bei mir war es eher: Ich habe gelernt, dass ich mehr aushalte, als ich dachte — und dass ich trotzdem Hilfe brauche. Beides gleichzeitig. Ich bin stolz darauf, wie wir es geschafft haben. Und ich bin manchmal wütend, dass wir es überhaupt schaffen mussten. Das ist kein Widerspruch.</blockquote>
+    <cite>— Leila, 53 Jahre, Partnerin (anonymisiert)</cite>
+  </div>
+
+  <!-- ══════════ 7. HANDLUNGSSCHRITTE ══════════ -->
+  <h2 id="handeln" class="reveal">Was Sie jetzt tun können</h2>
+
+  <div class="action-grid reveal">
+    <div class="action-card"><div class="action-icon">1</div><div><h4>Selbstmitgefühl üben</h4><p>Sprechen Sie mit sich selbst so, wie Sie mit einer guten Freundin in Ihrer Situation sprechen würden. Nicht: «Ich hätte mehr tun sollen.» Sondern: «Ich tue mein Bestes in einer sehr schweren Situation.»</p></div></div>
+    <div class="action-card"><div class="action-icon">2</div><div><h4>Trialog aktiv einfordern</h4><p>Rufen Sie das Behandlungsteam an und fragen Sie nach Angehörigengesprächen. Auch ohne Schweigepflichtentbindung: Schreiben Sie auf, was Sie beobachten, und bitten Sie darum, dass das Team Ihnen zuhört.</p></div></div>
+    <div class="action-card"><div class="action-icon">3</div><div><h4>Fortschritt sichtbar machen</h4><p>Notieren Sie einmal pro Monat, was sich verändert hat — auch Kleines. «Wir hatten zwei gute Wochen.» «Ich habe Nein gesagt.» Diese Liste ist Ihr Kompass, wenn Rückschläge kommen.</p></div></div>
+    <div class="action-card"><div class="action-icon">4</div><div><h4>Einen nicht-verhandelbaren Selbstfürsorge-Termin setzen</h4><p>Sport, Freunde, Natur — etwas, das nur Ihnen gehört. Eintragen wie einen Arzttermin. Absagen nur im echten Notfall.</p></div></div>
+  </div>
+
+  <div class="reflection reveal">
+    <div class="reflection-label">Reflexion</div>
+    <h3>Was würden Sie einem Angehörigen sagen, der gerade am Anfang steht?</h3>
+    <p>Stellen Sie sich vor, jemand steht da, wo Sie vor Jahren standen — frisch mit der Diagnose konfrontiert, erschöpft, unsicher. Was würden Sie dieser Person sagen? Die Antwort zeigt Ihnen, wie weit Sie gekommen sind.</p>
+  </div>
+
+  <!-- TAKEAWAYS -->
+  <div class="takeaways reveal">
+    <div class="takeaways-inner">
+      <h3>Merken Sie sich</h3>
+      <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Selbstfürsorge ist ein Recht</strong> — nicht ein Mittel zum Zweck. Ihre Gesundheit hat einen Wert, unabhängig von Ihrer Rolle.</p></div>
+      <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Solidarität braucht fünf Säulen</strong> — gemeinsames Wissen, krankheitsfreie Inseln, Grenzen, Krisenplan und eigene Entlastung.</p></div>
+      <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Die Nachkrise ist real</strong> — Erschöpfung, Wut und Erleichterung nach einer Episode sind normal und verdienen Beachtung.</p></div>
+      <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Rückschläge sind kein Scheitern</strong> — Fortschritt ist wellenförmig. Was zählt, ist die Richtung über Monate.</p></div>
+      <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Wachstum kommt, wenn es kommt</strong> — es ist erlaubt, gleichzeitig stolz und wütend zu sein.</p></div>
+    </div>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="sources reveal">
+    <button type="button" class="sources-toggle" aria-expanded="false" onclick="var p=this.parentElement;p.classList.toggle('sources-open');this.setAttribute('aria-expanded',p.classList.contains('sources-open'))">
+    <h4>Wissenschaftliche Quellen</h4></button>
+    <ul>
+      <li><strong>Reinares, M. et al. (2016).</strong> Family interventions in bipolar disorder. <em>Clinical Psychology Review, 43</em>, 47–57.</li>
+      <li><strong>Miklowitz, D. J. (2008).</strong> Adjunctive psychotherapy for bipolar disorder. <em>American Journal of Psychiatry, 165</em>(11), 1408–1419.</li>
+      <li><strong>Lawn, S. & McMahon, J. (2015).</strong> Experiences of family carers. <em>J Psychiatric and Mental Health Nursing, 22</em>(3), 222–230.</li>
+      <li><strong>Tedeschi, R. G. & Calhoun, L. G. (2004).</strong> Posttraumatic growth. <em>Psychological Inquiry, 15</em>(1), 1–18.</li>
+      <li><strong>Southwick, S. M. & Charney, D. S. (2012).</strong> <em>Resilience.</em> Cambridge University Press.</li>
+      <li><strong>Neff, K. D. (2011).</strong> <em>Self-Compassion.</em> William Morrow.</li>
+      <li><strong>Perlick, D. A. et al. (2007).</strong> Caregiver burden. <em>Bipolar Disorders, 9</em>(3), 262–273.</li>
+      <li><strong>Chiba, R. et al. (2025).</strong> Benefit Finding bei Angehörigen. <em>Psychiatric Services, 76</em>(1), 45–53.</li>
+    </ul>
+  </div>
+
+  <!-- HANDOUTS -->
+  <div class="handouts reveal">
+    <div class="handouts-title">Passende Handouts</div>
+    <div class="handouts-grid">
+      <a href="/handouts/c6_selbstfuersorge.pdf" target="_blank" class="handout-card"><div class="handout-icon green">PDF</div><div><div class="handout-card-title">Selbstfürsorge-Plan</div><div class="handout-card-sub">Körper, Seele, Beziehung</div></div></a>
+      <a href="/handouts/d4_solidaritaet_wellen.pdf" target="_blank" class="handout-card"><div class="handout-icon green">PDF</div><div><div class="handout-card-title">Solidarität in Wellen</div><div class="handout-card-sub">Die fünf Säulen im Überblick</div></div></a>
+      <a href="/handouts/transformationsreise.pdf" target="_blank" class="handout-card"><div class="handout-icon green">PDF</div><div><div class="handout-card-title">Trialog</div><div class="handout-card-sub">Gemeinsam statt übereinander</div></div></a>
+      <a href="/handouts/transformationsreise.pdf" target="_blank" class="handout-card"><div class="handout-icon green">PDF</div><div><div class="handout-card-title">Transformationsreise</div><div class="handout-card-sub">Was aus der Krise entstehen kann</div></div></a>
+    </div>
+  </div>
+
+  <!-- NEXT -->
+  <div class="next-module reveal">
+    <a href="/modul/8/" class="next-module-card">
+      <div>
+        <div class="next-module-label">Letztes Modul</div>
+        <div class="next-module-title">Modul 8: Unterstützung und Ressourcen</div>
+        <div class="next-module-desc">Fachstellen, Selbsthilfegruppen, Notfallnummern — alles Wichtige im Überblick.</div>
+      </div>
+      <div class="next-module-arrow">→</div>
+    </a>
+  </div>
+
+</main>
+
+<footer><div class="footer-inner">
+  <p><strong style="color:white">Psychiatrische Universitätsklinik Zürich</strong></p>
+  <p>Fachstelle Angehörigenarbeit · Lenggstrasse 31, 8032 Zürich</p>
+  <p>Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026</p>
+  <p style="margin-top:8px">Diese Inhalte ersetzen keine professionelle Beratung.</p>
+  <div class="footer-links"><a href="/notfall/">Impressum</a><a href="/impressum/#datenschutz">Datenschutz</a><a href="/impressum/#barrierefreiheit">Barrierefreiheit</a><a href="/notfall/" style="color:var(--alert-red)">Notfall & Krisenhilfe</a></div>
+</div></footer>
+
+<script>
+  const nav=document.getElementById('navbar');window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>20));
+  const pb=document.getElementById('readingProgress');window.addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-window.innerHeight;pb.style.width=h>0?(window.scrollY/h*100)+'%':'0%'});
+  const obs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*60);obs.unobserve(e.target)}})},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  const tocLinks=document.querySelectorAll('.toc a[href^="#"]');const tocSections=Array.from(tocLinks).map(a=>{const id=a.getAttribute('href').slice(1);return{link:a,el:document.getElementById(id)}}).filter(s=>s.el);const tocObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){tocLinks.forEach(l=>l.classList.remove('active'));const match=tocSections.find(s=>s.el===e.target);if(match)match.link.classList.add('active')}})},{threshold:0.1,rootMargin:'-100px 0px -60% 0px'});tocSections.forEach(s=>tocObs.observe(s.el));
+</script>
+</body>
+</html>
