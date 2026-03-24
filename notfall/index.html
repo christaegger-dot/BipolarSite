@@ -97,6 +97,24 @@
   @media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
   .skip-link:focus{position:fixed!important;top:12px;left:12px;width:auto;height:auto;padding:12px 20px;background:var(--sage-700);color:white;border-radius:8px;font-size:0.85rem;font-weight:600;z-index:10000;text-decoration:none}
 </style>
+<style>
+  body.pdf-preview-open{overflow:hidden}
+  .pdf-preview-overlay{position:fixed;inset:0;z-index:1000;background:rgba(42,33,27,0.38);padding:24px;display:flex;align-items:center;justify-content:center}
+  .pdf-preview-overlay[hidden]{display:none}
+  .pdf-preview-dialog{width:min(920px,100%);max-height:calc(100vh - 48px);background:var(--cream);border:1px solid rgba(45,40,35,0.08);border-radius:var(--radius-xl);box-shadow:0 8px 40px rgba(45,40,35,0.12);display:flex;flex-direction:column;overflow:hidden}
+  .pdf-preview-header{padding:20px 24px 16px;border-bottom:1px solid rgba(45,40,35,0.08);display:flex;gap:16px;justify-content:space-between;align-items:flex-start}
+  .pdf-preview-title{font-family:'Source Serif 4',serif;font-size:1.2rem;font-weight:600;color:var(--earth-900)}
+  .pdf-preview-sub{margin-top:6px;font-size:0.82rem;color:var(--text-muted);max-width:44ch;line-height:1.55}
+  .pdf-preview-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+  .pdf-preview-link,.pdf-preview-close{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:9px 14px;border-radius:10px;font-size:0.82rem;font-weight:600;text-decoration:none}
+  .pdf-preview-link{background:var(--sage-100);color:var(--sage-700)}
+  .pdf-preview-close{background:none;border:1px solid rgba(45,40,35,0.12);color:var(--text);cursor:pointer}
+  .pdf-preview-body{padding:18px 24px 24px}
+  .pdf-preview-note{font-size:0.8rem;color:var(--text-muted);margin-bottom:12px}
+  .pdf-preview-frame-wrap{background:white;border:1px solid rgba(45,40,35,0.08);border-radius:18px;overflow:hidden}
+  .pdf-preview-frame{display:block;width:100%;height:60vh;min-height:420px;border:0;background:#f3f1ec}
+  @media(max-width:720px){.pdf-preview-overlay{padding:12px}.pdf-preview-dialog{max-height:calc(100vh - 24px)}.pdf-preview-header,.pdf-preview-body{padding-left:16px;padding-right:16px}.pdf-preview-header{padding-top:16px}.pdf-preview-actions{justify-content:flex-start}.pdf-preview-link,.pdf-preview-close{width:100%}.pdf-preview-frame{height:50vh;min-height:320px}}
+</style>
 </head>
 <body>
 <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:999">Direkt zum Inhalt</a>
@@ -298,6 +316,28 @@
 
 </main>
 
+<div class="pdf-preview-overlay" id="pdf-preview" hidden>
+  <div class="pdf-preview-dialog" role="dialog" aria-modal="true" aria-labelledby="pdf-preview-title">
+    <div class="pdf-preview-header">
+      <div>
+        <div class="pdf-preview-title" id="pdf-preview-title">PDF-Vorschau</div>
+        <div class="pdf-preview-sub">Wenn die Vorschau nicht angezeigt wird, können Sie das Dokument direkt öffnen oder herunterladen.</div>
+      </div>
+      <div class="pdf-preview-actions">
+        <a href="/" id="pdf-preview-open" class="pdf-preview-link" target="_blank" rel="noopener">Im neuen Tab öffnen</a>
+        <a href="/" id="pdf-preview-download" class="pdf-preview-link" download>Herunterladen</a>
+        <button type="button" class="pdf-preview-close" id="pdf-preview-close">Schliessen</button>
+      </div>
+    </div>
+    <div class="pdf-preview-body">
+      <div class="pdf-preview-note">Die Vorschau bleibt auf dieser Seite. Für Reader oder Druckansicht können Sie das PDF direkt öffnen.</div>
+      <div class="pdf-preview-frame-wrap">
+        <iframe class="pdf-preview-frame" id="pdf-preview-frame" title="PDF-Vorschau" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
 <footer><div class="footer-inner">
   <p><strong style="color:white">Psychiatrische Universitätsklinik Zürich</strong></p>
   <p>Fachstelle Angehörigenarbeit · Lenggstrasse 31, 8032 Zürich</p>
@@ -330,6 +370,49 @@
     const target=document.querySelector(window.location.hash);
     if(target&&target.classList.contains('guide'))setGuideState(target,true);
   }
+</script>
+<script>
+  const pdfPreview=document.getElementById('pdf-preview');
+  const pdfPreviewFrame=document.getElementById('pdf-preview-frame');
+  const pdfPreviewTitle=document.getElementById('pdf-preview-title');
+  const pdfPreviewOpen=document.getElementById('pdf-preview-open');
+  const pdfPreviewDownload=document.getElementById('pdf-preview-download');
+  const pdfPreviewClose=document.getElementById('pdf-preview-close');
+  let pdfPreviewTrigger=null;
+
+  const getPdfTitle=(link)=>{
+    const guideTitle=link.closest('.guide')?.querySelector('.guide-title');
+    if(guideTitle)return guideTitle.textContent.trim();
+    return link.textContent.replace(/\s+/g,' ').replace(/^↓\s*PDF:\s*/i,'').trim()||'PDF-Vorschau';
+  };
+
+  const closePdfPreview=()=>{
+    pdfPreview.hidden=true;
+    document.body.classList.remove('pdf-preview-open');
+    pdfPreviewFrame.src='about:blank';
+    if(pdfPreviewTrigger)pdfPreviewTrigger.focus();
+  };
+
+  document.querySelectorAll('a[href$=".pdf"]').forEach((link)=>{
+    const href=link.getAttribute('href');
+    if(!href||!href.startsWith('/'))return;
+    link.addEventListener('click',(event)=>{
+      if(event.defaultPrevented||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
+      event.preventDefault();
+      pdfPreviewTrigger=link;
+      pdfPreviewTitle.textContent=getPdfTitle(link);
+      pdfPreviewFrame.src=`${href}#view=FitH`;
+      pdfPreviewOpen.href=href;
+      pdfPreviewDownload.href=href;
+      pdfPreview.hidden=false;
+      document.body.classList.add('pdf-preview-open');
+      pdfPreviewClose.focus();
+    });
+  });
+
+  pdfPreviewClose.addEventListener('click',closePdfPreview);
+  pdfPreview.addEventListener('click',(event)=>{if(event.target===pdfPreview)closePdfPreview();});
+  document.addEventListener('keydown',(event)=>{if(event.key==='Escape'&&!pdfPreview.hidden)closePdfPreview();});
 </script>
 </body>
 </html>
