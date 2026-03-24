@@ -5,6 +5,7 @@
 <meta name="description" content="Anlaufstellen, Handouts und PDFs für Angehörige von Menschen mit bipolarer Störung in der Schweiz. PUK Zürich.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Modul 8: Unterstützung und Ressourcen | PUK Zürich</title>
+<link rel="canonical" href="https://www.pukzh.ch/modul/8/">
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,300;1,8..60,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
 <style>
   :root{--sage-50:#f6f7f4;--sage-100:#eaede4;--sage-200:#d5dbc9;--sage-300:#b4bfa0;--sage-400:#748a5a;--sage-500:#6b7d52;--sage-600:#566642;--sage-700:#3d4a30;--warm-50:#fdfbf7;--warm-100:#f9f4eb;--warm-200:#f0e6d3;--warm-400:#c9a87a;--earth-700:#5c4a38;--earth-800:#3d3128;--earth-900:#2a211b;--cream:#fefcf8;--text:#2e2a25;--text-secondary:#5e564e;--text-muted:#706860;--alert-red:#c75450;--alert-red-bg:#fdf2f1;--alert-red-border:#f0c5c3;--blue-phase:#5b7fa5;--blue-phase-light:#eef3f8;--amber-phase:#c4933b;--amber-phase-light:#fdf6ea;--radius-sm:8px;--radius-md:14px;--radius-lg:22px;--radius-xl:32px;--shadow-soft:0 2px 16px rgba(45,40,35,0.06);--shadow-card:0 4px 24px rgba(45,40,35,0.08);--content-width:740px}
@@ -39,8 +40,8 @@
 
   /* INSIGHT CARDS */
   .insight-grid{display:grid;grid-template-columns:1fr;gap:12px;margin:28px 0}
-  .insight-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:22px 26px;display:flex;gap:18px;align-items:flex-start;transition:all 0.3s ease}
-  .insight-card:hover{box-shadow:var(--shadow-soft);transform:translateY(-2px)}
+  .insight-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:22px 26px;display:flex;gap:18px;align-items:flex-start;transition:border-color 0.2s ease,box-shadow 0.2s ease}
+  .insight-card:hover{box-shadow:var(--shadow-soft)}
   .insight-num{width:36px;height:36px;border-radius:10px;background:var(--sage-100);color:var(--sage-600);display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:800;flex-shrink:0}
   .insight-card h4{font-size:0.92rem;font-weight:700;color:var(--text);margin-bottom:4px}
   .insight-card p{font-size:0.86rem;color:var(--text-secondary);line-height:1.55;margin:0}
@@ -52,12 +53,12 @@
 
   /* ACTION CARDS */
   .action-grid{display:grid;grid-template-columns:1fr;gap:14px;margin:28px 0}
-  .action-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:24px;display:flex;gap:20px;align-items:flex-start;transition:all 0.3s ease}.action-card:hover{box-shadow:var(--shadow-soft);transform:translateY(-2px)}
+  .action-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:24px;display:flex;gap:20px;align-items:flex-start;transition:border-color 0.2s ease,box-shadow 0.2s ease}.action-card:hover{box-shadow:var(--shadow-soft)}
   .action-icon{width:42px;height:42px;border-radius:11px;background:var(--sage-100);color:var(--sage-600);display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:800;flex-shrink:0}
   .action-card h4{font-weight:700;font-size:0.92rem;margin-bottom:6px;color:var(--text)}.action-card p{font-size:0.85rem;color:var(--text-muted);line-height:1.6;margin:0}
 
   /* ANLAUFSTELLEN */
-  .stelle-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:24px;margin-bottom:14px;transition:all 0.3s ease}
+  .stelle-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:24px;margin-bottom:14px;transition:border-color 0.2s ease,box-shadow 0.2s ease}
   .stelle-card:hover{box-shadow:var(--shadow-soft)}
   .stelle-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
   .stelle-card h4{font-size:0.95rem;font-weight:700;color:var(--text);margin:0}
@@ -69,14 +70,14 @@
   .stelle-contact a{color:var(--sage-500);text-decoration:none}
 
   /* DOWNLOAD MODULES */
-  .dl-module{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:24px 28px;margin-bottom:14px;display:flex;gap:20px;align-items:flex-start;transition:all 0.3s ease}
-  .dl-module:hover{box-shadow:var(--shadow-soft);transform:translateY(-1px)}
+  .dl-module{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:24px 28px;margin-bottom:14px;display:flex;gap:20px;align-items:flex-start;transition:border-color 0.2s ease,box-shadow 0.2s ease}
+  .dl-module:hover{box-shadow:var(--shadow-soft)}
   .dl-module-sos{border-left:4px solid var(--alert-red)}
   .dl-icon{font-size:1.6rem;flex-shrink:0;margin-top:2px}
   .dl-body h4{font-size:0.95rem;font-weight:700;color:var(--text);margin:0 0 8px}
   .dl-body p{font-size:0.85rem;color:var(--text-secondary);line-height:1.55;margin:0 0 14px}
-  .dl-btn{display:inline-flex;align-items:center;gap:8px;background:var(--sage-500);color:white;text-decoration:none;font-size:0.82rem;font-weight:600;padding:10px 18px;border-radius:10px;transition:all 0.25s ease}
-  .dl-btn:hover{background:var(--sage-600);transform:translateY(-1px)}
+  .dl-btn{display:inline-flex;align-items:center;gap:8px;background:var(--sage-500);color:white;text-decoration:none;font-size:0.82rem;font-weight:600;padding:10px 18px;border-radius:10px;transition:background-color 0.2s ease,box-shadow 0.2s ease}
+  .dl-btn:hover{background:var(--sage-600)}
   .dl-btn-sos{background:var(--alert-red)}.dl-btn-sos:hover{background:#a33d3a}
   .dl-meta{font-size:0.7rem;font-weight:400;opacity:0.75}
 
@@ -105,13 +106,13 @@
 
   footer{background:var(--earth-900);color:rgba(255,255,255,0.6);padding:48px 2rem 32px;margin-top:80px}.footer-inner{max-width:var(--content-width);margin:0 auto;text-align:center}.footer-inner p{font-size:0.8rem;line-height:1.7;margin-bottom:4px}.footer-inner a{color:rgba(255,255,255,0.5);text-decoration:none}.footer-links{margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08);font-size:0.75rem}.footer-links a{margin:0 10px}
 
-  .reveal{opacity:0;transform:translateY(24px);transition:all 0.6s cubic-bezier(0.25,0.46,0.45,0.94)}.reveal.visible{opacity:1;transform:translateY(0)}
+  .reveal{opacity:1}
 
   @media(max-width:900px){.nav-links{display:none}.nav-toggle{display:flex}.nav-inner{position:relative}.toc ol{grid-template-columns:1fr}.handout-list{grid-template-columns:1fr 1fr}}
   @media(max-width:900px){.nav-links.nav-open{display:flex;position:absolute;top:calc(100% + 10px);left:2rem;right:2rem;flex-direction:column;align-items:stretch;gap:6px;padding:12px;background:rgba(254,252,248,0.98);border:1px solid rgba(45,40,35,0.08);border-radius:16px;box-shadow:0 12px 30px rgba(45,40,35,0.14);z-index:60}.nav-links.nav-open a{display:block;padding:10px 12px}}
   @media(max-width:600px){.module-hero{padding:100px 1.2rem 40px}.content{padding:0 1.2rem}.closing{padding:36px 24px}.handout-list{grid-template-columns:1fr}}
   *:focus-visible{outline:2px solid var(--sage-500);outline-offset:2px;border-radius:4px}
-  @media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
+  @media(prefers-reduced-motion:reduce){*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
   .skip-link:focus{position:fixed!important;top:12px;left:12px;width:auto;height:auto;padding:12px 20px;background:var(--sage-700);color:white;border-radius:8px;font-size:0.85rem;font-weight:600;z-index:10000;text-decoration:none}
   .sources-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;cursor:pointer;padding:0;font:inherit;color:inherit;text-align:left}
 </style>
@@ -328,7 +329,7 @@
 
   <!-- SOURCES -->
   <div class="sources reveal">
-    <button type="button" class="sources-toggle" aria-expanded="false" onclick="var p=this.parentElement;p.classList.toggle('sources-open');this.setAttribute('aria-expanded',p.classList.contains('sources-open'))">
+    <button type="button" class="sources-toggle" aria-expanded="false" data-sources-toggle>
     <h4>Wissenschaftliche Quellen</h4></button>
     <ul>
       <li><strong>Reinares, M. et al. (2016).</strong> Family interventions in bipolar disorder. <em>Clinical Psychology Review, 43</em>, 47–57.</li>
@@ -354,9 +355,8 @@
   const navToggle=document.querySelector('.nav-toggle');const navLinks=document.getElementById('primary-nav');
   if(navToggle&&navLinks){const closeNav=()=>{navLinks.classList.remove('nav-open');navToggle.setAttribute('aria-expanded','false');navToggle.setAttribute('aria-label','Menü öffnen')};navToggle.addEventListener('click',()=>{const isOpen=navLinks.classList.toggle('nav-open');navToggle.setAttribute('aria-expanded',isOpen?'true':'false');navToggle.setAttribute('aria-label',isOpen?'Menü schliessen':'Menü öffnen')});navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeNav));document.addEventListener('keydown',e=>{if(e.key==='Escape')closeNav()});document.addEventListener('click',e=>{if(!nav.contains(e.target))closeNav()});window.addEventListener('resize',()=>{if(window.innerWidth>900)closeNav()})}
   const pb=document.getElementById('readingProgress');window.addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-window.innerHeight;pb.style.width=h>0?(window.scrollY/h*100)+'%':'0%'});
-  const obs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*60);obs.unobserve(e.target)}})},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
-  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
   const tocLinks=document.querySelectorAll('.toc a[href^="#"]');const tocSections=Array.from(tocLinks).map(a=>{const id=a.getAttribute('href').slice(1);return{link:a,el:document.getElementById(id)}}).filter(s=>s.el);const tocObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){tocLinks.forEach(l=>l.classList.remove('active'));const match=tocSections.find(s=>s.el===e.target);if(match)match.link.classList.add('active')}})},{threshold:0.1,rootMargin:'-100px 0px -60% 0px'});tocSections.forEach(s=>tocObs.observe(s.el));
+  document.querySelectorAll('[data-sources-toggle]').forEach(button=>{button.addEventListener('click',()=>{const section=button.parentElement;const isOpen=section.classList.toggle('sources-open');button.setAttribute('aria-expanded',isOpen?'true':'false');});});
 </script>
 </body>
 </html>

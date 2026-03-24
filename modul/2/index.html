@@ -5,6 +5,7 @@
 <meta name="description" content="Warum Ihre Belastung als Angehörige*r real und messbar ist. Hypervigilanz, Suizidangst und was Sie dagegen tun können. PUK Zürich.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Modul 2: Was das mit Ihnen macht | PUK Zürich</title>
+<link rel="canonical" href="https://www.pukzh.ch/modul/2/">
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,300;1,8..60,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -169,7 +170,7 @@
   /* TREATMENT GRID (reused for action steps) */
   .action-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin: 28px 0; }
   .action-card { background: white; border: 1px solid rgba(45,40,35,0.06); border-radius: var(--radius-lg); padding: 24px; display: flex; gap: 20px; align-items: flex-start; transition: all 0.3s ease; }
-  .action-card:hover { box-shadow: var(--shadow-soft); transform: translateY(-2px); }
+  .action-card:hover { box-shadow: var(--shadow-soft); }
   .action-icon { width: 42px; height: 42px; border-radius: 11px; background: var(--sage-100); color: var(--sage-600); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 800; flex-shrink: 0; }
   .action-card h4 { font-weight: 700; font-size: 0.92rem; margin-bottom: 6px; color: var(--text); }
   .action-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
@@ -222,7 +223,7 @@
   .handouts-title { font-family: 'Source Serif 4', serif; font-size: 1.2rem; font-weight: 600; color: var(--earth-800); margin-bottom: 20px; }
   .handouts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .handout-card { background: white; border: 1px solid rgba(45,40,35,0.06); border-radius: var(--radius-md); padding: 20px; text-decoration: none; color: var(--text); display: flex; align-items: center; gap: 16px; transition: all 0.3s ease; }
-  .handout-card:hover { box-shadow: var(--shadow-soft); transform: translateY(-2px); border-color: var(--sage-200); }
+  .handout-card:hover { box-shadow: var(--shadow-soft); border-color: var(--sage-200); }
   .handout-icon { width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; }
   .handout-icon.green { background: var(--sage-100); color: var(--sage-600); }
   .handout-icon.red { background: var(--alert-red-bg); color: var(--alert-red); }
@@ -237,7 +238,7 @@
   .next-module-title { font-family: 'Source Serif 4', serif; font-size: 1.3rem; font-weight: 600; color: var(--earth-800); margin-bottom: 8px; }
   .next-module-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.55; }
   .next-module-arrow { width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0; background: var(--sage-100); color: var(--sage-600); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; transition: all 0.3s ease; }
-  .next-module-card:hover .next-module-arrow { background: var(--sage-500); color: white; transform: translateX(4px); }
+  .next-module-card:hover .next-module-arrow { background: var(--sage-500); color: white; }
 
   /* FOOTER */
   footer { background: var(--earth-900); color: rgba(255,255,255,0.6); padding: 48px 2rem 32px; margin-top: 80px; }
@@ -249,8 +250,7 @@
   .footer-links a { margin: 0 10px; }
 
   /* SCROLL REVEAL */
-  .reveal { opacity: 0; transform: translateY(24px); transition: all 0.6s cubic-bezier(0.25,0.46,0.45,0.94); }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal{opacity:1}
 
   /* RESPONSIVE */
   @media (max-width: 900px) {
@@ -269,10 +269,10 @@
     .takeaways { padding: 28px 24px; }
   }
   *:focus-visible{outline:2px solid var(--sage-500);outline-offset:2px;border-radius:4px}
-  @media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
+  @media(prefers-reduced-motion:reduce){*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
   .skip-link:focus{position:fixed!important;top:12px;left:12px;width:auto;height:auto;padding:12px 20px;background:var(--sage-700);color:white;border-radius:8px;font-size:0.85rem;font-weight:600;z-index:10000;text-decoration:none}
   .sources-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;cursor:pointer;padding:0;font:inherit;color:inherit;text-align:left}
-  .tool-cta{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:22px;padding:24px 28px;margin:32px 0;display:flex;gap:20px;align-items:center;box-shadow:0 2px 16px rgba(45,40,35,0.06);transition:all 0.3s ease;text-decoration:none;color:inherit}.tool-cta:hover{box-shadow:0 4px 24px rgba(45,40,35,0.1);transform:translateY(-2px)}.tool-cta-icon{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}.tool-cta-body h4{font-size:0.95rem;font-weight:700;color:var(--text);margin:0 0 4px}.tool-cta-body p{font-size:0.82rem;color:var(--text-muted);margin:0 0 8px;line-height:1.45}.tool-cta-btn{display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;font-weight:700;color:var(--sage-500);transition:color 0.2s}.tool-cta:hover .tool-cta-btn{color:var(--sage-700)}
+  .tool-cta{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:22px;padding:24px 28px;margin:32px 0;display:flex;gap:20px;align-items:center;box-shadow:0 2px 16px rgba(45,40,35,0.06);transition:all 0.3s ease;text-decoration:none;color:inherit}.tool-cta:hover{box-shadow:0 4px 20px rgba(45,40,35,0.1)}.tool-cta-icon{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}.tool-cta-body h4{font-size:0.95rem;font-weight:700;color:var(--text);margin:0 0 4px}.tool-cta-body p{font-size:0.82rem;color:var(--text-muted);margin:0 0 8px;line-height:1.45}.tool-cta-btn{display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;font-weight:700;color:var(--sage-500);transition:color 0.2s}.tool-cta:hover .tool-cta-btn{color:var(--sage-700)}
 </style>
 </head>
 <body>
@@ -609,7 +609,7 @@
 
   <!-- SOURCES -->
   <div class="sources reveal">
-    <button type="button" class="sources-toggle" aria-expanded="false" onclick="var p=this.parentElement;p.classList.toggle('sources-open');this.setAttribute('aria-expanded',p.classList.contains('sources-open'))">
+    <button type="button" class="sources-toggle" aria-expanded="false" data-sources-toggle>
     <h4>Wissenschaftliche Quellen</h4></button>
     <ul>
       <li><strong>Perlick, D. A. et al. (2007).</strong> Caregiver burden and health in bipolar disorder. <em>Bipolar Disorders, 9</em>(3), 262–273.</li>
@@ -712,17 +712,6 @@
     document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('open'));
     if (!wasOpen) item.classList.add('open');
   }
-
-  // Scroll reveal
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 60);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
   // Animate bars on scroll
   const barObserver = new IntersectionObserver((entries) => {

@@ -5,6 +5,7 @@
 <meta name="description" content="Expressed Emotion, Stigma, Grenzen und die Frage Gehen oder Bleiben. Loyalitätskonflikte verstehen. Für Angehörige. PUK Zürich.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Modul 5: Loyalitätskonflikte und schwierige Entscheidungen | PUK Zürich</title>
+<link rel="canonical" href="https://www.pukzh.ch/modul/5/">
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,300;1,8..60,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
 <style>
   :root{--sage-50:#f6f7f4;--sage-100:#eaede4;--sage-200:#d5dbc9;--sage-300:#b4bfa0;--sage-400:#748a5a;--sage-500:#6b7d52;--sage-600:#566642;--sage-700:#3d4a30;--warm-50:#fdfbf7;--warm-100:#f9f4eb;--warm-200:#f0e6d3;--warm-300:#e2d0b4;--warm-400:#c9a87a;--earth-700:#5c4a38;--earth-800:#3d3128;--earth-900:#2a211b;--cream:#fefcf8;--text:#2e2a25;--text-secondary:#5e564e;--text-muted:#706860;--alert-red:#c75450;--alert-red-bg:#fdf2f1;--alert-red-border:#f0c5c3;--blue-phase:#5b7fa5;--blue-phase-light:#eef3f8;--amber-phase:#c4933b;--amber-phase-light:#fdf6ea;--radius-sm:8px;--radius-md:14px;--radius-lg:22px;--radius-xl:32px;--shadow-soft:0 2px 16px rgba(45,40,35,0.06);--shadow-card:0 4px 24px rgba(45,40,35,0.08);--content-width:740px}
@@ -129,8 +130,8 @@
   .stat-text{font-size:0.88rem;color:var(--text-secondary);line-height:1.55}
 
   .action-grid{display:grid;grid-template-columns:1fr;gap:14px;margin:28px 0}
-  .action-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:24px;display:flex;gap:20px;align-items:flex-start;transition:all 0.3s ease}
-  .action-card:hover{box-shadow:var(--shadow-soft);transform:translateY(-2px)}
+  .action-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:24px;display:flex;gap:20px;align-items:flex-start;transition:border-color 0.2s ease,box-shadow 0.2s ease}
+  .action-card:hover{box-shadow:var(--shadow-soft)}
   .action-icon{width:42px;height:42px;border-radius:11px;background:var(--sage-100);color:var(--sage-600);display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:800;flex-shrink:0}
   .action-card h4{font-weight:700;font-size:0.92rem;margin-bottom:6px;color:var(--text)}
   .action-card p{font-size:0.85rem;color:var(--text-muted);line-height:1.6;margin:0}
@@ -160,8 +161,8 @@
   .handouts{margin:48px 0}
   .handouts-title{font-family:'Source Serif 4',serif;font-size:1.2rem;font-weight:600;color:var(--earth-800);margin-bottom:20px}
   .handouts-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  .handout-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-md);padding:20px;text-decoration:none;color:var(--text);display:flex;align-items:center;gap:16px;transition:all 0.3s ease}
-  .handout-card:hover{box-shadow:var(--shadow-soft);transform:translateY(-2px);border-color:var(--sage-200)}
+  .handout-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-md);padding:20px;text-decoration:none;color:var(--text);display:flex;align-items:center;gap:16px;transition:border-color 0.2s ease,box-shadow 0.2s ease}
+  .handout-card:hover{box-shadow:var(--shadow-soft);border-color:var(--sage-200)}
   .handout-icon{width:44px;height:44px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700}
   .handout-icon.green{background:var(--sage-100);color:var(--sage-600)}
   .handout-icon.red{background:var(--alert-red-bg);color:var(--alert-red)}
@@ -169,13 +170,13 @@
   .handout-card-sub{font-size:0.75rem;color:var(--text-muted)}
 
   .next-module{margin:64px 0 0;border-top:1px solid rgba(45,40,35,0.06);padding-top:48px}
-  .next-module-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-xl);padding:36px;text-decoration:none;color:var(--text);display:flex;align-items:center;justify-content:space-between;gap:32px;transition:all 0.4s ease}
+  .next-module-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-xl);padding:36px;text-decoration:none;color:var(--text);display:flex;align-items:center;justify-content:space-between;gap:32px;transition:border-color 0.2s ease,box-shadow 0.2s ease}
   .next-module-card:hover{box-shadow:0 8px 40px rgba(45,40,35,0.12);transform:translateY(-3px);border-color:var(--sage-200)}
   .next-module-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--sage-500);margin-bottom:8px}
   .next-module-title{font-family:'Source Serif 4',serif;font-size:1.3rem;font-weight:600;color:var(--earth-800);margin-bottom:8px}
   .next-module-desc{font-size:0.88rem;color:var(--text-muted);line-height:1.55}
-  .next-module-arrow{width:56px;height:56px;border-radius:50%;flex-shrink:0;background:var(--sage-100);color:var(--sage-600);display:flex;align-items:center;justify-content:center;font-size:1.3rem;transition:all 0.3s ease}
-  .next-module-card:hover .next-module-arrow{background:var(--sage-500);color:white;transform:translateX(4px)}
+  .next-module-arrow{width:56px;height:56px;border-radius:50%;flex-shrink:0;background:var(--sage-100);color:var(--sage-600);display:flex;align-items:center;justify-content:center;font-size:1.3rem;transition:border-color 0.2s ease,box-shadow 0.2s ease}
+  .next-module-card:hover .next-module-arrow{background:var(--sage-500);color:white}
 
   footer{background:var(--earth-900);color:rgba(255,255,255,0.6);padding:48px 2rem 32px;margin-top:80px}
   .footer-inner{max-width:var(--content-width);margin:0 auto;text-align:center}
@@ -184,17 +185,16 @@
   .footer-links{margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08);font-size:0.75rem}
   .footer-links a{margin:0 10px}
 
-  .reveal{opacity:0;transform:translateY(24px);transition:all 0.6s cubic-bezier(0.25,0.46,0.45,0.94)}
-  .reveal.visible{opacity:1;transform:translateY(0)}
+  .reveal{opacity:1}
 
   @media(max-width:900px){.nav-links{display:none}.nav-toggle{display:flex}.nav-inner{position:relative}.toc ol{grid-template-columns:1fr}.tension{grid-template-columns:1fr}.tension-vs{padding:12px 0}.tension-left{border-radius:var(--radius-lg) var(--radius-lg) 0 0}.tension-right{border-radius:0 0 var(--radius-lg) var(--radius-lg)}.stigma-cards{grid-template-columns:1fr}.barrier-grid{grid-template-columns:1fr}.decision-paths{grid-template-columns:1fr}.cycle-steps{grid-template-columns:1fr}.handouts-grid{grid-template-columns:1fr}}
   @media(max-width:900px){.nav-links.nav-open{display:flex;position:absolute;top:calc(100% + 10px);left:2rem;right:2rem;flex-direction:column;align-items:stretch;gap:6px;padding:12px;background:rgba(254,252,248,0.98);border:1px solid rgba(45,40,35,0.08);border-radius:16px;box-shadow:0 12px 30px rgba(45,40,35,0.14);z-index:60}.nav-links.nav-open a{display:block;padding:10px 12px}}
   @media(max-width:600px){.module-hero{padding:100px 1.2rem 40px}.content{padding:0 1.2rem}.next-module-card{flex-direction:column;text-align:center}.takeaways{padding:28px 24px}.stat-box{flex-direction:column;text-align:center}}
   *:focus-visible{outline:2px solid var(--sage-500);outline-offset:2px;border-radius:4px}
-  @media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none!important}*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
+  @media(prefers-reduced-motion:reduce){*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
   .skip-link:focus{position:fixed!important;top:12px;left:12px;width:auto;height:auto;padding:12px 20px;background:var(--sage-700);color:white;border-radius:8px;font-size:0.85rem;font-weight:600;z-index:10000;text-decoration:none}
   .sources-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;cursor:pointer;padding:0;font:inherit;color:inherit;text-align:left}
-  .tool-cta{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:22px;padding:24px 28px;margin:32px 0;display:flex;gap:20px;align-items:center;box-shadow:0 2px 16px rgba(45,40,35,0.06);transition:all 0.3s ease;text-decoration:none;color:inherit}.tool-cta:hover{box-shadow:0 4px 24px rgba(45,40,35,0.1);transform:translateY(-2px)}.tool-cta-icon{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}.tool-cta-body h4{font-size:0.95rem;font-weight:700;color:var(--text);margin:0 0 4px}.tool-cta-body p{font-size:0.82rem;color:var(--text-muted);margin:0 0 8px;line-height:1.45}.tool-cta-btn{display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;font-weight:700;color:var(--sage-500);transition:color 0.2s}.tool-cta:hover .tool-cta-btn{color:var(--sage-700)}
+  .tool-cta{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:22px;padding:24px 28px;margin:32px 0;display:flex;gap:20px;align-items:center;box-shadow:0 2px 16px rgba(45,40,35,0.06);transition:border-color 0.2s ease,box-shadow 0.2s ease;text-decoration:none;color:inherit}.tool-cta:hover{box-shadow:0 4px 20px rgba(45,40,35,0.1)}.tool-cta-icon{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}.tool-cta-body h4{font-size:0.95rem;font-weight:700;color:var(--text);margin:0 0 4px}.tool-cta-body p{font-size:0.82rem;color:var(--text-muted);margin:0 0 8px;line-height:1.45}.tool-cta-btn{display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;font-weight:700;color:var(--sage-500);transition:color 0.2s}.tool-cta:hover .tool-cta-btn{color:var(--sage-700)}
 </style>
 </head>
 <body>
@@ -432,7 +432,7 @@
 
   <!-- SOURCES -->
   <div class="sources reveal">
-    <button type="button" class="sources-toggle" aria-expanded="false" onclick="var p=this.parentElement;p.classList.toggle('sources-open');this.setAttribute('aria-expanded',p.classList.contains('sources-open'))">
+    <button type="button" class="sources-toggle" aria-expanded="false" data-sources-toggle>
     <h4>Wissenschaftliche Quellen</h4></button>
     <ul>
       <li><strong>Kim, E. Y. & Miklowitz, D. J. (2004).</strong> Expressed emotion as a predictor of outcome among bipolar patients undergoing family therapy. <em>J Affective Disorders, 82</em>(3), 343–352.</li>
@@ -483,9 +483,8 @@
   const navToggle=document.querySelector('.nav-toggle');const navLinks=document.getElementById('primary-nav');
   if(navToggle&&navLinks){const closeNav=()=>{navLinks.classList.remove('nav-open');navToggle.setAttribute('aria-expanded','false');navToggle.setAttribute('aria-label','Menü öffnen')};navToggle.addEventListener('click',()=>{const isOpen=navLinks.classList.toggle('nav-open');navToggle.setAttribute('aria-expanded',isOpen?'true':'false');navToggle.setAttribute('aria-label',isOpen?'Menü schliessen':'Menü öffnen')});navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeNav));document.addEventListener('keydown',e=>{if(e.key==='Escape')closeNav()});document.addEventListener('click',e=>{if(!nav.contains(e.target))closeNav()});window.addEventListener('resize',()=>{if(window.innerWidth>900)closeNav()})}
   const pb=document.getElementById('readingProgress');window.addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-window.innerHeight;pb.style.width=h>0?(window.scrollY/h*100)+'%':'0%'});
-  const obs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*60);obs.unobserve(e.target)}})},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
-  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
   const tocLinks=document.querySelectorAll('.toc a[href^="#"]');const tocSections=Array.from(tocLinks).map(a=>{const id=a.getAttribute('href').slice(1);return{link:a,el:document.getElementById(id)}}).filter(s=>s.el);const tocObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){tocLinks.forEach(l=>l.classList.remove('active'));const match=tocSections.find(s=>s.el===e.target);if(match)match.link.classList.add('active')}})},{threshold:0.1,rootMargin:'-100px 0px -60% 0px'});tocSections.forEach(s=>tocObs.observe(s.el));
+  document.querySelectorAll('[data-sources-toggle]').forEach(button=>{button.addEventListener('click',()=>{const section=button.parentElement;const isOpen=section.classList.toggle('sources-open');button.setAttribute('aria-expanded',isOpen?'true':'false');});});
 </script>
 </body>
 </html>
