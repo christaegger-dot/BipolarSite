@@ -17,7 +17,7 @@
   .nav-logo{width:40px;height:40px;border-radius:10px;background:var(--sage-600);color:white;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.7rem;letter-spacing:0.04em}
   .nav-brand-text{font-family:'Source Serif 4',serif;font-size:1rem;font-weight:600}
   .nav-links{display:flex;gap:4px;align-items:center}
-  .nav-links a{text-decoration:none;color:var(--text-secondary);font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:8px;transition:all 0.2s}
+  .nav-links a{text-decoration:none;color:var(--text-secondary);font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:8px;transition:background-color 0.2s ease,color 0.2s ease}
   .nav-links a:hover{background:var(--sage-50);color:var(--sage-700)}
   .nav-sos{color:#c75450!important;font-weight:600!important}
   .nav-toggle{display:none;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:none;background:transparent;cursor:pointer}
@@ -47,17 +47,15 @@
   .footer-links a{color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.75rem}.footer-links a:hover{color:white}
   *:focus-visible{outline:2px solid var(--sage-500);outline-offset:2px;border-radius:4px}
   @media(prefers-reduced-motion:reduce){*{transition-duration:0.01ms!important}}
-  body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.4}
+  body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 </style>
 </head>
 <body>
 <a href="#main-content" class="skip-link">Direkt zum Inhalt</a>
-<svg style="position:absolute;width:0;height:0"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feBlend in="SourceGraphic" mode="multiply"/></filter></svg>
-<style>body::before{filter:url(#noise)}</style>
 
 <nav id="navbar"><div class="nav-inner">
   <a href="/" class="nav-brand"><div class="nav-logo">PUK</div><div class="nav-brand-text">Bipolare Störung</div></a>
-  <div class="nav-links" id="primary-nav"><a href="/">Startseite</a><a href="/#module">Module</a><a href="/notfall/" class="nav-sos">SOS Krise</a></div>
+  <div class="nav-links" id="primary-nav"><a href="/">Startseite</a><a href="/#module">Module</a><a href="/impressum/" aria-current="page">Impressum</a><a href="/notfall/" class="nav-sos">SOS Krise</a></div>
   <button type="button" class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="primary-nav"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
 </div></nav>
 
@@ -86,7 +84,7 @@
 
   <div class="section">
     <h2>Zweck dieser Website</h2>
-    <p>Diese Website bietet evidenzbasierte Psychoedukation für Angehörige und Partner*innen von Menschen mit bipolarer Störung. Die Inhalte wurden auf Grundlage aktueller wissenschaftlicher Erkenntnisse erstellt und dienen der Information und Orientierung.</p>
+    <p>Diese Website bietet evidenzbasierte Psychoedukation für Angehörige und Partner*innen von Menschen mit bipolarer Störung. Die Inhalte wurden auf Grundlage wissenschaftlicher Erkenntnisse erstellt und dienen der Information und Orientierung.</p>
     <div class="info-box">
       <p><strong>Wichtig:</strong> Die Inhalte dieser Website ersetzen keine professionelle ärztliche, psychologische oder psychiatrische Beratung, Diagnose oder Behandlung. Bei akuten Krisen wenden Sie sich bitte an die auf dieser Website genannten Notfallnummern.</p>
     </div>
@@ -100,8 +98,8 @@
 
   <div class="section" id="datenschutz">
     <h2>Datenschutz</h2>
-    <p>Diese Website sammelt keine personenbezogenen Daten. Es werden keine Cookies gesetzt, kein Tracking eingesetzt und keine Analysedienste verwendet.</p>
-    <p>Schriftarten werden über Google Fonts geladen. Es gelten die <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Datenschutzbestimmungen von Google</a>.</p>
+    <p>Diese Website verwendet keine Formulare, keine Analyse- oder Trackingdienste und setzt keine Cookies für Statistik oder Marketing.</p>
+    <p>Beim Aufruf der Seiten werden technisch notwendige Verbindungsdaten verarbeitet. Zudem werden Schriftarten derzeit über Google Fonts geladen. Dabei kann eine Verbindung zu Servern von Google hergestellt werden. Es gelten ergänzend die <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Datenschutzbestimmungen von Google</a>.</p>
   </div>
 
   <div class="section">
