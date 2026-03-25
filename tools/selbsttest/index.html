@@ -77,7 +77,7 @@ const Q=[
 ];
 const O=[{v:0,l:"Trifft nicht zu",e:"○"},{v:1,l:"Trifft selten zu",e:"◔"},{v:2,l:"Trifft manchmal zu",e:"◑"},{v:3,l:"Trifft oft zu",e:"◕"},{v:4,l:"Trifft fast immer zu",e:"●"}];
 function gr(s){
-  if(s<=6)return{lv:"niedrig",c:"#6b9a6b",bg:"#f0f5ed",bd:"#c5d9b8",ti:"Belastung im grünen Bereich",tx:"Ihre Antworten deuten darauf hin, dass Sie aktuell gut zurechtkommen. Das bedeutet nicht, dass alles einfach ist — aber Sie scheinen Strategien zu haben, die funktionieren.",rc:["Lesen Sie Modul 7 (Resilienz) — um Ihre Ressourcen weiter zu stärken.","Bleiben Sie in Kontakt mit Ihrem sozialen Netz."]};
+  if(s<=6)return{lv:"niedrig",c:"#6b9a6b",bg:"#f0f5ed",bd:"#c5d9b8",ti:"Belastung im grünen Bereich",tx:"Ihre Antworten deuten darauf hin, dass Sie aktuell gut zurechtkommen. Das bedeutet nicht, dass alles einfach ist — aber Sie scheinen Strategien zu haben, die funktionieren.",rc:["Lesen Sie Modul 7 zur langen Strecke und Tragfähigkeit — um tragende Routinen weiter zu stärken.","Bleiben Sie in Kontakt mit Ihrem sozialen Netz."]};
   if(s<=12)return{lv:"mittel",c:"#c4933b",bg:"#fdf6ea",bd:"#e8d5a8",ti:"Erhöhte Belastung — achten Sie auf sich",tx:"Ihre Antworten zeigen: Die Belastung ist spürbar. Das ist bei Angehörigen häufig — und kein Zeichen von Schwäche. Jetzt ist ein guter Zeitpunkt, aktiv gegenzusteuern.",rc:["Abschnitt 3 dieses Moduls (Schonhaltung & Identitätsverlust) könnte besonders relevant sein.","Modul 6 bietet konkrete Werkzeuge — insbesondere Grenzsetzung.","Sprechen Sie mit einer Vertrauensperson über Ihre Situation."]};
   return{lv:"hoch",c:"#c75450",bg:"#fdf2f1",bd:"#f0c5c3",ti:"Deutliche Überlastung — Sie verdienen Unterstützung",tx:"Ihre Antworten deuten auf eine erhebliche Belastung hin. Das ist ernst zu nehmen. Sie tragen gerade sehr viel. Es wäre wichtig, dass Sie sich jetzt Hilfe holen.",rc:["Fachstelle Angehörigenarbeit PUK Zürich: 058 384 38 00 — kostenlos, vertraulich.","Hausarzt einbeziehen: Chronische Belastung hat körperliche Folgen.","VASK Zürich (044 240 48 68) bietet Selbsthilfegruppen.","Lesen Sie Abschnitt 6 dieses Moduls — konkrete Handlungsschritte."]};
 }
@@ -99,7 +99,7 @@ function rn(){
     <p class="res-txt">${r.tx}</p>
     <div class="rec" style="background:${r.bg};border-color:${r.c}"><div class="rec-title" style="color:${r.c}">Empfehlungen</div>${r.rc.map(x=>`<div class="rec-item" style="--c:${r.c}"><span style="position:absolute;left:0;color:${r.c};font-weight:700">→</span>${x}</div>`).join('')}</div>
     <div class="disc"><strong>Wichtig:</strong> Dieser Selbsttest ist keine Diagnose. Er gibt Orientierung. Fachstelle PUK: <a href="tel:+41583843800">058 384 38 00</a>.</div>
-    <div class="btns"><button class="btn-reset" onclick="rs()">Nochmal machen</button><button class="btn-cont" onclick="location.href='/modul/4/'">Weiter im Modul →</button></div>`;
+    <div class="btns"><button class="btn-reset" onclick="rs()">Erneut einschätzen</button><button class="btn-cont" onclick="location.href='/modul/4/'">Zurück zu Modul 4 →</button></div>`;
   }
 }
 function sa(id,v){ans[id]=v;rn()}

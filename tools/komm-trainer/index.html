@@ -58,7 +58,7 @@ body{font-family:'DM Sans',sans-serif;color:#2e2a25;background:#fefcf8;min-heigh
 <body>
 <nav class="tool-nav"><a href="/modul/6/" class="tool-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>Zurück zu Modul 6</a><span class="tool-brand">PUK Zürich</span></nav>
 <div class="wrap">
-  <div class="hdr"><div class="badge">Modul 6 — Übung</div><h1>Kommunikations-Trainer</h1><p>6 Situationen aus Manie und Depression. Welche Antwort hilft — und warum?</p></div>
+  <div class="hdr"><div class="badge">Modul 6 — Übung</div><h1>Kommunikations-Trainer</h1><p>Sechs kurze Situationen aus Manie und Depression. Nicht die perfekte Antwort zählt, sondern ein klareres Gefühl dafür, was in welcher Lage eher hilft.</p></div>
   <div class="prog" id="prog"></div>
   <div class="card" id="card"></div>
   <p class="tf">Basierend auf: Miklowitz (2010); Perlick et al. (2007)<br>Psychiatrische Universitätsklinik Zürich · Fachstelle Angehörigenarbeit</p>
@@ -108,10 +108,10 @@ function rn(){
     const col=pct>=80?'#6b9a6b':pct>=50?'#c4933b':'#c75450';
     const bg=pct>=80?'#f0f5ed':pct>=50?'#fdf6ea':'#fdf2f1';
     cd.innerHTML=`<div class="res"><div class="res-circle" style="background:${bg};border-color:${col}"><span style="color:${col}">${score.ok}/${S.length}</span></div>
-    <h2>${pct>=80?'Sehr gut — Sie kommunizieren klar und empathisch.':pct>=50?'Gute Basis — mit Übung wird es sicherer.':'Kommunikation unter Druck ist schwer — jede Übung zählt.'}</h2>
-    <p>${pct>=80?'Sie erkennen die Unterschiede zwischen Manie und Depression und reagieren angemessen.':'Die Situationen sind absichtlich schwer — im echten Leben haben Sie oft weniger als 3 Sekunden. Üben Sie die Grundregeln.'}</p>
+    <h2>${pct>=80?'Sie haben ein gutes Gespür für die Unterschiede.':pct>=50?'Eine brauchbare Basis ist da — mit Übung wird es klarer.':'Kommunikation unter Druck ist schwer — genau dafür ist diese Übung da.'}</h2>
+    <p>${pct>=80?'Sie erkennen recht gut, warum Manie und Depression unterschiedliche Sprache brauchen.':'Die Situationen sind absichtlich schwer — im echten Leben bleibt oft kaum Zeit. Entscheidend sind nicht perfekte Sätze, sondern die Grundrichtung.'}</p>
     <div class="rules"><div class="rules-title">Die zwei Grundregeln</div><p><strong>Manie:</strong> Kurz, klar, ein Thema. Nicht argumentieren. Rausgehen, wenn es eskaliert.</p><p><strong>Depression:</strong> Stille Präsenz. Nicht aufmuntern. Gefühle stehen lassen, nicht korrigieren.</p></div>
-    <div class="btns"><button class="btn-r" onclick="rs()">Nochmal üben</button><button class="btn-c" onclick="location.href='/modul/6/'">Weiter im Modul →</button></div></div>`;
+    <div class="btns"><button class="btn-r" onclick="rs()">Erneut üben</button><button class="btn-c" onclick="location.href='/modul/6/'">Zurück zu Modul 6 →</button></div></div>`;
   }
 }
 function pick(i){if(sel!==null)return;sel=i;const o=shuf[ci][i];score.ok+=o.ok?1:0;score.total++;rn()}
