@@ -1,6 +1,15 @@
 [build]
 publish = "."
 
+# Security headers applied to all pages
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
 # Long-lived cache for versioned assets (CSS, fonts)
 [[headers]]
   for = "/css/*"

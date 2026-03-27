@@ -50,7 +50,7 @@ body{font-family:'DM Sans',sans-serif;color:#2e2a25;background:#fefcf8;min-heigh
 </head>
 <body>
 <nav class="tool-nav"><a href="/modul/4/" class="tool-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>Zurück zu Modul 4</a><span class="tool-brand">PUK Zürich</span></nav>
-<div class="wrap">
+<main class="wrap" id="main-content">
   <div class="hdr"><div class="badge">Modul 4 — Interaktiv</div><h1>Belastungsverlauf über Episoden</h1><p>Wie sich Belastungsreserve und Stimmung über wiederholte Episoden verändern. Klicken Sie auf eine Episode.</p></div>
   <div class="legend">
     <div class="legend-item"><div class="legend-line" style="background:#c4933b"></div>Belastungsreserve</div>
@@ -58,7 +58,7 @@ body{font-family:'DM Sans',sans-serif;color:#2e2a25;background:#fefcf8;min-heigh
     <div class="legend-item" id="legSupport" style="display:none"><div class="legend-line" style="background:#6b9a6b;border-style:dashed"></div>Mit Unterstützung abgefedert</div>
   </div>
   <div class="chart-wrap">
-    <svg viewBox="0 0 600 280" role="img" aria-label="Konzeptionelles Modell: Belastungsreserve und Stimmung über mehrere Episoden">
+    <svg viewBox="0 0 600 280" role="group" aria-label="Konzeptionelles Modell: Belastungsreserve und Stimmung über mehrere Episoden">
       <!-- Grid -->
       <line x1="60" y1="20" x2="60" y2="240" stroke="#eaede4" stroke-width="1"/>
       <line x1="60" y1="130" x2="580" y2="130" stroke="#eaede4" stroke-width="1" stroke-dasharray="4 4"/>
@@ -90,7 +90,7 @@ body{font-family:'DM Sans',sans-serif;color:#2e2a25;background:#fefcf8;min-heigh
   <div class="toggle-wrap"><button class="toggle-btn" id="toggleBtn" onclick="toggleSupport()">Mit Entlastung vergleichen</button></div>
   <div class="disc"><strong>Konzeptionelles Modell</strong> — es soll sichtbar machen, warum Belastung sich über Episoden oft kumuliert und Erholung unvollständig bleiben kann. Individuelle Verläufe können erheblich abweichen. Quellen: Perlick et al. (2007); Reinares et al. (2016); Miklowitz (2010).</div>
   <p class="tf">Psychiatrische Universitätsklinik Zürich · Fachstelle Angehörigenarbeit</p>
-</div>
+</main>
 <script>
 const eps=[
   {name:"Hypomanie",col:"#c4933b",bg:"rgba(196,147,59,0.1)",impact:"Leicht–Mittel",bel:"Die Belastungsreserve sinkt oft zunächst nur leicht. Gerade das macht Hypomanie für Angehörige schwer lesbar: Viel wirkt noch produktiv oder charmant, gleichzeitig werden Schlaf, Reizbarkeit und Unsicherheit grösser.",stim:"Die Stimmung steigt an — mehr Energie, weniger Schlaf, grössere Ideen. Für Angehörige bleibt oft unklar, ob es noch eine gute Phase ist oder schon der Beginn einer Episode."},

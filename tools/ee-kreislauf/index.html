@@ -48,10 +48,10 @@ body{font-family:'DM Sans',sans-serif;color:#2e2a25;background:#fefcf8;min-heigh
 </head>
 <body>
 <nav class="tool-nav"><a href="/modul/5/" class="tool-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>Zurück zu Modul 5</a><span class="tool-brand">PUK Zürich</span></nav>
-<div class="wrap">
+<main class="wrap" id="main-content">
   <div class="hdr"><div class="badge">Modul 5 — Interaktiv</div><h1>Wie Überlastung zum Kreislauf wird</h1><p>Der EE-Kreislauf aus Schuld, Überengagement, Erschöpfung und Kritik. Klicken Sie auf eine Station, um zu sehen, wie sich Überforderung zuspitzt — und wo der Kreislauf unterbrochen werden kann.</p></div>
   <div class="svg-wrap" id="svgWrap">
-    <svg viewBox="0 0 400 400" role="img" aria-label="EE-Kreislauf: Schuld, Überengagement, Erschöpfung und Kritik als Teufelskreis">
+    <svg viewBox="0 0 400 400" role="group" aria-label="EE-Kreislauf: Schuld, Überengagement, Erschöpfung und Kritik als Teufelskreis">
       <!-- Arrows -->
       <path class="arrow" d="M200 60 A140 140 0 0 1 340 200" fill="none" stroke="#d5dbc9" stroke-width="2.5" stroke-linecap="round"/>
       <path class="arrow" d="M340 200 A140 140 0 0 1 200 340" fill="none" stroke="#d5dbc9" stroke-width="2.5" stroke-linecap="round"/>
@@ -84,7 +84,7 @@ body{font-family:'DM Sans',sans-serif;color:#2e2a25;background:#fefcf8;min-heigh
   <div class="detail" id="detail" aria-live="polite"></div>
   <button class="break-btn" id="breakBtn" onclick="doBreak()">Kreislauf unterbrechen</button>
   <p class="tf">Basierend auf: Butzlaff & Hooley (1998); Miklowitz et al. (2003)<br>Psychiatrische Universitätsklinik Zürich · Fachstelle Angehörigenarbeit</p>
-</div>
+</main>
 <script>
 const stations=[
   {n:"Schuld",c:"#c4933b",desc:"Sie fühlen sich schuldig — «Ich mache nicht genug.» «Wenn ich nur aufmerksamer wäre.» Schuld ist in dieser Lage häufig und entsteht oft aus Liebe, Verantwortung und Hilflosigkeit zugleich.",mech:"Diese Schuld treibt oft dazu, noch mehr zu übernehmen, noch stärker zu kontrollieren und noch weniger loszulassen. So beginnt der Kreislauf.",exit:"Eine kleine Unterbrechung kann sein, Schuld zu benennen, ohne ihr sofort zu folgen: «Ich fühle mich schuldig, aber ich muss nicht alles allein auffangen.»"},
