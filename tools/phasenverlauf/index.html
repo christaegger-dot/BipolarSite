@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Interaktive Visualisierung des bipolaren Phasenverlaufs: Manie, Hypomanie, Euthymie und Depression im zeitlichen Zusammenhang. Für Angehörige. PUK Zürich.">
+<title>Bipolarer Phasenverlauf — Interaktiv | PUK Zürich</title>
+<link rel="canonical" href="https://www.pukzh.ch/tools/phasenverlauf/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;color:#2e2a25;background:#fefcf8;min-height:100vh;display:flex;flex-direction:column;align-items:center;-webkit-font-smoothing:antialiased}
+.tool-nav{width:100%;background:rgba(254,252,248,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(45,40,35,0.06);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
+.tool-back{display:flex;align-items:center;gap:8px;text-decoration:none;color:#706860;font-size:0.82rem;font-weight:500;transition:color 0.2s}.tool-back:hover{color:#3d4a30}
+.tool-back svg{width:16px;height:16px}
+.tool-brand{font-family:'DM Serif Display',serif;font-size:0.85rem;font-weight:600;color:#2e2a25}
+.wrap{width:100%;max-width:600px;padding:32px 20px 56px;flex:1}
+.hdr{text-align:center;margin-bottom:28px}
+.badge{display:inline-flex;background:#eaede4;color:#3d4a30;padding:5px 14px;border-radius:100px;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px}
+.hdr h1{font-family:'DM Serif Display',serif;font-size:clamp(1.35rem,3.5vw,1.75rem);font-weight:700;color:#2a211b;margin:0 0 8px;letter-spacing:-0.02em;line-height:1.2}
+.hdr p{font-size:0.85rem;color:#706860;line-height:1.6}
+
+/* ── Chart wrapper ── */
+.chart-wrap{width:100%;border-radius:18px;overflow:hidden;background:#fff;border:1px solid rgba(45,40,35,0.07);box-shadow:0 4px 24px rgba(45,40,35,0.08);margin-bottom:18px}
+.chart-top{padding:16px 18px 10px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.chart-heading{font-size:0.72rem;font-weight:700;color:#706860;text-transform:uppercase;letter-spacing:0.08em}
+.chart-legend{display:flex;gap:12px;flex-wrap:wrap}
+.leg{display:flex;align-items:center;gap:5px;font-size:0.64rem;color:#706860;font-weight:500}
+.leg-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+
+/* SVG chart */
+.chart-svg-wrap{padding:4px 18px 0}
+.chart-svg{width:100%;height:auto;display:block;overflow:visible}
+
+/* Clickable zone overlays */
+.zone-hit{cursor:pointer;fill:transparent}
+.zone-hit:hover{fill:rgba(255,255,255,0.12)}
+
+/* Wave path */
+#wavePath{stroke:#1E656D;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+
+/* Wave points */
+.wpt{cursor:pointer;transition:r 0.2s,filter 0.2s}
+.wpt:focus{outline:none}
+.wpt:focus-visible{filter:drop-shadow(0 0 0 3px rgba(116,138,90,0.5))}
+
+.chart-xlab{text-align:center;font-size:0.65rem;color:#a09088;padding:10px 18px 16px;font-style:italic}
+
+/* ── Phase buttons ── */
+.phase-btns{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:18px}
+.pbtn{padding:10px 4px;border-radius:12px;border:2px solid transparent;background:#f6f7f4;color:#706860;font-size:0.66rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;display:flex;flex-direction:column;align-items:center;gap:3px;-webkit-appearance:none;line-height:1.2;text-align:center}
+.pbtn .ico{font-size:1.1rem;display:block}
+.pbtn:hover{transform:translateY(-2px);box-shadow:0 3px 10px rgba(45,40,35,0.1)}
+.pbtn.active{color:#fff;transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.18)}
+
+/* ── Detail card ── */
+.detail-card{background:#fff;border-radius:18px;border:1px solid rgba(45,40,35,0.07);box-shadow:0 4px 24px rgba(45,40,35,0.08);padding:24px 24px 20px;border-left:4px solid #ddd;transition:border-color 0.3s,opacity 0.3s,transform 0.3s;opacity:0;transform:translateY(8px);pointer-events:none}
+.detail-card.vis{opacity:1;transform:translateY(0);pointer-events:auto}
+.det-top{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px}
+.det-icon{width:48px;height:48px;min-width:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.35rem}
+.det-phase-name{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px}
+.det-title{font-family:'DM Serif Display',serif;font-size:1rem;font-weight:700;color:#2e2a25;line-height:1.3}
+.det-dur{display:inline-flex;align-items:center;gap:6px;font-size:0.72rem;color:#706860;background:#f6f7f4;padding:4px 12px;border-radius:100px;margin-bottom:16px}
+.det-cols{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.det-col{border-radius:12px;padding:14px 15px;border-left:3px solid}
+.det-col-lbl{font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:8px}
+.det-col ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+.det-col li{font-size:0.8rem;line-height:1.5;padding-left:14px;position:relative;color:#5e564e}
+.det-col li::before{content:'–';position:absolute;left:0;color:#c5bdb5}
+.det-note{border-radius:12px;padding:12px 15px;font-size:0.8rem;line-height:1.6;color:#5e564e}
+.det-note strong{color:#2e2a25}
+
+.hint{text-align:center;font-size:0.78rem;color:#a09088;margin:0 0 18px;line-height:1.5}
+
+.tf{text-align:center;font-size:0.68rem;color:#b4bfa0;margin-top:28px;line-height:1.6}
+
+*:focus-visible{outline:2px solid #748a5a;outline-offset:2px;border-radius:4px}
+@media(prefers-reduced-motion:reduce){*{transition-duration:0.01ms!important;animation-duration:0.01ms!important}}
+@media(max-width:500px){
+  .phase-btns{grid-template-columns:repeat(3,1fr)}
+  .det-cols{grid-template-columns:1fr}
+  .chart-legend{display:none}
+  .wrap{padding:24px 14px 40px}
+}
+</style>
+<link rel="stylesheet" href="/css/tarif-kompass-theme.css">
+</head>
+<body>
+
+<nav class="tool-nav">
+  <a href="/modul/1/" class="tool-back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+    Zurück zu Modul 1
+  </a>
+  <span class="tool-brand">PUK Zürich</span>
+</nav>
+
+<main class="wrap" id="main-content">
+  <div class="hdr">
+    <div class="badge">Modul 1 — Visualisierung</div>
+    <h1>Bipolarer Phasenverlauf</h1>
+    <p>Wählen Sie eine Phase — entweder im Diagramm oder über die Schaltflächen — um zu erfahren, was sie für Betroffene und Angehörige bedeutet.</p>
+  </div>
+
+  <!-- Chart -->
+  <div class="chart-wrap">
+    <div class="chart-top">
+      <span class="chart-heading">Stimmungsverlauf über die Zeit</span>
+      <div class="chart-legend">
+        <span class="leg"><span class="leg-dot" style="background:#B45309"></span>Manie</span>
+        <span class="leg"><span class="leg-dot" style="background:#c4933b"></span>Hypomanie</span>
+        <span class="leg"><span class="leg-dot" style="background:#0d7a5f"></span>Stabil</span>
+        <span class="leg"><span class="leg-dot" style="background:#5b7fa5"></span>Leichte Dep.</span>
+        <span class="leg"><span class="leg-dot" style="background:#334155"></span>Schwere Dep.</span>
+      </div>
+    </div>
+    <div class="chart-svg-wrap">
+      <!--
+        ViewBox 0 0 540 280
+        5 horizontal zones (each 56px tall):
+          Manie:           y   0 – 56   mid y=28
+          Hypomanie:       y  56 – 112  mid y=84
+          Stabil:          y 112 – 168  mid y=140
+          Leichte Dep.:    y 168 – 224  mid y=196
+          Schwere Dep.:    y 224 – 280  mid y=252
+
+        Wave path (x range 90–530):
+          Start  x=90,  y=140 (stabil)
+          Manie  x=160, y=28
+          Stabil x=230, y=140
+          Schwere Dep. x=300, y=252
+          Stabil x=370, y=140
+          Hypo   x=430, y=84
+          Stabil x=490, y=140
+          Mild Dep. x=520, y=196  → end x=530, y=196
+      -->
+      <svg class="chart-svg" viewBox="0 0 540 280" xmlns="http://www.w3.org/2000/svg"
+           role="img" aria-label="Vereinfachter bipolarer Phasenverlauf. Interaktiv — Phasen anklicken für Details.">
+
+        <!-- Zone backgrounds -->
+        <rect x="0" y="0"   width="540" height="56"  fill="#fff3e0" id="zone-mania"       class="zone-bg" data-phase="mania"/>
+        <rect x="0" y="56"  width="540" height="56"  fill="#fff9f0" id="zone-hypo"        class="zone-bg" data-phase="hypomania"/>
+        <rect x="0" y="112" width="540" height="56"  fill="#e8f5f2" id="zone-stable"      class="zone-bg" data-phase="stable"/>
+        <rect x="0" y="168" width="540" height="56"  fill="#eef3f8" id="zone-mild"        class="zone-bg" data-phase="mild-dep"/>
+        <rect x="0" y="224" width="540" height="56"  fill="#e4eaf2" id="zone-severe"      class="zone-bg" data-phase="severe-dep"/>
+
+        <!-- Zone separators -->
+        <line x1="0" y1="56"  x2="540" y2="56"  stroke="#ddd" stroke-width="0.6" stroke-dasharray="4 3"/>
+        <line x1="0" y1="112" x2="540" y2="112" stroke="#ddd" stroke-width="0.6" stroke-dasharray="4 3"/>
+        <line x1="0" y1="168" x2="540" y2="168" stroke="#c0c0c0" stroke-width="1"/>
+        <line x1="0" y1="224" x2="540" y2="224" stroke="#ddd" stroke-width="0.6" stroke-dasharray="4 3"/>
+
+        <!-- Baseline (stable midline) -->
+        <line x1="80" y1="140" x2="540" y2="140" stroke="#0d7a5f" stroke-width="0.8" stroke-dasharray="6 4" opacity="0.35"/>
+
+        <!-- Zone labels -->
+        <text x="8" y="32"  font-size="10" fill="#B45309" font-weight="700" font-family="DM Sans,sans-serif">Manie</text>
+        <text x="8" y="88"  font-size="10" fill="#c4933b" font-weight="700" font-family="DM Sans,sans-serif">Hypomanie</text>
+        <text x="8" y="144" font-size="10" fill="#0d7a5f" font-weight="700" font-family="DM Sans,sans-serif">Stabil</text>
+        <text x="8" y="200" font-size="10" fill="#5b7fa5" font-weight="700" font-family="DM Sans,sans-serif">Leichte Dep.</text>
+        <text x="8" y="256" font-size="10" fill="#334155" font-weight="700" font-family="DM Sans,sans-serif">Schwere Dep.</text>
+
+        <!-- Clickable zone hit areas (full width, for accessibility) -->
+        <rect x="0" y="0"   width="540" height="56"  class="zone-hit" role="button" tabindex="0" aria-label="Phase Manie wählen"       data-phase="mania"      id="hit-mania"/>
+        <rect x="0" y="56"  width="540" height="56"  class="zone-hit" role="button" tabindex="0" aria-label="Phase Hypomanie wählen"    data-phase="hypomania"  id="hit-hypo"/>
+        <rect x="0" y="112" width="540" height="56"  class="zone-hit" role="button" tabindex="0" aria-label="Phase Stabil wählen"       data-phase="stable"     id="hit-stable"/>
+        <rect x="0" y="168" width="540" height="56"  class="zone-hit" role="button" tabindex="0" aria-label="Phase Leichte Dep. wählen" data-phase="mild-dep"   id="hit-mild"/>
+        <rect x="0" y="224" width="540" height="56"  class="zone-hit" role="button" tabindex="0" aria-label="Phase Schwere Dep. wählen" data-phase="severe-dep" id="hit-severe"/>
+
+        <!-- Wave path (animated in) -->
+        <path id="wavePath"
+          d="M 90,140 C 115,140 130,28 160,28 C 190,28 205,140 230,140 C 255,140 270,252 300,252 C 330,252 345,140 370,140 C 390,140 405,84 430,84 C 455,84 465,140 490,140 C 505,140 510,196 520,196"
+          stroke="#1E656D" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+        <!-- Interactive wave points -->
+        <circle class="wpt" cx="160" cy="28"  r="9" fill="#B45309" stroke="#fff" stroke-width="2.5" data-phase="mania"      id="pt-mania"    role="button" tabindex="0" aria-label="Manie-Gipfel — klicken für Details"/>
+        <circle class="wpt" cx="300" cy="252" r="9" fill="#334155" stroke="#fff" stroke-width="2.5" data-phase="severe-dep" id="pt-severe"   role="button" tabindex="0" aria-label="Schwere Depression — klicken für Details"/>
+        <circle class="wpt" cx="370" cy="140" r="9" fill="#0d7a5f" stroke="#fff" stroke-width="2.5" data-phase="stable"     id="pt-stable"   role="button" tabindex="0" aria-label="Stabile Phase — klicken für Details"/>
+        <circle class="wpt" cx="430" cy="84"  r="9" fill="#c4933b" stroke="#fff" stroke-width="2.5" data-phase="hypomania"  id="pt-hypo"     role="button" tabindex="0" aria-label="Hypomanie — klicken für Details"/>
+        <circle class="wpt" cx="520" cy="196" r="9" fill="#5b7fa5" stroke="#fff" stroke-width="2.5" data-phase="mild-dep"   id="pt-mild"     role="button" tabindex="0" aria-label="Leichte Depression — klicken für Details"/>
+
+        <!-- Pulse rings (animated) -->
+        <circle cx="160" cy="28"  r="15" fill="none" stroke="#B45309" stroke-width="1.5" opacity="0" class="pulse" id="pulse-mania"/>
+        <circle cx="300" cy="252" r="15" fill="none" stroke="#334155" stroke-width="1.5" opacity="0" class="pulse" id="pulse-severe"/>
+        <circle cx="370" cy="140" r="15" fill="none" stroke="#0d7a5f" stroke-width="1.5" opacity="0" class="pulse" id="pulse-stable"/>
+        <circle cx="430" cy="84"  r="15" fill="none" stroke="#c4933b" stroke-width="1.5" opacity="0" class="pulse" id="pulse-hypo"/>
+        <circle cx="520" cy="196" r="15" fill="none" stroke="#5b7fa5" stroke-width="1.5" opacity="0" class="pulse" id="pulse-mild"/>
+      </svg>
+    </div>
+    <p class="chart-xlab">Zeit (vereinfacht — Episodenabstände variieren stark, von Wochen bis Jahren)</p>
+  </div>
+
+  <p class="hint">Klicken Sie auf einen Punkt im Diagramm oder wählen Sie eine Phase:</p>
+
+  <!-- Phase selector buttons -->
+  <div class="phase-btns" role="group" aria-label="Phase auswählen">
+    <button class="pbtn" data-phase="mania"      onclick="selectPhase('mania')"      aria-pressed="false"><span class="ico">↑↑</span>Manie</button>
+    <button class="pbtn" data-phase="hypomania"  onclick="selectPhase('hypomania')"  aria-pressed="false"><span class="ico">↑</span>Hypomanie</button>
+    <button class="pbtn" data-phase="stable"     onclick="selectPhase('stable')"     aria-pressed="false"><span class="ico">→</span>Stabil</button>
+    <button class="pbtn" data-phase="mild-dep"   onclick="selectPhase('mild-dep')"   aria-pressed="false"><span class="ico">↓</span>Leichte Dep.</button>
+    <button class="pbtn" data-phase="severe-dep" onclick="selectPhase('severe-dep')" aria-pressed="false"><span class="ico">↓↓</span>Schwere Dep.</button>
+  </div>
+
+  <!-- Detail card -->
+  <div class="detail-card" id="detailCard" aria-live="polite"></div>
+
+  <p class="tf">Psychiatrische Universitätsklinik Zürich · Fachstelle Angehörigenarbeit<br>Vereinfachte Darstellung. Diese Inhalte ersetzen keine professionelle Beratung.</p>
+</main>
+
+<script>
+const PHASES = {
+  'mania': {
+    name: 'Manie',
+    subtitle: 'Ausgeprägte Hochphase — oft mit Realitätsverlust',
+    duration: 'Typisch: 2–4 Wochen bis mehrere Monate',
+    color: '#B45309',
+    bg: '#fff3e0',
+    border: '#f0c070',
+    ptId: 'pt-mania',
+    pulseId: 'pulse-mania',
+    person: [
+      'Gesteigerte Energie, kaum Schlafbedürfnis',
+      'Grandiose Pläne, übersteigertes Selbstwertgefühl',
+      'Impulsive Entscheidungen (Geld, Beziehungen, Risiken)',
+      'Reizbarkeit und Gereiztheit bei Widerstand',
+      'Häufig fehlende Krankheitseinsicht'
+    ],
+    caregiver: [
+      'Schlafmangel durch nächtliche Aktivität',
+      'Schwierigkeiten, die Person zu bremsen',
+      'Finanzielle Schäden, Eskalation und Beschämung',
+      'Angst vor Fremdgefährdung oder Rufschaden',
+      'Wird als «Bremse» erlebt, nicht als Schutz'
+    ],
+    note: '<strong>Wichtig:</strong> Manie kann so schwer werden, dass eine Hospitalisation nötig ist. Das frühzeitige Erkennen von Frühwarnzeichen ist entscheidend. Krisenplan in stabiler Phase erstellen.'
+  },
+  'hypomania': {
+    name: 'Hypomanie',
+    subtitle: 'Abgeschwächte Hochphase — schwer erkennbar',
+    duration: 'Typisch: 4 Tage bis 2 Wochen',
+    color: '#c4933b',
+    bg: '#fff9f0',
+    border: '#e8c68a',
+    ptId: 'pt-hypo',
+    pulseId: 'pulse-hypo',
+    person: [
+      'Erhöhte Energie und Produktivität',
+      'Reduziertes Schlafbedürfnis (ohne Erschöpfungsgefühl)',
+      'Gesteigertes Selbstvertrauen und Kreativität',
+      'Leichte Enthemmung und erhöhte Risikobereitschaft',
+      'Keine offensichtlichen psychotischen Symptome'
+    ],
+    caregiver: [
+      'Für andere oft als «gute Phase» wahrnehmbar',
+      'Innere Anspannung: «Ist das der Beginn einer Manie?»',
+      'Partner*in wird als übertrieben besorgt abgetan',
+      'Schwer, Unterstützung zu suchen — von aussen kein Problem sichtbar',
+      'Übergang zu Manie kann schnell und unerwartet passieren'
+    ],
+    note: '<strong>Hypomanie ist tückisch:</strong> Sie wirkt nach aussen oft produktiv oder erleichternd — auch für das direkte Umfeld. Gerade für Angehörige ist das schwierig: Sie erkennen das Muster früher und werden trotzdem nicht ernst genommen.'
+  },
+  'stable': {
+    name: 'Stabile Phase (Euthymie)',
+    subtitle: 'Keine Episode — aber nicht immer innere Entwarnung',
+    duration: 'Sehr variabel: Wochen bis Jahre',
+    color: '#0d7a5f',
+    bg: '#e8f5f2',
+    border: '#8dd4d9',
+    ptId: 'pt-stable',
+    pulseId: 'pulse-stable',
+    person: [
+      'Normales Funktionsniveau',
+      'Kann aktiv an Behandlung und Planung mitwirken',
+      'Manche spüren Restsymptome oder Erschöpfung',
+      'Oft Scham über das Verhalten in Episoden',
+      'Wichtige Zeit für Krisenplanung und Vereinbarungen'
+    ],
+    caregiver: [
+      'Äusserliche Ruhe — aber innere Hypervigilanz bleibt oft',
+      'Ständiges inneres Prüfen: «Ist das wirklich stabil?»',
+      'Angst, durch schwierige Gespräche die Phase zu kippen',
+      'Wichtiges Zeitfenster für gemeinsamen Krisenplan',
+      'Eigene Erholung kommt häufig zu kurz'
+    ],
+    note: '<strong>Stabile Phasen sind wertvoll.</strong> Sie sind der richtige Moment für Gespräche, Vereinbarungen und Erholung — auch für Angehörige. Nutzen Sie diese Zeit für gemeinsame Planung, z. B. mit dem <a href="/tools/krisenplan/" style="color:#0d7a5f;font-weight:600">Krisenplan-Generator</a>.'
+  },
+  'mild-dep': {
+    name: 'Leichte bis mittelschwere Depression',
+    subtitle: 'Rückzug, Erschöpfung, schleichende Unerreichbarkeit',
+    duration: 'Typisch: 2 Wochen bis 3 Monate',
+    color: '#5b7fa5',
+    bg: '#eef3f8',
+    border: '#c5d5e8',
+    ptId: 'pt-mild',
+    pulseId: 'pulse-mild',
+    person: [
+      'Antriebslosigkeit, Erschöpfung, Interesseverlust',
+      'Sozialer Rückzug und Isolation',
+      'Grübeln, Schlafstörungen, Appetitverlust',
+      'Konzentrationsprobleme im Alltag',
+      'Gefühl der Wertlosigkeit oder Schuld'
+    ],
+    caregiver: [
+      'Die Person ist körperlich da, aber emotional unerreichbar',
+      'Gefühl, hilflos zu sein — nichts, was man tut, hilft',
+      'Übernahme aller Alltagsaufgaben und Verantwortung',
+      'Eigene Einsamkeit und Erschöpfung wächst still',
+      'Unsicherheit: Ansprechen oder lieber in Ruhe lassen?'
+    ],
+    note: '<strong>Wichtig:</strong> In depressiven Phasen ist aktive Unterstützung wichtig — ohne Druck. Wenn Sie sich überfordert fühlen, wenden Sie sich an die Fachstelle Angehörigenarbeit: <a href="tel:+41583843800" style="color:#5b7fa5;font-weight:600">058 384 38 00</a>.'
+  },
+  'severe-dep': {
+    name: 'Schwere Depression',
+    subtitle: 'Tiefste Erschöpfung — oft mit Suizidrisiko',
+    duration: 'Variabel: Wochen bis Monate',
+    color: '#334155',
+    bg: '#e4eaf2',
+    border: '#8899aa',
+    ptId: 'pt-severe',
+    pulseId: 'pulse-severe',
+    person: [
+      'Schwere Antriebslosigkeit und Hoffnungslosigkeit',
+      'Suizidale Gedanken möglich — ernst nehmen',
+      'Kaum Fähigkeit, sich zu bewegen oder zu sprechen',
+      'Vollständiger Rückzug und Isolation',
+      'Psychotische Symptome bei schwerer Episode möglich'
+    ],
+    caregiver: [
+      'Angst um das Leben der Person — rund um die Uhr',
+      'Vollständige Übernahme aller Aufgaben, totale Erschöpfung',
+      'Schwere emotionale Belastung und Hilflosigkeit',
+      'Unklare Grenze: Wann ist eine Hospitalisation nötig?',
+      'Eigene Schlafstörungen, Traumatisierung möglich'
+    ],
+    note: '<strong>⚠ Bei Suizidgedanken:</strong> Psychiatrischer Notfalldienst ZH: <a href="tel:+41800336655" style="color:#334155;font-weight:600">0800 33 66 55</a> (24/7, kostenlos). Dargebotene Hand: <a href="tel:143" style="color:#334155;font-weight:600">143</a>. Angehörige brauchen jetzt selbst Unterstützung: <a href="tel:+41583843800" style="color:#334155;font-weight:600">058 384 38 00</a>.'
+  }
+};
+
+let active = null;
+
+function selectPhase(phase) {
+  if (active === phase) return;
+  active = phase;
+  const d = PHASES[phase];
+
+  // Update buttons
+  document.querySelectorAll('.pbtn').forEach(b => {
+    const isMe = b.dataset.phase === phase;
+    b.setAttribute('aria-pressed', isMe ? 'true' : 'false');
+    b.classList.toggle('active', isMe);
+    if (isMe) {
+      b.style.background = d.color;
+      b.style.borderColor = d.color;
+      b.style.color = '#fff';
+    } else {
+      b.style.background = '#f6f7f4';
+      b.style.borderColor = 'transparent';
+      b.style.color = '#706860';
+    }
+  });
+
+  // Fade zones
+  document.querySelectorAll('.zone-bg').forEach(z => {
+    z.style.opacity = z.dataset.phase === phase ? '1' : '0.4';
+    z.style.transition = 'opacity 0.3s';
+  });
+
+  // Wave points
+  document.querySelectorAll('.wpt').forEach(pt => {
+    const isMe = pt.dataset.phase === phase;
+    pt.setAttribute('r', isMe ? '12' : '9');
+    pt.style.filter = isMe ? `drop-shadow(0 0 6px ${d.color})` : 'none';
+  });
+
+  // Show pulse ring
+  document.querySelectorAll('.pulse').forEach(p => { p.style.opacity = '0'; });
+  const pulse = document.getElementById(d.pulseId);
+  if (pulse) {
+    pulse.style.opacity = '0.5';
+    pulse.style.transition = 'none';
+    setTimeout(() => { pulse.style.transition = 'opacity 0.8s'; pulse.style.opacity = '0'; }, 100);
+  }
+
+  // Render detail card
+  const card = document.getElementById('detailCard');
+  card.style.borderLeftColor = d.color;
+  card.innerHTML = `
+    <div class="det-top">
+      <div class="det-icon" style="background:${d.bg}">${d.name === 'Manie' ? '↑↑' : d.name === 'Hypomanie' ? '↑' : d.name.includes('Stabil') ? '→' : d.name.includes('Schwere') ? '↓↓' : '↓'}</div>
+      <div>
+        <div class="det-phase-name" style="color:${d.color}">${d.name}</div>
+        <div class="det-title">${d.subtitle}</div>
+      </div>
+    </div>
+    <div class="det-dur">⏱ ${d.duration}</div>
+    <div class="det-cols">
+      <div class="det-col" style="background:${d.bg};border-color:${d.color}">
+        <div class="det-col-lbl" style="color:${d.color}">Für die betroffene Person</div>
+        <ul>${d.person.map(i => `<li>${i}</li>`).join('')}</ul>
+      </div>
+      <div class="det-col" style="background:#f9f6f2;border-color:#b4bfa0">
+        <div class="det-col-lbl" style="color:#566642">Für Angehörige</div>
+        <ul>${d.caregiver.map(i => `<li>${i}</li>`).join('')}</ul>
+      </div>
+    </div>
+    <div class="det-note" style="background:${d.bg}">${d.note}</div>
+  `;
+  card.classList.add('vis');
+  // Scroll card into view
+  setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
+}
+
+// Wave animation on load
+window.addEventListener('load', () => {
+  const path = document.getElementById('wavePath');
+  if (!path || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    // Skip animation, just show pulse hints
+    showPulseHints();
+    return;
+  }
+  const len = path.getTotalLength();
+  path.style.strokeDasharray = len;
+  path.style.strokeDashoffset = len;
+  path.style.transition = 'stroke-dashoffset 2s cubic-bezier(0.4,0,0.2,1)';
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      path.style.strokeDashoffset = '0';
+      setTimeout(showPulseHints, 2200);
+    });
+  });
+});
+
+function showPulseHints() {
+  // Show subtle pulse rings on all points to invite interaction
+  document.querySelectorAll('.pulse').forEach((p, i) => {
+    setTimeout(() => {
+      p.style.transition = 'opacity 0.5s';
+      p.style.opacity = '0.45';
+      setTimeout(() => { p.style.opacity = '0'; }, 1200);
+    }, i * 200);
+  });
+}
+
+// Make zone hit areas and wave points interactive
+document.querySelectorAll('.zone-hit, .wpt').forEach(el => {
+  el.addEventListener('click', () => selectPhase(el.dataset.phase));
+  el.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectPhase(el.dataset.phase); }
+  });
+});
+
+// Auto-highlight first phase after animation
+setTimeout(() => { if (!active) selectPhase('mania'); }, 2400);
+</script>
+
+</body>
+</html>
