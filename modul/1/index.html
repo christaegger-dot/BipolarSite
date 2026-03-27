@@ -633,13 +633,13 @@
 
   <div class="phase-explorer reveal">
     <div class="phase-tabs">
-      <button class="phase-tab active-mania" data-phase="mania" onclick="showPhase('mania')">
+      <button class="phase-tab active-mania" data-phase="mania">
         <span class="phase-tab-icon">↑</span> Manie / Hypomanie
       </button>
-      <button class="phase-tab" data-phase="stable" onclick="showPhase('stable')">
+      <button class="phase-tab" data-phase="stable">
         <span class="phase-tab-icon">→</span> Stabile Phase
       </button>
-      <button class="phase-tab" data-phase="depression" onclick="showPhase('depression')">
+      <button class="phase-tab" data-phase="depression">
         <span class="phase-tab-icon">↓</span> Depression
       </button>
     </div>
@@ -751,7 +751,7 @@
 
   <div class="accordion-group reveal">
     <div class="accordion-item">
-      <button class="accordion-header" onclick="toggleAccordion(this)">
+      <button class="accordion-header">
         <div class="accordion-header-left">
           <div class="accordion-icon-badge">I</div>
           <div class="accordion-label-group">
@@ -770,7 +770,7 @@
     </div>
 
     <div class="accordion-item">
-      <button class="accordion-header" onclick="toggleAccordion(this)">
+      <button class="accordion-header">
         <div class="accordion-header-left">
           <div class="accordion-icon-badge">II</div>
           <div class="accordion-label-group">
@@ -1142,6 +1142,18 @@
     document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('open'));
     if (!wasOpen) item.classList.add('open');
   }
+
+  // Phase tabs — event delegation, no inline handlers
+  document.querySelector('.phase-tabs').addEventListener('click', e => {
+    const btn = e.target.closest('.phase-tab[data-phase]');
+    if (btn) showPhase(btn.dataset.phase);
+  });
+
+  // Accordion — event delegation, no inline handlers
+  document.querySelector('.accordion-group').addEventListener('click', e => {
+    const btn = e.target.closest('.accordion-header');
+    if (btn) toggleAccordion(btn);
+  });
 
   // TOC active tracking
   const tocLinks = document.querySelectorAll('.toc a[href^="#"]');
