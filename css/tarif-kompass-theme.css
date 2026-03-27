@@ -84,16 +84,16 @@
   /* Sage → Teal/Navy */
   --sage-50:  #e6f4f2;
   --sage-100: #e6f4f2;
-  --sage-200: #a7d9d5;
+  --sage-200: var(--teal-border);
   --sage-300: #8dd4d9;
   --sage-400: #1E656D;
   --sage-500: #1E656D;
-  --sage-600: #1a5960;
+  --sage-600: var(--teal-dark);
   --sage-700: #1c2b3a;
 
   /* Warm → Slate */
   --warm-50:  #FAFAF7;
-  --warm-100: #f1f5f9;
+  --warm-100: var(--warm-100);
   --warm-200: #e2e8f0;
   --warm-300: #cbd5e1;
   --warm-400: #94a3b8;
@@ -124,6 +124,11 @@
   --amber-phase-light:#fef3e2;
   --green-phase:      #0d7a5f;
   --green-phase-light:#e6f4f2;
+
+  /* Derived tokens (used for hover-dark states, borders) */
+  --teal-dark:     var(--teal-dark);
+  --amber-border:  var(--amber-border);
+  --teal-border:   var(--teal-border);
 }
 
 
@@ -132,10 +137,13 @@
    ║  Neutralisiert alle hardcoded Sage/Earth-Farben in Inline-Styles ║
    ╚═══════════════════════════════════════════════════════════════════╝ */
 
-/* ── Global surface & text ── */
+/* ── Global surface, text & font ── */
 body {
   background: var(--bg) !important;
   color: var(--text) !important;
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* ── Hardcoded rgba(45,40,35,...) borders → cool neutral ──
@@ -159,10 +167,7 @@ body {
 }
 
 /* Content dividers */
-.content h2 {
-  border-top-color: var(--border) !important;
-}
-
+.content h2,
 .module-card-footer {
   border-top-color: var(--border) !important;
 }
@@ -170,11 +175,6 @@ body {
 /* ── Tool pages: hardcoded Sage hex colors ──
    Tool pages use hardcoded hex values instead of variables.
    These need explicit !important overrides. */
-
-/* body backgrounds in tool pages (hardcoded #fefcf8) */
-body {
-  background: var(--bg) !important;
-}
 
 /* Tool page elements with hardcoded #2e2a25 text */
 .tool-back,
@@ -193,11 +193,6 @@ body {
   color: var(--navy) !important;
 }
 
-/* Tool elements with hardcoded #2a211b (earth-900) */
-.hdr h1 {
-  color: var(--navy) !important;
-}
-
 /* Muted text in tools (hardcoded #706860 / #5e564e) */
 .hdr p,
 .detail p,
@@ -209,12 +204,6 @@ body {
 .badge {
   background: var(--green-bg) !important;
   color: var(--teal) !important;
-}
-
-/* Tool progress fills (hardcoded linear-gradient sage) */
-.prog-fill,
-.prog div {
-  background: linear-gradient(90deg, var(--teal), var(--teal-light)) !important;
 }
 
 /* Tool card borders (hardcoded rgba(45,40,35,0.06)) */
@@ -231,12 +220,6 @@ select:focus {
   border-color: var(--teal) !important;
   box-shadow: 0 0 0 3px rgba(30,101,109,0.1) !important;
 }
-
-/* Focus visible global */
-*:focus-visible {
-  outline-color: var(--teal) !important;
-}
-
 
 /* ╔═══════════════════════════════════════════════════════════════════╗
    ║  SCHRITT 3 – TYPOGRAFIE                                         ║
@@ -333,14 +316,6 @@ h1, h2, h3, h4 {
   font-family: 'DM Serif Display', Georgia, serif !important;
 }
 
-/* ── Body font (DM Sans stays, just ensure override) ── */
-body {
-  font-family: 'DM Sans', sans-serif;
-  line-height: 1.65;
-  -webkit-font-smoothing: antialiased;
-}
-
-
 /* ╔═══════════════════════════════════════════════════════════════════╗
    ║  SCHRITT 4 – NAVIGATION                                         ║
    ║  Solid Navy header, white text, teal hover/active states         ║
@@ -405,7 +380,7 @@ nav.scrolled {
 .nav-sos {
   background: rgba(154,52,18,0.15) !important;
   border: 1px solid rgba(154,52,18,0.3) !important;
-  color: #fca5a5 !important;
+  color: var(--alert-red-border) !important;
 }
 
 .nav-sos:hover {
@@ -583,10 +558,6 @@ header.hero[style*="linear-gradient"] {
 
 .module-card h3 {
   color: var(--navy) !important;
-}
-
-.module-card-footer {
-  border-top: 1px solid var(--border) !important;
 }
 
 .module-card-arrow {
@@ -932,7 +903,7 @@ header.hero[style*="linear-gradient"] {
 
 /* ── Quote blocks ── */
 .quote-block {
-  background: #f1f5f9 !important;
+  background: var(--warm-100) !important;
   border-radius: var(--radius-lg) !important;
   border-left: 4px solid var(--teal) !important;
 }
@@ -952,7 +923,7 @@ header.hero[style*="linear-gradient"] {
 /* ── Reflection / highlight boxes ── */
 .reflection-block,
 .refl {
-  background: linear-gradient(135deg, var(--green-bg), #f1f5f9) !important;
+  background: linear-gradient(135deg, var(--green-bg), var(--warm-100)) !important;
   border-radius: var(--radius-lg) !important;
 }
 
@@ -1015,7 +986,7 @@ header.hero[style*="linear-gradient"] {
 /* ── Note boxes ── */
 .note-box {
   background: var(--amber-bg) !important;
-  border: 1px solid #e8c68a !important;
+  border: 1px solid var(--amber-border) !important;
   border-radius: var(--radius-md) !important;
 }
 
@@ -1041,7 +1012,7 @@ header.hero[style*="linear-gradient"] {
 /* ── Guide Do/Don't/SOS boxes ── */
 .guide-do {
   background: var(--green-bg) !important;
-  border: 1px solid #a7d9d5 !important;
+  border: 1px solid var(--teal-border) !important;
   border-radius: var(--radius-md) !important;
 }
 
@@ -1053,7 +1024,7 @@ header.hero[style*="linear-gradient"] {
 
 .guide-sos {
   background: var(--amber-bg) !important;
-  border: 1px solid #e8c68a !important;
+  border: 1px solid var(--amber-border) !important;
   border-radius: var(--radius-md) !important;
 }
 
@@ -1103,33 +1074,15 @@ section,
   max-width: var(--wide-width) !important;
 }
 
-/* ── Card padding (tighter like Tarif-Kompass: 24px) ── */
-.module-card {
-  padding: var(--space-lg) !important;
-}
-
 .guide-body-inner {
   padding: var(--space-lg) !important;
-}
-
-/* ── CTA band ── */
-.cta-band {
-  padding: var(--space-3xl) 2rem !important;
 }
 
 .cta-inner {
   max-width: 600px !important;
 }
 
-/* ── Footer ── */
-footer {
-  padding: var(--space-lg) var(--space-lg) var(--space-2xl) !important;
-}
-
-.footer-bottom {
-  margin-top: var(--space-2xl) !important;
-  padding-top: var(--space-lg) !important;
-}
+/* Footer spacing handled in Schritt 10 consolidated footer block */
 
 /* ── Tool page wrappers ── */
 .wrap {
@@ -1161,7 +1114,7 @@ footer {
 .btn-next:hover,
 .btn-cont:hover,
 .btn-save:hover {
-  background: #1a5960 !important;
+  background: var(--teal-dark) !important;
   box-shadow: 0 6px 20px rgba(0,0,0,0.2) !important;
 }
 
@@ -1187,7 +1140,7 @@ footer {
 }
 
 .btn-reset:hover {
-  color: #1a5960 !important;
+  color: var(--teal-dark) !important;
 }
 
 /* ── Option buttons in tools (hardcoded 14px radius) ── */
@@ -1237,12 +1190,13 @@ footer {
 }
 
 .submit:hover {
-  background: #1a5960 !important;
+  background: var(--teal-dark) !important;
 }
 
 /* ── CTA band ── */
 .cta-band {
   background: var(--navy) !important;
+  padding: var(--space-3xl) 2rem !important;
 }
 
 .cta-band::before {
@@ -1276,10 +1230,7 @@ footer {
 footer {
   background: var(--navy) !important;
   color: rgba(255,255,255,0.6) !important;
-}
-
-.footer-inner {
-  max-width: var(--wide-width) !important;
+  padding: var(--space-lg) var(--space-lg) var(--space-2xl) !important;
 }
 
 .footer-brand h3 {
@@ -1356,7 +1307,7 @@ footer {
 *:focus-visible {
   outline: 2px solid var(--teal) !important;
   outline-offset: 2px !important;
-  border-radius: 4px;
+  border-radius: var(--radius-xs) !important;
 }
 
 .skip-link:focus {
@@ -1377,7 +1328,7 @@ footer {
 }
 
 .impressum-content a:hover {
-  color: #1a5960 !important;
+  color: var(--teal-dark) !important;
 }
 
 /* ── 404 page ── */
@@ -1396,7 +1347,7 @@ footer {
 
 @media (max-width: 900px) {
   .nav-links {
-    display: none;
+    display: none !important;
   }
   .nav-toggle {
     display: flex !important;
