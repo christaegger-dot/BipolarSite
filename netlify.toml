@@ -1,2 +1,30 @@
 [build]
 publish = "."
+
+# Long-lived cache for versioned assets (CSS, fonts)
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000, immutable"
+
+# Short-lived cache for HTML pages (re-check after 5 minutes)
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
+
+[[headers]]
+  for = "/modul/*"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
+
+[[headers]]
+  for = "/tools/*"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
+
+# Downloadable PDFs — cache for 7 days
+[[headers]]
+  for = "/handouts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
