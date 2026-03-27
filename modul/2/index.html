@@ -11,14 +11,14 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --sage-50: #f6f7f4; --sage-100: #eaede4; --sage-200: #d5dbc9; --sage-300: #b4bfa0;
-    --sage-400: #748a5a; --sage-500: #6b7d52; --sage-600: #566642; --sage-700: #3d4a30;
-    --warm-50: #fdfbf7; --warm-100: #f9f4eb; --warm-200: #f0e6d3; --warm-300: #e2d0b4; --warm-400: #c9a87a;
+    --sage-50: #FAFAF7; --sage-100: #e6f4f2; --sage-200: #a7d9d5; --sage-300: #8DD4D9;
+    --sage-400: #1E656D; --sage-500: #1E656D; --sage-600: #475569; --sage-700: #1c2b3a;
+    --warm-50: #FAFAF7; --warm-100: #FAFAF7; --warm-200: #f0e6d3; --warm-300: #e2d0b4; --warm-400: #c9a87a;
     --earth-700: #5c4a38; --earth-800: #3d3128; --earth-900: #2a211b;
-    --cream: #fefcf8; --text: #2e2a25; --text-secondary: #5e564e; --text-muted: #706860;
-    --alert-red: #c75450; --alert-red-bg: #fdf2f1; --alert-red-border: #f0c5c3;
+    --cream: #FAFAF7; --text: #1c2b3a; --text-secondary: #475569; --text-muted: #475569;
+    --alert-red: #9A3412; --alert-red-bg: #FEF2F2; --alert-red-border: #fca5a5;
     --blue-phase: #5b7fa5; --blue-phase-light: #eef3f8;
-    --amber-phase: #c4933b; --amber-phase-light: #fdf6ea;
+    --amber-phase: #B45309; --amber-phase-light: #fef3e2;
     --radius-sm: 8px; --radius-md: 14px; --radius-lg: 22px; --radius-xl: 32px;
     --shadow-soft: 0 2px 16px rgba(45,40,35,0.06);
     --shadow-card: 0 4px 24px rgba(45,40,35,0.08);
@@ -132,13 +132,13 @@
   .cycle-step p { font-size: 0.84rem; line-height: 1.55; margin: 0; }
   .cycle-step.step-1 { background: var(--amber-phase-light); }
   .cycle-step.step-1 .cycle-step-num { color: var(--amber-phase); }
-  .cycle-step.step-1 p { color: #8a6e30; }
+  .cycle-step.step-1 p { color: #B45309; }
   .cycle-step.step-2 { background: #fef2f0; }
   .cycle-step.step-2 .cycle-step-num { color: var(--alert-red); }
-  .cycle-step.step-2 p { color: #8a4240; }
+  .cycle-step.step-2 p { color: #9A3412; }
   .cycle-step.step-3 { background: var(--blue-phase-light); }
   .cycle-step.step-3 .cycle-step-num { color: var(--blue-phase); }
-  .cycle-step.step-3 p { color: #4a6580; }
+  .cycle-step.step-3 p { color: #475569; }
   .cycle-step.step-4 { background: var(--sage-50); }
   .cycle-step.step-4 .cycle-step-num { color: var(--sage-500); }
   .cycle-step.step-4 p { color: var(--sage-700); }
@@ -155,7 +155,7 @@
   .do-col ul, .dont-col ul { list-style: none; }
   .do-col li, .dont-col li { font-size: 0.88rem; padding: 6px 0 6px 20px; position: relative; line-height: 1.55; }
   .do-col li { color: var(--sage-700); }
-  .dont-col li { color: #7a3a38; }
+  .dont-col li { color: #9A3412; }
   .do-col li::before { content: '✓'; position: absolute; left: 0; color: var(--sage-400); font-weight: 700; }
   .dont-col li::before { content: '✗'; position: absolute; left: 0; color: var(--alert-red); font-weight: 700; }
 
@@ -430,23 +430,23 @@
     <div class="cycle-svg-wrap">
       <svg role="img" aria-label="Hypervigilanz-Kreislauf: vier Stationen von Beobachten über Anspannung und Erschöpfung zur Erholung, selbstverstärkend" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
         <!-- Circular track (subtle) -->
-        <circle cx="250" cy="250" r="155" fill="none" stroke="#eaede4" stroke-width="2"/>
+        <circle cx="250" cy="250" r="155" fill="none" stroke="#e6f4f2" stroke-width="2"/>
 
         <!-- Arrow arc 1→2 -->
-        <path d="M 290 98 A 155 155 0 0 1 393 210" fill="none" stroke="#c4933b" stroke-width="3" stroke-linecap="round"/>
-        <polygon points="399,219 404,203 389,210" fill="#c4933b"/>
+        <path d="M 290 98 A 155 155 0 0 1 393 210" fill="none" stroke="#B45309" stroke-width="3" stroke-linecap="round"/>
+        <polygon points="399,219 404,203 389,210" fill="#B45309"/>
 
         <!-- Arrow arc 2→3 -->
-        <path d="M 393 290 A 155 155 0 0 1 290 402" fill="none" stroke="#c75450" stroke-width="3" stroke-linecap="round"/>
-        <polygon points="280,406 294,413 292,396" fill="#c75450"/>
+        <path d="M 393 290 A 155 155 0 0 1 290 402" fill="none" stroke="#9A3412" stroke-width="3" stroke-linecap="round"/>
+        <polygon points="280,406 294,413 292,396" fill="#9A3412"/>
 
         <!-- Arrow arc 3→4 -->
         <path d="M 210 402 A 155 155 0 0 1 107 290" fill="none" stroke="#5b7fa5" stroke-width="3" stroke-linecap="round"/>
         <polygon points="101,280 96,296 111,290" fill="#5b7fa5"/>
 
         <!-- Arrow arc 4→1 (dashed = nie vollständig) -->
-        <path d="M 107 210 A 155 155 0 0 1 210 98" fill="none" stroke="#6b9a6b" stroke-width="3" stroke-linecap="round" stroke-dasharray="7 5"/>
-        <polygon points="220,94 206,87 208,104" fill="#6b9a6b"/>
+        <path d="M 107 210 A 155 155 0 0 1 210 98" fill="none" stroke="#0d7a5f" stroke-width="3" stroke-linecap="round" stroke-dasharray="7 5"/>
+        <polygon points="220,94 206,87 208,104" fill="#0d7a5f"/>
 
         <!-- Center label -->
         <text x="250" y="240" text-anchor="middle" font-family="Source Serif 4, serif" font-size="15" font-weight="600" fill="#3d3128">Chronische</text>
@@ -454,24 +454,24 @@
         <text x="250" y="282" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10.5" fill="#8a817a">↻ selbstverstärkend</text>
 
         <!-- Node 1: Beobachten (top) -->
-        <circle cx="250" cy="80" r="44" fill="#fdf6ea" stroke="#c4933b" stroke-width="2"/>
-        <text x="250" y="73" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="700" fill="#c4933b">1</text>
-        <text x="250" y="90" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="12" font-weight="600" fill="#8a6e30">Beobachten</text>
+        <circle cx="250" cy="80" r="44" fill="#fef3e2" stroke="#B45309" stroke-width="2"/>
+        <text x="250" y="73" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="700" fill="#B45309">1</text>
+        <text x="250" y="90" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="12" font-weight="600" fill="#B45309">Beobachten</text>
 
         <!-- Node 2: Anspannung (right) -->
-        <circle cx="415" cy="250" r="44" fill="#fef2f0" stroke="#c75450" stroke-width="2"/>
-        <text x="415" y="243" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="700" fill="#c75450">2</text>
-        <text x="415" y="260" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#8a4240">Anspannung</text>
+        <circle cx="415" cy="250" r="44" fill="#fef2f0" stroke="#9A3412" stroke-width="2"/>
+        <text x="415" y="243" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="700" fill="#9A3412">2</text>
+        <text x="415" y="260" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#9A3412">Anspannung</text>
 
         <!-- Node 3: Erschöpfung (bottom) -->
         <circle cx="250" cy="420" r="44" fill="#eef3f8" stroke="#5b7fa5" stroke-width="2"/>
         <text x="250" y="413" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="700" fill="#5b7fa5">3</text>
-        <text x="250" y="430" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#4a6580">Erschöpfung</text>
+        <text x="250" y="430" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#475569">Erschöpfung</text>
 
         <!-- Node 4: Erholung (left) -->
-        <circle cx="85" cy="250" r="44" fill="#f6f7f4" stroke="#6b9a6b" stroke-width="2"/>
-        <text x="85" y="243" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="700" fill="#6b9a6b">4</text>
-        <text x="85" y="260" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#3d4a30">Erholung</text>
+        <circle cx="85" cy="250" r="44" fill="#FAFAF7" stroke="#0d7a5f" stroke-width="2"/>
+        <text x="85" y="243" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="700" fill="#0d7a5f">4</text>
+        <text x="85" y="260" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#1c2b3a">Erholung</text>
       </svg>
     </div>
 

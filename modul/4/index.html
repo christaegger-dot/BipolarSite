@@ -11,12 +11,12 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --sage-50:#f6f7f4;--sage-100:#eaede4;--sage-200:#d5dbc9;--sage-300:#b4bfa0;--sage-400:#748a5a;--sage-500:#6b7d52;--sage-600:#566642;--sage-700:#3d4a30;
-    --warm-50:#fdfbf7;--warm-100:#f9f4eb;--warm-200:#f0e6d3;--warm-300:#e2d0b4;--warm-400:#c9a87a;
+    --sage-50:#FAFAF7;--sage-100:#e6f4f2;--sage-200:#a7d9d5;--sage-300:#8DD4D9;--sage-400:#1E656D;--sage-500:#1E656D;--sage-600:#475569;--sage-700:#1c2b3a;
+    --warm-50:#FAFAF7;--warm-100:#FAFAF7;--warm-200:#f0e6d3;--warm-300:#e2d0b4;--warm-400:#c9a87a;
     --earth-700:#5c4a38;--earth-800:#3d3128;--earth-900:#2a211b;
-    --cream:#fefcf8;--text:#2e2a25;--text-secondary:#5e564e;--text-muted:#706860;
-    --alert-red:#c75450;--alert-red-bg:#fdf2f1;--alert-red-border:#f0c5c3;
-    --blue-phase:#5b7fa5;--blue-phase-light:#eef3f8;--amber-phase:#c4933b;--amber-phase-light:#fdf6ea;--green-phase:#6b9a6b;
+    --cream:#FAFAF7;--text:#1c2b3a;--text-secondary:#475569;--text-muted:#475569;
+    --alert-red:#9A3412;--alert-red-bg:#FEF2F2;--alert-red-border:#fca5a5;
+    --blue-phase:#5b7fa5;--blue-phase-light:#eef3f8;--amber-phase:#B45309;--amber-phase-light:#fef3e2;--green-phase:#0d7a5f;
     --radius-sm:8px;--radius-md:14px;--radius-lg:22px;--radius-xl:32px;
     --shadow-soft:0 2px 16px rgba(45,40,35,0.06);--shadow-card:0 4px 24px rgba(45,40,35,0.08);
     --content-width:740px;
@@ -82,7 +82,7 @@
   .glaswand-wall{width:3px;height:80px;background:var(--blue-phase);opacity:0.4;border-radius:2px;margin:0 20px}
   .glaswand-side{text-align:center}
   .glaswand-side strong{display:block;font-size:0.82rem;color:var(--blue-phase);margin-bottom:4px}
-  .glaswand-side span{font-size:0.78rem;color:#4a6580}
+  .glaswand-side span{font-size:0.78rem;color:#475569}
   .glaswand-quote{font-family:'Source Serif 4',serif;font-size:1rem;font-style:italic;color:var(--earth-700);margin-top:20px;line-height:1.6}
 
   /* LOSS CARDS */
@@ -103,9 +103,9 @@
   .phase-card.p3 .phase-card-label{color:var(--blue-phase)}
   .phase-card h4{font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:8px}
   .phase-card p{font-size:0.84rem;line-height:1.55;margin:0}
-  .phase-card.p1 p{color:#8a6e30}
-  .phase-card.p2 p{color:#8a4240}
-  .phase-card.p3 p{color:#4a6580}
+  .phase-card.p1 p{color:#B45309}
+  .phase-card.p2 p{color:#9A3412}
+  .phase-card.p3 p{color:#475569}
 
   /* EROSION CHART */
   .chart-section{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-xl);padding:36px;margin:40px 0;box-shadow:var(--shadow-soft)}
@@ -136,7 +136,7 @@
   .kids-col.need h4{color:var(--sage-600)}
   .kids-col ul{list-style:none}
   .kids-col li{font-size:0.88rem;padding:5px 0 5px 18px;position:relative;line-height:1.55}
-  .kids-col.perceive li{color:#7a3a38}
+  .kids-col.perceive li{color:#9A3412}
   .kids-col.need li{color:var(--sage-700)}
   .kids-col.perceive li::before{content:'•';position:absolute;left:0;color:var(--alert-red)}
   .kids-col.need li::before{content:'✓';position:absolute;left:0;color:var(--sage-400);font-weight:700}
@@ -272,7 +272,7 @@
   <!-- ══════════ 1. AMBIGUOUS LOSS ══════════ -->
   
   <a href="/tools/selbsttest/" class="tool-cta reveal">
-    <div class="tool-cta-icon" style="background:#f6f7f4">📋</div>
+    <div class="tool-cta-icon" style="background:#FAFAF7">📋</div>
     <div class="tool-cta-body">
       <h4>Optionale Standortbestimmung</h4>
       <p>Wenn Sie Ihre momentane Belastung kurz einordnen möchten, finden Sie hier eine knappe, nicht diagnostische Orientierung.</p>
@@ -331,22 +331,22 @@
         <!-- Legend top -->
         <line x1="60" y1="22" x2="84" y2="22" stroke="#5b7fa5" stroke-width="3"/>
         <text x="90" y="26" fill="#5b7fa5" font-size="13" font-weight="600" font-family="DM Sans, sans-serif">Stimmung</text>
-        <line x1="200" y1="22" x2="224" y2="22" stroke="#c75450" stroke-width="3"/>
-        <text x="230" y="26" fill="#c75450" font-size="13" font-weight="600" font-family="DM Sans, sans-serif">Belastbarkeit</text>
-        <line x1="370" y1="22" x2="394" y2="22" stroke="#6b9a6b" stroke-width="3" stroke-dasharray="6 4"/>
-        <text x="400" y="26" fill="#6b9a6b" font-size="13" font-weight="600" font-family="DM Sans, sans-serif">Mit Unterstützung</text>
+        <line x1="200" y1="22" x2="224" y2="22" stroke="#9A3412" stroke-width="3"/>
+        <text x="230" y="26" fill="#9A3412" font-size="13" font-weight="600" font-family="DM Sans, sans-serif">Belastbarkeit</text>
+        <line x1="370" y1="22" x2="394" y2="22" stroke="#0d7a5f" stroke-width="3" stroke-dasharray="6 4"/>
+        <text x="400" y="26" fill="#0d7a5f" font-size="13" font-weight="600" font-family="DM Sans, sans-serif">Mit Unterstützung</text>
 
         <!-- Axes -->
-        <line x1="55" y1="50" x2="55" y2="320" stroke="#d5dbc9" stroke-width="1.5"/>
-        <line x1="55" y1="320" x2="575" y2="320" stroke="#d5dbc9" stroke-width="1.5"/>
+        <line x1="55" y1="50" x2="55" y2="320" stroke="#a7d9d5" stroke-width="1.5"/>
+        <line x1="55" y1="320" x2="575" y2="320" stroke="#a7d9d5" stroke-width="1.5"/>
 
         <!-- Crisis bands (unequal widths + spacing = asymmetric) -->
-        <rect x="110" y="50" width="35" height="270" fill="#c4933b" opacity="0.08" rx="4"/>
-        <rect x="240" y="50" width="55" height="270" fill="#c4933b" opacity="0.08" rx="4"/>
-        <rect x="430" y="50" width="65" height="270" fill="#c4933b" opacity="0.08" rx="4"/>
-        <text x="128" y="345" fill="#c4933b" font-size="12" font-weight="600" text-anchor="middle" font-family="DM Sans, sans-serif">Hypomanie</text>
-        <text x="268" y="345" fill="#c4933b" font-size="12" font-weight="600" text-anchor="middle" font-family="DM Sans, sans-serif">Schwere Manie</text>
-        <text x="463" y="345" fill="#c4933b" font-size="12" font-weight="600" text-anchor="middle" font-family="DM Sans, sans-serif">Depression</text>
+        <rect x="110" y="50" width="35" height="270" fill="#B45309" opacity="0.08" rx="4"/>
+        <rect x="240" y="50" width="55" height="270" fill="#B45309" opacity="0.08" rx="4"/>
+        <rect x="430" y="50" width="65" height="270" fill="#B45309" opacity="0.08" rx="4"/>
+        <text x="128" y="345" fill="#B45309" font-size="12" font-weight="600" text-anchor="middle" font-family="DM Sans, sans-serif">Hypomanie</text>
+        <text x="268" y="345" fill="#B45309" font-size="12" font-weight="600" text-anchor="middle" font-family="DM Sans, sans-serif">Schwere Manie</text>
+        <text x="463" y="345" fill="#B45309" font-size="12" font-weight="600" text-anchor="middle" font-family="DM Sans, sans-serif">Depression</text>
 
         <!-- Stimmung (blue — IRREGULAR: short hypomania, big mania, long depression) -->
         <path d="M55,185
@@ -371,14 +371,14 @@
           L430,155
           L463,245 L495,210
           L575,208"
-          fill="none" stroke="#c75450" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          fill="none" stroke="#9A3412" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 
         <!-- Mit Unterstützung (green dashed — starts after 2nd crisis, stabilises) -->
         <path d="M295,162
           L430,148
           L463,205 L495,172
           L575,165"
-          fill="none" stroke="#6b9a6b" stroke-width="2.5" stroke-dasharray="7 5" stroke-linecap="round" stroke-linejoin="round"/>
+          fill="none" stroke="#0d7a5f" stroke-width="2.5" stroke-dasharray="7 5" stroke-linecap="round" stroke-linejoin="round"/>
 
         <text x="315" y="378" fill="#8a817a" font-size="12" text-anchor="middle" font-family="DM Sans, sans-serif">→ Zeit (individuell verschieden)</text>
       </svg>
@@ -389,7 +389,7 @@
   <!-- ══════════ 3. MECHANISMEN + IDENTITÄTSVERLUST ══════════ -->
   
   <a href="/tools/solidaritaets-chart/" class="tool-cta reveal">
-    <div class="tool-cta-icon" style="background:#fdf6ea">📈</div>
+    <div class="tool-cta-icon" style="background:#fef3e2">📈</div>
     <div class="tool-cta-body">
       <h4>Belastungsverlauf — interaktiv</h4>
       <p>Wie sich Belastbarkeit über Episoden verändern kann. Klicken Sie auf die Episoden und sehen Sie den Unterschied mit und ohne Unterstützung.</p>

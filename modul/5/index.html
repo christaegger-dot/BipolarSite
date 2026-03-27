@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
 <style>
-  :root{--sage-50:#f6f7f4;--sage-100:#eaede4;--sage-200:#d5dbc9;--sage-300:#b4bfa0;--sage-400:#748a5a;--sage-500:#6b7d52;--sage-600:#566642;--sage-700:#3d4a30;--warm-50:#fdfbf7;--warm-100:#f9f4eb;--warm-200:#f0e6d3;--warm-300:#e2d0b4;--warm-400:#c9a87a;--earth-700:#5c4a38;--earth-800:#3d3128;--earth-900:#2a211b;--cream:#fefcf8;--text:#2e2a25;--text-secondary:#5e564e;--text-muted:#706860;--alert-red:#c75450;--alert-red-bg:#fdf2f1;--alert-red-border:#f0c5c3;--blue-phase:#5b7fa5;--blue-phase-light:#eef3f8;--amber-phase:#c4933b;--amber-phase-light:#fdf6ea;--radius-sm:8px;--radius-md:14px;--radius-lg:22px;--radius-xl:32px;--shadow-soft:0 2px 16px rgba(45,40,35,0.06);--shadow-card:0 4px 24px rgba(45,40,35,0.08);--content-width:740px}
+  :root{--sage-50:#FAFAF7;--sage-100:#e6f4f2;--sage-200:#a7d9d5;--sage-300:#8DD4D9;--sage-400:#1E656D;--sage-500:#1E656D;--sage-600:#475569;--sage-700:#1c2b3a;--warm-50:#FAFAF7;--warm-100:#FAFAF7;--warm-200:#f0e6d3;--warm-300:#e2d0b4;--warm-400:#c9a87a;--earth-700:#5c4a38;--earth-800:#3d3128;--earth-900:#2a211b;--cream:#FAFAF7;--text:#1c2b3a;--text-secondary:#475569;--text-muted:#475569;--alert-red:#9A3412;--alert-red-bg:#FEF2F2;--alert-red-border:#fca5a5;--blue-phase:#5b7fa5;--blue-phase-light:#eef3f8;--amber-phase:#B45309;--amber-phase-light:#fef3e2;--radius-sm:8px;--radius-md:14px;--radius-lg:22px;--radius-xl:32px;--shadow-soft:0 2px 16px rgba(45,40,35,0.06);--shadow-card:0 4px 24px rgba(45,40,35,0.08);--content-width:740px}
   *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth;font-size:16px}
   body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--cream);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
@@ -71,8 +71,8 @@
   .tension-right h4{color:var(--blue-phase)}
   .tension-col ul{list-style:none}
   .tension-col li{font-size:0.88rem;padding:5px 0;line-height:1.5}
-  .tension-left li{color:#8a6e30}
-  .tension-right li{color:#4a6580}
+  .tension-left li{color:#B45309}
+  .tension-right li{color:#475569}
 
   /* CYCLE SVG */
   .cycle-section{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-xl);padding:36px;margin:40px 0;box-shadow:var(--shadow-soft)}
@@ -82,10 +82,10 @@
   .cycle-step{padding:18px;border-radius:var(--radius-md)}
   .cycle-step-num{font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px}
   .cycle-step p{font-size:0.84rem;line-height:1.55;margin:0}
-  .cycle-step.s1{background:var(--warm-100)}.cycle-step.s1 .cycle-step-num{color:var(--amber-phase)}.cycle-step.s1 p{color:#8a6e30}
-  .cycle-step.s2{background:var(--amber-phase-light)}.cycle-step.s2 .cycle-step-num{color:var(--amber-phase)}.cycle-step.s2 p{color:#8a6e30}
-  .cycle-step.s3{background:var(--alert-red-bg)}.cycle-step.s3 .cycle-step-num{color:var(--alert-red)}.cycle-step.s3 p{color:#8a4240}
-  .cycle-step.s4{background:var(--blue-phase-light)}.cycle-step.s4 .cycle-step-num{color:var(--blue-phase)}.cycle-step.s4 p{color:#4a6580}
+  .cycle-step.s1{background:var(--warm-100)}.cycle-step.s1 .cycle-step-num{color:var(--amber-phase)}.cycle-step.s1 p{color:#B45309}
+  .cycle-step.s2{background:var(--amber-phase-light)}.cycle-step.s2 .cycle-step-num{color:var(--amber-phase)}.cycle-step.s2 p{color:#B45309}
+  .cycle-step.s3{background:var(--alert-red-bg)}.cycle-step.s3 .cycle-step-num{color:var(--alert-red)}.cycle-step.s3 p{color:#9A3412}
+  .cycle-step.s4{background:var(--blue-phase-light)}.cycle-step.s4 .cycle-step-num{color:var(--blue-phase)}.cycle-step.s4 p{color:#475569}
   .cycle-note{background:var(--sage-50);border-radius:var(--radius-md);padding:16px 20px;font-size:0.88rem;color:var(--sage-700)}
 
   /* STIGMA CARDS */
@@ -100,8 +100,8 @@
   .stigma-card.behavioral h4{color:var(--blue-phase)}
   .stigma-card p{font-size:0.86rem;line-height:1.55;margin:0}
   .stigma-card.cognitive p{color:#5a4580}
-  .stigma-card.affective p{color:#8a4240}
-  .stigma-card.behavioral p{color:#4a6580}
+  .stigma-card.affective p{color:#9A3412}
+  .stigma-card.behavioral p{color:#475569}
 
   /* BARRIERS */
   .barrier-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0}
@@ -277,30 +277,30 @@
   <div class="cycle-section reveal">
     <div class="cycle-svg-wrap">
       <svg role="img" aria-label="Expressed-Emotion-Kreislauf: Schuld, Überengagement, Erschöpfung und Kritik als sich selbst verstärkender Kreislauf" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="250" cy="250" r="155" fill="none" stroke="#eaede4" stroke-width="2"/>
-        <path d="M 290 98 A 155 155 0 0 1 393 210" fill="none" stroke="#c4933b" stroke-width="3" stroke-linecap="round"/>
-        <polygon points="399,219 404,203 389,210" fill="#c4933b"/>
-        <path d="M 393 290 A 155 155 0 0 1 290 402" fill="none" stroke="#c75450" stroke-width="3" stroke-linecap="round"/>
-        <polygon points="280,406 294,413 292,396" fill="#c75450"/>
+        <circle cx="250" cy="250" r="155" fill="none" stroke="#e6f4f2" stroke-width="2"/>
+        <path d="M 290 98 A 155 155 0 0 1 393 210" fill="none" stroke="#B45309" stroke-width="3" stroke-linecap="round"/>
+        <polygon points="399,219 404,203 389,210" fill="#B45309"/>
+        <path d="M 393 290 A 155 155 0 0 1 290 402" fill="none" stroke="#9A3412" stroke-width="3" stroke-linecap="round"/>
+        <polygon points="280,406 294,413 292,396" fill="#9A3412"/>
         <path d="M 210 402 A 155 155 0 0 1 107 290" fill="none" stroke="#5b7fa5" stroke-width="3" stroke-linecap="round"/>
         <polygon points="101,280 96,296 111,290" fill="#5b7fa5"/>
-        <path d="M 107 210 A 155 155 0 0 1 210 98" fill="none" stroke="#6b9a6b" stroke-width="3" stroke-linecap="round" stroke-dasharray="7 5"/>
-        <polygon points="220,94 206,87 208,104" fill="#6b9a6b"/>
+        <path d="M 107 210 A 155 155 0 0 1 210 98" fill="none" stroke="#0d7a5f" stroke-width="3" stroke-linecap="round" stroke-dasharray="7 5"/>
+        <polygon points="220,94 206,87 208,104" fill="#0d7a5f"/>
         <text x="250" y="240" text-anchor="middle" font-family="Source Serif 4,serif" font-size="15" font-weight="600" fill="#3d3128">Teufels-</text>
         <text x="250" y="260" text-anchor="middle" font-family="Source Serif 4,serif" font-size="15" font-weight="600" fill="#3d3128">kreis</text>
         <text x="250" y="282" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10.5" fill="#8a817a">unterbrechbar</text>
-        <circle cx="250" cy="80" r="44" fill="#fdf6ea" stroke="#c4933b" stroke-width="2"/>
-        <text x="250" y="73" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="700" fill="#c4933b">1</text>
-        <text x="250" y="90" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11.5" font-weight="600" fill="#8a6e30">Schuld</text>
-        <circle cx="415" cy="250" r="44" fill="#fdf6ea" stroke="#c4933b" stroke-width="2"/>
-        <text x="415" y="243" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="700" fill="#c4933b">2</text>
-        <text x="415" y="260" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="600" fill="#8a6e30">Überengagement</text>
-        <circle cx="250" cy="420" r="44" fill="#fef2f0" stroke="#c75450" stroke-width="2"/>
-        <text x="250" y="413" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="700" fill="#c75450">3</text>
-        <text x="250" y="430" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" font-weight="600" fill="#8a4240">Erschöpfung</text>
+        <circle cx="250" cy="80" r="44" fill="#fef3e2" stroke="#B45309" stroke-width="2"/>
+        <text x="250" y="73" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="700" fill="#B45309">1</text>
+        <text x="250" y="90" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11.5" font-weight="600" fill="#B45309">Schuld</text>
+        <circle cx="415" cy="250" r="44" fill="#fef3e2" stroke="#B45309" stroke-width="2"/>
+        <text x="415" y="243" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="700" fill="#B45309">2</text>
+        <text x="415" y="260" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="600" fill="#B45309">Überengagement</text>
+        <circle cx="250" cy="420" r="44" fill="#fef2f0" stroke="#9A3412" stroke-width="2"/>
+        <text x="250" y="413" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="700" fill="#9A3412">3</text>
+        <text x="250" y="430" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" font-weight="600" fill="#9A3412">Erschöpfung</text>
         <circle cx="85" cy="250" r="44" fill="#eef3f8" stroke="#5b7fa5" stroke-width="2"/>
         <text x="85" y="243" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="700" fill="#5b7fa5">4</text>
-        <text x="85" y="260" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11.5" font-weight="600" fill="#4a6580">Kritik</text>
+        <text x="85" y="260" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11.5" font-weight="600" fill="#475569">Kritik</text>
       </svg>
     </div>
     <div class="cycle-steps">
@@ -320,7 +320,7 @@
   <!-- ══════════ 3. GRENZEN — direkt nach EE als Lösung ══════════ -->
   
   <a href="/tools/ee-kreislauf/" class="tool-cta reveal">
-    <div class="tool-cta-icon" style="background:#fdf2f1">🔄</div>
+    <div class="tool-cta-icon" style="background:#FEF2F2">🔄</div>
     <div class="tool-cta-body">
       <h4>EE-Kreislauf — interaktiv</h4>
       <p>Schuld → Überengagement → Erschöpfung → Kritik: Klicken Sie auf jede Station und entdecken Sie den Ausweg.</p>

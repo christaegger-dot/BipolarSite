@@ -11,16 +11,16 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --sage-50: #f6f7f4;
-    --sage-100: #eaede4;
-    --sage-200: #d5dbc9;
-    --sage-300: #b4bfa0;
-    --sage-400: #748a5a;
-    --sage-500: #6b7d52;
-    --sage-600: #566642;
-    --sage-700: #3d4a30;
-    --warm-50: #fdfbf7;
-    --warm-100: #f9f4eb;
+    --sage-50: #FAFAF7;
+    --sage-100: #e6f4f2;
+    --sage-200: #a7d9d5;
+    --sage-300: #8DD4D9;
+    --sage-400: #1E656D;
+    --sage-500: #1E656D;
+    --sage-600: #475569;
+    --sage-700: #1c2b3a;
+    --warm-50: #FAFAF7;
+    --warm-100: #FAFAF7;
     --warm-200: #f0e6d3;
     --warm-300: #e2d0b4;
     --warm-400: #c9a87a;
@@ -28,19 +28,19 @@
     --earth-700: #5c4a38;
     --earth-800: #3d3128;
     --earth-900: #2a211b;
-    --cream: #fefcf8;
-    --text: #2e2a25;
-    --text-secondary: #5e564e;
-    --text-muted: #706860;
-    --alert-red: #c75450;
-    --alert-red-bg: #fdf2f1;
-    --alert-red-border: #f0c5c3;
+    --cream: #FAFAF7;
+    --text: #1c2b3a;
+    --text-secondary: #475569;
+    --text-muted: #475569;
+    --alert-red: #9A3412;
+    --alert-red-bg: #FEF2F2;
+    --alert-red-border: #fca5a5;
     --blue-phase: #5b7fa5;
     --blue-phase-light: #eef3f8;
-    --amber-phase: #c4933b;
-    --amber-phase-light: #fdf6ea;
-    --green-phase: #6b9a6b;
-    --green-phase-light: #f0f6f0;
+    --amber-phase: #B45309;
+    --amber-phase-light: #fef3e2;
+    --green-phase: #0d7a5f;
+    --green-phase-light: #e6f4f2;
     --radius-sm: 8px;
     --radius-md: 14px;
     --radius-lg: 22px;
@@ -847,16 +847,16 @@
     <div class="wave-chart">
       <svg role="img" aria-label="Konzeptionelles Wellenmodell: Stimmungsverlauf bei bipolarer Störung über die Lebensspanne mit Manie-, Hypomanie- und Depressionsphasen" viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg">
         <!-- Y-axis labels (inside SVG) -->
-        <text x="58" y="48" fill="#c4933b" font-size="11" font-weight="600" text-anchor="end" font-family="DM Sans, sans-serif">Manie</text>
-        <text x="58" y="128" fill="#6b9a6b" font-size="11" font-weight="600" text-anchor="end" font-family="DM Sans, sans-serif">Stabil</text>
+        <text x="58" y="48" fill="#B45309" font-size="11" font-weight="600" text-anchor="end" font-family="DM Sans, sans-serif">Manie</text>
+        <text x="58" y="128" fill="#0d7a5f" font-size="11" font-weight="600" text-anchor="end" font-family="DM Sans, sans-serif">Stabil</text>
         <text x="58" y="208" fill="#5b7fa5" font-size="11" font-weight="600" text-anchor="end" font-family="DM Sans, sans-serif">Depression</text>
 
         <!-- Axes -->
-        <line x1="70" y1="20" x2="70" y2="230" stroke="#d5dbc9" stroke-width="1.5"/>
-        <line x1="70" y1="230" x2="870" y2="230" stroke="#d5dbc9" stroke-width="1.5"/>
+        <line x1="70" y1="20" x2="70" y2="230" stroke="#a7d9d5" stroke-width="1.5"/>
+        <line x1="70" y1="230" x2="870" y2="230" stroke="#a7d9d5" stroke-width="1.5"/>
 
         <!-- Grid lines -->
-        <line x1="70" y1="125" x2="870" y2="125" stroke="#d5dbc9" stroke-width="0.8" stroke-dasharray="5 4"/>
+        <line x1="70" y1="125" x2="870" y2="125" stroke="#a7d9d5" stroke-width="0.8" stroke-dasharray="5 4"/>
         <line x1="70" y1="45" x2="870" y2="45" stroke="#f0e6d3" stroke-width="0.5" stroke-dasharray="4 3"/>
         <line x1="70" y1="205" x2="870" y2="205" stroke="#eef3f8" stroke-width="0.5" stroke-dasharray="4 3"/>
 
@@ -866,14 +866,14 @@
 
         <!-- Caregiver burden (orange dashed, rising) -->
         <path d="M70,160 C170,157 270,150 370,144 C470,136 570,127 670,117 C770,108 820,100 870,94"
-          fill="none" stroke="#c4933b" stroke-width="2" stroke-dasharray="7 5" stroke-linecap="round" opacity="0.7"/>
+          fill="none" stroke="#B45309" stroke-width="2" stroke-dasharray="7 5" stroke-linecap="round" opacity="0.7"/>
 
         <!-- Legend -->
         <line x1="580" y1="248" x2="604" y2="248" stroke="#5b7fa5" stroke-width="2.5"/>
         <text x="610" y="252" fill="#5b7fa5" font-size="11" font-weight="500" font-family="DM Sans, sans-serif">Stimmung Partner</text>
 
-        <line x1="740" y1="248" x2="764" y2="248" stroke="#c4933b" stroke-width="2" stroke-dasharray="5 3" opacity="0.7"/>
-        <text x="770" y="252" fill="#c4933b" font-size="11" font-weight="500" font-family="DM Sans, sans-serif">Belastung Angehörige</text>
+        <line x1="740" y1="248" x2="764" y2="248" stroke="#B45309" stroke-width="2" stroke-dasharray="5 3" opacity="0.7"/>
+        <text x="770" y="252" fill="#B45309" font-size="11" font-weight="500" font-family="DM Sans, sans-serif">Belastung Angehörige</text>
 
         <!-- X-axis label -->
         <text x="470" y="252" fill="#8a817a" font-size="11" text-anchor="middle" font-family="DM Sans, sans-serif">→ Zeit (Jahre)</text>
