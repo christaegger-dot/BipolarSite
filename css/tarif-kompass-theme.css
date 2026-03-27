@@ -1,13 +1,88 @@
-/* ═══════════════════════════════════════════════════════════════
-   Tarif-Kompass Theme Override
-   Applies Navy/Teal design system from Tarif-Kompass Soziale Arbeit KJPP
-   to BipolarSite. Loaded AFTER inline <style> blocks for cascade priority.
-   ═══════════════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════════════
+   TARIF-KOMPASS DESIGN SYSTEM – BipolarSite Override
+   ───────────────────────────────────────────────────────────────────────
+   Single source of truth. Loaded AFTER all inline <style> blocks.
+   Overrides via cascade position + !important where inline specificity
+   would otherwise win.
+   ═══════════════════════════════════════════════════════════════════════ */
 
-/* ── 1. COLOR SYSTEM ── */
+
+/* ╔═══════════════════════════════════════════════════════════════════╗
+   ║  SCHRITT 1 – CSS-VARIABLEN / TOKEN-SYSTEM                       ║
+   ║  1:1 from Tarif-Kompass Soziale Arbeit KJPP                     ║
+   ╚═══════════════════════════════════════════════════════════════════╝ */
+
 :root {
-  /* Primary: Navy/Teal (was: Sage green) */
-  --sage-50: #e6f4f2;
+
+  /* ── Brand Colors ── */
+  --navy:        #1c2b3a;
+  --navy-mid:    #243447;
+  --teal:        #1E656D;
+  --teal-light:  #8dd4d9;
+  --amber:       #B45309;
+  --amber-light: #FBBF24;
+  --amber-dark:  #92400e;
+  --rose:        #9A3412;
+  --rose-soft:   #FEF2F2;
+
+  /* ── Neutral / Slate ── */
+  --slate:       #475569;
+  --slate-light: #94a3b8;
+
+  /* ── Semantic: Background ── */
+  --bg:          #FAFAF7;
+  --card:        #ffffff;
+
+  /* ── Semantic: Text ── */
+  --text:        #1c2b3a;
+  --text-soft:   #78716C;
+
+  /* ── Semantic: Border ── */
+  --border:      #e2e8f0;
+
+  /* ── Semantic: Status/Feedback ── */
+  --green:       #0d7a5f;
+  --green-bg:    #e6f4f2;
+  --red-bg:      #FEF2F2;
+  --amber-bg:    #fef3e2;
+
+  /* ── Radius Scale (Tarif-Kompass: 6 / 8 / 10 / 12 / 14 / 20) ── */
+  --radius-xs:   6px;
+  --radius-sm:   8px;
+  --radius-md:   10px;
+  --radius-lg:   12px;
+  --radius-xl:   14px;
+  --radius-pill: 20px;
+
+  /* ── Shadow Scale ── */
+  --shadow-soft:     0 1px 4px rgba(0,0,0,0.04);
+  --shadow-card:     0 2px 8px rgba(0,0,0,0.06);
+  --shadow-elevated: 0 4px 16px rgba(0,0,0,0.12);
+  --shadow-nav:      0 1px 8px rgba(0,0,0,0.06);
+
+  /* ── Spacing Scale ── */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  32px;
+  --space-2xl: 40px;
+  --space-3xl: 52px;
+
+  /* ── Content Widths ── */
+  --content-width: 900px;
+  --wide-width:    1140px;
+
+  /* ─────────────────────────────────────────────
+     Legacy token remapping (BipolarSite inline
+     styles reference these variables — by
+     redefining them here, every var() usage in
+     the inline <style> blocks resolves to the
+     new palette automatically)
+     ───────────────────────────────────────────── */
+
+  /* Sage → Teal/Navy */
+  --sage-50:  #e6f4f2;
   --sage-100: #e6f4f2;
   --sage-200: #a7d9d5;
   --sage-300: #8dd4d9;
@@ -16,91 +91,228 @@
   --sage-600: #1a5960;
   --sage-700: #1c2b3a;
 
-  /* Warm → Slate/Cool (was: Earth/Clay tones) */
-  --warm-50: #FAFAF7;
-  --warm-100: #f5f5f0;
+  /* Warm → Slate */
+  --warm-50:  #FAFAF7;
+  --warm-100: #f1f5f9;
   --warm-200: #e2e8f0;
   --warm-300: #cbd5e1;
   --warm-400: #94a3b8;
-  --clay-500: #64748b;
-  --clay-600: #475569;
+
+  /* Clay/Earth → Slate/Navy */
+  --clay-500:  #64748b;
+  --clay-600:  #475569;
   --earth-700: #334155;
   --earth-800: #243447;
   --earth-900: #1c2b3a;
 
-  /* Background */
+  /* Cream → BG */
   --cream: #FAFAF7;
 
-  /* Text */
-  --text: #1c2b3a;
+  /* Text (remap) */
   --text-secondary: #475569;
-  --text-muted: #78716C;
+  --text-muted:     #78716C;
 
-  /* Alert/Status */
-  --alert-red: #9A3412;
-  --alert-red-bg: #FEF2F2;
-  --alert-red-border: #e8c68a;
+  /* Alert (remap to rose) */
+  --alert-red:        #9A3412;
+  --alert-red-bg:     #FEF2F2;
+  --alert-red-border: #fca5a5;
 
-  /* Phase colors (content-semantic, adjusted to TK palette) */
-  --blue-phase: #5b7fa5;
+  /* Phase colors (content-semantic) */
+  --blue-phase:       #5b7fa5;
   --blue-phase-light: #eef3f8;
-  --amber-phase: #B45309;
-  --amber-phase-light: #fef3e2;
-  --green-phase: #0d7a5f;
-  --green-phase-light: #e6f4f2;
-
-  /* Radius: tighter (was 8/14/22/32) */
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 12px;
-  --radius-xl: 14px;
-
-  /* Shadows: subtler */
-  --shadow-soft: 0 1px 4px rgba(0,0,0,0.04);
-  --shadow-card: 0 2px 8px rgba(0,0,0,0.08);
-  --shadow-elevated: 0 4px 16px rgba(0,0,0,0.12);
-
-  /* Content widths (wider) */
-  --content-width: 900px;
-  --wide-width: 1140px;
-
-  /* New semantic tokens */
-  --navy: #1c2b3a;
-  --navy-mid: #243447;
-  --teal: #1E656D;
-  --teal-light: #8dd4d9;
-  --amber: #B45309;
-  --slate: #475569;
-  --slate-light: #94a3b8;
-  --bg: #FAFAF7;
-  --card: #ffffff;
-  --border: #e2e8f0;
-  --green: #0d7a5f;
-  --green-bg: #e6f4f2;
+  --amber-phase:      #B45309;
+  --amber-phase-light:#fef3e2;
+  --green-phase:      #0d7a5f;
+  --green-phase-light:#e6f4f2;
 }
 
 
-/* ── 2. TYPOGRAPHY ── */
-html {
-  font-size: 15px;
-}
+/* ╔═══════════════════════════════════════════════════════════════════╗
+   ║  SCHRITT 2 – FARBSYSTEM                                         ║
+   ║  Neutralisiert alle hardcoded Sage/Earth-Farben in Inline-Styles ║
+   ╚═══════════════════════════════════════════════════════════════════╝ */
 
+/* ── Global surface & text ── */
 body {
-  background: var(--cream);
-  color: var(--text);
-  line-height: 1.65;
+  background: var(--bg) !important;
+  color: var(--text) !important;
 }
 
-/* Override all Source Serif 4 references → DM Serif Display */
-h1, h2, .section-title, .hero h1, .module-hero h1,
-.nav-brand-text, .content h2, .content h3,
-.quote-block blockquote, .guide-title,
-.footer-brand h3, .cta-band h2,
-.pdf-preview-title {
-  font-family: 'DM Serif Display', serif;
+/* ── Hardcoded rgba(45,40,35,...) borders → cool neutral ──
+   Inline styles use rgba(45,40,35,0.06-0.12) everywhere.
+   We override the most common selectors that apply these. */
+
+/* Main page cards, guides, sections */
+.module-card,
+.quick-card,
+.guide,
+.sit-card,
+.number-card,
+.next-module,
+.toc,
+.progress-bar-outer,
+.quote-block,
+.alert-box,
+.reflection-block,
+.refl {
+  border-color: var(--border) !important;
 }
 
-/* Tool pages: override Source Serif 4 references */
+/* Content dividers */
+.content h2 {
+  border-top-color: var(--border) !important;
+}
+
+.module-card-footer {
+  border-top-color: var(--border) !important;
+}
+
+/* ── Tool pages: hardcoded Sage hex colors ──
+   Tool pages use hardcoded hex values instead of variables.
+   These need explicit !important overrides. */
+
+/* body backgrounds in tool pages (hardcoded #fefcf8) */
+body {
+  background: var(--bg) !important;
+}
+
+/* Tool page elements with hardcoded #2e2a25 text */
+.tool-back,
+.tool-brand,
+.hdr h1,
+.hdr p,
+.detail h3,
+.detail p,
+.sit,
+.qtxt,
+.res h2,
+.res-title,
+.res-card h2,
+.pc h3,
+.confirm-box h3 {
+  color: var(--navy) !important;
+}
+
+/* Tool elements with hardcoded #2a211b (earth-900) */
+.hdr h1 {
+  color: var(--navy) !important;
+}
+
+/* Muted text in tools (hardcoded #706860 / #5e564e) */
+.hdr p,
+.detail p,
+.res-card p {
+  color: var(--text-soft) !important;
+}
+
+/* Badges with hardcoded #eaede4 bg / #3d4a30 text */
+.badge {
+  background: var(--green-bg) !important;
+  color: var(--teal) !important;
+}
+
+/* Tool progress fills (hardcoded linear-gradient sage) */
+.prog-fill,
+.prog div {
+  background: linear-gradient(90deg, var(--teal), var(--teal-light)) !important;
+}
+
+/* Tool card borders (hardcoded rgba(45,40,35,0.06)) */
+.card,
+.wrap .card {
+  border-color: var(--border) !important;
+  box-shadow: var(--shadow-soft) !important;
+}
+
+/* Input focus states (hardcoded sage colors) */
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--teal) !important;
+  box-shadow: 0 0 0 3px rgba(30,101,109,0.1) !important;
+}
+
+/* Focus visible global */
+*:focus-visible {
+  outline-color: var(--teal) !important;
+}
+
+
+/* ╔═══════════════════════════════════════════════════════════════════╗
+   ║  SCHRITT 3 – TYPOGRAFIE                                         ║
+   ║  DM Serif Display (headings) + DM Sans (body), 15px base        ║
+   ╚═══════════════════════════════════════════════════════════════════╝ */
+
+/* ── Base font size (inline has 16px) ── */
+html {
+  font-size: 15px !important;
+}
+
+/* Catch-all: remap any remaining Source Serif 4 references to DM Serif Display.
+   local() checks system fonts; the URL fallback ensures the mapping works even
+   when DM Serif Display is not installed locally. */
+@font-face {
+  font-family: 'Source Serif 4';
+  src: local('DM Serif Display'),
+       url('https://fonts.gstatic.com/s/dmserifdisplay/v16/-nFnOHM81r4j6k0gjALR8uVHFr3TZQnWDhU.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Source Serif 4';
+  src: local('DM Serif Display'),
+       url('https://fonts.gstatic.com/s/dmserifdisplay/v16/-nFuOHM81r4j6k0gjALR8uVHFr3TZQnWDhIEXHU.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ── Heading font overrides (explicit selectors for robustness) ── */
+h1, h2, h3, h4 {
+  font-family: 'DM Serif Display', serif !important;
+}
+
+/* Main site headings */
+.hero h1,
+.module-hero h1,
+.section-title,
+.content h2,
+.content h3,
+.content h4,
+.cta-band h2,
+.footer-brand h3,
+.nav-brand-text {
+  font-family: 'DM Serif Display', serif !important;
+}
+
+/* Prose / quote elements */
+.quote-block blockquote,
+.glaswand-quote,
+.closing-emphasis {
+  font-family: 'DM Serif Display', serif !important;
+}
+
+/* Module page specific */
+.guide-title,
+.handouts-title,
+.next-module-title,
+.pdf-preview-title,
+.reflection-block h3,
+.refl h3,
+.key-takeaways h3,
+.stat-num {
+  font-family: 'DM Serif Display', serif !important;
+}
+
+/* Notfall page */
+.grauzone h3,
+.fu-alert h3,
+.number-card a {
+  font-family: 'DM Serif Display', serif !important;
+}
+
+/* Tool pages (hardcoded 'Source Serif 4', Georgia, serif) */
 .tool-brand,
 .hdr h1,
 .detail h3,
@@ -112,49 +324,31 @@ h1, h2, .section-title, .hero h1, .module-hero h1,
 .res-card h2,
 .pc h3,
 .center-text,
-.number-card a,
-.closing-emphasis,
-.glaswand-quote,
-.handouts-title,
-.next-module-title,
-.print-title,
-.print-hdr .print-title,
-.stat-num,
 .section h2,
 .confirm-box h3,
-.toc-link {
-  font-family: 'DM Serif Display', Georgia, serif;
+.print-title,
+.print-hdr .print-title,
+.toc-link,
+.res-circle span {
+  font-family: 'DM Serif Display', Georgia, serif !important;
+}
+
+/* ── Body font (DM Sans stays, just ensure override) ── */
+body {
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
 }
 
 
-/* Catch-all: remap any remaining Source Serif 4 references to DM Serif Display.
-   local() checks system fonts; the URL fallback ensures the mapping works even
-   when DM Serif Display is not installed locally.
-   Note: CSS @font-face url() does not support Subresource Integrity (SRI);
-   this is a browser limitation and cannot be addressed in CSS. */
-@font-face {
-  font-family: 'Source Serif 4';
-  src: local('DM Serif Display'),
-       url('https://fonts.gstatic.com/s/dmserifdisplay/v16/-nFnOHM81r4j6k0gjALR8uVHFr3TZQnWDhU.woff2') format('woff2');
-  font-weight: 300 700;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Source Serif 4';
-  src: local('DM Serif Display'),
-       url('https://fonts.gstatic.com/s/dmserifdisplay/v16/-nFuOHM81r4j6k0gjALR8uVHFr3TZQnWDhIEXHU.woff2') format('woff2');
-  font-weight: 300 700;
-  font-style: italic;
-}
+/* ╔═══════════════════════════════════════════════════════════════════╗
+   ║  SCHRITT 4 – NAVIGATION                                         ║
+   ║  Solid Navy header, white text, teal hover/active states         ║
+   ║  Must override inline styles on ALL pages (incl. impressum,      ║
+   ║  notfall, module pages)                                          ║
+   ╚═══════════════════════════════════════════════════════════════════╝ */
 
-
-/* ── 3. NOISE TEXTURE: REMOVE ── */
-body::before {
-  display: none !important;
-}
-
-
-/* ── 4. NAVIGATION ── */
+/* ── Nav bar (fixed/sticky top bar) ── */
 nav {
   background: var(--navy) !important;
   backdrop-filter: none !important;
@@ -163,19 +357,27 @@ nav {
 }
 
 nav.scrolled {
-  box-shadow: 0 1px 8px rgba(0,0,0,0.15) !important;
+  box-shadow: var(--shadow-nav) !important;
+  background: var(--navy) !important;
 }
 
 .nav-inner {
-  max-width: 1140px;
+  max-width: var(--wide-width) !important;
 }
 
+/* ── Logo ── */
 .nav-logo {
   background: linear-gradient(135deg, var(--teal), var(--teal-light)) !important;
+  border-radius: var(--radius-md) !important;
+}
+
+/* ── Brand text ── */
+.nav-brand {
+  color: white !important;
 }
 
 .nav-brand-text {
-  font-family: 'DM Serif Display', serif;
+  font-family: 'DM Serif Display', serif !important;
   color: white !important;
 }
 
@@ -183,8 +385,10 @@ nav.scrolled {
   color: rgba(255,255,255,0.5) !important;
 }
 
+/* ── Links ── */
 .nav-links a {
   color: rgba(255,255,255,0.7) !important;
+  border-radius: var(--radius-sm) !important;
 }
 
 .nav-links a:hover {
@@ -197,21 +401,23 @@ nav.scrolled {
   color: white !important;
 }
 
-/* SOS button in nav (keep visible, adapt for dark bg) */
+/* ── SOS button (adapt for dark background) ── */
 .nav-sos {
   background: rgba(154,52,18,0.15) !important;
-  border-color: rgba(154,52,18,0.3) !important;
+  border: 1px solid rgba(154,52,18,0.3) !important;
   color: #fca5a5 !important;
 }
 
 .nav-sos:hover {
-  background: var(--alert-red) !important;
+  background: var(--rose) !important;
   color: white !important;
+  border-color: var(--rose) !important;
 }
 
-/* Mobile nav toggle */
+/* ── Mobile toggle ── */
 .nav-toggle {
   color: white !important;
+  background: transparent !important;
 }
 
 .nav-toggle svg {
@@ -219,20 +425,43 @@ nav.scrolled {
   stroke: white !important;
 }
 
-/* Mobile dropdown menu */
+/* ── Mobile dropdown (nav-open) ──
+   Inline styles use rgba(254,252,248,...) and rgba(45,40,35,...) */
 .nav-links.nav-open {
   background: var(--navy-mid) !important;
   border-color: rgba(255,255,255,0.1) !important;
   box-shadow: 0 12px 30px rgba(0,0,0,0.3) !important;
+  border-radius: var(--radius-lg) !important;
+}
+
+.nav-links.nav-open a {
+  color: rgba(255,255,255,0.8) !important;
+}
+
+.nav-links.nav-open a:hover {
+  background: rgba(30,101,109,0.15) !important;
+  color: white !important;
 }
 
 
-/* ── 5. HERO SECTIONS ── */
+/* ╔═══════════════════════════════════════════════════════════════════╗
+   ║  SCHRITT 5 – HERO / MODULE-HERO                                 ║
+   ║  Navy background, teal accents, noise texture off                ║
+   ╚═══════════════════════════════════════════════════════════════════╝ */
+
+/* ── Noise texture: kill globally ── */
+body::before {
+  display: none !important;
+  opacity: 0 !important;
+}
+
+/* ── Main hero (index.html) ── */
 .hero {
   background: var(--navy) !important;
   color: white !important;
 }
 
+/* Neutralise sage-green radial gradients */
 .hero::before {
   background: radial-gradient(circle, rgba(30,101,109,0.15), transparent 70%) !important;
 }
@@ -241,9 +470,14 @@ nav.scrolled {
   background: radial-gradient(circle, rgba(180,83,9,0.10), transparent 70%) !important;
 }
 
+.hero-content {
+  max-width: var(--content-width) !important;
+}
+
 .hero-badge {
   background: var(--teal) !important;
   color: white !important;
+  border-radius: var(--radius-pill) !important;
 }
 
 .hero-badge::before {
@@ -251,7 +485,6 @@ nav.scrolled {
 }
 
 .hero h1 {
-  font-family: 'DM Serif Display', serif;
   color: white !important;
 }
 
@@ -263,12 +496,13 @@ nav.scrolled {
   color: rgba(255,255,255,0.7) !important;
 }
 
-/* Module hero */
+/* ── Module hero (modul/*/index.html) ── */
 .module-hero {
   background: var(--navy) !important;
   color: white !important;
 }
 
+/* Neutralise pseudo-element gradients */
 .module-hero::before {
   background: radial-gradient(circle, rgba(30,101,109,0.15), transparent 70%) !important;
 }
@@ -277,14 +511,18 @@ nav.scrolled {
   background: radial-gradient(circle, rgba(180,83,9,0.10), transparent 70%) !important;
 }
 
+.module-hero-inner {
+  max-width: var(--content-width) !important;
+}
+
 .module-hero h1 {
-  font-family: 'DM Serif Display', serif;
   color: white !important;
 }
 
 .module-badge {
   background: var(--teal) !important;
   color: white !important;
+  border-radius: var(--radius-pill) !important;
 }
 
 .module-hero .module-meta {
@@ -303,38 +541,36 @@ nav.scrolled {
   color: var(--teal-light) !important;
 }
 
-
-/* ── 6. CONTENT ── */
-.content {
-  max-width: var(--content-width);
+/* ── Notfall hero (notfall/index.html) ──
+   Keep emergency red, but integrate with new system */
+.hero.notfall-hero,
+header.hero[style*="linear-gradient"] {
+  background: linear-gradient(135deg, #7f1d1d, #991b1b) !important;
 }
 
-.content h2 {
-  font-family: 'DM Serif Display', serif;
-  color: var(--navy);
-}
-
-.content h3 {
-  font-family: 'DM Serif Display', serif;
-  color: var(--navy-mid);
-}
-
-.content strong {
-  color: var(--navy);
+/* ── Reading progress bar (sits below nav) ── */
+.reading-progress-fill,
+#reading-progress {
+  background: linear-gradient(90deg, var(--teal), var(--teal-light)) !important;
 }
 
 
-/* ── 7. CARDS ── */
-/* Module cards */
+/* ╔═══════════════════════════════════════════════════════════════════╗
+   ║  SCHRITT 6 – CARDS                                              ║
+   ║  Radius 10-12px, subtle shadows, teal hover-border              ║
+   ╚═══════════════════════════════════════════════════════════════════╝ */
+
+/* ── Module cards (index.html grid) ── */
 .module-card {
-  border-radius: var(--radius-lg);
-  border-color: var(--border);
-  box-shadow: var(--shadow-soft);
+  border-radius: var(--radius-lg) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-soft) !important;
+  padding: var(--space-lg) !important;
 }
 
 .module-card:hover {
-  box-shadow: var(--shadow-card);
-  border-color: var(--teal);
+  box-shadow: var(--shadow-card) !important;
+  border-color: var(--teal) !important;
 }
 
 .module-card::before {
@@ -346,13 +582,17 @@ nav.scrolled {
 }
 
 .module-card h3 {
-  font-family: 'DM Serif Display', serif;
-  color: var(--navy);
+  color: var(--navy) !important;
+}
+
+.module-card-footer {
+  border-top: 1px solid var(--border) !important;
 }
 
 .module-card-arrow {
   background: var(--green-bg) !important;
   color: var(--teal) !important;
+  border-radius: 50% !important;
 }
 
 .module-card:hover .module-card-arrow {
@@ -360,10 +600,11 @@ nav.scrolled {
   color: white !important;
 }
 
-/* Quick action cards */
+/* ── Quick action cards (index.html) ── */
 .quick-card {
-  border-radius: var(--radius-lg);
-  border-color: var(--border);
+  border-radius: var(--radius-lg) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-soft) !important;
 }
 
 .quick-card::before {
@@ -371,38 +612,68 @@ nav.scrolled {
 }
 
 .quick-card:hover {
-  border-color: var(--teal);
+  border-color: var(--teal) !important;
+  box-shadow: var(--shadow-card) !important;
 }
 
 .quick-card-icon {
   background: var(--green-bg) !important;
   color: var(--teal) !important;
+  border-radius: var(--radius-sm) !important;
 }
 
 .quick-card.alert .quick-card-icon {
   background: rgba(154,52,18,0.12) !important;
-  color: var(--alert-red) !important;
+  color: var(--rose) !important;
 }
 
+/* ── Situation / number cards (notfall + modules) ── */
+.sit-card {
+  border-radius: var(--radius-lg) !important;
+  border: 1px solid var(--border) !important;
+}
 
-/* ── 8. GUIDE / ACCORDION ── */
+.sit-card:hover {
+  border-color: var(--teal) !important;
+  box-shadow: var(--shadow-card) !important;
+}
+
+.sit-badge {
+  background: var(--green-bg) !important;
+  color: var(--teal) !important;
+  border-radius: var(--radius-sm) !important;
+}
+
+.sit-card.urgent .sit-badge {
+  background: rgba(154,52,18,0.12) !important;
+  color: var(--rose) !important;
+}
+
+.number-card {
+  border-radius: var(--radius-lg) !important;
+  border: 1px solid var(--border) !important;
+}
+
+/* ── Guide / Accordion cards ── */
 .guide {
-  border-radius: var(--radius-lg);
-  border-color: var(--border);
+  border-radius: var(--radius-lg) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-soft) !important;
 }
 
 .guide-badge {
   background: var(--green-bg) !important;
   color: var(--teal) !important;
+  border-radius: var(--radius-sm) !important;
 }
 
 .guide-badge.red {
-  background: var(--alert-red-bg) !important;
-  color: var(--alert-red) !important;
+  background: var(--red-bg) !important;
+  color: var(--rose) !important;
 }
 
 .guide-badge.amber {
-  background: var(--amber-phase-light) !important;
+  background: var(--amber-bg) !important;
   color: var(--amber) !important;
 }
 
@@ -412,131 +683,94 @@ nav.scrolled {
 }
 
 .guide-title {
-  font-family: 'DM Serif Display', serif;
-  color: var(--navy);
+  color: var(--navy) !important;
 }
 
 .guide-chevron {
-  background: var(--green-bg);
-  color: var(--teal);
+  background: var(--green-bg) !important;
+  color: var(--teal) !important;
+  border-radius: 50% !important;
 }
 
 .guide.open .guide-chevron {
-  background: var(--teal);
-  color: white;
+  background: var(--teal) !important;
+  color: white !important;
 }
 
-/* Do/Don't boxes inside guides */
-.guide-do {
+/* ── Next module card ── */
+.next-module {
+  border-radius: var(--radius-lg) !important;
+  border: 1px solid var(--border) !important;
+}
+
+.next-module:hover {
+  border-color: var(--teal) !important;
+  box-shadow: var(--shadow-card) !important;
+}
+
+.next-module-title {
+  color: var(--navy) !important;
+}
+
+.next-module .next-arrow {
   background: var(--green-bg) !important;
-  border-color: #a7d9d5 !important;
-}
-
-.guide-dont {
-  background: var(--alert-red-bg) !important;
-}
-
-.guide-sos {
-  background: var(--amber-phase-light) !important;
-  border-color: #e8c68a !important;
-}
-
-
-/* ── 9. PHASE TABS ── */
-.phase-tab {
-  border-radius: var(--radius-md);
-}
-
-.phase-tab.active-blue {
-  border-color: var(--blue-phase);
-  background: var(--blue-phase-light);
-}
-
-.phase-tab.active-amber {
-  border-color: var(--amber);
-  background: var(--amber-phase-light);
-}
-
-.phase-tab.active-green {
-  border-color: var(--green);
-  background: var(--green-phase-light);
-}
-
-
-/* ── 10. QUOTE BLOCKS ── */
-.quote-block {
-  background: #f1f5f9 !important;
-  border-radius: var(--radius-lg);
-  border-left: 4px solid var(--teal);
-}
-
-.quote-block::before {
-  color: var(--teal-light) !important;
-}
-
-.quote-block blockquote {
-  font-family: 'DM Serif Display', serif;
-  color: var(--navy);
-}
-
-
-/* ── 11. REFLECTION / HIGHLIGHT BOXES ── */
-.reflection-block,
-.refl {
-  background: linear-gradient(135deg, var(--green-bg), #f1f5f9) !important;
-  border-radius: var(--radius-lg);
-}
-
-.reflection-label,
-.refl label,
-.refl .refl-label {
   color: var(--teal) !important;
 }
 
-.reflection-block h3,
-.refl h3 {
-  font-family: 'DM Serif Display', serif;
-  color: var(--navy);
+/* ── Tool page cards (hardcoded border-radius:22px) ── */
+.card,
+.wrap .card {
+  border-radius: var(--radius-lg) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-soft) !important;
 }
 
-
-/* ── 12. KEY TAKEAWAYS ── */
-.key-takeaways {
-  background: var(--navy) !important;
+/* ── Treatment / handout cards ── */
+.treatment-card,
+.handout-card {
+  border-radius: var(--radius-lg) !important;
+  border: 1px solid var(--border) !important;
 }
 
-.key-takeaways::before {
-  background: linear-gradient(135deg, rgba(30,101,109,0.2), transparent) !important;
+.treatment-card:hover,
+.handout-card:hover {
+  border-color: var(--teal) !important;
+  box-shadow: var(--shadow-card) !important;
 }
 
-.key-takeaways .check-circle {
-  background: rgba(141,212,217,0.2) !important;
-  color: var(--teal-light) !important;
+/* ── Detail cards (tool results) ── */
+.detail {
+  border-radius: var(--radius-lg) !important;
+  border: 1px solid var(--border) !important;
 }
 
-
-/* ── 13. ALERT / WARNING BOXES ── */
-.alert-box {
-  border-radius: var(--radius-md);
-  border-color: var(--alert-red-border);
+.detail h3 {
+  color: var(--navy) !important;
 }
 
-.alert-icon {
-  background: rgba(154,52,18,0.12) !important;
+/* ── PDF preview dialog ── */
+.pdf-preview-dialog {
+  border-radius: var(--radius-lg) !important;
 }
 
-/* Note boxes */
-.note-box,
-.fu-alert {
-  border-radius: var(--radius-md);
+.pdf-preview-title {
+  color: var(--navy) !important;
 }
 
+.pdf-preview-close:hover {
+  background: var(--green-bg) !important;
+  color: var(--teal) !important;
+}
 
-/* ── 14. TABLE OF CONTENTS ── */
+/* ── Table of contents card ── */
 .toc {
-  border-radius: var(--radius-lg);
-  border-color: var(--border);
-  box-shadow: var(--shadow-soft);
+  border-radius: var(--radius-lg) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-soft) !important;
+}
+
+.toc a:hover {
+  color: var(--teal) !important;
 }
 
 .toc a.active {
@@ -547,34 +781,466 @@ nav.scrolled {
   background: var(--teal) !important;
 }
 
-.toc a:hover {
-  color: var(--teal) !important;
+/* ── Res cards in tools (hardcoded border-radius:22px) ── */
+.res-card {
+  border-radius: var(--radius-lg) !important;
+  border: 1px solid var(--border) !important;
 }
 
 
-/* ── 15. PROGRESS BAR ── */
+/* ╔═══════════════════════════════════════════════════════════════════╗
+   ║  SCHRITT 7 – TABELLEN / DATEN-GRIDS / BAR CHARTS                ║
+   ║  Striped rows, teal headers, border token                       ║
+   ║  (No <table> elements – site uses bar charts, phase tabs,       ║
+   ║   position grids, stat cards)                                   ║
+   ╚═══════════════════════════════════════════════════════════════════╝ */
+
+/* ── Bar charts (modul/2) ── */
+.bar-track {
+  background: var(--green-bg) !important;
+}
+
+.bar-fill,
+.bar-fill.sage {
+  background: linear-gradient(90deg, var(--teal), var(--teal-light)) !important;
+}
+
+.bar-fill.warm {
+  background: linear-gradient(90deg, var(--amber), var(--amber-light)) !important;
+}
+
+.bar-pct {
+  color: var(--teal) !important;
+}
+
+.bar-pct.warm-text {
+  color: var(--amber) !important;
+}
+
+/* ── Phase explorer / tabs (modul/1) ── */
+.phase-explorer {
+  border-radius: var(--radius-lg) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-soft) !important;
+}
+
+.phase-tab {
+  border-radius: var(--radius-md) !important;
+}
+
+.phase-tab:hover {
+  background: rgba(30,101,109,0.04) !important;
+}
+
+/* Phase-specific active colors (content-semantic, keep distinct) */
+.phase-tab.active-mania {
+  color: var(--amber-phase) !important;
+  border-bottom-color: var(--amber-phase) !important;
+  background: var(--amber-phase-light) !important;
+}
+
+.phase-tab.active-stable {
+  color: var(--green-phase) !important;
+  border-bottom-color: var(--green-phase) !important;
+  background: var(--green-phase-light) !important;
+}
+
+.phase-tab.active-depression {
+  color: var(--blue-phase) !important;
+  border-bottom-color: var(--blue-phase) !important;
+  background: var(--blue-phase-light) !important;
+}
+
+/* Symptom cards within phases */
+.symptom-card {
+  border-radius: var(--radius-md) !important;
+  border: 1px solid var(--border) !important;
+}
+
+/* ── Phase badges in tools (hardcoded colors) ── */
+.phase-badge {
+  border-radius: var(--radius-sm) !important;
+}
+
+.phase-m {
+  background: var(--amber-bg) !important;
+  color: var(--amber) !important;
+}
+
+.phase-d {
+  background: var(--blue-phase-light) !important;
+  color: var(--blue-phase) !important;
+}
+
+/* ── Eisberg tool sections ── */
+.eisberg-section,
+.iceberg {
+  border-radius: var(--radius-lg) !important;
+}
+
+.eisberg-top {
+  background: linear-gradient(180deg, white, var(--green-bg)) !important;
+}
+
+.eisberg-tag {
+  border-radius: var(--radius-md) !important;
+}
+
+.eisberg-tag.active {
+  background: var(--teal) !important;
+  color: white !important;
+}
+
+/* ── Progress bars (module pages) ── */
 .progress-bar-outer {
-  border-radius: var(--radius-lg);
-  border-color: var(--border);
+  border-radius: var(--radius-lg) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-soft) !important;
 }
 
 .progress-fill {
   background: linear-gradient(90deg, var(--teal), var(--teal-light)) !important;
 }
 
-/* Reading progress */
-.reading-progress-fill,
-#reading-progress {
-  background: linear-gradient(90deg, var(--teal), var(--teal-light)) !important;
+/* Tool progress (hardcoded gradient) */
+.prog {
+  border-radius: var(--radius-md) !important;
+  background: var(--green-bg) !important;
 }
 
+.prog div,
+.prog-fill {
+  background: linear-gradient(90deg, var(--teal), var(--teal-light)) !important;
+  border-radius: var(--radius-md) !important;
+}
 
-/* ── 16. WAVE DIVIDER + CTA BAND ── */
-.wave-divider svg {
-  fill: var(--navy) !important;
+/* ── Stat numbers ── */
+.stat-num {
   color: var(--navy) !important;
 }
 
+/* ── Bar dot (selbsttest tool) ── */
+.bar-dot {
+  border: 2px solid var(--teal) !important;
+}
+
+
+/* ╔═══════════════════════════════════════════════════════════════════╗
+   ║  SCHRITT 8 – INFO-BOXEN / HIGHLIGHT-BEREICHE                    ║
+   ║  Do/Don't, Note, Alert, Reflection, Key Takeaways, Quotes       ║
+   ╚═══════════════════════════════════════════════════════════════════╝ */
+
+/* ── Quote blocks ── */
+.quote-block {
+  background: #f1f5f9 !important;
+  border-radius: var(--radius-lg) !important;
+  border-left: 4px solid var(--teal) !important;
+}
+
+.quote-block::before {
+  color: var(--teal-light) !important;
+}
+
+.quote-block blockquote {
+  color: var(--navy) !important;
+}
+
+.quote-block cite {
+  color: var(--text-soft) !important;
+}
+
+/* ── Reflection / highlight boxes ── */
+.reflection-block,
+.refl {
+  background: linear-gradient(135deg, var(--green-bg), #f1f5f9) !important;
+  border-radius: var(--radius-lg) !important;
+}
+
+.reflection-block::after,
+.refl::after {
+  background: radial-gradient(circle, rgba(30,101,109,0.08), transparent 70%) !important;
+}
+
+.reflection-label,
+.refl label,
+.refl .refl-label {
+  color: var(--teal) !important;
+}
+
+.reflection-block h3,
+.refl h3 {
+  color: var(--navy) !important;
+}
+
+/* ── Key takeaways (dark section) ── */
+.key-takeaways {
+  background: var(--navy) !important;
+  border-radius: var(--radius-lg) !important;
+}
+
+.key-takeaways::before {
+  background: linear-gradient(135deg, rgba(30,101,109,0.2), transparent) !important;
+}
+
+.key-takeaways h3 {
+  color: white !important;
+}
+
+.key-takeaways .check-circle {
+  background: rgba(141,212,217,0.2) !important;
+  color: var(--teal-light) !important;
+}
+
+.key-takeaways li {
+  border-top-color: rgba(255,255,255,0.08) !important;
+}
+
+/* ── Alert / warning boxes ── */
+.alert-box {
+  background: var(--red-bg) !important;
+  border: 2px solid var(--alert-red-border) !important;
+  border-radius: var(--radius-lg) !important;
+}
+
+.alert-icon {
+  background: rgba(154,52,18,0.12) !important;
+  color: var(--rose) !important;
+  border-radius: var(--radius-sm) !important;
+}
+
+.alert-box strong {
+  color: var(--rose) !important;
+}
+
+/* ── Note boxes ── */
+.note-box {
+  background: var(--amber-bg) !important;
+  border: 1px solid #e8c68a !important;
+  border-radius: var(--radius-md) !important;
+}
+
+/* ── Notfall-specific: fu-alert ── */
+.fu-alert {
+  border-radius: var(--radius-md) !important;
+  border: 1px solid var(--alert-red-border) !important;
+}
+
+.fu-alert h3 {
+  color: var(--rose) !important;
+}
+
+/* ── Grauzone (notfall page) ── */
+.grauzone {
+  border-radius: var(--radius-lg) !important;
+}
+
+.grauzone h3 {
+  color: var(--navy-mid) !important;
+}
+
+/* ── Guide Do/Don't/SOS boxes ── */
+.guide-do {
+  background: var(--green-bg) !important;
+  border: 1px solid #a7d9d5 !important;
+  border-radius: var(--radius-md) !important;
+}
+
+.guide-dont {
+  background: var(--red-bg) !important;
+  border: 1px solid var(--alert-red-border) !important;
+  border-radius: var(--radius-md) !important;
+}
+
+.guide-sos {
+  background: var(--amber-bg) !important;
+  border: 1px solid #e8c68a !important;
+  border-radius: var(--radius-md) !important;
+}
+
+/* ── Section labels & titles ── */
+.section-label {
+  color: var(--teal) !important;
+}
+
+.section-title {
+  color: var(--navy) !important;
+}
+
+
+/* ╔═══════════════════════════════════════════════════════════════════╗
+   ║  SCHRITT 9 – SPACING                                            ║
+   ║  Section padding 52px, content-width 900px, wide 1140px         ║
+   ╚═══════════════════════════════════════════════════════════════════╝ */
+
+/* ── Section padding (inline has 80px 2rem) ── */
+.modules-section,
+.quick-section,
+section,
+.section {
+  padding-top: var(--space-3xl) !important;
+  padding-bottom: var(--space-3xl) !important;
+}
+
+/* ── Content width ── */
+.content {
+  max-width: var(--content-width) !important;
+}
+
+/* ── Hero inner containers ── */
+.hero-content,
+.module-hero-inner {
+  max-width: var(--content-width) !important;
+}
+
+/* ── Wide containers (grids) ── */
+.nav-inner,
+.footer-inner {
+  max-width: var(--wide-width) !important;
+}
+
+/* ── Module grid ── */
+.modules-grid {
+  max-width: var(--wide-width) !important;
+}
+
+/* ── Card padding (tighter like Tarif-Kompass: 24px) ── */
+.module-card {
+  padding: var(--space-lg) !important;
+}
+
+.guide-body-inner {
+  padding: var(--space-lg) !important;
+}
+
+/* ── CTA band ── */
+.cta-band {
+  padding: var(--space-3xl) 2rem !important;
+}
+
+.cta-inner {
+  max-width: 600px !important;
+}
+
+/* ── Footer ── */
+footer {
+  padding: var(--space-lg) var(--space-lg) var(--space-2xl) !important;
+}
+
+.footer-bottom {
+  margin-top: var(--space-2xl) !important;
+  padding-top: var(--space-lg) !important;
+}
+
+/* ── Tool page wrappers ── */
+.wrap {
+  max-width: 560px;
+  padding: var(--space-xl) var(--space-md) var(--space-3xl) !important;
+}
+
+
+/* ╔═══════════════════════════════════════════════════════════════════╗
+   ║  SCHRITT 10 – BUTTONS, FOOTER, CTA, WAVE, ACCESSIBILITY         ║
+   ║  Final component alignment                                      ║
+   ╚═══════════════════════════════════════════════════════════════════╝ */
+
+/* ── Primary buttons (CTA, tool actions) ── */
+.cta-btn,
+.btn-c,
+.btn-next,
+.btn-cont,
+.btn-save {
+  background: var(--teal) !important;
+  color: white !important;
+  border-radius: var(--radius-pill) !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15) !important;
+}
+
+.cta-btn:hover,
+.btn-c:hover,
+.btn-next:hover,
+.btn-cont:hover,
+.btn-save:hover {
+  background: #1a5960 !important;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2) !important;
+}
+
+/* ── Secondary / back buttons ── */
+.btn-r,
+.btn-back {
+  background: white !important;
+  border: 1px solid var(--border) !important;
+  color: var(--slate) !important;
+  border-radius: var(--radius-md) !important;
+}
+
+.btn-r:hover,
+.btn-back:hover {
+  border-color: var(--teal) !important;
+  color: var(--teal) !important;
+  background: var(--green-bg) !important;
+}
+
+/* ── Reset / link-style buttons ── */
+.btn-reset {
+  color: var(--teal) !important;
+}
+
+.btn-reset:hover {
+  color: #1a5960 !important;
+}
+
+/* ── Option buttons in tools (hardcoded 14px radius) ── */
+.opt,
+.opt-btn {
+  border: 1.5px solid var(--border) !important;
+  border-radius: var(--radius-md) !important;
+  background: white !important;
+  color: var(--navy) !important;
+}
+
+.opt:hover,
+.opt-btn:hover {
+  border-color: var(--teal) !important;
+  color: var(--teal) !important;
+  background: var(--green-bg) !important;
+}
+
+.opt.sel,
+.opt.selected,
+.opt-btn.sel {
+  border-color: var(--teal) !important;
+  background: var(--green-bg) !important;
+  color: var(--teal) !important;
+}
+
+/* ── Correct / wrong (quiz tools) ── */
+.btn-correct,
+.opt.correct {
+  border-color: var(--teal) !important;
+  background: var(--green-bg) !important;
+  color: var(--teal) !important;
+}
+
+.btn-wrong,
+.opt.wrong {
+  border-color: var(--rose) !important;
+  background: var(--red-bg) !important;
+  color: var(--rose) !important;
+}
+
+/* ── Submit button in tools (hardcoded #d5dbc9 bg) ── */
+.submit {
+  background: var(--teal) !important;
+  color: white !important;
+  border-radius: var(--radius-md) !important;
+}
+
+.submit:hover {
+  background: #1a5960 !important;
+}
+
+/* ── CTA band ── */
 .cta-band {
   background: var(--navy) !important;
 }
@@ -584,8 +1250,11 @@ nav.scrolled {
 }
 
 .cta-band h2 {
-  font-family: 'DM Serif Display', serif;
-  color: white;
+  color: white !important;
+}
+
+.cta-band p {
+  color: rgba(255,255,255,0.7) !important;
 }
 
 .cta-band .cta-btn {
@@ -594,89 +1263,65 @@ nav.scrolled {
 }
 
 .cta-band .cta-btn:hover {
-  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.2) !important;
 }
 
+/* ── Wave divider ── */
+.wave-divider svg {
+  fill: var(--navy) !important;
+  color: var(--navy) !important;
+}
 
-/* ── 17. FOOTER ── */
+/* ── Footer ── */
 footer {
   background: var(--navy) !important;
+  color: rgba(255,255,255,0.6) !important;
+}
+
+.footer-inner {
+  max-width: var(--wide-width) !important;
 }
 
 .footer-brand h3 {
-  font-family: 'DM Serif Display', serif;
-  color: white;
+  color: white !important;
+}
+
+.footer-brand p {
+  color: rgba(255,255,255,0.5) !important;
 }
 
 .footer-col h4 {
-  color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.4) !important;
 }
 
 .footer-col a {
-  color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.6) !important;
 }
 
 .footer-col a:hover {
-  color: white;
+  color: white !important;
 }
 
 .footer-bottom {
-  border-top-color: rgba(255,255,255,0.08);
-  color: rgba(255,255,255,0.3);
+  border-top-color: rgba(255,255,255,0.08) !important;
+  color: rgba(255,255,255,0.3) !important;
 }
 
 .footer-bottom a {
-  color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.4) !important;
 }
 
-
-/* ── 18. SITUATION / NUMBER CARDS ── */
-.sit-card {
-  border-radius: var(--radius-lg);
-  border-color: var(--border);
+.footer-bottom a:hover {
+  color: rgba(255,255,255,0.7) !important;
 }
 
-.sit-card:hover {
-  border-color: var(--teal);
-  box-shadow: var(--shadow-card);
-}
-
-.sit-badge {
-  background: var(--green-bg) !important;
-  color: var(--teal) !important;
-}
-
-.sit-card.urgent .sit-badge {
-  background: rgba(154,52,18,0.12) !important;
-  color: var(--alert-red) !important;
-}
-
-.number-card {
-  border-radius: var(--radius-lg);
-  border-color: var(--border);
-}
-
-
-/* ── 19. NEXT MODULE CARD ── */
-.next-module {
-  border-radius: var(--radius-lg);
-  border-color: var(--border);
-}
-
-.next-module:hover {
-  border-color: var(--teal);
-}
-
-.next-module .next-arrow {
-  background: var(--green-bg) !important;
-  color: var(--teal) !important;
-}
-
-
-/* ── 20. TOOL PAGES ── */
+/* ── Tool navigation (sticky top bar on tool pages) ── */
 .tool-nav {
-  background: rgba(250,250,247,0.92) !important;
-  border-bottom-color: var(--border) !important;
+  background: rgba(250,250,247,0.95) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-nav) !important;
 }
 
 .tool-back {
@@ -688,231 +1333,130 @@ footer {
 }
 
 .tool-brand {
-  font-family: 'DM Serif Display', serif;
   color: var(--navy) !important;
 }
 
-/* Tool badges */
-.badge {
-  background: var(--green-bg) !important;
-  color: var(--teal) !important;
-}
-
-/* Tool cards */
-.wrap .card {
-  border-radius: var(--radius-lg);
-  border-color: var(--border);
-  box-shadow: var(--shadow-soft);
-}
-
-/* Tool headers */
-.hdr h1 {
-  font-family: 'DM Serif Display', Georgia, serif;
-  color: var(--navy) !important;
-}
-
-/* Tool buttons */
-.btn {
-  border-radius: var(--radius-md);
-}
-
-.btn-c,
-.btn-next,
-.btn-cont {
-  background: var(--teal) !important;
-  color: white !important;
-}
-
-.btn-c:hover,
-.btn-next:hover,
-.btn-cont:hover {
-  background: var(--sage-600) !important;
-}
-
-.btn-r,
-.btn-back {
-  border-color: var(--border) !important;
-  color: var(--slate) !important;
-}
-
-.btn-r:hover,
-.btn-back:hover {
-  border-color: var(--teal) !important;
-  color: var(--teal) !important;
-}
-
-.btn-reset {
-  color: var(--teal) !important;
-}
-
-/* Option buttons in tools */
-.opt {
-  border-color: var(--border);
-  border-radius: var(--radius-md);
-}
-
-.opt:hover {
-  border-color: var(--teal) !important;
-  color: var(--teal) !important;
-  background: var(--green-bg) !important;
-}
-
-.opt.sel,
-.opt.selected {
-  border-color: var(--teal) !important;
-  background: var(--green-bg) !important;
-  color: var(--teal) !important;
-}
-
-.btn-correct {
-  border-color: var(--teal) !important;
-  background: var(--green-bg) !important;
-  color: var(--teal) !important;
-}
-
-.btn-wrong {
-  border-color: var(--alert-red) !important;
-  background: var(--alert-red-bg) !important;
-  color: var(--alert-red) !important;
-}
-
-/* Tool progress bar */
-.prog {
-  border-radius: var(--radius-md);
-}
-
-.prog div {
-  background: linear-gradient(90deg, var(--teal), var(--teal-light)) !important;
-}
-
-/* Tool detail cards */
-.detail {
-  border-radius: var(--radius-lg);
-  border-color: var(--border);
-}
-
-.detail h3 {
-  font-family: 'DM Serif Display', Georgia, serif;
-  color: var(--navy);
-}
-
-/* Tool result sections */
+/* ── Tool result sections ── */
 .res-score,
 .res-circle {
   border-color: var(--teal) !important;
 }
 
+.res-score span,
+.res-circle span {
+  color: var(--teal) !important;
+}
+
 .res h2,
 .res-title {
-  font-family: 'DM Serif Display', Georgia, serif;
-  color: var(--navy);
+  color: var(--navy) !important;
 }
 
-
-/* ── 21. EISBERG TOOL ── */
-.eisberg-section {
-  border-radius: var(--radius-lg);
-}
-
-.eisberg-top {
-  background: linear-gradient(180deg, white, var(--green-bg));
-}
-
-.eisberg-tag {
-  border-radius: var(--radius-md);
-}
-
-.eisberg-tag.active {
-  background: var(--teal) !important;
-  color: white !important;
-}
-
-
-/* ── 22. BAR CHART ── */
-.bar-fill {
-  background: linear-gradient(90deg, var(--teal), var(--teal-light)) !important;
-}
-
-
-/* ── 23. PDF PREVIEW ── */
-.pdf-preview-dialog {
-  border-radius: var(--radius-lg);
-}
-
-.pdf-preview-title {
-  font-family: 'DM Serif Display', serif;
-  color: var(--navy);
-}
-
-.pdf-preview-close:hover {
-  background: var(--green-bg);
-  color: var(--teal);
-}
-
-
-/* ── 24. ACCESSIBILITY ── */
+/* ── Accessibility ── */
 *:focus-visible {
-  outline-color: var(--teal) !important;
+  outline: 2px solid var(--teal) !important;
+  outline-offset: 2px !important;
+  border-radius: 4px;
 }
 
 .skip-link:focus {
   background: var(--navy) !important;
+  color: white !important;
+  border-radius: var(--radius-sm) !important;
 }
 
+/* ── Impressum-specific overrides ──
+   Impressum has its own compact inline styles. Ensure coverage. */
+.impressum-content h1,
+.impressum-content h2 {
+  color: var(--navy) !important;
+}
 
-/* ── 25. SECTIONS ── */
-.section-label {
+.impressum-content a {
   color: var(--teal) !important;
 }
 
-.section-title {
-  font-family: 'DM Serif Display', serif;
-  color: var(--navy);
+.impressum-content a:hover {
+  color: #1a5960 !important;
+}
+
+/* ── 404 page ── */
+.error-page h1 {
+  color: var(--navy) !important;
+}
+
+.error-page a {
+  color: var(--teal) !important;
 }
 
 
-/* ── 26. NOTFALL-SPECIFIC ── */
-/* Keep emergency red functional but integrate with new system */
-.notfall-hero {
-  background: linear-gradient(135deg, #7f1d1d, #991b1b) !important;
+/* ╔═══════════════════════════════════════════════════════════════════╗
+   ║  RESPONSIVE OVERRIDES                                            ║
+   ╚═══════════════════════════════════════════════════════════════════╝ */
+
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+  .nav-toggle {
+    display: flex !important;
+  }
 }
 
-.grauzone h3 {
-  font-family: 'DM Serif Display', serif;
-  color: var(--navy-mid);
-}
-
-.fu-alert h3 {
-  font-family: 'DM Serif Display', serif;
-}
-
-
-/* ── 27. IMPRESSUM ── */
-/* Footer links on impressum page */
-
-
-/* ── 28. 404 PAGE ── */
-/* The 404 page uses Georgia; override to DM Serif Display if font is loaded */
-
-
-/* ── 29. SPACING ADJUSTMENTS ── */
-.modules-section,
-.quick-section {
-  padding: 52px 2rem;
-}
-
-.module-hero-inner,
-.hero-content {
-  max-width: var(--content-width);
+@media (max-width: 600px) {
+  .hero {
+    padding: 100px 1.2rem 40px !important;
+    min-height: auto !important;
+  }
+  .hero h1 {
+    font-size: 28px !important;
+  }
+  .module-hero {
+    padding: 100px 1.2rem 40px !important;
+    min-height: auto !important;
+  }
+  section,
+  .section {
+    padding: 36px 1.2rem !important;
+  }
+  .cta-band {
+    padding: 36px 1.2rem !important;
+  }
 }
 
 
-/* ── 30. PRINT OVERRIDES ── */
+/* ╔═══════════════════════════════════════════════════════════════════╗
+   ║  PRINT OVERRIDES                                                 ║
+   ╚═══════════════════════════════════════════════════════════════════╝ */
+
 @media print {
-  nav {
+  nav,
+  .nav-toggle,
+  .cta-band,
+  .wave-divider {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    font-size: 12px !important;
+  }
+  .hero,
+  .module-hero {
     background: var(--navy) !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
+  }
+  .key-takeaways {
+    background: var(--navy) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .card,
+  .guide,
+  .quote-block,
+  .reflection-block {
+    box-shadow: none !important;
+    page-break-inside: avoid;
   }
 }
 
