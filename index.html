@@ -643,7 +643,28 @@
   .footer-bottom a:hover { color: rgba(255,255,255,0.7); }
 
   /* ══════════ SCROLL REVEAL ══════════ */
-  .reveal { opacity: 1; }
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .reveal.revealed { opacity: 1; transform: none; }
+  }
+
+  /* ══════════ VISITED MODULE BADGE ══════════ */
+  .module-card.visited .module-arrow {
+    background: var(--sage-500);
+    color: white;
+  }
+  .module-card.visited {
+    border-color: var(--sage-200);
+  }
 
   /* ══════════ MOBILE NAV ══════════ */
   .nav-toggle {
@@ -748,7 +769,7 @@
     <div class="progress-track">
       <div class="progress-fill" id="progressFill"></div>
     </div>
-    <span class="progress-count">0 / 8 Module</span>
+    <span class="progress-count" id="progressCount">0 / 8 Module</span>
   </div>
 </div>
 
@@ -1055,6 +1076,76 @@
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 20);
   });
+
+  // ── Scroll reveal (IntersectionObserver) ──
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('revealed'));
+  }
+
+  // ── Module progress tracking (localStorage) ──
+  const TOTAL_MODULES = 8;
+  const STORAGE_KEY = 'puk_visited_modules';
+
+  function getVisited() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch { return []; }
+  }
+
+  function saveVisited(list) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(list)); } catch {}
+  }
+
+  function getModulePath(href) {
+    const m = href && href.match(/^\/modul\/(\d+)\/?$/);
+    return m ? '/modul/' + m[1] + '/' : null;
+  }
+
+  function updateProgressUI() {
+    const visited = getVisited();
+    const count = Math.min(visited.length, TOTAL_MODULES);
+    const pct = (count / TOTAL_MODULES) * 100;
+
+    const fill = document.getElementById('progressFill');
+    const counter = document.getElementById('progressCount');
+    if (fill) fill.style.width = pct + '%';
+    if (counter) counter.textContent = count + ' / ' + TOTAL_MODULES + ' Module';
+
+    // Mark visited module cards
+    document.querySelectorAll('a.module-card[href]').forEach(card => {
+      const path = getModulePath(card.getAttribute('href'));
+      if (path && visited.includes(path)) {
+        card.classList.add('visited');
+        const arrow = card.querySelector('.module-arrow');
+        if (arrow && arrow.textContent.trim() === '→') arrow.textContent = '✓';
+      }
+    });
+  }
+
+  // Track clicks on module cards
+  document.querySelectorAll('a.module-card[href]').forEach(card => {
+    const path = getModulePath(card.getAttribute('href'));
+    if (path) {
+      card.addEventListener('click', () => {
+        const visited = getVisited();
+        if (!visited.includes(path)) {
+          visited.push(path);
+          saveVisited(visited);
+        }
+      });
+    }
+  });
+
+  // Initialise progress on load
+  updateProgressUI();
 
 </script>
 
