@@ -11,23 +11,23 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'DM Sans',sans-serif;color:#2e2a25;background:#fefcf8;min-height:100vh;display:flex;flex-direction:column;align-items:center;-webkit-font-smoothing:antialiased}
+body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-height:100vh;display:flex;flex-direction:column;align-items:center;-webkit-font-smoothing:antialiased}
 .tool-nav{width:100%;background:rgba(254,252,248,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(45,40,35,0.06);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
-.tool-back{display:flex;align-items:center;gap:8px;text-decoration:none;color:#706860;font-size:0.82rem;font-weight:500;transition:color 0.2s}.tool-back:hover{color:#3d4a30}
+.tool-back{display:flex;align-items:center;gap:8px;text-decoration:none;color:#475569;font-size:0.82rem;font-weight:500;transition:color 0.2s}.tool-back:hover{color:#1c2b3a}
 .tool-back svg{width:16px;height:16px}
-.tool-brand{font-family:'DM Serif Display',serif;font-size:0.85rem;font-weight:600;color:#2e2a25}
+.tool-brand{font-family:'DM Serif Display',serif;font-size:0.85rem;font-weight:600;color:#1c2b3a}
 .wrap{width:100%;max-width:600px;padding:32px 20px 56px;flex:1}
 .hdr{text-align:center;margin-bottom:28px}
-.badge{display:inline-flex;background:#eaede4;color:#3d4a30;padding:5px 14px;border-radius:100px;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px}
+.badge{display:inline-flex;background:#e6f4f2;color:#1c2b3a;padding:5px 14px;border-radius:100px;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px}
 .hdr h1{font-family:'DM Serif Display',serif;font-size:clamp(1.35rem,3.5vw,1.75rem);font-weight:700;color:#2a211b;margin:0 0 8px;letter-spacing:-0.02em;line-height:1.2}
-.hdr p{font-size:0.85rem;color:#706860;line-height:1.6}
+.hdr p{font-size:0.85rem;color:#475569;line-height:1.6}
 
 /* ── Chart wrapper ── */
 .chart-wrap{width:100%;border-radius:18px;overflow:hidden;background:#fff;border:1px solid rgba(45,40,35,0.07);box-shadow:0 4px 24px rgba(45,40,35,0.08);margin-bottom:18px}
 .chart-top{padding:16px 18px 10px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
-.chart-heading{font-size:0.72rem;font-weight:700;color:#706860;text-transform:uppercase;letter-spacing:0.08em}
+.chart-heading{font-size:0.72rem;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:0.08em}
 .chart-legend{display:flex;gap:12px;flex-wrap:wrap}
-.leg{display:flex;align-items:center;gap:5px;font-size:0.64rem;color:#706860;font-weight:500}
+.leg{display:flex;align-items:center;gap:5px;font-size:0.64rem;color:#475569;font-weight:500}
 .leg-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
 
 /* SVG chart */
@@ -50,7 +50,7 @@ body{font-family:'DM Sans',sans-serif;color:#2e2a25;background:#fefcf8;min-heigh
 
 /* ── Phase buttons ── */
 .phase-btns{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:18px}
-.pbtn{padding:10px 4px;border-radius:12px;border:2px solid transparent;background:#f6f7f4;color:#706860;font-size:0.66rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;display:flex;flex-direction:column;align-items:center;gap:3px;-webkit-appearance:none;line-height:1.2;text-align:center}
+.pbtn{padding:10px 4px;border-radius:12px;border:2px solid transparent;background:#FAFAF7;color:#475569;font-size:0.66rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;display:flex;flex-direction:column;align-items:center;gap:3px;-webkit-appearance:none;line-height:1.2;text-align:center}
 .pbtn .ico{font-size:1.1rem;display:block}
 .pbtn:hover{transform:translateY(-2px);box-shadow:0 3px 10px rgba(45,40,35,0.1)}
 .pbtn.active{color:#fff;transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.18)}
@@ -61,22 +61,22 @@ body{font-family:'DM Sans',sans-serif;color:#2e2a25;background:#fefcf8;min-heigh
 .det-top{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px}
 .det-icon{width:48px;height:48px;min-width:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.35rem}
 .det-phase-name{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px}
-.det-title{font-family:'DM Serif Display',serif;font-size:1rem;font-weight:700;color:#2e2a25;line-height:1.3}
-.det-dur{display:inline-flex;align-items:center;gap:6px;font-size:0.72rem;color:#706860;background:#f6f7f4;padding:4px 12px;border-radius:100px;margin-bottom:16px}
+.det-title{font-family:'DM Serif Display',serif;font-size:1rem;font-weight:700;color:#1c2b3a;line-height:1.3}
+.det-dur{display:inline-flex;align-items:center;gap:6px;font-size:0.72rem;color:#475569;background:#FAFAF7;padding:4px 12px;border-radius:100px;margin-bottom:16px}
 .det-cols{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
 .det-col{border-radius:12px;padding:14px 15px;border-left:3px solid}
 .det-col-lbl{font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:8px}
 .det-col ul{list-style:none;display:flex;flex-direction:column;gap:5px}
-.det-col li{font-size:0.8rem;line-height:1.5;padding-left:14px;position:relative;color:#5e564e}
+.det-col li{font-size:0.8rem;line-height:1.5;padding-left:14px;position:relative;color:#475569}
 .det-col li::before{content:'–';position:absolute;left:0;color:#c5bdb5}
-.det-note{border-radius:12px;padding:12px 15px;font-size:0.8rem;line-height:1.6;color:#5e564e}
-.det-note strong{color:#2e2a25}
+.det-note{border-radius:12px;padding:12px 15px;font-size:0.8rem;line-height:1.6;color:#475569}
+.det-note strong{color:#1c2b3a}
 
 .hint{text-align:center;font-size:0.78rem;color:#a09088;margin:0 0 18px;line-height:1.5}
 
-.tf{text-align:center;font-size:0.68rem;color:#b4bfa0;margin-top:28px;line-height:1.6}
+.tf{text-align:center;font-size:0.68rem;color:#8DD4D9;margin-top:28px;line-height:1.6}
 
-*:focus-visible{outline:2px solid #748a5a;outline-offset:2px;border-radius:4px}
+*:focus-visible{outline:2px solid #1E656D;outline-offset:2px;border-radius:4px}
 @media(prefers-reduced-motion:reduce){*{transition-duration:0.01ms!important;animation-duration:0.01ms!important}}
 @media(max-width:500px){
   .phase-btns{grid-template-columns:repeat(3,1fr)}
@@ -110,7 +110,7 @@ body{font-family:'DM Sans',sans-serif;color:#2e2a25;background:#fefcf8;min-heigh
       <span class="chart-heading">Stimmungsverlauf über die Zeit</span>
       <div class="chart-legend">
         <span class="leg"><span class="leg-dot" style="background:#B45309"></span>Manie</span>
-        <span class="leg"><span class="leg-dot" style="background:#c4933b"></span>Hypomanie</span>
+        <span class="leg"><span class="leg-dot" style="background:#B45309"></span>Hypomanie</span>
         <span class="leg"><span class="leg-dot" style="background:#0d7a5f"></span>Stabil</span>
         <span class="leg"><span class="leg-dot" style="background:#5b7fa5"></span>Leichte Dep.</span>
         <span class="leg"><span class="leg-dot" style="background:#334155"></span>Schwere Dep.</span>
@@ -157,7 +157,7 @@ body{font-family:'DM Sans',sans-serif;color:#2e2a25;background:#fefcf8;min-heigh
 
         <!-- Zone labels -->
         <text x="8" y="32"  font-size="10" fill="#B45309" font-weight="700" font-family="DM Sans,sans-serif">Manie</text>
-        <text x="8" y="88"  font-size="10" fill="#c4933b" font-weight="700" font-family="DM Sans,sans-serif">Hypomanie</text>
+        <text x="8" y="88"  font-size="10" fill="#B45309" font-weight="700" font-family="DM Sans,sans-serif">Hypomanie</text>
         <text x="8" y="144" font-size="10" fill="#0d7a5f" font-weight="700" font-family="DM Sans,sans-serif">Stabil</text>
         <text x="8" y="200" font-size="10" fill="#5b7fa5" font-weight="700" font-family="DM Sans,sans-serif">Leichte Dep.</text>
         <text x="8" y="256" font-size="10" fill="#334155" font-weight="700" font-family="DM Sans,sans-serif">Schwere Dep.</text>
@@ -178,14 +178,14 @@ body{font-family:'DM Sans',sans-serif;color:#2e2a25;background:#fefcf8;min-heigh
         <circle class="wpt" cx="160" cy="28"  r="9" fill="#B45309" stroke="#fff" stroke-width="2.5" data-phase="mania"      id="pt-mania"    role="button" tabindex="0" aria-label="Manie-Gipfel — klicken für Details"/>
         <circle class="wpt" cx="300" cy="252" r="9" fill="#334155" stroke="#fff" stroke-width="2.5" data-phase="severe-dep" id="pt-severe"   role="button" tabindex="0" aria-label="Schwere Depression — klicken für Details"/>
         <circle class="wpt" cx="370" cy="140" r="9" fill="#0d7a5f" stroke="#fff" stroke-width="2.5" data-phase="stable"     id="pt-stable"   role="button" tabindex="0" aria-label="Stabile Phase — klicken für Details"/>
-        <circle class="wpt" cx="430" cy="84"  r="9" fill="#c4933b" stroke="#fff" stroke-width="2.5" data-phase="hypomania"  id="pt-hypo"     role="button" tabindex="0" aria-label="Hypomanie — klicken für Details"/>
+        <circle class="wpt" cx="430" cy="84"  r="9" fill="#B45309" stroke="#fff" stroke-width="2.5" data-phase="hypomania"  id="pt-hypo"     role="button" tabindex="0" aria-label="Hypomanie — klicken für Details"/>
         <circle class="wpt" cx="520" cy="196" r="9" fill="#5b7fa5" stroke="#fff" stroke-width="2.5" data-phase="mild-dep"   id="pt-mild"     role="button" tabindex="0" aria-label="Leichte Depression — klicken für Details"/>
 
         <!-- Pulse rings (animated) -->
         <circle cx="160" cy="28"  r="15" fill="none" stroke="#B45309" stroke-width="1.5" opacity="0" class="pulse" id="pulse-mania"/>
         <circle cx="300" cy="252" r="15" fill="none" stroke="#334155" stroke-width="1.5" opacity="0" class="pulse" id="pulse-severe"/>
         <circle cx="370" cy="140" r="15" fill="none" stroke="#0d7a5f" stroke-width="1.5" opacity="0" class="pulse" id="pulse-stable"/>
-        <circle cx="430" cy="84"  r="15" fill="none" stroke="#c4933b" stroke-width="1.5" opacity="0" class="pulse" id="pulse-hypo"/>
+        <circle cx="430" cy="84"  r="15" fill="none" stroke="#B45309" stroke-width="1.5" opacity="0" class="pulse" id="pulse-hypo"/>
         <circle cx="520" cy="196" r="15" fill="none" stroke="#5b7fa5" stroke-width="1.5" opacity="0" class="pulse" id="pulse-mild"/>
       </svg>
     </div>
@@ -240,7 +240,7 @@ const PHASES = {
     name: 'Hypomanie',
     subtitle: 'Abgeschwächte Hochphase — schwer erkennbar',
     duration: 'Typisch: 4 Tage bis 2 Wochen',
-    color: '#c4933b',
+    color: '#B45309',
     bg: '#fff9f0',
     border: '#e8c68a',
     ptId: 'pt-hypo',
@@ -355,9 +355,9 @@ function selectPhase(phase) {
       b.style.borderColor = d.color;
       b.style.color = '#fff';
     } else {
-      b.style.background = '#f6f7f4';
+      b.style.background = '#FAFAF7';
       b.style.borderColor = 'transparent';
-      b.style.color = '#706860';
+      b.style.color = '#475569';
     }
   });
 
@@ -400,8 +400,8 @@ function selectPhase(phase) {
         <div class="det-col-lbl" style="color:${d.color}">Für die betroffene Person</div>
         <ul>${d.person.map(i => `<li>${i}</li>`).join('')}</ul>
       </div>
-      <div class="det-col" style="background:#f9f6f2;border-color:#b4bfa0">
-        <div class="det-col-lbl" style="color:#566642">Für Angehörige</div>
+      <div class="det-col" style="background:#f9f6f2;border-color:#8DD4D9">
+        <div class="det-col-lbl" style="color:#475569">Für Angehörige</div>
         <ul>${d.caregiver.map(i => `<li>${i}</li>`).join('')}</ul>
       </div>
     </div>

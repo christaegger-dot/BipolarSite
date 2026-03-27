@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
 <style>
-  :root{--sage-50:#f6f7f4;--sage-100:#eaede4;--sage-200:#d5dbc9;--sage-300:#b4bfa0;--sage-400:#748a5a;--sage-500:#6b7d52;--sage-600:#566642;--sage-700:#3d4a30;--warm-50:#fdfbf7;--warm-100:#f9f4eb;--warm-200:#f0e6d3;--warm-400:#c9a87a;--earth-700:#5c4a38;--earth-800:#3d3128;--earth-900:#2a211b;--cream:#fefcf8;--text:#2e2a25;--text-secondary:#5e564e;--text-muted:#706860;--alert-red:#c75450;--alert-red-bg:#fdf2f1;--alert-red-border:#f0c5c3;--blue-phase:#5b7fa5;--blue-phase-light:#eef3f8;--amber-phase:#c4933b;--amber-phase-light:#fdf6ea;--green-phase:#6b9a6b;--radius-sm:8px;--radius-md:14px;--radius-lg:22px;--radius-xl:32px;--shadow-soft:0 2px 16px rgba(45,40,35,0.06);--shadow-card:0 4px 24px rgba(45,40,35,0.08);--content-width:740px}
+  :root{--sage-50:#FAFAF7;--sage-100:#e6f4f2;--sage-200:#a7d9d5;--sage-300:#8DD4D9;--sage-400:#1E656D;--sage-500:#1E656D;--sage-600:#475569;--sage-700:#1c2b3a;--warm-50:#FAFAF7;--warm-100:#FAFAF7;--warm-200:#f0e6d3;--warm-400:#c9a87a;--earth-700:#5c4a38;--earth-800:#3d3128;--earth-900:#2a211b;--cream:#FAFAF7;--text:#1c2b3a;--text-secondary:#475569;--text-muted:#475569;--alert-red:#9A3412;--alert-red-bg:#FEF2F2;--alert-red-border:#fca5a5;--blue-phase:#5b7fa5;--blue-phase-light:#eef3f8;--amber-phase:#B45309;--amber-phase-light:#fef3e2;--green-phase:#0d7a5f;--radius-sm:8px;--radius-md:14px;--radius-lg:22px;--radius-xl:32px;--shadow-soft:0 2px 16px rgba(45,40,35,0.06);--shadow-card:0 4px 24px rgba(45,40,35,0.08);--content-width:740px}
   *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;font-size:16px}
   body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--cream);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
   body::before{content:'';position:fixed;inset:0;opacity:0.025;pointer-events:none;z-index:9999;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
@@ -58,8 +58,8 @@
   .ampel-card h4{font-size:0.92rem;font-weight:700;color:var(--text);margin-bottom:8px}
   .ampel-card p{font-size:0.84rem;line-height:1.55;margin:0}
   .ampel-card.green p{color:var(--sage-700)}
-  .ampel-card.amber p{color:#8a6e30}
-  .ampel-card.red p{color:#8a4240}
+  .ampel-card.amber p{color:#B45309}
+  .ampel-card.red p{color:#9A3412}
 
   /* TOOL CARD */
   .tool-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-xl);padding:32px;margin:32px 0;box-shadow:var(--shadow-soft)}
@@ -102,7 +102,7 @@
   .do-col h4,.dont-col h4{font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px}
   .do-col h4{color:var(--sage-600)}.dont-col h4{color:var(--alert-red)}
   .do-col ul,.dont-col ul{list-style:none}.do-col li,.dont-col li{font-size:0.86rem;padding:5px 0 5px 18px;position:relative;line-height:1.5}
-  .do-col li{color:var(--sage-700)}.dont-col li{color:#7a3a38}
+  .do-col li{color:var(--sage-700)}.dont-col li{color:#9A3412}
   .do-col li::before{content:'✓';position:absolute;left:0;color:var(--sage-400);font-weight:700}
   .dont-col li::before{content:'✗';position:absolute;left:0;color:var(--alert-red);font-weight:700}
 
@@ -242,7 +242,7 @@
   <!-- 2. SCHWEIGEPFLICHT -->
   
   <a href="/tools/krisenplan/" class="tool-cta reveal">
-    <div class="tool-cta-icon" style="background:#f0f5ed">🚦</div>
+    <div class="tool-cta-icon" style="background:#e6f4f2">🚦</div>
     <div class="tool-cta-body">
       <h4>Optionale digitale Ausfüllhilfe</h4>
       <p>Wenn Sie den Krisenplan direkt am Bildschirm vorbereiten möchten: eine ruhige Ausfüllhilfe mit lokalem Speichern und Druckansicht.</p>
@@ -338,7 +338,7 @@
   <!-- 5. ANOSOGNOSIE -->
   
   <a href="/tools/komm-trainer/" class="tool-cta reveal">
-    <div class="tool-cta-icon" style="background:#fdf6ea">💬</div>
+    <div class="tool-cta-icon" style="background:#fef3e2">💬</div>
     <div class="tool-cta-body">
       <h4>Kommunikation an Beispielen vertiefen</h4>
       <p>Optional: sechs kurze Situationen, wenn Sie die Grundregeln aus diesem Modul noch an konkreten Beispielen durchgehen möchten.</p>

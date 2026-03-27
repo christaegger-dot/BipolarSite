@@ -11,54 +11,54 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'DM Sans',sans-serif;color:#2e2a25;background:#fefcf8;min-height:100vh;display:flex;flex-direction:column;align-items:center;-webkit-font-smoothing:antialiased}
+body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-height:100vh;display:flex;flex-direction:column;align-items:center;-webkit-font-smoothing:antialiased}
 .tool-nav{width:100%;background:rgba(254,252,248,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(45,40,35,0.06);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
-.tool-back{display:flex;align-items:center;gap:8px;text-decoration:none;color:#706860;font-size:0.82rem;font-weight:500}.tool-back:hover{color:#3d4a30}
+.tool-back{display:flex;align-items:center;gap:8px;text-decoration:none;color:#475569;font-size:0.82rem;font-weight:500}.tool-back:hover{color:#1c2b3a}
 .tool-back svg{width:16px;height:16px}
-.tool-brand{font-family:'Source Serif 4',serif;font-size:0.85rem;font-weight:600;color:#2e2a25}
+.tool-brand{font-family:'Source Serif 4',serif;font-size:0.85rem;font-weight:600;color:#1c2b3a}
 .wrap{width:100%;max-width:560px;padding:32px 20px 48px;flex:1}
 .hdr{text-align:center;margin-bottom:28px}
-.badge{display:inline-flex;background:#eaede4;color:#3d4a30;padding:5px 14px;border-radius:100px;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px}
+.badge{display:inline-flex;background:#e6f4f2;color:#1c2b3a;padding:5px 14px;border-radius:100px;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px}
 .hdr h1{font-family:'Source Serif 4',Georgia,serif;font-size:clamp(1.3rem,3.5vw,1.7rem);font-weight:700;color:#2a211b;margin:0 0 8px;letter-spacing:-0.02em}
-.hdr p{font-size:0.85rem;color:#706860;line-height:1.6}
+.hdr p{font-size:0.85rem;color:#475569;line-height:1.6}
 .pc{background:#fff;border-radius:18px;border:1px solid rgba(45,40,35,0.06);box-shadow:0 2px 16px rgba(45,40,35,0.06);padding:22px 24px;margin-bottom:14px;border-left:4px solid}
 .pc-hdr{display:flex;align-items:center;gap:10px;margin-bottom:10px}
 .pc-num{width:28px;height:28px;border-radius:8px;color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800;flex-shrink:0}
-.pc h3{font-family:'Source Serif 4',Georgia,serif;font-size:0.93rem;font-weight:600;color:#2e2a25;margin:0}
-.pc p{font-size:0.8rem;color:#706860;margin:0 0 14px;line-height:1.5}
+.pc h3{font-family:'Source Serif 4',Georgia,serif;font-size:0.93rem;font-weight:600;color:#1c2b3a;margin:0}
+.pc p{font-size:0.8rem;color:#475569;margin:0 0 14px;line-height:1.5}
 .sc{display:flex;gap:6px}
-.sc button{flex:1;padding:10px 4px;border-radius:10px;border:1px solid rgba(45,40,35,0.08);background:#fff;color:#706860;font-size:0.68rem;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;display:flex;flex-direction:column;align-items:center;gap:2px;-webkit-appearance:none}
+.sc button{flex:1;padding:10px 4px;border-radius:10px;border:1px solid rgba(45,40,35,0.08);background:#fff;color:#475569;font-size:0.68rem;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;display:flex;flex-direction:column;align-items:center;gap:2px;-webkit-appearance:none}
 .sc button.sel{font-weight:700;color:#fff}
 .sc .sv{font-size:0.93rem}
 .sc .sl{font-size:0.56rem;opacity:0.8}
-.submit{width:100%;padding:14px;border-radius:14px;border:none;background:#d5dbc9;color:#fff;font-size:0.88rem;font-weight:700;cursor:default;font-family:'DM Sans',sans-serif;margin-top:8px;transition:background 0.3s}
-.submit.ready{background:#6b7d52;cursor:pointer}
+.submit{width:100%;padding:14px;border-radius:14px;border:none;background:#a7d9d5;color:#fff;font-size:0.88rem;font-weight:700;cursor:default;font-family:'DM Sans',sans-serif;margin-top:8px;transition:background 0.3s}
+.submit.ready{background:#1E656D;cursor:pointer}
 .res-card{background:#fff;border-radius:22px;border:1px solid rgba(45,40,35,0.06);box-shadow:0 4px 24px rgba(45,40,35,0.08);padding:32px 28px}
-.res-card h2{font-family:'Source Serif 4',Georgia,serif;font-size:1.1rem;font-weight:700;color:#2e2a25;margin:0 0 20px;text-align:center}
+.res-card h2{font-family:'Source Serif 4',Georgia,serif;font-size:1.1rem;font-weight:700;color:#1c2b3a;margin:0 0 20px;text-align:center}
 .pillars{display:flex;align-items:flex-end;justify-content:center;gap:12px;height:200px;margin-bottom:28px;padding:0 8px}
 .pillar{display:flex;flex-direction:column;align-items:center;flex:1}
 .pillar .pv{font-size:1rem;font-weight:700;margin-bottom:6px}
 .pillar .pb{width:100%;max-width:56px;border-radius:10px 10px 4px 4px;transition:height 0.8s cubic-bezier(0.34,1.56,0.64,1)}
 .pillar .pl{font-size:0.6rem;font-weight:600;margin-top:8px;text-align:center;line-height:1.2}
 .res-score{text-align:center;margin-bottom:24px;padding:12px 0;border-top:1px solid rgba(45,40,35,0.06);border-bottom:1px solid rgba(45,40,35,0.06)}
-.res-score span{font-size:0.8rem;color:#706860}
-.res-score strong{color:#2e2a25;font-size:1rem}
+.res-score span{font-size:0.8rem;color:#475569}
+.res-score strong{color:#1c2b3a;font-size:1rem}
 .rbox{border-radius:14px;padding:18px 20px;margin-bottom:14px;border-left:4px solid}
 .rbox-title{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px}
 .rbox p{font-size:0.85rem;line-height:1.6;margin:0}
-.rbox-weak{background:#fdf2f1}.rbox-strong{background:#f0f5ed}
+.rbox-weak{background:#FEF2F2}.rbox-strong{background:#e6f4f2}
 .all-detail{margin-top:20px}
-.all-title{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#706860;margin-bottom:12px}
+.all-title{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#475569;margin-bottom:12px}
 .ad-row{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid rgba(45,40,35,0.04)}
 .ad-num{width:24px;height:24px;border-radius:6px;color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.68rem;font-weight:800;flex-shrink:0;margin-top:2px}
-.ad-name{font-size:0.8rem;font-weight:600;color:#2e2a25;margin-bottom:2px}
-.ad-text{font-size:0.72rem;color:#706860;line-height:1.5}
+.ad-name{font-size:0.8rem;font-weight:600;color:#1c2b3a;margin-bottom:2px}
+.ad-text{font-size:0.72rem;color:#475569;line-height:1.5}
 .btns{display:flex;gap:10px;margin-top:24px}.btns button{flex:1;padding:12px;border-radius:12px;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:600;cursor:pointer}
-.btn-r{border:1px solid rgba(45,40,35,0.08);background:#fff;color:#5e564e}
-.btn-c{border:none;background:#6b7d52;color:#fff}
-.disc{font-size:0.68rem;color:#b4bfa0;margin-top:16px;line-height:1.5;text-align:center}
-.tf{text-align:center;font-size:0.68rem;color:#b4bfa0;margin-top:28px;line-height:1.5}
-*:focus-visible{outline:2px solid #748a5a;outline-offset:2px;border-radius:4px}
+.btn-r{border:1px solid rgba(45,40,35,0.08);background:#fff;color:#475569}
+.btn-c{border:none;background:#1E656D;color:#fff}
+.disc{font-size:0.68rem;color:#8DD4D9;margin-top:16px;line-height:1.5;text-align:center}
+.tf{text-align:center;font-size:0.68rem;color:#8DD4D9;margin-top:28px;line-height:1.5}
+*:focus-visible{outline:2px solid #1E656D;outline-offset:2px;border-radius:4px}
 @media(prefers-reduced-motion:reduce){*{transition-duration:0.01ms!important}}
 </style>
 <link rel="stylesheet" href="/css/tarif-kompass-theme.css">
@@ -72,9 +72,9 @@ body{font-family:'DM Sans',sans-serif;color:#2e2a25;background:#fefcf8;min-heigh
 </main>
 <script>
 const P=[
-  {id:"wissen",n:1,l:"Gemeinsames Krankheitsverständnis",s:"Wissen",c:"#6b7d52",q:"Gibt es ein gemeinsames Grundverständnis dafür, was die Erkrankung mit Alltag und Beziehung macht?",lo:"Psychoedukation kann helfen: Modul 1 erklärt die Grundlagen. Manchmal entlastet schon ein gemeinsames Gespräch mit dem Behandlungsteam oder eine ruhigere Nachbesprechung in stabileren Phasen.",hi:"Gemeinsames Wissen trägt oft mehr, als man im Alltag merkt. Nutzen Sie ruhigere Phasen, um Beobachtungen und neue Erkenntnisse nachzuschärfen."},
-  {id:"inseln",n:2,l:"Krankheitsfreie Inseln",s:"Inseln",c:"#c4933b",q:"Gibt es regelmässige Momente, in denen nicht alles von der Erkrankung bestimmt wird?",lo:"Beginnen Sie klein: ein Kaffee, ein Spaziergang, ein Abend ohne Krankheitsgespräch. Es muss nicht gross sein, um wieder etwas Beziehung oder Alltag zurückzubringen.",hi:"Diese Inseln sind kein Luxus. Sie helfen, dass Beziehung und Alltag nicht vollständig um Symptome, Krisen und Erholung kreisen."},
-  {id:"grenzen",n:3,l:"Grenzen & faire Lastverteilung",s:"Grenzen",c:"#c75450",q:"Können Sie Grenzen setzen — und trägt die Last nicht dauerhaft nur eine Person?",lo:"Modul 5 erklärt, warum Grenzen so schwer fallen. Modul 6 zeigt konkrete Formulierungen. Oft hilft es, mit einer kleinen, klaren Grenze zu beginnen statt mit einer grossen Neuordnung.",hi:"Klare Grenzen und eine etwas fairere Lastverteilung machen die lange Strecke meist tragfähiger. Prüfen Sie immer wieder, ob Zuständigkeiten wieder unbemerkt verrutscht sind."},
+  {id:"wissen",n:1,l:"Gemeinsames Krankheitsverständnis",s:"Wissen",c:"#1E656D",q:"Gibt es ein gemeinsames Grundverständnis dafür, was die Erkrankung mit Alltag und Beziehung macht?",lo:"Psychoedukation kann helfen: Modul 1 erklärt die Grundlagen. Manchmal entlastet schon ein gemeinsames Gespräch mit dem Behandlungsteam oder eine ruhigere Nachbesprechung in stabileren Phasen.",hi:"Gemeinsames Wissen trägt oft mehr, als man im Alltag merkt. Nutzen Sie ruhigere Phasen, um Beobachtungen und neue Erkenntnisse nachzuschärfen."},
+  {id:"inseln",n:2,l:"Krankheitsfreie Inseln",s:"Inseln",c:"#B45309",q:"Gibt es regelmässige Momente, in denen nicht alles von der Erkrankung bestimmt wird?",lo:"Beginnen Sie klein: ein Kaffee, ein Spaziergang, ein Abend ohne Krankheitsgespräch. Es muss nicht gross sein, um wieder etwas Beziehung oder Alltag zurückzubringen.",hi:"Diese Inseln sind kein Luxus. Sie helfen, dass Beziehung und Alltag nicht vollständig um Symptome, Krisen und Erholung kreisen."},
+  {id:"grenzen",n:3,l:"Grenzen & faire Lastverteilung",s:"Grenzen",c:"#9A3412",q:"Können Sie Grenzen setzen — und trägt die Last nicht dauerhaft nur eine Person?",lo:"Modul 5 erklärt, warum Grenzen so schwer fallen. Modul 6 zeigt konkrete Formulierungen. Oft hilft es, mit einer kleinen, klaren Grenze zu beginnen statt mit einer grossen Neuordnung.",hi:"Klare Grenzen und eine etwas fairere Lastverteilung machen die lange Strecke meist tragfähiger. Prüfen Sie immer wieder, ob Zuständigkeiten wieder unbemerkt verrutscht sind."},
   {id:"krisenplan",n:4,l:"Gemeinsamer Krisenplan",s:"Krisenplan",c:"#5b7fa5",q:"Gibt es einen schriftlichen Krisenplan, der in einer stabilen Phase erstellt wurde?",lo:"Ein Krisenplan ist oft das wichtigste Einzelwerkzeug. Modul 6 enthält eine Vorlage und einen interaktiven Generator. Je unklarer frühere Krisen waren, desto mehr lohnt sich dieser Schritt.",hi:"Ein Krisenplan schafft nicht Kontrolle, aber oft mehr Orientierung. Überprüfen Sie ihn regelmässig — Kontakte, Medikamente und Zuständigkeiten verändern sich."},
   {id:"entlastung",n:5,l:"Eigene Entlastung & Unterstützung",s:"Entlastung",c:"#8b6fc0",q:"Haben Sie eigene Unterstützung — Vertrauensperson, Fachstelle, Therapie oder Selbsthilfe?",lo:"Lange Belastung wird oft durch Isolation schwerer. Ein erster Schritt reicht: die Fachstelle PUK anrufen, eine Vertrauensperson einweihen oder eine Selbsthilfegruppe prüfen.",hi:"Ein tragfähiges Netz entlastet nicht automatisch, aber es macht es leichter, Belastung nicht nur allein zu tragen. Halten Sie diesen Kontakt aktiv."}
 ];
@@ -93,8 +93,8 @@ function rn(){
     app.innerHTML=`<div class="res-card"><h2>Was Sie gerade trägt</h2>
     <div class="pillars">${P.map(p=>{const v=rat[p.id]||1;const h=(v/5)*160;const isW=p.id===weak.id&&v<4;return`<div class="pillar"><span class="pv" style="color:${p.c}">${v}</span><div class="pb" style="height:${h}px;background:${isW?'repeating-linear-gradient(45deg,'+p.c+'22,'+p.c+'22 4px,'+p.c+'11 4px,'+p.c+'11 8px)':p.c};opacity:${isW?1:0.85};${isW?'border:2px dashed '+p.c:''}"></div><span class="pl" style="color:${p.c}">${p.s}</span></div>`}).join('')}</div>
     <div class="res-score"><span>Gesamt: <strong>${ts}</strong> / ${P.length*5}</span></div>
-    ${weak&&rat[weak.id]<4?`<div class="rbox rbox-weak" style="border-color:${weak.c}"><div class="rbox-title" style="color:${weak.c}">Hier fehlt aktuell am meisten Boden: ${weak.l}</div><p style="color:#5e564e">${weak.lo}</p></div>`:''}
-    ${strong&&rat[strong.id]>=4?`<div class="rbox rbox-strong" style="border-color:#6b9a6b"><div class="rbox-title" style="color:#6b9a6b">Was Sie bereits trägt: ${strong.l}</div><p style="color:#3d4a30">${strong.hi}</p></div>`:''}
+    ${weak&&rat[weak.id]<4?`<div class="rbox rbox-weak" style="border-color:${weak.c}"><div class="rbox-title" style="color:${weak.c}">Hier fehlt aktuell am meisten Boden: ${weak.l}</div><p style="color:#475569">${weak.lo}</p></div>`:''}
+    ${strong&&rat[strong.id]>=4?`<div class="rbox rbox-strong" style="border-color:#0d7a5f"><div class="rbox-title" style="color:#0d7a5f">Was Sie bereits trägt: ${strong.l}</div><p style="color:#1c2b3a">${strong.hi}</p></div>`:''}
     <div class="all-detail"><div class="all-title">Alle fünf Bereiche im Detail</div>${P.map(p=>{const v=rat[p.id]||1;return`<div class="ad-row"><div class="ad-num" style="background:${p.c}">${v}</div><div><div class="ad-name">${p.l}</div><div class="ad-text">${v<3?p.lo:p.hi}</div></div></div>`}).join('')}</div>
     <div class="btns"><button class="btn-r" onclick="rs()">Erneut einschätzen</button><button class="btn-c" onclick="location.href='/modul/7/'">Zurück zu Modul 7 →</button></div>
     <div class="disc">Standortbestimmung, keine Diagnose. Beginnen Sie dort, wo aktuell am wenigsten trägt oder am meisten Druck entsteht.</div></div>`;

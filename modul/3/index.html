@@ -11,14 +11,14 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --sage-50: #f6f7f4; --sage-100: #eaede4; --sage-200: #d5dbc9; --sage-300: #b4bfa0;
-    --sage-400: #748a5a; --sage-500: #6b7d52; --sage-600: #566642; --sage-700: #3d4a30;
-    --warm-50: #fdfbf7; --warm-100: #f9f4eb; --warm-200: #f0e6d3; --warm-300: #e2d0b4; --warm-400: #c9a87a;
+    --sage-50: #FAFAF7; --sage-100: #e6f4f2; --sage-200: #a7d9d5; --sage-300: #8DD4D9;
+    --sage-400: #1E656D; --sage-500: #1E656D; --sage-600: #475569; --sage-700: #1c2b3a;
+    --warm-50: #FAFAF7; --warm-100: #FAFAF7; --warm-200: #f0e6d3; --warm-300: #e2d0b4; --warm-400: #c9a87a;
     --earth-700: #5c4a38; --earth-800: #3d3128; --earth-900: #2a211b;
-    --cream: #fefcf8; --text: #2e2a25; --text-secondary: #5e564e; --text-muted: #706860;
-    --alert-red: #c75450; --alert-red-bg: #fdf2f1; --alert-red-border: #f0c5c3;
+    --cream: #FAFAF7; --text: #1c2b3a; --text-secondary: #475569; --text-muted: #475569;
+    --alert-red: #9A3412; --alert-red-bg: #FEF2F2; --alert-red-border: #fca5a5;
     --blue-phase: #5b7fa5; --blue-phase-light: #eef3f8;
-    --amber-phase: #c4933b; --amber-phase-light: #fdf6ea;
+    --amber-phase: #B45309; --amber-phase-light: #fef3e2;
     --radius-sm: 8px; --radius-md: 14px; --radius-lg: 22px; --radius-xl: 32px;
     --shadow-soft: 0 2px 16px rgba(45,40,35,0.06);
     --shadow-card: 0 4px 24px rgba(45,40,35,0.08);
@@ -111,10 +111,10 @@
   .erosion-card p { font-size: 0.84rem; line-height: 1.55; margin: 0; }
   .erosion-card.trust { background: var(--blue-phase-light); }
   .erosion-card.trust h4 { color: var(--blue-phase); }
-  .erosion-card.trust p { color: #4a6580; }
+  .erosion-card.trust p { color: #475569; }
   .erosion-card.intimacy { background: var(--amber-phase-light); }
   .erosion-card.intimacy h4 { color: var(--amber-phase); }
-  .erosion-card.intimacy p { color: #8a6e30; }
+  .erosion-card.intimacy p { color: #B45309; }
   .erosion-card.lightness { background: var(--sage-50); }
   .erosion-card.lightness h4 { color: var(--sage-600); }
   .erosion-card.lightness p { color: var(--sage-700); }
@@ -364,28 +364,28 @@
         <!-- Legend (top, always visible) -->
         <line x1="60" y1="24" x2="84" y2="24" stroke="#5b7fa5" stroke-width="3"/>
         <text x="90" y="28" fill="#5b7fa5" font-size="14" font-weight="600" font-family="DM Sans, sans-serif">Vertrauen</text>
-        <line x1="200" y1="24" x2="224" y2="24" stroke="#c4933b" stroke-width="3"/>
-        <text x="230" y="28" fill="#c4933b" font-size="14" font-weight="600" font-family="DM Sans, sans-serif">Nähe</text>
-        <line x1="310" y1="24" x2="334" y2="24" stroke="#6b9a6b" stroke-width="3"/>
-        <text x="340" y="28" fill="#6b9a6b" font-size="14" font-weight="600" font-family="DM Sans, sans-serif">Leichtigkeit</text>
+        <line x1="200" y1="24" x2="224" y2="24" stroke="#B45309" stroke-width="3"/>
+        <text x="230" y="28" fill="#B45309" font-size="14" font-weight="600" font-family="DM Sans, sans-serif">Nähe</text>
+        <line x1="310" y1="24" x2="334" y2="24" stroke="#0d7a5f" stroke-width="3"/>
+        <text x="340" y="28" fill="#0d7a5f" font-size="14" font-weight="600" font-family="DM Sans, sans-serif">Leichtigkeit</text>
 
         <!-- Axes -->
-        <line x1="55" y1="55" x2="55" y2="355" stroke="#d5dbc9" stroke-width="1.5"/>
-        <line x1="55" y1="355" x2="575" y2="355" stroke="#d5dbc9" stroke-width="1.5"/>
+        <line x1="55" y1="55" x2="55" y2="355" stroke="#a7d9d5" stroke-width="1.5"/>
+        <line x1="55" y1="355" x2="575" y2="355" stroke="#a7d9d5" stroke-width="1.5"/>
 
         <!-- Y labels -->
         <text x="44" y="75" fill="#8a817a" font-size="13" font-weight="600" text-anchor="end" font-family="DM Sans, sans-serif">Hoch</text>
         <text x="44" y="350" fill="#8a817a" font-size="13" font-weight="600" text-anchor="end" font-family="DM Sans, sans-serif">Tief</text>
 
         <!-- Episode bands -->
-        <rect x="130" y="55" width="55" height="300" fill="#c4933b" opacity="0.1" rx="5"/>
-        <rect x="290" y="55" width="55" height="300" fill="#c4933b" opacity="0.1" rx="5"/>
-        <rect x="450" y="55" width="55" height="300" fill="#c4933b" opacity="0.1" rx="5"/>
+        <rect x="130" y="55" width="55" height="300" fill="#B45309" opacity="0.1" rx="5"/>
+        <rect x="290" y="55" width="55" height="300" fill="#B45309" opacity="0.1" rx="5"/>
+        <rect x="450" y="55" width="55" height="300" fill="#B45309" opacity="0.1" rx="5"/>
 
         <!-- Episode labels -->
-        <text x="158" y="380" fill="#c4933b" font-size="13" font-weight="600" text-anchor="middle" font-family="DM Sans, sans-serif">Episode 1</text>
-        <text x="318" y="380" fill="#c4933b" font-size="13" font-weight="600" text-anchor="middle" font-family="DM Sans, sans-serif">Episode 2</text>
-        <text x="478" y="380" fill="#c4933b" font-size="13" font-weight="600" text-anchor="middle" font-family="DM Sans, sans-serif">Episode 3</text>
+        <text x="158" y="380" fill="#B45309" font-size="13" font-weight="600" text-anchor="middle" font-family="DM Sans, sans-serif">Episode 1</text>
+        <text x="318" y="380" fill="#B45309" font-size="13" font-weight="600" text-anchor="middle" font-family="DM Sans, sans-serif">Episode 2</text>
+        <text x="478" y="380" fill="#B45309" font-size="13" font-weight="600" text-anchor="middle" font-family="DM Sans, sans-serif">Episode 3</text>
 
         <!-- X label -->
         <text x="315" y="408" fill="#8a817a" font-size="13" text-anchor="middle" font-family="DM Sans, sans-serif">→ Zeit</text>
@@ -396,11 +396,11 @@
 
         <!-- Nähe (amber) -->
         <path d="M55,95 L130,95 L158,215 L185,140 L290,135 L318,250 L345,180 L450,175 L478,285 L505,220 L575,217"
-          fill="none" stroke="#c4933b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          fill="none" stroke="#B45309" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 
         <!-- Leichtigkeit (green) -->
         <path d="M55,110 L130,110 L158,235 L185,165 L290,162 L318,270 L345,210 L450,207 L478,305 L505,250 L575,248"
-          fill="none" stroke="#6b9a6b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          fill="none" stroke="#0d7a5f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </div>
     <div class="erosion-caption">Die orangen Bänder markieren Episoden. Dieser kumulative Effekt erklärt, warum langjährige Angehörige weniger Ressourcen haben als am Anfang. <strong>Dieser Prozess ist umkehrbar</strong> — mit bewusster Arbeit und professioneller Begleitung.</div>
