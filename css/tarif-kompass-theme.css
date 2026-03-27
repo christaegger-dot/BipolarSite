@@ -127,16 +127,22 @@ h1, h2, .section-title, .hero h1, .module-hero h1,
 }
 
 
-/* Catch-all: remap any remaining Source Serif 4 references */
+/* Catch-all: remap any remaining Source Serif 4 references to DM Serif Display.
+   local() checks system fonts; the URL fallback ensures the mapping works even
+   when DM Serif Display is not installed locally.
+   Note: CSS @font-face url() does not support Subresource Integrity (SRI);
+   this is a browser limitation and cannot be addressed in CSS. */
 @font-face {
   font-family: 'Source Serif 4';
-  src: local('DM Serif Display');
+  src: local('DM Serif Display'),
+       url('https://fonts.gstatic.com/s/dmserifdisplay/v16/-nFnOHM81r4j6k0gjALR8uVHFr3TZQnWDhU.woff2') format('woff2');
   font-weight: 300 700;
   font-style: normal;
 }
 @font-face {
   font-family: 'Source Serif 4';
-  src: local('DM Serif Display');
+  src: local('DM Serif Display'),
+       url('https://fonts.gstatic.com/s/dmserifdisplay/v16/-nFuOHM81r4j6k0gjALR8uVHFr3TZQnWDhIEXHU.woff2') format('woff2');
   font-weight: 300 700;
   font-style: italic;
 }

@@ -76,40 +76,40 @@ body{font-family:'DM Sans',sans-serif;color:#2e2a25;background:#fefcf8;min-heigh
     <button class="btn-reset" onclick="showConfirm()">Zurücksetzen</button>
   </div>
 </nav>
-<div class="wrap">
+<main id="main-content" class="wrap">
   <div class="print-hdr"><div class="print-title">Unser Krisenplan</div><p>Erstellt am: <span id="printDate"></span> · Psychiatrische Universitätsklinik Zürich</p></div>
   <div class="hdr"><div class="badge">Modul 6 — Werkzeug</div><h1>Krisenplan-Generator</h1><p>Füllen Sie diesen Plan gemeinsam in einer stabilen Phase aus. Er soll in belastenden Situationen Entscheidungslast reduzieren. Ihre Daten bleiben lokal auf diesem Gerät.</p></div>
   <div class="prog-wrap"><div class="prog-bar"><div class="prog-fill" id="progFill"></div></div><div class="prog-label" id="progLabel"></div></div>
   <form id="form" autocomplete="off">
     <div class="section s1"><h2>🟡 Frühwarnzeichen</h2><p class="sdesc">Was sind die ersten Anzeichen, dass eine Episode beginnen könnte?</p>
-      <div class="field"><label>Manie-Warnzeichen</label><textarea name="warn_manie" placeholder="z.B. weniger Schlafbedürfnis, schnelleres Reden, grosse Pläne, Reizbarkeit..."></textarea></div>
-      <div class="field"><label>Depressions-Warnzeichen</label><textarea name="warn_dep" placeholder="z.B. Rückzug, Appetitlosigkeit, frühmorgendliches Erwachen, Antriebslosigkeit..."></textarea></div>
+      <div class="field"><label for="warn_manie">Manie-Warnzeichen</label><textarea id="warn_manie" name="warn_manie" placeholder="z.B. weniger Schlafbedürfnis, schnelleres Reden, grosse Pläne, Reizbarkeit..."></textarea></div>
+      <div class="field"><label for="warn_dep">Depressions-Warnzeichen</label><textarea id="warn_dep" name="warn_dep" placeholder="z.B. Rückzug, Appetitlosigkeit, frühmorgendliches Erwachen, Antriebslosigkeit..."></textarea></div>
     </div>
     <div class="section s2"><h2>🟢 Massnahmen Stufe 1 — Frühphase</h2><p class="sdesc">Was tun wir bei den ersten Anzeichen?</p>
-      <div class="field"><label>Vereinbarte Sofort-Massnahmen</label><textarea name="mass1" placeholder="z.B. Schlafrhythmus sicherstellen, Medikation prüfen, Psychiater kontaktieren..."></textarea></div>
-      <div class="field"><label>Wer muss informiert werden?</label><textarea name="inform1" placeholder="z.B. Psychiater*in, Hausarzt, enge Vertrauensperson..."></textarea></div>
+      <div class="field"><label for="mass1">Vereinbarte Sofort-Massnahmen</label><textarea id="mass1" name="mass1" placeholder="z.B. Schlafrhythmus sicherstellen, Medikation prüfen, Psychiater kontaktieren..."></textarea></div>
+      <div class="field"><label for="inform1">Wer muss informiert werden?</label><textarea id="inform1" name="inform1" placeholder="z.B. Psychiater*in, Hausarzt, enge Vertrauensperson..."></textarea></div>
     </div>
     <div class="section s3"><h2>🔴 Massnahmen Stufe 2 — Akutphase</h2><p class="sdesc">Was tun wir, wenn die Situation eskaliert?</p>
-      <div class="field"><label>Akut-Massnahmen</label><textarea name="mass2" placeholder="z.B. Psychiatrischen Notfalldienst rufen, Klinik aufsuchen, Finanzen sperren lassen..."></textarea></div>
-      <div class="field"><label>Grenze für Hospitalisation</label><textarea name="grenze" placeholder="z.B. Wenn Suizidgedanken geäussert werden, wenn Fremdgefährdung besteht, wenn 3 Tage kein Schlaf..."></textarea></div>
+      <div class="field"><label for="mass2">Akut-Massnahmen</label><textarea id="mass2" name="mass2" placeholder="z.B. Psychiatrischen Notfalldienst rufen, Klinik aufsuchen, Finanzen sperren lassen..."></textarea></div>
+      <div class="field"><label for="grenze">Grenze für Hospitalisation</label><textarea id="grenze" name="grenze" placeholder="z.B. Wenn Suizidgedanken geäussert werden, wenn Fremdgefährdung besteht, wenn 3 Tage kein Schlaf..."></textarea></div>
     </div>
     <div class="section s4"><h2>📞 Kontaktpersonen</h2><p class="sdesc">Alle wichtigen Nummern — griffbereit.</p>
-      <div class="field"><label>Psychiater*in / Therapeut*in</label><input type="text" name="kontakt_psych" placeholder="Name und Telefonnummer"></div>
-      <div class="field"><label>Hausarzt / Hausärztin</label><input type="text" name="kontakt_ha" placeholder="Name und Telefonnummer"></div>
-      <div class="field"><label>Vertrauensperson</label><input type="text" name="kontakt_vp" placeholder="Name und Telefonnummer"></div>
-      <div class="field"><label>Bevorzugte Klinik</label><input type="text" name="kontakt_klinik" placeholder="Name, Adresse, Notfallnummer"></div>
+      <div class="field"><label for="kontakt_psych">Psychiater*in / Therapeut*in</label><input id="kontakt_psych" type="text" name="kontakt_psych" placeholder="Name und Telefonnummer"></div>
+      <div class="field"><label for="kontakt_ha">Hausarzt / Hausärztin</label><input id="kontakt_ha" type="text" name="kontakt_ha" placeholder="Name und Telefonnummer"></div>
+      <div class="field"><label for="kontakt_vp">Vertrauensperson</label><input id="kontakt_vp" type="text" name="kontakt_vp" placeholder="Name und Telefonnummer"></div>
+      <div class="field"><label for="kontakt_klinik">Bevorzugte Klinik</label><input id="kontakt_klinik" type="text" name="kontakt_klinik" placeholder="Name, Adresse, Notfallnummer"></div>
     </div>
     <div class="section s5"><h2>🏥 Klinikwunsch</h2><p class="sdesc">Wünsche für eine mögliche stationäre Behandlung.</p>
-      <div class="field"><label>Bevorzugte Klinik und besondere Wünsche</label><textarea name="klinik" placeholder="z.B. Einzelzimmer, bestimmte Station, Besuchsregelung, Medikamentenwünsche..."></textarea></div>
+      <div class="field"><label for="klinik">Bevorzugte Klinik und besondere Wünsche</label><textarea id="klinik" name="klinik" placeholder="z.B. Einzelzimmer, bestimmte Station, Besuchsregelung, Medikamentenwünsche..."></textarea></div>
     </div>
     <div class="section s6"><h2>📝 Zusätzliches</h2><p class="sdesc">Alles, was sonst noch wichtig ist.</p>
-      <div class="field"><label>Schweigepflichtentbindung vorhanden?</label><input type="text" name="schweige" placeholder="Ja / Nein / In Arbeit — wo hinterlegt?"></div>
-      <div class="field"><label>Finanzielle Vorkehrungen</label><textarea name="finanzen" placeholder="z.B. Kreditkartenlimit, Kontovollmacht, Bankgespräch geführt?"></textarea></div>
-      <div class="field"><label>Sonstiges</label><textarea name="sonstiges" placeholder="Alles weitere, das in einer Krise wichtig sein könnte..."></textarea></div>
+      <div class="field"><label for="schweige">Schweigepflichtentbindung vorhanden?</label><input id="schweige" type="text" name="schweige" placeholder="Ja / Nein / In Arbeit — wo hinterlegt?"></div>
+      <div class="field"><label for="finanzen">Finanzielle Vorkehrungen</label><textarea id="finanzen" name="finanzen" placeholder="z.B. Kreditkartenlimit, Kontovollmacht, Bankgespräch geführt?"></textarea></div>
+      <div class="field"><label for="sonstiges">Sonstiges</label><textarea id="sonstiges" name="sonstiges" placeholder="Alles weitere, das in einer Krise wichtig sein könnte..."></textarea></div>
     </div>
   </form>
   <p class="tf">Psychiatrische Universitätsklinik Zürich · Fachstelle Angehörigenarbeit</p>
-</div>
+</main>
 <div class="saved-msg" id="savedMsg">✓ Gespeichert</div>
 <div class="confirm" id="confirm">
   <div class="confirm-box">

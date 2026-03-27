@@ -60,7 +60,7 @@ body{font-family:'DM Sans',sans-serif;color:#2e2a25;background:#fefcf8;min-heigh
 </head>
 <body>
 <nav class="tool-nav"><a href="/modul/2/" class="tool-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>Zurück zu Modul 2</a><span class="tool-brand">PUK Zürich</span></nav>
-<div class="tool-wrap">
+<main class="tool-wrap" id="main-content">
   <div class="tool-header"><div class="tool-badge">Modul 2 — Interaktiv</div><h1>Der Eisberg der Angehörigen</h1><p>Was die Welt sieht — und was darunter liegt. Klicken Sie auf die Begriffe.</p></div>
   <div class="iceberg">
     <div class="ice-above"><div class="ice-lbl ice-lbl-a">Was die Welt sieht</div><div class="ice-tags" id="tv"></div></div>
@@ -70,7 +70,7 @@ body{font-family:'DM Sans',sans-serif;color:#2e2a25;background:#fefcf8;min-heigh
   <div id="dp" class="hide"><div class="dc" id="dc"></div></div>
   <div class="refl" id="refl"><div class="refl-lbl">Reflexion</div><h3>Welcher Eisberg-Punkt hat Sie am meisten berührt?</h3><p>Vielleicht ist das der Punkt, über den es sich lohnt, mit jemandem zu sprechen — einer Vertrauensperson, einer Fachstelle, oder in einer Angehörigengruppe.</p></div>
   <p class="tf">Psychiatrische Universitätsklinik Zürich · Fachstelle Angehörigenarbeit</p>
-</div>
+</main>
 <script>
 const V=[{id:"schlaf",l:"Schlafmangel",d:"Sie liegen wach, weil Sie auf Geräusche horchen. Morgens funktionieren Sie — aber der Schlaf fehlt."},{id:"streit",l:"Konflikte",d:"Gespräche, die eskalieren. Türen, die knallen. Worte, die Sie bereuen — und die Ihr Partner bereut."},{id:"orga",l:"Alltag organisieren",d:"Arzttermine, Medikamente, Finanzen, Kinder, Haushalt. Alles liegt bei Ihnen. Niemand fragt, ob Sie das schaffen."},{id:"muede",l:"Erschöpfung",d:"Die Art von Müdigkeit, die kein Schlaf heilt. Eine Erschöpfung, die in den Knochen sitzt."}];
 const I=[{id:"scham",l:"Scham",d:"Scham darüber, dass Sie manchmal wütend sind. Scham, dass Sie es nicht «schaffen». Scham, dass Sie Hilfe bräuchten."},{id:"trauer",l:"Trauer",d:"Trauer um den Partner, der er einmal war. Um die gemeinsame Zukunft, die anders aussehen sollte. Eine Trauer ohne Abschluss."},{id:"wut",l:"Verdrängte Wut",d:"Wut auf die Erkrankung. Auf das System. Manchmal auf den Partner. Diese Wut ist berechtigt — und sie wird fast nie ausgesprochen."},{id:"einsamkeit",l:"Einsamkeit",d:"200 Kontakte im Handy und niemanden zum Anrufen. Nicht weil Menschen fehlen — sondern weil Worte fehlen."},{id:"identitaet",l:"Identitätsverlust",d:"Wer bin ich noch — ausserhalb der Betreuerrolle? Eigene Hobbys, Ziele, Träume: aufgeschoben, vergessen, als Luxus abgetan."},{id:"angst",l:"Dauerangst",d:"Die Angst, die nie ganz weg ist. Dass es wieder passiert. Dass der Anruf kommt. Dass Sie es nicht rechtzeitig merken."},{id:"schuld",l:"Schuldgefühle",d:"«Hätte ich es früher bemerkt?» «Bin ich genug?» «Darf ich an mich denken?» — Fragen, die nie aufhören."},{id:"erleichterung",l:"Verbotene Erleichterung",d:"Erleichterung, wenn der Partner in der Klinik ist. Und sofort danach: Scham über die Erleichterung. Beides ist menschlich."}];

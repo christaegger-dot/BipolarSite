@@ -65,11 +65,11 @@ body{font-family:'DM Sans',sans-serif;color:#2e2a25;background:#fefcf8;min-heigh
 </head>
 <body>
 <nav class="tool-nav"><a href="/modul/7/" class="tool-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>Zurück zu Modul 7</a><span class="tool-brand">PUK Zürich</span></nav>
-<div class="wrap">
+<main class="wrap" id="main-content">
   <div class="hdr"><div class="badge">Modul 7</div><h1>Was trägt Sie gerade auf der langen Strecke?</h1><p>Schätzen Sie die fünf Bereiche ein. Sie sehen, was Sie derzeit trägt — und wo etwas instabil geworden ist.</p></div>
   <div id="app"></div>
   <p class="tf">Basierend auf: Reinares et al. (2016); Lawn & McMahon (2015)<br>Psychiatrische Universitätsklinik Zürich · Fachstelle Angehörigenarbeit</p>
-</div>
+</main>
 <script>
 const P=[
   {id:"wissen",n:1,l:"Gemeinsames Krankheitsverständnis",s:"Wissen",c:"#6b7d52",q:"Gibt es ein gemeinsames Grundverständnis dafür, was die Erkrankung mit Alltag und Beziehung macht?",lo:"Psychoedukation kann helfen: Modul 1 erklärt die Grundlagen. Manchmal entlastet schon ein gemeinsames Gespräch mit dem Behandlungsteam oder eine ruhigere Nachbesprechung in stabileren Phasen.",hi:"Gemeinsames Wissen trägt oft mehr, als man im Alltag merkt. Nutzen Sie ruhigere Phasen, um Beobachtungen und neue Erkenntnisse nachzuschärfen."},
@@ -85,8 +85,7 @@ function rn(){
   const allR=Object.keys(rat).length===P.length;
   if(!show){
     app.innerHTML=P.map(p=>{const v=rat[p.id];return`<div class="pc" style="border-color:${p.c}"><div class="pc-hdr"><div class="pc-num" style="background:${p.c}">${p.n}</div><h3>${p.l}</h3></div><p>${p.q}</p><div class="sc">${[1,2,3,4,5].map(n=>`<button class="${v===n?'sel':''}" style="${v===n?'background:'+p.c+';border-color:'+p.c:''}" onclick="rate('${p.id}',${n})"><span class="sv">${n}</span><span class="sl">${SL[n-1]}</span></button>`).join('')}</div></div>`}).join('')+
-    `<button class="submit${allR?' ready':''}" ${allR?'onclick="doShow()"':''}disabled=${!allR}>Auswerten</button>`;
-    if(allR)app.querySelector('.submit').disabled=false;
+    `<button class="submit${allR?' ready':''}" ${allR?'onclick="doShow()"':'disabled'}>Auswerten</button>`;
   }else{
     const ts=Object.values(rat).reduce((a,b)=>a+b,0);
     const sorted=[...P].sort((a,b)=>(rat[a.id]||0)-(rat[b.id]||0));

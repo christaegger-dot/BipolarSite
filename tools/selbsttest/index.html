@@ -64,12 +64,12 @@ body{font-family:'DM Sans',sans-serif;color:#2e2a25;background:#fefcf8;min-heigh
 </head>
 <body>
 <nav class="tool-nav"><a href="/modul/4/" class="tool-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>Zurück zu Modul 4</a><span class="tool-brand">PUK Zürich</span></nav>
-<div class="wrap">
+<main class="wrap" id="main-content">
   <div class="hdr"><div class="badge">Modul 4 — Selbsttest</div><h1>Wo stehen Sie gerade?</h1><p>5 kurze Fragen — nicht diagnostisch, aber orientierend.<br>Ihre Antworten werden nicht gespeichert.</p></div>
   <div class="prog" id="prog"></div>
   <div class="card" id="card"></div>
   <p class="tf">Psychiatrische Universitätsklinik Zürich · Fachstelle Angehörigenarbeit</p>
-</div>
+</main>
 <script>
 const Q=[
   {id:1,t:"Ich denke oft daran, was als nächstes schiefgehen könnte — auch wenn es gerade ruhig ist."},
@@ -90,12 +90,14 @@ function rn(){
   document.getElementById('prog').innerHTML=Q.map((_,i)=>`<div class="${i<ad?'done':i===cq&&!sr?'cur':''}"></div>`).join('');
   const cd=document.getElementById('card');
   if(!sr){
+    document.title=`Frage ${cq+1} / ${Q.length} — Selbsttest | PUK Zürich`;
     const q=Q[cq],cv=ans[q.id];
     cd.innerHTML=`<div class="qhdr"><div class="qnum">${cq+1}</div><p class="qtxt">${q.t}</p></div>
     <div class="opts">${O.map(o=>`<button class="opt${cv===o.v?' sel':''}" onclick="sa(${q.id},${o.v})"><span class="em">${o.e}</span>${o.l}</button>`).join('')}</div>
     <div class="nav"><button class="btn btn-back" ${cq===0?'disabled':''}onclick="pv()">← Zurück</button><span class="navlbl">${cq+1} / ${Q.length}</span>
     ${cq<Q.length-1?`<button class="btn btn-next" ${cv===undefined?'disabled':''}onclick="nx()">Weiter →</button>`:`<button class="btn btn-next" ${!aa?'disabled':''}onclick="sh()">Auswerten</button>`}</div>`;
   }else{
+    document.title=`Ergebnis — Selbsttest | PUK Zürich`;
     const r=gr(sc);
     cd.innerHTML=`<div class="res-top"><div class="res-score" style="background:${r.bg};border:2px solid ${r.bd}"><span style="color:${r.c}">${sc}</span></div><div><div class="res-level" style="color:${r.c}">${r.lv==='niedrig'?'Grüner Bereich':r.lv==='mittel'?'Gelber Bereich':'Roter Bereich'}</div><div class="res-title">${r.ti}</div></div></div>
     <div class="bar-wrap"><div class="bar-labels"><span>0</span><span>niedrig</span><span>mittel</span><span>hoch</span><span>20</span></div><div class="bar"><div class="bar-dot" style="left:${(sc/20)*100}%;border:3px solid ${r.c}"></div></div></div>
