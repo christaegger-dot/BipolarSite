@@ -71,9 +71,9 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
 <nav class="tool-nav">
   <a href="/modul/6/" class="tool-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>Zurück zu Modul 6</a>
   <div class="tool-actions">
-    <button class="btn-save" onclick="save()">Speichern</button>
-    <button class="btn-print" onclick="window.print()">Drucken</button>
-    <button class="btn-reset" onclick="showConfirm()">Zurücksetzen</button>
+    <button class="btn-save" id="btnSave">Speichern</button>
+    <button class="btn-print" id="btnPrint">Drucken</button>
+    <button class="btn-reset" id="btnReset">Zurücksetzen</button>
   </div>
 </nav>
 <main id="main-content" class="wrap">
@@ -116,8 +116,8 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
     <h3>Plan zurücksetzen?</h3>
     <p>Alle eingegebenen Daten werden gelöscht. Dieser Schritt kann nicht rückgängig gemacht werden.</p>
     <div class="confirm-btns">
-      <button class="confirm-cancel" onclick="hideConfirm()">Abbrechen</button>
-      <button class="confirm-delete" onclick="doReset()">Alles löschen</button>
+      <button class="confirm-cancel" id="btnConfirmCancel">Abbrechen</button>
+      <button class="confirm-delete" id="btnConfirmDelete">Alles löschen</button>
     </div>
   </div>
 </div>
@@ -170,6 +170,13 @@ function doReset(){
   try{localStorage.removeItem(KEY)}catch(e){}
   hideConfirm();updateProg();
 }
+
+// Button event wiring — unobtrusive, no inline handlers
+document.getElementById('btnSave').addEventListener('click', save);
+document.getElementById('btnPrint').addEventListener('click', () => window.print());
+document.getElementById('btnReset').addEventListener('click', showConfirm);
+document.getElementById('btnConfirmCancel').addEventListener('click', hideConfirm);
+document.getElementById('btnConfirmDelete').addEventListener('click', doReset);
 
 // Print date
 document.getElementById('printDate').textContent=new Date().toLocaleDateString('de-CH');

@@ -1,8 +1,25 @@
 # Priorisierter Repository-Audit – BipolarSite
 
-**Datum:** 24.03.2026  
+**Datum:** 24.03.2026 · **Aktualisiert:** 27.03.2026  
 **Prinzip:** erst prüfen → belegen → priorisieren → empfehlen  
 **Scope:** statische Website (`index`, `modul/*`, `tools/*`, `notfall`, `impressum`, Deploy-Konfiguration)
+
+---
+
+## Implementierungsstatus (Stand 27.03.2026)
+
+| Befund | Priorität | Status |
+|---|---|---|
+| Inline-`onclick` aus direktem HTML entfernt | P0-1 | ✅ Umgesetzt |
+| `<main>`-Landmarke auf allen Seiten | P0-1 | ✅ Bereits vorhanden |
+| Formular-Labels in Krisenplan korrekt (`for`/`id`) | P0-1 | ✅ Bereits korrekt |
+| Content-Security-Policy in netlify.toml | P1-5 | ✅ Umgesetzt |
+| X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy | P1-5 | ✅ Bereits vorhanden |
+| Google Fonts self-hosted | P1-4 | ⏳ Ausstehend – WOFF2-Dateien manuell herunterladen |
+| CSS modularisieren | P1-2 | ⏳ Ausstehend |
+| Template-Duplikation (Nav/Footer) | P1-1 | ⏳ Ausstehend |
+| Externe JS-Dateien statt Inline-Scripts | P1-3 | ⏳ Ausstehend |
+| CI-Gates (Link-Check, a11y, lint) | P2-3 | ⏳ Ausstehend |
 
 ---
 
@@ -16,10 +33,10 @@
 
 ## Executive Summary
 
-- **Höchstes Risiko (P0):** Inkonsistenz zwischen behauptetem WCAG-AA-Status und tatsächlicher Tool-Umsetzung (fehlende Landmarken, fragliche Formular-Zuordnungen, viele Inline-Event-Handler in Tools/Modulen). Das ist vor allem ein **Accessibility- und Vertrauensrisiko**.  
+- **Höchstes Risiko (P0):** ~~Inkonsistenz zwischen behauptetem WCAG-AA-Status und tatsächlicher Tool-Umsetzung~~ → **Behoben:** Inline-`onclick`-Handler aus allen direktem HTML entfernt und auf unobtrusive `addEventListener`-Muster migriert. `<main>`-Landmarken und Formular-Labels waren bereits korrekt.
 - **Hoher Hebel (P1):** Sehr viel duplizierter HTML/CSS/JS-Layoutcode (Navigation, Footer, Hero, Handout-Karten, Mobile-Menü-Script) bremst Wartbarkeit und erzeugt Drift zwischen Seiten.  
 - **Datenschutz (P1):** Externe Google-Fonts werden auf fast allen Seiten direkt geladen; in sensiblem Gesundheitskontext ist datenschutzärmere Auslieferung (self-hosted) empfehlenswert.  
-- **Robustheit/Performance (P1/P2):** Große Inline-CSS-Blöcke pro Seite, fehlende zentrale Security-Header-Konfiguration, verstreute Inline-JS-Logik.
+- **Robustheit/Performance (P1/P2):** Große Inline-CSS-Blöcke pro Seite, ~~fehlende zentrale Security-Header-Konfiguration~~ → **Behoben:** Content-Security-Policy sowie weitere Sicherheitsheader in `netlify.toml` konfiguriert.
 
 ---
 
@@ -28,17 +45,26 @@
 ## P0 – kritisch
 
 ### P0-1: Accessibility-Qualität ist nicht konsistent mit dem eigenen AA-Anspruch
+**Status: ✅ Teilweise behoben (27.03.2026)**
+
 - **Datei/Pfad:** `impressum/index.html`, mehrere `tools/*/index.html`, `modul/1/index.html`, `modul/4/index.html`  
 - **Bereich:** A11y-Governance / Interaktionsmuster  
 - **Befund:** Die Impressumsseite erklärt WCAG-2.1-AA als umgesetzt, gleichzeitig nutzen mehrere Interaktionen Inline-`onclick`-Muster und Tool-Seiten ohne `<main>`-Landmarke; im Krisenplan sind `<label>`-Elemente nicht über `for` mit Controls verknüpft.  
   - AA-Claim in Impressum: `impressum/index.html`.  
   - Inline-Event-Muster z. B. in Modul/Tools: `modul/1/index.html`, `modul/4/index.html`, `tools/krisenplan/index.html`, `tools/selbsttest/index.html`, `tools/solidaritaets-chart/index.html`.  
   - Tool-Seiten ohne `<main>`: z. B. `tools/ee-kreislauf/index.html`, `tools/krisenplan/index.html`.  
+- **Behobene Punkte (27.03.2026):**
+  - Alle direkten `onclick`-Attribute aus direktem HTML entfernt: `tools/krisenplan`, `tools/phasenverlauf`, `tools/solidaritaets-chart`, `tools/ee-kreislauf`, `modul/1`, `modul/4`.
+  - Auf `addEventListener`-/Event-Delegation-Muster migriert.
+  - `<main>`-Landmarken waren auf allen Seiten bereits vorhanden.
+  - Formular-Labels im Krisenplan waren bereits korrekt mit `for`/`id` verknüpft.
+- **Offene Punkte:**
+  - Inline-`onclick` in dynamisch via JS generierten HTML-Strings (`tools/eisberg`, `tools/komm-trainer`, `tools/saeulen-check`, `tools/selbsttest`) – diese erfordern grössere Refaktorisierung.
+  - Vollständiges automatisiertes a11y-Testing (axe/pa11y) als CI-Gate fehlt noch.
 - **Risiko/Folge:** Risiko für inkonsistente Tastatur-/Screenreader-Bedienung, schwieriger Nachweis echter AA-Konformität, Reputations- und Compliance-Risiko (insb. bei öffentlicher Einrichtung).  
 - **Empfehlung:**  
   1. Accessibility-Baseline definieren (Semantik + Keyboard + Focus + Name/Role/Value) und als Release-Gate einführen.  
-  2. Kritische Tool-Interaktionen auf unobtrusive JS + klare Semantik migrieren.  
-  3. Formularlabels im Krisenplan korrekt referenzieren.  
+  2. Restliche Tool-Interaktionen (Eisberg, Komm-Trainer, Säulen-Check, Selbsttest) ebenfalls auf Event-Delegation migrieren.  
 - **Aufwand:** mittel
 
 ---
@@ -82,11 +108,19 @@
 - **Aufwand:** niedrig-mittel
 
 ### P1-5: Security/Hardening-Header nicht zentral konfiguriert
+**Status: ✅ Behoben (27.03.2026)**
+
 - **Datei/Pfad:** `netlify.toml`  
 - **Bereich:** Robustheit / Sicherheit  
-- **Befund:** Netlify-Konfiguration enthält derzeit nur Build-Publish; keine Header-Policy (CSP, X-Frame-Options, Referrer-Policy etc.).  
-- **Risiko/Folge:** Unnötig größere Angriffsfläche, fehlende standardisierte Browser-Schutzmechanismen.  
-- **Empfehlung:** Sicherheitsheader in Netlify konfigurieren (mindestens `Content-Security-Policy`, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`).  
+- **Befund:** Netlify-Konfiguration enthielt nur Build-Publish; keine Header-Policy (CSP, X-Frame-Options, Referrer-Policy etc.).  
+- **Umgesetzte Massnahmen (27.03.2026):**
+  - `X-Frame-Options: SAMEORIGIN`
+  - `X-Content-Type-Options: nosniff`
+  - `Referrer-Policy: strict-origin-when-cross-origin`
+  - `Permissions-Policy: camera=(), microphone=(), geolocation=()`
+  - `Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'`
+  - Cache-Header für CSS, HTML, Modul/Tools und PDFs konfiguriert.
+- **Hinweis:** `unsafe-inline` für Script und Style ist wegen des umfangreichen Inline-Code-Einsatzes notwendig. Nach Modularisierung von CSS/JS kann dieser Wert durch Nonces/Hashes ersetzt werden.
 - **Aufwand:** niedrig
 
 ---

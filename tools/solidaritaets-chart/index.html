@@ -67,9 +67,9 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
       <text x="55" y="134" text-anchor="end" font-size="9" fill="#8DD4D9">Mittel</text>
       <text x="55" y="244" text-anchor="end" font-size="9" fill="#8DD4D9">Niedrig</text>
       <!-- Episode bands -->
-      <rect id="ep0" x="80" y="20" width="120" height="220" fill="rgba(196,147,59,0.06)" rx="4" style="cursor:pointer" role="button" tabindex="0" aria-label="Episode Hypomanie auswählen" aria-pressed="false" onclick="selEp(0)"/>
-      <rect id="ep1" x="240" y="20" width="140" height="220" fill="rgba(199,84,80,0.06)" rx="4" style="cursor:pointer" role="button" tabindex="0" aria-label="Episode Schwere Manie auswählen" aria-pressed="false" onclick="selEp(1)"/>
-      <rect id="ep2" x="420" y="20" width="160" height="220" fill="rgba(91,127,165,0.06)" rx="4" style="cursor:pointer" role="button" tabindex="0" aria-label="Episode Lange Depression auswählen" aria-pressed="false" onclick="selEp(2)"/>
+      <rect id="ep0" x="80" y="20" width="120" height="220" fill="rgba(196,147,59,0.06)" rx="4" style="cursor:pointer" role="button" tabindex="0" aria-label="Episode Hypomanie auswählen" aria-pressed="false"/>
+      <rect id="ep1" x="240" y="20" width="140" height="220" fill="rgba(199,84,80,0.06)" rx="4" style="cursor:pointer" role="button" tabindex="0" aria-label="Episode Schwere Manie auswählen" aria-pressed="false"/>
+      <rect id="ep2" x="420" y="20" width="160" height="220" fill="rgba(91,127,165,0.06)" rx="4" style="cursor:pointer" role="button" tabindex="0" aria-label="Episode Lange Depression auswählen" aria-pressed="false"/>
       <text x="140" y="256" text-anchor="middle" font-size="9" fill="#8DD4D9">Hypomanie</text>
       <text x="310" y="256" text-anchor="middle" font-size="9" fill="#8DD4D9">Schwere Manie</text>
       <text x="500" y="256" text-anchor="middle" font-size="9" fill="#8DD4D9">Lange Depression</text>
@@ -82,12 +82,12 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
     </svg>
   </div>
   <div class="episodes">
-    <button class="ep-btn" style="--c:#B45309" onclick="selEp(0)">Hypomanie</button>
-    <button class="ep-btn" style="--c:#9A3412" onclick="selEp(1)">Schwere Manie</button>
-    <button class="ep-btn" style="--c:#5b7fa5" onclick="selEp(2)">Lange Depression</button>
+    <button class="ep-btn" style="--c:#B45309" data-ep="0">Hypomanie</button>
+    <button class="ep-btn" style="--c:#9A3412" data-ep="1">Schwere Manie</button>
+    <button class="ep-btn" style="--c:#5b7fa5" data-ep="2">Lange Depression</button>
   </div>
   <div class="detail" id="detail" aria-live="polite"></div>
-  <div class="toggle-wrap"><button class="toggle-btn" id="toggleBtn" onclick="toggleSupport()">Mit Entlastung vergleichen</button></div>
+  <div class="toggle-wrap"><button class="toggle-btn" id="toggleBtn">Mit Entlastung vergleichen</button></div>
   <div class="disc"><strong>Konzeptionelles Modell</strong> — es soll sichtbar machen, warum Belastung sich über Episoden oft kumuliert und Erholung unvollständig bleiben kann. Individuelle Verläufe können erheblich abweichen. Quellen: Perlick et al. (2007); Reinares et al. (2016); Miklowitz (2010).</div>
   <p class="tf">Psychiatrische Universitätsklinik Zürich · Fachstelle Angehörigenarbeit</p>
 </main>
@@ -127,7 +127,9 @@ function rn(){
   }else{elDetail.className='detail'}
 }
 function onSvgKey(event,index){if(event.key==='Enter'||event.key===' '){event.preventDefault();selEp(index)}}
-[0,1,2].forEach(i=>document.getElementById('ep'+i).addEventListener('keydown',event=>onSvgKey(event,i)));
+[0,1,2].forEach(i=>{const el=document.getElementById('ep'+i);el.addEventListener('click',()=>selEp(i));el.addEventListener('keydown',event=>onSvgKey(event,i))});
+document.querySelector('.episodes').addEventListener('click',e=>{const btn=e.target.closest('.ep-btn[data-ep]');if(btn)selEp(Number(btn.dataset.ep))});
+document.getElementById('toggleBtn').addEventListener('click',toggleSupport);
 </script>
 </body>
 </html>

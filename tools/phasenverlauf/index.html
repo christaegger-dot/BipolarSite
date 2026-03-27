@@ -196,11 +196,11 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
 
   <!-- Phase selector buttons -->
   <div class="phase-btns" role="group" aria-label="Phase auswählen">
-    <button class="pbtn" data-phase="mania"      onclick="selectPhase('mania')"      aria-pressed="false"><span class="ico">↑↑</span>Manie</button>
-    <button class="pbtn" data-phase="hypomania"  onclick="selectPhase('hypomania')"  aria-pressed="false"><span class="ico">↑</span>Hypomanie</button>
-    <button class="pbtn" data-phase="stable"     onclick="selectPhase('stable')"     aria-pressed="false"><span class="ico">→</span>Stabil</button>
-    <button class="pbtn" data-phase="mild-dep"   onclick="selectPhase('mild-dep')"   aria-pressed="false"><span class="ico">↓</span>Leichte Dep.</button>
-    <button class="pbtn" data-phase="severe-dep" onclick="selectPhase('severe-dep')" aria-pressed="false"><span class="ico">↓↓</span>Schwere Dep.</button>
+    <button class="pbtn" data-phase="mania"      aria-pressed="false"><span class="ico">↑↑</span>Manie</button>
+    <button class="pbtn" data-phase="hypomania"  aria-pressed="false"><span class="ico">↑</span>Hypomanie</button>
+    <button class="pbtn" data-phase="stable"     aria-pressed="false"><span class="ico">→</span>Stabil</button>
+    <button class="pbtn" data-phase="mild-dep"   aria-pressed="false"><span class="ico">↓</span>Leichte Dep.</button>
+    <button class="pbtn" data-phase="severe-dep" aria-pressed="false"><span class="ico">↓↓</span>Schwere Dep.</button>
   </div>
 
   <!-- Detail card -->
@@ -449,6 +449,12 @@ document.querySelectorAll('.zone-hit, .wpt').forEach(el => {
   el.addEventListener('keydown', e => {
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectPhase(el.dataset.phase); }
   });
+});
+
+// Phase selector buttons — event delegation, no inline handlers
+document.querySelector('.phase-btns').addEventListener('click', e => {
+  const btn = e.target.closest('.pbtn[data-phase]');
+  if (btn) selectPhase(btn.dataset.phase);
 });
 
 // Auto-highlight first phase after animation
