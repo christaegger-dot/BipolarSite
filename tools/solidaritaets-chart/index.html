@@ -6,6 +6,8 @@
 <meta name="description" content="Belastungsverlauf über Episoden: Wie sich Belastungsreserve und Stimmung über mehrere Episoden entwickeln. Konzeptionelles Modell für Angehörige. PUK Zürich.">
 <title>Belastungsverlauf über Episoden | PUK Zürich</title>
 <link rel="canonical" href="https://www.pukzh.ch/tools/solidaritaets-chart/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -96,11 +98,15 @@ const eps=[
   {name:"Lange Depression",col:"#5b7fa5",bg:"rgba(91,127,165,0.1)",impact:"Mittel–Hoch",bel:"Die Belastungsreserve sinkt langsamer, aber stetig. Gerade diese schleichende Form wird oft unterschätzt: wenig sichtbare Dramatik, aber hohe Langzeitlast, Monotonie und innere Ausdünnung.",stim:"Die Stimmung bleibt über Wochen oder Monate tief. Rückzug, Hoffnungslosigkeit, verlangsamter Alltag und Suizidgedanken können Angehörige auf andere Weise zermürben als eine Manie."}
 ];
 let activeEp=null,showSup=false;
+// Cache DOM references to avoid repeated queries on every render
+const epBtns=document.querySelectorAll('.ep-btn');
+const epRects=[0,1,2].map(i=>document.getElementById('ep'+i));
+const elDetail=document.getElementById('detail');
 function selEp(i){activeEp=activeEp===i?null:i;rn()}
 function toggleSupport(){showSup=!showSup;document.getElementById('curveSup').setAttribute('opacity',showSup?'1':'0');document.getElementById('toggleBtn').classList.toggle('on',showSup);document.getElementById('toggleBtn').textContent=showSup?'Entlastungsvergleich ausblenden':'Mit Entlastung vergleichen';document.getElementById('legSupport').style.display=showSup?'flex':'none'}
 function rn(){
   // Episode buttons
-  document.querySelectorAll('.ep-btn').forEach((btn,i)=>{
+  epBtns.forEach((btn,i)=>{
     const a=activeEp===i;
     btn.classList.toggle('active',a);
     btn.style.background=a?eps[i].col:'#fff';
@@ -108,18 +114,17 @@ function rn(){
     btn.style.borderColor=a?eps[i].col:'rgba(45,40,35,0.08)';
   });
   // Episode bands
-  [0,1,2].forEach(i=>{
-    document.getElementById('ep'+i).setAttribute('fill',activeEp===i?eps[i].bg:'rgba(0,0,0,0.02)');
-    document.getElementById('ep'+i).setAttribute('aria-pressed',activeEp===i?'true':'false');
+  epRects.forEach((rect,i)=>{
+    rect.setAttribute('fill',activeEp===i?eps[i].bg:'rgba(0,0,0,0.02)');
+    rect.setAttribute('aria-pressed',activeEp===i?'true':'false');
   });
   // Detail
-  const d=document.getElementById('detail');
   if(activeEp!==null){
     const e=eps[activeEp];
-    d.className='detail vis';
-    d.innerHTML=`<h3>${e.name} <span style="font-size:0.72rem;font-weight:600;color:${e.col};background:${e.bg};padding:2px 8px;border-radius:6px;margin-left:8px">Belastung: ${e.impact}</span></h3>
+    elDetail.className='detail vis';
+    elDetail.innerHTML=`<h3>${e.name} <span style="font-size:0.72rem;font-weight:600;color:${e.col};background:${e.bg};padding:2px 8px;border-radius:6px;margin-left:8px">Belastung: ${e.impact}</span></h3>
     <div class="detail-grid"><div class="detail-col" style="background:#fdf6ea"><h4 style="color:#c4933b">Belastungsreserve</h4><p style="color:#5e564e">${e.bel}</p></div><div class="detail-col" style="background:#eef3f8"><h4 style="color:#5b7fa5">Stimmung</h4><p style="color:#5e564e">${e.stim}</p></div></div>`;
-  }else{d.className='detail'}
+  }else{elDetail.className='detail'}
 }
 function onSvgKey(event,index){if(event.key==='Enter'||event.key===' '){event.preventDefault();selEp(index)}}
 [0,1,2].forEach(i=>document.getElementById('ep'+i).addEventListener('keydown',event=>onSvgKey(event,i)));

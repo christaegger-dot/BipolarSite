@@ -6,6 +6,8 @@
 <meta name="description" content="Interaktiver Krisenplan-Generator: Frühwarnzeichen, Massnahmen, Kontakte — gemeinsam in stabiler Phase ausfüllen. PUK Zürich.">
 <title>Krisenplan-Generator | PUK Zürich</title>
 <link rel="canonical" href="https://www.pukzh.ch/tools/krisenplan/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -123,6 +125,11 @@ body{font-family:'DM Sans',sans-serif;color:#2e2a25;background:#fefcf8;min-heigh
 const KEY='krisenplan-v1';
 const fields=document.querySelectorAll('textarea,input');
 const totalFields=fields.length;
+// Cache DOM references used on every progress update
+const progFill=document.getElementById('progFill');
+const progLabel=document.getElementById('progLabel');
+// Single shared debounce timer — avoids storing state on DOM nodes
+let saveTimer;
 
 // Load
 function load(){
@@ -143,15 +150,16 @@ function save(){
   setTimeout(()=>msg.classList.remove('vis'),2000);
 }
 
-// Auto-save on change
-fields.forEach(f=>f.addEventListener('input',()=>{updateProg();clearTimeout(f._t);f._t=setTimeout(save,1500)}));
+// Auto-save on change (shared debounce timer; no per-field state on DOM nodes)
+fields.forEach(f=>f.addEventListener('input',()=>{updateProg();clearTimeout(saveTimer);saveTimer=setTimeout(save,1500)}));
 
-// Progress
+// Progress — iterate NodeList directly; use cached DOM references
 function updateProg(){
-  const filled=[...fields].filter(f=>f.value.trim().length>0).length;
+  let filled=0;
+  fields.forEach(f=>{if(f.value.trim().length>0)filled++});
   const pct=Math.round((filled/totalFields)*100);
-  document.getElementById('progFill').style.width=pct+'%';
-  document.getElementById('progLabel').textContent=filled+' von '+totalFields+' Feldern ausgefüllt ('+pct+'%)';
+  progFill.style.width=pct+'%';
+  progLabel.textContent=filled+' von '+totalFields+' Feldern ausgefüllt ('+pct+'%)';
 }
 
 // Reset
