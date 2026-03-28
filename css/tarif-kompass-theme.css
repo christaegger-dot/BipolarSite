@@ -1523,6 +1523,37 @@ footer svg text {
 }
 
 
+/* ── Krisenplan section colors (.s5 uses old earth tones) ── */
+.s5 {
+  background: var(--warm-100) !important;
+  border-color: var(--slate) !important;
+}
+
+.s5 h2 {
+  color: var(--slate) !important;
+}
+
+/* ── Catch-all: hardcoded border-radius 22px/16px on mobile nav dropdown ── */
+.nav-links.nav-open {
+  border-radius: var(--radius-lg) !important;
+}
+
+/* ── Hardcoded border-radius on elements not yet covered ── */
+.dcl,
+.handout-preview,
+.treatment-preview {
+  border-radius: var(--radius-lg) !important;
+}
+
+/* ── Remaining warm-rgba borders on uncovered tool components ── */
+.ep-btn,
+.chart-wrap rect,
+.phase-row,
+.phase-count {
+  color: var(--text-secondary) !important;
+}
+
+
 /* ╔═══════════════════════════════════════════════════════════════════╗
    ║  RESPONSIVE OVERRIDES                                            ║
    ╚═══════════════════════════════════════════════════════════════════╝ */
