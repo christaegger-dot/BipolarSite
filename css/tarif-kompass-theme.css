@@ -46,6 +46,20 @@
   --red-bg:      #FEF2F2;
   --amber-bg:    #fef3e2;
 
+  /* ── Semantic: Links ── */
+  --link:        #1E656D;
+  --link-hover:  #1a5960;
+
+  /* ── Semantic: Status Roles (from Codex) ── */
+  --success:     #0d7a5f;
+  --success-bg:  #e6f4f2;
+  --danger:      #9A3412;
+  --danger-bg:   #FEF2F2;
+  --warning:     #B45309;
+  --warning-bg:  #fef3e2;
+  --info:        #1E656D;
+  --info-bg:     #eef3f8;
+
   /* ── Radius Scale (Tarif-Kompass: 6 / 8 / 10 / 12 / 14 / 20) ── */
   --radius-xs:   6px;
   --radius-sm:   8px;
@@ -81,40 +95,40 @@
      new palette automatically)
      ───────────────────────────────────────────── */
 
-  /* Sage → Teal/Navy */
-  --sage-50:  #e6f4f2;
-  --sage-100: #e6f4f2;
+  /* Sage → Teal/Navy (var() refs to avoid value duplication) */
+  --sage-50:  var(--green-bg);
+  --sage-100: var(--green-bg);
   --sage-200: var(--teal-border);
-  --sage-300: #8dd4d9;
-  --sage-400: #1E656D;
-  --sage-500: #1E656D;
+  --sage-300: var(--teal-light);
+  --sage-400: var(--teal);
+  --sage-500: var(--teal);
   --sage-600: var(--teal-dark);
-  --sage-700: #1c2b3a;
+  --sage-700: var(--navy);
 
   /* Warm → Slate */
-  --warm-50:  #FAFAF7;
-  --warm-100: var(--warm-100);
-  --warm-200: #e2e8f0;
+  --warm-50:  var(--bg);
+  --warm-100: #f1f5f9;
+  --warm-200: var(--border);
   --warm-300: #cbd5e1;
-  --warm-400: #94a3b8;
+  --warm-400: var(--slate-light);
 
   /* Clay/Earth → Slate/Navy */
   --clay-500:  #64748b;
-  --clay-600:  #475569;
+  --clay-600:  var(--slate);
   --earth-700: #334155;
-  --earth-800: #243447;
-  --earth-900: #1c2b3a;
+  --earth-800: var(--navy-mid);
+  --earth-900: var(--navy);
 
   /* Cream → BG */
-  --cream: #FAFAF7;
+  --cream: var(--bg);
 
   /* Text (remap) */
-  --text-secondary: #475569;
-  --text-muted:     #78716C;
+  --text-secondary: var(--slate);
+  --text-muted:     var(--text-soft);
 
   /* Alert (remap to rose) */
-  --alert-red:        #9A3412;
-  --alert-red-bg:     #FEF2F2;
+  --alert-red:        var(--rose);
+  --alert-red-bg:     var(--rose-soft);
   --alert-red-border: #fca5a5;
 
   /* Phase colors (content-semantic) */
@@ -126,9 +140,9 @@
   --green-phase-light:#e6f4f2;
 
   /* Derived tokens (used for hover-dark states, borders) */
-  --teal-dark:     var(--teal-dark);
-  --amber-border:  var(--amber-border);
-  --teal-border:   var(--teal-border);
+  --teal-dark:     #1a5960;
+  --amber-border:  #e8c68a;
+  --teal-border:   #a7d9d5;
 }
 
 
@@ -237,6 +251,8 @@ html {
 @font-face {
   font-family: 'Source Serif 4';
   src: local('DM Serif Display'),
+       local('DMSerifDisplay-Regular'),
+       local('DM Serif Text'),
        url('https://fonts.gstatic.com/s/dmserifdisplay/v16/-nFnOHM81r4j6k0gjALR8uVHFr3TZQnWDhU.woff2') format('woff2');
   font-weight: 100 900;
   font-style: normal;
@@ -245,6 +261,8 @@ html {
 @font-face {
   font-family: 'Source Serif 4';
   src: local('DM Serif Display'),
+       local('DMSerifDisplay-Regular'),
+       local('DM Serif Text'),
        url('https://fonts.gstatic.com/s/dmserifdisplay/v16/-nFuOHM81r4j6k0gjALR8uVHFr3TZQnWDhIEXHU.woff2') format('woff2');
   font-weight: 100 900;
   font-style: italic;
@@ -786,6 +804,42 @@ header.hero[style*="linear-gradient"] {
 
 .bar-pct.warm-text {
   color: var(--amber) !important;
+}
+
+/* ── HTML Tables (striped rows, teal header) ── */
+table,
+.content table,
+article table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  border: 1px solid var(--border) !important;
+  background: var(--card) !important;
+  border-radius: var(--radius-md) !important;
+  overflow: hidden;
+}
+
+table thead th,
+table th,
+.content table th {
+  background: var(--teal) !important;
+  color: white !important;
+  border: 1px solid var(--border) !important;
+  font-weight: 700 !important;
+  padding: 0.7rem 0.8rem !important;
+  font-size: 0.85rem !important;
+  text-align: left !important;
+}
+
+table td,
+.content table td {
+  border: 1px solid var(--border) !important;
+  padding: 0.7rem 0.8rem !important;
+  color: var(--text) !important;
+}
+
+table tbody tr:nth-child(even),
+.content table tbody tr:nth-child(even) {
+  background: var(--bg) !important;
 }
 
 /* ── Phase explorer / tabs (modul/1) ── */
