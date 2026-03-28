@@ -1188,15 +1188,6 @@ section,
   background: var(--green-bg) !important;
 }
 
-/* ── Reset / link-style buttons ── */
-.btn-reset {
-  color: var(--teal) !important;
-}
-
-.btn-reset:hover {
-  color: var(--teal-dark) !important;
-}
-
 /* ── Option buttons in tools (hardcoded 14px radius) ── */
 .opt,
 .opt-btn {
@@ -1320,26 +1311,7 @@ footer {
   color: rgba(255,255,255,0.7) !important;
 }
 
-/* ── Tool navigation (sticky top bar on tool pages) ── */
-.tool-nav {
-  background: rgba(250,250,247,0.95) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
-  border-bottom: 1px solid var(--border) !important;
-  box-shadow: var(--shadow-nav) !important;
-}
-
-.tool-back {
-  color: var(--slate) !important;
-}
-
-.tool-back:hover {
-  color: var(--teal) !important;
-}
-
-.tool-brand {
-  color: var(--navy) !important;
-}
+/* Tool nav and tool-back/brand moved to COVERAGE-AUDIT FIXES section */
 
 /* ── Tool result sections ── */
 .res-score,
@@ -1392,6 +1364,162 @@ footer {
 
 .error-page a {
   color: var(--teal) !important;
+}
+
+
+/* ╔═══════════════════════════════════════════════════════════════════╗
+   ║  COVERAGE-AUDIT FIXES                                            ║
+   ║  Gaps identified by systematic audit of all 19 HTML files        ║
+   ╚═══════════════════════════════════════════════════════════════════╝ */
+
+/* ── Missing tool selectors ── */
+
+/* btn-print (krisenplan) */
+.btn-print {
+  background: white !important;
+  border: 1px solid var(--border) !important;
+  color: var(--slate) !important;
+  border-radius: var(--radius-md) !important;
+}
+
+.btn-print:hover {
+  border-color: var(--teal) !important;
+  color: var(--teal) !important;
+  background: var(--green-bg) !important;
+}
+
+/* btn-reset: expand to cover background + border (was color-only) */
+.btn-reset {
+  background: white !important;
+  border: 1px solid var(--border) !important;
+  color: var(--teal) !important;
+  border-radius: var(--radius-md) !important;
+}
+
+.btn-reset:hover {
+  border-color: var(--teal) !important;
+  color: var(--teal-dark) !important;
+  background: var(--green-bg) !important;
+}
+
+/* opt-btn.correct: class name mismatch fix (komm-trainer uses .opt-btn.correct) */
+.opt-btn.correct {
+  border-color: var(--teal) !important;
+  background: var(--green-bg) !important;
+  color: var(--teal) !important;
+}
+
+.opt-btn.wrong {
+  border-color: var(--rose) !important;
+  background: var(--red-bg) !important;
+  color: var(--rose) !important;
+}
+
+/* ep-btn (solidaritaets-chart) */
+.ep-btn {
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-md) !important;
+  color: var(--navy) !important;
+}
+
+.ep-btn:hover,
+.ep-btn.active {
+  border-color: var(--teal) !important;
+}
+
+/* chart-wrap (solidaritaets-chart) */
+.chart-wrap {
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-soft) !important;
+  border-radius: var(--radius-lg) !important;
+}
+
+/* pc cards (saeulen-check) */
+.pc {
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-soft) !important;
+  border-radius: var(--radius-lg) !important;
+}
+
+/* tool-header h1 (eisberg) */
+.tool-header h1 {
+  font-family: 'DM Serif Display', serif !important;
+  color: var(--navy) !important;
+}
+
+/* ── Missing page-specific selectors ── */
+
+/* info-box (impressum) */
+.info-box {
+  background: var(--bg) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-lg) !important;
+}
+
+/* pdf-preview-link (notfall, modules) */
+.pdf-preview-link {
+  background: var(--green-bg) !important;
+  color: var(--teal) !important;
+  border-radius: var(--radius-md) !important;
+}
+
+.pdf-preview-link:hover {
+  background: var(--teal) !important;
+  color: white !important;
+}
+
+/* grauzone-rule (notfall) */
+.grauzone-rule {
+  color: var(--navy) !important;
+}
+
+/* ── Inline style="" attribute override (notfall uses style="color:var(--sage-*)") ── */
+[style*="sage"] {
+  color: var(--teal) !important;
+}
+
+/* ── Warm-rgba box-shadows: catch remaining elements ── */
+.pdf-preview-dialog {
+  box-shadow: var(--shadow-elevated) !important;
+}
+
+.dcl,
+.iceberg {
+  box-shadow: var(--shadow-soft) !important;
+}
+
+/* ── SVG text color override (best-effort, won't catch fill= attributes) ── */
+svg text {
+  fill: var(--navy) !important;
+}
+
+/* Exception: SVG text inside dark-themed sections keeps white */
+.key-takeaways svg text,
+.cta-band svg text,
+.hero svg text,
+.module-hero svg text,
+footer svg text {
+  fill: white !important;
+}
+
+/* ── Tool nav light variant (tool pages use light sticky nav, NOT dark) ── */
+.tool-nav {
+  background: rgba(250,250,247,0.95) !important;
+  border-bottom: 1px solid var(--border) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+.tool-nav .tool-back {
+  color: var(--slate) !important;
+}
+
+.tool-nav .tool-back:hover {
+  color: var(--teal) !important;
+}
+
+.tool-nav .tool-brand {
+  color: var(--navy) !important;
 }
 
 
