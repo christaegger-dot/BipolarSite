@@ -1539,6 +1539,10 @@ footer svg text {
 }
 
 /* ── Hardcoded border-radius on elements not yet covered ── */
+.break-btn,
+.rules,
+.rbox,
+.rec,
 .dcl,
 .handout-preview,
 .treatment-preview {
