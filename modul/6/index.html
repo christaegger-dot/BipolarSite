@@ -45,11 +45,13 @@
   .quote-block cite{display:block;margin-top:14px;font-style:normal;font-family:'DM Sans',sans-serif;font-size:0.82rem;color:var(--text-muted);padding-left:12px}
 
   /* AMPEL */
-  .ampel{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:28px 0}
+  .ampel{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px;margin:28px 0}
   .ampel-card{padding:24px;border-radius:var(--radius-lg);border-top:5px solid}
   .ampel-card.green{background:var(--sage-50);border-top-color:var(--green-phase)}
   .ampel-card.amber{background:var(--amber-phase-light);border-top-color:var(--amber-phase)}
   .ampel-card.red{background:var(--alert-red-bg);border-top-color:var(--alert-red)}
+  .ampel-card.slate{background:#f1f5f9;border-top-color:var(--slate)}
+  .ampel-card.slate .ampel-label{color:var(--slate)}
   .ampel-label{font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px}
   .ampel-card.green .ampel-label{color:var(--green-phase)}
   .ampel-card.amber .ampel-label{color:var(--amber-phase)}
@@ -196,6 +198,11 @@
       <h4>Wenn Schutz vorgeht</h4>
       <p>Bei akuter Selbst- oder Fremdgefährdung, schwerer Psychose, Gewalt oder massiver Eskalation nicht länger diskutieren, sondern handeln.</p>
     </div>
+    <div class="ampel-card slate">
+      <div class="ampel-label">Verarbeiten</div>
+      <h4>Nach der Episode</h4>
+      <p>Erholung, Bilanz, das Nachgespräch. Eigene Erschöpfung anerkennen. Krisenplan ergänzen. Nicht sofort zurück zur Normalität.</p>
+    </div>
   </div>
 
   <!-- ═══════════════════════════════════
@@ -258,7 +265,7 @@
     <li><strong>Auch ohne Entbindung:</strong> Sie können dem Behandlungsteam jederzeit Informationen <em>geben</em> — Sie erhalten nur keine zurück.</li>
   </ol>
 
-  <p class="reveal" style="font-size:0.88rem;color:var(--text-muted)"><strong>Beratung:</strong> Pro Mente Sana (<a href="tel:+41848800858" style="color:var(--sage-500)">0848 800 858</a>) berät kostenlos zu Vorsorgeauftrag und Patientenverfügung. Diese Fragen lassen sich fast immer besser in ruhigen Phasen klären als mitten in einer Eskalation.</p>
+  <p class="reveal" style="font-size:0.88rem;color:var(--text-muted)"><strong>Beratung:</strong> Pro Mente Sana (<a href="tel:+41848800858" style="color:var(--sage-500)">0848 800 858</a> · <a href="https://www.promentesana.ch" target="_blank" rel="noopener" style="color:var(--sage-500)">promentesana.ch</a>) berät kostenlos zu Vorsorgeauftrag und Patientenverfügung. Diese Fragen lassen sich fast immer besser in ruhigen Phasen klären als mitten in einer Eskalation.</p>
 
   <!-- 3. FINANZIELLE PRÄVENTION -->
   <h3 id="finanzen" class="reveal">Finanzen absichern</h3>
@@ -283,7 +290,7 @@
   <p class="reveal">Kommunikation hilft nur, solange noch genug Kontakt möglich ist. In Manie, schwerer Gereiztheit oder Depression greifen viele gewohnte Gesprächsmuster nicht mehr. Entscheidend ist dann weniger das perfekte Argument als die passende Kommunikationsform für die jeweilige Lage.</p>
 
   <h3 id="manie-komm" class="reveal">Kommunikation in der Manie</h3>
-  <p class="reveal">In der Manie verarbeitet das Gehirn Reize anders. Normale Gesprächsregeln funktionieren dann oft nicht mehr. Diese Grundregeln helfen eher als Diskussion, Erklärungen oder Gegenevidenz.</p>
+  <p class="reveal">In der Manie verarbeitet das Gehirn Reize anders. Normale Gesprächsregeln funktionieren dann oft nicht mehr. Diese Grundregeln helfen eher als Diskussion, Erklärungen oder Gegenevidenz (Miklowitz, 2010).</p>
 
   <div class="comm-rule reveal">
     <h4>1. Kurz und klar — ein Thema pro Gespräch</h4>
