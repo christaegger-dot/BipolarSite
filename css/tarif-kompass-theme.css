@@ -195,6 +195,7 @@ body {
 .tool-brand,
 .hdr h1,
 .hdr p,
+.detail h2,
 .detail h3,
 .detail p,
 .sit,
@@ -202,7 +203,9 @@ body {
 .res h2,
 .res-title,
 .res-card h2,
+.pc h2,
 .pc h3,
+.confirm-box h2,
 .confirm-box h3 {
   color: var(--navy) !important;
 }
@@ -218,13 +221,6 @@ body {
 .badge {
   background: var(--green-bg) !important;
   color: var(--teal) !important;
-}
-
-/* Tool card borders (hardcoded rgba(45,40,35,0.06)) */
-.card,
-.wrap .card {
-  border-color: var(--border) !important;
-  box-shadow: var(--shadow-soft) !important;
 }
 
 /* Input focus states (hardcoded sage colors) */
@@ -300,6 +296,7 @@ h1, h2, h3, h4 {
 .next-module-title,
 .pdf-preview-title,
 .reflection-block h3,
+.refl h2,
 .refl h3,
 .key-takeaways h3,
 .stat-num {
@@ -316,6 +313,7 @@ h1, h2, h3, h4 {
 /* Tool pages (hardcoded 'Source Serif 4', Georgia, serif) */
 .tool-brand,
 .hdr h1,
+.detail h2,
 .detail h3,
 .sit,
 .qtxt,
@@ -323,9 +321,11 @@ h1, h2, h3, h4 {
 .res h2,
 .res-title,
 .res-card h2,
+.pc h2,
 .pc h3,
 .center-text,
 .section h2,
+.confirm-box h2,
 .confirm-box h3,
 .print-title,
 .print-hdr .print-title,
@@ -733,6 +733,7 @@ header.hero[style*="linear-gradient"] {
   border: 1px solid var(--border) !important;
 }
 
+.detail h2,
 .detail h3 {
   color: var(--navy) !important;
 }
@@ -993,6 +994,7 @@ table tbody tr:nth-child(even),
 }
 
 .reflection-block h3,
+.refl h2,
 .refl h3 {
   color: var(--navy) !important;
 }
@@ -1531,11 +1533,6 @@ footer svg text {
 
 .s5 h2 {
   color: var(--slate) !important;
-}
-
-/* ── Catch-all: hardcoded border-radius 22px/16px on mobile nav dropdown ── */
-.nav-links.nav-open {
-  border-radius: var(--radius-lg) !important;
 }
 
 /* ── Hardcoded border-radius on elements not yet covered ── */
