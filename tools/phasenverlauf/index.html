@@ -78,7 +78,7 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
 
 *:focus-visible{outline:2px solid #1E656D;outline-offset:2px;border-radius:4px}
 @media(prefers-reduced-motion:reduce){*{transition-duration:0.01ms!important;animation-duration:0.01ms!important}}
-@media(max-width:500px){
+@media(max-width:600px){
   .phase-btns{grid-template-columns:repeat(3,1fr)}
   .det-cols{grid-template-columns:1fr}
   .chart-legend{display:none}
@@ -141,10 +141,10 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
            role="img" aria-label="Vereinfachter bipolarer Phasenverlauf. Interaktiv — Phasen anklicken für Details.">
 
         <!-- Zone backgrounds -->
-        <rect x="0" y="0"   width="540" height="56"  fill="#fff3e0" id="zone-mania"       class="zone-bg" data-phase="mania"/>
+        <rect x="0" y="0"   width="540" height="56"  fill="var(--amber-phase-light)" id="zone-mania"       class="zone-bg" data-phase="mania"/>
         <rect x="0" y="56"  width="540" height="56"  fill="#fff9f0" id="zone-hypo"        class="zone-bg" data-phase="hypomania"/>
-        <rect x="0" y="112" width="540" height="56"  fill="#e8f5f2" id="zone-stable"      class="zone-bg" data-phase="stable"/>
-        <rect x="0" y="168" width="540" height="56"  fill="#eef3f8" id="zone-mild"        class="zone-bg" data-phase="mild-dep"/>
+        <rect x="0" y="112" width="540" height="56"  fill="var(--green-phase-light)" id="zone-stable"      class="zone-bg" data-phase="stable"/>
+        <rect x="0" y="168" width="540" height="56"  fill="var(--blue-phase-light)" id="zone-mild"        class="zone-bg" data-phase="mild-dep"/>
         <rect x="0" y="224" width="540" height="56"  fill="#e4eaf2" id="zone-severe"      class="zone-bg" data-phase="severe-dep"/>
 
         <!-- Zone separators -->
@@ -173,7 +173,7 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
         <!-- Wave path (animated in) -->
         <path id="wavePath"
           d="M 90,140 C 115,140 130,28 160,28 C 190,28 205,140 230,140 C 255,140 270,252 300,252 C 330,252 345,140 370,140 C 390,140 405,84 430,84 C 455,84 465,140 490,140 C 505,140 510,196 520,196"
-          stroke="#1E656D" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          stroke="var(--teal)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
 
         <!-- Interactive wave points -->
         <circle class="wpt" cx="160" cy="28"  r="9" fill="var(--amber-phase)" stroke="#fff" stroke-width="2.5" data-phase="mania"      id="pt-mania"    role="button" tabindex="0" aria-label="Manie-Gipfel — klicken für Details"/>
