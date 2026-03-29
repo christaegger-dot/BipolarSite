@@ -135,6 +135,25 @@
   @media(max-width:900px){.nav-links.nav-open{display:flex;position:absolute;top:calc(100% + 10px);left:2rem;right:2rem;flex-direction:column;align-items:stretch;gap:6px;padding:12px;background:rgba(254,252,248,0.98);border:1px solid rgba(45,40,35,0.08);border-radius:16px;box-shadow:0 12px 30px rgba(45,40,35,0.14);z-index:60}.nav-links.nav-open a{display:block;padding:10px 12px}}
   @media(max-width:600px){.module-hero{padding:100px 1.2rem 40px}.content{padding:0 1.2rem}.next-module-card{flex-direction:column;text-align:center}.takeaways{padding:28px 24px}}
   *:focus-visible{outline:2px solid var(--sage-500);outline-offset:2px;border-radius:4px}
+  /* M6-2: Einsicht comparison table */
+  .einsicht-compare{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;margin:24px 0}
+  .einsicht-col{display:flex;flex-direction:column}
+  .einsicht-col:first-child{border-right:1px solid var(--border)}
+  .einsicht-col-header{padding:16px 20px;display:flex;flex-direction:column;gap:4px}
+  .einsicht-col-header--red{background:var(--alert-red-bg);border-bottom:1px solid var(--alert-red-border)}
+  .einsicht-col-header--amber{background:var(--amber-bg);border-bottom:1px solid var(--amber-border)}
+  .einsicht-tag{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;opacity:0.6}
+  .einsicht-col-header strong{font-size:0.95rem;color:var(--earth-800)}
+  .einsicht-col-header span:last-child{font-size:0.8rem;color:var(--text-muted)}
+  .einsicht-row{padding:14px 20px;border-bottom:1px solid var(--border);display:flex;flex-direction:column;gap:6px}
+  .einsicht-row:last-child{border-bottom:none}
+  .einsicht-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-muted)}
+  .einsicht-value{font-size:0.88rem;color:var(--text-secondary);line-height:1.55}
+  .einsicht-value.do-list,.einsicht-value.dont-list{display:flex;flex-direction:column;gap:4px}
+  .einsicht-value.do-list span{color:var(--teal)}
+  .einsicht-value.dont-list span{color:var(--text-muted)}
+  .einsicht-row--dont{background:rgba(0,0,0,0.015)}
+  @media(max-width:600px){.einsicht-compare{grid-template-columns:1fr}.einsicht-col:first-child{border-right:none;border-bottom:1px solid var(--border)}}
   @media(prefers-reduced-motion:reduce){*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
   .sources-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;cursor:pointer;padding:0;font:inherit;color:inherit;text-align:left}
   .tool-cta{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:22px;padding:24px 28px;margin:32px 0;display:flex;gap:20px;align-items:center;box-shadow:0 2px 16px rgba(45,40,35,0.06);transition:border-color 0.2s ease,box-shadow 0.2s ease;text-decoration:none;color:inherit}.tool-cta:hover{box-shadow:0 4px 20px rgba(45,40,35,0.1)}.tool-cta-icon{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}.tool-cta-body h4{font-size:0.95rem;font-weight:700;color:var(--text);margin:0 0 4px}.tool-cta-body p{font-size:0.82rem;color:var(--text-muted);margin:0 0 8px;line-height:1.45}.tool-cta-btn{display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;font-weight:700;color:var(--sage-500);transition:color 0.2s}.tool-cta:hover .tool-cta-btn{color:var(--sage-700)}
@@ -400,33 +419,64 @@
   <h3 id="anosognosie" class="reveal">Wenn Krankheitseinsicht fehlt</h3>
   <p class="reveal">Wenn Einsicht fehlt, funktionieren Überzeugen, Argumentieren und Beweise meist schlecht. Hilfreicher ist dann: beobachten, dokumentieren, früh informieren und die eigene Schutzgrenze nicht aus den Augen verlieren.</p>
 
-  <div class="do-dont reveal">
-    <div class="do-col">
-      <h4>✓ Was Sie tun können</h4>
-      <ul>
-        <li>Sachlich dokumentieren, was Sie beobachten</li>
-        <li>Behandlungsteam informieren (auch ohne Zustimmung)</li>
-        <li>Vereinbarungen über fehlende Einsicht in stabilen Phasen treffen — schriftlich</li>
-        <li>Sich selbst schützen</li>
-      </ul>
+  <div class="einsicht-compare reveal">
+    <div class="einsicht-col">
+      <div class="einsicht-col-header einsicht-col-header--red">
+        <span class="einsicht-tag">Anosognosie</span>
+        <strong>Krankheitseinsicht fehlt</strong>
+        <span>Typisch in Manie — kein Unwille, sondern Symptom</span>
+      </div>
+      <div class="einsicht-row">
+        <div class="einsicht-label">Warum</div>
+        <div class="einsicht-value">Das Gehirn kann die eigene Lage nicht korrekt einschätzen. Die Person erlebt sich als gesund — das ist neurobiologisch bedingt, nicht Sturheit.</div>
+      </div>
+      <div class="einsicht-row">
+        <div class="einsicht-label">Was hilft</div>
+        <div class="einsicht-value do-list">
+          <span>✓ Sachlich dokumentieren, was Sie beobachten</span>
+          <span>✓ Behandlungsteam informieren (auch ohne Zustimmung)</span>
+          <span>✓ Vereinbarungen in stabilen Phasen schriftlich treffen</span>
+          <span>✓ Eigene Schutzgrenze halten</span>
+        </div>
+      </div>
+      <div class="einsicht-row einsicht-row--dont">
+        <div class="einsicht-label">Was nicht funktioniert</div>
+        <div class="einsicht-value dont-list">
+          <span>✗ Überzeugen wollen (in akuter Manie kaum möglich)</span>
+          <span>✗ Argumente und Beweise anführen</span>
+          <span>✗ Es persönlich nehmen — es ist Biologie</span>
+        </div>
+      </div>
     </div>
-    <div class="dont-col">
-      <h4>✗ Was nicht funktioniert</h4>
-      <ul>
-        <li>Überzeugen wollen (in akuter Manie praktisch unmöglich)</li>
-        <li>Argumentieren, Beweise anführen</li>
-        <li>Sich persönlich angegriffen fühlen (es ist Biologie)</li>
-      </ul>
+    <div class="einsicht-col">
+      <div class="einsicht-col-header einsicht-col-header--amber">
+        <span class="einsicht-tag">Ambivalenz</span>
+        <strong>Behandlung wird abgelehnt</strong>
+        <span>Oft in stabileren Phasen — Gründe sind verstehbar</span>
+      </div>
+      <div class="einsicht-row">
+        <div class="einsicht-label">Warum</div>
+        <div class="einsicht-value">Nebenwirkungen, Scham, Müdigkeit oder das Erleben, dass Hypomanie sich subjektiv nach Kraft anfühlt — nicht nach Krankheit.</div>
+      </div>
+      <div class="einsicht-row">
+        <div class="einsicht-label">Was hilft</div>
+        <div class="einsicht-value do-list">
+          <span>✓ In stabileren Phasen ruhig sprechen</span>
+          <span>✓ Sorgen als Ich-Botschaft, Beobachtungen benennen</span>
+          <span>✓ Behandlungsteam informieren — auch ohne Rückmeldung</span>
+        </div>
+      </div>
+      <div class="einsicht-row einsicht-row--dont">
+        <div class="einsicht-label">Was nicht funktioniert</div>
+        <div class="einsicht-value dont-list">
+          <span>✗ Im Streit über Medikamente diskutieren</span>
+          <span>✗ Heimlich Medikamente verabreichen</span>
+          <span>✗ Entscheidungen unter Druck erzwingen</span>
+        </div>
+      </div>
     </div>
   </div>
-
-  <h3 class="reveal" style="margin-top:40px">Wenn Ihr Partner Behandlung ablehnt</h3>
-  <div class="tool-card reveal">
-    <p>Behandlungsablehnung hat unterschiedliche Gründe: fehlende Krankheitseinsicht, Nebenwirkungen, Scham, Müdigkeit oder die Erfahrung, dass hypomane Phasen sich subjektiv eher nach Kraft als nach Krankheit anfühlen.</p>
-    <p style="margin-top:12px"><strong>Was eher hilft:</strong> in stabileren Phasen ruhig sprechen, Sorgen als Ich-Botschaft formulieren, Beobachtungen statt Diagnosen benennen und das Behandlungsteam informieren — auch wenn Sie keine Rückmeldung erhalten.</p>
-    <p style="margin-top:8px"><strong>Was oft nicht hilft:</strong> im Streit über Medikamente diskutieren, heimlich Medikamente verabreichen oder Entscheidungen mit Druck erzwingen.</p>
-    <p style="margin-top:12px;font-size:0.86rem;color:var(--text-muted)">Wenn Ablehnung mit akuter Gefährdung zusammenfällt, endet der Gesprächsrahmen. Dann zählt Schutz: <a href="/notfall/" style="color:var(--alert-red);font-weight:600">Notfallseite</a>.</p>
-  </div>
+  <p class="reveal" style="font-size:0.86rem;color:var(--text-muted);margin-top:4px">Wenn Ablehnung mit akuter Gefährdung zusammenfällt, endet der Gesprächsrahmen. Dann zählt Schutz: <a href="/notfall/" style="color:var(--alert-red);font-weight:600">Notfallseite</a>.</p>
 
   <!-- 6. GRENZEN KONKRET -->
   <h2 id="grenzen" class="reveal">Grenzen, die tragen statt eskalieren</h2>
