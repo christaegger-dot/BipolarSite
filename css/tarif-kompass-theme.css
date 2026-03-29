@@ -294,6 +294,11 @@ h1, h2, h3, h4 {
   font-family: 'DM Serif Display', serif !important;
 }
 
+/* Normalize h3 size across all modules (M1-5: 1.25rem, M6-8: 1.15rem, Notfall: 1.1rem) */
+.content h3 {
+  font-size: 1.2rem !important;
+}
+
 /* Prose / quote elements */
 .quote-block blockquote,
 .glaswand-quote,
@@ -1090,9 +1095,10 @@ table tbody tr:nth-child(even),
 }
 
 .guide-sos {
-  background: var(--amber-bg) !important;
-  border: 1px solid var(--amber-border) !important;
+  background: var(--alert-red-bg) !important;
+  border: 1px solid var(--alert-red-border) !important;
   border-radius: var(--radius-md) !important;
+  color: var(--alert-red) !important;
 }
 
 /* ── Section labels & titles ── */
@@ -1325,6 +1331,14 @@ footer {
 }
 
 /* Tool nav and tool-back/brand moved to COVERAGE-AUDIT FIXES section */
+
+/* ── Tool footer (.tf) link contrast fix ── */
+/* --rose (#9A3412) on navy (#1C2B3A) = ~1.65:1 — WCAG fail.
+   Light red (#fca5a5) on navy = ~5.8:1 — passes AA. */
+footer.tf a[href="/notfall/"] {
+  color: #fca5a5 !important;
+  font-weight: 600 !important;
+}
 
 /* ── Tool result sections ── */
 /* res-circle border-color and span color intentionally NOT overridden here —

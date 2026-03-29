@@ -46,9 +46,9 @@
 
   /* NUMBERS */
   .numbers-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:24px 0}
-  .number-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-md);padding:16px 20px;display:flex;align-items:center;gap:14px;transition:box-shadow 0.2s ease}
+  .number-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-md);padding:16px 20px;display:flex;align-items:center;gap:14px;transition:box-shadow 0.2s ease;text-decoration:none;color:inherit}
   .number-card:hover{box-shadow:var(--shadow-soft)}
-  .number-card a{text-decoration:none;font-family:'Source Serif 4',serif;font-size:1.15rem;font-weight:700;color:var(--alert-red)}
+  .number-card strong{display:block;font-family:'Source Serif 4',serif;font-size:1.15rem;font-weight:700;color:var(--alert-red)}
   .number-label{font-size:0.82rem;color:var(--text-secondary);line-height:1.3}
   .number-sub{font-size:0.72rem;color:var(--text-muted)}
 
@@ -120,9 +120,9 @@
 <body>
 <a href="#main-content" class="skip-link">Direkt zum Inhalt</a>
 
-<nav id="navbar"><div class="nav-inner">
+<nav id="navbar" aria-label="Hauptnavigation"><div class="nav-inner">
   <a href="/" class="nav-brand"><div class="nav-logo">SOS</div><div class="nav-brand-text">Notfall</div></a>
-  <div class="nav-links" id="primary-nav"><a href="/">Startseite</a><a href="/#module">Module</a><a href="/notfall/" aria-current="page">Notfall</a></div>
+  <div class="nav-links" id="primary-nav"><a href="/">Startseite</a><a href="/#module">Module</a><a href="/#tools">Tools</a><a href="/notfall/" aria-current="page">Notfall</a></div>
   <button type="button" class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="primary-nav"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
 </div></nav>
 
@@ -159,14 +159,14 @@
   <h2>Alle Notfallnummern</h2>
   <p>Wenn es um Leib, Leben oder unmittelbare Bedrohung geht, sind <strong>144</strong> und <strong>117</strong> die ersten Nummern. Für psychiatrische Krisen und Einschätzung ist der <strong>Psychiatrische Notfalldienst</strong> die wichtigste Stelle.</p>
   <div class="numbers-grid">
-    <div class="number-card"><div><a href="tel:+41800336655">0800 33 66 55</a><div class="number-label">Psychiatrischer Notfalldienst ZH</div><div class="number-sub">24/7, kostenlos</div></div></div>
-    <div class="number-card"><div><a href="tel:144">144</a><div class="number-label">Sanität / Rettungsdienst</div><div class="number-sub">Akute Gefahr für Leib und Leben</div></div></div>
-    <div class="number-card"><div><a href="tel:117">117</a><div class="number-label">Polizei</div><div class="number-sub">Gewalt oder unmittelbare Bedrohung</div></div></div>
-    <div class="number-card"><div><a href="tel:143">143</a><div class="number-label">Dargebotene Hand</div><div class="number-sub">24/7 — auch für Angehörige</div></div></div>
-    <div class="number-card"><div><a href="tel:+41583842000">058 384 20 00</a><div class="number-label">PUK Zürich — Notfall Erwachsene</div><div class="number-sub">Ab 18 Jahre, 24/7</div></div></div>
-    <div class="number-card"><div><a href="tel:+41583846666">058 384 66 66</a><div class="number-label">PUK Zürich — Kinder/Jugendliche</div><div class="number-sub">24/7</div></div></div>
-    <div class="number-card"><div><a href="tel:+41583843800">058 384 38 00</a><div class="number-label">Fachstelle Angehörigenarbeit PUK</div><div class="number-sub">Beratung — kostenlos, vertraulich</div></div></div>
-    <div class="number-card"><div><a href="tel:+41848800858">0848 800 858</a><div class="number-label">Pro Mente Sana</div><div class="number-sub">Rechtsberatung, FU, Vorsorge</div></div></div>
+    <a class="number-card" href="tel:+41800336655"><div><strong>0800 33 66 55</strong><div class="number-label">Psychiatrischer Notfalldienst ZH</div><div class="number-sub">24/7, kostenlos</div></div></a>
+    <a class="number-card" href="tel:144"><div><strong>144</strong><div class="number-label">Sanität / Rettungsdienst</div><div class="number-sub">Akute Gefahr für Leib und Leben</div></div></a>
+    <a class="number-card" href="tel:117"><div><strong>117</strong><div class="number-label">Polizei</div><div class="number-sub">Gewalt oder unmittelbare Bedrohung</div></div></a>
+    <a class="number-card" href="tel:143"><div><strong>143</strong><div class="number-label">Dargebotene Hand</div><div class="number-sub">24/7 — auch für Angehörige</div></div></a>
+    <a class="number-card" href="tel:+41583842000"><div><strong>058 384 20 00</strong><div class="number-label">PUK Zürich — Notfall Erwachsene</div><div class="number-sub">Ab 18 Jahre, 24/7</div></div></a>
+    <a class="number-card" href="tel:+41583846666"><div><strong>058 384 66 66</strong><div class="number-label">PUK Zürich — Kinder/Jugendliche</div><div class="number-sub">24/7</div></div></a>
+    <a class="number-card" href="tel:+41583843800"><div><strong>058 384 38 00</strong><div class="number-label">Fachstelle Angehörigenarbeit PUK</div><div class="number-sub">Beratung — kostenlos, vertraulich</div></div></a>
+    <a class="number-card" href="tel:+41848800858"><div><strong>0848 800 858</strong><div class="number-label">Pro Mente Sana</div><div class="number-sub">Rechtsberatung, FU, Vorsorge</div></div></a>
   </div>
 
   <p style="font-size:0.88rem;color:var(--sage-500);font-weight:600"><strong>Krisenplan vorhanden?</strong> Öffnen Sie ihn jetzt und folgen Sie den vereinbarten Schritten. Noch keinen? → <a href="/modul/6/" style="color:var(--sage-500)">Modul 6: Krisenplan erstellen</a></p>
@@ -307,8 +307,8 @@
       <p>Wenn eine Person sich selbst oder andere erheblich gefährdet und keine Einsicht zeigt, kann eine FU in eine Klinik erfolgen — auch gegen den Willen. Das ist ein letztes Mittel und eine schwere Entscheidung.</p>
 
       <details style="margin-top:12px">
-        <summary style="cursor:pointer;font-size:0.85rem;font-weight:600;color:#1c2b3a;padding:4px 0">Wie läuft eine FU ab? ▸</summary>
-        <div style="margin-top:10px;font-size:0.85rem;line-height:1.7;color:#475569">
+        <summary style="cursor:pointer;font-size:0.85rem;font-weight:600;color:var(--navy);padding:4px 0">Wie läuft eine FU ab? ▸</summary>
+        <div style="margin-top:10px;font-size:0.85rem;line-height:1.7;color:var(--slate)">
           <p style="margin:0 0 8px"><strong>1. Auslösung:</strong> Eine FU kann von einer ärztlichen Fachperson, der KESB (Kindes- und Erwachsenenschutzbehörde) oder der Polizei angeordnet werden. Angehörige können eine Gefährdungsmeldung einreichen — z.B. bei der KESB Ihres Wohnkantons.</p>
           <p style="margin:0 0 8px"><strong>2. Einweisung und Begutachtung:</strong> Eine Ärztin oder ein Arzt beurteilt vor Ort, ob die Voraussetzungen vorliegen (erhebliche Selbst- oder Fremdgefährdung, psychische Störung, fehlende Einsicht). Bei Bestätigung erfolgt die Einweisung.</p>
           <p style="margin:0 0 8px"><strong>3. Richterliche Prüfung:</strong> Die eingewiesene Person hat das Recht, die FU gerichtlich anfechten zu lassen. Das Gericht entscheidet innerhalb von 5 Werktagen.</p>
