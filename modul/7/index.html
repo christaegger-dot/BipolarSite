@@ -169,7 +169,12 @@
     .etl-phase{flex-direction:row;align-items:center;gap:12px;width:100%}
     .etl-emotions{flex-direction:row;flex-wrap:wrap;justify-content:flex-start}
   }
-  /* M7-2: Coping-Wegweiser */
+  /* M7-3: Fünf-Säulen System-Diagramm */
+  .saeulen-pentagon{background:var(--warm-100);border-radius:var(--radius-lg);padding:20px 24px 16px;margin:20px 0 8px;display:flex;flex-direction:column;align-items:center}
+  .saeulen-legend{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;width:100%;max-width:440px;margin-top:14px}
+  .saeulen-legend-item{display:flex;align-items:center;gap:6px;font-size:0.74rem;color:var(--text-secondary);line-height:1.3}
+  .saeulen-legend-dot{width:16px;height:16px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:white;font-size:0.6rem;font-weight:700}
+  @media(max-width:500px){.saeulen-legend{grid-template-columns:1fr 1fr}}
   .coping-nav{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0 8px}
   .coping-nav-item{border:1px solid var(--border);border-radius:var(--radius-md);padding:14px 16px;display:flex;flex-direction:column;gap:4px;background:white}
   .coping-nav-item--problem{border-top:3px solid var(--teal)}
@@ -399,6 +404,45 @@
   <h2 id="saeulen" class="reveal">Was langfristig trägt</h2>
   <p class="reveal">Langfristige Tragfähigkeit entsteht selten aus grossen Durchbrüchen. Meist entsteht sie aus wiederholbaren Strukturen: aus Absprachen, Entlastung, krankheitsfreien Momenten, geteiltem Wissen und dem Mut, Belastung nicht nur individuell zu tragen.</p>
   <p class="reveal">Die folgenden fünf Säulen sind kein Idealzustand. Sie sind eher eine praktische Orientierung: Was hilft Beziehungen und Angehörigen, über Zeit nicht nur zu überleben, sondern etwas tragfähiger zu werden?</p>
+
+  <div class="saeulen-pentagon reveal">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 272" style="width:100%;max-width:300px" aria-label="Fünf-Säulen-Diagramm: fünf verbundene Bereiche für langfristige Stabilität" role="img">
+      <!-- spokes (center to each vertex) -->
+      <line x1="170" y1="153" x2="170" y2="43" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <line x1="170" y1="153" x2="275" y2="119" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <line x1="170" y1="153" x2="235" y2="242" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <line x1="170" y1="153" x2="105" y2="242" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <line x1="170" y1="153" x2="65" y2="119" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <!-- pentagon -->
+      <polygon points="170,43 275,119 235,242 105,242 65,119" fill="rgba(30,101,109,0.07)" stroke="#cbd5e1" stroke-width="1.5" stroke-linejoin="round"/>
+      <!-- center -->
+      <circle cx="170" cy="153" r="30" fill="white" stroke="#1E656D" stroke-width="1.5"/>
+      <text x="170" y="149" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="9.5" font-weight="700" fill="#1E656D">Lang-</text>
+      <text x="170" y="162" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="9.5" font-weight="700" fill="#1E656D">fristig</text>
+      <!-- vertex 1 – top: Krankheitsverständnis -->
+      <circle cx="170" cy="43" r="22" fill="#1E656D"/>
+      <text x="170" y="48" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="13" font-weight="700" fill="white">1</text>
+      <!-- vertex 2 – upper right: Inseln -->
+      <circle cx="275" cy="119" r="22" fill="#B45309"/>
+      <text x="275" y="124" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="13" font-weight="700" fill="white">2</text>
+      <!-- vertex 3 – lower right: Grenzen -->
+      <circle cx="235" cy="242" r="22" fill="#475569"/>
+      <text x="235" y="247" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="13" font-weight="700" fill="white">3</text>
+      <!-- vertex 4 – lower left: Krisenplan -->
+      <circle cx="105" cy="242" r="22" fill="#1C2B3A"/>
+      <text x="105" y="247" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="13" font-weight="700" fill="white">4</text>
+      <!-- vertex 5 – upper left: Entlastung -->
+      <circle cx="65" cy="119" r="22" fill="#2D5F8A"/>
+      <text x="65" y="124" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="13" font-weight="700" fill="white">5</text>
+    </svg>
+    <div class="saeulen-legend">
+      <div class="saeulen-legend-item"><span class="saeulen-legend-dot" style="background:#1E656D">1</span>Krankheits&shy;verständnis</div>
+      <div class="saeulen-legend-item"><span class="saeulen-legend-dot" style="background:#B45309">2</span>Krankheits&shy;freie Inseln</div>
+      <div class="saeulen-legend-item"><span class="saeulen-legend-dot" style="background:#475569">3</span>Grenzen &amp; Lasten</div>
+      <div class="saeulen-legend-item"><span class="saeulen-legend-dot" style="background:#1C2B3A">4</span>Krisenplan</div>
+      <div class="saeulen-legend-item"><span class="saeulen-legend-dot" style="background:#2D5F8A">5</span>Eigene Entlastung</div>
+    </div>
+  </div>
 
   <div class="pillar-cards reveal">
     <div class="pillar-card"><div class="pillar-num">1</div><div><h4>Gemeinsames Krankheitsverständnis</h4><p>Beide Partner verstehen die Erkrankung — als gemeinsame Grundlage, nicht als Schuldzuweisung.</p></div></div>
