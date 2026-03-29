@@ -56,7 +56,7 @@
   .nav-links { display: flex; gap: 4px; align-items: center; }
   .nav-links a {
     text-decoration: none; font-size: 0.8rem; color: var(--text-secondary);
-    padding: 6px 12px; border-radius: var(--radius-sm); transition: all 0.25s ease; font-weight: 500;
+    padding: 6px 12px; border-radius: var(--radius-sm); transition: background-color 0.25s ease, color 0.25s ease; font-weight: 500;
   }
   .nav-links a:hover { background: var(--sage-100); color: var(--sage-700); }
   .nav-sos {
@@ -187,7 +187,7 @@
   .phase-tab {
     padding: 18px 16px; text-align: center; cursor: pointer;
     font-size: 0.85rem; font-weight: 600; color: var(--text-muted);
-    transition: all 0.3s ease; border: none; background: none;
+    transition: background-color 0.3s ease, color 0.3s ease, border-bottom-color 0.3s ease; border: none; background: none;
     border-bottom: 3px solid transparent; position: relative;
   }
   .phase-tab:hover { background: rgba(45,40,35,0.02); }
@@ -254,7 +254,7 @@
   .accordion-chevron {
     width: 28px; height: 28px; border-radius: 50%; background: var(--sage-50);
     display: flex; align-items: center; justify-content: center;
-    transition: all 0.35s ease; color: var(--sage-400); font-size: 0.8rem;
+    transition: transform 0.35s ease, background-color 0.35s ease, color 0.35s ease; color: var(--sage-400); font-size: 0.8rem;
     flex-shrink: 0;
   }
   .accordion-item.open .accordion-chevron { transform: rotate(180deg); background: var(--sage-200); }
@@ -289,7 +289,7 @@
   .treatment-card {
     background: white; border: 1px solid rgba(45,40,35,0.06);
     border-radius: var(--radius-lg); padding: 26px;
-    transition: all 0.3s ease;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
   }
   .treatment-card:hover { box-shadow: var(--shadow-soft); transform: translateY(-2px); }
   .treatment-card-icon {
@@ -392,7 +392,7 @@
   .handout-card {
     background: white; border: 1px solid rgba(45,40,35,0.06);
     border-radius: var(--radius-md); padding: 20px; text-decoration: none; color: var(--text);
-    display: flex; align-items: center; gap: 16px; transition: all 0.3s ease;
+    display: flex; align-items: center; gap: 16px; transition: box-shadow 0.3s ease, border-color 0.3s ease;
   }
   .handout-card:hover { box-shadow: var(--shadow-soft); border-color: var(--sage-200); }
   .handout-icon {
@@ -416,7 +416,7 @@
     background: white; border: 1px solid rgba(45,40,35,0.06);
     border-radius: var(--radius-xl); padding: 36px; text-decoration: none; color: var(--text);
     display: flex; align-items: center; justify-content: space-between; gap: 32px;
-    transition: all 0.4s ease;
+    transition: box-shadow 0.4s ease, transform 0.4s ease, border-color 0.4s ease;
   }
   .next-module-card:hover { box-shadow: var(--shadow-elevated); transform: translateY(-3px); border-color: var(--sage-200); }
   .next-module-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--sage-500); margin-bottom: 8px; }
@@ -426,7 +426,7 @@
     width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0;
     background: var(--sage-100); color: var(--sage-600);
     display: flex; align-items: center; justify-content: center;
-    font-size: 1.3rem; transition: all 0.3s ease;
+    font-size: 1.3rem; transition: background-color 0.3s ease, color 0.3s ease;
   }
   .next-module-card:hover .next-module-arrow { background: var(--sage-500); color: white; }
 
@@ -684,7 +684,7 @@
 
   <!-- Tool link: Phasenverlauf -->
   <a href="/tools/phasenverlauf/" class="tool-cta reveal">
-    <div class="tool-cta-icon" style="background:#e8f5f2">📈</div>
+    <div class="tool-cta-icon" style="background:var(--green-phase-light)">📈</div>
     <div class="tool-cta-body">
       <h4>Bipolarer Phasenverlauf — interaktiv</h4>
       <p>Klicken Sie die einzelnen Phasen an und erfahren Sie, was sie für Betroffene und Angehörige bedeuten — inkl. typischer Dauer und praktischer Hinweise.</p>

@@ -13,13 +13,13 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-height:100vh;display:flex;flex-direction:column;align-items:center;-webkit-font-smoothing:antialiased}
 .tool-nav{width:100%;background:rgba(254,252,248,0.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(45,40,35,0.06);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
-.tool-back{display:flex;align-items:center;gap:8px;text-decoration:none;color:#475569;font-size:0.82rem;font-weight:500}.tool-back:hover{color:#1c2b3a}
+.tool-back{display:flex;align-items:center;gap:8px;text-decoration:none;color:#475569;font-size:0.82rem;font-weight:500}
 .tool-back svg{width:16px;height:16px}
 .tool-brand{font-family:'Source Serif 4',serif;font-size:0.85rem;font-weight:600;color:#1c2b3a}
 .wrap{width:100%;max-width:640px;padding:32px 20px 48px;flex:1}
 .hdr{text-align:center;margin-bottom:24px}
 .badge{display:inline-flex;background:#e6f4f2;color:#1c2b3a;padding:5px 14px;border-radius:100px;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px}
-.hdr h1{font-family:'Source Serif 4',Georgia,serif;font-size:clamp(1.3rem,3.5vw,1.7rem);font-weight:700;color:#2a211b;margin:0 0 8px;letter-spacing:-0.02em}
+.hdr h1{font-family:'Source Serif 4',Georgia,serif;font-size:clamp(1.3rem,3.5vw,1.7rem);font-weight:700;color:var(--navy);margin:0 0 8px;letter-spacing:-0.02em}
 .hdr p{font-size:0.85rem;color:#475569;line-height:1.6}
 .legend{display:flex;gap:16px;justify-content:center;margin-bottom:16px;flex-wrap:wrap}
 .legend-item{display:flex;align-items:center;gap:6px;font-size:0.72rem;color:#475569;cursor:pointer;padding:4px 8px;border-radius:6px;transition:background 0.2s}
@@ -29,7 +29,7 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
 .chart-wrap svg{width:100%;height:auto;display:block}
 .chart-wrap [role="button"]:focus{filter:drop-shadow(0 0 0.35rem rgba(116,138,90,0.45))}
 .episodes{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;justify-content:center}
-.ep-btn{padding:8px 16px;border-radius:10px;border:1px solid rgba(45,40,35,0.08);background:#fff;font-size:0.78rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;-webkit-appearance:none}
+.ep-btn{padding:8px 16px;border-radius:10px;border:1px solid rgba(45,40,35,0.08);background:#fff;font-size:0.78rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background-color 0.2s ease,color 0.2s ease,border-color 0.2s ease;-webkit-appearance:none}
 .ep-btn.active{color:#fff}
 .detail{background:#fff;border-radius:18px;border:1px solid rgba(45,40,35,0.06);box-shadow:0 4px 24px rgba(45,40,35,0.08);padding:24px;margin-bottom:16px;display:none}
 .detail.vis{display:block}
@@ -38,8 +38,8 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
 .detail-col{padding:12px;border-radius:10px;font-size:0.82rem;line-height:1.5}
 .detail-col h4{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px}
 .toggle-wrap{text-align:center;margin-bottom:16px}
-.toggle-btn{padding:10px 20px;border-radius:10px;border:2px solid #0d7a5f;background:#fff;color:#0d7a5f;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s}
-.toggle-btn.on{background:#0d7a5f;color:#fff}
+.toggle-btn{padding:10px 20px;border-radius:10px;border:2px solid var(--green-phase);background:#fff;color:var(--green-phase);font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background-color 0.2s ease,color 0.2s ease,border-color 0.2s ease}
+.toggle-btn.on{background:var(--green-phase);color:#fff}
 .disc{text-align:center;font-size:0.72rem;color:#475569;background:#FAFAF7;border-radius:10px;padding:12px 16px;margin-bottom:16px;line-height:1.5}
 .tf{text-align:center;font-size:0.68rem;color:#8DD4D9;margin-top:20px;line-height:1.5}
 *:focus-visible{outline:2px solid #1E656D;outline-offset:2px;border-radius:4px}
@@ -123,7 +123,7 @@ function rn(){
   if(activeEp!==null){
     const e=eps[activeEp];
     elDetail.className='detail vis';
-    elDetail.innerHTML=`<h3>${e.name} <span style="font-size:0.72rem;font-weight:600;color:${e.col};background:${e.bg};padding:2px 8px;border-radius:6px;margin-left:8px">Belastung: ${e.impact}</span></h3>
+    elDetail.innerHTML=`<h2>${e.name} <span style="font-size:0.72rem;font-weight:600;color:${e.col};background:${e.bg};padding:2px 8px;border-radius:6px;margin-left:8px">Belastung: ${e.impact}</span></h2>
     <div class="detail-grid"><div class="detail-col" style="background:var(--amber-phase-light)"><h4 style="color:var(--amber-phase)">Belastungsreserve</h4><p style="color:#475569">${e.bel}</p></div><div class="detail-col" style="background:var(--blue-phase-light)"><h4 style="color:var(--blue-phase)">Stimmung</h4><p style="color:#475569">${e.stim}</p></div></div>`;
   }else{elDetail.className='detail'}
 }

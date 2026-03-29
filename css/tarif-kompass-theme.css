@@ -147,6 +147,8 @@
   --severe-dep-phase-bg:     #e4eaf2;
   --severe-dep-phase-border: #8899aa;
   --caregiver-col-bg:        #f9f6f2;
+  --ice-deep:                #1e3044;
+  --ice-deeper:              #152535;
 
   /* Derived tokens (used for hover-dark states, borders) */
   --teal-dark:     #1a5960;
