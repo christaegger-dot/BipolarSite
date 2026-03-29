@@ -156,6 +156,18 @@
   @media(max-width:600px){.einsicht-compare{grid-template-columns:1fr}.einsicht-col:first-child{border-right:none;border-bottom:1px solid var(--border)}}
   @media(prefers-reduced-motion:reduce){*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
   .sources-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;cursor:pointer;padding:0;font:inherit;color:inherit;text-align:left}
+  /* M6-1: Stabile-Phase Prioritäts-Raster */
+  .stabil-prio{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;margin:16px 0 24px}
+  .stabil-prio-col{display:flex;flex-direction:column}
+  .stabil-prio-col:not(:last-child){border-right:1px solid var(--border)}
+  .stabil-prio-header{padding:10px 16px;background:var(--warm-100);border-bottom:1px solid var(--border);font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-muted);display:flex;align-items:center;gap:8px}
+  .stabil-prio-num{width:18px;height:18px;border-radius:50%;background:var(--teal);color:white;font-size:0.65rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .stabil-prio-num--2{background:var(--amber)}
+  .stabil-prio-num--3{background:var(--slate)}
+  .stabil-prio-items{padding:12px 16px;display:flex;flex-direction:column;gap:10px}
+  .stabil-prio-item strong{font-size:0.86rem;color:var(--earth-800);display:block;margin-bottom:2px}
+  .stabil-prio-item span{font-size:0.78rem;color:var(--text-muted);line-height:1.4}
+  @media(max-width:600px){.stabil-prio{grid-template-columns:1fr}.stabil-prio-col:not(:last-child){border-right:none;border-bottom:1px solid var(--border)}}
   /* M6-3: Grenz-Formel */
   .grenz-formel{background:var(--warm-100);border-radius:var(--radius-lg);padding:18px 22px;margin:0 0 20px}
   .grenz-formel-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-muted);margin-bottom:10px}
@@ -324,14 +336,47 @@
   <p class="reveal">Diese Gespräche sind kein Misstrauensbeweis. Sie sind Vorbereitung — und die Voraussetzung dafür, dass im nächsten Ernstfall weniger improvisiert werden muss.</p>
 
   <h3 class="reveal" style="font-size:1rem;margin-top:32px;margin-bottom:8px">Was sich in stabilen Phasen sinnvoll besprechen lässt</h3>
-  <ul class="reveal" style="margin:0 0 28px;padding-left:0;list-style:none;display:grid;gap:8px;">
-    <li style="padding-left:1.4em;position:relative;font-size:0.9rem;line-height:1.6;color:var(--text-secondary)"><span style="position:absolute;left:0;color:var(--teal);font-weight:700">→</span><strong>Frühwarnzeichen gemeinsam erarbeiten:</strong> Was hat Ihr Partner selbst bemerkt, bevor es kippte? Schlafdauer, Gedankengeschwindigkeit, Rückzug — konkret und aus zwei Perspektiven festhalten.</li>
-    <li style="padding-left:1.4em;position:relative;font-size:0.9rem;line-height:1.6;color:var(--text-secondary)"><span style="position:absolute;left:0;color:var(--teal);font-weight:700">→</span><strong>Krisenplan besprechen oder aktualisieren:</strong> Was hat beim letzten Mal geholfen? Was war kontraproduktiv? Wer soll wann kontaktiert werden?</li>
-    <li style="padding-left:1.4em;position:relative;font-size:0.9rem;line-height:1.6;color:var(--text-secondary)"><span style="position:absolute;left:0;color:var(--teal);font-weight:700">→</span><strong>Rollen klären:</strong> Was wünscht sich Ihr Partner von Ihnen in einer schlechten Phase — und was ausdrücklich nicht? Was können Sie leisten?</li>
-    <li style="padding-left:1.4em;position:relative;font-size:0.9rem;line-height:1.6;color:var(--text-secondary)"><span style="position:absolute;left:0;color:var(--teal);font-weight:700">→</span><strong>Grenzen vorab besprechen:</strong> Abmachungen zu Finanzen, Sprache oder bestimmten Verhaltensweisen halten besser, wenn sie in stabilen Momenten getroffen und aufgeschrieben wurden.</li>
-    <li style="padding-left:1.4em;position:relative;font-size:0.9rem;line-height:1.6;color:var(--text-secondary)"><span style="position:absolute;left:0;color:var(--teal);font-weight:700">→</span><strong>Nachkrise aufarbeiten:</strong> Was hat die letzte Episode in der Beziehung hinterlassen? Was brauchen beide Seiten, damit das nicht unausgesprochen bleibt?</li>
-    <li style="padding-left:1.4em;position:relative;font-size:0.9rem;line-height:1.6;color:var(--text-secondary)"><span style="position:absolute;left:0;color:var(--teal);font-weight:700">→</span><strong>Behandlung und Schweigepflicht:</strong> Schweigepflichtentbindung ansprechen, Kontakt zum Behandlungsteam klären, gemeinsame Angehörigengespräche vereinbaren.</li>
-  </ul>
+  <div class="stabil-prio reveal">
+    <div class="stabil-prio-col">
+      <div class="stabil-prio-header"><span class="stabil-prio-num">1</span>Als erstes</div>
+      <div class="stabil-prio-items">
+        <div class="stabil-prio-item">
+          <strong>Frühwarnzeichen</strong>
+          <span>Was hat Ihr Partner selbst bemerkt, bevor es kippte? Schlafdauer, Gedankengeschwindigkeit, Rückzug — aus zwei Perspektiven.</span>
+        </div>
+        <div class="stabil-prio-item">
+          <strong>Krisenplan</strong>
+          <span>Was hat beim letzten Mal geholfen? Was war kontraproduktiv? Wer soll wann kontaktiert werden?</span>
+        </div>
+      </div>
+    </div>
+    <div class="stabil-prio-col">
+      <div class="stabil-prio-header"><span class="stabil-prio-num stabil-prio-num--2">2</span>Wenn das sitzt</div>
+      <div class="stabil-prio-items">
+        <div class="stabil-prio-item">
+          <strong>Rollen klären</strong>
+          <span>Was wünscht sich Ihr Partner von Ihnen in einer schlechten Phase — und was ausdrücklich nicht?</span>
+        </div>
+        <div class="stabil-prio-item">
+          <strong>Grenzen besprechen</strong>
+          <span>Abmachungen zu Finanzen, Sprache oder Verhalten schriftlich festhalten.</span>
+        </div>
+      </div>
+    </div>
+    <div class="stabil-prio-col">
+      <div class="stabil-prio-header"><span class="stabil-prio-num stabil-prio-num--3">3</span>Mit etwas Abstand</div>
+      <div class="stabil-prio-items">
+        <div class="stabil-prio-item">
+          <strong>Nachkrise aufarbeiten</strong>
+          <span>Was hat die letzte Episode in der Beziehung hinterlassen? Was brauchen beide Seiten?</span>
+        </div>
+        <div class="stabil-prio-item">
+          <strong>Behandlung &amp; Schweigepflicht</strong>
+          <span>Entbindung ansprechen, Kontakt zum Behandlungsteam klären, Angehörigengespräche vereinbaren.</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="do-dont reveal">
     <div class="do-col">
