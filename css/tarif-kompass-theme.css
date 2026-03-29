@@ -297,6 +297,7 @@ h1, h2, h3, h4 {
 /* Normalize h3 size across all modules (M1-5: 1.25rem, M6-8: 1.15rem, Notfall: 1.1rem) */
 .content h3 {
   font-size: 1.2rem !important;
+  font-weight: 700 !important;
 }
 
 /* Prose / quote elements */
