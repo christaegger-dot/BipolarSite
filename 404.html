@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Seite nicht gefunden | PUK Zürich</title>
 <meta name="robots" content="noindex">
+<meta name="description" content="Seite nicht gefunden. Bitte überprüfen Sie die URL oder kehren Sie zur Startseite zurück.">
 <style>
   *{box-sizing:border-box}
   body{margin:0;font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
@@ -15,6 +16,9 @@
   a{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:700}
   .primary{background:var(--accent);color:#fff}
   .secondary{border:1px solid var(--border);color:var(--text);background:#fff}
+  *:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+  .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:999}
+  .skip-link:focus{position:fixed!important;top:12px;left:12px;width:auto;height:auto;padding:12px 20px;background:var(--accent);color:white;border-radius:8px;font-size:0.85rem;font-weight:600;z-index:10000;text-decoration:none}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +26,8 @@
 <link rel="stylesheet" href="/css/tarif-kompass-theme.css">
 </head>
 <body>
-  <main class="card">
+  <a href="#main-content" class="skip-link">Direkt zum Inhalt</a>
+  <main class="card" id="main-content">
     <h1>Diese Seite wurde nicht gefunden.</h1>
     <p>Prüfen Sie die Adresse oder gehen Sie zurück zur Startseite. Alle Inhalte bleiben über die Modulübersicht erreichbar.</p>
     <div class="actions">
