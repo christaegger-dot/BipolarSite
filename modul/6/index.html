@@ -156,6 +156,22 @@
   @media(max-width:600px){.einsicht-compare{grid-template-columns:1fr}.einsicht-col:first-child{border-right:none;border-bottom:1px solid var(--border)}}
   @media(prefers-reduced-motion:reduce){*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
   .sources-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;cursor:pointer;padding:0;font:inherit;color:inherit;text-align:left}
+  /* M6-3: Grenz-Formel */
+  .grenz-formel{background:var(--warm-100);border-radius:var(--radius-lg);padding:18px 22px;margin:0 0 20px}
+  .grenz-formel-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-muted);margin-bottom:10px}
+  .grenz-formel-parts{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+  .grenz-part{padding:12px 14px;display:flex;flex-direction:column;gap:5px}
+  .grenz-part:not(:last-child){border-right:1px solid var(--border)}
+  .grenz-part--ich{background:#e6f4f2}
+  .grenz-part--konsequenz{background:var(--amber-bg)}
+  .grenz-part--rueckkehr{background:white}
+  .grenz-part-tag{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em}
+  .grenz-part--ich .grenz-part-tag{color:var(--teal)}
+  .grenz-part--konsequenz .grenz-part-tag{color:#92400e}
+  .grenz-part--rueckkehr .grenz-part-tag{color:var(--slate)}
+  .grenz-part-example{font-size:0.84rem;line-height:1.45;color:var(--earth-800);font-style:italic}
+  .grenz-part-note{font-size:0.74rem;color:var(--text-muted);line-height:1.4}
+  @media(max-width:600px){.grenz-formel-parts{grid-template-columns:1fr}.grenz-part:not(:last-child){border-right:none;border-bottom:1px solid var(--border)}}
   .tool-cta{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:22px;padding:24px 28px;margin:32px 0;display:flex;gap:20px;align-items:center;box-shadow:0 2px 16px rgba(45,40,35,0.06);transition:border-color 0.2s ease,box-shadow 0.2s ease;text-decoration:none;color:inherit}.tool-cta:hover{box-shadow:0 4px 20px rgba(45,40,35,0.1)}.tool-cta-icon{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}.tool-cta-body h4{font-size:0.95rem;font-weight:700;color:var(--text);margin:0 0 4px}.tool-cta-body p{font-size:0.82rem;color:var(--text-muted);margin:0 0 8px;line-height:1.45}.tool-cta-btn{display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;font-weight:700;color:var(--sage-500);transition:color 0.2s}.tool-cta:hover .tool-cta-btn{color:var(--sage-700)}
 </style>
 <link rel="stylesheet" href="/css/tarif-kompass-theme.css">
@@ -481,6 +497,27 @@
   <!-- 6. GRENZEN KONKRET -->
   <h2 id="grenzen" class="reveal">Grenzen, die tragen statt eskalieren</h2>
   <p class="reveal">In <a href="/modul/5/" style="color:var(--sage-500)">Modul 5</a> ging es darum, warum Grenzen emotional so schwer sind. Hier geht es um die Form. Hilfreiche Grenzen drohen nicht nur, sie markieren Verhalten, benennen Konsequenzen und schützen, ohne unnötig zu eskalieren.</p>
+
+  <div class="grenz-formel reveal">
+    <div class="grenz-formel-label">Aufbau einer hilfreichen Grenz-Aussage</div>
+    <div class="grenz-formel-parts">
+      <div class="grenz-part grenz-part--ich">
+        <span class="grenz-part-tag">Ich-Botschaft</span>
+        <span class="grenz-part-example">«Ich lasse mich nicht anschreien.»</span>
+        <span class="grenz-part-note">Bezieht sich auf mein Erleben — nicht auf die Person. Kein Vorwurf.</span>
+      </div>
+      <div class="grenz-part grenz-part--konsequenz">
+        <span class="grenz-part-tag">Klare Konsequenz</span>
+        <span class="grenz-part-example">«Ich gehe ins Nebenzimmer.»</span>
+        <span class="grenz-part-note">Benennt, was passiert — konkret, ohne Drohung oder Ultimatum.</span>
+      </div>
+      <div class="grenz-part grenz-part--rueckkehr">
+        <span class="grenz-part-tag">Rückkehr-Signal</span>
+        <span class="grenz-part-example">«Wenn wir ruhig reden können, komme ich zurück.»</span>
+        <span class="grenz-part-note">Optional — zeigt: Die Grenze schützt die Beziehung, beendet sie nicht.</span>
+      </div>
+    </div>
+  </div>
 
   <div class="grenz-example reveal">
     <div class="grenz-bad">✗ «Du bist unmöglich, wenn du so schreist!»</div>

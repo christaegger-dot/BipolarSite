@@ -58,6 +58,16 @@
   .fu-alert h3{font-family:'Source Serif 4',serif;font-size:1rem;font-weight:700;color:var(--alert-red);margin:0 0 8px}
   .fu-alert p{font-size:0.88rem;color:var(--text-secondary);line-height:1.6;margin:0 0 8px}
   .fu-alert a{color:var(--alert-red);font-weight:600}
+  /* FU Flowchart */
+  .fu-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:12px 0 4px;border:1px solid var(--alert-red-border);border-radius:10px;overflow:hidden}
+  .fu-step{padding:12px 14px;display:flex;flex-direction:column;gap:5px;position:relative;background:rgba(199,84,80,0.03)}
+  .fu-step:not(:last-child){border-right:1px solid var(--alert-red-border)}
+  .fu-step-num{width:22px;height:22px;border-radius:50%;background:var(--alert-red);color:white;font-size:0.7rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .fu-step-title{font-size:0.82rem;font-weight:700;color:var(--navy)}
+  .fu-step-body{font-size:0.77rem;color:var(--slate);line-height:1.5}
+  .fu-step-time{font-size:0.7rem;font-weight:700;color:var(--alert-red);margin-top:4px}
+  .fu-note{font-size:0.79rem;color:var(--slate);background:rgba(199,84,80,0.05);border-radius:8px;padding:10px 14px;margin-top:8px;line-height:1.55}
+  @media(max-width:600px){.fu-steps{grid-template-columns:1fr 1fr}.fu-step:nth-child(2){border-right:none}.fu-step:nth-child(n+3){border-top:1px solid var(--alert-red-border)}}
 
   /* MINI GUIDES */
   .guide{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-xl);margin:20px 0;overflow:hidden;transition:box-shadow 0.2s ease}.guide:hover{box-shadow:var(--shadow-soft)}
@@ -325,12 +335,31 @@
 
       <details style="margin-top:12px">
         <summary style="cursor:pointer;font-size:0.85rem;font-weight:600;color:var(--navy);padding:4px 0">Wie läuft eine FU ab? ▸</summary>
-        <div style="margin-top:10px;font-size:0.85rem;line-height:1.7;color:var(--slate)">
-          <p style="margin:0 0 8px"><strong>1. Auslösung:</strong> Eine FU kann von einer ärztlichen Fachperson, der KESB (Kindes- und Erwachsenenschutzbehörde) oder der Polizei angeordnet werden. Angehörige können eine Gefährdungsmeldung einreichen — z.B. bei der KESB Ihres Wohnkantons.</p>
-          <p style="margin:0 0 8px"><strong>2. Einweisung und Begutachtung:</strong> Eine Ärztin oder ein Arzt beurteilt vor Ort, ob die Voraussetzungen vorliegen (erhebliche Selbst- oder Fremdgefährdung, psychische Störung, fehlende Einsicht). Bei Bestätigung erfolgt die Einweisung.</p>
-          <p style="margin:0 0 8px"><strong>3. Richterliche Prüfung:</strong> Die eingewiesene Person hat das Recht, die FU gerichtlich anfechten zu lassen. Das Gericht entscheidet innerhalb von 5 Werktagen.</p>
-          <p style="margin:0 0 8px"><strong>4. Aufhebung:</strong> Die FU endet, wenn die Gefährdungsvoraussetzungen wegfallen — durch Behandlung, Einsichtsfähigkeit oder auf gerichtliche Anordnung.</p>
-          <p style="margin:0"><strong>Als Angehörige*r:</strong> Sie werden während einer FU nicht automatisch informiert — ausser die betroffene Person hat eine Schweigepflichtentbindung erteilt. Sie können aber dem Behandlungsteam jederzeit Beobachtungen mitteilen.</p>
+        <div style="margin-top:10px">
+          <div class="fu-steps">
+            <div class="fu-step">
+              <div class="fu-step-num">1</div>
+              <div class="fu-step-title">Auslösung</div>
+              <div class="fu-step-body">Arzt, KESB oder Polizei ordnen an. Angehörige können Gefährdungsmeldung einreichen.</div>
+            </div>
+            <div class="fu-step">
+              <div class="fu-step-num">2</div>
+              <div class="fu-step-title">Einweisung</div>
+              <div class="fu-step-body">Arzt beurteilt vor Ort: Gefährdung, psychische Störung, fehlende Einsicht — dann Einweisung.</div>
+            </div>
+            <div class="fu-step">
+              <div class="fu-step-num">3</div>
+              <div class="fu-step-title">Richterliche Prüfung</div>
+              <div class="fu-step-body">Betroffene Person kann die FU anfechten.</div>
+              <div class="fu-step-time">Entscheid innert 5 Werktagen</div>
+            </div>
+            <div class="fu-step">
+              <div class="fu-step-num">4</div>
+              <div class="fu-step-title">Aufhebung</div>
+              <div class="fu-step-body">Endet wenn Gefährdungsvoraussetzungen wegfallen — durch Behandlung, Einsicht oder Gericht.</div>
+            </div>
+          </div>
+          <div class="fu-note">Als Angehörige*r werden Sie nicht automatisch informiert — ausser bei Schweigepflichtentbindung. Sie können dem Behandlungsteam aber jederzeit Beobachtungen mitteilen.</div>
         </div>
       </details>
 

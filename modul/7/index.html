@@ -169,6 +169,16 @@
     .etl-phase{flex-direction:row;align-items:center;gap:12px;width:100%}
     .etl-emotions{flex-direction:row;flex-wrap:wrap;justify-content:flex-start}
   }
+  /* M7-2: Coping-Wegweiser */
+  .coping-nav{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0 8px}
+  .coping-nav-item{border:1px solid var(--border);border-radius:var(--radius-md);padding:14px 16px;display:flex;flex-direction:column;gap:4px;background:white}
+  .coping-nav-item--problem{border-top:3px solid var(--teal)}
+  .coping-nav-item--emotion{border-top:3px solid var(--amber)}
+  .coping-nav-item--bedeutung{border-top:3px solid var(--slate)}
+  .coping-nav-need{font-size:0.8rem;font-style:italic;color:var(--text-muted);line-height:1.4}
+  .coping-nav-arrow{font-size:0.72rem;color:var(--text-muted);margin-top:2px}
+  .coping-nav-label{font-size:0.9rem;font-weight:700;color:var(--earth-800)}
+  @media(max-width:600px){.coping-nav{grid-template-columns:1fr}}
 </style>
 <link rel="stylesheet" href="/css/tarif-kompass-theme.css">
 </head>
@@ -333,6 +343,23 @@
   <p class="reveal">Was helfen kann: Mit einer einzigen Vertrauensperson beginnen, nicht mit dem ganzen Netz. Erklären, was in der eigenen Sprache stimmig ist — ohne Vollständigkeit. Angehörigengruppen (VASK Zürich, Selbsthilfe Zürich) bieten den Vorteil, dass kein Erklärungsbedarf besteht. <strong>Das Ziel ist nicht das alte Netz zurück, sondern ein neues, das zu Ihrer jetzigen Situation passt.</strong></p>
 
   <h3 class="reveal">Bewältigungsstrategien — drei Ansätze</h3>
+  <div class="coping-nav reveal">
+    <div class="coping-nav-item coping-nav-item--problem">
+      <span class="coping-nav-need">«Ich muss etwas tun — die Lage ist konkret»</span>
+      <span class="coping-nav-arrow">→</span>
+      <span class="coping-nav-label">Problemfokussiert</span>
+    </div>
+    <div class="coping-nav-item coping-nav-item--emotion">
+      <span class="coping-nav-need">«Ich bin emotional überwältigt»</span>
+      <span class="coping-nav-arrow">→</span>
+      <span class="coping-nav-label">Emotionsfokussiert</span>
+    </div>
+    <div class="coping-nav-item coping-nav-item--bedeutung">
+      <span class="coping-nav-need">«Ich brauche einen grösseren Rahmen»</span>
+      <span class="coping-nav-arrow">→</span>
+      <span class="coping-nav-label">Bedeutungsfokussiert</span>
+    </div>
+  </div>
   <div class="coping-grid reveal">
     <div class="coping-card">
       <h4>Problemfokussiert</h4>
