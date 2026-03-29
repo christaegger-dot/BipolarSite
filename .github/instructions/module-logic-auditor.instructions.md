@@ -1,5 +1,5 @@
 ---
-applyTo: "**"
+applyTo: "modul/**/*.html, notfall/**/*.html"
 ---
 # module-logic-auditor
 

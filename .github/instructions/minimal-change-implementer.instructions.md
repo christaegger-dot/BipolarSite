@@ -1,5 +1,5 @@
 ---
-applyTo: "**"
+applyTo: "**/*.html, **/*.css"
 ---
 # minimal-change-implementer
 

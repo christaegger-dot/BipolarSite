@@ -1,5 +1,5 @@
 ---
-applyTo: "**"
+applyTo: "**/*.html, **/*.css, netlify.toml"
 ---
 # performance-auditor
 

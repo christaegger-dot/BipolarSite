@@ -1,5 +1,5 @@
 ---
-applyTo: "**"
+applyTo: "**/*.html, **/*.css"
 ---
 # pre-release-auditor
 

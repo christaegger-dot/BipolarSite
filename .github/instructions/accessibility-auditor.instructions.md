@@ -1,5 +1,5 @@
 ---
-applyTo: "**"
+applyTo: "**/*.html"
 ---
 # accessibility-auditor
 

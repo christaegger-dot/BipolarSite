@@ -1,5 +1,5 @@
 ---
-applyTo: "**"
+applyTo: "**/*.html, robots.txt"
 ---
 # seo-meta-auditor
 
