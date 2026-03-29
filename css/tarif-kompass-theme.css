@@ -1336,10 +1336,30 @@ footer {
   border-radius: var(--radius-xs) !important;
 }
 
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .skip-link:focus {
+  position: fixed !important;
+  top: 12px !important;
+  left: 12px !important;
+  width: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+  padding: 12px 20px !important;
   background: var(--navy) !important;
   color: white !important;
   border-radius: var(--radius-sm) !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  z-index: 10000 !important;
+  text-decoration: none !important;
 }
 
 /* ── Impressum-specific overrides ──
