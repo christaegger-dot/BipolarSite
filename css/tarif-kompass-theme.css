@@ -1327,13 +1327,13 @@ footer {
 /* Tool nav and tool-back/brand moved to COVERAGE-AUDIT FIXES section */
 
 /* ── Tool result sections ── */
-.res-score,
-.res-circle {
+/* res-circle border-color and span color intentionally NOT overridden here —
+   the Komm-Trainer injects dynamic feedback colours (green/amber/red) via JS inline styles.
+   Only res-score (static) gets a teal fallback. */
+.res-score {
   border-color: var(--teal) !important;
 }
-
-.res-score span,
-.res-circle span {
+.res-score span {
   color: var(--teal) !important;
 }
 
