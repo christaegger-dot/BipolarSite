@@ -378,6 +378,8 @@ nav.scrolled {
 .nav-logo {
   background: linear-gradient(135deg, var(--teal), var(--teal-light)) !important;
   border-radius: var(--radius-md) !important;
+  width: 34px !important;
+  height: 34px !important;
 }
 
 /* ── Brand text ── */
@@ -985,6 +987,7 @@ table tbody tr:nth-child(even),
 
 .quote-block blockquote {
   color: var(--navy) !important;
+  font-size: 1.05rem !important;
 }
 
 .quote-block cite {
