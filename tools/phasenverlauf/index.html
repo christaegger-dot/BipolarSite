@@ -15,11 +15,11 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
 .tool-nav{width:100%;background:rgba(254,252,248,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(45,40,35,0.06);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
 .tool-back{display:flex;align-items:center;gap:8px;text-decoration:none;color:#475569;font-size:0.82rem;font-weight:500;transition:color 0.2s}.tool-back:hover{color:#1c2b3a}
 .tool-back svg{width:16px;height:16px}
-.tool-brand{font-family:'DM Serif Display',serif;font-size:0.85rem;font-weight:600;color:#1c2b3a}
+.tool-brand{font-family:'Source Serif 4',serif;font-size:0.85rem;font-weight:600;color:#1c2b3a}
 .wrap{width:100%;max-width:600px;padding:32px 20px 56px;flex:1}
 .hdr{text-align:center;margin-bottom:28px}
 .badge{display:inline-flex;background:#e6f4f2;color:#1c2b3a;padding:5px 14px;border-radius:100px;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px}
-.hdr h1{font-family:'DM Serif Display',serif;font-size:clamp(1.35rem,3.5vw,1.75rem);font-weight:700;color:#2a211b;margin:0 0 8px;letter-spacing:-0.02em;line-height:1.2}
+.hdr h1{font-family:'Source Serif 4',serif;font-size:clamp(1.35rem,3.5vw,1.75rem);font-weight:700;color:#2a211b;margin:0 0 8px;letter-spacing:-0.02em;line-height:1.2}
 .hdr p{font-size:0.85rem;color:#475569;line-height:1.6}
 
 /* ── Chart wrapper ── */
@@ -61,7 +61,7 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
 .det-top{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px}
 .det-icon{width:48px;height:48px;min-width:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.35rem}
 .det-phase-name{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px}
-.det-title{font-family:'DM Serif Display',serif;font-size:1rem;font-weight:700;color:#1c2b3a;line-height:1.3}
+.det-title{font-family:'Source Serif 4',serif;font-size:1rem;font-weight:700;color:#1c2b3a;line-height:1.3}
 .det-dur{display:inline-flex;align-items:center;gap:6px;font-size:0.72rem;color:#475569;background:#FAFAF7;padding:4px 12px;border-radius:100px;margin-bottom:16px}
 .det-cols{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
 .det-col{border-radius:12px;padding:14px 15px;border-left:3px solid}
@@ -207,8 +207,8 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
   <!-- Detail card -->
   <div class="detail-card" id="detailCard" aria-live="polite"></div>
 
-  <p class="tf">Psychiatrische Universitätsklinik Zürich · Fachstelle Angehörigenarbeit<br>Vereinfachte Darstellung. Diese Inhalte ersetzen keine professionelle Beratung.</p>
 </main>
+<footer class="tf">Psychiatrische Universitätsklinik Zürich · Fachstelle Angehörigenarbeit<br>Vereinfachte Darstellung. Diese Inhalte ersetzen keine professionelle Beratung. · <a href="/impressum/" style="color:inherit">Impressum</a> · <a href="/notfall/" style="color:var(--rose)">Notfall</a></footer>
 
 <script>
 const PHASES = {
@@ -217,8 +217,8 @@ const PHASES = {
     subtitle: 'Ausgeprägte Hochphase — oft mit Realitätsverlust',
     duration: 'Typisch: 2–4 Wochen bis mehrere Monate',
     color: 'var(--amber-phase)',
-    bg: '#fff3e0',
-    border: '#f0c070',
+    bg: 'var(--mania-phase-bg)',
+    border: 'var(--mania-phase-border)',
     ptId: 'pt-mania',
     pulseId: 'pulse-mania',
     person: [
@@ -242,8 +242,8 @@ const PHASES = {
     subtitle: 'Abgeschwächte Hochphase — schwer erkennbar',
     duration: 'Typisch: 4 Tage bis 2 Wochen',
     color: 'var(--amber-phase)',
-    bg: '#fff9f0',
-    border: '#e8c68a',
+    bg: 'var(--hypo-phase-bg)',
+    border: 'var(--amber-phase-border)',
     ptId: 'pt-hypo',
     pulseId: 'pulse-hypo',
     person: [
@@ -267,8 +267,8 @@ const PHASES = {
     subtitle: 'Keine Episode — aber nicht immer innere Entwarnung',
     duration: 'Sehr variabel: Wochen bis Jahre',
     color: 'var(--green-phase)',
-    bg: '#e8f5f2',
-    border: '#8dd4d9',
+    bg: 'var(--green-bg)',
+    border: 'var(--teal-light)',
     ptId: 'pt-stable',
     pulseId: 'pulse-stable',
     person: [
@@ -292,8 +292,8 @@ const PHASES = {
     subtitle: 'Rückzug, Erschöpfung, schleichende Unerreichbarkeit',
     duration: 'Typisch: 2 Wochen bis 3 Monate',
     color: 'var(--blue-phase)',
-    bg: '#eef3f8',
-    border: '#c5d5e8',
+    bg: 'var(--blue-phase-light)',
+    border: 'var(--mild-dep-phase-border)',
     ptId: 'pt-mild',
     pulseId: 'pulse-mild',
     person: [
@@ -317,8 +317,8 @@ const PHASES = {
     subtitle: 'Tiefste Erschöpfung — oft mit Suizidrisiko',
     duration: 'Variabel: Wochen bis Monate',
     color: 'var(--earth-700)',
-    bg: '#e4eaf2',
-    border: '#8899aa',
+    bg: 'var(--severe-dep-phase-bg)',
+    border: 'var(--severe-dep-phase-border)',
     ptId: 'pt-severe',
     pulseId: 'pulse-severe',
     person: [
@@ -356,9 +356,9 @@ function selectPhase(phase) {
       b.style.borderColor = d.color;
       b.style.color = '#fff';
     } else {
-      b.style.background = '#FAFAF7';
+      b.style.background = 'var(--bg)';
       b.style.borderColor = 'transparent';
-      b.style.color = '#475569';
+      b.style.color = 'var(--slate)';
     }
   });
 
@@ -401,8 +401,8 @@ function selectPhase(phase) {
         <div class="det-col-lbl" style="color:${d.color}">Für die betroffene Person</div>
         <ul>${d.person.map(i => `<li>${i}</li>`).join('')}</ul>
       </div>
-      <div class="det-col" style="background:#f9f6f2;border-color:#8DD4D9">
-        <div class="det-col-lbl" style="color:#475569">Für Angehörige</div>
+      <div class="det-col" style="background:var(--caregiver-col-bg);border-color:var(--teal-light)">
+        <div class="det-col-lbl" style="color:var(--slate)">Für Angehörige</div>
         <ul>${d.caregiver.map(i => `<li>${i}</li>`).join('')}</ul>
       </div>
     </div>

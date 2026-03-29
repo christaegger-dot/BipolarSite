@@ -138,6 +138,15 @@
   --amber-phase-light:#fef3e2;
   --green-phase:      #0d7a5f;
   --green-phase-light:#e6f4f2;
+  /* Phase-specific bg/border values (used in phasenverlauf + selbsttest JS) */
+  --mania-phase-bg:          #fff3e0;
+  --mania-phase-border:      #f0c070;
+  --hypo-phase-bg:           #fff9f0;
+  --amber-phase-border:      #e8c68a;
+  --mild-dep-phase-border:   #c5d5e8;
+  --severe-dep-phase-bg:     #e4eaf2;
+  --severe-dep-phase-border: #8899aa;
+  --caregiver-col-bg:        #f9f6f2;
 
   /* Derived tokens (used for hover-dark states, borders) */
   --teal-dark:     #1a5960;
