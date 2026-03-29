@@ -1142,6 +1142,22 @@ section,
   max-width: var(--wide-width) !important;
 }
 
+/* ── Footer links bar ── */
+.footer-links {
+  margin-top: 16px !important;
+  padding-top: 16px !important;
+  border-top: 1px solid rgba(255,255,255,0.08) !important;
+  font-size: 0.75rem !important;
+}
+.footer-links a {
+  margin: 0 10px !important;
+  color: rgba(255,255,255,0.6) !important;
+  text-decoration: none !important;
+}
+.footer-links a:hover {
+  color: white !important;
+}
+
 /* ── Module grid ── */
 .modules-grid {
   max-width: var(--wide-width) !important;

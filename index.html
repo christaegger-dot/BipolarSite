@@ -665,6 +665,16 @@
   }
   *:focus-visible{outline:2px solid var(--sage-500);outline-offset:2px;border-radius:4px}
   @media(prefers-reduced-motion:reduce){*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
+
+  /* ══════════ PATH LIST (Startwege) ══════════ */
+  .path-list{list-style:none;margin:0;padding:0}
+  .path-item{display:flex;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px solid rgba(45,40,35,0.06)}
+  .path-item:last-child{border-bottom:none}
+  .path-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--sage-100);color:var(--teal);font-size:0.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px}
+  .path-body{flex:1}
+  .path-title{font-weight:700;color:var(--navy);font-size:0.95rem;margin:0 0 4px;text-decoration:none;display:block}
+  .path-title:hover{color:var(--teal)}
+  .path-desc{font-size:0.85rem;color:var(--slate);margin:0;line-height:1.5}
 </style>
 <link rel="stylesheet" href="/css/tarif-kompass-theme.css">
 </head>
@@ -818,87 +828,43 @@
   <h2 class="section-title reveal">Wenn Sie neu hier sind</h2>
   <p class="section-desc reveal">Fünf sinnvolle Wege durch die Website. Nicht jede Lage braucht dieselbe Reihenfolge.</p>
 
-  <div class="modules-grid">
-    <a href="/modul/1/" class="module-card reveal">
-      <span class="module-number">Weg 1</span>
-      <h3>Erst verstehen</h3>
-      <p>Beginnen Sie mit Modul 1. Danach wird meist klarer, ob bei Ihnen eher Belastung, Beziehung oder konkrete Schritte im Vordergrund stehen.</p>
-      <div class="module-card-footer">
-        <span class="module-time">Start: Modul 1</span>
-        <span class="module-arrow">→</span>
+  <ol class="path-list reveal">
+    <li class="path-item">
+      <span class="path-num">1</span>
+      <div class="path-body">
+        <a href="/modul/1/" class="path-title">Erst verstehen</a>
+        <p class="path-desc">Beginnen Sie mit Modul 1. Danach wird meist klarer, ob bei Ihnen eher Belastung, Beziehung oder konkrete Schritte im Vordergrund stehen.</p>
       </div>
-    </a>
-
-    <a href="/modul/4/" class="module-card reveal">
-      <span class="module-number">Weg 2</span>
-      <h3>Wenn Sie schon am Limit sind</h3>
-      <p>Beginnen Sie mit Modul 4, dann Modul 5 und Modul 8. Dieser Weg ist sinnvoll, wenn Ihre eigene Belastung gerade dringlicher ist als Grundlagenwissen.</p>
-      <div class="module-card-footer">
-        <span class="module-time">Start: Modul 4</span>
-        <span class="module-arrow">→</span>
+    </li>
+    <li class="path-item">
+      <span class="path-num">2</span>
+      <div class="path-body">
+        <a href="/modul/4/" class="path-title">Wenn Sie schon am Limit sind</a>
+        <p class="path-desc">Beginnen Sie mit Modul 4, dann Modul 5 und Modul 8. Sinnvoll, wenn Ihre eigene Belastung gerade dringlicher ist als Grundlagenwissen.</p>
       </div>
-    </a>
-
-    <a href="/modul/3/" class="module-card reveal">
-      <span class="module-number">Weg 3</span>
-      <h3>Wenn die Beziehung im Vordergrund steht</h3>
-      <p>Beginnen Sie mit Modul 3 und gehen Sie weiter zu Modul 4 und 5. Dieser Weg passt, wenn Nähe, Vertrauen oder Rollenverschiebung die grösste Frage sind.</p>
-      <div class="module-card-footer">
-        <span class="module-time">Start: Modul 3</span>
-        <span class="module-arrow">→</span>
+    </li>
+    <li class="path-item">
+      <span class="path-num">3</span>
+      <div class="path-body">
+        <a href="/modul/3/" class="path-title">Wenn die Beziehung im Vordergrund steht</a>
+        <p class="path-desc">Beginnen Sie mit Modul 3, dann Modul 4 und 5. Passt, wenn Nähe, Vertrauen oder Rollenverschiebung die grösste Frage sind.</p>
       </div>
-    </a>
-
-    <a href="/modul/6/" class="module-card reveal">
-      <span class="module-number">Weg 4</span>
-      <h3>Wenn Sie sofort konkret handeln wollen</h3>
-      <p>Beginnen Sie mit Modul 6. Krisenplan, Kommunikation in Manie und Depression, Grenzen setzen — direkt anwendbar, ohne Grundlagenwissen vorauszusetzen.</p>
-      <div class="module-card-footer">
-        <span class="module-time">Start: Modul 6</span>
-        <span class="module-arrow">→</span>
+    </li>
+    <li class="path-item">
+      <span class="path-num">4</span>
+      <div class="path-body">
+        <a href="/modul/6/" class="path-title">Wenn Sie sofort konkret handeln wollen</a>
+        <p class="path-desc">Beginnen Sie mit Modul 6. Krisenplan, Kommunikation in Episoden, Grenzen — direkt anwendbar, ohne Grundlagenwissen vorauszusetzen.</p>
       </div>
-    </a>
-
-    <a href="/modul/2/" class="module-card reveal">
-      <span class="module-number">Weg 5</span>
-      <h3>Wenn Sie verstehen wollen, was gerade mit Ihnen passiert</h3>
-      <p>Beginnen Sie mit Modul 2. Hypervigilanz, emotionale Erschöpfung, Suizidangst — für Angehörige, die noch am Anfang stehen oder die eigenen Reaktionen einordnen wollen.</p>
-      <div class="module-card-footer">
-        <span class="module-time">Start: Modul 2</span>
-        <span class="module-arrow">→</span>
+    </li>
+    <li class="path-item">
+      <span class="path-num">5</span>
+      <div class="path-body">
+        <a href="/modul/2/" class="path-title">Wenn Sie verstehen wollen, was gerade mit Ihnen passiert</a>
+        <p class="path-desc">Beginnen Sie mit Modul 2. Hypervigilanz, emotionale Erschöpfung, Suizidangst — für Angehörige, die die eigenen Reaktionen einordnen wollen.</p>
       </div>
-    </a>
-  </div>
-</section>
-
-<!-- ══════════ THEMEN ══════════ -->
-<section>
-  <div class="section-label reveal">Themen</div>
-  <h2 class="section-title reveal">Was Sie gerade am meisten beschäftigt</h2>
-  <p class="section-desc reveal">Wenn Sie nicht nach Modulen suchen, sondern nach Ihrem eigentlichen Thema.</p>
-
-  <div class="modules-grid">
-    <a href="/modul/2/" class="module-card reveal">
-      <span class="module-number">Eigene Belastung</span>
-      <h3>Was macht das alles mit mir?</h3>
-      <p>Belastungs-Eisberg, Hypervigilanz, Suizidangst und die Frage, warum Angehörige selbst oft aus dem Blick geraten.</p>
-      <div class="module-card-footer"><span class="module-time">Modul 2</span><span class="module-arrow">→</span></div>
-    </a>
-
-    <a href="/modul/6/" class="module-card reveal">
-      <span class="module-number">Konkret handeln</span>
-      <h3>Was kann ich ganz praktisch tun?</h3>
-      <p>Krisenplan, Kommunikation in Episoden, Schweigepflichtentbindung, Finanzen und Grenzsetzung.</p>
-      <div class="module-card-footer"><span class="module-time">Modul 6</span><span class="module-arrow">→</span></div>
-    </a>
-
-    <a href="/modul/7/" class="module-card reveal">
-      <span class="module-number">Lange Strecke</span>
-      <h3>Wie kann das langfristig tragfähiger werden?</h3>
-      <p>Selbstfürsorge, Stabilität im Alltag, trialogisches Denken und die Frage, was auf lange Sicht tragen kann.</p>
-      <div class="module-card-footer"><span class="module-time">Modul 7</span><span class="module-arrow">→</span></div>
-    </a>
-  </div>
+    </li>
+  </ol>
 </section>
 
 <!-- ══════════ TOOLS ══════════ -->
