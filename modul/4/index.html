@@ -209,6 +209,11 @@
   @media(prefers-reduced-motion:reduce){*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
   .sources-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;cursor:pointer;padding:0;font:inherit;color:inherit;text-align:left}
   .tool-cta{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:22px;padding:24px 28px;margin:32px 0;display:flex;gap:20px;align-items:center;box-shadow:0 2px 16px rgba(45,40,35,0.06);transition:border-color 0.2s ease,box-shadow 0.2s ease;text-decoration:none;color:inherit}.tool-cta:hover{box-shadow:0 4px 20px rgba(45,40,35,0.1)}.tool-cta-icon{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}.tool-cta-body h4{font-size:0.95rem;font-weight:700;color:var(--text);margin:0 0 4px}.tool-cta-body p{font-size:0.82rem;color:var(--text-muted);margin:0 0 8px;line-height:1.45}.tool-cta-btn{display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;font-weight:700;color:var(--sage-500);transition:color 0.2s}.tool-cta:hover .tool-cta-btn{color:var(--sage-700)}
+  .age-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:16px 0 24px}
+  .age-card{background:#fff;border:1px solid rgba(45,40,35,0.08);border-radius:14px;padding:20px 18px}
+  .age-card h4{font-size:0.9rem;font-weight:700;color:#1c2b3a;margin:8px 0 8px}
+  .age-card p{font-size:0.83rem;line-height:1.6;color:#475569;margin:0 0 8px}.age-card p:last-child{margin:0}
+  .age-label{display:inline-flex;background:#e6f4f2;color:#1E656D;padding:3px 10px;border-radius:100px;font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
 </style>
 <link rel="stylesheet" href="/css/tarif-kompass-theme.css">
 </head>
@@ -460,6 +465,30 @@
     </div>
   </div>
 
+  <h3 class="reveal">Mit Kindern sprechen — je nach Alter</h3>
+  <p class="reveal">Kinder brauchen ehrliche Erklärungen — aber in ihrer Sprache. Schweigen schützt nicht, es erzeugt Fantasien, die oft schlimmer sind als die Realität.</p>
+
+  <div class="age-grid reveal">
+    <div class="age-card">
+      <div class="age-label">4–6 Jahre</div>
+      <h4>Einfach und konkret</h4>
+      <p>«Mama ist krank in ihrem Kopf. Das macht sie manchmal traurig oder sehr aufgeregt. Das ist nicht deine Schuld.»</p>
+      <p>Kinder in diesem Alter brauchen vor allem Körperkontakt, Routinen und die Gewissheit: «Du bist sicher.»</p>
+    </div>
+    <div class="age-card">
+      <div class="age-label">7–12 Jahre</div>
+      <h4>Mehr Zusammenhang</h4>
+      <p>«Papa hat eine Krankheit, die dafür sorgt, dass er manchmal sehr viel Energie hat und dann wieder gar keine. Sie heisst bipolare Störung. Er nimmt Medikamente dagegen.»</p>
+      <p>Schulkinder verstehen Ursache und Wirkung. Geben Sie ihnen Sprache für das, was sie sehen — und erlauben Sie Fragen.</p>
+    </div>
+    <div class="age-card">
+      <div class="age-label">13+ Jahre</div>
+      <h4>Offen und respektvoll</h4>
+      <p>Jugendliche dürfen mehr wissen — aber bleiben Sie in der Elternrolle. Kein Ausweinen bei ihnen, keine Bewertungen der erkrankten Person. Sie sollen informiert sein, nicht zum Partner-Ersatz werden.</p>
+      <p>«Wenn du Fragen hast, beantworte ich sie so ehrlich ich kann.»</p>
+    </div>
+  </div>
+
   <h3 class="reveal">Parentifizierung — wenn Kinder Erwachsene werden</h3>
   <p class="reveal">Manchmal übernehmen Kinder Aufgaben, die nicht für ihr Alter gedacht sind: Sie beruhigen, beobachten, schützen oder passen sich übermässig an. Es geht nicht nur um Haushalt, sondern um <em>emotionale Verantwortung</em>: das Kind, das spürt, dass es die Stimmung im Haus mitregulieren muss. Studien zeigen ein erhöhtes Risiko für spätere psychische Belastungen (Hooper et al., 2011).</p>
 
@@ -467,6 +496,15 @@
     <blockquote>Ich habe erst mit 25 verstanden, dass nicht jede Familie so lebt. Dass andere Kinder nicht gelernt haben, morgens zuerst die Stimmung im Haus zu lesen. Ich bin nicht wütend auf ihn — er ist krank, und er kämpft. Aber ich trauere um die Kindheit, die anders hätte sein können.</blockquote>
     <cite>— Lukas, 28 Jahre, Sohn eines betroffenen Vaters (anonymisiert)</cite>
   </div>
+
+  <h3 class="reveal">Wenn Parentifizierung bereits passiert ist</h3>
+  <p class="reveal">Wenn Sie merken, dass Ihr Kind bereits zu viel trägt — emotionale Verantwortung übernimmt, das Haus «im Blick hält» oder seine eigenen Bedürfnisse systematisch hintenanstellt — ist das ein Signal zum Handeln, nicht zur Schuld.</p>
+  <ul class="reveal" style="margin:12px 0 16px 20px;line-height:1.9;color:var(--text-secondary,#475569);font-size:0.9rem">
+    <li>Sprechen Sie das Kind direkt und klar an: «Das ist nicht deine Aufgabe. Du darfst Kind sein.»</li>
+    <li>Verringern Sie sichtbar die Verantwortung des Kindes — konkret und wiederholt.</li>
+    <li>Sprechen Sie mit der Schule: Lehrpersonen und Schulsozialarbeit können früh entlasten.</li>
+    <li>Holen Sie Fachunterstützung: <a href="https://www.kinderseele.ch" target="_blank" rel="noopener" style="color:var(--sage-500)">kinderseele.ch</a> bietet Beratung. In der Schweiz gibt es spezialisierte Angebote für Kinder psychisch belasteter Eltern, z.B. über die <strong>KJPD-Kliniken</strong> (Kinder- und Jugendpsychiatrische Dienste) in Ihrem Kanton.</li>
+  </ul>
 
   <!-- Genetik FAQ -->
   <div class="accordion-item reveal">
@@ -485,7 +523,7 @@
         <p>Ja, die Genetik spielt eine Rolle. Die Heritabilität liegt bei 60–85% (Craddock & Sklar, 2013). Aber: Ein erhöhtes Risiko ist keine Gewissheit. <strong>Die meisten Kinder betroffener Eltern entwickeln keine bipolare Störung.</strong></p>
         <p><strong>Im Alltag:</strong> Aufmerksam sein reicht — bei Schlafveränderungen, extremen Stimmungsschwankungen in der Pubertät oder anhaltendem Rückzug.</p>
         <p><strong>Aufklärung schützt:</strong> «Papa hat eine Erkrankung im Gehirn. Das hat nichts mit dir zu tun.» Schweigen macht Kindern mehr Angst als Ehrlichkeit.</p>
-        <p><strong>Bei Sorgen:</strong> Sprechen Sie das Behandlungsteam an. Für Kinder psychisch belasteter Eltern: <a href="https://www.kinderseele.ch" style="color:var(--sage-500)">kinderseele.ch</a></p>
+        <p><strong>Bei Sorgen:</strong> Sprechen Sie das Behandlungsteam an. Für Kinder psychisch belasteter Eltern: <a href="https://www.kinderseele.ch" target="_blank" rel="noopener" style="color:var(--sage-500)">kinderseele.ch</a> · Online-Ressource für Kinder: <a href="https://www.kidkit.de" target="_blank" rel="noopener" style="color:var(--sage-500)">kidkit.de</a></p>
       </div>
     </div>
   </div>
