@@ -84,10 +84,27 @@
 
   /* GRAUZONE */
   .grauzone{background:var(--warm-100);border-radius:var(--radius-xl);padding:32px;margin:40px 0}
-  .grauzone h3{font-family:'Source Serif 4',serif;font-size:1.05rem;font-weight:600;color:var(--earth-800);margin:20px 0 8px}
-  .grauzone h3:first-of-type{margin-top:0}
-  .grauzone p{font-size:0.9rem;color:var(--text-secondary);line-height:1.6;margin:0 0 8px}
   .grauzone-rule{background:white;border-radius:var(--radius-md);padding:18px 22px;margin:20px 0;font-size:0.92rem;color:var(--sage-700);font-weight:600;line-height:1.5}
+  .grauzone-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 16px}
+  .grauzone-card{background:white;border-radius:var(--radius-md);overflow:hidden;display:flex;flex-direction:column}
+  .grauzone-card-top{padding:16px 18px 12px;flex:1}
+  .grauzone-scenario{font-family:'Source Serif 4',serif;font-size:0.98rem;font-weight:600;color:var(--earth-800);margin:0 0 8px;line-height:1.4}
+  .grauzone-card-top p{font-size:0.87rem;color:var(--text-secondary);line-height:1.55;margin:0}
+  .grauzone-action{padding:12px 18px;font-size:0.87rem;font-weight:600;line-height:1.5}
+  .grauzone-action--amber{background:var(--amber-bg);color:#92400e;border-top:2px solid #f9c97c}
+  .grauzone-action--teal{background:#e6f4f2;color:var(--teal);border-top:2px solid var(--teal-light)}
+  .grauzone-action--red{background:var(--alert-red-bg);color:var(--alert-red);border-top:2px solid var(--alert-red-border)}
+  @media(max-width:700px){.grauzone-grid{grid-template-columns:1fr}}
+
+  /* NACH DER AKUTEN SICHERUNG */
+  .after-steps{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 24px}
+  .after-step{display:flex;gap:14px;align-items:flex-start;background:var(--warm-100);border-radius:var(--radius-md);padding:16px 18px}
+  .after-step-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--teal);color:white;font-size:0.82rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .after-step-body{display:flex;flex-direction:column;gap:4px}
+  .after-step-body strong{font-size:0.92rem;color:var(--earth-800);display:block}
+  .after-step-body span{font-size:0.86rem;color:var(--text-secondary);line-height:1.55}
+  .after-step-why{font-size:0.8rem!important;color:var(--text-muted)!important;font-style:italic;margin-top:4px}
+  @media(max-width:600px){.after-steps{grid-template-columns:1fr}}
 
   footer{background:var(--earth-900);color:rgba(255,255,255,0.6);padding:48px 2rem 32px;margin-top:80px}.footer-inner{max-width:var(--content-width);margin:0 auto;text-align:center}.footer-inner p{font-size:0.8rem;line-height:1.7;margin-bottom:4px}.footer-inner a{color:rgba(255,255,255,0.5);text-decoration:none}.footer-links{margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08);font-size:0.75rem}.footer-links a{margin:0 10px}
 
@@ -325,26 +342,69 @@
   <div class="grauzone">
     <h2 style="margin:0 0 16px;padding:0;border:none;font-size:1.3rem">Wenn Sie unsicher sind, ob es schon ein Notfall ist</h2>
 
-    <h3>«Es könnte schlimmer werden»</h3>
-    <p>Frühe Warnsignale, aber noch "funktionsfähig". <strong>→ Jetzt handeln.</strong> Behandlungsteam kontaktieren. Frühe Eskalation ernst zu nehmen ist fast immer besser als warten.</p>
-
-    <h3>«Er/sie sagt, es ist nichts»</h3>
-    <p>Die Person verneint. Sie sehen es aber. <strong>→ Vertrauen Sie Ihrer Wahrnehmung.</strong> Kontaktieren Sie das Behandlungsteam — das dürfen Sie immer, auch ohne Einwilligung.</p>
-
-    <h3>«Ich weiss nicht, ob es ernst gemeint ist»</h3>
-    <p>Suizidgedanken "nur als Witz" oder beiläufig geäussert. <strong>→ Immer ernst nehmen.</strong> Direkt fragen, dann Fachpersonen einbeziehen.</p>
+    <div class="grauzone-grid">
+      <div class="grauzone-card">
+        <div class="grauzone-card-top">
+          <p class="grauzone-scenario">«Es könnte schlimmer werden»</p>
+          <p>Frühe Warnsignale, aber noch "funktionsfähig".</p>
+        </div>
+        <div class="grauzone-action grauzone-action--amber">→ Jetzt handeln. Behandlungsteam kontaktieren. Frühe Eskalation ernst zu nehmen ist fast immer besser als warten.</div>
+      </div>
+      <div class="grauzone-card">
+        <div class="grauzone-card-top">
+          <p class="grauzone-scenario">«Er/sie sagt, es ist nichts»</p>
+          <p>Die Person verneint. Sie sehen es aber.</p>
+        </div>
+        <div class="grauzone-action grauzone-action--teal">→ Vertrauen Sie Ihrer Wahrnehmung. Kontaktieren Sie das Behandlungsteam — das dürfen Sie immer, auch ohne Einwilligung.</div>
+      </div>
+      <div class="grauzone-card">
+        <div class="grauzone-card-top">
+          <p class="grauzone-scenario">«Ich weiss nicht, ob es ernst gemeint ist»</p>
+          <p>Suizidgedanken „nur als Witz" oder beiläufig geäussert.</p>
+        </div>
+        <div class="grauzone-action grauzone-action--red">→ Immer ernst nehmen. Direkt fragen, dann Fachpersonen einbeziehen.</div>
+      </div>
+    </div>
 
     <div class="grauzone-rule">Faustregel: Lieber einmal zu viel anrufen als einmal zu wenig. Der Notfalldienst ist dafür da, Ihnen bei der Einschätzung zu helfen.</div>
   </div>
 
   <h2>Nach der akuten Sicherung</h2>
   <p>Wenn die Lage fürs Erste gesichert ist, beginnt oft erst der zweite schwierige Teil: einordnen, dokumentieren, nachfassen und nicht wieder allein damit bleiben.</p>
-  <ul style="list-style:none;margin:0 0 20px">
-    <li style="font-size:0.92rem;color:var(--text-secondary);padding:6px 0 6px 20px;position:relative;line-height:1.6"><span style="position:absolute;left:0;color:var(--sage-400);font-weight:700">→</span>Kurz notieren, was passiert ist: Verhalten, Aussagen, Auslöser, Anrufe, Interventionen.</li>
-    <li style="font-size:0.92rem;color:var(--text-secondary);padding:6px 0 6px 20px;position:relative;line-height:1.6"><span style="position:absolute;left:0;color:var(--sage-400);font-weight:700">→</span>Krisenplan ergänzen oder neu anlegen, solange die Situation noch präsent ist.</li>
-    <li style="font-size:0.92rem;color:var(--text-secondary);padding:6px 0 6px 20px;position:relative;line-height:1.6"><span style="position:absolute;left:0;color:var(--sage-400);font-weight:700">→</span>Bleiben Sie nach der Akutlage nicht allein: Fachstelle, Notfalldienst oder Vertrauensperson einbeziehen.</li>
-    <li style="font-size:0.92rem;color:var(--text-secondary);padding:6px 0 6px 20px;position:relative;line-height:1.6"><span style="position:absolute;left:0;color:var(--sage-400);font-weight:700">→</span>Wenn jetzt eher Vorbereitung, Kommunikation oder rechtliche Klärung anstehen, gehen Sie gezielt weiter.</li>
-  </ul>
+  <div class="after-steps">
+    <div class="after-step">
+      <div class="after-step-num">1</div>
+      <div class="after-step-body">
+        <strong>Dokumentieren</strong>
+        <span>Kurz notieren, was passiert ist: Verhalten, Aussagen, Auslöser, Anrufe, Interventionen.</span>
+        <span class="after-step-why">Schriftliches hilft beim nächsten Gespräch mit dem Behandlungsteam.</span>
+      </div>
+    </div>
+    <div class="after-step">
+      <div class="after-step-num">2</div>
+      <div class="after-step-body">
+        <strong>Krisenplan ergänzen</strong>
+        <span>Krisenplan aktualisieren oder neu anlegen, solange die Situation noch präsent ist.</span>
+        <span class="after-step-why">Frische Eindrücke liefern die genauesten Informationen für den nächsten Notfall.</span>
+      </div>
+    </div>
+    <div class="after-step">
+      <div class="after-step-num">3</div>
+      <div class="after-step-body">
+        <strong>Nicht allein bleiben</strong>
+        <span>Fachstelle, Notfalldienst oder Vertrauensperson einbeziehen.</span>
+        <span class="after-step-why">Akute Situationen hinterlassen Spuren — auch bei Ihnen. Holen Sie sich Unterstützung.</span>
+      </div>
+    </div>
+    <div class="after-step">
+      <div class="after-step-num">4</div>
+      <div class="after-step-body">
+        <strong>Nächste Schritte klären</strong>
+        <span>Wenn jetzt Vorbereitung, Kommunikation oder rechtliche Klärung anstehen, gehen Sie gezielt weiter.</span>
+        <span class="after-step-why">Die Akutlage ist vorbei — aber Nachsorge und Planung beginnen jetzt.</span>
+      </div>
+    </div>
+  </div>
 
   <p style="font-size:0.88rem;color:var(--text-muted);text-align:center;margin-top:32px"><strong>Diese Kurzanleitungen ersetzen keine professionelle Beratung.</strong> Sie geben Orientierung für die ersten Minuten. Wenn Sie unsicher sind, rufen Sie immer an.</p>
 
