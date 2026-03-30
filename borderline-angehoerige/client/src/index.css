@@ -1,0 +1,570 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Sanctuary Calm Design System */
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* =============================================
+     SANCTUARY CALM – Design Token Palette
+     Alle Farben zentral definiert. Keine hard-coded
+     oklch/hex-Werte in Komponenten verwenden!
+     ============================================= */
+
+  /* --- Warm Family (Hue 55/85) --- */
+  --color-terracotta-darker: oklch(
+    0.35 0.1 55
+  ); /* Dunkler Text auf warmen BGs */
+  --color-terracotta-dark: oklch(0.45 0.12 55); /* Hover/Active States */
+  --color-terracotta-mid: oklch(
+    0.55 0.15 55
+  ); /* Starker Akzent-Text, Borders */
+  --color-terracotta: oklch(0.57 0.13 55); /* Primary – WCAG AA konform */
+  --color-terracotta-light: oklch(0.85 0.08 55); /* Light Accent */
+  --color-terracotta-lighter: oklch(0.92 0.05 55); /* Subtle Backgrounds */
+  --color-terracotta-wash: oklch(0.95 0.02 55); /* Sehr helle Hintergründe */
+  --color-sand-warm: oklch(0.55 0.1 85); /* Warme Borders/Dividers */
+  --color-sand-mid: oklch(0.6 0.1 85); /* Borders, muted elements */
+  --color-sand-accent: oklch(0.65 0.15 85); /* Warmer Akzent */
+  --color-sand-border: oklch(0.75 0.08 85); /* Card Borders */
+  --color-sand-subtle: oklch(0.88 0.04 85); /* Subtle Borders */
+  --color-sand-muted: oklch(0.94 0.02 85); /* Muted Backgrounds */
+  --color-sand: oklch(0.96 0.02 85); /* Background */
+  --color-cream: oklch(0.98 0.01 85); /* Card BG */
+
+  /* --- Teal Family (Hue 190, mapped from SA #1E656D) --- */
+  --color-sage-darker: oklch(0.35 0.07 190);
+  --color-sage-dark: oklch(0.44 0.07 190); /* ≈ SA --teal #1E656D */
+  --color-sage-mid: oklch(0.52 0.09 190);
+  --color-sage: oklch(0.62 0.07 190);
+  --color-sage-light: oklch(0.88 0.04 190);
+  --color-sage-lighter: oklch(0.92 0.03 190);
+  --color-sage-wash: oklch(0.95 0.02 190);
+  --color-sage-pale: oklch(0.97 0.01 190);
+
+  /* --- Slate Family (Hue 250) --- */
+  --color-charcoal: oklch(0.3 0.02 250); /* Darkest text */
+  /* --- Navy Anchor (für Footer, starke Textblöcke) --- */
+  --color-navy: oklch(0.25 0.04 250);
+  --color-navy-light: oklch(0.35 0.03 250);
+  --color-slate-blue: oklch(0.45 0.05 250); /* Links */
+  --color-slate-dark: oklch(0.45 0.08 250); /* Stärkere Links/Icons */
+  --color-slate-mid: oklch(0.55 0.1 250); /* Muted text/icons */
+  --color-slate-light: oklch(0.9 0.03 250); /* Light BGs, Borders */
+  --color-slate-lighter: oklch(0.92 0.04 250); /* Lighter BGs */
+  --color-slate-wash: oklch(0.95 0.02 250); /* Sehr helle Hintergründe */
+  --color-slate-pale: oklch(0.97 0.01 250); /* Palest Slate */
+
+  /* --- Alert Family (Hue 25) --- */
+  --color-alert-dark: oklch(0.45 0.15 25); /* Dunkler Alert-Text */
+  --color-alert: oklch(0.55 0.2 25); /* Destructive/Notfall */
+  --color-alert-light: oklch(0.92 0.06 25); /* Alert Background */
+  --color-alert-wash: oklch(0.96 0.02 25); /* Sehr heller Alert-BG */
+
+  /* --- Soforthilfe Ampel-Farben (funktional-semantisch) ---
+     Rot = Lebensgefahr, Orange = Psych. Krise, Grün = Entlastung,
+     Lila = Vergiftung, Amber = Warnung. Nur auf Soforthilfe-Seite. */
+  --color-sos-rot: oklch(0.45 0.18 25); /* #C0392B – Block Lebensgefahr */
+  --color-sos-rot-body: oklch(0.5 0.16 25); /* #D44333 – Karten-Hintergrund */
+  --color-sos-rot-wash: oklch(0.95 0.02 25); /* ~red-50 – Hero-Gradient */
+  --color-sos-orange: oklch(0.6 0.15 55); /* ~orange-500 – Krisen-Icon-BG */
+  --color-sos-orange-dark: oklch(0.35 0.08 55); /* ~orange-900 – Titel */
+  --color-sos-orange-mid: oklch(0.4 0.1 55); /* ~orange-800 – Subtext */
+  --color-sos-orange-text: oklch(0.5 0.12 55); /* ~orange-700 – Icons/Labels */
+  --color-sos-orange-light: oklch(0.92 0.04 55); /* ~orange-100 – Icon-BG */
+  --color-sos-orange-wash: oklch(0.97 0.02 55); /* ~orange-50 – Section-BG */
+  --color-sos-orange-border: oklch(0.85 0.06 55); /* ~orange-200 – Borders */
+  --color-sos-orange-border-h: oklch(
+    0.75 0.1 55
+  ); /* ~orange-400 – Hover-Border */
+  --color-sos-gruen: oklch(0.5 0.12 145); /* ~green-600 – Icon-BG */
+  --color-sos-gruen-dark: oklch(0.35 0.08 145); /* ~green-900 – Titel */
+  --color-sos-gruen-mid: oklch(0.4 0.1 145); /* ~green-800 – Subtext */
+  --color-sos-gruen-text: oklch(0.5 0.1 145); /* ~green-700 – Icons/Labels */
+  --color-sos-gruen-light: oklch(0.92 0.04 145); /* ~green-100 – Icon-BG */
+  --color-sos-gruen-wash: oklch(0.97 0.02 145); /* ~green-50 – Section-BG */
+  --color-sos-gruen-border: oklch(0.85 0.06 145); /* ~green-200 – Borders */
+  --color-sos-gruen-border-h: oklch(
+    0.75 0.1 145
+  ); /* ~green-400 – Hover-Border */
+  --color-sos-lila: oklch(0.45 0.15 305); /* ~purple-600 – Icon-BG */
+  --color-sos-lila-dark: oklch(0.35 0.08 305); /* ~purple-900 – Titel */
+  --color-sos-lila-text: oklch(0.5 0.12 305); /* ~purple-700 – Icons/Labels */
+  --color-sos-lila-light: oklch(0.92 0.04 305); /* ~purple-100 – Icon-BG */
+  --color-sos-lila-wash: oklch(0.97 0.02 305); /* ~purple-50 – Section-BG */
+  --color-sos-lila-border: oklch(0.85 0.06 305); /* ~purple-200 – Borders */
+  --color-sos-lila-border-h: oklch(
+    0.75 0.1 305
+  ); /* ~purple-400 – Hover-Border */
+  --color-sos-amber-text: oklch(0.5 0.12 85); /* ~amber-600 – Warn-Icon */
+  --color-sos-amber-wash: oklch(0.97 0.03 85); /* ~amber-50 – Warn-BG */
+  --color-sos-amber-border: oklch(0.85 0.06 85); /* ~amber-200 – Warn-Border */
+  --color-sos-amber-dark: oklch(0.35 0.06 85); /* ~amber-900 – Warn-Text */
+
+  /* Typography – Design-Lock: Inter exklusiv */
+  --font-display: "Inter", "Inter fallback", sans-serif;
+  --font-body: "Inter", "Inter fallback", sans-serif;
+  --font-heading:
+    "DM Serif Display", "DM Serif Display fallback", Georgia, serif;
+}
+
+:root {
+  /* Sanctuary Calm - Warm, therapeutic palette */
+  --primary: oklch(0.65 0.12 55); /* Terracotta */
+  --primary-foreground: oklch(0.98 0.01 85); /* Cream */
+  --sidebar-primary: oklch(0.65 0.08 145); /* Sage */
+  --sidebar-primary-foreground: oklch(0.98 0.01 85);
+  --chart-1: oklch(0.65 0.12 55); /* Terracotta */
+  --chart-2: oklch(0.65 0.08 145); /* Sage */
+  --chart-3: oklch(0.45 0.05 250); /* Slate Blue */
+  --chart-4: oklch(0.85 0.08 55); /* Light Terracotta */
+  --chart-5: oklch(0.88 0.04 145); /* Light Sage */
+  --radius: 0.75rem;
+  /* Border-Radius Konvention:
+     rounded-sm  (4px)  = Tags, Badges, kleine Chips
+     rounded-md  (6px)  = Buttons, Inputs
+     rounded-lg  (12px) = Standard-Elemente, Listen-Items, kleine Cards
+     rounded-xl  (16px) = Karten, Content-Boxen, Hero-Icon-Boxen
+     rounded-2xl (20px) = Spezial-Blöcke (Soforthilfe Ampel-Blöcke) */
+  --background: oklch(0.985 0.003 200); /* Kühles Off-White ≈ SA #FAFAF7 */
+  --foreground: oklch(0.25 0.02 250); /* Charcoal */
+  --card: oklch(0.99 0.008 85); /* Cream */
+  --card-foreground: oklch(0.25 0.02 250);
+  --popover: oklch(0.99 0.008 85);
+  --popover-foreground: oklch(0.25 0.02 250);
+  --secondary: oklch(0.88 0.04 145); /* Light Sage */
+  --secondary-foreground: oklch(0.3 0.04 145);
+  --muted: oklch(0.94 0.01 85);
+  --muted-foreground: oklch(
+    0.45 0.02 250
+  ); /* Darkened for WCAG AA 4.5:1 contrast */
+  --accent: oklch(0.85 0.08 55); /* Light Terracotta */
+  --accent-foreground: oklch(0.3 0.08 55);
+  --destructive: oklch(
+    0.55 0.2 25
+  ); /* AUSNAHME: Funktionales Rot nur für Soforthilfe/Notfall/Alarm. Nicht als allgemeine Akzentfarbe verwenden. */
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.9 0.02 85);
+  --input: oklch(0.92 0.015 85);
+  --ring: oklch(0.65 0.12 55); /* Terracotta */
+  --sidebar: oklch(0.98 0.01 85);
+  --sidebar-foreground: oklch(0.25 0.02 250);
+  --sidebar-accent: oklch(0.94 0.02 85);
+  --sidebar-accent-foreground: oklch(0.25 0.02 250);
+  --sidebar-border: oklch(0.9 0.02 85);
+  --sidebar-ring: oklch(0.65 0.12 55);
+}
+
+.dark {
+  --primary: oklch(0.75 0.1 55);
+  --primary-foreground: oklch(0.15 0.02 55);
+  --sidebar-primary: oklch(0.7 0.08 145);
+  --sidebar-primary-foreground: oklch(0.15 0.02 145);
+  --background: oklch(0.18 0.02 250);
+  --foreground: oklch(0.92 0.01 85);
+  --card: oklch(0.22 0.02 250);
+  --card-foreground: oklch(0.92 0.01 85);
+  --popover: oklch(0.22 0.02 250);
+  --popover-foreground: oklch(0.92 0.01 85);
+  --secondary: oklch(0.28 0.03 145);
+  --secondary-foreground: oklch(0.85 0.04 145);
+  --muted: oklch(0.25 0.02 250);
+  --muted-foreground: oklch(0.65 0.02 85);
+  --accent: oklch(0.35 0.06 55);
+  --accent-foreground: oklch(0.92 0.04 55);
+  --destructive: oklch(0.65 0.18 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.3 0.02 250);
+  --input: oklch(0.28 0.02 250);
+  --ring: oklch(0.7 0.1 55);
+  --chart-1: oklch(0.75 0.1 55);
+  --chart-2: oklch(0.7 0.08 145);
+  --chart-3: oklch(0.55 0.05 250);
+  --chart-4: oklch(0.6 0.08 55);
+  --chart-5: oklch(0.6 0.06 145);
+  --sidebar: oklch(0.22 0.02 250);
+  --sidebar-foreground: oklch(0.92 0.01 85);
+  --sidebar-accent: oklch(0.28 0.02 250);
+  --sidebar-accent-foreground: oklch(0.92 0.01 85);
+  --sidebar-border: oklch(0.3 0.02 250);
+  --sidebar-ring: oklch(0.7 0.1 55);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+    font-family: var(--font-body);
+  }
+  h1,
+  h2 {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-body);
+    font-weight: 600;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+
+  /* Breathing animation for emergency button */
+  @keyframes breathe {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.02);
+      opacity: 0.95;
+    }
+  }
+
+  .animate-breathe {
+    animation: breathe 4s ease-in-out infinite;
+  }
+}
+
+/* ========================================
+   PRINT STYLES - Druckerfreundliche Version
+   Print-Tokens: Bewusst einfache Graustufen
+   für maximale Druckkompatibilität.
+   ======================================== */
+@media print {
+  :root {
+    --print-border-light: #ddd;
+    --print-border-mid: #999;
+    --print-border-dark: #333;
+    --print-bg-subtle: #f9f9f9;
+    --print-bg-header: #f0f0f0;
+    --print-bg-badge: #f5f5f5;
+    --print-text-muted: #666;
+    --print-border-accent: #ccc;
+  }
+
+  /* Grundlegende Print-Einstellungen */
+  @page {
+    size: A4;
+    margin: 2cm 1.5cm;
+  }
+
+  /* Hintergrund und Farben für Druck optimieren */
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  /* Navigation, Footer und interaktive Elemente ausblenden */
+  header,
+  footer,
+  nav,
+  .soforthilfe-button,
+  button:not(.print-visible),
+  [data-print-hide="true"],
+  .animate-breathe,
+  .search-button,
+  [role="dialog"],
+  .fixed {
+    display: none !important;
+  }
+
+  /* Container-Breite für Druck optimieren */
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Überschriften optimieren */
+  h1 {
+    font-size: 24pt !important;
+    margin-bottom: 0.5cm !important;
+    color: black !important;
+    page-break-after: avoid;
+  }
+
+  h2 {
+    font-size: 18pt !important;
+    margin-top: 1cm !important;
+    margin-bottom: 0.3cm !important;
+    color: black !important;
+    page-break-after: avoid;
+    border-bottom: 1pt solid var(--print-border-accent);
+    padding-bottom: 0.2cm;
+  }
+
+  h3 {
+    font-size: 14pt !important;
+    margin-top: 0.5cm !important;
+    margin-bottom: 0.2cm !important;
+    color: black !important;
+    page-break-after: avoid;
+  }
+
+  /* Absätze und Text */
+  p {
+    orphans: 3;
+    widows: 3;
+    margin-bottom: 0.3cm;
+  }
+
+  /* Links mit URL anzeigen */
+  a[href^="http"]:after,
+  a[href^="https"]:after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: var(--print-text-muted);
+    word-break: break-all;
+  }
+
+  /* Interne Links ohne URL */
+  a[href^="/"]:after {
+    content: "";
+  }
+
+  /* Karten für Druck optimieren */
+  .card,
+  [class*="Card"] {
+    border: 1pt solid var(--print-border-light) !important;
+    box-shadow: none !important;
+    background: white !important;
+    page-break-inside: avoid;
+    margin-bottom: 0.5cm;
+    padding: 0.3cm !important;
+  }
+
+  /* Bilder optimieren */
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  /* Hero-Bilder ausblenden (zu gross für Druck) */
+  section:first-of-type img {
+    display: none !important;
+  }
+
+  /* Listen optimieren */
+  ul,
+  ol {
+    margin-left: 1cm;
+    page-break-inside: avoid;
+  }
+
+  li {
+    margin-bottom: 0.15cm;
+  }
+
+  /* Zitat-Boxen hervorheben */
+  blockquote,
+  .quote-box,
+  [class*="quote"] {
+    border-left: 3pt solid var(--print-border-mid) !important;
+    padding-left: 0.5cm !important;
+    margin: 0.5cm 0 !important;
+    font-style: italic;
+    background: var(--print-bg-subtle) !important;
+    page-break-inside: avoid;
+  }
+
+  /* Tabellen optimieren */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    page-break-inside: avoid;
+  }
+
+  th,
+  td {
+    border: 1pt solid var(--print-border-light);
+    padding: 0.2cm;
+    text-align: left;
+  }
+
+  th {
+    background: var(--print-bg-header) !important;
+    font-weight: bold;
+  }
+
+  /* Seitenumbrüche kontrollieren */
+  section {
+    page-break-inside: avoid;
+  }
+
+  /* Wichtige Hinweise hervorheben */
+  .alert,
+  .warning,
+  [class*="Alert"],
+  [class*="Warning"] {
+    border: 2pt solid var(--print-border-dark) !important;
+    padding: 0.3cm !important;
+    background: white !important;
+    page-break-inside: avoid;
+  }
+
+  /* Akkordeons aufklappen */
+  details {
+    display: block !important;
+  }
+
+  details[open] summary ~ * {
+    display: block !important;
+  }
+
+  /* Farbige Badges in Graustufen */
+  .badge,
+  [class*="Badge"] {
+    border: 1pt solid var(--print-border-mid) !important;
+    background: var(--print-bg-badge) !important;
+    color: black !important;
+  }
+
+  /* Icons für Druck anpassen */
+  svg {
+    fill: currentColor !important;
+    stroke: currentColor !important;
+  }
+
+  /* Krisenmatrix-Karten für Druck */
+  .crisis-card,
+  [class*="crisis"] {
+    border: 1pt solid var(--print-text-muted) !important;
+    background: white !important;
+  }
+
+  /* Notfall-Nummern hervorheben */
+  .emergency-number,
+  [class*="emergency"],
+  a[href^="tel:"] {
+    font-weight: bold !important;
+    font-size: 12pt !important;
+  }
+
+  /* Hintergrundfarben entfernen */
+  * {
+    background-color: transparent !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ── Notfallkarte: kompaktes Druck-Layout ── */
+  /* Notfallkarte-spezifische Print-Styles: siehe notfallkarte-print.css */
+}
+
+/* Scrollbar ausblenden für horizontale Tab-Leisten */
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Reduced Motion: Animationen für Nutzer deaktivieren ── */
+/* WCAG 2.3.3 — respektiert Betriebssystem-Einstellung */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Mobile-Menü offen: Floating Buttons ausblenden ── */
+/* Verhindert Overlap mit ScrollToTop, TOC-Button und anderen FABs */
+@media (max-width: 1023px) {
+  body[data-mobile-menu="open"] button.fixed[class*="bottom-"],
+  body[data-mobile-menu="open"] a.fixed[class*="bottom-"] {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: opacity 0.2s ease;
+  }
+}

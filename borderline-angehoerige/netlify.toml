@@ -1,0 +1,69 @@
+[build]
+  command = "npx vite build"
+  publish = "dist/public"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.woff2"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(self)"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://forge.butterfly-effect.dev; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://files.manuscdn.com data:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://forge.butterfly-effect.dev; media-src 'self' https://files.manuscdn.com; frame-ancestors 'none'"
+
+[[redirects]]
+  from = "/notfallkarte.html"
+  to = "/notfallkarte.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/notfall"
+  to = "/soforthilfe"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/selbsttest"
+  to = "/selbsttest/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/selbsttest/"
+  to = "/selbsttest/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/*.pdf"
+  to = "/:splat.pdf"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/*.webp"
+  to = "/:splat.webp"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

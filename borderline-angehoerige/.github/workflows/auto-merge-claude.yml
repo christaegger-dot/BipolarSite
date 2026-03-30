@@ -1,0 +1,86 @@
+name: Auto-PR and merge for Claude Code
+on:
+  push:
+    branches:
+      - "claude/**"
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  create-and-merge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Create or find PR and merge
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="${{ github.ref_name }}"
+          echo "Branch: $BRANCH"
+
+          # 1. Pruefen ob Branch noch existiert
+          if ! git ls-remote --exit-code origin "$BRANCH" > /dev/null 2>&1; then
+            echo "Branch $BRANCH existiert nicht mehr - Workflow beendet."
+            exit 0
+          fi
+
+          # 2. Bereits in main enthalten? -> sauber abbrechen
+          git fetch origin main
+          if git merge-base --is-ancestor HEAD origin/main; then
+            echo "Branch bereits in main enthalten - nichts zu tun."
+            exit 0
+          fi
+
+          # 3. Offene PR suchen
+          PR_URL=$(gh pr list --head "$BRANCH" --state open --json url -q '.[0].url' 2>/dev/null || echo "")
+
+          # 4. Keine offene PR -> neue erstellen
+          if [ -z "$PR_URL" ]; then
+            echo "Erstelle neue PR..."
+            CREATE_OUT=$(gh pr create \
+              --title "Auto: $BRANCH" \
+              --body "Auto-created by workflow" \
+              --base main \
+              --head "$BRANCH" 2>&1) || true
+            if echo "$CREATE_OUT" | grep -q "https://"; then
+              PR_URL=$(echo "$CREATE_OUT" | grep -o "https://github.com[^ ]*")
+              echo "PR erstellt: $PR_URL"
+            else
+              echo "PR create fehlgeschlagen oder kein Diff: $CREATE_OUT"
+              exit 0
+            fi
+          else
+            echo "Bestehende PR gefunden: $PR_URL"
+          fi
+
+          # 5. Auf CI-Checks warten (max 10 Min)
+          echo "Warte auf CI-Checks..."
+          for i in $(seq 1 20); do
+            sleep 30
+            STATUS=$(gh pr checks "$PR_URL" --json state -q '.[].state' 2>/dev/null || echo "PENDING")
+            echo "  Versuch $i: $STATUS"
+            if echo "$STATUS" | grep -q "FAILURE"; then
+              echo "CI fehlgeschlagen - PR bleibt offen fuer manuelle Bearbeitung"
+              exit 0
+            fi
+            if ! echo "$STATUS" | grep -qE "PENDING|QUEUED|IN_PROGRESS"; then
+              echo "Alle Checks bestanden."
+              break
+            fi
+            if [ "$i" -eq 20 ]; then
+              echo "Timeout - Checks laufen noch. PR bleibt offen."
+              exit 0
+            fi
+          done
+
+          # 6. Merge versuchen
+          if gh pr merge --merge "$PR_URL" 2>&1; then
+            echo "PR erfolgreich gemergt"
+            git push origin --delete "$BRANCH" 2>/dev/null || true
+          else
+            echo "Merge fehlgeschlagen - PR bleibt offen fuer manuelle Bearbeitung"
+            exit 0
+          fi
