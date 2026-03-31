@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../favicon.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <meta name="description" content="Kommunikations-Trainer: 8 Situationen aus Manie, Depression, Frühwarnung und Post-Episode. Welche Antwort hilft — und warum? PUK Zürich.">
 <title>Kommunikations-Trainer | PUK Zürich</title>
 <link rel="canonical" href="https://www.pukzh.ch/tools/komm-trainer/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../fonts/fonts.css">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-height:100vh;display:flex;flex-direction:column;align-items:center;-webkit-font-smoothing:antialiased}
@@ -118,11 +119,11 @@ function rn(){
     ${opts.map((o,i)=>{
       const revealed=sel!==null;const isSel=sel===i;const isOk=o.ok;
       let cls='opt-btn';if(revealed){if(isOk)cls+=' correct';else if(isSel&&!isOk)cls+=' wrong';else cls+=' dimmed'}
-      let html=`<button class="${cls}" ${revealed?'disabled':''}onclick="pick(${i})"><span class="mark">${revealed?(isOk?'✓':'✗'):''}</span>${o.t}</button>`;
+      let html=`<button class="${cls}" ${revealed?'disabled':''} data-pick="${i}"><span class="mark">${revealed?(isOk?'✓':'✗'):''}</span>${o.t}</button>`;
       if(revealed&&(isSel||isOk))html+=`<div class="fb ${isOk?'fb-ok':'fb-no'}">${o.fb}</div>`;
       return html;
     }).join('')}
-    ${sel!==null?`<button class="btn-next" onclick="nx()">${ci<S.length-1?'Nächste Situation →':'Auswertung →'}</button>`:''}
+    ${sel!==null?`<button class="btn-next" data-action="nx">${ci<S.length-1?'Nächste Situation →':'Auswertung →'}</button>`:''}
     </div>`;
   }else{
     const pct=Math.round((score.ok/S.length)*100);
@@ -132,13 +133,20 @@ function rn(){
     <h2>${pct>=80?'Sie haben ein gutes Gespür für die Unterschiede.':pct>=50?'Eine brauchbare Basis ist da — mit Übung wird es klarer.':'Kommunikation unter Druck ist schwer — genau dafür ist diese Übung da.'}</h2>
     <p>${pct>=80?'Sie erkennen recht gut, warum Manie und Depression unterschiedliche Sprache brauchen.':'Die Situationen sind absichtlich schwer — im echten Leben bleibt oft kaum Zeit. Entscheidend sind nicht perfekte Sätze, sondern die Grundrichtung.'}</p>
     <div class="rules"><div class="rules-title">Die zwei Grundregeln</div><p><strong>Manie:</strong> Kurz, klar, ein Thema. Nicht argumentieren. Rausgehen, wenn es eskaliert.</p><p><strong>Depression:</strong> Stille Präsenz. Nicht aufmuntern. Gefühle stehen lassen, nicht korrigieren.</p></div>
-    <div class="btns"><button class="btn-r" onclick="rs()">Erneut üben</button><button class="btn-c" onclick="location.href='/modul/6/'">Zurück zu Modul 6 →</button></div></div>`;
+    <div class="btns"><button class="btn-r" data-action="rs">Erneut üben</button><button class="btn-c" data-action="nav" data-href="/modul/6/">Zurück zu Modul 6 →</button></div></div>`;
   }
 }
 function pick(i){if(sel!==null)return;sel=i;const o=shuf[ci][i];score.ok+=o.ok?1:0;score.total++;rn()}
 function nx(){sel=null;if(ci<S.length-1)ci++;else fin=true;rn()}
 function rs(){ci=0;sel=null;score={ok:0,total:0};fin=false;rn()}
 rn();
+document.addEventListener('click',function(e){
+  const p=e.target.closest('[data-pick]');if(p){pick(Number(p.dataset.pick));return;}
+  const a=e.target.closest('[data-action]');if(!a)return;
+  if(a.dataset.action==='nx')nx();
+  else if(a.dataset.action==='rs')rs();
+  else if(a.dataset.action==='nav')location.href=a.dataset.href;
+});
 </script>
 </body>
 </html>

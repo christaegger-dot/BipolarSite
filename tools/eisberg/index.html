@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../favicon.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <meta name="description" content="Interaktive Eisberg-Visualisierung: Was die Welt sieht — und was darunter liegt. Für Angehörige. PUK Zürich.">
 <title>Der Eisberg der Angehörigen | PUK Zürich</title>
 <link rel="canonical" href="https://www.pukzh.ch/tools/eisberg/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../fonts/fonts.css">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-height:100vh;display:flex;flex-direction:column;align-items:center;-webkit-font-smoothing:antialiased}
@@ -103,8 +104,8 @@ const elDc=document.getElementById('dc');
 const elRefl=document.getElementById('refl');
 function ck(id){aid=aid===id?null:id;rev.add(id);rn();}
 function rn(){
-  elTv.innerHTML=V.map((i,idx)=>`<button class="tag tv${aid===i.id?' on':''}" onclick="ck('${i.id}')" style="animation-delay:${Vdelays[idx]}s">${i.l}</button>`).join('');
-  elTi.innerHTML=I.map(i=>{let c='tag ti';if(aid===i.id)c+=' on';else if(rev.has(i.id))c+=' rev';return`<button class="${c}" onclick="ck('${i.id}')">${i.l}</button>`}).join('');
+  elTv.innerHTML=V.map((i,idx)=>`<button class="tag tv${aid===i.id?' on':''}" data-id="${i.id}" style="animation-delay:${Vdelays[idx]}s">${i.l}</button>`).join('');
+  elTi.innerHTML=I.map(i=>{let c='tag ti';if(aid===i.id)c+=' on';else if(rev.has(i.id))c+=' rev';return`<button class="${c}" data-id="${i.id}">${i.l}</button>`}).join('');
   const rc=[...rev].filter(id=>ISet.has(id)).length;
   elCtr.textContent=rc>0?`${rc} von ${I.length} aufgedeckt`:'';
   const it=AMap.get(aid),iv=ISet.has(aid);
@@ -112,6 +113,7 @@ function rn(){
   elRefl.classList.toggle('vis',rc>=4);
 }
 rn();
+document.addEventListener('click',function(e){const b=e.target.closest('.tag[data-id]');if(b)ck(b.dataset.id);});
 </script>
 </body>
 </html>

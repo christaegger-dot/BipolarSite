@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../favicon.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <meta name="description" content="Fünf Stützpfeiler für die lange Strecke: Was trägt Sie gerade, wo fehlt Boden? Standortbestimmung für Angehörige. PUK Zürich.">
 <title>Fünf-Säulen-Check | PUK Zürich</title>
 <link rel="canonical" href="https://www.pukzh.ch/tools/saeulen-check/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../fonts/fonts.css">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-height:100vh;display:flex;flex-direction:column;align-items:center;-webkit-font-smoothing:antialiased}
@@ -85,8 +86,8 @@ function rn(){
   const app=document.getElementById('app');
   const allR=Object.keys(rat).length===P.length;
   if(!show){
-    app.innerHTML=P.map(p=>{const v=rat[p.id];return`<div class="pc" style="border-color:${p.c}"><div class="pc-hdr"><div class="pc-num" style="background:${p.c}">${p.n}</div><h2>${p.l}</h2></div><p>${p.q}</p><div class="sc">${[1,2,3,4,5].map(n=>`<button class="${v===n?'sel':''}" style="${v===n?'background:'+p.c+';border-color:'+p.c:''}" onclick="rate('${p.id}',${n})"><span class="sv">${n}</span><span class="sl">${SL[n-1]}</span></button>`).join('')}</div></div>`}).join('')+
-    `<button class="submit${allR?' ready':''}" ${allR?'onclick="doShow()"':'disabled'}>Auswerten</button>`;
+    app.innerHTML=P.map(p=>{const v=rat[p.id];return`<div class="pc" style="border-color:${p.c}"><div class="pc-hdr"><div class="pc-num" style="background:${p.c}">${p.n}</div><h2>${p.l}</h2></div><p>${p.q}</p><div class="sc">${[1,2,3,4,5].map(n=>`<button class="${v===n?'sel':''}" style="${v===n?'background:'+p.c+';border-color:'+p.c:''}" data-rate="${p.id}" data-rv="${n}"><span class="sv">${n}</span><span class="sl">${SL[n-1]}</span></button>`).join('')}</div></div>`}).join('')+
+    `<button class="submit${allR?' ready':''}" ${allR?'data-action="doShow"':'disabled'}>Auswerten</button>`;
   }else{
     const ts=Object.values(rat).reduce((a,b)=>a+b,0);
     const sorted=[...P].sort((a,b)=>(rat[a.id]||0)-(rat[b.id]||0));
@@ -97,7 +98,7 @@ function rn(){
     ${weak&&rat[weak.id]<4?`<div class="rbox rbox-weak" style="border-color:${weak.c}"><div class="rbox-title" style="color:${weak.c}">Hier fehlt aktuell am meisten Boden: ${weak.l}</div><p style="color:#475569">${weak.lo}</p></div>`:''}
     ${strong&&rat[strong.id]>=4?`<div class="rbox rbox-strong" style="border-color:var(--green-phase)"><div class="rbox-title" style="color:var(--green-phase)">Was Sie bereits trägt: ${strong.l}</div><p style="color:#1c2b3a">${strong.hi}</p></div>`:''}
     <div class="all-detail"><div class="all-title">Alle fünf Bereiche im Detail</div>${P.map(p=>{const v=rat[p.id]||1;return`<div class="ad-row"><div class="ad-num" style="background:${p.c}">${v}</div><div><div class="ad-name">${p.l}</div><div class="ad-text">${v<3?p.lo:p.hi}</div></div></div>`}).join('')}</div>
-    <div class="btns"><button class="btn-r" onclick="rs()">Erneut einschätzen</button><button class="btn-c" onclick="location.href='/modul/7/'">Zurück zu Modul 7 →</button></div>
+    <div class="btns"><button class="btn-r" data-action="rs">Erneut einschätzen</button><button class="btn-c" data-action="nav" data-href="/modul/7/">Zurück zu Modul 7 →</button></div>
     <div class="disc">Standortbestimmung, keine Diagnose. Beginnen Sie dort, wo aktuell am wenigsten trägt oder am meisten Druck entsteht.</div></div>`;
   }
 }
@@ -105,6 +106,13 @@ function rate(id,v){rat[id]=v;rn()}
 function doShow(){show=true;rn();window.scrollTo({top:0,behavior:'smooth'})}
 function rs(){rat={};show=false;rn();window.scrollTo({top:0,behavior:'smooth'})}
 rn();
+document.addEventListener('click',function(e){
+  const r=e.target.closest('[data-rate]');if(r){rate(r.dataset.rate,Number(r.dataset.rv));return;}
+  const a=e.target.closest('[data-action]');if(!a||a.disabled)return;
+  if(a.dataset.action==='doShow')doShow();
+  else if(a.dataset.action==='rs')rs();
+  else if(a.dataset.action==='nav')location.href=a.dataset.href;
+});
 </script>
 </body>
 </html>
