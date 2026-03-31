@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" class="no-js">
 <head>
 <meta charset="UTF-8">
+<script>document.documentElement.classList.remove('no-js')</script>
 <meta name="description" content="Als Angehörige*r bei bipolarer Störung: 8 fundierte Module für Orientierung, Entlastung und konkrete Schritte. Notfallhilfe und interaktive Tools. PUK Zürich.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -550,7 +551,7 @@
   /* ══════════ FOOTER ══════════ */
   footer {
     background: var(--earth-900);
-    color: rgba(255,255,255,0.6);
+    color: rgba(255,255,255,0.75);
     padding: 60px 2rem 40px;
   }
 
@@ -631,6 +632,8 @@
     .reveal { opacity: 1; transform: none; transition: none; }
     .reveal.revealed { opacity: 1; transform: none; }
   }
+  /* Fallback: show all content if JS is disabled */
+  .no-js .reveal { opacity: 1; transform: none; }
 
   /* ══════════ VISITED MODULE BADGE ══════════ */
   .module-card.visited .module-arrow {

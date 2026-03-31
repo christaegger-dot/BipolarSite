@@ -1155,7 +1155,7 @@ section,
 }
 .footer-links a {
   margin: 0 10px !important;
-  color: rgba(255,255,255,0.6) !important;
+  color: rgba(255,255,255,0.75) !important;
   text-decoration: none !important;
 }
 .footer-links a:hover {
@@ -1313,7 +1313,7 @@ section,
 /* ── Footer ── */
 footer {
   background: var(--navy) !important;
-  color: rgba(255,255,255,0.6) !important;
+  color: rgba(255,255,255,0.75) !important;
   padding: var(--space-lg) var(--space-lg) var(--space-2xl) !important;
 }
 
@@ -1322,15 +1322,15 @@ footer {
 }
 
 .footer-brand p {
-  color: rgba(255,255,255,0.5) !important;
+  color: rgba(255,255,255,0.65) !important;
 }
 
 .footer-col h4 {
-  color: rgba(255,255,255,0.4) !important;
+  color: rgba(255,255,255,0.55) !important;
 }
 
 .footer-col a {
-  color: rgba(255,255,255,0.6) !important;
+  color: rgba(255,255,255,0.75) !important;
 }
 
 .footer-col a:hover {
