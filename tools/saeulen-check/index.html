@@ -82,17 +82,17 @@ const P=[
 ];
 const SL=["Kaum","Wenig","Teils","Gut","Stark"];
 let rat={},show=false;
+const elApp=document.getElementById('app');
 function rn(){
-  const app=document.getElementById('app');
   const allR=Object.keys(rat).length===P.length;
   if(!show){
-    app.innerHTML=P.map(p=>{const v=rat[p.id];return`<div class="pc" style="border-color:${p.c}"><div class="pc-hdr"><div class="pc-num" style="background:${p.c}">${p.n}</div><h2>${p.l}</h2></div><p>${p.q}</p><div class="sc">${[1,2,3,4,5].map(n=>`<button class="${v===n?'sel':''}" style="${v===n?'background:'+p.c+';border-color:'+p.c:''}" data-rate="${p.id}" data-rv="${n}"><span class="sv">${n}</span><span class="sl">${SL[n-1]}</span></button>`).join('')}</div></div>`}).join('')+
+    elApp.innerHTML=P.map(p=>{const v=rat[p.id];return`<div class="pc" style="border-color:${p.c}"><div class="pc-hdr"><div class="pc-num" style="background:${p.c}">${p.n}</div><h2>${p.l}</h2></div><p>${p.q}</p><div class="sc">${[1,2,3,4,5].map(n=>`<button class="${v===n?'sel':''}" style="${v===n?'background:'+p.c+';border-color:'+p.c:''}" data-rate="${p.id}" data-rv="${n}"><span class="sv">${n}</span><span class="sl">${SL[n-1]}</span></button>`).join('')}</div></div>`}).join('')+
     `<button class="submit${allR?' ready':''}" ${allR?'data-action="doShow"':'disabled'}>Auswerten</button>`;
   }else{
     const ts=Object.values(rat).reduce((a,b)=>a+b,0);
     const sorted=[...P].sort((a,b)=>(rat[a.id]||0)-(rat[b.id]||0));
     const weak=sorted[0],strong=sorted[sorted.length-1];
-    app.innerHTML=`<div class="res-card"><h2>Was Sie gerade trägt</h2>
+    elApp.innerHTML=`<div class="res-card"><h2>Was Sie gerade trägt</h2>
     <div class="pillars">${P.map(p=>{const v=rat[p.id]||1;const h=(v/5)*160;const isW=p.id===weak.id&&v<4;return`<div class="pillar"><span class="pv" style="color:${p.c}">${v}</span><div class="pb" style="height:${h}px;background:${isW?'repeating-linear-gradient(45deg,'+p.c+'22,'+p.c+'22 4px,'+p.c+'11 4px,'+p.c+'11 8px)':p.c};opacity:${isW?1:0.85};${isW?'border:2px dashed '+p.c:''}"></div><span class="pl" style="color:${p.c}">${p.s}</span></div>`}).join('')}</div>
     <div class="res-score"><span>Gesamt: <strong>${ts}</strong> / ${P.length*5}</span></div>
     ${weak&&rat[weak.id]<4?`<div class="rbox rbox-weak" style="border-color:${weak.c}"><div class="rbox-title" style="color:${weak.c}">Hier fehlt aktuell am meisten Boden: ${weak.l}</div><p style="color:#475569">${weak.lo}</p></div>`:''}

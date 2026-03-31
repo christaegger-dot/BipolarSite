@@ -109,13 +109,13 @@ const S=[
 let ci=0,sel=null,score={ok:0,total:0},fin=false;
 // Shuffle options per scenario (fixed per session)
 const shuf=S.map(s=>Math.random()>0.5?[...s.opts]:[...s.opts].reverse());
+const elProg=document.getElementById('prog');
+const elCd=document.getElementById('card');
 function rn(){
-  const pg=document.getElementById('prog');
-  pg.innerHTML=S.map((_,i)=>`<div class="${i<score.total?'done':i===ci&&!fin?'cur':''}"></div>`).join('');
-  const cd=document.getElementById('card');
+  elProg.innerHTML=S.map((_,i)=>`<div class="${i<score.total?'done':i===ci&&!fin?'cur':''}"></div>`).join('');
   if(!fin){
     const s=S[ci],opts=shuf[ci];
-    cd.innerHTML=`<div class="card-body"><div class="phase-row"><div class="phase-badge phase-${s.ph[0]}">${s.pl}</div><span class="phase-count">Situation ${ci+1} / ${S.length}</span></div><p class="sit">${s.sit}</p><div class="olbl">Wie reagieren Sie?</div>
+    elCd.innerHTML=`<div class="card-body"><div class="phase-row"><div class="phase-badge phase-${s.ph[0]}">${s.pl}</div><span class="phase-count">Situation ${ci+1} / ${S.length}</span></div><p class="sit">${s.sit}</p><div class="olbl">Wie reagieren Sie?</div>
     ${opts.map((o,i)=>{
       const revealed=sel!==null;const isSel=sel===i;const isOk=o.ok;
       let cls='opt-btn';if(revealed){if(isOk)cls+=' correct';else if(isSel&&!isOk)cls+=' wrong';else cls+=' dimmed'}
@@ -129,7 +129,7 @@ function rn(){
     const pct=Math.round((score.ok/S.length)*100);
     const col=pct>=80?'#0d7a5f':pct>=50?'#B45309':'#9A3412';
     const bg=pct>=80?'#e6f4f2':pct>=50?'#fef3e2':'#FEF2F2';
-    cd.innerHTML=`<div class="res"><div class="res-circle" style="background:${bg};border-color:${col}"><span style="color:${col}">${score.ok}/${S.length}</span></div>
+    elCd.innerHTML=`<div class="res"><div class="res-circle" style="background:${bg};border-color:${col}"><span style="color:${col}">${score.ok}/${S.length}</span></div>
     <h2>${pct>=80?'Sie haben ein gutes Gespür für die Unterschiede.':pct>=50?'Eine brauchbare Basis ist da — mit Übung wird es klarer.':'Kommunikation unter Druck ist schwer — genau dafür ist diese Übung da.'}</h2>
     <p>${pct>=80?'Sie erkennen recht gut, warum Manie und Depression unterschiedliche Sprache brauchen.':'Die Situationen sind absichtlich schwer — im echten Leben bleibt oft kaum Zeit. Entscheidend sind nicht perfekte Sätze, sondern die Grundrichtung.'}</p>
     <div class="rules"><div class="rules-title">Die zwei Grundregeln</div><p><strong>Manie:</strong> Kurz, klar, ein Thema. Nicht argumentieren. Rausgehen, wenn es eskaliert.</p><p><strong>Depression:</strong> Stille Präsenz. Nicht aufmuntern. Gefühle stehen lassen, nicht korrigieren.</p></div>
@@ -141,8 +141,8 @@ function nx(){sel=null;if(ci<S.length-1)ci++;else fin=true;rn()}
 function rs(){ci=0;sel=null;score={ok:0,total:0};fin=false;rn()}
 rn();
 document.addEventListener('click',function(e){
-  const p=e.target.closest('[data-pick]');if(p){pick(Number(p.dataset.pick));return;}
-  const a=e.target.closest('[data-action]');if(!a)return;
+  const p=e.target.closest('[data-pick]');if(p&&!p.disabled){pick(Number(p.dataset.pick));return;}
+  const a=e.target.closest('[data-action]');if(!a||a.disabled)return;
   if(a.dataset.action==='nx')nx();
   else if(a.dataset.action==='rs')rs();
   else if(a.dataset.action==='nav')location.href=a.dataset.href;

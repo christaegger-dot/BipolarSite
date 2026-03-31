@@ -113,7 +113,7 @@ function rn(){
   elRefl.classList.toggle('vis',rc>=4);
 }
 rn();
-document.addEventListener('click',function(e){const b=e.target.closest('.tag[data-id]');if(b)ck(b.dataset.id);});
+document.addEventListener('click',function(e){const b=e.target.closest('.tag[data-id]');if(b&&!b.disabled)ck(b.dataset.id);});
 </script>
 </body>
 </html>
