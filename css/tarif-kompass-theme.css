@@ -508,7 +508,7 @@ body::before {
   color: rgba(255,255,255,0.7) !important;
 }
 
-/* ── Module hero (modul/*/index.html) ── */
+/* ── Module hero (modul pages) ── */
 .module-hero {
   background: var(--navy) !important;
   color: white !important;
