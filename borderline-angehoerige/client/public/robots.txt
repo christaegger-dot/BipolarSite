@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://borderline-angehoerige.netlify.app/sitemap.xml
-
-# Crawl-delay for polite crawling
-Crawl-delay: 1
