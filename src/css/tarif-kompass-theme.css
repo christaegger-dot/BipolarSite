@@ -230,7 +230,7 @@ select:focus {
 
 /* ── Base font size (inline has 16px) ── */
 html {
-  font-size: 15px !important;
+  font-size: 15px;
 }
 
 /* Catch-all: remap any remaining Source Serif 4 references to DM Serif Display.
@@ -259,7 +259,7 @@ html {
 
 /* ── Heading font overrides (explicit selectors for robustness) ── */
 h1, h2, h3, h4 {
-  font-family: 'DM Serif Display', serif !important;
+  font-family: 'DM Serif Display', serif;
 }
 
 /* Main site headings */
@@ -272,20 +272,20 @@ h1, h2, h3, h4 {
 .cta-band h2,
 .footer-brand h3,
 .nav-brand-text {
-  font-family: 'DM Serif Display', serif !important;
+  font-family: 'DM Serif Display', serif;
 }
 
 /* Normalize h3 size across all modules (M1-5: 1.25rem, M6-8: 1.15rem, Notfall: 1.1rem) */
 .content h3 {
-  font-size: 1.2rem !important;
-  font-weight: 700 !important;
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 
 /* Prose / quote elements */
 .quote-block blockquote,
 .glaswand-quote,
 .closing-emphasis {
-  font-family: 'DM Serif Display', serif !important;
+  font-family: 'DM Serif Display', serif;
 }
 
 /* Module page specific */
@@ -298,14 +298,14 @@ h1, h2, h3, h4 {
 .refl h3,
 .key-takeaways h3,
 .stat-num {
-  font-family: 'DM Serif Display', serif !important;
+  font-family: 'DM Serif Display', serif;
 }
 
 /* Notfall page */
 .grauzone h3,
 .fu-alert h3,
 .number-card a {
-  font-family: 'DM Serif Display', serif !important;
+  font-family: 'DM Serif Display', serif;
 }
 
 /* Tool pages (hardcoded 'Source Serif 4', Georgia, serif) */
@@ -329,7 +329,7 @@ h1, h2, h3, h4 {
 .print-hdr .print-title,
 .toc-link,
 .res-circle span {
-  font-family: 'DM Serif Display', Georgia, serif !important;
+  font-family: 'DM Serif Display', Georgia, serif;
 }
 
 /* ╔═══════════════════════════════════════════════════════════════════╗
@@ -340,100 +340,100 @@ h1, h2, h3, h4 {
    ╚═══════════════════════════════════════════════════════════════════╝ */
 
 /* ── Nav bar (fixed/sticky top bar) ── */
-nav {
-  background: var(--navy) !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+#navbar {
+  background: var(--navy);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
-nav.scrolled {
-  box-shadow: var(--shadow-nav) !important;
-  background: var(--navy) !important;
+#navbar.scrolled {
+  box-shadow: var(--shadow-nav);
+  background: var(--navy);
 }
 
 .nav-inner {
-  max-width: var(--wide-width) !important;
+  max-width: var(--wide-width);
 }
 
 /* ── Logo ── */
 .nav-logo {
-  background: linear-gradient(135deg, var(--teal), var(--teal-light)) !important;
-  border-radius: var(--radius-md) !important;
-  width: 34px !important;
-  height: 34px !important;
+  background: linear-gradient(135deg, var(--teal), var(--teal-light));
+  border-radius: var(--radius-md);
+  width: 34px;
+  height: 34px;
 }
 
 /* ── Brand text ── */
 .nav-brand {
-  color: white !important;
+  color: white;
 }
 
 .nav-brand-text {
-  font-family: 'DM Serif Display', serif !important;
-  color: white !important;
+  font-family: 'DM Serif Display', serif;
+  color: white;
 }
 
 .nav-brand-sub {
-  color: rgba(255,255,255,0.5) !important;
+  color: rgba(255,255,255,0.5);
 }
 
 /* ── Links ── */
 .nav-links a {
-  color: rgba(255,255,255,0.7) !important;
-  border-radius: var(--radius-sm) !important;
+  color: rgba(255,255,255,0.7);
+  border-radius: var(--radius-sm);
 }
 
 .nav-links a:hover {
-  background: rgba(30,101,109,0.15) !important;
-  color: white !important;
+  background: rgba(30,101,109,0.15);
+  color: white;
 }
 
 .nav-links a.active {
-  background: rgba(30,101,109,0.2) !important;
-  color: white !important;
+  background: rgba(30,101,109,0.2);
+  color: white;
 }
 
 /* ── SOS button (adapt for dark background) ── */
 .nav-sos {
-  background: rgba(154,52,18,0.15) !important;
-  border: 1px solid rgba(154,52,18,0.3) !important;
-  color: var(--alert-red-border) !important;
+  background: rgba(154,52,18,0.15);
+  border: 1px solid rgba(154,52,18,0.3);
+  color: var(--alert-red-border);
 }
 
 .nav-sos:hover {
-  background: var(--rose) !important;
-  color: white !important;
-  border-color: var(--rose) !important;
+  background: var(--rose);
+  color: white;
+  border-color: var(--rose);
 }
 
 /* ── Mobile toggle ── */
 .nav-toggle {
-  color: white !important;
-  background: transparent !important;
+  color: white;
+  background: transparent;
 }
 
 .nav-toggle svg {
-  color: white !important;
-  stroke: white !important;
+  color: white;
+  stroke: white;
 }
 
 /* ── Mobile dropdown (nav-open) ──
    Inline styles use rgba(254,252,248,...) and rgba(45,40,35,...) */
 .nav-links.nav-open {
-  background: var(--navy-mid) !important;
-  border-color: rgba(255,255,255,0.1) !important;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.3) !important;
-  border-radius: var(--radius-lg) !important;
+  background: var(--navy-mid);
+  border-color: rgba(255,255,255,0.1);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+  border-radius: var(--radius-lg);
 }
 
 .nav-links.nav-open a {
-  color: rgba(255,255,255,0.8) !important;
+  color: rgba(255,255,255,0.8);
 }
 
 .nav-links.nav-open a:hover {
-  background: rgba(30,101,109,0.15) !important;
-  color: white !important;
+  background: rgba(30,101,109,0.15);
+  color: white;
 }
 
 
@@ -555,226 +555,226 @@ header.hero[style*="linear-gradient"] {
 
 /* ── Module cards (index.html grid) ── */
 .module-card {
-  border-radius: var(--radius-lg) !important;
-  border: 1px solid var(--border) !important;
-  box-shadow: var(--shadow-soft) !important;
-  padding: var(--space-lg) !important;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+  padding: var(--space-lg);
 }
 
 .module-card:hover {
-  box-shadow: var(--shadow-card) !important;
-  border-color: var(--teal) !important;
+  box-shadow: var(--shadow-card);
+  border-color: var(--teal);
 }
 
 .module-card::before {
-  background: var(--teal) !important;
+  background: var(--teal);
 }
 
 .module-number {
-  color: var(--teal) !important;
+  color: var(--teal);
 }
 
 .module-card h3 {
-  color: var(--navy) !important;
+  color: var(--navy);
 }
 
 .module-card-arrow {
-  background: var(--green-bg) !important;
-  color: var(--teal) !important;
-  border-radius: 50% !important;
+  background: var(--green-bg);
+  color: var(--teal);
+  border-radius: 50%;
 }
 
 .module-card:hover .module-card-arrow {
-  background: var(--teal) !important;
-  color: white !important;
+  background: var(--teal);
+  color: white;
 }
 
 /* ── Quick action cards (index.html) ── */
 .quick-card {
-  border-radius: var(--radius-lg) !important;
-  border: 1px solid var(--border) !important;
-  box-shadow: var(--shadow-soft) !important;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
 }
 
 .quick-card::before {
-  background: var(--teal) !important;
+  background: var(--teal);
 }
 
 .quick-card:hover {
-  border-color: var(--teal) !important;
-  box-shadow: var(--shadow-card) !important;
+  border-color: var(--teal);
+  box-shadow: var(--shadow-card);
 }
 
 .quick-card-icon {
-  background: var(--green-bg) !important;
-  color: var(--teal) !important;
-  border-radius: var(--radius-sm) !important;
+  background: var(--green-bg);
+  color: var(--teal);
+  border-radius: var(--radius-sm);
 }
 
 .quick-card.alert .quick-card-icon {
-  background: rgba(154,52,18,0.12) !important;
-  color: var(--rose) !important;
+  background: rgba(154,52,18,0.12);
+  color: var(--rose);
 }
 
 /* ── Situation / number cards (notfall + modules) ── */
 .sit-card {
-  border-radius: var(--radius-lg) !important;
-  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
 }
 
 .sit-card:hover {
-  border-color: var(--teal) !important;
-  box-shadow: var(--shadow-card) !important;
+  border-color: var(--teal);
+  box-shadow: var(--shadow-card);
 }
 
 .sit-badge {
-  background: var(--green-bg) !important;
-  color: var(--teal) !important;
-  border-radius: var(--radius-sm) !important;
+  background: var(--green-bg);
+  color: var(--teal);
+  border-radius: var(--radius-sm);
 }
 
 .sit-card.urgent .sit-badge {
-  background: rgba(154,52,18,0.12) !important;
-  color: var(--rose) !important;
+  background: rgba(154,52,18,0.12);
+  color: var(--rose);
 }
 
 .number-card {
-  border-radius: var(--radius-lg) !important;
-  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
 }
 
 /* ── Guide / Accordion cards ── */
 .guide {
-  border-radius: var(--radius-lg) !important;
-  border: 1px solid var(--border) !important;
-  box-shadow: var(--shadow-soft) !important;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
 }
 
 .guide-badge {
-  background: var(--green-bg) !important;
-  color: var(--teal) !important;
-  border-radius: var(--radius-sm) !important;
+  background: var(--green-bg);
+  color: var(--teal);
+  border-radius: var(--radius-sm);
 }
 
 .guide-badge.red {
-  background: var(--red-bg) !important;
-  color: var(--rose) !important;
+  background: var(--red-bg);
+  color: var(--rose);
 }
 
 .guide-badge.amber {
-  background: var(--amber-bg) !important;
-  color: var(--amber) !important;
+  background: var(--amber-bg);
+  color: var(--amber);
 }
 
 .guide-badge.blue {
-  background: var(--blue-phase-light) !important;
-  color: var(--blue-phase) !important;
+  background: var(--blue-phase-light);
+  color: var(--blue-phase);
 }
 
 .guide-title {
-  color: var(--navy) !important;
+  color: var(--navy);
 }
 
 .guide-chevron {
-  background: var(--green-bg) !important;
-  color: var(--teal) !important;
-  border-radius: 50% !important;
+  background: var(--green-bg);
+  color: var(--teal);
+  border-radius: 50%;
 }
 
 .guide.open .guide-chevron {
-  background: var(--teal) !important;
-  color: white !important;
+  background: var(--teal);
+  color: white;
 }
 
 /* ── Next module card ── */
 .next-module {
-  border-radius: var(--radius-lg) !important;
-  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
 }
 
 .next-module:hover {
-  border-color: var(--teal) !important;
-  box-shadow: var(--shadow-card) !important;
+  border-color: var(--teal);
+  box-shadow: var(--shadow-card);
 }
 
 .next-module-title {
-  color: var(--navy) !important;
+  color: var(--navy);
 }
 
 .next-module .next-arrow {
-  background: var(--green-bg) !important;
-  color: var(--teal) !important;
+  background: var(--green-bg);
+  color: var(--teal);
 }
 
 /* ── Tool page cards (hardcoded border-radius:22px) ── */
 .card,
 .wrap .card {
-  border-radius: var(--radius-lg) !important;
-  border: 1px solid var(--border) !important;
-  box-shadow: var(--shadow-soft) !important;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
 }
 
 /* ── Treatment / handout cards ── */
 .treatment-card,
 .handout-card {
-  border-radius: var(--radius-lg) !important;
-  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
 }
 
 .treatment-card:hover,
 .handout-card:hover {
-  border-color: var(--teal) !important;
-  box-shadow: var(--shadow-card) !important;
+  border-color: var(--teal);
+  box-shadow: var(--shadow-card);
 }
 
 /* ── Detail cards (tool results) ── */
 .detail {
-  border-radius: var(--radius-lg) !important;
-  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
 }
 
 .detail h2,
 .detail h3 {
-  color: var(--navy) !important;
+  color: var(--navy);
 }
 
 /* ── PDF preview dialog ── */
 .pdf-preview-dialog {
-  border-radius: var(--radius-lg) !important;
+  border-radius: var(--radius-lg);
 }
 
 .pdf-preview-title {
-  color: var(--navy) !important;
+  color: var(--navy);
 }
 
 .pdf-preview-close:hover {
-  background: var(--green-bg) !important;
-  color: var(--teal) !important;
+  background: var(--green-bg);
+  color: var(--teal);
 }
 
 /* ── Table of contents card ── */
 .toc {
-  border-radius: var(--radius-lg) !important;
-  border: 1px solid var(--border) !important;
-  box-shadow: var(--shadow-soft) !important;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
 }
 
 .toc a:hover {
-  color: var(--teal) !important;
+  color: var(--teal);
 }
 
 .toc a.active {
-  color: var(--teal) !important;
+  color: var(--teal);
 }
 
 .toc a.active::after {
-  background: var(--teal) !important;
+  background: var(--teal);
 }
 
 /* ── Res cards in tools (hardcoded border-radius:22px) ── */
 .res-card {
-  border-radius: var(--radius-lg) !important;
-  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
 }
 
 
@@ -787,167 +787,167 @@ header.hero[style*="linear-gradient"] {
 
 /* ── Bar charts (modul/2) ── */
 .bar-track {
-  background: var(--green-bg) !important;
+  background: var(--green-bg);
 }
 
 .bar-fill,
 .bar-fill.sage {
-  background: linear-gradient(90deg, var(--teal), var(--teal-light)) !important;
+  background: linear-gradient(90deg, var(--teal), var(--teal-light));
 }
 
 .bar-fill.warm {
-  background: linear-gradient(90deg, var(--amber), var(--amber-light)) !important;
+  background: linear-gradient(90deg, var(--amber), var(--amber-light));
 }
 
 .bar-pct {
-  color: var(--teal) !important;
+  color: var(--teal);
 }
 
 .bar-pct.warm-text {
-  color: var(--amber) !important;
+  color: var(--amber);
 }
 
 /* ── HTML Tables (striped rows, teal header) ── */
 table,
 .content table,
 article table {
-  width: 100% !important;
-  border-collapse: collapse !important;
-  border: 1px solid var(--border) !important;
-  background: var(--card) !important;
-  border-radius: var(--radius-md) !important;
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: var(--radius-md);
   overflow: hidden;
 }
 
 table thead th,
 table th,
 .content table th {
-  background: var(--teal) !important;
-  color: white !important;
-  border: 1px solid var(--border) !important;
-  font-weight: 700 !important;
-  padding: 0.7rem 0.8rem !important;
-  font-size: 0.85rem !important;
-  text-align: left !important;
+  background: var(--teal);
+  color: white;
+  border: 1px solid var(--border);
+  font-weight: 700;
+  padding: 0.7rem 0.8rem;
+  font-size: 0.85rem;
+  text-align: left;
 }
 
 table td,
 .content table td {
-  border: 1px solid var(--border) !important;
-  padding: 0.7rem 0.8rem !important;
-  color: var(--text) !important;
+  border: 1px solid var(--border);
+  padding: 0.7rem 0.8rem;
+  color: var(--text);
 }
 
 table tbody tr:nth-child(even),
 .content table tbody tr:nth-child(even) {
-  background: var(--bg) !important;
+  background: var(--bg);
 }
 
 /* ── Phase explorer / tabs (modul/1) ── */
 .phase-explorer {
-  border-radius: var(--radius-lg) !important;
-  border: 1px solid var(--border) !important;
-  box-shadow: var(--shadow-soft) !important;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
 }
 
 .phase-tab {
-  border-radius: var(--radius-md) !important;
+  border-radius: var(--radius-md);
 }
 
 .phase-tab:hover {
-  background: rgba(30,101,109,0.04) !important;
+  background: rgba(30,101,109,0.04);
 }
 
 /* Phase-specific active colors (content-semantic, keep distinct) */
 .phase-tab.active-mania {
-  color: var(--amber-phase) !important;
-  border-bottom-color: var(--amber-phase) !important;
-  background: var(--amber-phase-light) !important;
+  color: var(--amber-phase);
+  border-bottom-color: var(--amber-phase);
+  background: var(--amber-phase-light);
 }
 
 .phase-tab.active-stable {
-  color: var(--green-phase) !important;
-  border-bottom-color: var(--green-phase) !important;
-  background: var(--green-phase-light) !important;
+  color: var(--green-phase);
+  border-bottom-color: var(--green-phase);
+  background: var(--green-phase-light);
 }
 
 .phase-tab.active-depression {
-  color: var(--blue-phase) !important;
-  border-bottom-color: var(--blue-phase) !important;
-  background: var(--blue-phase-light) !important;
+  color: var(--blue-phase);
+  border-bottom-color: var(--blue-phase);
+  background: var(--blue-phase-light);
 }
 
 /* Symptom cards within phases */
 .symptom-card {
-  border-radius: var(--radius-md) !important;
-  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
 }
 
 /* ── Phase badges in tools (hardcoded colors) ── */
 .phase-badge {
-  border-radius: var(--radius-sm) !important;
+  border-radius: var(--radius-sm);
 }
 
 .phase-m {
-  background: var(--amber-bg) !important;
-  color: var(--amber) !important;
+  background: var(--amber-bg);
+  color: var(--amber);
 }
 
 .phase-d {
-  background: var(--blue-phase-light) !important;
-  color: var(--blue-phase) !important;
+  background: var(--blue-phase-light);
+  color: var(--blue-phase);
 }
 
 /* ── Eisberg tool sections ── */
 .eisberg-section,
 .iceberg {
-  border-radius: var(--radius-lg) !important;
+  border-radius: var(--radius-lg);
 }
 
 .eisberg-top {
-  background: linear-gradient(180deg, white, var(--green-bg)) !important;
+  background: linear-gradient(180deg, white, var(--green-bg));
 }
 
 .eisberg-tag {
-  border-radius: var(--radius-md) !important;
+  border-radius: var(--radius-md);
 }
 
 .eisberg-tag.active {
-  background: var(--teal) !important;
-  color: white !important;
+  background: var(--teal);
+  color: white;
 }
 
 /* ── Progress bars (module pages) ── */
 .progress-bar-outer {
-  border-radius: var(--radius-lg) !important;
-  border: 1px solid var(--border) !important;
-  box-shadow: var(--shadow-soft) !important;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
 }
 
 .progress-fill {
-  background: linear-gradient(90deg, var(--teal), var(--teal-light)) !important;
+  background: linear-gradient(90deg, var(--teal), var(--teal-light));
 }
 
 /* Tool progress (hardcoded gradient) */
 .prog {
-  border-radius: var(--radius-md) !important;
-  background: var(--green-bg) !important;
+  border-radius: var(--radius-md);
+  background: var(--green-bg);
 }
 
 .prog div,
 .prog-fill {
-  background: linear-gradient(90deg, var(--teal), var(--teal-light)) !important;
-  border-radius: var(--radius-md) !important;
+  background: linear-gradient(90deg, var(--teal), var(--teal-light));
+  border-radius: var(--radius-md);
 }
 
 /* ── Stat numbers ── */
 .stat-num {
-  color: var(--navy) !important;
+  color: var(--navy);
 }
 
 /* ── Bar dot (selbsttest tool) ── */
 .bar-dot {
-  border: 2px solid var(--teal) !important;
+  border: 2px solid var(--teal);
 }
 
 
@@ -958,141 +958,141 @@ table tbody tr:nth-child(even),
 
 /* ── Quote blocks ── */
 .quote-block {
-  background: var(--warm-100) !important;
-  border-radius: var(--radius-lg) !important;
-  border-left: 4px solid var(--teal) !important;
+  background: var(--warm-100);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--teal);
 }
 
 .quote-block::before {
-  color: var(--teal-light) !important;
+  color: var(--teal-light);
 }
 
 .quote-block blockquote {
-  color: var(--navy) !important;
-  font-size: 1.05rem !important;
+  color: var(--navy);
+  font-size: 1.05rem;
 }
 
 .quote-block cite {
-  color: var(--text-soft) !important;
+  color: var(--text-soft);
 }
 
 /* ── Reflection / highlight boxes ── */
 .reflection-block,
 .refl {
-  background: linear-gradient(135deg, var(--green-bg), var(--warm-100)) !important;
-  border-radius: var(--radius-lg) !important;
+  background: linear-gradient(135deg, var(--green-bg), var(--warm-100));
+  border-radius: var(--radius-lg);
 }
 
 .reflection-block::after,
 .refl::after {
-  background: radial-gradient(circle, rgba(30,101,109,0.08), transparent 70%) !important;
+  background: radial-gradient(circle, rgba(30,101,109,0.08), transparent 70%);
 }
 
 .reflection-label,
 .refl label,
 .refl .refl-label {
-  color: var(--teal) !important;
+  color: var(--teal);
 }
 
 .reflection-block h3,
 .refl h2,
 .refl h3 {
-  color: var(--navy) !important;
+  color: var(--navy);
 }
 
 /* ── Key takeaways (dark section) ── */
 .key-takeaways {
-  background: var(--navy) !important;
-  border-radius: var(--radius-lg) !important;
+  background: var(--navy);
+  border-radius: var(--radius-lg);
 }
 
 .key-takeaways::before {
-  background: linear-gradient(135deg, rgba(30,101,109,0.2), transparent) !important;
+  background: linear-gradient(135deg, rgba(30,101,109,0.2), transparent);
 }
 
 .key-takeaways h3 {
-  color: white !important;
+  color: white;
 }
 
 .key-takeaways .check-circle {
-  background: rgba(141,212,217,0.2) !important;
-  color: var(--teal-light) !important;
+  background: rgba(141,212,217,0.2);
+  color: var(--teal-light);
 }
 
 .key-takeaways li {
-  border-top-color: rgba(255,255,255,0.08) !important;
+  border-top-color: rgba(255,255,255,0.08);
 }
 
 /* ── Alert / warning boxes ── */
 .alert-box {
-  background: var(--red-bg) !important;
-  border: 2px solid var(--alert-red-border) !important;
-  border-radius: var(--radius-lg) !important;
+  background: var(--red-bg);
+  border: 2px solid var(--alert-red-border);
+  border-radius: var(--radius-lg);
 }
 
 .alert-icon {
-  background: rgba(154,52,18,0.12) !important;
-  color: var(--rose) !important;
-  border-radius: var(--radius-sm) !important;
+  background: rgba(154,52,18,0.12);
+  color: var(--rose);
+  border-radius: var(--radius-sm);
 }
 
 .alert-box strong {
-  color: var(--rose) !important;
+  color: var(--rose);
 }
 
 /* ── Note boxes ── */
 .note-box {
-  background: var(--amber-bg) !important;
-  border: 1px solid var(--amber-border) !important;
-  border-radius: var(--radius-md) !important;
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-border);
+  border-radius: var(--radius-md);
 }
 
 /* ── Notfall-specific: fu-alert ── */
 .fu-alert {
-  border-radius: var(--radius-md) !important;
-  border: 1px solid var(--alert-red-border) !important;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--alert-red-border);
 }
 
 .fu-alert h3 {
-  color: var(--rose) !important;
+  color: var(--rose);
 }
 
 /* ── Grauzone (notfall page) ── */
 .grauzone {
-  border-radius: var(--radius-lg) !important;
+  border-radius: var(--radius-lg);
 }
 
 .grauzone h3 {
-  color: var(--navy-mid) !important;
+  color: var(--navy-mid);
 }
 
 /* ── Guide Do/Don't/SOS boxes ── */
 .guide-do {
-  background: var(--green-bg) !important;
-  border: 1px solid var(--teal-border) !important;
-  border-radius: var(--radius-md) !important;
+  background: var(--green-bg);
+  border: 1px solid var(--teal-border);
+  border-radius: var(--radius-md);
 }
 
 .guide-dont {
-  background: var(--red-bg) !important;
-  border: 1px solid var(--alert-red-border) !important;
-  border-radius: var(--radius-md) !important;
+  background: var(--red-bg);
+  border: 1px solid var(--alert-red-border);
+  border-radius: var(--radius-md);
 }
 
 .guide-sos {
-  background: var(--alert-red-bg) !important;
-  border: 1px solid var(--alert-red-border) !important;
-  border-radius: var(--radius-md) !important;
-  color: var(--alert-red) !important;
+  background: var(--alert-red-bg);
+  border: 1px solid var(--alert-red-border);
+  border-radius: var(--radius-md);
+  color: var(--alert-red);
 }
 
 /* ── Section labels & titles ── */
 .section-label {
-  color: var(--teal) !important;
+  color: var(--teal);
 }
 
 .section-title {
-  color: var(--navy) !important;
+  color: var(--navy);
 }
 
 
@@ -1106,54 +1106,54 @@ table tbody tr:nth-child(even),
 .quick-section,
 section,
 .section {
-  padding-top: var(--space-3xl) !important;
-  padding-bottom: var(--space-3xl) !important;
+  padding-top: var(--space-3xl);
+  padding-bottom: var(--space-3xl);
 }
 
 /* ── Content width ── */
 .content {
-  max-width: var(--content-width) !important;
+  max-width: var(--content-width);
 }
 
 /* ── Hero inner containers ── */
 .hero-content,
 .module-hero-inner {
-  max-width: var(--content-width) !important;
+  max-width: var(--content-width);
 }
 
 /* ── Wide containers (grids) ── */
 .nav-inner,
 .footer-inner {
-  max-width: var(--wide-width) !important;
+  max-width: var(--wide-width);
 }
 
 /* ── Footer links bar ── */
 .footer-links {
-  margin-top: 16px !important;
-  padding-top: 16px !important;
-  border-top: 1px solid rgba(255,255,255,0.08) !important;
-  font-size: 0.75rem !important;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  font-size: 0.75rem;
 }
 .footer-links a {
-  margin: 0 10px !important;
-  color: rgba(255,255,255,0.75) !important;
-  text-decoration: none !important;
+  margin: 0 10px;
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
 }
 .footer-links a:hover {
-  color: white !important;
+  color: white;
 }
 
 /* ── Module grid ── */
 .modules-grid {
-  max-width: var(--wide-width) !important;
+  max-width: var(--wide-width);
 }
 
 .guide-body-inner {
-  padding: var(--space-lg) !important;
+  padding: var(--space-lg);
 }
 
 .cta-inner {
-  max-width: 600px !important;
+  max-width: 600px;
 }
 
 /* Footer spacing handled in Schritt 10 consolidated footer block */
@@ -1161,7 +1161,7 @@ section,
 /* ── Tool page wrappers ── */
 .wrap {
   max-width: 560px;
-  padding: var(--space-xl) var(--space-md) var(--space-3xl) !important;
+  padding: var(--space-xl) var(--space-md) var(--space-3xl);
 }
 
 
@@ -1176,12 +1176,12 @@ section,
 .btn-next,
 .btn-cont,
 .btn-save {
-  background: var(--teal) !important;
-  color: white !important;
-  border-radius: var(--radius-pill) !important;
-  border: none !important;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15) !important;
-  min-height: 44px !important;
+  background: var(--teal);
+  color: white;
+  border-radius: var(--radius-pill);
+  border: none;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  min-height: 44px;
 }
 
 .cta-btn:hover,
@@ -1189,149 +1189,149 @@ section,
 .btn-next:hover,
 .btn-cont:hover,
 .btn-save:hover {
-  background: var(--teal-dark) !important;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.2) !important;
+  background: var(--teal-dark);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
 
 /* ── Secondary / back buttons ── */
 .btn-r,
 .btn-back {
-  background: white !important;
-  border: 1px solid var(--border) !important;
-  color: var(--slate) !important;
-  border-radius: var(--radius-md) !important;
-  min-height: 44px !important;
+  background: white;
+  border: 1px solid var(--border);
+  color: var(--slate);
+  border-radius: var(--radius-md);
+  min-height: 44px;
 }
 
 .btn-r:hover,
 .btn-back:hover {
-  border-color: var(--teal) !important;
-  color: var(--teal) !important;
-  background: var(--green-bg) !important;
+  border-color: var(--teal);
+  color: var(--teal);
+  background: var(--green-bg);
 }
 
 /* ── Option buttons in tools (hardcoded 14px radius) ── */
 .opt,
 .opt-btn {
-  border: 1.5px solid var(--border) !important;
-  border-radius: var(--radius-md) !important;
-  background: white !important;
-  color: var(--navy) !important;
-  min-height: 44px !important;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  background: white;
+  color: var(--navy);
+  min-height: 44px;
 }
 
 .opt:hover,
 .opt-btn:hover {
-  border-color: var(--teal) !important;
-  color: var(--teal) !important;
-  background: var(--green-bg) !important;
+  border-color: var(--teal);
+  color: var(--teal);
+  background: var(--green-bg);
 }
 
 .opt.sel,
 .opt.selected,
 .opt-btn.sel {
-  border-color: var(--teal) !important;
-  background: var(--green-bg) !important;
-  color: var(--teal) !important;
+  border-color: var(--teal);
+  background: var(--green-bg);
+  color: var(--teal);
 }
 
 /* ── Correct / wrong (quiz tools) ── */
 .btn-correct,
 .opt.correct {
-  border-color: var(--teal) !important;
-  background: var(--green-bg) !important;
-  color: var(--teal) !important;
+  border-color: var(--teal);
+  background: var(--green-bg);
+  color: var(--teal);
 }
 
 .btn-wrong,
 .opt.wrong {
-  border-color: var(--rose) !important;
-  background: var(--red-bg) !important;
-  color: var(--rose) !important;
+  border-color: var(--rose);
+  background: var(--red-bg);
+  color: var(--rose);
 }
 
 /* ── Submit button in tools (hardcoded #d5dbc9 bg) ── */
 .submit {
-  background: var(--teal) !important;
-  color: white !important;
-  border-radius: var(--radius-md) !important;
+  background: var(--teal);
+  color: white;
+  border-radius: var(--radius-md);
 }
 
 .submit:hover {
-  background: var(--teal-dark) !important;
+  background: var(--teal-dark);
 }
 
 /* ── CTA band ── */
 .cta-band {
-  background: var(--navy) !important;
-  padding: var(--space-3xl) 2rem !important;
+  background: var(--navy);
+  padding: var(--space-3xl) 2rem;
 }
 
 .cta-band::before {
-  background: radial-gradient(ellipse at 30% 50%, rgba(30,101,109,0.3), transparent 70%) !important;
+  background: radial-gradient(ellipse at 30% 50%, rgba(30,101,109,0.3), transparent 70%);
 }
 
 .cta-band h2 {
-  color: white !important;
+  color: white;
 }
 
 .cta-band p {
-  color: rgba(255,255,255,0.7) !important;
+  color: rgba(255,255,255,0.7);
 }
 
 .cta-band .cta-btn {
-  background: white !important;
-  color: var(--navy) !important;
+  background: white;
+  color: var(--navy);
 }
 
 .cta-band .cta-btn:hover {
-  box-shadow: 0 6px 24px rgba(0,0,0,0.2) !important;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.2);
 }
 
 /* ── Wave divider ── */
 .wave-divider svg {
-  fill: var(--navy) !important;
-  color: var(--navy) !important;
+  fill: var(--navy);
+  color: var(--navy);
 }
 
 /* ── Footer ── */
 footer {
-  background: var(--navy) !important;
-  color: rgba(255,255,255,0.75) !important;
-  padding: var(--space-lg) var(--space-lg) var(--space-2xl) !important;
+  background: var(--navy);
+  color: rgba(255,255,255,0.75);
+  padding: var(--space-lg) var(--space-lg) var(--space-2xl);
 }
 
 .footer-brand h3 {
-  color: white !important;
+  color: white;
 }
 
 .footer-brand p {
-  color: rgba(255,255,255,0.65) !important;
+  color: rgba(255,255,255,0.65);
 }
 
 .footer-col h4 {
-  color: rgba(255,255,255,0.55) !important;
+  color: rgba(255,255,255,0.55);
 }
 
 .footer-col a {
-  color: rgba(255,255,255,0.75) !important;
+  color: rgba(255,255,255,0.75);
 }
 
 .footer-col a:hover {
-  color: white !important;
+  color: white;
 }
 
 .footer-bottom {
-  border-top-color: rgba(255,255,255,0.08) !important;
-  color: rgba(255,255,255,0.3) !important;
+  border-top-color: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.3);
 }
 
 .footer-bottom a {
-  color: rgba(255,255,255,0.4) !important;
+  color: rgba(255,255,255,0.4);
 }
 
 .footer-bottom a:hover {
-  color: rgba(255,255,255,0.7) !important;
+  color: rgba(255,255,255,0.7);
 }
 
 /* Tool nav and tool-back/brand moved to COVERAGE-AUDIT FIXES section */
@@ -1340,8 +1340,8 @@ footer {
 /* --rose (#9A3412) on navy (#1C2B3A) = ~1.65:1 — WCAG fail.
    Light red (#fca5a5) on navy = ~5.8:1 — passes AA. */
 footer.tf a[href="/notfall/"] {
-  color: #fca5a5 !important;
-  font-weight: 600 !important;
+  color: #fca5a5;
+  font-weight: 600;
 }
 
 /* ── Tool result sections ── */
@@ -1349,22 +1349,22 @@ footer.tf a[href="/notfall/"] {
    the Komm-Trainer injects dynamic feedback colours (green/amber/red) via JS inline styles.
    Only res-score (static) gets a teal fallback. */
 .res-score {
-  border-color: var(--teal) !important;
+  border-color: var(--teal);
 }
 .res-score span {
-  color: var(--teal) !important;
+  color: var(--teal);
 }
 
 .res h2,
 .res-title {
-  color: var(--navy) !important;
+  color: var(--navy);
 }
 
 /* ── Accessibility ── */
 *:focus-visible {
-  outline: 2px solid var(--teal) !important;
-  outline-offset: 2px !important;
-  border-radius: var(--radius-xs) !important;
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
 }
 
 .skip-link {
@@ -1377,25 +1377,25 @@ footer.tf a[href="/notfall/"] {
 }
 
 .skip-link:focus {
-  position: fixed !important;
-  top: 12px !important;
-  left: 12px !important;
-  width: auto !important;
-  height: auto !important;
-  overflow: visible !important;
-  padding: 12px 20px !important;
-  background: var(--navy) !important;
-  color: white !important;
-  border-radius: var(--radius-sm) !important;
-  font-size: 0.85rem !important;
-  font-weight: 600 !important;
-  z-index: 10000 !important;
-  text-decoration: none !important;
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  padding: 12px 20px;
+  background: var(--navy);
+  color: white;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  z-index: 10000;
+  text-decoration: none;
 }
 
 /* ── Visited link styling ── */
 a:visited {
-  color: var(--slate) !important;
+  color: var(--slate);
 }
 .nav-links a:visited,
 .nav-sos:visited,
@@ -1405,31 +1405,31 @@ a:visited {
 .module-card:visited,
 .tool-chip:visited,
 footer a:visited {
-  color: inherit !important;
+  color: inherit;
 }
 
 /* ── Impressum-specific overrides ──
    Impressum has its own compact inline styles. Ensure coverage. */
 .impressum-content h1,
 .impressum-content h2 {
-  color: var(--navy) !important;
+  color: var(--navy);
 }
 
 .impressum-content a {
-  color: var(--teal) !important;
+  color: var(--teal);
 }
 
 .impressum-content a:hover {
-  color: var(--teal-dark) !important;
+  color: var(--teal-dark);
 }
 
 /* ── 404 page ── */
 .error-page h1 {
-  color: var(--navy) !important;
+  color: var(--navy);
 }
 
 .error-page a {
-  color: var(--teal) !important;
+  color: var(--teal);
 }
 
 
@@ -1442,121 +1442,121 @@ footer a:visited {
 
 /* btn-print (krisenplan) */
 .btn-print {
-  background: white !important;
-  border: 1px solid var(--border) !important;
-  color: var(--slate) !important;
-  border-radius: var(--radius-md) !important;
+  background: white;
+  border: 1px solid var(--border);
+  color: var(--slate);
+  border-radius: var(--radius-md);
 }
 
 .btn-print:hover {
-  border-color: var(--teal) !important;
-  color: var(--teal) !important;
-  background: var(--green-bg) !important;
+  border-color: var(--teal);
+  color: var(--teal);
+  background: var(--green-bg);
 }
 
 /* btn-reset: expand to cover background + border (was color-only) */
 .btn-reset {
-  background: white !important;
-  border: 1px solid var(--border) !important;
-  color: var(--teal) !important;
-  border-radius: var(--radius-md) !important;
+  background: white;
+  border: 1px solid var(--border);
+  color: var(--teal);
+  border-radius: var(--radius-md);
 }
 
 .btn-reset:hover {
-  border-color: var(--teal) !important;
-  color: var(--teal-dark) !important;
-  background: var(--green-bg) !important;
+  border-color: var(--teal);
+  color: var(--teal-dark);
+  background: var(--green-bg);
 }
 
 /* opt-btn.correct: class name mismatch fix (komm-trainer uses .opt-btn.correct) */
 .opt-btn.correct {
-  border-color: var(--teal) !important;
-  background: var(--green-bg) !important;
-  color: var(--teal) !important;
+  border-color: var(--teal);
+  background: var(--green-bg);
+  color: var(--teal);
 }
 
 .opt-btn.wrong {
-  border-color: var(--rose) !important;
-  background: var(--red-bg) !important;
-  color: var(--rose) !important;
+  border-color: var(--rose);
+  background: var(--red-bg);
+  color: var(--rose);
 }
 
 /* ep-btn (solidaritaets-chart) */
 .ep-btn {
-  border: 1px solid var(--border) !important;
-  border-radius: var(--radius-md) !important;
-  color: var(--navy) !important;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--navy);
 }
 
 .ep-btn:hover,
 .ep-btn.active {
-  border-color: var(--teal) !important;
+  border-color: var(--teal);
 }
 
 /* chart-wrap (solidaritaets-chart) */
 .chart-wrap {
-  border: 1px solid var(--border) !important;
-  box-shadow: var(--shadow-soft) !important;
-  border-radius: var(--radius-lg) !important;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+  border-radius: var(--radius-lg);
 }
 
 /* pc cards (saeulen-check) */
 .pc {
-  border: 1px solid var(--border) !important;
-  box-shadow: var(--shadow-soft) !important;
-  border-radius: var(--radius-lg) !important;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+  border-radius: var(--radius-lg);
 }
 
 /* tool-header h1 (eisberg) */
 .tool-header h1 {
-  font-family: 'DM Serif Display', serif !important;
-  color: var(--navy) !important;
+  font-family: 'DM Serif Display', serif;
+  color: var(--navy);
 }
 
 /* ── Missing page-specific selectors ── */
 
 /* info-box (impressum) */
 .info-box {
-  background: var(--bg) !important;
-  border: 1px solid var(--border) !important;
-  border-radius: var(--radius-lg) !important;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
 }
 
 /* pdf-preview-link (notfall, modules) */
 .pdf-preview-link {
-  background: var(--green-bg) !important;
-  color: var(--teal) !important;
-  border-radius: var(--radius-md) !important;
+  background: var(--green-bg);
+  color: var(--teal);
+  border-radius: var(--radius-md);
 }
 
 .pdf-preview-link:hover {
-  background: var(--teal) !important;
-  color: white !important;
+  background: var(--teal);
+  color: white;
 }
 
 /* grauzone-rule (notfall) */
 .grauzone-rule {
-  color: var(--navy) !important;
+  color: var(--navy);
 }
 
 /* ── Inline style="" attribute override (notfall uses style="color:var(--sage-*)") ── */
 [style*="sage"] {
-  color: var(--teal) !important;
+  color: var(--teal);
 }
 
 /* ── Warm-rgba box-shadows: catch remaining elements ── */
 .pdf-preview-dialog {
-  box-shadow: var(--shadow-elevated) !important;
+  box-shadow: var(--shadow-elevated);
 }
 
 .dcl,
 .iceberg {
-  box-shadow: var(--shadow-soft) !important;
+  box-shadow: var(--shadow-soft);
 }
 
 /* ── SVG text color override (best-effort, won't catch fill= attributes) ── */
 svg text {
-  fill: var(--navy) !important;
+  fill: var(--navy);
 }
 
 /* Exception: SVG text inside dark-themed sections keeps white */
@@ -1565,38 +1565,39 @@ svg text {
 .hero svg text,
 .module-hero svg text,
 footer svg text {
-  fill: white !important;
+  fill: white;
 }
 
 /* ── Tool nav light variant (tool pages use light sticky nav, NOT dark) ── */
 .tool-nav {
-  background: rgba(250,250,247,0.95) !important;
-  border-bottom: 1px solid var(--border) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
+  width: 100%;
+  background: rgba(250,250,247,0.95);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .tool-nav .tool-back {
-  color: var(--slate) !important;
+  color: var(--slate);
 }
 
 .tool-nav .tool-back:hover {
-  color: var(--teal) !important;
+  color: var(--teal);
 }
 
 .tool-nav .tool-brand {
-  color: var(--navy) !important;
+  color: var(--navy);
 }
 
 
 /* ── Krisenplan section colors (.s5 uses old earth tones) ── */
 .s5 {
-  background: var(--warm-100) !important;
-  border-color: var(--slate) !important;
+  background: var(--warm-100);
+  border-color: var(--slate);
 }
 
 .s5 h2 {
-  color: var(--slate) !important;
+  color: var(--slate);
 }
 
 /* ── Hardcoded border-radius on elements not yet covered ── */
@@ -1607,7 +1608,7 @@ footer svg text {
 .dcl,
 .handout-preview,
 .treatment-preview {
-  border-radius: var(--radius-lg) !important;
+  border-radius: var(--radius-lg);
 }
 
 /* ── Remaining warm-rgba borders on uncovered tool components ── */
@@ -1615,7 +1616,7 @@ footer svg text {
 .chart-wrap rect,
 .phase-row,
 .phase-count {
-  color: var(--text-secondary) !important;
+  color: var(--text-secondary);
 }
 
 
@@ -1625,31 +1626,31 @@ footer svg text {
 
 @media (max-width: 900px) {
   .nav-links {
-    display: none !important;
+    display: none;
   }
   .nav-toggle {
-    display: flex !important;
+    display: flex;
   }
 }
 
 @media (max-width: 600px) {
   .hero {
-    padding: 100px 1.2rem 40px !important;
-    min-height: auto !important;
+    padding: 100px 1.2rem 40px;
+    min-height: auto;
   }
   .hero h1 {
-    font-size: 28px !important;
+    font-size: 28px;
   }
   .module-hero {
-    padding: 100px 1.2rem 40px !important;
-    min-height: auto !important;
+    padding: 100px 1.2rem 40px;
+    min-height: auto;
   }
   section,
   .section {
-    padding: 36px 1.2rem !important;
+    padding: 36px 1.2rem;
   }
   .cta-band {
-    padding: 36px 1.2rem !important;
+    padding: 36px 1.2rem;
   }
 }
 
@@ -1663,20 +1664,20 @@ footer svg text {
   .nav-toggle,
   .cta-band,
   .wave-divider {
-    display: none !important;
+    display: none;
   }
   body {
-    background: white !important;
-    font-size: 12px !important;
+    background: white;
+    font-size: 12px;
   }
   .hero,
   .module-hero {
-    background: var(--navy) !important;
+    background: var(--navy);
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
   .key-takeaways {
-    background: var(--navy) !important;
+    background: var(--navy);
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -1684,7 +1685,7 @@ footer svg text {
   .guide,
   .quote-block,
   .reflection-block {
-    box-shadow: none !important;
+    box-shadow: none;
     page-break-inside: avoid;
   }
 }
@@ -1734,61 +1735,61 @@ header.hero .hero-content {
 
 /* Glass-style quick cards in hero right column */
 .hero-cards .quick-actions {
-  grid-template-columns: 1fr 1fr !important;
+  grid-template-columns: 1fr 1fr;
   max-width: none;
   gap: 14px;
 }
 
 .hero-cards .quick-card {
-  background: rgba(255,255,255,0.07) !important;
-  border-color: rgba(255,255,255,0.10) !important;
-  color: white !important;
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.10);
+  color: white;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }
 
 .hero-cards .quick-card:hover {
-  background: rgba(255,255,255,0.13) !important;
-  border-color: rgba(255,255,255,0.22) !important;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.22) !important;
+  background: rgba(255,255,255,0.13);
+  border-color: rgba(255,255,255,0.22);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.22);
 }
 
 .hero-cards .quick-card::before {
-  background: var(--teal-light) !important;
+  background: var(--teal-light);
 }
 
 .hero-cards .quick-card-title {
-  color: white !important;
+  color: white;
 }
 
 .hero-cards .quick-card-desc {
-  color: rgba(255,255,255,0.65) !important;
+  color: rgba(255,255,255,0.65);
 }
 
 .hero-cards .quick-card-icon {
-  background: rgba(255,255,255,0.11) !important;
-  color: rgba(255,255,255,0.9) !important;
+  background: rgba(255,255,255,0.11);
+  color: rgba(255,255,255,0.9);
 }
 
 .hero-cards .quick-card.alert {
-  background: rgba(154,52,18,0.25) !important;
-  border-color: rgba(239,100,80,0.35) !important;
+  background: rgba(154,52,18,0.25);
+  border-color: rgba(239,100,80,0.35);
 }
 
 .hero-cards .quick-card.alert::before {
-  background: #f87171 !important;
+  background: #f87171;
 }
 
 .hero-cards .quick-card.alert .quick-card-icon {
-  background: rgba(239,100,80,0.22) !important;
+  background: rgba(239,100,80,0.22);
 }
 
 .hero-cards .quick-card.alert .quick-card-title {
-  color: #fca5a5 !important;
+  color: #fca5a5;
 }
 
 .hero-cards .quick-card.alert .quick-card-desc {
-  color: rgba(252,165,165,0.75) !important;
+  color: rgba(252,165,165,0.75);
 }
 
 @media (max-width: 900px) {
@@ -1804,27 +1805,27 @@ header.hero .hero-content {
 
 /* ── 32. MODULE CARD COLOR ACCENTS ── */
 .module-card[data-accent="red"] {
-  border-left: 3px solid var(--alert-red) !important;
+  border-left: 3px solid var(--alert-red);
 }
 
 .module-card[data-accent="blue"] {
-  border-left: 3px solid var(--blue-phase) !important;
+  border-left: 3px solid var(--blue-phase);
 }
 
 .module-card[data-accent="amber"] {
-  border-left: 3px solid var(--amber) !important;
+  border-left: 3px solid var(--amber);
 }
 
 .module-card[data-accent="teal"] {
-  border-left: 3px solid var(--teal) !important;
+  border-left: 3px solid var(--teal);
 }
 
 .module-card[data-accent="green"] {
-  border-left: 3px solid var(--green) !important;
+  border-left: 3px solid var(--green);
 }
 
 .module-card[data-accent="purple"] {
-  border-left: 3px solid #7c3aed !important;
+  border-left: 3px solid #7c3aed;
 }
 
 /* Fix inconsistency: theme targets .module-card-arrow but HTML uses .module-arrow */
@@ -1836,16 +1837,16 @@ header.hero .hero-content {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: var(--green-bg) !important;
-  color: var(--teal) !important;
+  background: var(--green-bg);
+  color: var(--teal);
   font-size: 0.85rem;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .module-card:hover .module-card-arrow,
 .module-card:hover .module-arrow {
-  background: var(--teal) !important;
-  color: white !important;
+  background: var(--teal);
+  color: white;
 }
 
 
