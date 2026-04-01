@@ -521,7 +521,8 @@ useNavJS: true
     opacity: 1;
     transform: translateY(0);
   }
-  
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
     .reveal.revealed { opacity: 1; transform: none; }
   }
   /* Fallback: show all content if JS is disabled */
@@ -900,23 +901,6 @@ useNavJS: true
 {% endblock %}
 {% block scripts %}
 <script>document.documentElement.classList.remove('no-js')
-
-  // Nav scroll effect
-  const nav = document.getElementById('navbar');
-  ;
-    navToggle.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('nav-open');
-      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      navToggle.setAttribute('aria-label', isOpen ? 'Menü schliessen' : 'Menü öffnen');
-    });
-    navLinks.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeNav));
-    document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeNav(); });
-    document.addEventListener('click', (event) => { if (!nav.contains(event.target)) closeNav(); });
-    window.addEventListener('resize', () => { if (window.innerWidth > 900) closeNav(); });
-  }
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 20);
-  });
 
   // ── Scroll reveal (IntersectionObserver) ──
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
