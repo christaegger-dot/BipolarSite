@@ -169,7 +169,7 @@ footer {
   text-align: center;
 }
 .footer-inner p { font-size: 0.8rem; line-height: 1.7; margin-bottom: 4px; }
-.footer-inner a { color: rgba(255,255,255,0.6); text-decoration: none; }
+.footer-inner a { color: rgba(255,255,255,0.85); text-decoration: none; }
 .footer-inner a:hover { color: white; }
 .footer-links {
   margin-top: var(--space-md);

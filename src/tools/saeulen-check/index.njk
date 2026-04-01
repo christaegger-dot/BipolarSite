@@ -66,7 +66,7 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
 {% block content %}
 <main class="wrap" id="main-content">
   <div class="hdr"><div class="badge">Modul 7</div><h1>Was trägt Sie gerade auf der langen Strecke?</h1><p>Schätzen Sie die fünf Bereiche ein. Sie sehen, was Sie derzeit trägt — und wo etwas instabil geworden ist.</p></div>
-  <div id="app"></div>
+  <div id="app" aria-live="polite" aria-atomic="true"></div>
 </main>
 {% endblock %}
 {% block footer %}

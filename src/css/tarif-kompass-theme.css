@@ -241,7 +241,7 @@ html {
   src: local('DM Serif Display'),
        local('DMSerifDisplay-Regular'),
        local('DM Serif Text'),
-       url('https://fonts.gstatic.com/s/dmserifdisplay/v16/-nFnOHM81r4j6k0gjALR8uVHFr3TZQnWDhU.woff2') format('woff2');
+       url('/fonts/dm-serif-display-400.woff2') format('woff2');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
@@ -251,7 +251,7 @@ html {
   src: local('DM Serif Display'),
        local('DMSerifDisplay-Regular'),
        local('DM Serif Text'),
-       url('https://fonts.gstatic.com/s/dmserifdisplay/v16/-nFuOHM81r4j6k0gjALR8uVHFr3TZQnWDhIEXHU.woff2') format('woff2');
+       url('/fonts/dm-serif-display-400.woff2') format('woff2');
   font-weight: 100 900;
   font-style: italic;
   font-display: swap;
@@ -375,7 +375,7 @@ h1, h2, h3, h4 {
 }
 
 .nav-brand-sub {
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.75);
 }
 
 /* ── Links ── */

@@ -65,9 +65,27 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
 </style>
 {% endblock %}
 {% block nav %}
-{% include "nav-tool.njk" %}
+<nav class="tool-nav">
+  <a href="{{ toolBackHref }}" class="tool-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>{{ toolBackLabel }}</a>
+  <div class="tool-actions">
+    <button type="button" id="btnSave" class="btn-save">Speichern</button>
+    <button type="button" id="btnPrint" class="btn-print">Drucken</button>
+    <button type="button" id="btnReset" class="btn-reset">Zurücksetzen</button>
+  </div>
+</nav>
 {% endblock %}
 {% block content %}
+<div id="savedMsg" class="saved-msg" role="status" aria-live="polite">Gespeichert ✓</div>
+<div id="confirm" class="confirm" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
+  <div class="confirm-box">
+    <h2 id="confirm-title">Krisenplan zurücksetzen?</h2>
+    <p>Alle eingetragenen Daten werden unwiderruflich gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.</p>
+    <div class="confirm-btns">
+      <button type="button" id="btnConfirmCancel" class="confirm-cancel">Abbrechen</button>
+      <button type="button" id="btnConfirmDelete" class="confirm-delete">Endgültig löschen</button>
+    </div>
+  </div>
+</div>
 <main id="main-content" class="wrap">
   <div class="print-hdr"><div class="print-title">Unser Krisenplan</div><p>Erstellt am: <span id="printDate"></span> · Psychiatrische Universitätsklinik Zürich</p></div>
   <div class="hdr"><div class="badge">Modul 6 — Werkzeug</div><h1>Krisenplan-Generator</h1><p>Füllen Sie diesen Plan gemeinsam in einer stabilen Phase aus. Er soll in belastenden Situationen Entscheidungslast reduzieren. Ihre Daten bleiben lokal auf diesem Gerät.</p></div>
@@ -126,13 +144,20 @@ function load(){
 }
 
 // Save
+const savedMsg=document.getElementById('savedMsg');
 function save(){
   const d={};
   fields.forEach(f=>{if(f.value.trim())d[f.name]=f.value.trim()});
-  try{localStorage.setItem(KEY,JSON.stringify(d))}catch(e){}
-  const msg=document.getElementById('savedMsg');
-  msg.classList.add('vis');
-  setTimeout(()=>msg.classList.remove('vis'),2000);
+  try{
+    localStorage.setItem(KEY,JSON.stringify(d));
+    savedMsg.textContent='Gespeichert \u2713';
+    savedMsg.classList.add('vis');
+  }catch(e){
+    savedMsg.textContent='Speichern nicht möglich — privater Modus?';
+    savedMsg.style.background='#9A3412';
+    savedMsg.classList.add('vis');
+  }
+  setTimeout(()=>{savedMsg.classList.remove('vis');savedMsg.style.background='';},2500);
 }
 
 // Auto-save on change (shared debounce timer; no per-field state on DOM nodes)
