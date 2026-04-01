@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de"{% if noJs %} class="no-js"{% endif %}>
+<head>
+<meta charset="UTF-8">
+{% if noJs %}<script>document.documentElement.classList.remove('no-js')</script>{% endif %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="description" content="{{ description }}">
+<title>{{ title }}</title>
+{% if canonical %}<link rel="canonical" href="{{ canonical }}">
+{% else %}<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+{% endif %}
+{% if not noIndex %}
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:title" content="{{ ogTitle | default(title) }}">
+<meta property="og:description" content="{{ ogDescription | default(description) }}">
+<meta property="og:image" content="{{ site.url }}/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ ogTitle | default(title) }}">
+<meta name="twitter:description" content="{{ ogDescription | default(description) }}">
+<meta name="twitter:image" content="{{ site.url }}/og-image.png">
+{% endif %}
+{% if noIndex %}<meta name="robots" content="noindex">{% endif %}
+<link rel="stylesheet" href="/fonts/fonts.css">
+{% if useSharedCSS %}<link rel="stylesheet" href="/css/shared.css">{% endif %}
+{% block headCSS %}{% endblock %}
+<link rel="stylesheet" href="/css/tarif-kompass-theme.css">
+</head>
+<body>
+<a href="#main-content" class="skip-link">Direkt zum Inhalt</a>
+{% block nav %}{% endblock %}
+{% block content %}{{ content | safe }}{% endblock %}
+{% block footer %}{% endblock %}
+{% if useNavJS %}<script src="/js/nav.js"></script>{% endif %}
+{% block scripts %}{% endblock %}
+</body>
+</html>
