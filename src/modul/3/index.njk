@@ -9,28 +9,28 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
 ---
 {% block headCSS %}
 <style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; font-size: 16px; }
-  body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--cream); line-height: 1.7; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
-  body::before { content: ''; position: fixed; inset: 0; opacity: 0.025; pointer-events: none; z-index: 9999; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  
+  
+  
+  
 
   /* NAV */
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(254,252,248,0.88); backdrop-filter: blur(20px) saturate(1.4); -webkit-backdrop-filter: blur(20px) saturate(1.4); border-bottom: 1px solid rgba(45,40,35,0.06); }
-  nav.scrolled { box-shadow: 0 1px 12px rgba(45,40,35,0.08); }
-  .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 64px; }
-  .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); }
-  .nav-logo { width: 34px; height: 34px; border-radius: 9px; background: linear-gradient(135deg, var(--sage-400), var(--sage-600)); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 13px; flex-shrink: 0; }
-  .nav-brand-text { font-family: 'Source Serif 4', serif; font-size: 1rem; font-weight: 600; }
-  .nav-links { display: flex; gap: 4px; align-items: center; }
-  .nav-links a { text-decoration: none; font-size: 0.8rem; color: var(--text-secondary); padding: 6px 12px; border-radius: var(--radius-sm); transition: background-color 0.25s ease, color 0.25s ease; font-weight: 500; }
-  .nav-links a:hover { background: var(--sage-100); color: var(--sage-700); }
-  .nav-sos { background: var(--alert-red-bg) !important; color: var(--alert-red) !important; font-weight: 600 !important; border: 1px solid var(--alert-red-border) !important; }
-  .nav-sos:hover { background: var(--alert-red) !important; color: white !important; }
-  .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; color: var(--text); }
-  .nav-toggle svg { width: 22px; height: 22px; }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
-  .reading-progress { position: fixed; top: 64px; left: 0; right: 0; height: 3px; background: var(--sage-100); z-index: 99; }
-  .reading-progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--sage-400), var(--sage-500)); transition: width 0.15s ease; }
+  
+  
 
   /* HERO */
   .module-hero { padding: 120px 2rem 60px; position: relative; overflow: hidden; }
@@ -53,7 +53,6 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   .toc-desc { display: block; font-size: 0.72rem; color: var(--text-muted); line-height: 1.35; margin-top: 2px; font-weight: 400; }
   .toc li a.active { color: var(--sage-700); font-weight: 700; }
   .toc li a.active::after { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--sage-400); margin-left: 8px; vertical-align: middle; }
-
 
   /* PROSE */
   .content { max-width: var(--content-width); margin: 0 auto; padding: 0 2rem; }
@@ -189,32 +188,32 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   .next-module-arrow { width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0; background: var(--sage-100); color: var(--sage-600); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; transition: background-color 0.3s ease, color 0.3s ease; }
   .next-module-card:hover .next-module-arrow { background: var(--sage-500); color: white; }
 
-  footer { background: var(--earth-900); color: rgba(255,255,255,0.75); padding: 48px 2rem 32px; margin-top: 80px; }
-  .footer-inner { max-width: var(--content-width); margin: 0 auto; text-align: center; }
-  .footer-inner p { font-size: 0.8rem; line-height: 1.7; margin-bottom: 4px; }
-  .footer-inner a { color: rgba(255,255,255,0.5); text-decoration: none; }
-  .footer-inner a:hover { color: white; }
-  .footer-links { margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.75rem; }
-  .footer-links a { margin: 0 10px; }
+  
+  
+  
+  
+  
+  
+  
 
   .reveal{opacity:1}
 
   @media (max-width: 768px) {
-    .nav-links { display: none; } .nav-toggle { display: flex; } .nav-inner { position: relative; }
+      
     .toc ol { grid-template-columns: 1fr; }
     .erosion-cards { grid-template-columns: 1fr; }
     .emergency-strip { grid-template-columns: 1fr; }
     .handouts-grid { grid-template-columns: 1fr; }
   }
-  @media (max-width: 768px) { .nav-links.nav-open { display: flex; position: absolute; top: calc(100% + 10px); left: 2rem; right: 2rem; flex-direction: column; align-items: stretch; gap: 6px; padding: 12px; background: rgba(254,252,248,0.98); border: 1px solid rgba(45,40,35,0.08); border-radius: 16px; box-shadow: 0 12px 30px rgba(45,40,35,0.14); z-index: 60; } .nav-links.nav-open a { display: block; padding: 10px 12px; } }
+  
   @media (max-width: 600px) {
     .module-hero { padding: 100px 1.2rem 40px; }
     .content { padding: 0 1.2rem; }
     .next-module-card { flex-direction: column; text-align: center; }
     .takeaways { padding: 28px 24px; }
   }
-  *:focus-visible{outline:2px solid var(--sage-500);outline-offset:2px;border-radius:4px}
-  @media(prefers-reduced-motion:reduce){*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
+  
+  }
   .sources-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;cursor:pointer;padding:0;font:inherit;color:inherit;text-align:left}
 </style>
 {% endblock %}
@@ -570,14 +569,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
 {% block scripts %}
 <script>
   const nav = document.getElementById('navbar');
-  const navToggle = document.querySelector('.nav-toggle');
-  const navLinks = document.getElementById('primary-nav');
-  if (navToggle && navLinks) {
-    const closeNav = () => {
-      navLinks.classList.remove('nav-open');
-      navToggle.setAttribute('aria-expanded', 'false');
-      navToggle.setAttribute('aria-label', 'Menü öffnen');
-    };
+  ;
     navToggle.addEventListener('click', () => {
       const isOpen = navLinks.classList.toggle('nav-open');
       navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
