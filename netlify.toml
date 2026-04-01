@@ -1,5 +1,6 @@
 [build]
-publish = "."
+  command = "npx eleventy"
+  publish = "_site"
 
 # Security headers applied to all pages
 [[headers]]

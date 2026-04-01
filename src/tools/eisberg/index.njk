@@ -1,0 +1,116 @@
+---
+layout: "base"
+title: "Der Eisberg der Angehörigen | PUK Zürich"
+description: "Interaktive Eisberg-Visualisierung: Was die Welt sieht — und was darunter liegt. Für Angehörige. PUK Zürich."
+permalink: "/tools/eisberg/"
+toolBackHref: "/modul/2/"
+toolBackLabel: "Zurück zu Modul 2"
+useSharedCSS: false
+useNavJS: false
+---
+{% block headCSS %}
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-height:100vh;display:flex;flex-direction:column;align-items:center;-webkit-font-smoothing:antialiased}
+.tool-nav{width:100%;background:rgba(254,252,248,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(45,40,35,0.06);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
+.tool-back{display:flex;align-items:center;gap:8px;text-decoration:none;color:#475569;font-size:0.82rem;font-weight:500;transition:color 0.2s}
+.tool-back svg{width:16px;height:16px}
+.tool-brand{font-family:'Source Serif 4',serif;font-size:0.85rem;font-weight:600;color:#1c2b3a}
+.tool-wrap{width:100%;max-width:520px;padding:32px 20px 48px;flex:1}
+.tool-header{text-align:center;margin-bottom:28px}
+.tool-badge{display:inline-flex;background:#e6f4f2;color:#1c2b3a;padding:5px 14px;border-radius:100px;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px}
+.tool-header h1{font-family:'Source Serif 4',Georgia,serif;font-size:clamp(1.4rem,3.5vw,1.75rem);font-weight:700;color:#2a211b;margin:0 0 8px;letter-spacing:-0.02em}
+.tool-header p{font-size:0.85rem;color:#475569;line-height:1.6}
+.iceberg{width:100%;border-radius:22px;overflow:hidden;box-shadow:0 4px 24px rgba(45,40,35,0.08)}
+.ice-above{background:linear-gradient(180deg,#FAFAF7,#eef3f8);padding:24px 20px 32px}
+.ice-lbl{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;text-align:center;margin-bottom:16px}
+.ice-lbl-a{color:var(--blue-phase)}.ice-lbl-b{color:rgba(255,255,255,0.5)}
+.ice-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.ice-wl{height:4px;background:linear-gradient(90deg,transparent,var(--blue-phase) 20%,var(--blue-phase) 80%,transparent);opacity:0.3;position:relative}
+.ice-wl span{position:absolute;left:50%;top:-10px;transform:translateX(-50%);background:#eef3f8;border:1px solid #c5d5e8;border-radius:100px;padding:2px 14px;font-size:0.6rem;font-weight:700;color:var(--blue-phase);letter-spacing:0.06em;white-space:nowrap}
+.ice-below{background:linear-gradient(180deg,var(--ice-deep),var(--ice-deeper));padding:36px 20px 28px}
+.tag{padding:8px 16px;border-radius:10px;font-size:0.8rem;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background-color 0.25s ease,color 0.25s ease,border-color 0.25s ease;-webkit-appearance:none;line-height:1.3}
+.tv{background:#fff;color:#475569;border:1px solid #c5d5e8;font-weight:600;animation:gf 4s ease-in-out infinite}
+.tv.on{background:var(--blue-phase);color:#fff;border:2px solid var(--blue-phase)}
+.ti{font-weight:500;background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.45);border:1px solid rgba(255,255,255,0.18)}
+.ti.rev{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);border-color:rgba(255,255,255,0.35)}
+.ti.on{background:rgba(255,255,255,0.2);color:rgba(255,255,255,0.95);border:2px solid rgba(255,255,255,0.7);font-weight:700}
+.ctr{text-align:center;margin-top:20px;font-size:0.75rem;color:rgba(255,255,255,0.45)}
+#dp{width:100%;margin-top:16px;transition:background-color 0.3s ease,opacity 0.3s ease,border-color 0.3s ease}
+#dp.hide{opacity:0;transform:translateY(8px);pointer-events:none;max-height:0;overflow:hidden;margin:0}
+.dc{border-radius:18px;padding:24px 28px}
+.dcl{background:#fff;border:1px solid #c5d5e8;box-shadow:0 4px 20px rgba(45,40,35,0.08)}
+.dcd{background:var(--ice-deep);border:1px solid rgba(255,255,255,0.12);box-shadow:0 8px 32px rgba(0,0,0,0.3)}
+.dlbl{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.45);margin-bottom:10px}
+.dc h2{font-family:'Source Serif 4',Georgia,serif;font-size:1.06rem;font-weight:700;margin:0 0 10px}
+.dc p{font-size:0.93rem;line-height:1.7;margin:0}
+.dcl h2{color:#1c2b3a}.dcl p{color:#475569}
+.dcd h2{color:rgba(255,255,255,0.9)}.dcd p{color:rgba(255,255,255,0.75)}
+.refl{width:100%;margin-top:20px;background:linear-gradient(135deg,#FAFAF7,#FAFAF7);border-radius:18px;padding:24px 28px;display:none}
+.refl.vis{display:block}
+.refl-lbl{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#1E656D;margin-bottom:10px}
+.refl h2{font-family:'Source Serif 4',Georgia,serif;font-size:1rem;font-weight:600;color:#3d3128;line-height:1.45;margin:0 0 10px}
+.refl p{font-size:0.85rem;color:#475569;line-height:1.65;margin:0}
+.tf{text-align:center;font-size:0.68rem;color:#8DD4D9;margin-top:32px;line-height:1.5}
+@keyframes gf{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@media(prefers-reduced-motion:reduce){.tv{animation:none}*{transition-duration:0.01ms!important}}
+@media(max-width:480px){
+  .tool-wrap{padding:20px 14px 36px}
+  .ice-above{padding:16px 14px 24px}
+  .ice-below{padding:24px 14px 20px}
+  .dc{padding:16px}
+  .refl{padding:16px}
+  .tag{padding:6px 12px;font-size:0.75rem}
+}
+*:focus-visible{outline:2px solid #1E656D;outline-offset:2px;border-radius:4px}
+</style>
+{% endblock %}
+{% block nav %}
+{% include "nav-tool.njk" %}
+{% endblock %}
+{% block content %}
+<main class="tool-wrap" id="main-content">
+  <div class="tool-header"><div class="tool-badge">Modul 2 — Interaktiv</div><h1>Der Eisberg der Angehörigen</h1><p>Was die Welt sieht — und was darunter liegt. Klicken Sie auf die Begriffe.</p></div>
+  <div class="iceberg">
+    <div class="ice-above"><div class="ice-lbl ice-lbl-a">Was die Welt sieht</div><div class="ice-tags" id="tv"></div></div>
+    <div class="ice-wl"><span>~~~~ Wasserlinie ~~~~</span></div>
+    <div class="ice-below"><div class="ice-lbl ice-lbl-b">Was niemand sieht</div><div class="ice-tags" id="ti"></div><div class="ctr" id="ctr"></div></div>
+  </div>
+  <div id="dp" class="hide"><div class="dc" id="dc"></div></div>
+  <div class="refl" id="refl"><div class="refl-lbl">Reflexion</div><h2>Welcher Eisberg-Punkt hat Sie am meisten berührt?</h2><p>Vielleicht ist das der Punkt, über den es sich lohnt, mit jemandem zu sprechen — einer Vertrauensperson, einer Fachstelle, oder in einer Angehörigengruppe.</p></div>
+</main>
+{% endblock %}
+{% block footer %}
+{% include "footer-compact.njk" %}
+{% endblock %}
+{% block scripts %}
+<script>
+const V=[{id:"schlaf",l:"Schlafmangel",d:"Sie liegen wach, weil Sie auf Geräusche horchen. Morgens funktionieren Sie — aber der Schlaf fehlt."},{id:"streit",l:"Konflikte",d:"Gespräche, die eskalieren. Türen, die knallen. Worte, die Sie bereuen — und die Ihr Partner bereut."},{id:"orga",l:"Alltag organisieren",d:"Arzttermine, Medikamente, Finanzen, Kinder, Haushalt. Alles liegt bei Ihnen. Niemand fragt, ob Sie das schaffen."},{id:"muede",l:"Erschöpfung",d:"Die Art von Müdigkeit, die kein Schlaf heilt. Eine Erschöpfung, die in den Knochen sitzt."}];
+const I=[{id:"scham",l:"Scham",d:"Scham darüber, dass Sie manchmal wütend sind. Scham, dass Sie es nicht «schaffen». Scham, dass Sie Hilfe bräuchten."},{id:"trauer",l:"Trauer",d:"Trauer um den Partner, der er einmal war. Um die gemeinsame Zukunft, die anders aussehen sollte. Eine Trauer ohne Abschluss."},{id:"wut",l:"Verdrängte Wut",d:"Wut auf die Erkrankung. Auf das System. Manchmal auf den Partner. Diese Wut ist berechtigt — und sie wird fast nie ausgesprochen."},{id:"einsamkeit",l:"Einsamkeit",d:"200 Kontakte im Handy und niemanden zum Anrufen. Nicht weil Menschen fehlen — sondern weil Worte fehlen."},{id:"identitaet",l:"Identitätsverlust",d:"Wer bin ich noch — ausserhalb der Betreuerrolle? Eigene Hobbys, Ziele, Träume: aufgeschoben, vergessen, als Luxus abgetan."},{id:"angst",l:"Dauerangst",d:"Die Angst, die nie ganz weg ist. Dass es wieder passiert. Dass der Anruf kommt. Dass Sie es nicht rechtzeitig merken."},{id:"schuld",l:"Schuldgefühle",d:"«Hätte ich es früher bemerkt?» «Bin ich genug?» «Darf ich an mich denken?» — Fragen, die nie aufhören."},{id:"erleichterung",l:"Verbotene Erleichterung",d:"Erleichterung, wenn der Partner in der Klinik ist. Und sofort danach: Scham über die Erleichterung. Beides ist menschlich."}];
+const A=[...V,...I];let aid=null;const rev=new Set();
+// Pre-built lookups: O(1) access instead of O(n) Array.find / O(n²) nested Array.some
+const AMap=new Map(A.map(i=>[i.id,i]));
+const ISet=new Set(I.map(i=>i.id));
+// Pre-compute animation delays once so they don't re-randomise on every render
+const Vdelays=V.map(()=>(Math.random()*2).toFixed(1));
+// Cache DOM references used on every render
+const elTv=document.getElementById('tv');
+const elTi=document.getElementById('ti');
+const elCtr=document.getElementById('ctr');
+const elDp=document.getElementById('dp');
+const elDc=document.getElementById('dc');
+const elRefl=document.getElementById('refl');
+function ck(id){aid=aid===id?null:id;rev.add(id);rn();}
+function rn(){
+  elTv.innerHTML=V.map((i,idx)=>`<button class="tag tv${aid===i.id?' on':''}" data-id="${i.id}" style="animation-delay:${Vdelays[idx]}s">${i.l}</button>`).join('');
+  elTi.innerHTML=I.map(i=>{let c='tag ti';if(aid===i.id)c+=' on';else if(rev.has(i.id))c+=' rev';return`<button class="${c}" data-id="${i.id}">${i.l}</button>`}).join('');
+  const rc=[...rev].filter(id=>ISet.has(id)).length;
+  elCtr.textContent=rc>0?`${rc} von ${I.length} aufgedeckt`:'';
+  const it=AMap.get(aid),iv=ISet.has(aid);
+  if(it){elDp.classList.remove('hide');elDc.className='dc '+(iv?'dcd':'dcl');elDc.innerHTML=(iv?'<div class="dlbl">Das sieht niemand</div>':'')+`<h2>${it.l}</h2><p>${it.d}</p>`}else{elDp.classList.add('hide')}
+  elRefl.classList.toggle('vis',rc>=4);
+}
+rn();
+document.addEventListener('click',function(e){const b=e.target.closest('.tag[data-id]');if(b&&!b.disabled)ck(b.dataset.id);});
+</script>
+{% endblock %}

@@ -1,0 +1,116 @@
+---
+layout: "base"
+title: "Wie Überlastung zum Kreislauf wird | PUK Zürich"
+description: "Wie Überlastung zum Kreislauf wird: Schuld, Überengagement, Erschöpfung und Kritik im EE-Kreislauf. PUK Zürich."
+permalink: "/tools/ee-kreislauf/"
+toolBackHref: "/modul/3/"
+toolBackLabel: "Zurück zu Modul 3"
+useSharedCSS: false
+useNavJS: false
+---
+{% block headCSS %}
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-height:100vh;display:flex;flex-direction:column;align-items:center;-webkit-font-smoothing:antialiased}
+.tool-nav{width:100%;background:rgba(254,252,248,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(45,40,35,0.06);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
+.tool-back{display:flex;align-items:center;gap:8px;text-decoration:none;color:#475569;font-size:0.82rem;font-weight:500}
+.tool-back svg{width:16px;height:16px}
+.tool-brand{font-family:'Source Serif 4',serif;font-size:0.85rem;font-weight:600;color:#1c2b3a}
+.wrap{width:100%;max-width:520px;padding:32px 20px 48px;flex:1}
+.hdr{text-align:center;margin-bottom:28px}
+.badge{display:inline-flex;background:#e6f4f2;color:#1c2b3a;padding:5px 14px;border-radius:100px;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px}
+.hdr h1{font-family:'Source Serif 4',Georgia,serif;font-size:clamp(1.3rem,3.5vw,1.7rem);font-weight:700;color:var(--navy);margin:0 0 8px;letter-spacing:-0.02em}
+.hdr p{font-size:0.85rem;color:#475569;line-height:1.6}
+.svg-wrap{width:100%;max-width:380px;margin:0 auto 24px;position:relative}
+.svg-wrap svg{width:100%;height:auto}
+.svg-wrap circle{cursor:pointer;transition:background-color 0.3s ease,color 0.3s ease,border-color 0.3s ease}
+.svg-wrap circle:hover{filter:brightness(0.95)}
+.svg-wrap [role="button"]:focus{filter:drop-shadow(0 0 0.35rem rgba(116,138,90,0.45))}
+.svg-wrap .arrow{transition:opacity 0.5s}
+.interrupted .arrow{opacity:0.2;stroke-dasharray:8 6}
+.center-text{font-family:'Source Serif 4',Georgia,serif;transition:fill 0.3s}
+.detail{background:#fff;border-radius:18px;border:1px solid rgba(45,40,35,0.06);box-shadow:0 4px 24px rgba(45,40,35,0.08);padding:24px 28px;margin-bottom:16px;display:none}
+.detail.vis{display:block}
+.detail-num{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px}
+.detail h2{font-family:'Source Serif 4',Georgia,serif;font-size:1.06rem;font-weight:700;color:#1c2b3a;margin:0 0 10px}
+.detail p{font-size:0.88rem;color:#475569;line-height:1.65;margin:0 0 12px}
+.detail-exit{background:#e6f4f2;border-radius:12px;padding:14px 18px;border-left:3px solid var(--green-phase)}
+.detail-exit .exit-lbl{font-size:0.68rem;font-weight:700;color:var(--green-phase);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px}
+.detail-exit p{font-size:0.85rem;color:#1c2b3a;margin:0;line-height:1.55}
+.break-btn{width:100%;padding:14px;border-radius:14px;border:2px solid var(--green-phase);background:#fff;color:var(--green-phase);font-size:0.88rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background-color 0.3s ease,color 0.3s ease,border-color 0.3s ease;margin-bottom:16px}
+.break-btn:hover{background:#e6f4f2}
+.break-btn.active{background:var(--green-phase);color:#fff}
+.tf{text-align:center;font-size:0.68rem;color:#8DD4D9;margin-top:28px;line-height:1.5}
+*:focus-visible{outline:2px solid #1E656D;outline-offset:2px;border-radius:4px}
+@media(prefers-reduced-motion:reduce){*{transition-duration:0.01ms!important;animation-duration:0.01ms!important}}
+</style>
+{% endblock %}
+{% block nav %}
+{% include "nav-tool.njk" %}
+{% endblock %}
+{% block content %}
+<main class="wrap" id="main-content">
+  <div class="hdr"><div class="badge">Modul 5 — Interaktiv</div><h1>Wie Überlastung zum Kreislauf wird</h1><p>Der EE-Kreislauf aus Schuld, Überengagement, Erschöpfung und Kritik. Klicken Sie auf eine Station, um zu sehen, wie sich Überforderung zuspitzt — und wo der Kreislauf unterbrochen werden kann.</p></div>
+  <div class="svg-wrap" id="svgWrap">
+    <svg viewBox="0 0 400 400" role="group" aria-label="EE-Kreislauf: Schuld, Überengagement, Erschöpfung und Kritik als Teufelskreis">
+      <!-- Arrows -->
+      <path class="arrow" d="M200 60 A140 140 0 0 1 340 200" fill="none" stroke="#a7d9d5" stroke-width="2.5" stroke-linecap="round"/>
+      <path class="arrow" d="M340 200 A140 140 0 0 1 200 340" fill="none" stroke="#a7d9d5" stroke-width="2.5" stroke-linecap="round"/>
+      <path class="arrow" d="M200 340 A140 140 0 0 1 60 200" fill="none" stroke="#a7d9d5" stroke-width="2.5" stroke-linecap="round"/>
+      <path class="arrow" d="M60 200 A140 140 0 0 1 200 60" fill="none" stroke="#a7d9d5" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- Arrowheads -->
+      <polygon class="arrow" points="330,190 340,200 330,210" fill="#a7d9d5"/>
+      <polygon class="arrow" points="210,330 200,340 190,330" fill="#a7d9d5"/>
+      <polygon class="arrow" points="70,210 60,200 70,190" fill="#a7d9d5"/>
+      <polygon class="arrow" points="190,70 200,60 210,70" fill="#a7d9d5"/>
+      <!-- Center -->
+      <text x="200" y="194" text-anchor="middle" class="center-text" font-size="14" font-weight="600" fill="#1c2b3a" id="centerText1">Chronische</text>
+      <text x="200" y="212" text-anchor="middle" class="center-text" font-size="14" font-weight="600" fill="#1c2b3a" id="centerText2">Anspannung</text>
+      <!-- Nodes -->
+      <circle id="station0" cx="200" cy="52" r="42" fill="#fef3e2" stroke="#B45309" stroke-width="2" role="button" tabindex="0" aria-label="Station 1: Schuld" aria-pressed="false"/>
+      <text x="200" y="46" text-anchor="middle" font-family="DM Sans" font-size="9" font-weight="700" fill="#B45309">1</text>
+      <text x="200" y="62" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="600" fill="#B45309">Schuld</text>
+      <circle id="station1" cx="348" cy="200" r="42" fill="#fef2f0" stroke="#9A3412" stroke-width="2" role="button" tabindex="0" aria-label="Station 2: Überengagement" aria-pressed="false"/>
+      <text x="348" y="193" text-anchor="middle" font-family="DM Sans" font-size="9" font-weight="700" fill="#9A3412">2</text>
+      <text x="348" y="210" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="600" fill="#9A3412">Über-</text>
+      <text x="348" y="222" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="600" fill="#9A3412">engagement</text>
+      <circle id="station2" cx="200" cy="348" r="42" fill="#eef3f8" stroke="#5b7fa5" stroke-width="2" role="button" tabindex="0" aria-label="Station 3: Erschöpfung" aria-pressed="false"/>
+      <text x="200" y="342" text-anchor="middle" font-family="DM Sans" font-size="9" font-weight="700" fill="#5b7fa5">3</text>
+      <text x="200" y="358" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="600" fill="#475569">Erschöpfung</text>
+      <circle id="station3" cx="52" cy="200" r="42" fill="#FAFAF7" stroke="#0d7a5f" stroke-width="2" role="button" tabindex="0" aria-label="Station 4: Kritik" aria-pressed="false"/>
+      <text x="52" y="194" text-anchor="middle" font-family="DM Sans" font-size="9" font-weight="700" fill="#0d7a5f">4</text>
+      <text x="52" y="210" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="600" fill="#1c2b3a">Kritik</text>
+    </svg>
+  </div>
+  <div class="detail" id="detail" aria-live="polite"></div>
+  <button class="break-btn" id="breakBtn">Kreislauf unterbrechen</button>
+</main>
+{% endblock %}
+{% block footer %}
+{% include "footer-compact.njk" %}
+{% endblock %}
+{% block scripts %}
+<script>
+const stations=[
+  {n:"Schuld",c:"#B45309",desc:"Sie fühlen sich schuldig — «Ich mache nicht genug.» «Wenn ich nur aufmerksamer wäre.» Schuld ist in dieser Lage häufig und entsteht oft aus Liebe, Verantwortung und Hilflosigkeit zugleich.",mech:"Diese Schuld treibt oft dazu, noch mehr zu übernehmen, noch stärker zu kontrollieren und noch weniger loszulassen. So beginnt der Kreislauf.",exit:"Eine kleine Unterbrechung kann sein, Schuld zu benennen, ohne ihr sofort zu folgen: «Ich fühle mich schuldig, aber ich muss nicht alles allein auffangen.»"},
+  {n:"Überengagement",c:"#9A3412",desc:"Sie übernehmen immer mehr — Medikamente, Termine, Finanzen, Stimmungskontrolle. Die Beziehung droht zur Daueraufgabe zu werden.",mech:"Überengagement soll schützen, kann aber auch signalisieren: «Du kannst das nicht selbst.» Das schwächt Eigenverantwortung und verstärkt auf Dauer die Überlastung beider Seiten.",exit:"Geben Sie eine kleine Aufgabe bewusst zurück. Nicht als Strafe, sondern als Schritt aus der Dauerübernahme."},
+  {n:"Erschöpfung",c:"#5b7fa5",desc:"Die dauernde Überlastung führt zu Erschöpfung — körperlich, emotional, kognitiv. Viele funktionieren weiter, merken aber erst spät, wie dünn sie innerlich geworden sind.",mech:"Erschöpfung senkt die Toleranzschwelle. Was sonst gerade noch ging, wird schneller zu viel. Gereiztheit, Abstumpfung oder Härte nehmen zu.",exit:"Unterbrechen heisst hier oft nicht viel, sondern etwas Kleines und Konkretes: eine Pause, ein Anruf, ein Abend ohne Zuständigkeit."},
+  {n:"Kritik",c:"#0d7a5f",desc:"Aus der Erschöpfung heraus wird der Ton schärfer. Kritik ist oft nicht bloss Härte, sondern Überforderungssprache.",mech:"Kritik erzeugt beim Partner eher Scham, Abwehr oder Rückzug — und bei Ihnen danach oft neue Schuld. So schliesst sich der Kreislauf erneut.",exit:"Eine realistische Unterbrechung ist Beobachtung statt Bewertung: «Ich sehe, dass du heute nicht aufgestanden bist» statt «Du liegst schon wieder im Bett.»"}
+];
+let active=null,broken=false;
+function sel(i){active=active===i?null:i;rn()}
+function doBreak(){broken=!broken;document.getElementById('svgWrap').classList.toggle('interrupted',broken);document.getElementById('breakBtn').classList.toggle('active',broken);document.getElementById('centerText1').textContent=broken?'✓':'Chronische';document.getElementById('centerText2').textContent=broken?'Unterbrochen':'Anspannung';if(broken){document.getElementById('centerText1').setAttribute('fill','#1e656d');document.getElementById('centerText2').setAttribute('fill','#1e656d')}else{document.getElementById('centerText1').setAttribute('fill','#1c2b3a');document.getElementById('centerText2').setAttribute('fill','#1c2b3a')}}
+function rn(){
+  [0,1,2,3].forEach(i=>document.getElementById('station'+i).setAttribute('aria-pressed',active===i?'true':'false'));
+  const d=document.getElementById('detail');
+  if(active!==null){
+    const s=stations[active];
+    d.className='detail vis';
+    d.innerHTML=`<div class="detail-num" style="color:${s.c}">Station ${active+1} — ${s.n}</div><h2>${s.n}</h2><p>${s.desc}</p><p style="font-size:0.82rem;color:#475569;font-style:italic">${s.mech}</p><div class="detail-exit"><div class="exit-lbl">Ausweg</div><p>${s.exit}</p></div>`;
+  }else{d.className='detail'}
+}
+function onSvgKey(event,index){if(event.key==='Enter'||event.key===' '){event.preventDefault();sel(index)}}
+[0,1,2,3].forEach(i=>{const el=document.getElementById('station'+i);el.addEventListener('click',()=>sel(i));el.addEventListener('keydown',event=>onSvgKey(event,i))});
+document.getElementById('breakBtn').addEventListener('click',doBreak);
+</script>
+{% endblock %}

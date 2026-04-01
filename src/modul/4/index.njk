@@ -1,0 +1,632 @@
+---
+layout: "base"
+title: "Modul 4: Wenn die Kraft nachlässt | PUK Zürich"
+description: "Ambiguous Loss, chronische Erschöpfung, Identitätsverlust und Kinder: Was passiert, wenn die Kraft über Zeit nachlässt. Für Angehörige. PUK Zürich."
+permalink: "/modul/4/"
+useSharedCSS: false
+useNavJS: true
+footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
+---
+{% block headCSS %}
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;font-size:16px}
+  body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--cream);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  body::before{content:'';position:fixed;inset:0;opacity:0.025;pointer-events:none;z-index:9999;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(254,252,248,0.88);backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);border-bottom:1px solid rgba(45,40,35,0.06)}
+  nav.scrolled{box-shadow:0 1px 12px rgba(45,40,35,0.08)}
+  .nav-inner{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px}
+  .nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text)}
+  .nav-logo{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--sage-400),var(--sage-600));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:13px;flex-shrink:0}
+  .nav-brand-text{font-family:'Source Serif 4',serif;font-size:1rem;font-weight:600}
+  .nav-links{display:flex;gap:4px;align-items:center}
+  .nav-links a{text-decoration:none;font-size:0.8rem;color:var(--text-secondary);padding:6px 12px;border-radius:var(--radius-sm);transition:background-color 0.25s ease,color 0.25s ease;font-weight:500}
+  .nav-links a:hover{background:var(--sage-100);color:var(--sage-700)}
+  .nav-sos{background:var(--alert-red-bg)!important;color:var(--alert-red)!important;font-weight:600!important;border:1px solid var(--alert-red-border)!important}
+  .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;color:var(--text)}
+  .nav-toggle svg{width:22px;height:22px}
+  .reading-progress{position:fixed;top:64px;left:0;right:0;height:3px;background:var(--sage-100);z-index:99}
+  .reading-progress-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--sage-400),var(--sage-500));transition:width 0.15s ease}
+
+  .module-hero{padding:120px 2rem 60px;position:relative;overflow:hidden}
+  .module-hero::before{content:'';position:absolute;top:-30%;right:-15%;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,var(--sage-100) 0%,transparent 70%);opacity:0.6}
+  .module-hero-inner{max-width:var(--content-width);margin:0 auto;position:relative;z-index:2}
+  .breadcrumb{font-size:0.8rem;color:var(--text-muted);margin-bottom:20px;display:flex;align-items:center;gap:8px}
+  .breadcrumb a{color:var(--sage-500);text-decoration:none}
+  .hero-icon{width:40px;height:40px;color:var(--sage-400);opacity:0.7;margin-bottom:12px;display:block}.module-badge{display:inline-flex;align-items:center;gap:8px;background:var(--sage-100);color:var(--sage-700);padding:6px 16px;border-radius:100px;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px}
+  .module-hero h1{font-family:'Source Serif 4',serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:700;line-height:1.2;letter-spacing:-0.03em;color:var(--earth-900);margin-bottom:16px}
+  .module-meta{display:flex;align-items:center;gap:20px;font-size:0.85rem;color:var(--text-muted);margin-bottom:28px}
+  .toc{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:28px 32px;margin-bottom:48px;box-shadow:var(--shadow-soft)}
+  .toc-title{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--sage-500);margin-bottom:14px}
+  .toc ol{list-style:none;counter-reset:toc-counter;display:grid;grid-template-columns:1fr 1fr;gap:4px 20px}
+  .toc li{counter-increment:toc-counter}
+  .toc li a{text-decoration:none;color:var(--text-secondary);font-size:0.88rem;display:block;padding:8px 0 8px 28px;position:relative;transition:color 0.2s}
+  .toc li a::before{content:counter(toc-counter);font-size:0.7rem;font-weight:700;color:var(--sage-400);position:absolute;left:0;top:10px}
+  .toc li a:hover{color:var(--sage-600)}.toc-desc{display:block;font-size:0.72rem;color:var(--text-muted);line-height:1.35;margin-top:2px;font-weight:400}.toc li a.active{color:var(--sage-700);font-weight:700}.toc li a.active::after{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--sage-400);margin-left:8px;vertical-align:middle}
+
+  .content{max-width:var(--content-width);margin:0 auto;padding:0 2rem}
+  .content h2{scroll-margin-top:84px;font-family:'Source Serif 4',serif;font-size:1.65rem;font-weight:700;line-height:1.25;letter-spacing:-0.02em;color:var(--earth-900);margin:64px 0 20px;padding-top:20px;border-top:1px solid rgba(45,40,35,0.06)}
+  .content h2:first-of-type{border-top:none;margin-top:0}
+  .content h3{font-family:'Source Serif 4',serif;font-size:1.25rem;font-weight:600;line-height:1.35;color:var(--earth-800);margin:40px 0 14px}
+  .content p{font-size:1rem;color:var(--text-secondary);margin-bottom:18px;line-height:1.75}
+  .content strong{color:var(--text);font-weight:600}
+
+  .quote-block{background:var(--warm-100);border-radius:var(--radius-lg);padding:32px 36px;margin:36px 0;position:relative}
+  .quote-block::before{content:'«';font-family:'Source Serif 4',serif;font-size:4rem;color:var(--warm-400);position:absolute;top:12px;left:20px;line-height:1;opacity:0.5}
+  .quote-block blockquote{font-family:'Source Serif 4',serif;font-size:1.1rem;font-style:italic;color:var(--earth-700);line-height:1.65;padding-left:12px}
+  .quote-block cite{display:block;margin-top:14px;font-style:normal;font-family:'DM Sans',sans-serif;font-size:0.82rem;color:var(--text-muted);padding-left:12px}
+
+  /* SELFTEST */
+  .selftest{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-xl);padding:36px;margin:40px 0;box-shadow:var(--shadow-soft)}
+  .selftest h3{font-family:'Source Serif 4',serif;font-size:1.15rem;font-weight:600;color:var(--earth-800);margin-bottom:8px}
+  .selftest>p{font-size:0.85rem;color:var(--text-muted);margin-bottom:24px}
+  .selftest-item{padding:16px 0;border-top:1px solid rgba(45,40,35,0.06);font-size:0.92rem;color:var(--text-secondary);line-height:1.55}
+  .selftest-item:first-of-type{border-top:none}
+
+  /* GLASWAND */
+  .glaswand{background:var(--blue-phase-light);border-radius:var(--radius-xl);padding:36px;margin:40px 0;text-align:center}
+  .glaswand-visual{display:flex;align-items:center;justify-content:center;gap:8px;margin:24px 0;font-size:0.92rem;color:var(--blue-phase)}
+  .glaswand-wall{width:3px;height:80px;background:var(--blue-phase);opacity:0.4;border-radius:2px;margin:0 20px}
+  .glaswand-side{text-align:center}
+  .glaswand-side strong{display:block;font-size:0.82rem;color:var(--blue-phase);margin-bottom:4px}
+  .glaswand-side span{font-size:0.78rem;color:#475569}
+  .glaswand-quote{font-family:'Source Serif 4',serif;font-size:1rem;font-style:italic;color:var(--earth-700);margin-top:20px;line-height:1.6}
+
+  /* LOSS CARDS */
+  .loss-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0}
+  .loss-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:22px;border-left:4px solid var(--blue-phase)}
+  .loss-card h4{font-size:0.88rem;font-weight:700;color:var(--blue-phase);margin-bottom:6px}
+  .loss-card p{font-size:0.84rem;color:var(--text-secondary);line-height:1.55;margin:0}
+
+  /* PHASE CARDS */
+  .phase-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:28px 0}
+  .phase-card{padding:24px;border-radius:var(--radius-lg);border-top:4px solid transparent}
+  .phase-card.p1{background:var(--amber-phase-light);border-top-color:var(--amber-phase)}
+  .phase-card.p2{background:var(--alert-red-bg);border-top-color:var(--alert-red)}
+  .phase-card.p3{background:var(--blue-phase-light);border-top-color:var(--blue-phase)}
+  .phase-card-label{font-size:0.68rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px}
+  .phase-card.p1 .phase-card-label{color:var(--amber-phase)}
+  .phase-card.p2 .phase-card-label{color:var(--alert-red)}
+  .phase-card.p3 .phase-card-label{color:var(--blue-phase)}
+  .phase-card h4{font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:8px}
+  .phase-card p{font-size:0.84rem;line-height:1.55;margin:0}
+  .phase-card.p1 p{color:#B45309}
+  .phase-card.p2 p{color:#9A3412}
+  .phase-card.p3 p{color:#475569}
+
+  /* EROSION CHART */
+  .chart-section{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-xl);padding:36px;margin:40px 0;box-shadow:var(--shadow-soft)}
+  .chart-section h3{font-family:'Source Serif 4',serif;font-size:1.15rem;font-weight:600;margin-bottom:8px;color:var(--earth-800)}
+  .chart-section>p{font-size:0.88rem;color:var(--text-muted);margin-bottom:24px}
+  .chart-wrap svg{width:100%;height:auto;display:block}
+  .chart-caption{font-size:0.78rem;color:var(--text-muted);line-height:1.6;margin-top:16px}
+
+  /* MECHANISM CARDS */
+  .mech-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0}
+  .mech-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:24px}
+  .mech-card h4{font-size:0.92rem;font-weight:700;color:var(--text);margin-bottom:8px}
+  .mech-card p{font-size:0.88rem;color:var(--text-secondary);line-height:1.6;margin:0 0 10px}
+  .mech-card .mech-result{font-size:0.82rem;color:var(--alert-red);font-weight:600}
+
+  /* IDENTITY BLOCK (from Modul 3) */
+  .identity-signs{list-style:none;margin:20px 0}
+  .identity-signs li{font-size:0.92rem;color:var(--text-secondary);padding:10px 0 10px 24px;position:relative;border-bottom:1px solid rgba(45,40,35,0.04)}
+  .identity-signs li::before{content:'—';position:absolute;left:0;color:var(--sage-300);font-weight:700}
+
+  /* KIDS SECTION */
+  .kids-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0}
+  .kids-col{padding:24px;border-radius:var(--radius-lg)}
+  .kids-col.perceive{background:var(--alert-red-bg);border:1px solid var(--alert-red-border)}
+  .kids-col.need{background:var(--sage-50);border:1px solid var(--sage-200)}
+  .kids-col h4{font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:14px}
+  .kids-col.perceive h4{color:var(--alert-red)}
+  .kids-col.need h4{color:var(--sage-600)}
+  .kids-col ul{list-style:none}
+  .kids-col li{font-size:0.88rem;padding:5px 0 5px 18px;position:relative;line-height:1.55}
+  .kids-col.perceive li{color:#9A3412}
+  .kids-col.need li{color:var(--sage-700)}
+  .kids-col.perceive li::before{content:'•';position:absolute;left:0;color:var(--alert-red)}
+  .kids-col.need li::before{content:'✓';position:absolute;left:0;color:var(--sage-400);font-weight:700}
+
+  /* ACCORDION */
+  .accordion-item{background:white;border:1px solid rgba(45,40,35,0.07);border-radius:var(--radius-lg);margin-bottom:12px;overflow:hidden;transition:box-shadow 0.3s ease}
+  .accordion-item:hover{box-shadow:var(--shadow-soft)}
+  .accordion-header{width:100%;padding:22px 28px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;background:none;border:none;text-align:left;font-family:'DM Sans',sans-serif}
+  .accordion-header-left{display:flex;align-items:center;gap:14px}
+  .accordion-icon-badge{width:40px;height:40px;border-radius:10px;background:var(--sage-100);display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--sage-600);flex-shrink:0}
+  .accordion-title{font-weight:700;font-size:0.95rem;color:var(--text)}
+  .accordion-subtitle{font-size:0.8rem;color:var(--text-muted);margin-top:2px}
+  .accordion-chevron{width:28px;height:28px;border-radius:50%;background:var(--sage-50);display:flex;align-items:center;justify-content:center;transition:transform 0.35s ease,background-color 0.35s ease,color 0.35s ease;color:var(--sage-400);font-size:0.8rem;flex-shrink:0}
+  .accordion-item.open .accordion-chevron{transform:rotate(180deg);background:var(--sage-200)}
+  .accordion-body{max-height:0;overflow:hidden;transition:max-height 0.5s cubic-bezier(0.25,0.46,0.45,0.94)}
+  .accordion-item.open .accordion-body{max-height:800px}
+  .accordion-body-inner{padding:0 28px 24px;font-size:0.92rem;color:var(--text-secondary);line-height:1.75}
+  .accordion-body-inner p{margin-bottom:12px}
+
+  .action-grid{display:grid;grid-template-columns:1fr;gap:14px;margin:28px 0}
+  .action-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:24px;display:flex;gap:20px;align-items:flex-start;transition:border-color 0.2s ease,box-shadow 0.2s ease}
+  .action-card:hover{box-shadow:var(--shadow-soft)}
+  .action-icon{width:42px;height:42px;border-radius:11px;background:var(--sage-100);color:var(--sage-600);display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:800;flex-shrink:0}
+  .action-card h4{font-weight:700;font-size:0.92rem;margin-bottom:6px;color:var(--text)}
+  .action-card p{font-size:0.85rem;color:var(--text-muted);line-height:1.6;margin:0}
+
+  .reflection{background:linear-gradient(135deg,var(--warm-100),var(--sage-50));border-radius:var(--radius-xl);padding:36px;margin:48px 0;position:relative;overflow:hidden}
+  .reflection::before{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;border-radius:50%;background:rgba(141,156,115,0.1)}
+  .reflection-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--sage-500);margin-bottom:12px}
+  .reflection h3{font-family:'Source Serif 4',serif;font-size:1.15rem;font-weight:600;color:var(--earth-800);margin-bottom:14px;line-height:1.35}
+  .reflection p{font-size:0.92rem;color:var(--text-secondary);line-height:1.7;position:relative;z-index:1;margin:0}
+
+  .takeaways{background:var(--sage-700);color:white;border-radius:var(--radius-xl);padding:40px;margin:48px 0;position:relative;overflow:hidden}
+  .takeaways::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 80%,rgba(141,156,115,0.25) 0%,transparent 60%)}
+  .takeaways-inner{position:relative;z-index:2}
+  .takeaways h3{color:white;font-family:'Source Serif 4',serif;font-size:1.3rem;font-weight:600;margin-bottom:24px}
+  .takeaway-item{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-top:1px solid rgba(255,255,255,0.1)}
+  .takeaway-item:first-of-type{border-top:none}
+  .takeaway-check{width:24px;height:24px;border-radius:6px;flex-shrink:0;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-size:0.7rem;margin-top:2px}
+  .takeaway-item p{font-size:0.92rem;line-height:1.65;color:rgba(255,255,255,0.88);margin:0}
+  .takeaway-item strong{color:white}
+
+  .sources{background:var(--sage-50);border-radius:var(--radius-lg);padding:28px 32px;margin:48px 0}
+  .sources h4{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--sage-500);margin-bottom:14px}
+  .sources ul{list-style:none;max-height:0;overflow:hidden;transition:max-height 0.5s ease}.sources.sources-open ul{max-height:2000px}.sources h4::after{content:" ▾";font-size:0.7rem;opacity:0.5}.sources.sources-open h4::after{content:" ▴"}
+  .sources li{font-size:0.82rem;color:var(--text-muted);padding:6px 0 6px 16px;position:relative;line-height:1.6}
+  .sources li::before{content:'·';position:absolute;left:0;font-weight:700;color:var(--sage-300)}
+
+  .handouts{margin:48px 0}
+  .handouts-title{font-family:'Source Serif 4',serif;font-size:1.2rem;font-weight:600;color:var(--earth-800);margin-bottom:20px}
+  .handouts-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .handout-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-md);padding:20px;text-decoration:none;color:var(--text);display:flex;align-items:center;gap:16px;transition:border-color 0.2s ease,box-shadow 0.2s ease}
+  .handout-card:hover{box-shadow:var(--shadow-soft);border-color:var(--sage-200)}
+  .handout-icon{width:44px;height:44px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700}
+  .handout-icon.green{background:var(--sage-100);color:var(--sage-600)}
+  .handout-card-title{font-weight:600;font-size:0.88rem;margin-bottom:2px}
+  .handout-card-sub{font-size:0.75rem;color:var(--text-muted)}
+
+  .next-module{margin:64px 0 0;border-top:1px solid rgba(45,40,35,0.06);padding-top:48px}
+  .next-module-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-xl);padding:36px;text-decoration:none;color:var(--text);display:flex;align-items:center;justify-content:space-between;gap:32px;transition:border-color 0.2s ease,box-shadow 0.2s ease}
+  .next-module-card:hover{box-shadow:0 8px 40px rgba(45,40,35,0.12);transform:translateY(-3px);border-color:var(--sage-200)}
+  .next-module-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--sage-500);margin-bottom:8px}
+  .next-module-title{font-family:'Source Serif 4',serif;font-size:1.3rem;font-weight:600;color:var(--earth-800);margin-bottom:8px}
+  .next-module-desc{font-size:0.88rem;color:var(--text-muted);line-height:1.55}
+  .next-module-arrow{width:56px;height:56px;border-radius:50%;flex-shrink:0;background:var(--sage-100);color:var(--sage-600);display:flex;align-items:center;justify-content:center;font-size:1.3rem;transition:border-color 0.2s ease,box-shadow 0.2s ease}
+  .next-module-card:hover .next-module-arrow{background:var(--sage-500);color:white}
+
+  footer{background:var(--earth-900);color:rgba(255,255,255,0.6);padding:48px 2rem 32px;margin-top:80px}
+  .footer-inner{max-width:var(--content-width);margin:0 auto;text-align:center}
+  .footer-inner p{font-size:0.8rem;line-height:1.7;margin-bottom:4px}
+  .footer-inner a{color:rgba(255,255,255,0.5);text-decoration:none}
+  .footer-links{margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08);font-size:0.75rem}
+  .footer-links a{margin:0 10px}
+
+  .reveal{opacity:1}
+
+  @media(max-width:768px){.nav-links{display:none}.nav-toggle{display:flex}.nav-inner{position:relative}.toc ol{grid-template-columns:1fr}.phase-cards{grid-template-columns:1fr}.mech-cards{grid-template-columns:1fr}.loss-cards{grid-template-columns:1fr}.kids-grid{grid-template-columns:1fr}.handouts-grid{grid-template-columns:1fr}}
+  @media(max-width:768px){.nav-links.nav-open{display:flex;position:absolute;top:calc(100% + 10px);left:2rem;right:2rem;flex-direction:column;align-items:stretch;gap:6px;padding:12px;background:rgba(254,252,248,0.98);border:1px solid rgba(45,40,35,0.08);border-radius:16px;box-shadow:0 12px 30px rgba(45,40,35,0.14);z-index:60}.nav-links.nav-open a{display:block;padding:10px 12px}}
+  @media(max-width:600px){.module-hero{padding:100px 1.2rem 40px}.content{padding:0 1.2rem}.next-module-card{flex-direction:column;text-align:center}.takeaways{padding:28px 24px}}
+  *:focus-visible{outline:2px solid var(--sage-500);outline-offset:2px;border-radius:4px}
+  @media(prefers-reduced-motion:reduce){*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
+  .sources-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;cursor:pointer;padding:0;font:inherit;color:inherit;text-align:left}
+  .tool-cta{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:22px;padding:24px 28px;margin:32px 0;display:flex;gap:20px;align-items:center;box-shadow:0 2px 16px rgba(45,40,35,0.06);transition:border-color 0.2s ease,box-shadow 0.2s ease;text-decoration:none;color:inherit}.tool-cta:hover{box-shadow:0 4px 20px rgba(45,40,35,0.1)}.tool-cta-icon{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}.tool-cta-body h4{font-size:0.95rem;font-weight:700;color:var(--text);margin:0 0 4px}.tool-cta-body p{font-size:0.82rem;color:var(--text-muted);margin:0 0 8px;line-height:1.45}.tool-cta-btn{display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;font-weight:700;color:var(--sage-500);transition:color 0.2s}.tool-cta:hover .tool-cta-btn{color:var(--sage-700)}
+  .age-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:16px 0 24px}
+  .age-card{background:#fff;border:1px solid rgba(45,40,35,0.08);border-radius:14px;padding:20px 18px}
+  .age-card h4{font-size:0.9rem;font-weight:700;color:#1c2b3a;margin:8px 0 8px}
+  .age-card p{font-size:0.83rem;line-height:1.6;color:#475569;margin:0 0 8px}.age-card p:last-child{margin:0}
+  .age-label{display:inline-flex;background:#e6f4f2;color:#1E656D;padding:3px 10px;border-radius:100px;font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
+</style>
+{% endblock %}
+{% block nav %}
+{% include "nav-full.njk" %}
+{% endblock %}
+{% block content %}
+<div class="reading-progress"><div class="reading-progress-fill" id="readingProgress"></div></div>
+
+<header class="module-hero"><div class="module-hero-inner">
+  <div class="breadcrumb"><a href="/">Startseite</a><span>›</span><a href="/#module">Module</a><span>›</span><span>Wenn die Kraft nachlässt</span></div>
+    <svg class="hero-icon" aria-hidden="true" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="10" width="24" height="20" rx="3" stroke="currentColor" stroke-width="2"/><rect x="30" y="16" width="4" height="8" rx="1" fill="currentColor" opacity="0.3"/><rect x="9" y="22" width="6" height="5" rx="1" fill="currentColor" opacity="0.35"/></svg>
+  <div class="module-badge">Modul 4 / 8</div>
+  <h1>Wenn die Kraft nachlässt</h1>
+  <div class="module-meta"><span>⏱ ca. 14–16 Minuten</span><span>📖 Chronische Erschöpfung</span></div>
+
+  <div class="quote-block">
+    <blockquote>Ich sage allen, es geht mir gut. Aber nachts liege ich wach und frage mich, wie lange ich das noch schaffe. Ich bin so müde — nicht körperlich, sondern in meiner Seele.</blockquote>
+    <cite>— Partnerin, 38 Jahre (anonymisiert)</cite>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">In diesem Modul</div>
+    <ol>
+      <li><a href="#ambiguous">Da und doch nicht da — Ambiguous Loss<span class="toc-desc">Warum Trauer ohne Abschluss so belastend ist</span></a></li>
+      <li><a href="#kumulation">Wie Erschöpfung sich über Zeit aufbaut<span class="toc-desc">Warum Belastung auch zwischen Episoden nicht einfach verschwindet</span></a></li>
+      <li><a href="#mechanismen">Schonhaltung, Co-Isolation und Identitätsverlust<span class="toc-desc">Wie gute Absicht Sie schleichend verändert</span></a></li>
+      <li><a href="#ungelebt">Was auf der Strecke bleibt<span class="toc-desc">Ungelebte Zeit — die Kosten des Nicht-Gelebten</span></a></li>
+      <li><a href="#kinder">Wenn Kinder mittragen<span class="toc-desc">Was Kinder wahrnehmen, übernehmen und brauchen</span></a></li>
+      <li><a href="#handeln">Warnsignale und erste Gegensteuerung<span class="toc-desc">Fünf Schritte — auch wenn Sie erschöpft sind</span></a></li>
+    </ol>
+  </div>
+</div></header>
+
+<main class="content" id="main-content">
+
+  <!-- SELBSTTEST -->
+  <div class="selftest reveal">
+    <h3>Kurze Standortbestimmung</h3>
+    <p>Vielleicht merken Sie beim Lesen bereits, wie viel in letzter Zeit an Ihnen hängen geblieben ist: ständige Anspannung, vernachlässigte eigene Bedürfnisse, Rückzug oder das Gefühl, zu lange durchzuhalten. Dieses Modul ordnet diese Erschöpfung zuerst ein, bevor es zu konkreten Schritten kommt.</p>
+  </div>
+
+  <p class="reveal" style="font-size:0.88rem;color:var(--text-muted);border-left:3px solid var(--teal-border,rgba(30,101,109,0.25));padding-left:14px;margin-bottom:28px"><strong>Dieses Modul:</strong> Wenn Sie die Diagnose schon eine Weile kennen und die Erschöpfung sich über Zeit aufgebaut hat — Ambiguous Loss, Identitätsverlust, Co-Isolation. Wenn Sie eher am Anfang stehen und verstehen wollen, was gerade mit Ihnen passiert, beginnen Sie mit <a href="/modul/2/" style="color:var(--teal)">Modul 2</a>.</p>
+
+  <p class="reveal">Viele Angehörige erleben Belastung nicht vor allem als einzelne Krise, sondern als dauerhaften Unterstrom: zu viel Wachsamkeit, zu wenig echte Erholung, zu viel Mittragen, zu wenig eigener Raum. Gerade weil man oft weiter funktioniert, bleibt diese Form von Erschöpfung lange unsichtbar — auch vor einem selbst.</p>
+
+  <!-- ══════════ 1. AMBIGUOUS LOSS ══════════ -->
+  
+  <a href="/tools/selbsttest/" class="tool-cta reveal">
+    <div class="tool-cta-icon" style="background:#FAFAF7">📋</div>
+    <div class="tool-cta-body">
+      <h4>Optionale Standortbestimmung</h4>
+      <p>Wenn Sie Ihre momentane Belastung kurz einordnen möchten, finden Sie hier eine knappe, nicht diagnostische Orientierung.</p>
+      <span class="tool-cta-btn">Kurz einordnen →</span>
+    </div>
+  </a>
+
+<h2 id="ambiguous" class="reveal">Da und doch nicht da — Ambiguous Loss</h2>
+  <p class="reveal">Konzept: Pauline Boss (1999). Eine Trauer ohne Abschluss — weil der Verlust nicht endgültig ist und sich deshalb nicht einfach verarbeiten lässt.</p>
+
+  <div class="glaswand reveal">
+    <div class="glaswand-visual">
+      <div class="glaswand-side"><strong>Angehörige*r</strong><span>«Ich bin allein.»</span></div>
+      <div class="glaswand-wall"></div>
+      <div class="glaswand-side"><strong>Partner*in</strong><span>Physisch da,<br>psychisch verändert</span></div>
+    </div>
+    <div class="glaswand-quote">«Er sitzt neben mir auf dem Sofa, aber ich fühle mich völlig allein. Ich trauere um jemanden, der noch lebt.»</div>
+  </div>
+
+  <p class="reveal">Da der Verlust nicht endgültig ist, kommt auch die Trauer oft nicht zu einem klaren Abschluss. Angehörige bleiben in einer merkwürdigen Zwischenlage: verbunden und doch einsam, loyal und doch erschöpft, hoffnungsvoll und doch ständig vorsichtig. Diese Trauer ist normal und berechtigt — auch wenn Ihr Partner noch da ist. Das Konzept des «Disenfranchised Grief» — nicht anerkannte Trauer (Doka, 2002) — beschreibt genau das: eine Trauer, die real und tief ist, aber keinen gesellschaftlich anerkannten Platz hat.</p>
+
+  <div class="loss-cards reveal">
+    <div class="loss-card"><h4>Gemeinsame Zukunft</h4><p>Pläne — Kinder, Reisen, gemeinsames Altern — müssen aufgegeben oder drastisch angepasst werden.</p></div>
+    <div class="loss-card"><h4>Identität des Partners</h4><p>«Ich erkenne ihn nicht mehr wieder.» Der Mensch, den man liebte, verändert sich durch die Erkrankung.</p></div>
+    <div class="loss-card"><h4>Soziale Kontakte</h4><p>Freundschaften zerbrechen, weil man sich zurückzieht — oder Freunde sich distanzieren.</p></div>
+    <div class="loss-card"><h4>Intimität</h4><p>Emotionale und körperliche Nähe leidet unter der Verschiebung vom Partner zum Pfleger.</p></div>
+  </div>
+
+  <p class="reveal" style="font-size:0.88rem;color:var(--text-muted)"><strong>Wenn diese Trauer gross wird:</strong> Unterstützung kann helfen — sei es über Einzel- oder Paartherapie, eine Angehörigengruppe (VASK Zürich, Selbsthilfe Zürich) oder bei anhaltend komplizierter Trauer eine Fachperson für Trauerbegleitung. Kontaktdaten und weitere Anlaufstellen finden Sie in <a href="/modul/8/" style="color:var(--teal)">Modul 8</a>.</p>
+
+  <!-- ══════════ 2. KUMULATION + CHART ══════════ -->
+  <h2 id="kumulation" class="reveal">Wie Erschöpfung sich über Zeit aufbaut</h2>
+  <p class="reveal">In Modul 3 haben wir gesehen, wie sich Vertrauen und Nähe in einer Beziehung über Episoden abnutzen. Dasselbe Prinzip zeigt sich hier auf einer anderen Ebene: Ihrer eigenen Belastbarkeit. Diese Grundtrauer ist oft nicht das Einzige. Mit jeder Episode, jeder unruhigen Phase und jedem erneuten Alarm bleibt etwas zurück: weniger Vertrauen in Ruhe, weniger spontane Entlastung, weniger innere Reserve. Viele Angehörige merken irgendwann: Ich bin nicht nur müde nach Krisen — ich bin insgesamt dünnhäutiger geworden.</p>
+
+  <div class="phase-cards reveal">
+    <div class="phase-card p1">
+      <div class="phase-card-label">Phase 1 — Frühphase</div>
+      <h4>Notfallmodus</h4>
+      <p>Sie schalten in den Krisenmodus: behandeln helfen, organisieren, Verantwortung übernehmen, funktionieren. Die eigene Erschöpfung ist noch zweitrangig.</p>
+    </div>
+    <div class="phase-card p2">
+      <div class="phase-card-label">Phase 2 — Wiederkehr</div>
+      <h4>Kumulation</h4>
+      <p>Jede Episode hinterlässt Spuren — Schlafmangel, Misstrauen gegenüber Ruhe, mehr Wachsamkeit, weniger Spielraum. Die Hoffnung wird vorsichtiger: «Schon wieder.»</p>
+    </div>
+    <div class="phase-card p3">
+      <div class="phase-card-label">Phase 3 — Chronisch</div>
+      <h4>Dauer-Alarm</h4>
+      <p>Die Belastung wird zu einem Hintergrundzustand. Schlafprobleme, Gereiztheit, Rückzug und innere Müdigkeit bleiben auch dann spürbar, wenn gerade keine akute Krise sichtbar ist.</p>
+    </div>
+  </div>
+
+  <div class="chart-section reveal">
+    <h3>Wie sich Belastung aufbauen kann — ein Modell</h3>
+    <p>Die blaue Linie zeigt den Krankheitsverlauf (schematisch — reale Verläufe variieren stark). Die rote Linie zeigt, wie sich die Belastbarkeit von Angehörigen unter wiederholter Belastung verändern kann.</p>
+    <div class="chart-wrap">
+      <svg role="img" aria-label="Belastungsverlauf: Belastungsreserve und Stimmung der erkrankten Person über mehrere Episoden, konzeptionelles Modell" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+        <!-- Legend top -->
+        <line x1="60" y1="22" x2="84" y2="22" stroke="#5b7fa5" stroke-width="3"/>
+        <text x="90" y="26" fill="#5b7fa5" font-size="13" font-weight="600" font-family="DM Sans, sans-serif">Stimmung</text>
+        <line x1="200" y1="22" x2="224" y2="22" stroke="#9A3412" stroke-width="3"/>
+        <text x="230" y="26" fill="#9A3412" font-size="13" font-weight="600" font-family="DM Sans, sans-serif">Belastbarkeit</text>
+        <line x1="370" y1="22" x2="394" y2="22" stroke="#0d7a5f" stroke-width="3" stroke-dasharray="6 4"/>
+        <text x="400" y="26" fill="#0d7a5f" font-size="13" font-weight="600" font-family="DM Sans, sans-serif">Mit Unterstützung</text>
+
+        <!-- Axes -->
+        <line x1="55" y1="50" x2="55" y2="320" stroke="#a7d9d5" stroke-width="1.5"/>
+        <line x1="55" y1="320" x2="575" y2="320" stroke="#a7d9d5" stroke-width="1.5"/>
+
+        <!-- Crisis bands (unequal widths + spacing = asymmetric) -->
+        <rect x="110" y="50" width="35" height="270" fill="#B45309" opacity="0.08" rx="4"/>
+        <rect x="240" y="50" width="55" height="270" fill="#B45309" opacity="0.08" rx="4"/>
+        <rect x="430" y="50" width="65" height="270" fill="#B45309" opacity="0.08" rx="4"/>
+        <text x="128" y="345" fill="#B45309" font-size="12" font-weight="600" text-anchor="middle" font-family="DM Sans, sans-serif">Hypomanie</text>
+        <text x="268" y="345" fill="#B45309" font-size="12" font-weight="600" text-anchor="middle" font-family="DM Sans, sans-serif">Schwere Manie</text>
+        <text x="463" y="345" fill="#B45309" font-size="12" font-weight="600" text-anchor="middle" font-family="DM Sans, sans-serif">Depression</text>
+
+        <!-- Stimmung (blue — IRREGULAR: short hypomania, big mania, long depression) -->
+        <path d="M55,185
+          C80,185 95,120 128,115
+          C150,112 160,175 185,185
+          C200,190 215,185 230,185
+          C245,185 252,60 268,55
+          C284,50 295,185 320,190
+          C345,195 365,200 390,195
+          C410,190 415,185 430,250
+          C445,290 460,295 475,290
+          C490,280 510,200 535,190
+          C550,185 565,188 575,185"
+          fill="none" stroke="#5b7fa5" stroke-width="2.5" stroke-linecap="round"/>
+
+        <!-- Belastbarkeit (red — drops vary: small after hypomanie, big after mania, medium after depression) -->
+        <path d="M55,85
+          L110,85
+          L128,135 L145,108
+          L240,105
+          L268,230 L295,162
+          L430,155
+          L463,245 L495,210
+          L575,208"
+          fill="none" stroke="#9A3412" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+        <!-- Mit Unterstützung (green dashed — starts after 2nd crisis, stabilises) -->
+        <path d="M295,162
+          L430,148
+          L463,205 L495,172
+          L575,165"
+          fill="none" stroke="#0d7a5f" stroke-width="2.5" stroke-dasharray="7 5" stroke-linecap="round" stroke-linejoin="round"/>
+
+        <text x="315" y="378" fill="#94a3b8" font-size="12" text-anchor="middle" font-family="DM Sans, sans-serif">→ Zeit (individuell verschieden)</text>
+      </svg>
+    </div>
+    <div class="chart-caption"><strong>Konzeptionelles Modell</strong> — der tatsächliche Verlauf variiert individuell. Nicht jede Episode belastet gleich. Entscheidend ist: Belastung fällt oft nicht vollständig auf Null zurück. Die gestrichelte grüne Linie zeigt, dass Unterstützung die Ausgangslage nicht ungeschehen macht, aber Belastbarkeit wieder tragfähiger werden kann. <em>Basierend auf: Perlick et al. (2007); Reinares et al. (2016); Miklowitz et al. (2003).</em></div>
+  </div>
+
+  <!-- ══════════ 3. MECHANISMEN + IDENTITÄTSVERLUST ══════════ -->
+  
+  <a href="/tools/solidaritaets-chart/" class="tool-cta reveal">
+    <div class="tool-cta-icon" style="background:#fef3e2">📈</div>
+    <div class="tool-cta-body">
+      <h4>Belastungsverlauf — interaktiv</h4>
+      <p>Wie sich Belastbarkeit über Episoden verändern kann. Klicken Sie auf die Episoden und sehen Sie den Unterschied mit und ohne Unterstützung.</p>
+      <span class="tool-cta-btn">Verlauf erkunden →</span>
+    </div>
+  </a>
+
+<h2 id="mechanismen" class="reveal">Schonhaltung, Co-Isolation und Identitätsverlust</h2>
+  <p class="reveal">Neben den akuten Krisen gibt es stille Prozesse, die aus guter Absicht entstehen und langfristig die Angehörigenperson selbst verändern: Sie sagen weniger, tragen mehr, ziehen sich zurück und verlieren dabei nach und nach den Kontakt zu eigenen Bedürfnissen.</p>
+
+  <div class="mech-cards reveal">
+    <div class="mech-card">
+      <h4>Schonhaltung</h4>
+      <p>Sie verschweigen eigene Sorgen und Bedürfnisse, um den Partner nicht zu belasten. «Ich muss stark sein.»</p>
+      <div class="mech-result">→ Führt zu Sprachlosigkeit und emotionaler Entfremdung</div>
+    </div>
+    <div class="mech-card">
+      <h4>Co-Isolation</h4>
+      <p>Sie ziehen sich gemeinsam mit Ihrem Partner zurück — aus Scham, Erschöpfung oder Erklärungsnot.</p>
+      <div class="mech-result">→ Führt zu Verlust des sozialen Netzes</div>
+    </div>
+  </div>
+
+  <h3 class="reveal">Der unsichtbare Rucksack — Identitätsverlust</h3>
+  <p class="reveal">Mit der Schonhaltung geht oft etwas Tieferes verloren: die eigene Identität. Man definiert sich zunehmend nur noch über die Betreuerrolle — wer man selbst ist, gerät aus dem Blick.</p>
+
+  <div class="quote-block reveal">
+    <blockquote>Ich trage einen unsichtbaren Rucksack. Jeden Tag packe ich mehr hinein: die Sorge, die Verantwortung, die Angst. Der Rucksack wird immer schwerer, aber niemand sieht ihn.</blockquote>
+    <cite>— Maria, 42 Jahre, Partnerin (anonymisiert)</cite>
+  </div>
+
+  <ul class="identity-signs reveal">
+    <li>Gespräche drehen sich fast ausschliesslich um die Erkrankung — eigene Themen verschwinden</li>
+    <li>Die Frage «Wie geht es DIR?» fühlt sich fremd an — man weiss die Antwort nicht mehr</li>
+    <li>Eigene Hobbys, Freundschaften und Ziele werden als Luxus oder Egoismus empfunden</li>
+    <li>Die Grenze zwischen eigenem Ich und der Betreueraufgabe verschwimmt</li>
+  </ul>
+
+  <p class="reveal"><strong>Nicht nur Wut kann sich aufstauen.</strong> Manche Angehörige werden mit der Zeit auch abgestumpfter, zynischer oder innerlich härter. Das ist nicht schön — aber oft ein Warnsignal chronischer Überlastung, nicht ein Beweis fehlender Liebe. Genau darum gehört auch die eigene Veränderung in den Blick.</p>
+
+  <div class="quote-block reveal">
+    <blockquote>Ich habe jahrelang jedes Gespräch über meine eigenen Sorgen vermieden. Ich dachte, ich schütze sie damit — dabei habe ich mich selbst unsichtbar gemacht. Irgendwann wusste ich selbst nicht mehr, was ich wollte oder brauchte.</blockquote>
+    <cite>— Thomas, 51 Jahre, Ehemann (anonymisiert)</cite>
+  </div>
+
+  <!-- ══════════ 4. UNGELEBTE ZEIT ══════════ -->
+  <h2 id="ungelebt" class="reveal">Was auf der Strecke bleibt</h2>
+  <p class="reveal">Angehörige sprechen selten darüber — aber viele kennen das Gefühl: Die eigenen Träume, Pläne, Lebensphasen werden aufgeschoben. Urlaube, die nie stattfanden. Beförderungen, die abgelehnt wurden. Freundschaften, die eingeschlafen sind.</p>
+
+  <p class="reveal">Forschende sprechen von «opportunity costs of caregiving» — den Kosten des Nicht-Gelebten. Diese Kosten sind schwer zu beziffern, aber sie sind real: Sie zeigen sich in Erschöpfung, Bitterkeit, innerer Leere oder dem Gefühl, dass das eigene Leben über Jahre immer nur auf später verschoben wurde. <strong>Dieses Gefühl anzuerkennen ist keine Undankbarkeit. Es ist ehrlich.</strong></p>
+
+  <div class="reflection reveal">
+    <div class="reflection-label">Reflexion</div>
+    <h3>Was habe ich aufgeschoben?</h3>
+    <p>Gibt es Träume, Pläne oder Lebensphasen, die Sie aufgeschoben haben? Nicht als Vorwurf — sondern als ehrliche Bestandsaufnahme: Was gehört Ihnen, das Sie noch nicht gelebt haben?</p>
+  </div>
+
+  <!-- ══════════ 5. KINDER (zusammengeführt) ══════════ -->
+  <h2 id="kinder" class="reveal">Wenn Kinder mittragen</h2>
+  <p class="reveal" style="font-size:0.88rem;color:var(--text-muted);border-left:3px solid var(--teal-border,rgba(30,101,109,0.25));padding-left:14px;margin-bottom:20px">Dieser Abschnitt ist besonders relevant, wenn Kinder im Haushalt oder in der Familie mitbetroffen sind. Wenn das nicht der Fall ist, können Sie direkt zu <a href="#warnsignale" style="color:var(--teal)">Warnsignale und Gegensteuerung</a> weiterlesen.</p>
+  <p class="reveal">Kinder erleben die Erkrankung eines Elternteils nicht nur mit. Sie tragen oft auch die Anspannung im Familiensystem mit: Stimmungen, Unsicherheit, Rückzug, Überforderung des gesunden Elternteils. Gerade deshalb brauchen sie Klarheit und Entlastung.</p>
+
+  <div class="kids-grid reveal">
+    <div class="kids-col perceive">
+      <h4>Was Kinder wahrnehmen</h4>
+      <ul>
+        <li>Stimmungsschwankungen und Unberechenbarkeit</li>
+        <li>Überlastung des betreuenden Elternteils</li>
+        <li>Gespannte Atmosphäre, Konflikte, Stille</li>
+        <li>Eigene Schuldgefühle: «Bin ich der Grund?»</li>
+      </ul>
+    </div>
+    <div class="kids-col need">
+      <h4>Was Kinder brauchen</h4>
+      <ul>
+        <li>Ehrliche Erklärung: «Mama/Papa ist krank — nicht wegen dir.»</li>
+        <li>Stabilität durch Routinen: Schulweg, Mahlzeiten, Schlafzeiten</li>
+        <li>Eine Vertrauensperson ausserhalb der Familie</li>
+        <li>Erlaubnis, eigene Gefühle zu haben — auch Wut</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="reveal">Mit Kindern sprechen — je nach Alter</h3>
+  <p class="reveal">Kinder brauchen ehrliche Erklärungen — aber in ihrer Sprache. Schweigen schützt nicht, es erzeugt Fantasien, die oft schlimmer sind als die Realität.</p>
+
+  <div class="age-grid reveal">
+    <div class="age-card">
+      <div class="age-label">4–6 Jahre</div>
+      <h4>Einfach und konkret</h4>
+      <p>«Mama ist krank in ihrem Kopf. Das macht sie manchmal traurig oder sehr aufgeregt. Das ist nicht deine Schuld.»</p>
+      <p>Kinder in diesem Alter brauchen vor allem Körperkontakt, Routinen und die Gewissheit: «Du bist sicher.»</p>
+    </div>
+    <div class="age-card">
+      <div class="age-label">7–12 Jahre</div>
+      <h4>Mehr Zusammenhang</h4>
+      <p>«Papa hat eine Krankheit, die dafür sorgt, dass er manchmal sehr viel Energie hat und dann wieder gar keine. Sie heisst bipolare Störung. Er nimmt Medikamente dagegen.»</p>
+      <p>Schulkinder verstehen Ursache und Wirkung. Geben Sie ihnen Sprache für das, was sie sehen — und erlauben Sie Fragen.</p>
+    </div>
+    <div class="age-card">
+      <div class="age-label">13+ Jahre</div>
+      <h4>Offen und respektvoll</h4>
+      <p>Jugendliche dürfen mehr wissen — aber bleiben Sie in der Elternrolle. Kein Ausweinen bei ihnen, keine Bewertungen der erkrankten Person. Sie sollen informiert sein, nicht zum Partner-Ersatz werden.</p>
+      <p>«Wenn du Fragen hast, beantworte ich sie so ehrlich ich kann.»</p>
+    </div>
+  </div>
+
+  <h3 class="reveal">Parentifizierung — wenn Kinder Erwachsene werden</h3>
+  <p class="reveal">Manchmal übernehmen Kinder Aufgaben, die nicht für ihr Alter gedacht sind: Sie beruhigen, beobachten, schützen oder passen sich übermässig an. Es geht nicht nur um Haushalt, sondern um <em>emotionale Verantwortung</em>: das Kind, das spürt, dass es die Stimmung im Haus mitregulieren muss. Studien zeigen ein erhöhtes Risiko für spätere psychische Belastungen (Hooper et al., 2011).</p>
+
+  <div class="quote-block reveal">
+    <blockquote>Ich habe erst mit 25 verstanden, dass nicht jede Familie so lebt. Dass andere Kinder nicht gelernt haben, morgens zuerst die Stimmung im Haus zu lesen. Ich bin nicht wütend auf ihn — er ist krank, und er kämpft. Aber ich trauere um die Kindheit, die anders hätte sein können.</blockquote>
+    <cite>— Lukas, 28 Jahre, Sohn eines betroffenen Vaters (anonymisiert)</cite>
+  </div>
+
+  <h3 class="reveal">Wenn Parentifizierung bereits passiert ist</h3>
+  <p class="reveal">Wenn Sie merken, dass Ihr Kind bereits zu viel trägt — emotionale Verantwortung übernimmt, das Haus «im Blick hält» oder seine eigenen Bedürfnisse systematisch hintenanstellt — ist das ein Signal zum Handeln, nicht zur Schuld.</p>
+  <ul class="reveal" style="margin:12px 0 16px 20px;line-height:1.9;color:var(--text-secondary,#475569);font-size:0.9rem">
+    <li>Sprechen Sie das Kind direkt und klar an: «Das ist nicht deine Aufgabe. Du darfst Kind sein.»</li>
+    <li>Verringern Sie sichtbar die Verantwortung des Kindes — konkret und wiederholt.</li>
+    <li>Sprechen Sie mit der Schule: Lehrpersonen und Schulsozialarbeit können früh entlasten.</li>
+    <li>Holen Sie Fachunterstützung: <a href="https://www.kinderseele.ch" target="_blank" rel="noopener" style="color:var(--sage-500)">kinderseele.ch</a> bietet Beratung. In der Schweiz gibt es spezialisierte Angebote für Kinder psychisch belasteter Eltern, z.B. über die <strong>KJPD-Kliniken</strong> (Kinder- und Jugendpsychiatrische Dienste) in Ihrem Kanton.</li>
+  </ul>
+
+  <!-- Genetik FAQ -->
+  <div class="accordion-item reveal">
+    <button class="accordion-header">
+      <div class="accordion-header-left">
+        <div class="accordion-icon-badge">🧬</div>
+        <div>
+          <div class="accordion-title">Können unsere Kinder das erben?</div>
+          <div class="accordion-subtitle">Die häufigste Frage von Eltern — ehrlich beantwortet</div>
+        </div>
+      </div>
+      <div class="accordion-chevron">▼</div>
+    </button>
+    <div class="accordion-body">
+      <div class="accordion-body-inner">
+        <p>Ja, die Genetik spielt eine Rolle. Die Heritabilität liegt bei 60–85% (Craddock & Sklar, 2013). Aber: Ein erhöhtes Risiko ist keine Gewissheit. <strong>Die meisten Kinder betroffener Eltern entwickeln keine bipolare Störung.</strong></p>
+        <p><strong>Im Alltag:</strong> Aufmerksam sein reicht — bei Schlafveränderungen, extremen Stimmungsschwankungen in der Pubertät oder anhaltendem Rückzug.</p>
+        <p><strong>Aufklärung schützt:</strong> «Papa hat eine Erkrankung im Gehirn. Das hat nichts mit dir zu tun.» Schweigen macht Kindern mehr Angst als Ehrlichkeit.</p>
+        <p><strong>Bei Sorgen:</strong> Sprechen Sie das Behandlungsteam an. Für Kinder psychisch belasteter Eltern: <a href="https://www.kinderseele.ch" target="_blank" rel="noopener" style="color:var(--sage-500)">kinderseele.ch</a> · Online-Ressource für Kinder: <a href="https://www.kidkit.de" target="_blank" rel="noopener" style="color:var(--sage-500)">kidkit.de</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ 6. HANDLUNGSSCHRITTE ══════════ -->
+  <h2 id="handeln" class="reveal">Warnsignale und erste Gegensteuerung</h2>
+  <p class="reveal">Dieses Modul soll nicht verlangen, dass Sie sofort alles ändern. Oft reicht es, die eigenen Warnsignale ernster zu nehmen und erste kleine Gegenbewegungen einzuleiten.</p>
+
+  <div class="action-grid reveal">
+    <div class="action-card">
+      <div class="action-icon">1</div>
+      <div><h4>Eigene Erschöpfungszeichen kennenlernen</h4><p>Schlafstörungen, Reizbarkeit, Rückzug — Ihre Warnsignale sind genauso wichtig wie die Ihres Partners.</p></div>
+    </div>
+    <div class="action-card">
+      <div class="action-icon">2</div>
+      <div><h4>Innere Verengung erkennen — ohne Schuld</h4><p>Wenn Mitgefühl abnimmt, Zynismus zunimmt oder Sie sich nur noch als Funktion erleben: Das ist ein Warnsignal für Überlastung, kein Zeichen von Lieblosigkeit.</p></div>
+    </div>
+    <div class="action-card">
+      <div class="action-icon">3</div>
+      <div><h4>Einen nicht-verhandelbaren Termin pro Woche</h4><p>Sport, Freunde, Hobby — etwas, das nur Ihnen gehört. Eintragen wie einen Arzttermin. Absagen nur im echten Notfall.</p></div>
+    </div>
+    <div class="action-card">
+      <div class="action-icon">4</div>
+      <div><h4>Hausarzt einbeziehen</h4><p>Chronische Belastung hat körperliche Folgen — Blutdruck, Immunsystem, Schlaf. Ihr Hausarzt kann helfen, diese früh zu erkennen.</p></div>
+    </div>
+    <div class="action-card">
+      <div class="action-icon">5</div>
+      <div><h4>Peer-Kontakt suchen</h4><p>Andere Angehörige verstehen, ohne dass Sie erklären müssen. VASK Zürich bietet Gruppen. Online: bipolar-forum.de.</p></div>
+    </div>
+  </div>
+
+  <div class="reflection reveal">
+    <div class="reflection-label">Reflexion</div>
+    <h3>Um wen trauern Sie?</h3>
+    <p>Vielleicht um den Partner, der er einmal war. Vielleicht um die gemeinsame Zukunft. Diese Trauer braucht keinen Abschluss. Aber sie verdient, gesehen zu werden — zumindest von Ihnen selbst.</p>
+  </div>
+
+  <!-- TAKEAWAYS -->
+  <div class="takeaways reveal">
+    <div class="takeaways-inner">
+      <h3>Worauf es ankommt</h3>
+      <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Die «Glaswand» beschreibt etwas Reales</strong> — viele Angehörige trauern um Nähe, Verlässlichkeit oder Zukunft, obwohl die Person noch da ist.</p></div>
+      <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Chronische Belastung ist oft leise, nicht dramatisch</strong> — sie baut sich in Krisen auf, bleibt aber häufig auch in den Zwischenzeiten im Körper und im Alltag.</p></div>
+      <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Schonhaltung und Co-Isolation verengen schleichend</strong> — wer dauerhaft Rücksicht, Kontrolle und Anpassung trägt, verliert leichter den Kontakt zu eigenen Bedürfnissen.</p></div>
+      <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Was nicht gelebt wurde, bleibt oft spürbar</strong> — aufgeschobene Zeit, verschobene Pläne und innere Verarmung sind reale Kosten, keine Undankbarkeit.</p></div>
+      <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Kinder tragen meist mehr mit, als Erwachsene denken</strong> — gerade deshalb brauchen sie Sprache, Routinen und sichtbare Entlastung.</p></div>
+      <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Eigene Gesundheit ist hier keine Kür</strong> — sie entscheidet mit darüber, ob Sie nur weiterfunktionieren oder wieder als Person erkennbar werden.</p></div>
+    </div>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="sources reveal">
+    <button type="button" class="sources-toggle" aria-expanded="false" data-sources-toggle>
+    <h4>Wissenschaftliche Quellen</h4></button>
+    <ul>
+      <li><strong>Boss, P. (1999).</strong> <em>Ambiguous Loss: Learning to Live with Unresolved Grief.</em> Harvard University Press.</li>
+      <li><strong>Doka, K. J. (2002).</strong> <em>Disenfranchised Grief: New Directions, Challenges, and Strategies.</em> Research Press.</li>
+      <li><strong>Perlick, D. A. et al. (2007).</strong> Caregiver burden and health in bipolar disorder. <em>Bipolar Disorders, 9</em>(3), 262–273.</li>
+      <li><strong>Möller-Leimkühler, A. M. (2005).</strong> Burden of relatives and predictors of burden. <em>European Archives of Psychiatry, 255</em>(4), 223–231.</li>
+      <li><strong>Reinares, M. et al. (2016).</strong> Family interventions in bipolar disorder. <em>Clinical Psychology Review, 43</em>, 47–57.</li>
+      <li><strong>Hooper, L. M. et al. (2011).</strong> Parentification, self-esteem, and psychological distress. <em>Journal of Family Issues, 33</em>(6), 755–776.</li>
+      <li><strong>Craddock, N. & Sklar, P. (2013).</strong> Genetics of bipolar disorder. <em>The Lancet, 381</em>, 1654–1662.</li>
+    </ul>
+  </div>
+
+  <!-- HANDOUTS -->
+  <div class="handouts reveal">
+    <div class="handouts-title">Passende Handouts</div>
+    <div class="handouts-grid">
+      <a href="/handouts/a4_ambiguous_loss.pdf" target="_blank" rel="noopener" class="handout-card"><div class="handout-icon green">PDF</div><div><div class="handout-card-title">Ambiguous Loss</div><div class="handout-card-sub">Trauer um jemanden, der noch da ist</div></div></a>
+      <a href="/handouts/b4_mechanismen_erosion.pdf" target="_blank" rel="noopener" class="handout-card"><div class="handout-icon green">PDF</div><div><div class="handout-card-title">Schonhaltung und Co-Isolation</div><div class="handout-card-sub">Wie Belastung die Angehörigenperson verändert</div></div></a>
+      <a href="/handouts/b3_kritische_zeitpunkte.pdf" target="_blank" rel="noopener" class="handout-card"><div class="handout-icon green">PDF</div><div><div class="handout-card-title">Kritische Zeitpunkte</div><div class="handout-card-sub">Wann wird es besonders schwer?</div></div></a>
+    </div>
+  </div>
+
+  <!-- NEXT -->
+  <div class="next-module reveal">
+    <a href="/modul/5/" class="next-module-card">
+      <div>
+        <div class="next-module-label">Nächstes Modul</div>
+        <div class="next-module-title">Modul 5: Loyalitätskonflikte und schwierige Entscheidungen</div>
+        <div class="next-module-desc">Dort geht es darum, wie aus Erschöpfung Schuld, Grenzenot, Abstandswunsch und die Frage nach tragfähiger Neuordnung werden.</div>
+      </div>
+      <div class="next-module-arrow">→</div>
+    </a>
+  </div>
+
+</main>
+{% endblock %}
+{% block footer %}
+{% include "footer-medium.njk" %}
+{% endblock %}
+{% block scripts %}
+<script>
+  const nav=document.getElementById('navbar');
+  const navToggle=document.querySelector('.nav-toggle');const navLinks=document.getElementById('primary-nav');
+  if(navToggle&&navLinks){const closeNav=()=>{navLinks.classList.remove('nav-open');navToggle.setAttribute('aria-expanded','false');navToggle.setAttribute('aria-label','Menü öffnen')};navToggle.addEventListener('click',()=>{const isOpen=navLinks.classList.toggle('nav-open');navToggle.setAttribute('aria-expanded',isOpen?'true':'false');navToggle.setAttribute('aria-label',isOpen?'Menü schliessen':'Menü öffnen')});navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeNav));document.addEventListener('keydown',e=>{if(e.key==='Escape')closeNav()});document.addEventListener('click',e=>{if(!nav.contains(e.target))closeNav()});window.addEventListener('resize',()=>{if(window.innerWidth>900)closeNav()})}
+  window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>20));
+  const progressBar=document.getElementById('readingProgress');
+  window.addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-window.innerHeight;progressBar.style.width=h>0?(window.scrollY/h*100)+'%':'0%'});
+  function toggleAccordion(btn){const item=btn.closest('.accordion-item');const wasOpen=item.classList.contains('open');document.querySelectorAll('.accordion-item').forEach(el=>el.classList.remove('open'));if(!wasOpen)item.classList.add('open')}
+  // Accordion — event delegation on main content, no inline handlers
+  document.getElementById('main-content').addEventListener('click',e=>{const btn=e.target.closest('.accordion-header');if(btn)toggleAccordion(btn)});
+  const tocLinks=document.querySelectorAll('.toc a[href^="#"]');const tocSections=Array.from(tocLinks).map(a=>{const id=a.getAttribute('href').slice(1);return{link:a,el:document.getElementById(id)}}).filter(s=>s.el);const tocObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){tocLinks.forEach(l=>l.classList.remove('active'));const match=tocSections.find(s=>s.el===e.target);if(match)match.link.classList.add('active')}})},{threshold:0.1,rootMargin:'-100px 0px -60% 0px'});tocSections.forEach(s=>tocObs.observe(s.el));
+  document.querySelectorAll('[data-sources-toggle]').forEach(button=>{button.addEventListener('click',()=>{const section=button.parentElement;const isOpen=section.classList.toggle('sources-open');button.setAttribute('aria-expanded',isOpen?'true':'false');});});
+</script>
+{% endblock %}

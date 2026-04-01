@@ -46,20 +46,6 @@
   --red-bg:      #FEF2F2;
   --amber-bg:    #fef3e2;
 
-  /* ── Semantic: Links ── */
-  --link:        #1E656D;
-  --link-hover:  #1a5960;
-
-  /* ── Semantic: Status Roles (from Codex) ── */
-  --success:     #0d7a5f;
-  --success-bg:  #e6f4f2;
-  --danger:      #9A3412;
-  --danger-bg:   #FEF2F2;
-  --warning:     #B45309;
-  --warning-bg:  #fef3e2;
-  --info:        #1E656D;
-  --info-bg:     #eef3f8;
-
   /* ── Radius Scale (Tarif-Kompass: 6 / 8 / 10 / 12 / 14 / 20) ── */
   --radius-xs:   6px;
   --radius-sm:   8px;
