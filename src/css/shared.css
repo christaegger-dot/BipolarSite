@@ -118,7 +118,7 @@ body::before {
 .nav-toggle svg { width: 22px; height: 22px; }
 
 /* ── Mobile Nav ── */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .nav-links { display: none; }
   .nav-toggle { display: flex; }
   .nav-inner { padding: 0 20px; position: relative; }
@@ -160,7 +160,7 @@ body::before {
 footer {
   background: var(--earth-900);
   color: rgba(255,255,255,0.75);
-  padding: 48px 2rem 32px;
+  padding: var(--space-3xl) 2rem var(--space-xl);
   margin-top: 80px;
 }
 .footer-inner {
@@ -172,8 +172,8 @@ footer {
 .footer-inner a { color: rgba(255,255,255,0.6); text-decoration: none; }
 .footer-inner a:hover { color: white; }
 .footer-links {
-  margin-top: 16px;
-  padding-top: 16px;
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
   border-top: 1px solid rgba(255,255,255,0.08);
   font-size: 0.75rem;
 }

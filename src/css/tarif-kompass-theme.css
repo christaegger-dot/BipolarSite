@@ -1393,6 +1393,21 @@ footer.tf a[href="/notfall/"] {
   text-decoration: none !important;
 }
 
+/* ── Visited link styling ── */
+a:visited {
+  color: var(--slate) !important;
+}
+.nav-links a:visited,
+.nav-sos:visited,
+.tool-back:visited,
+.cta-btn:visited,
+.btn-c:visited,
+.module-card:visited,
+.tool-chip:visited,
+footer a:visited {
+  color: inherit !important;
+}
+
 /* ── Impressum-specific overrides ──
    Impressum has its own compact inline styles. Ensure coverage. */
 .impressum-content h1,
