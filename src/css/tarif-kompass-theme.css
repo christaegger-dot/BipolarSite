@@ -21,7 +21,6 @@
   --teal-light:  #8dd4d9;
   --amber:       #B45309;
   --amber-light: #FBBF24;
-  --amber-dark:  #92400e;
   --rose:        #9A3412;
   --rose-soft:   #FEF2F2;
 
@@ -61,8 +60,6 @@
   --shadow-nav:      0 1px 8px rgba(0,0,0,0.06);
 
   /* ── Spacing Scale ── */
-  --space-xs:  4px;
-  --space-sm:  8px;
   --space-md:  16px;
   --space-lg:  24px;
   --space-xl:  32px;
@@ -98,9 +95,7 @@
   --warm-300: #cbd5e1;
   --warm-400: var(--slate-light);
 
-  /* Clay/Earth → Slate/Navy */
-  --clay-500:  #64748b;
-  --clay-600:  var(--slate);
+  /* Earth → Slate/Navy */
   --earth-700: #334155;
   --earth-800: var(--navy-mid);
   --earth-900: var(--navy);
@@ -1186,6 +1181,7 @@ section,
   border-radius: var(--radius-pill) !important;
   border: none !important;
   box-shadow: 0 4px 16px rgba(0,0,0,0.15) !important;
+  min-height: 44px !important;
 }
 
 .cta-btn:hover,
@@ -1204,6 +1200,7 @@ section,
   border: 1px solid var(--border) !important;
   color: var(--slate) !important;
   border-radius: var(--radius-md) !important;
+  min-height: 44px !important;
 }
 
 .btn-r:hover,
@@ -1220,6 +1217,7 @@ section,
   border-radius: var(--radius-md) !important;
   background: white !important;
   color: var(--navy) !important;
+  min-height: 44px !important;
 }
 
 .opt:hover,
@@ -1847,7 +1845,8 @@ header.hero .hero-content {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 20px;
+  padding: 12px 20px;
+  min-height: 44px;
   background: white;
   border: 1px solid var(--border);
   border-radius: 100px;
