@@ -26,8 +26,8 @@ body::before {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* ── Navigation ── */
-nav {
+/* ── Navigation (scoped to full nav, not tool-nav) ── */
+#navbar {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
@@ -36,7 +36,7 @@ nav {
   -webkit-backdrop-filter: blur(20px) saturate(1.4);
   border-bottom: 1px solid rgba(45,40,35,0.06);
 }
-nav.scrolled { box-shadow: 0 1px 12px rgba(45,40,35,0.08); }
+#navbar.scrolled { box-shadow: 0 1px 12px rgba(45,40,35,0.08); }
 
 .nav-inner {
   max-width: 1200px;

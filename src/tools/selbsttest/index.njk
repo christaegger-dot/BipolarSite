@@ -5,12 +5,11 @@ description: "Selbsttest für Angehörige: Wo stehen Sie gerade? 5 Fragen zur Or
 permalink: "/tools/selbsttest/"
 toolBackHref: "/modul/4/"
 toolBackLabel: "Zurück zu Modul 4"
-useSharedCSS: false
+useSharedCSS: true
 useNavJS: false
 ---
 {% block headCSS %}
 <style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;-webkit-font-smoothing:antialiased}
 .tool-nav{position:sticky;top:0;background:rgba(250,250,247,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(28,43,58,0.06);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;z-index:50}
 .tool-back{display:flex;align-items:center;gap:8px;text-decoration:none;color:#475569;font-size:0.82rem;font-weight:500}
@@ -56,7 +55,6 @@ body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min
 .btn-reset{border:1px solid rgba(28,43,58,0.08);background:#fff;color:#475569}
 .btn-cont{border:none;background:var(--teal);color:#fff}
 .tf{text-align:center;font-size:0.68rem;color:#8DD4D9;margin-top:20px;line-height:1.5}
-*:focus-visible{outline:2px solid #1E656D;outline-offset:2px;border-radius:4px}
 @media(prefers-reduced-motion:reduce){*{transition-duration:0.01ms!important}}
 @media(max-width:600px){.card{padding:24px 20px}}
 /* Result state colours — applied as class on .card */

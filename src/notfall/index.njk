@@ -6,7 +6,7 @@ permalink: "/notfall/"
 navLogoStyle: "background:linear-gradient(135deg,var(--alert-red),#a33d3a)"
 navLogoText: "SOS"
 navBrandText: "Notfall"
-useSharedCSS: false
+useSharedCSS: true
 useNavJS: true
 footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
 ---
@@ -125,7 +125,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   
   @media(max-width:600px){.hero{padding:90px 1.2rem 30px}.content{padding:0 1.2rem}.fu-alert{flex-direction:column}}
   
-  *{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
+  @media(prefers-reduced-motion:reduce){*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
 
   body.pdf-preview-open{overflow:hidden}
   .pdf-preview-overlay{position:fixed;inset:0;z-index:1000;background:rgba(42,33,27,0.38);padding:24px;display:flex;align-items:center;justify-content:center}
