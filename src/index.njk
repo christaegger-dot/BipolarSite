@@ -12,7 +12,7 @@ useNavJS: true
 {% block headCSS %}
 <style>
   /* ══════════ HERO ══════════ */
-  .hero {
+  .home-hero {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -22,7 +22,7 @@ useNavJS: true
     overflow: hidden;
   }
 
-  .hero::before {
+  .home-hero::before {
     content: '';
     position: absolute;
     top: -20%;
@@ -34,7 +34,7 @@ useNavJS: true
     opacity: 0.88;
   }
 
-  .hero::after {
+  .home-hero::after {
     content: '';
     position: absolute;
     bottom: -10%;
@@ -46,7 +46,7 @@ useNavJS: true
     opacity: 0.82;
   }
 
-  .hero-content::before {
+  .home-hero-content::before {
     content: '';
     position: absolute;
     inset: 24px auto 24px 0;
@@ -58,7 +58,7 @@ useNavJS: true
     z-index: 1;
   }
 
-  .hero-content {
+  .home-hero-content {
     max-width: 1200px;
     margin: 0 auto;
     position: relative;
@@ -66,7 +66,7 @@ useNavJS: true
     width: 100%;
   }
 
-  .hero-body {
+  .home-hero-body {
     display: grid;
     grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
     gap: 40px;
@@ -75,12 +75,12 @@ useNavJS: true
     z-index: 2;
   }
 
-  .hero-text {
+  .home-hero-text {
     max-width: 620px;
     padding: 26px 30px 26px 0;
   }
 
-  .hero-badge {
+  .home-hero-badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -94,7 +94,7 @@ useNavJS: true
     margin-bottom: 2rem;
   }
 
-  .hero-badge::before {
+  .home-hero-badge::before {
     content: '';
     width: 8px;
     height: 8px;
@@ -102,7 +102,7 @@ useNavJS: true
     background: var(--sand);
   }
 
-  .hero h1 {
+  .home-hero h1 {
     font-family: 'Source Serif 4', serif;
     font-size: clamp(2.4rem, 5vw, 3.8rem);
     font-weight: 700;
@@ -113,12 +113,12 @@ useNavJS: true
     margin-bottom: 1.5rem;
   }
 
-  .hero h1 em {
+  .home-hero h1 em {
     font-style: italic;
     color: var(--teal);
   }
 
-  .hero-subtitle {
+  .home-hero-subtitle {
     font-size: clamp(1.05rem, 2vw, 1.2rem);
     color: var(--text-secondary);
     max-width: 560px;
@@ -126,7 +126,7 @@ useNavJS: true
     margin-bottom: 3rem;
   }
 
-  .hero-link {
+  .home-hero-link {
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -141,14 +141,14 @@ useNavJS: true
     box-shadow: var(--shadow-elevated);
   }
 
-  .hero-cards {
+  .home-hero-cards {
     display: flex;
     flex-direction: column;
     gap: 18px;
     align-items: stretch;
   }
 
-  .hero-visual-card {
+  .home-hero-visual-card {
     background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(243,229,225,0.48));
     border: 1px solid rgba(181,138,82,0.14);
     border-radius: 26px;
@@ -157,7 +157,7 @@ useNavJS: true
     backdrop-filter: blur(12px);
   }
 
-  .hero-visual {
+  .home-hero-visual {
     display: block;
     width: 100%;
     height: auto;
@@ -694,9 +694,9 @@ useNavJS: true
 
   /* ══════════ RESPONSIVE ══════════ */
   @media (max-width: 768px) {
-    .hero-content::before { inset: 12px 0 auto 0; width: 100%; height: 320px; }
-    .hero-body { grid-template-columns: 1fr; gap: 26px; }
-    .hero-text { padding: 18px 0 0; }
+    .home-hero-content::before { inset: 12px 0 auto 0; width: 100%; height: 320px; }
+    .home-hero-body { grid-template-columns: 1fr; gap: 26px; }
+    .home-hero-text { padding: 18px 0 0; }
     .footer-inner { grid-template-columns: 1fr; gap: 32px; }
     .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
     .quick-actions { grid-template-columns: 1fr 1fr; }
@@ -706,8 +706,8 @@ useNavJS: true
   
 
   @media (max-width: 600px) {
-    .hero { padding: 110px 1.2rem 60px; min-height: auto; }
-    .hero h1 { font-size: 2rem; }
+    .home-hero { padding: 110px 1.2rem 60px; min-height: auto; }
+    .home-hero h1 { font-size: 2rem; }
     section { padding: 50px 1.2rem; }
     .quick-actions { grid-template-columns: 1fr; }
     .modules-grid { grid-template-columns: 1fr; }
@@ -755,18 +755,18 @@ useNavJS: true
 {% endblock %}
 {% block content %}
 <!-- ══════════ HERO ══════════ -->
-<header class="hero">
-  <div class="hero-content">
-    <div class="hero-body">
-      <div class="hero-text">
-        <div class="hero-badge">Psychiatrische Universitätsklinik Zürich · Fachstelle Angehörigenarbeit</div>
+<header class="home-hero">
+  <div class="home-hero-content">
+    <div class="home-hero-body">
+      <div class="home-hero-text">
+        <div class="home-hero-badge">Psychiatrische Universitätsklinik Zürich · Fachstelle Angehörigenarbeit</div>
         <h1>Als Angehörige*r von Menschen mit <em>bipolarer Störung</em></h1>
-        <p class="hero-subtitle">Sie müssen hier nicht alles auf einmal verstehen. Diese Website hilft Ihnen, Ihre Lage einzuordnen und den Einstieg zu wählen, der im Moment am ehesten passt.</p>
-        <a href="#orientierung" class="hero-link">Zur Orientierung ↓</a>
+        <p class="home-hero-subtitle">Sie müssen hier nicht alles auf einmal verstehen. Diese Website hilft Ihnen, Ihre Lage einzuordnen und den Einstieg zu wählen, der im Moment am ehesten passt.</p>
+        <a href="#orientierung" class="home-hero-link">Zur Orientierung ↓</a>
       </div>
-      <div class="hero-cards">
-        <div class="hero-visual-card">
-          <img src="/visuals/home-orientation-hero.svg" alt="Grafische Übersicht mit den Einstiegen Akut, Hilfe, Verstehen und Erschöpfung." class="hero-visual" width="720" height="520" loading="eager" decoding="async" fetchpriority="high">
+      <div class="home-hero-cards">
+        <div class="home-hero-visual-card">
+          <img src="/visuals/home-orientation-hero.svg" alt="Grafische Übersicht mit den Einstiegen Akut, Hilfe, Verstehen und Erschöpfung." class="home-hero-visual" width="720" height="520" loading="eager" decoding="async" fetchpriority="high">
         </div>
         <div class="quick-actions">
           <a href="/notfall/" class="quick-card alert">
