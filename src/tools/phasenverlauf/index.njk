@@ -76,6 +76,7 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
 .det-note strong{color:#1c2b3a}
 
 .hint{text-align:center;font-size:0.78rem;color:#a09088;margin:0 0 18px;line-height:1.5}
+.mobile-chart-note{display:none;background:#FAFAF7;border:1px solid rgba(45,40,35,0.08);border-radius:14px;padding:12px 14px;margin-bottom:14px;font-size:0.76rem;line-height:1.55;color:#475569;text-align:center}
 
 .tf{text-align:center;font-size:0.68rem;color:#8DD4D9;margin-top:28px;line-height:1.6}
 
@@ -84,6 +85,8 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
   .phase-btns{grid-template-columns:repeat(3,1fr)}
   .det-cols{grid-template-columns:1fr}
   .chart-legend{display:none}
+  .chart-wrap{display:none}
+  .mobile-chart-note{display:block}
   .wrap{padding:24px 14px 40px}
 }
 </style>
@@ -105,6 +108,7 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
     <h1>Bipolarer Phasenverlauf</h1>
     <p>Wählen Sie eine Phase — entweder im Diagramm oder über die Schaltflächen — um zu erfahren, was sie für Betroffene und Angehörige bedeutet.</p>
   </div>
+  <div class="mobile-chart-note">Auf kleinen Screens ist das Diagramm ausgeblendet, damit die Seite ruhiger bleibt. Wählen Sie unten direkt eine Phase, um die Einordnung zu lesen.</div>
 
   <!-- Chart -->
   <div class="chart-wrap">

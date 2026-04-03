@@ -43,9 +43,10 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
 .toggle-btn{padding:10px 20px;border-radius:10px;border:2px solid var(--green-phase);background:#fff;color:var(--green-phase);font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background-color 0.2s ease,color 0.2s ease,border-color 0.2s ease}
 .toggle-btn.on{background:var(--green-phase);color:#fff}
 .disc{text-align:center;font-size:0.72rem;color:#475569;background:#FAFAF7;border-radius:10px;padding:12px 16px;margin-bottom:16px;line-height:1.5}
+.mobile-chart-note{display:none;background:#FAFAF7;border:1px solid rgba(45,40,35,0.08);border-radius:14px;padding:12px 14px;margin-bottom:14px;font-size:0.76rem;line-height:1.55;color:#475569;text-align:center}
 .tf{text-align:center;font-size:0.68rem;color:#8DD4D9;margin-top:20px;line-height:1.5}
 @media(prefers-reduced-motion:reduce){*{transition-duration:0.01ms!important}}
-@media(max-width:600px){.detail-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.chart-wrap{display:none}.mobile-chart-note{display:block}.detail-grid{grid-template-columns:1fr}}
 </style>
 {% endblock %}
 {% block nav %}
@@ -59,6 +60,7 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
     <div class="legend-item"><div class="legend-line" style="background:var(--blue-phase)"></div>Stimmung der erkrankten Person</div>
     <div class="legend-item" id="legSupport" style="display:none"><div class="legend-line" style="background:var(--green-phase);border-style:dashed"></div>Mit Unterstützung abgefedert</div>
   </div>
+  <div class="mobile-chart-note">Auf kleinen Screens ist das Diagramm ausgeblendet, damit die Episode-Auswahl und die Erklärung ruhiger bleiben. Wählen Sie unten direkt eine Episode.</div>
   <div class="chart-wrap">
     <svg viewBox="0 0 600 280" role="group" aria-label="Konzeptionelles Modell: Belastungsreserve und Stimmung über mehrere Episoden">
       <!-- Grid -->
