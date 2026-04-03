@@ -28,6 +28,10 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   .hero-icon{width:40px;height:40px;color:var(--sand-deep);opacity:0.75;margin-bottom:12px;display:block}.module-badge{display:inline-flex;background:rgba(221,210,191,0.34);color:var(--sand-deep);padding:6px 16px;border-radius:100px;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px}
   .module-hero h1{font-family:'Source Serif 4',serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:700;line-height:1.2;letter-spacing:-0.03em;color:var(--earth-900);margin-bottom:16px}
   .module-meta{display:flex;align-items:center;gap:20px;font-size:0.85rem;color:var(--text-muted);margin-bottom:28px}
+  .module-hero-note{background:linear-gradient(180deg,var(--surface-warm) 0%, rgba(217,236,236,0.34) 100%);border:1px solid rgba(45,40,35,0.06);border-radius:18px;padding:18px 20px}
+  .module-hero-note p{font-size:0.92rem;line-height:1.7;color:var(--text-secondary);margin:0}
+  .module-hero-note p + p{margin-top:8px}
+  .module-hero-note strong{color:var(--earth-900)}
 
   .toc{grid-column:1 / -1;background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:28px 32px;margin-bottom:48px;box-shadow:var(--shadow-soft)}.toc-title{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--sage-500);margin-bottom:14px}
   .toc ol{list-style:none;counter-reset:toc-counter;display:grid;grid-template-columns:1fr 1fr;gap:4px 20px}.toc li{counter-increment:toc-counter}.toc li a{text-decoration:none;color:var(--text-secondary);font-size:0.88rem;display:block;padding:8px 0 8px 28px;position:relative;transition:color 0.2s}.toc li a::before{content:counter(toc-counter);font-size:0.7rem;font-weight:700;color:var(--sage-400);position:absolute;left:0;top:10px}.toc li a:hover{color:var(--sage-600)}.toc-desc{display:block;font-size:0.72rem;color:var(--text-muted);line-height:1.35;margin-top:2px;font-weight:400}.toc li a.active{color:var(--sage-700);font-weight:700}.toc li a.active::after{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--sage-400);margin-left:8px;vertical-align:middle}
@@ -59,6 +63,13 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   .action-card{background:#fff;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:24px;display:flex;gap:20px;align-items:flex-start;transition:border-color 0.2s ease,box-shadow 0.2s ease;box-shadow:none}.action-card:hover{box-shadow:var(--shadow-soft)}
   .action-icon{width:42px;height:42px;border-radius:11px;background:rgba(221,210,191,0.4);color:var(--sand-deep);display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:800;flex-shrink:0}
   .action-card h4{font-weight:700;font-size:0.92rem;margin-bottom:6px;color:var(--text)}.action-card p{font-size:0.85rem;color:var(--text-muted);line-height:1.6;margin:0}
+  .action-grid--steps{display:block;margin:24px 0 34px;border-top:1px solid rgba(45,40,35,0.08)}
+  .action-grid--steps .action-card{background:transparent;border:none;border-bottom:1px solid rgba(45,40,35,0.08);border-radius:0;padding:18px 0;box-shadow:none}
+  .action-grid--steps .action-card:hover{box-shadow:none}
+  .action-grid--steps .action-icon{width:36px;height:36px;border-radius:10px;background:rgba(221,210,191,0.28);font-size:0.78rem}
+  .action-grid--steps .action-card p{max-width:58ch}
+  .action-grid--roles .action-card{background:linear-gradient(180deg,#fff 0%,#fcf8f4 100%);border-color:rgba(181,138,82,0.14)}
+  .action-grid--roles .action-card:hover{box-shadow:var(--shadow-soft)}
 
   /* ANLAUFSTELLEN */
   .stelle-card{background:#fff;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:24px;margin-bottom:14px;transition:border-color 0.2s ease,box-shadow 0.2s ease;box-shadow:none}
@@ -104,7 +115,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   .material-finder-option{display:flex;align-items:flex-start;gap:12px;width:100%;padding:14px 16px;border-radius:16px;border:1px solid rgba(45,40,35,0.08);background:#fff;color:var(--text);text-align:left;font-family:'DM Sans',sans-serif;cursor:pointer;transition:border-color 0.2s ease,box-shadow 0.2s ease,transform 0.2s ease}
   .material-finder-option:hover{border-color:var(--sage-200);box-shadow:var(--shadow-soft);transform:translateY(-1px)}
   .material-finder-option.is-active{border-color:var(--teal);background:var(--green-bg)}
-  .material-finder-icon{width:38px;height:34px;border-radius:10px;background:rgba(221,210,191,0.3);color:var(--sand-ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.72rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase}
+  .material-finder-icon{min-width:78px;height:34px;padding:0 10px;border-radius:10px;background:rgba(221,210,191,0.3);color:var(--sand-ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.72rem;font-weight:800;letter-spacing:0.04em;text-transform:none}
   .material-finder-option.is-active .material-finder-icon{background:var(--teal);color:#fff}
   .material-finder-label{display:block;font-size:0.88rem;font-weight:700;margin-bottom:3px}
   .material-finder-sub{display:block;font-size:0.8rem;color:var(--text-muted);line-height:1.45}
@@ -198,9 +209,9 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
     <h1>Unterstützung und Ressourcen</h1>
     <div class="module-meta"><span>⏱ ca. 10 Minuten</span><span>📍 Wo Sie Hilfe finden</span></div>
 
-    <div class="quote-block">
-      <blockquote>Der wichtigste Schritt war nicht, alles zu verstehen. Es war, einen ersten Kontakt zu speichern und nicht mehr allein mit allem zu bleiben.</blockquote>
-      <cite>— Partnerin, 55 Jahre (anonymisiert)</cite>
+    <div class="module-hero-note">
+      <p><strong>Dieses Modul ist kein Archiv, sondern ein Arbeitsbereich.</strong> Sie sollen hier schnell finden, was Ihrer Lage im Moment wirklich hilft.</p>
+      <p>Wenn Sie heute nur einen Kontakt speichern, eine Unterlage öffnen oder einen nächsten Schritt notieren, ist das bereits ein sinnvoller Anfang.</p>
     </div>
   </div>
   <div class="module-hero-visual">
@@ -231,7 +242,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   <p class="reveal">Häufig hilfreicher als noch mehr Information ist etwas Kleines und Konkretes: einen Kontakt speichern, ein passendes Merkblatt öffnen, einen Gesprächstermin vereinbaren oder eine rechtliche Frage nicht länger allein herumtragen. <strong>Ein nächster Schritt reicht.</strong> Wenn Sie unsicher sind, beginnen Sie mit genau einem davon.</p>
   <p class="reveal" style="font-size:0.95rem;color:var(--text-secondary);background:var(--surface-warm);border:1px solid rgba(181,138,82,0.2);border-radius:16px;padding:16px 18px;margin-bottom:24px"><strong>Wenn Sie gerade nur eines tun möchten:</strong> Wählen Sie zuerst entweder die Orientierung nach Situation weiter unten, den Material-Finder oder den Mini-Plan. Alles andere ist Vertiefung für später.</p>
 
-  <div class="action-grid reveal">
+  <div class="action-grid action-grid--steps reveal">
     <div class="action-card"><div class="action-icon">1</div><div><h4>Den nächsten Schritt klein genug machen</h4><p>Sie müssen nicht alles sortieren. Oft reicht es, heute eine Nummer zu speichern, eine Fachstelle zu kontaktieren oder ein passendes Dokument zu öffnen.</p></div></div>
     <div class="action-card"><div class="action-icon">2</div><div><h4>Von Ihrer aktuellen Lage ausgehen</h4><p>Suchen Sie nicht gleich nach dem ganzen System, sondern zuerst nach dem, was gerade drängt: Krise, Erschöpfung, Austausch, Recht oder Familie.</p></div></div>
     <div class="action-card"><div class="action-icon">3</div><div><h4>Die Schwelle zum ersten Kontakt senken</h4><p>Ein erstes Gespräch darf unfertig sein. Sie müssen Ihre Geschichte nicht geordnet erzählen können, damit Unterstützung sinnvoll ist.</p></div></div>
@@ -255,7 +266,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   <h2 id="rollen" class="reveal">Orientierung nach Angehörigenrolle</h2>
   <p class="reveal">Je nach Rolle drängen unterschiedliche Fragen nach vorn. Diese Unterscheidung kann helfen, schneller die passende Form von Unterstützung zu wählen.</p>
 
-  <div class="action-grid reveal">
+  <div class="action-grid action-grid--roles reveal">
     <div class="action-card"><div class="action-icon">P</div><div><h4>Partner*in</h4><p>Oft stehen Beziehung, Alltag, Grenzen, Kinder, Geld und Tragfähigkeit im Zentrum. Häufig passend: Modul 3, 5, 6 sowie Angehörigen- oder Paarberatung.</p></div></div>
     <div class="action-card"><div class="action-icon">E</div><div><h4>Eltern</h4><p>Viele Eltern schwanken zwischen Sorge, Schutzimpuls und Loslassen. Hilfreich sind oft Einordnung, Systemwissen und Beratung für die Familie.</p></div></div>
     <div class="action-card"><div class="action-icon">G</div><div><h4>Geschwister</h4><p>Geschwister tragen oft mit, ohne klare Zuständigkeit zu haben. Austausch, Grenzklärung und Systemorientierung helfen hier oft mehr als zusätzliche Übernahme.</p></div></div>
@@ -346,19 +357,19 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
     <p>Wählen Sie die Lage, die gerade am ehesten passt. Sie bekommen 1 bis 3 passende Materialien, Kontakte oder nächste Schritte statt der ganzen Liste auf einmal.</p>
     <div class="material-finder-options">
       <button type="button" class="material-finder-option" data-material-finder="akut" aria-pressed="false" aria-controls="materialFinderResults">
-        <span class="material-finder-icon" aria-hidden="true">AK</span>
+        <span class="material-finder-icon" aria-hidden="true">Akut</span>
         <span><span class="material-finder-label">Akute oder unklare Krise</span><span class="material-finder-sub">Nummern, Notfallweg, schnelle Orientierung.</span></span>
       </button>
       <button type="button" class="material-finder-option" data-material-finder="plan" aria-pressed="false" aria-controls="materialFinderResults">
-        <span class="material-finder-icon" aria-hidden="true">PL</span>
+        <span class="material-finder-icon" aria-hidden="true">Plan</span>
         <span><span class="material-finder-label">Vorbereiten für die nächste Krise</span><span class="material-finder-sub">Krisenplan, Kontakte, ruhige Vorbereitung.</span></span>
       </button>
       <button type="button" class="material-finder-option" data-material-finder="ersch" aria-pressed="false" aria-controls="materialFinderResults">
-        <span class="material-finder-icon" aria-hidden="true">ER</span>
+        <span class="material-finder-icon" aria-hidden="true">Entlastung</span>
         <span><span class="material-finder-label">Erschöpfung und Belastung</span><span class="material-finder-sub">Entlastung, Einordnung, kleine nächste Schritte.</span></span>
       </button>
       <button type="button" class="material-finder-option" data-material-finder="recht" aria-pressed="false" aria-controls="materialFinderResults">
-        <span class="material-finder-icon" aria-hidden="true">RE</span>
+        <span class="material-finder-icon" aria-hidden="true">Recht</span>
         <span><span class="material-finder-label">Recht / System / Blockaden</span><span class="material-finder-sub">Beratung, Ombudsstellen, Beschwerdewege.</span></span>
       </button>
     </div>

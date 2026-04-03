@@ -1169,13 +1169,16 @@ section,
 
 /* ── Footer links bar ── */
 .footer-links {
-  margin-top: 16px;
-  padding-top: 16px;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  font-size: 0.75rem;
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+  font-size: 0.78rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
 }
 .footer-links a {
-  margin: 0 10px;
+  margin: 0;
   color: rgba(255,255,255,0.75);
   text-decoration: none;
 }
@@ -1338,7 +1341,7 @@ section,
 footer {
   background: var(--navy);
   color: rgba(255,255,255,0.75);
-  padding: var(--space-lg) var(--space-lg) var(--space-2xl);
+  padding: var(--space-xl) var(--space-lg) var(--space-2xl);
 }
 
 .footer-brand h3 {
@@ -1372,6 +1375,75 @@ footer {
 
 .footer-bottom a:hover {
   color: rgba(255,255,255,0.7);
+}
+
+.footer-inner--editorial {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(220px, 0.82fr) minmax(240px, 0.9fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.footer-kicker {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 10px;
+}
+
+.footer-summary {
+  margin: 0;
+  max-width: 26ch;
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.32rem;
+  line-height: 1.45;
+  color: white;
+}
+
+.footer-meta p,
+.footer-note p {
+  margin: 0 0 8px;
+  font-size: 0.84rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.72);
+}
+
+.footer-org {
+  font-weight: 700;
+  color: white !important;
+}
+
+.footer-note {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-note p {
+  max-width: 34ch;
+}
+
+.footer-link-alert {
+  color: #fca5a5 !important;
+  font-weight: 700;
+}
+
+.footer-link-alert:hover {
+  color: #fecaca !important;
+}
+
+@media (max-width: 900px) {
+  .footer-inner--editorial {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .footer-summary,
+  .footer-note p {
+    max-width: none;
+  }
 }
 
 /* Tool nav and tool-back/brand moved to COVERAGE-AUDIT FIXES section */
