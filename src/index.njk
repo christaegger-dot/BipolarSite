@@ -141,11 +141,38 @@ useNavJS: true
     box-shadow: var(--shadow-elevated);
   }
 
-  .home-hero-cards {
+  .home-hero-meta {
     display: flex;
     flex-direction: column;
-    gap: 18px;
-    align-items: stretch;
+    gap: 12px;
+    margin-top: 18px;
+    max-width: 520px;
+  }
+
+  .home-hero-meta p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+  }
+
+  .home-hero-meta strong {
+    color: var(--earth-900);
+  }
+
+  .home-hero-emergency-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    min-height: 40px;
+    padding: 0 14px;
+    border-radius: 999px;
+    text-decoration: none;
+    background: rgba(199,84,80,0.1);
+    color: var(--alert-red);
+    font-size: 0.82rem;
+    font-weight: 700;
   }
 
   .home-hero-visual-card {
@@ -162,91 +189,6 @@ useNavJS: true
     width: 100%;
     height: auto;
     border-radius: 18px;
-  }
-
-  /* ══════════ QUICK ACTIONS ══════════ */
-  .quick-actions {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
-    max-width: 960px;
-  }
-
-  .quick-card {
-    text-decoration: none;
-    color: var(--text);
-    background: rgba(255,255,255,0.84);
-    border: 1px solid rgba(45,40,35,0.07);
-    border-left: 3px solid rgba(30,101,109,0.24);
-    border-radius: var(--radius-lg);
-    padding: 22px 22px 20px;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 8px 24px rgba(28,43,58,0.06);
-  }
-
-  .quick-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 3px;
-    background: linear-gradient(180deg, var(--teal-light), var(--sand-deep));
-    opacity: 1;
-    transition: opacity 0.2s ease;
-  }
-
-  .quick-card:hover {
-    box-shadow: 0 12px 28px rgba(28,43,58,0.1);
-    border-color: var(--sage-200);
-    transform: translateY(-3px);
-  }
-
-  .quick-card.alert {
-    border-color: var(--alert-red-border);
-    border-left-color: rgba(199,84,80,0.32);
-    background: var(--alert-red-bg);
-  }
-
-  .quick-card.alert::before {
-    background: var(--alert-red);
-  }
-
-  .quick-card-icon {
-    width: 46px;
-    height: 34px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-    background: var(--sage-100);
-    color: var(--sage-600);
-  }
-
-  .quick-card.alert .quick-card-icon {
-    background: rgba(199,84,80,0.12);
-    color: var(--alert-red);
-  }
-
-  .quick-card-title {
-    font-weight: 700;
-    font-size: 0.95rem;
-    margin-bottom: 6px;
-    letter-spacing: -0.01em;
-  }
-
-  .quick-card-desc {
-    font-size: 0.83rem;
-    color: var(--text-muted);
-    line-height: 1.55;
   }
 
   /* ══════════ SECTION GENERIC ══════════ */
@@ -343,11 +285,10 @@ useNavJS: true
   }
 
   .urgent-entry {
-    display: grid;
-    grid-template-columns: minmax(0, 1.4fr) minmax(220px, 0.6fr);
-    gap: 20px;
+    display: block;
     align-items: stretch;
     margin-bottom: 22px;
+    max-width: 860px;
   }
 
   .urgent-entry-card {
@@ -390,75 +331,26 @@ useNavJS: true
     color: var(--text-secondary);
   }
 
-  .urgent-entry-note {
-    background: rgba(199,84,80,0.08);
-    border: 1px solid rgba(199,84,80,0.14);
+  .choice-note {
+    margin-top: 22px;
+    max-width: 860px;
+    padding: 18px 22px;
     border-radius: var(--radius-lg);
-    padding: 18px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .urgent-entry-note strong {
-    color: var(--alert-red);
-    font-size: 0.82rem;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
-
-  .urgent-entry-note p {
-    margin: 0;
-    font-size: 0.85rem;
-    line-height: 1.55;
+    background: linear-gradient(180deg,#fff 0%,#fbf7f0 100%);
+    border: 1px solid rgba(45,40,35,0.08);
+    font-size: 0.9rem;
+    line-height: 1.7;
     color: var(--text-secondary);
   }
 
-  .choice-split {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
-    margin-top: 22px;
+  .choice-note strong {
+    color: var(--earth-900);
   }
 
-  .choice-card {
-    background: linear-gradient(180deg,#fff 0%,#fbf7f0 100%);
-    border: 1px solid rgba(45,40,35,0.08);
-    border-radius: var(--radius-lg);
-    padding: 22px 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .choice-kicker {
-    font-size: 0.72rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--sage-500);
-  }
-
-  .choice-card h3 {
-    font-family: 'Source Serif 4', serif;
-    font-size: 1.08rem;
-    line-height: 1.3;
-    color: var(--earth-800);
-  }
-
-  .choice-card p {
-    font-size: 0.84rem;
-    line-height: 1.6;
-    color: var(--text-muted);
-    margin: 0;
-  }
-
-  .choice-link {
-    margin-top: auto;
-    font-size: 0.82rem;
-    font-weight: 700;
+  .choice-note a {
     color: var(--sage-600);
     text-decoration: none;
+    font-weight: 700;
   }
 
   .module-card {
@@ -708,9 +600,6 @@ useNavJS: true
     .home-hero-text { padding: 18px 0 0; }
     .footer-inner { grid-template-columns: 1fr; gap: 32px; }
     .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
-    .quick-actions { grid-template-columns: 1fr 1fr; }
-    .urgent-entry { grid-template-columns: 1fr; }
-    .choice-split { grid-template-columns: 1fr; }
   }
   
 
@@ -722,10 +611,7 @@ useNavJS: true
     .progress-label { white-space: normal; text-align: center; }
     .start-helper { margin: 22px 0 28px; padding: 20px 18px; }
     .urgent-entry-card { padding: 22px; }
-    .urgent-entry-note { padding: 16px 18px; }
-    .choice-split { display: none; }
     section { padding: 50px 1.2rem; }
-    .quick-actions { grid-template-columns: 1fr; }
     .modules-grid { grid-template-columns: 1fr; }
     .progress-bar-outer { flex-direction: column; gap: 12px; padding: 20px; }
     .cta-band { padding: 50px 1.2rem; }
@@ -751,7 +637,7 @@ useNavJS: true
   .start-helper-option{display:flex;align-items:flex-start;gap:12px;width:100%;padding:14px 16px;border-radius:16px;border:1px solid rgba(45,40,35,0.08);background:#fff;color:var(--text);text-align:left;font-family:'DM Sans',sans-serif;cursor:pointer;transition:border-color 0.2s ease,box-shadow 0.2s ease,transform 0.2s ease}
   .start-helper-option:hover{border-color:var(--sage-200);box-shadow:var(--shadow-soft);transform:translateY(-1px)}
   .start-helper-option.is-active{border-color:var(--teal);background:var(--green-bg)}
-  .start-helper-icon{width:38px;height:34px;border-radius:10px;background:rgba(221,210,191,0.3);color:var(--sand-ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.72rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase}
+  .start-helper-icon{min-width:74px;height:34px;padding:0 10px;border-radius:10px;background:rgba(221,210,191,0.3);color:var(--sand-ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.72rem;font-weight:800;letter-spacing:0.05em;text-transform:none}
   .start-helper-option.is-active .start-helper-icon{background:var(--teal);color:#fff}
   .start-helper-label{display:block;font-size:0.88rem;font-weight:700;margin-bottom:3px}
   .start-helper-sub{display:block;font-size:0.8rem;color:var(--text-muted);line-height:1.45}
@@ -777,32 +663,14 @@ useNavJS: true
         <h1>Als Angehörige*r von Menschen mit <em>bipolarer Störung</em></h1>
         <p class="home-hero-subtitle">Sie müssen hier nicht alles auf einmal verstehen. Diese Website hilft Ihnen, Ihre Lage einzuordnen und den Einstieg zu wählen, der im Moment am ehesten passt.</p>
         <a href="#orientierung" class="home-hero-link">Zur Orientierung ↓</a>
+        <div class="home-hero-meta">
+          <p><strong>Für Partner*innen, Eltern, Geschwister und erwachsene Kinder.</strong> Sie dürfen hier von Ihrer eigenen Lage ausgehen, nicht nur von der erkrankten Person.</p>
+          <a href="/notfall/" class="home-hero-emergency-link">Wenn es akut sein könnte: direkt zum Notfallweg</a>
+        </div>
       </div>
-      <div class="home-hero-cards">
+      <div>
         <div class="home-hero-visual-card">
           <img src="/visuals/home-orientation-hero.svg" alt="Grafische Übersicht mit den Einstiegen Akut, Hilfe, Verstehen und Erschöpfung." class="home-hero-visual" width="720" height="520" loading="eager" decoding="async" fetchpriority="high">
-        </div>
-        <div class="quick-actions">
-          <a href="/notfall/" class="quick-card alert">
-            <div class="quick-card-icon">AK</div>
-            <div class="quick-card-title">Es ist akut</div>
-            <div class="quick-card-desc">Krise, Gefahr, Notfallnummern und erste Schritte</div>
-          </a>
-          <a href="/modul/1/" class="quick-card">
-            <div class="quick-card-icon">VE</div>
-            <div class="quick-card-title">Ich muss erst verstehen</div>
-            <div class="quick-card-desc">Grundlagen, Phasen, Behandlung und Verlauf</div>
-          </a>
-          <a href="/modul/4/" class="quick-card">
-            <div class="quick-card-icon">ER</div>
-            <div class="quick-card-title">Ich bin erschöpft</div>
-            <div class="quick-card-desc">Schleichende Belastung, Selbstverlust, Entlastung</div>
-          </a>
-          <a href="/modul/6/" class="quick-card">
-            <div class="quick-card-icon">KS</div>
-            <div class="quick-card-title">Ich brauche konkrete Schritte</div>
-            <div class="quick-card-desc">Krisenplan, Kommunikation, Grenzen und Alltag</div>
-          </a>
         </div>
       </div>
     </div>
@@ -835,19 +703,19 @@ useNavJS: true
     <p>Wählen Sie das, was Ihrer Lage im Moment am nächsten kommt. Sie bekommen direkt einen sinnvollen ersten Einstieg. Mehr müssen Sie jetzt nicht entscheiden.</p>
     <div class="start-helper-options" role="group" aria-label="Starthelfer: Einstieg auswählen">
       <button type="button" class="start-helper-option" data-start-helper="akut" aria-pressed="false" aria-controls="startHelperResult">
-        <span class="start-helper-icon" aria-hidden="true">AK</span>
+        <span class="start-helper-icon" aria-hidden="true">Akut</span>
         <span><span class="start-helper-label">Akut / unklar gefährlich</span><span class="start-helper-sub">Ich muss zuerst klären, ob Gefahr besteht.</span></span>
       </button>
       <button type="button" class="start-helper-option" data-start-helper="verstehen" aria-pressed="false" aria-controls="startHelperResult">
-        <span class="start-helper-icon" aria-hidden="true">VE</span>
+        <span class="start-helper-icon" aria-hidden="true">Wissen</span>
         <span><span class="start-helper-label">Einordnen und verstehen</span><span class="start-helper-sub">Ich brauche zuerst Überblick und Grundlagen.</span></span>
       </button>
       <button type="button" class="start-helper-option" data-start-helper="erschoepft" aria-pressed="false" aria-controls="startHelperResult">
-        <span class="start-helper-icon" aria-hidden="true">ER</span>
+        <span class="start-helper-icon" aria-hidden="true">Entlastung</span>
         <span><span class="start-helper-label">Ich bin erschöpft</span><span class="start-helper-sub">Meine eigene Belastung steht gerade im Vordergrund.</span></span>
       </button>
       <button type="button" class="start-helper-option" data-start-helper="hilfe" aria-pressed="false" aria-controls="startHelperResult">
-        <span class="start-helper-icon" aria-hidden="true">HI</span>
+        <span class="start-helper-icon" aria-hidden="true">Hilfe</span>
         <span><span class="start-helper-label">Kontakte / Materialien / Recht</span><span class="start-helper-sub">Ich brauche jetzt Orientierung, Anlaufstellen oder praktische Unterstützung.</span></span>
       </button>
     </div>
@@ -871,10 +739,6 @@ useNavJS: true
         <span class="module-arrow" style="background:rgba(199,84,80,0.12);color:var(--alert-red)">→</span>
       </div>
     </a>
-    <div class="urgent-entry-note">
-      <strong>Wichtig</strong>
-      <p>Wenn Sie unsicher sind, ob die Situation psychiatrisch akut oder unmittelbar gefährlich ist, beginnen Sie hier zuerst. Die übrigen Einstiege können warten.</p>
-    </div>
   </div>
 
   <div class="modules-grid">
@@ -929,19 +793,8 @@ useNavJS: true
     </a>
   </div>
 
-  <div class="choice-split reveal" style="margin-top:22px">
-    <div class="choice-card">
-      <span class="choice-kicker">Wenn Sie handeln wollen</span>
-      <h3>Modul 6</h3>
-      <p>Passt, wenn Sie konkrete Schritte in einer belasteten Situation brauchen: Gespräche in stabilen Phasen, Grenzen, Krisenplan, Umgang mit Ablehnung oder angespannten Episoden.</p>
-      <a href="/modul/6/" class="choice-link">Zu Modul 6 →</a>
-    </div>
-    <div class="choice-card">
-      <span class="choice-kicker">Wenn Sie Unterstützung suchen</span>
-      <h3>Modul 8</h3>
-      <p>Passt, wenn Sie vor allem Kontakte, Materialien, rechtliche Orientierung oder eine passende externe Anlaufstelle suchen.</p>
-      <a href="/modul/8/" class="choice-link">Zu Modul 8 →</a>
-    </div>
+  <div class="choice-note reveal">
+    <strong>Wenn Sie zwischen zwei Wegen schwanken:</strong> Für Gespräche, Grenzen und Krisenplan ist <a href="/modul/6/">Modul 6</a> der passendere Einstieg. Für Kontakte, Materialien und rechtliche Orientierung ist <a href="/modul/8/">Modul 8</a> meist hilfreicher.
   </div>
 </section>
 
@@ -1223,10 +1076,10 @@ useNavJS: true
       cta: 'Modul 4 öffnen →'
     },
     hilfe: {
-      title: 'Beginnen Sie mit Modul 6 oder 8',
-      text: 'Modul 6 passt für Gespräche, Grenzen und Krisenplan. Modul 8 passt für Kontakte, Materialien und rechtliche Orientierung.',
-      href: '/modul/6/',
-      cta: 'Modul 6 öffnen →'
+      title: 'Beginnen Sie mit Modul 8',
+      text: 'Dort finden Sie Kontakte, Materialien und rechtliche Orientierung. Wenn Sie danach vor allem Gespräche, Grenzen oder einen Krisenplan brauchen, wechseln Sie weiter zu Modul 6.',
+      href: '/modul/8/',
+      cta: 'Modul 8 öffnen →'
     }
   };
 
