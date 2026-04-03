@@ -4,6 +4,7 @@ slug: "c4_manie"
 source_pdf: "/handouts/c4_manie.pdf"
 status: "draft"
 show_status_badge: false
+show_priority_badge: false
 type: "Akutblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Schnelle Orientierung bei akuten oder eskalierenden manischen Zuständen"
@@ -19,6 +20,7 @@ quick_steps:
   - icon: "!"
     text: "Krisendienst oder Team früh dazunehmen"
   - icon: "144"
+    wide: true
     text: "Bei Gefahr 144 oder 117"
 emergency_contacts:
   - label: "Notfalldienst Zürich"
@@ -34,8 +36,6 @@ emergency_contacts:
     tone: "urgent"
 ---
 
-# Umgang mit Manie
-
 Wenn eine manische Episode kippt, helfen meist nicht mehr Diskussion, Erklärung oder Druck. Wichtiger sind Ruhe, kurze Sätze, Schutz und frühes Dazunehmen professioneller Hilfe.
 
 ## Woran Sie Manie erkennen können
@@ -49,14 +49,13 @@ Wenn eine manische Episode kippt, helfen meist nicht mehr Diskussion, Erklärung
 
 Nicht jedes einzelne Zeichen bedeutet sofort Manie. Wichtig ist die Kombination und die Veränderung gegenüber dem üblichen Zustand.
 
-## Jetzt zuerst
+## Im ersten Gespräch
 
-- ruhig bleiben
-- kurz und einfach sprechen
 - ein Satz, ein Anliegen
+- eher strukturieren als diskutieren
 - Reize reduzieren: weniger Menschen, weniger Lärm, weniger Diskussion
-- Krisenplan aktivieren, wenn es einen gibt
-- früh Hilfe holen statt lange allein zu ordnen
+- Finanzen, Autofahren und Schutz mitdenken
+- wenn möglich spricht eine ruhige Bezugsperson
 
 Hilfreicher als lange Erklärungen ist oft ein Satz wie:  
 **„Ich möchte es gerade einfach halten. Wir holen jetzt Unterstützung dazu.“**
@@ -67,6 +66,7 @@ Hilfreicher als lange Erklärungen ist oft ein Satz wie:
 - mit ruhiger Stimme und klaren Sätzen sprechen
 - Finanzen, Autofahren und Sicherheit im Blick behalten
 - Behandlungsteam oder Krisendienst früh kontaktieren
+- auch bei Ablehnung selbst fachliche Rücksprache holen
 - Schutz ernst nehmen, auch wenn die Person das anders sieht
 - wenn möglich: eine ruhige Bezugsperson spricht, nicht viele gleichzeitig
 
@@ -95,10 +95,12 @@ Nicht weiter diskutieren, sondern sofort handeln, wenn:
 
 ## Nächster sinnvoller Schritt
 
-Wenn die Situation noch ansprechbar, aber instabil ist: Hilfe früh einschalten und nicht erst auf die volle Eskalation warten.  
-Wenn Schutz vorgeht: nicht mehr auf das bessere Gespräch hoffen, sondern Notfallhilfe nutzen.
+Wenn die Situation noch ansprechbar, aber instabil ist: Hilfe früh einschalten und nicht erst auf die volle Eskalation warten. Wenn Schutz vorgeht: nicht mehr auf das bessere Gespräch hoffen, sondern Notfallhilfe nutzen.
+
+Auch wenn die Person Hilfe ablehnt, dürfen Sie selbst Unterstützung holen. Wenn es noch keinen Krisenplan gibt, kann er in einer ruhigeren Phase später über Modul 6 vorbereitet werden.
 
 Weiterführend:
 
+- Psychiatrischer Notfalldienst Zürich: 0800 33 66 55
 - [Notfallseite](/notfall/)
 - [Modul 6: Kommunikation, Grenzen, Krisenplan](/modul/6/)
