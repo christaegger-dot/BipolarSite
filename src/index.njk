@@ -727,6 +727,27 @@ useNavJS: true
   .path-title{font-weight:700;color:var(--navy);font-size:0.95rem;margin:0 0 4px;text-decoration:none;display:block}
   .path-title:hover{color:var(--teal)}
   .path-desc{font-size:0.85rem;color:var(--slate);margin:0;line-height:1.5}
+
+  /* ══════════ STARTHELFER ══════════ */
+  .start-helper{margin:28px 0 36px;padding:24px 26px;border-radius:24px;background:linear-gradient(180deg,#fff 0%,#fcf8f4 100%);border:1px solid rgba(45,40,35,0.06);box-shadow:var(--shadow-soft)}
+  .start-helper-kicker{font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--sage-500);margin-bottom:10px}
+  .start-helper h3{font-family:'Source Serif 4',serif;font-size:1.25rem;font-weight:600;color:var(--navy);margin:0 0 8px}
+  .start-helper p{font-size:0.9rem;color:var(--text-secondary);line-height:1.6;margin:0 0 18px}
+  .start-helper-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .start-helper-option{display:flex;align-items:flex-start;gap:12px;width:100%;padding:14px 16px;border-radius:16px;border:1px solid rgba(45,40,35,0.08);background:#fff;color:var(--text);text-align:left;font-family:'DM Sans',sans-serif;cursor:pointer;transition:border-color 0.2s ease,box-shadow 0.2s ease,transform 0.2s ease}
+  .start-helper-option:hover{border-color:var(--sage-200);box-shadow:var(--shadow-soft);transform:translateY(-1px)}
+  .start-helper-option.is-active{border-color:var(--teal);background:var(--green-bg)}
+  .start-helper-icon{width:34px;height:34px;border-radius:10px;background:rgba(221,210,191,0.3);color:var(--sand-ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem}
+  .start-helper-option.is-active .start-helper-icon{background:var(--teal);color:#fff}
+  .start-helper-label{display:block;font-size:0.88rem;font-weight:700;margin-bottom:3px}
+  .start-helper-sub{display:block;font-size:0.8rem;color:var(--text-muted);line-height:1.45}
+  .start-helper-result{margin-top:16px;padding:18px 20px;border-radius:18px;background:linear-gradient(180deg,var(--surface-warm) 0%,rgba(217,236,236,0.42) 100%);border:1px solid rgba(45,40,35,0.06)}
+  .start-helper-result[hidden]{display:none}
+  .start-helper-result-kicker{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--slate);margin-bottom:8px}
+  .start-helper-result h4{font-size:1rem;font-weight:700;color:var(--navy);margin:0 0 6px}
+  .start-helper-result p{font-size:0.86rem;color:var(--text-secondary);margin:0 0 12px}
+  .start-helper-link{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#fff;background:linear-gradient(135deg,var(--navy),var(--teal));padding:10px 16px;border-radius:999px;font-size:0.84rem;font-weight:700}
+  @media (max-width: 768px) { .start-helper-options{grid-template-columns:1fr} }
 </style>
 {% endblock %}
 {% block nav %}
@@ -793,6 +814,36 @@ useNavJS: true
   <h2 class="section-title reveal">Wo stehen Sie gerade?</h2>
   <p class="section-desc reveal">Sie müssen nicht linear durch die Website gehen. Diese Startseite zeigt vier Zugänge: <strong>Situation zuerst</strong>, <strong>passende Einstiege</strong>, <strong>Orientierung nach Rolle</strong> und unten den <strong>kompletten Lernpfad</strong>. <strong>Ein Zugang reicht</strong> — Sie müssen nicht alle vier gleichzeitig nutzen.</p>
   <p class="section-desc reveal" style="margin-top:-6px"><strong>Wenn es gerade akut sein könnte, hat dieser Einstieg Vorrang vor allem anderen.</strong></p>
+
+  <div class="start-helper reveal" aria-labelledby="start-helper-title">
+    <div class="start-helper-kicker">Starthelfer</div>
+    <h3 id="start-helper-title">Was brauchen Sie gerade am ehesten?</h3>
+    <p>Wählen Sie das, was Ihrer Lage im Moment am nächsten kommt. Sie bekommen direkt einen sinnvollen ersten Einstieg. Mehr müssen Sie jetzt nicht entscheiden.</p>
+    <div class="start-helper-options" role="list">
+      <button type="button" class="start-helper-option" data-start-helper="akut">
+        <span class="start-helper-icon" aria-hidden="true">⚡</span>
+        <span><span class="start-helper-label">Akut / unklar gefährlich</span><span class="start-helper-sub">Ich muss zuerst klären, ob Gefahr besteht.</span></span>
+      </button>
+      <button type="button" class="start-helper-option" data-start-helper="verstehen">
+        <span class="start-helper-icon" aria-hidden="true">🔍</span>
+        <span><span class="start-helper-label">Einordnen und verstehen</span><span class="start-helper-sub">Ich brauche zuerst Überblick und Grundlagen.</span></span>
+      </button>
+      <button type="button" class="start-helper-option" data-start-helper="erschoepft">
+        <span class="start-helper-icon" aria-hidden="true">🌿</span>
+        <span><span class="start-helper-label">Ich bin erschöpft</span><span class="start-helper-sub">Meine eigene Belastung steht gerade im Vordergrund.</span></span>
+      </button>
+      <button type="button" class="start-helper-option" data-start-helper="hilfe">
+        <span class="start-helper-icon" aria-hidden="true">🧭</span>
+        <span><span class="start-helper-label">Konkrete Hilfe / nächste Schritte</span><span class="start-helper-sub">Ich brauche jetzt Orientierung, Kontakte oder praktische Hilfe.</span></span>
+      </button>
+    </div>
+    <div class="start-helper-result" id="startHelperResult" hidden aria-live="polite" aria-atomic="true">
+      <div class="start-helper-result-kicker">Empfohlener Einstieg</div>
+      <h4 id="startHelperTitle"></h4>
+      <p id="startHelperText"></p>
+      <a id="startHelperLink" class="start-helper-link" href="/">Zum Einstieg</a>
+    </div>
+  </div>
 
   <div class="urgent-entry reveal">
     <a href="/notfall/" class="urgent-entry-card">
@@ -1160,6 +1211,50 @@ useNavJS: true
     return m ? '/modul/' + m[1] + '/' : null;
   }
 
+  const START_HELPER = {
+    akut: {
+      title: 'Beginnen Sie mit der Notfallseite',
+      text: 'Wenn Gefahr, Kontrollverlust oder starke Unsicherheit im Raum stehen, ist zuerst die Triage wichtiger als alles andere.',
+      href: '/notfall/',
+      cta: 'Zum Notfallweg →'
+    },
+    verstehen: {
+      title: 'Beginnen Sie mit Modul 1',
+      text: 'Dort bekommen Sie die Grundlagen, mit denen spätere Entscheidungen und Belastungen oft besser einordenbar werden.',
+      href: '/modul/1/',
+      cta: 'Zu Modul 1 →'
+    },
+    erschoepft: {
+      title: 'Beginnen Sie mit Modul 4',
+      text: 'Wenn Ihre eigene Belastung gerade lauter ist als alle anderen Fragen, ist das meist der entlastendste Einstieg.',
+      href: '/modul/4/',
+      cta: 'Zu Modul 4 →'
+    },
+    hilfe: {
+      title: 'Beginnen Sie mit Modul 6 oder 8',
+      text: 'Modul 6 passt für Gespräche, Grenzen und Krisenplan. Modul 8 passt für Kontakte, Materialien und konkrete Anlaufstellen.',
+      href: '/modul/6/',
+      cta: 'Zu Modul 6 →'
+    }
+  };
+
+  const startHelperButtons = document.querySelectorAll('[data-start-helper]');
+  const startHelperResult = document.getElementById('startHelperResult');
+  const startHelperTitle = document.getElementById('startHelperTitle');
+  const startHelperText = document.getElementById('startHelperText');
+  const startHelperLink = document.getElementById('startHelperLink');
+
+  function updateStartHelper(key) {
+    const entry = START_HELPER[key];
+    if (!entry || !startHelperResult) return;
+    startHelperButtons.forEach(btn => btn.classList.toggle('is-active', btn.dataset.startHelper === key));
+    startHelperTitle.textContent = entry.title;
+    startHelperText.textContent = entry.text;
+    startHelperLink.href = entry.href;
+    startHelperLink.textContent = entry.cta;
+    startHelperResult.hidden = false;
+  }
+
   function updateProgressUI() {
     const visited = getVisited();
     const count = Math.min(visited.length, TOTAL_MODULES);
@@ -1193,6 +1288,10 @@ useNavJS: true
         }
       });
     }
+  });
+
+  startHelperButtons.forEach(button => {
+    button.addEventListener('click', () => updateStartHelper(button.dataset.startHelper));
   });
 
   // Initialise progress on load
