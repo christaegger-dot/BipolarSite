@@ -102,6 +102,13 @@
         linear-gradient(180deg, rgba(252,248,244,0.95), rgba(255,255,255,0.92));
     }
 
+    .draft-header.alert-mode{
+      background:
+        radial-gradient(circle at top right, rgba(154,52,18,0.14), transparent 24%),
+        radial-gradient(circle at top left, rgba(141,212,217,0.12), transparent 28%),
+        linear-gradient(180deg, rgba(252,243,239,0.98), rgba(255,255,255,0.95));
+    }
+
     .draft-kicker{
       display:flex;
       gap:10px;
@@ -143,7 +150,7 @@
 
     .draft-meta{
       display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
+      grid-template-columns:repeat(2,minmax(0,1fr));
       gap:10px;
     }
 
@@ -167,6 +174,84 @@
       font-size:0.85rem;
       color:var(--text);
       font-weight:600;
+      min-width:0;
+      overflow-wrap:anywhere;
+      word-break:break-word;
+    }
+
+    .draft-alert-panel{
+      margin-top:18px;
+      border:1px solid rgba(154,52,18,0.18);
+      border-radius:22px;
+      background:
+        linear-gradient(180deg, rgba(250,233,227,0.95), rgba(255,248,244,0.98));
+      padding:18px;
+      display:grid;
+      grid-template-columns:minmax(0,1.2fr) minmax(0,0.8fr);
+      gap:16px;
+    }
+
+    .draft-alert-eyebrow{
+      font-size:0.72rem;
+      font-weight:800;
+      letter-spacing:0.1em;
+      text-transform:uppercase;
+      color:var(--alert);
+      margin-bottom:8px;
+    }
+
+    .draft-alert-line{
+      font-family:'Source Serif 4',serif;
+      font-size:1.2rem;
+      line-height:1.15;
+      color:#68200b;
+      margin:0 0 10px;
+    }
+
+    .draft-alert-copy{
+      margin:0;
+      color:#5d372e;
+      font-size:0.92rem;
+      max-width:44ch;
+    }
+
+    .draft-quick-steps{
+      display:grid;
+      gap:10px;
+      align-content:start;
+    }
+
+    .draft-step{
+      display:grid;
+      grid-template-columns:34px minmax(0,1fr);
+      gap:10px;
+      align-items:start;
+      padding:10px 12px;
+      border-radius:16px;
+      background:rgba(255,255,255,0.72);
+      border:1px solid rgba(154,52,18,0.09);
+    }
+
+    .draft-step-index{
+      width:34px;
+      height:34px;
+      border-radius:999px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg, #9a3412, #bf5a34);
+      color:#fff;
+      font-weight:800;
+      font-size:0.92rem;
+      box-shadow:0 8px 18px rgba(154,52,18,0.16);
+    }
+
+    .draft-step-text{
+      font-size:0.88rem;
+      line-height:1.35;
+      color:var(--navy);
+      font-weight:700;
+      min-width:0;
+      overflow-wrap:anywhere;
     }
 
     .draft-content{
@@ -194,6 +279,11 @@
     }
 
     .draft-content p{margin:0.55rem 0}
+    .draft-content > p:first-of-type{
+      font-size:1.04rem;
+      line-height:1.65;
+      margin-bottom:1rem;
+    }
     .draft-content ul{margin:0.55rem 0 0.8rem 1.15rem;padding:0}
     .draft-content li{margin:0.2rem 0}
     .draft-content strong{color:var(--navy)}
@@ -226,6 +316,8 @@
       .draft-footer{padding-top:18px}
       .draft-meta{grid-template-columns:1fr}
       .draft-title{font-size:1.7rem}
+      .draft-alert-panel{grid-template-columns:1fr;padding:16px}
+      .draft-alert-line{font-size:1.05rem}
     }
 
     @media print{
@@ -247,6 +339,8 @@
       .draft-content{padding-top:10mm;padding-bottom:12mm}
       .draft-footer{padding-top:8mm;padding-bottom:10mm}
       a{color:inherit;text-decoration:none}
+      .draft-alert-panel{break-inside:avoid}
+      .draft-step{break-inside:avoid}
     }
   </style>
 </head>
@@ -265,7 +359,7 @@
     </div>
 
     <article class="draft-paper">
-      <header class="draft-header">
+      <header class="draft-header{% if type == 'Akutblatt' %} alert-mode{% endif %}">
         <div class="draft-kicker">
           <span class="draft-badge">{{ priority }}</span>
           <span class="draft-badge{% if type == 'Akutblatt' %} alert{% endif %}">{{ type }}</span>
@@ -279,14 +373,29 @@
             <div class="draft-meta-value">{{ audience }}</div>
           </div>
           <div class="draft-meta-card">
-            <div class="draft-meta-label">Quell-PDF</div>
-            <div class="draft-meta-value">{{ source_pdf }}</div>
-          </div>
-          <div class="draft-meta-card">
             <div class="draft-meta-label">Stand</div>
             <div class="draft-meta-value">{{ last_updated }}</div>
           </div>
         </div>
+        {% if emergency_callout or quick_steps %}
+          <div class="draft-alert-panel" aria-label="Schnelle Orientierung">
+            <div>
+              {% if emergency_label %}<div class="draft-alert-eyebrow">{{ emergency_label }}</div>{% endif %}
+              {% if emergency_callout %}<p class="draft-alert-line">{{ emergency_callout }}</p>{% endif %}
+              {% if emergency_note %}<p class="draft-alert-copy">{{ emergency_note }}</p>{% endif %}
+            </div>
+            {% if quick_steps %}
+              <div class="draft-quick-steps">
+                {% for step in quick_steps %}
+                  <div class="draft-step">
+                    <div class="draft-step-index">{{ loop.index }}</div>
+                    <div class="draft-step-text">{{ step }}</div>
+                  </div>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
       </header>
 
       <main class="draft-content">

@@ -9,6 +9,13 @@ goal: "Maximal klare Orientierung bei Suizidgedanken, Suizidäußerungen oder ko
 target_format: "A4, 1 Seite"
 priority: "P1"
 last_updated: "2026-04-03"
+emergency_label: "Wenn es konkret wird"
+emergency_callout: "Bei konkretem Plan oder vorhandenen Mitteln: sofort 144."
+emergency_note: "Nicht erst alles ordnen wollen. Direkt fragen ist erlaubt. Wenn die Gefahr konkret ist, Hilfe sofort dazunehmen."
+quick_steps:
+  - "Direkt fragen: Gibt es Plan und Mittel?"
+  - "Bei der Person bleiben und mögliche Mittel sichern"
+  - "Bei konkreter Gefahr sofort 144 rufen"
 ---
 
 # Umgang mit Suizidgedanken
