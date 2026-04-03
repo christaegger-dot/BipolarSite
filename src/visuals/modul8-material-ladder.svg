@@ -1,0 +1,16 @@
+<svg width="720" height="360" viewBox="0 0 720 360" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Materialien nach Situation</title>
+  <desc id="desc">Drei Ebenen zeigen die Reihenfolge: Notfallkarte für akute Lagen, Krisenplan in stabilen Phasen und Handouts für den Alltag.</desc>
+  <rect width="720" height="360" rx="28" fill="#FBF7F1"/>
+  <rect x="58" y="66" width="604" height="68" rx="22" fill="#FEF2F2" stroke="#F2C7BC"/>
+  <rect x="98" y="164" width="524" height="68" rx="22" fill="#F7F2EA" stroke="#DDD2BF"/>
+  <rect x="138" y="262" width="444" height="68" rx="22" fill="#EAF5F5" stroke="#CDE6E6"/>
+  <text x="92" y="106" fill="#9A3412" font-family="DM Sans, sans-serif" font-size="18" font-weight="700">Akut: Notfallkarte</text>
+  <text x="92" y="126" fill="#475569" font-family="DM Sans, sans-serif" font-size="14">Wenn Gefahr oder starke Unsicherheit da ist</text>
+  <text x="132" y="204" fill="#7A5630" font-family="DM Sans, sans-serif" font-size="18" font-weight="700">Stabil genug: Krisenplan</text>
+  <text x="132" y="224" fill="#475569" font-family="DM Sans, sans-serif" font-size="14">Vorbereiten, bevor die nächste Eskalation kommt</text>
+  <text x="172" y="302" fill="#1E656D" font-family="DM Sans, sans-serif" font-size="18" font-weight="700">Alltag: passende Handouts</text>
+  <text x="172" y="322" fill="#475569" font-family="DM Sans, sans-serif" font-size="14">Gezielt nach Thema statt alles auf einmal</text>
+  <path d="M600 134L600 164" stroke="#B58A52" stroke-width="3" stroke-linecap="round"/>
+  <path d="M560 232L560 262" stroke="#B58A52" stroke-width="3" stroke-linecap="round"/>
+</svg>
