@@ -3,11 +3,16 @@
   publish = "_site"
 
 [[redirects]]
-  from = "/*"
+  from = "http://bipolarsite.netlify.app/*"
   to = "https://www.pukzh.ch/:splat"
   status = 301
   force = true
-  conditions = {Host = ["bipolarsite.netlify.app"]}
+
+[[redirects]]
+  from = "https://bipolarsite.netlify.app/*"
+  to = "https://www.pukzh.ch/:splat"
+  status = 301
+  force = true
 
 # Security headers applied to all pages
 [[headers]]
