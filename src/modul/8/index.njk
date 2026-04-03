@@ -27,7 +27,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   .breadcrumb{font-size:0.8rem;color:var(--text-muted);margin-bottom:20px;display:flex;align-items:center;gap:8px}.breadcrumb a{color:var(--sage-500);text-decoration:none}
   .hero-icon{width:40px;height:40px;color:var(--sand-deep);opacity:0.75;margin-bottom:12px;display:block}.module-badge{display:inline-flex;background:rgba(221,210,191,0.34);color:var(--sand-deep);padding:6px 16px;border-radius:100px;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px}
   .module-hero h1{font-family:'Source Serif 4',serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:700;line-height:1.2;letter-spacing:-0.03em;color:var(--earth-900);margin-bottom:16px}
-  .module-meta{display:flex;align-items:center;gap:20px;font-size:0.85rem;color:var(--text-muted);margin-bottom:28px}
+  .module-meta{display:flex;align-items:center;gap:20px;font-size:0.85rem;color:var(--text-muted);margin-bottom:28px;flex-wrap:wrap}
   .module-hero-note{background:linear-gradient(180deg,var(--surface-warm) 0%, rgba(217,236,236,0.34) 100%);border:1px solid rgba(45,40,35,0.06);border-radius:18px;padding:18px 20px}
   .module-hero-note p{font-size:0.92rem;line-height:1.7;color:var(--text-secondary);margin:0}
   .module-hero-note p + p{margin-top:8px}
@@ -35,6 +35,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
 
   .toc{grid-column:1 / -1;background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:28px 32px;margin-bottom:48px;box-shadow:var(--shadow-soft)}.toc-title{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--sage-500);margin-bottom:14px}
   .toc ol{list-style:none;counter-reset:toc-counter;display:grid;grid-template-columns:1fr 1fr;gap:4px 20px}.toc li{counter-increment:toc-counter}.toc li a{text-decoration:none;color:var(--text-secondary);font-size:0.88rem;display:block;padding:8px 0 8px 28px;position:relative;transition:color 0.2s}.toc li a::before{content:counter(toc-counter);font-size:0.7rem;font-weight:700;color:var(--sage-400);position:absolute;left:0;top:10px}.toc li a:hover{color:var(--sage-600)}.toc-desc{display:block;font-size:0.72rem;color:var(--text-muted);line-height:1.35;margin-top:2px;font-weight:400}.toc li a.active{color:var(--sage-700);font-weight:700}.toc li a.active::after{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--sage-400);margin-left:8px;vertical-align:middle}
+  .toc-note{font-size:0.8rem;color:var(--text-muted);line-height:1.55;margin-top:14px}
 
   .content{max-width:var(--content-width);margin:0 auto;padding:0 2rem}
   .content h2{scroll-margin-top:84px;font-family:'Source Serif 4',serif;font-size:1.65rem;font-weight:700;line-height:1.25;letter-spacing:-0.02em;color:var(--earth-900);margin:64px 0 20px;padding-top:20px;border-top:1px solid rgba(45,40,35,0.06)}.content h2:first-of-type{border-top:none;margin-top:0}
@@ -126,6 +127,17 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   .finder-card h4{font-size:0.96rem;font-weight:700;color:var(--navy);margin:0 0 6px}
   .finder-card p{font-size:0.84rem;color:var(--text-secondary);margin:0 0 10px}
   .finder-card a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#fff;background:linear-gradient(135deg,var(--navy),var(--teal));padding:9px 14px;border-radius:999px;font-size:0.8rem;font-weight:700}
+  .hub-details{margin:22px 0 32px;border:1px solid rgba(45,40,35,0.08);border-radius:24px;background:linear-gradient(180deg,#fff 0%,#fcf8f4 100%);box-shadow:var(--shadow-soft);overflow:hidden}
+  .hub-details summary{list-style:none;cursor:pointer;padding:20px 22px;display:grid;gap:6px;position:relative}
+  .hub-details summary::-webkit-details-marker{display:none}
+  .hub-details summary::after{content:'+';position:absolute;top:18px;right:20px;width:28px;height:28px;border-radius:50%;border:1px solid rgba(45,40,35,0.08);display:flex;align-items:center;justify-content:center;color:var(--sage-600);font-size:1rem;font-weight:700;transition:transform 0.2s ease,background-color 0.2s ease,color 0.2s ease}
+  .hub-details[open] summary::after{transform:rotate(45deg);background:var(--sage-500);color:#fff}
+  .hub-details-kicker{font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--sage-500)}
+  .hub-details-title{font-family:'Source Serif 4',serif;font-size:1.1rem;font-weight:600;line-height:1.35;color:var(--earth-900);padding-right:44px}
+  .hub-details-intro{font-size:0.86rem;color:var(--text-muted);line-height:1.55;padding-right:44px}
+  .hub-details-body{padding:0 22px 22px}
+  .hub-details-body>p:first-child{margin-top:0}
+  .hub-details--quiet{background:linear-gradient(180deg,var(--surface-warm) 0%,rgba(217,236,236,0.28) 100%)}
   .mini-plan{margin:26px 0 34px;padding:24px 26px;border-radius:24px;background:linear-gradient(180deg,#fff 0%,#fcf8f4 100%);border:1px solid rgba(45,40,35,0.06);box-shadow:var(--shadow-soft)}
   .mini-plan-kicker{font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--sage-500);margin-bottom:10px}
   .mini-plan h3{font-size:1.15rem;margin:0 0 8px}
@@ -174,7 +186,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   @media(max-width:768px){.toc ol{grid-template-columns:1fr}.handout-list{grid-template-columns:1fr 1fr}.insight-grid,.action-grid{grid-template-columns:1fr}.material-finder-options{grid-template-columns:1fr}.mini-plan-grid{grid-template-columns:1fr}}
   
   @media(max-width:900px){.module-hero-inner{grid-template-columns:1fr}}
-  @media(max-width:600px){.module-hero{padding:100px 1.2rem 32px}.module-hero .quote-block,.module-hero-visual{display:none}.toc{padding:18px 20px;margin-bottom:26px}.toc-desc{display:none}.content{padding:0 1.2rem}.action-card,.stelle-card,.dl-module,.material-finder,.mini-plan{padding-left:18px;padding-right:18px}.closing{padding:36px 24px}.handout-list{grid-template-columns:1fr}}
+  @media(max-width:600px){.module-hero{padding:100px 1.2rem 32px}.module-hero .quote-block,.module-hero-visual{display:none}.toc{padding:18px 20px;margin-bottom:26px}.toc-desc{display:none}.content{padding:0 1.2rem}.action-card,.stelle-card,.dl-module,.material-finder,.mini-plan,.hub-details summary,.hub-details-body{padding-left:18px;padding-right:18px}.closing{padding:36px 24px}.handout-list{grid-template-columns:1fr}}
   .sources-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;cursor:pointer;padding:0;font:inherit;color:inherit;text-align:left}
 
   body.pdf-preview-open{overflow:hidden}
@@ -207,11 +219,11 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
       <svg class="hero-icon" aria-hidden="true" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="2"/><polygon points="20,8 23,18 20,16 17,18" fill="currentColor" opacity="0.4"/><polygon points="20,32 17,22 20,24 23,22" fill="currentColor" opacity="0.2"/><circle cx="20" cy="20" r="2" fill="currentColor" opacity="0.5"/></svg>
     <div class="module-badge">Modul 8 / 8</div>
     <h1>Unterstützung und Ressourcen</h1>
-    <div class="module-meta"><span>⏱ ca. 10 Minuten</span><span>📍 Wo Sie Hilfe finden</span></div>
+    <div class="module-meta"><span>⚡ Schnellstart: ca. 3–5 Minuten</span><span>＋ Vertiefung bei Bedarf</span><span>📍 Wo Sie Hilfe finden</span></div>
 
     <div class="module-hero-note">
-      <p><strong>Dieses Modul ist kein Archiv, sondern ein Arbeitsbereich.</strong> Sie sollen hier schnell finden, was Ihrer Lage im Moment wirklich hilft.</p>
-      <p>Wenn Sie heute nur einen Kontakt speichern, eine Unterlage öffnen oder einen nächsten Schritt notieren, ist das bereits ein sinnvoller Anfang.</p>
+      <p><strong>Dieses Modul ist zuerst ein Schnellstart-Arbeitsbereich.</strong> Sie sollen hier rasch finden, was Ihrer Lage im Moment wirklich hilft.</p>
+      <p>Wenn Sie heute nur einen Kontakt speichern, eine Unterlage öffnen oder einen nächsten Schritt notieren, ist das bereits ein sinnvoller Anfang. Alles Weitere ist Vertiefung für später.</p>
     </div>
   </div>
   <div class="module-hero-visual">
@@ -219,16 +231,14 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   </div>
 
   <div class="toc">
-    <div class="toc-title">In diesem Modul</div>
+    <div class="toc-title">Schnellstart in diesem Modul</div>
     <ol>
       <li><a href="#weitergehen">Wie Sie jetzt sinnvoll weitergehen können<span class="toc-desc">Vom Lesen zum nächsten realen Schritt</span></a></li>
       <li><a href="#situationen">Orientierung nach Situation<span class="toc-desc">Welche Hilfe wofür zuerst sinnvoll ist</span></a></li>
-      <li><a href="#rollen">Orientierung nach Angehörigenrolle<span class="toc-desc">Welche Fragen je nach Rolle typischerweise drängen</span></a></li>
       <li><a href="#anlaufstellen">Anlaufstellen nach Zweck<span class="toc-desc">Beratung, Selbsthilfe, Recht, Familie</span></a></li>
-      <li><a href="#system">Wenn das System zusätzlich belastet<span class="toc-desc">Wartezeiten, Schweigepflicht, Beschwerden</span></a></li>
       <li><a href="#materialien">Die wichtigsten Materialien zuerst<span class="toc-desc">Kuratiert nach Anlass statt als Archiv</span></a></li>
-      <li><a href="#pdfs">Alle Materialien im Überblick<span class="toc-desc">Die vollständige Handout-Sammlung</span></a></li>
     </ol>
+    <p class="toc-note">Rollenfragen, Systemblockaden, Mini-Plan und das vollständige Materialarchiv folgen weiter unten als optionale Vertiefung.</p>
   </div>
 </div></header>
 
@@ -250,7 +260,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   </div>
 
   <!-- ══════════ 2. SITUATIONEN ══════════ -->
-  <p class="reveal" style="font-size:0.88rem;color:var(--text-muted);margin-top:10px"><strong>Wenn Sie noch etwas genauer sortieren möchten:</strong> Die nächsten beiden Blöcke helfen nur dabei, den passendsten Zugang zu wählen. Sie müssen nicht beide nutzen.</p>
+  <p class="reveal" style="font-size:0.88rem;color:var(--text-muted);margin-top:10px"><strong>Wenn Sie noch etwas genauer sortieren möchten:</strong> Die Situationsübersicht reicht oft schon. Weitere Vertiefungen zu Rolle, Systemfragen und Archivmaterial sind weiter unten optional aufklappbar.</p>
   <h2 id="situationen" class="reveal">Orientierung nach Situation</h2>
   <p class="reveal">Nicht jede Hilfe ist für jede Lage gleich sinnvoll. Ordnen Sie zuerst ein, was gerade am meisten drängt. Die Logik ist bewusst dieselbe wie auf der Startseite: erst die Lage klären, dann den passenden nächsten Weg wählen.</p>
 
@@ -264,14 +274,22 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   </div>
 
   <h2 id="rollen" class="reveal">Orientierung nach Angehörigenrolle</h2>
-  <p class="reveal">Je nach Rolle drängen unterschiedliche Fragen nach vorn. Diese Unterscheidung kann helfen, schneller die passende Form von Unterstützung zu wählen.</p>
-
-  <div class="action-grid action-grid--roles reveal">
-    <div class="action-card"><div class="action-icon">P</div><div><h4>Partner*in</h4><p>Oft stehen Beziehung, Alltag, Grenzen, Kinder, Geld und Tragfähigkeit im Zentrum. Häufig passend: Modul 3, 5, 6 sowie Angehörigen- oder Paarberatung.</p></div></div>
-    <div class="action-card"><div class="action-icon">E</div><div><h4>Eltern</h4><p>Viele Eltern schwanken zwischen Sorge, Schutzimpuls und Loslassen. Hilfreich sind oft Einordnung, Systemwissen und Beratung für die Familie.</p></div></div>
-    <div class="action-card"><div class="action-icon">G</div><div><h4>Geschwister</h4><p>Geschwister tragen oft mit, ohne klare Zuständigkeit zu haben. Austausch, Grenzklärung und Systemorientierung helfen hier oft mehr als zusätzliche Übernahme.</p></div></div>
-    <div class="action-card"><div class="action-icon">K</div><div><h4>Erwachsene Kinder</h4><p>Wenn ein Elternteil erkrankt ist, mischen sich Loyalität, Parentifizierung und eigene Lebensplanung. Besonders hilfreich sind oft Familienperspektive und externe Beratung.</p></div></div>
-  </div>
+  <details class="hub-details reveal">
+    <summary>
+      <span class="hub-details-kicker">Optional</span>
+      <span class="hub-details-title">Nach Rolle weiter differenzieren</span>
+      <span class="hub-details-intro">Nur wenn Ihre Rolle zusätzliche Orientierung gibt. Für viele reicht die Situationslogik oben bereits aus.</span>
+    </summary>
+    <div class="hub-details-body">
+      <p>Je nach Rolle drängen unterschiedliche Fragen nach vorn. Diese Unterscheidung kann helfen, schneller die passende Form von Unterstützung zu wählen.</p>
+      <div class="action-grid action-grid--roles">
+        <div class="action-card"><div class="action-icon">P</div><div><h4>Partner*in</h4><p>Oft stehen Beziehung, Alltag, Grenzen, Kinder, Geld und Tragfähigkeit im Zentrum. Häufig passend: Modul 3, 5, 6 sowie Angehörigen- oder Paarberatung.</p></div></div>
+        <div class="action-card"><div class="action-icon">E</div><div><h4>Eltern</h4><p>Viele Eltern schwanken zwischen Sorge, Schutzimpuls und Loslassen. Hilfreich sind oft Einordnung, Systemwissen und Beratung für die Familie.</p></div></div>
+        <div class="action-card"><div class="action-icon">G</div><div><h4>Geschwister</h4><p>Geschwister tragen oft mit, ohne klare Zuständigkeit zu haben. Austausch, Grenzklärung und Systemorientierung helfen hier oft mehr als zusätzliche Übernahme.</p></div></div>
+        <div class="action-card"><div class="action-icon">K</div><div><h4>Erwachsene Kinder</h4><p>Wenn ein Elternteil erkrankt ist, mischen sich Loyalität, Parentifizierung und eigene Lebensplanung. Besonders hilfreich sind oft Familienperspektive und externe Beratung.</p></div></div>
+      </div>
+    </div>
+  </details>
 
   <!-- ══════════ 4. ANLAUFSTELLEN ══════════ -->
   <h2 id="anlaufstellen" class="reveal">Anlaufstellen nach Zweck</h2>
@@ -320,32 +338,41 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
 
   <!-- ══════════ 5. SYSTEM ══════════ -->
   <h2 id="system" class="reveal">Wenn das System zusätzlich belastet</h2>
-  <p class="reveal">Viele Angehörige tragen neben Sorge und Erschöpfung auch Frust auf das Versorgungssystem in sich: wegen Wartelisten, unklarer Zuständigkeiten, Schweigepflicht, Ablehnungen oder dem Gefühl, mitzutragen und trotzdem kaum Einfluss zu haben. Dieser Frust ist nicht bloss Ärger. Er ist oft eine zusätzliche Belastungsschicht.</p>
+  <details class="hub-details reveal">
+    <summary>
+      <span class="hub-details-kicker">Optional</span>
+      <span class="hub-details-title">Systemblockaden, Schweigepflicht und Beschwerdewege</span>
+      <span class="hub-details-intro">Dann öffnen, wenn Versorgung, Versicherung oder Zuständigkeiten selbst zur Belastung geworden sind.</span>
+    </summary>
+    <div class="hub-details-body">
+      <p>Viele Angehörige tragen neben Sorge und Erschöpfung auch Frust auf das Versorgungssystem in sich: wegen Wartelisten, unklarer Zuständigkeiten, Schweigepflicht, Ablehnungen oder dem Gefühl, mitzutragen und trotzdem kaum Einfluss zu haben. Dieser Frust ist nicht bloss Ärger. Er ist oft eine zusätzliche Belastungsschicht.</p>
 
-  <ul class="system-items reveal">
-    <li>«Ihr Angehöriger erfüllt die Kriterien für eine Hospitalisation nicht.» — obwohl die Situation eskaliert.</li>
-    <li>«Wir können ohne Einwilligung keine Informationen weitergeben.» — obwohl Sie den Alltag mittragen.</li>
-    <li>«Der nächste freie Therapieplatz ist in vier Monaten.» — obwohl die Lage jetzt kippt.</li>
-    <li>«Als Angehöriger haben Sie keinen Anspruch auf Beratung.» — obwohl Sie direkt betroffen sind.</li>
-  </ul>
+      <ul class="system-items">
+        <li>«Ihr Angehöriger erfüllt die Kriterien für eine Hospitalisation nicht.» — obwohl die Situation eskaliert.</li>
+        <li>«Wir können ohne Einwilligung keine Informationen weitergeben.» — obwohl Sie den Alltag mittragen.</li>
+        <li>«Der nächste freie Therapieplatz ist in vier Monaten.» — obwohl die Lage jetzt kippt.</li>
+        <li>«Als Angehöriger haben Sie keinen Anspruch auf Beratung.» — obwohl Sie direkt betroffen sind.</li>
+      </ul>
 
-  <p class="reveal">Diesen Frust ernst zu nehmen heisst nicht, das System pauschal abzuwerten. Es heisst, zusätzliche Belastung nicht mit persönlichem Versagen zu verwechseln. Wenn Hilfewege zermürben, dürfen Sie Beratung, Beschwerdewege und Ombudsstellen nutzen.</p>
-  <p class="reveal"><strong>Besonders sinnvoll sind hier:</strong> Pro Mente Sana für psychosoziale und juristische Einordnung, die Ombudsstelle Krankenversicherung bei Leistungsstreitigkeiten, Selbsthilfeverbände für Erfahrungsaustausch und die jeweiligen Rückmelde- oder Beschwerdewege von Kliniken oder Trägerschaften.</p>
+      <p>Diesen Frust ernst zu nehmen heisst nicht, das System pauschal abzuwerten. Es heisst, zusätzliche Belastung nicht mit persönlichem Versagen zu verwechseln. Wenn Hilfewege zermürben, dürfen Sie Beratung, Beschwerdewege und Ombudsstellen nutzen.</p>
+      <p><strong>Besonders sinnvoll sind hier:</strong> Pro Mente Sana für psychosoziale und juristische Einordnung, die Ombudsstelle Krankenversicherung bei Leistungsstreitigkeiten, Selbsthilfeverbände für Erfahrungsaustausch und die jeweiligen Rückmelde- oder Beschwerdewege von Kliniken oder Trägerschaften.</p>
 
-  <div class="wide-visual reveal">
-    <img src="/visuals/modul8-material-ladder.svg" alt="Drei Stufen für Materialien: Notfallkarte in akuten Lagen, Krisenplan in stabilen Phasen und passende Handouts für den Alltag." width="720" height="360" loading="lazy" decoding="async">
-    <p>Die Unterlagen unten sind nicht als Archiv gedacht. Nutzen Sie sie je nach Lage: zuerst das, was die Situation ordnet, nicht das, was am vollständigsten aussieht.</p>
-  </div>
+      <div class="wide-visual">
+        <img src="/visuals/modul8-material-ladder.svg" alt="Drei Stufen für Materialien: Notfallkarte in akuten Lagen, Krisenplan in stabilen Phasen und passende Handouts für den Alltag." width="720" height="360" loading="lazy" decoding="async">
+        <p>Die Unterlagen unten sind nicht als Archiv gedacht. Nutzen Sie sie je nach Lage: zuerst das, was die Situation ordnet, nicht das, was am vollständigsten aussieht.</p>
+      </div>
 
-  <div class="action-box reveal">
-    <h3>Was Sie konkret tun können — wenn das System blockiert</h3>
-    <ul>
-      <li><strong>Schriftlich dokumentieren:</strong> Datum, Aussage, Kontaktperson festhalten — bei Beschwerden entscheidend.</li>
-      <li><strong>Pro Mente Sana kontaktieren:</strong> Gute erste Anlaufstelle für psychosoziale und juristische Einordnung. <a href="https://www.promentesana.ch" target="_blank" rel="noopener" style="color:var(--teal)">promentesana.ch</a></li>
-      <li><strong>Ombudsstelle Krankenversicherung:</strong> Besonders passend bei Leistungsstreitigkeiten oder abgelehnten Kostengutsprachen. <a href="https://om-kv.ch" target="_blank" rel="noopener" style="color:var(--teal)">om-kv.ch</a></li>
-      <li><strong>Rückmeldung an Klinik oder Trägerschaft:</strong> Formelle Beschwerde über den internen Beschwerdeweg — oft wirksamer als erwartet.</li>
-    </ul>
-  </div>
+      <div class="action-box">
+        <h3>Was Sie konkret tun können — wenn das System blockiert</h3>
+        <ul>
+          <li><strong>Schriftlich dokumentieren:</strong> Datum, Aussage, Kontaktperson festhalten — bei Beschwerden entscheidend.</li>
+          <li><strong>Pro Mente Sana kontaktieren:</strong> Gute erste Anlaufstelle für psychosoziale und juristische Einordnung. <a href="https://www.promentesana.ch" target="_blank" rel="noopener" style="color:var(--teal)">promentesana.ch</a></li>
+          <li><strong>Ombudsstelle Krankenversicherung:</strong> Besonders passend bei Leistungsstreitigkeiten oder abgelehnten Kostengutsprachen. <a href="https://om-kv.ch" target="_blank" rel="noopener" style="color:var(--teal)">om-kv.ch</a></li>
+          <li><strong>Rückmeldung an Klinik oder Trägerschaft:</strong> Formelle Beschwerde über den internen Beschwerdeweg — oft wirksamer als erwartet.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
 
   <!-- ══════════ 6. MATERIALIEN ZUERST ══════════ -->
   <h2 id="materialien" class="reveal">Die wichtigsten Materialien zuerst</h2>
@@ -376,44 +403,53 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
     <div class="material-finder-results" id="materialFinderResults" hidden aria-live="polite" aria-atomic="true"></div>
   </div>
 
-  <div class="mini-plan reveal" aria-labelledby="mini-plan-title">
-    <div class="mini-plan-kicker">Mein Mini-Plan</div>
-    <h3 id="mini-plan-title">Meine Nummern, mein nächster Schritt, mein Dokument</h3>
-    <p>Wenn Sie etwas festhalten möchten, können Sie hier Ihren persönlichen Mini-Plan lokal im Browser speichern. Nichts wird an ein Konto oder einen Server geschickt. Wenn Ihnen das heute zu viel ist, lassen Sie diesen Bereich einfach aus und nehmen Sie nur eine Nummer oder ein Dokument mit.</p>
-    <div class="mini-plan-grid">
-      <div class="mini-plan-field">
-        <label for="miniPlanNumber">Meine wichtigste Nummer</label>
-        <input id="miniPlanNumber" name="number" type="text" placeholder="z. B. 0800 33 66 55 oder 058 384 38 00">
-      </div>
-      <div class="mini-plan-field">
-        <label for="miniPlanDocument">Mein ausgewähltes Dokument</label>
-        <select id="miniPlanDocument" name="document">
-          <option value="">Bitte wählen</option>
-          <option value="Notfallkarte Kanton Zürich">Notfallkarte Kanton Zürich</option>
-          <option value="Krisenplan-Vorlage">Krisenplan-Vorlage</option>
-          <option value="Was stabilisiert — was schadet">Was stabilisiert — was schadet</option>
-          <option value="Grenzsetzung">Grenzsetzung</option>
-          <option value="Trauer ohne klaren Abschied">Trauer ohne klaren Abschied</option>
-          <option value="Ein anderes Handout aus der Liste">Ein anderes Handout aus der Liste</option>
-        </select>
-      </div>
-      <div class="mini-plan-field full">
-        <label for="miniPlanStep">Mein nächster Schritt</label>
-        <textarea id="miniPlanStep" name="step" placeholder="z. B. Heute eine Nummer speichern, morgen bei der Fachstelle anrufen oder ein PDF ausdrucken"></textarea>
+  <details class="hub-details reveal">
+    <summary>
+      <span class="hub-details-kicker">Optionales Werkzeug</span>
+      <span class="hub-details-title">Einen kleinen persönlichen Mini-Plan auf diesem Gerät speichern</span>
+      <span class="hub-details-intro">Nur öffnen, wenn Sie heute aktiv etwas festhalten möchten. Für viele reicht es, einfach ein Dokument herunterzuladen oder eine Nummer mitzunehmen.</span>
+    </summary>
+    <div class="hub-details-body">
+      <div class="mini-plan" aria-labelledby="mini-plan-title">
+        <div class="mini-plan-kicker">Mein Mini-Plan</div>
+        <h3 id="mini-plan-title">Meine Nummern, mein nächster Schritt, mein Dokument</h3>
+        <p>Wenn Sie etwas festhalten möchten, können Sie hier Ihren persönlichen Mini-Plan lokal im Browser speichern. Nichts wird an ein Konto oder einen Server geschickt. Wenn Ihnen das heute zu viel ist, lassen Sie diesen Bereich einfach aus und nehmen Sie nur eine Nummer oder ein Dokument mit.</p>
+        <div class="mini-plan-grid">
+          <div class="mini-plan-field">
+            <label for="miniPlanNumber">Meine wichtigste Nummer</label>
+            <input id="miniPlanNumber" name="number" type="text" placeholder="z. B. 0800 33 66 55 oder 058 384 38 00">
+          </div>
+          <div class="mini-plan-field">
+            <label for="miniPlanDocument">Mein ausgewähltes Dokument</label>
+            <select id="miniPlanDocument" name="document">
+              <option value="">Bitte wählen</option>
+              <option value="Notfallkarte Kanton Zürich">Notfallkarte Kanton Zürich</option>
+              <option value="Krisenplan-Vorlage">Krisenplan-Vorlage</option>
+              <option value="Was stabilisiert — was schadet">Was stabilisiert — was schadet</option>
+              <option value="Grenzsetzung">Grenzsetzung</option>
+              <option value="Trauer ohne klaren Abschied">Trauer ohne klaren Abschied</option>
+              <option value="Ein anderes Handout aus der Liste">Ein anderes Handout aus der Liste</option>
+            </select>
+          </div>
+          <div class="mini-plan-field full">
+            <label for="miniPlanStep">Mein nächster Schritt</label>
+            <textarea id="miniPlanStep" name="step" placeholder="z. B. Heute eine Nummer speichern, morgen bei der Fachstelle anrufen oder ein PDF ausdrucken"></textarea>
+          </div>
+        </div>
+        <div class="mini-plan-actions">
+          <button type="button" class="mini-plan-save" id="miniPlanSave">Mini-Plan speichern</button>
+          <button type="button" class="mini-plan-clear" id="miniPlanClear">Mini-Plan löschen</button>
+        </div>
+        <div class="mini-plan-status" id="miniPlanStatus" aria-live="polite"></div>
+        <div class="mini-plan-summary" id="miniPlanSummary" hidden>
+          <h4>Gespeichert auf diesem Gerät</h4>
+          <p><strong>Nummer:</strong> <span id="miniPlanSummaryNumber">—</span></p>
+          <p><strong>Dokument:</strong> <span id="miniPlanSummaryDocument">—</span></p>
+          <p><strong>Nächster Schritt:</strong> <span id="miniPlanSummaryStep">—</span></p>
+        </div>
       </div>
     </div>
-    <div class="mini-plan-actions">
-      <button type="button" class="mini-plan-save" id="miniPlanSave">Mini-Plan speichern</button>
-      <button type="button" class="mini-plan-clear" id="miniPlanClear">Mini-Plan löschen</button>
-    </div>
-    <div class="mini-plan-status" id="miniPlanStatus" aria-live="polite"></div>
-    <div class="mini-plan-summary" id="miniPlanSummary" hidden>
-      <h4>Gespeichert auf diesem Gerät</h4>
-      <p><strong>Nummer:</strong> <span id="miniPlanSummaryNumber">—</span></p>
-      <p><strong>Dokument:</strong> <span id="miniPlanSummaryDocument">—</span></p>
-      <p><strong>Nächster Schritt:</strong> <span id="miniPlanSummaryStep">—</span></p>
-    </div>
-  </div>
+  </details>
 
   <!-- 3 DOWNLOAD MODULES -->
   <div class="dl-module dl-module-sos reveal">
@@ -463,70 +499,86 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
 
   <!-- 24 HANDOUTS -->
   <h2 id="pdfs" class="reveal">Alle Materialien im Überblick</h2>
-  <p class="reveal">Hier finden Sie die vollständige Sammlung. Wenn Sie unsicher sind, beginnen Sie mit den kuratierten Materialien oben und kommen Sie erst danach hierher zurück.</p>
-  <h3 class="reveal">Alle 24 Handouts nach Modul</h3>
-  <p class="reveal" style="font-size:0.85rem;color:var(--text-muted);margin-bottom:20px">Jedes Handout fasst ein Kernthema auf 1–2 Seiten zusammen. Gut zum Nachlesen, Ausdrucken oder Weitergeben innerhalb der Familie.</p>
+  <details class="hub-details reveal">
+    <summary>
+      <span class="hub-details-kicker">Optionales Archiv</span>
+      <span class="hub-details-title">Die vollständige Handout-Sammlung öffnen</span>
+      <span class="hub-details-intro">Erst nötig, wenn die kuratierten Materialien oben nicht reichen oder Sie gezielt nach einem bestimmten Thema suchen.</span>
+    </summary>
+    <div class="hub-details-body">
+      <p>Hier finden Sie die vollständige Sammlung. Wenn Sie unsicher sind, beginnen Sie mit den kuratierten Materialien oben und kommen Sie erst danach hierher zurück.</p>
+      <h3>Alle 24 Handouts nach Modul</h3>
+      <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:20px">Jedes Handout fasst ein Kernthema auf 1–2 Seiten zusammen. Gut zum Nachlesen, Ausdrucken oder Weitergeben innerhalb der Familie.</p>
 
-  <div class="handout-list reveal">
-    <a href="/handouts/a8_warnsignale.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M1</span><span class="hc-body"><span class="hc-title">Warnsignale</span><span class="hc-size">PDF · 1 MB</span></span></a>
-    <a href="/handouts/b1_18_belastungen.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M2</span><span class="hc-body"><span class="hc-title">18 Belastungen</span><span class="hc-size">PDF · 971 KB</span></span></a>
-    <a href="/handouts/c4_manie.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Umgang mit Manie</span><span class="hc-size">PDF · 997 KB</span></span></a>
-    <a href="/handouts/c5_depression.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Umgang mit Depression</span><span class="hc-size">PDF · 993 KB</span></span></a>
-    <a href="/handouts/b10_trennung_scheidung.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M3</span><span class="hc-body"><span class="hc-title">Beziehung an Grenzen</span><span class="hc-size">PDF · 921 KB</span></span></a>
-    <a href="/handouts/a4_ambiguous_loss.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M4</span><span class="hc-body"><span class="hc-title">Trauer ohne klaren Abschied</span><span class="hc-size">PDF · 879 KB</span></span></a>
-    <a href="/handouts/b2_erosion_solidaritaet.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M4</span><span class="hc-body"><span class="hc-title">Beziehung unter Druck</span><span class="hc-size">PDF · 850 KB</span></span></a>
-    <a href="/handouts/b4_mechanismen_erosion.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M4</span><span class="hc-body"><span class="hc-title">Schonhaltung und Co-Isolation</span><span class="hc-size">PDF · 812 KB</span></span></a>
-    <a href="/handouts/b3_kritische_zeitpunkte.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M4</span><span class="hc-body"><span class="hc-title">Kritische Zeitpunkte</span><span class="hc-size">PDF · 866 KB</span></span></a>
-    <a href="/handouts/expressed_emotions.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M5</span><span class="hc-body"><span class="hc-title">Kritik, Überforderung, Teufelskreis</span><span class="hc-size">PDF · 961 KB</span></span></a>
-    <a href="/handouts/b5_loyalitaetskonflikte.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M5</span><span class="hc-body"><span class="hc-title">Loyalitätskonflikte</span><span class="hc-size">PDF · 800 KB</span></span></a>
-    <a href="/handouts/a3_ambivalente_loyalitaet.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M5</span><span class="hc-body"><span class="hc-title">Ambivalente Loyalität</span><span class="hc-size">PDF · 906 KB</span></span></a>
-    <a href="/handouts/a5_affiliate_stigma.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M5</span><span class="hc-body"><span class="hc-title">Stigma der Angehörigen</span><span class="hc-size">PDF · 834 KB</span></span></a>
-    <a href="/handouts/c1_krisenplan.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Krisenplan erstellen</span><span class="hc-size">PDF · 855 KB</span></span></a>
-    <a href="/handouts/grenzsetzung.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Grenzsetzung</span><span class="hc-size">PDF · 826 KB</span></span></a>
-    <a href="/handouts/c2_suizidgedanken.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Suizidgedanken</span><span class="hc-size">PDF · 869 KB</span></span></a>
-    <a href="/handouts/c3_psychose_wahn.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Psychose / Wahn</span><span class="hc-size">PDF · 992 KB</span></span></a>
-    <a href="/handouts/b7_behandlung_ambivalenz.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Behandlung &amp; Ambivalenz</span><span class="hc-size">PDF · 948 KB</span></span></a>
-    <a href="/handouts/c6_selbstfuersorge.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M7</span><span class="hc-body"><span class="hc-title">Selbstfürsorge-Plan</span><span class="hc-size">PDF · 776 KB</span></span></a>
-    <a href="/handouts/d4_solidaritaet_wellen.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M7</span><span class="hc-body"><span class="hc-title">Belastung in Wellen</span><span class="hc-size">PDF · 800 KB</span></span></a>
-    <a href="/handouts/transformationsreise.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M7</span><span class="hc-body"><span class="hc-title">Veränderung über Zeit</span><span class="hc-size">PDF · 773 KB</span></span></a>
-    <a href="/handouts/trialog.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M7</span><span class="hc-body"><span class="hc-title">Trialog</span><span class="hc-size">PDF · 804 KB</span></span></a>
-    <a href="/handouts/b6_geschlechtsspezifisch.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M7</span><span class="hc-body"><span class="hc-title">Geschlechtsspez. Nuancen</span><span class="hc-size">PDF · 927 KB</span></span></a>
-    <a href="/handouts/b9_depression_partner.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M7</span><span class="hc-body"><span class="hc-title">Depression bei Angehörigen</span><span class="hc-size">PDF · 825 KB</span></span></a>
-  </div>
-
-  <div class="reflection reveal">
-    <div class="reflection-label">Nächster Schritt</div>
-    <h3>Ein nächster Schritt reicht.</h3>
-    <p>Wenn Sie gerade nicht wissen, womit beginnen: Speichern Sie heute eine Nummer, laden Sie ein passendes Dokument herunter oder vereinbaren Sie ein erstes Gespräch. Mehr muss daraus im Moment nicht werden.</p>
-  </div>
-
-  <!-- TAKEAWAYS -->
-  <div class="takeaways reveal">
-    <div class="takeaways-inner">
-      <h3>Was Sie durch diese acht Module mitgenommen haben können</h3>
-      <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Verstehen entlastet:</strong> Was als Symptom erkennbar ist, muss nicht mehr als persönliche Verletzung getragen werden — auch wenn beides gleichzeitig wahr sein darf.</p></div>
-      <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Ihre Belastung ist real und messbar</strong> — nicht Überempfindlichkeit. Früh-akute Erschöpfung und chronisch-kumulative Zermürbung folgen eigenen Mustern und brauchen eigene Antworten.</p></div>
-      <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Grenzen, Krisenplan und Kommunikation sind Handwerk</strong> — keine moralische Frage. Sie können geübt, angepasst und verbessert werden.</p></div>
-      <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Langfristige Tragfähigkeit entsteht aus Strukturen</strong>, nicht aus Willenskraft. Gemeint ist: Der Alltag wird über Zeit etwas haltbarer. Gemeinsames Verständnis, eigene Entlastung und Unterstützung von aussen sind keine Schwäche, sondern echte Hilfe.</p></div>
-      <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Sie sind nicht allein</strong> — auch wenn es sich oft so anfühlt. Anlaufstellen, Gruppen und Fachpersonen stehen bereit. Der nächste Schritt muss kein grosser sein.</p></div>
+      <div class="handout-list">
+        <a href="/handouts/a8_warnsignale.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M1</span><span class="hc-body"><span class="hc-title">Warnsignale</span><span class="hc-size">PDF · 1 MB</span></span></a>
+        <a href="/handouts/b1_18_belastungen.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M2</span><span class="hc-body"><span class="hc-title">18 Belastungen</span><span class="hc-size">PDF · 971 KB</span></span></a>
+        <a href="/handouts/c4_manie.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Umgang mit Manie</span><span class="hc-size">PDF · 997 KB</span></span></a>
+        <a href="/handouts/c5_depression.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Umgang mit Depression</span><span class="hc-size">PDF · 993 KB</span></span></a>
+        <a href="/handouts/b10_trennung_scheidung.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M3</span><span class="hc-body"><span class="hc-title">Beziehung an Grenzen</span><span class="hc-size">PDF · 921 KB</span></span></a>
+        <a href="/handouts/a4_ambiguous_loss.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M4</span><span class="hc-body"><span class="hc-title">Trauer ohne klaren Abschied</span><span class="hc-size">PDF · 879 KB</span></span></a>
+        <a href="/handouts/b2_erosion_solidaritaet.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M4</span><span class="hc-body"><span class="hc-title">Beziehung unter Druck</span><span class="hc-size">PDF · 850 KB</span></span></a>
+        <a href="/handouts/b4_mechanismen_erosion.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M4</span><span class="hc-body"><span class="hc-title">Schonhaltung und Co-Isolation</span><span class="hc-size">PDF · 812 KB</span></span></a>
+        <a href="/handouts/b3_kritische_zeitpunkte.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M4</span><span class="hc-body"><span class="hc-title">Kritische Zeitpunkte</span><span class="hc-size">PDF · 866 KB</span></span></a>
+        <a href="/handouts/expressed_emotions.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M5</span><span class="hc-body"><span class="hc-title">Kritik, Überforderung, Teufelskreis</span><span class="hc-size">PDF · 961 KB</span></span></a>
+        <a href="/handouts/b5_loyalitaetskonflikte.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M5</span><span class="hc-body"><span class="hc-title">Loyalitätskonflikte</span><span class="hc-size">PDF · 800 KB</span></span></a>
+        <a href="/handouts/a3_ambivalente_loyalitaet.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M5</span><span class="hc-body"><span class="hc-title">Ambivalente Loyalität</span><span class="hc-size">PDF · 906 KB</span></span></a>
+        <a href="/handouts/a5_affiliate_stigma.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M5</span><span class="hc-body"><span class="hc-title">Stigma der Angehörigen</span><span class="hc-size">PDF · 834 KB</span></span></a>
+        <a href="/handouts/c1_krisenplan.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Krisenplan erstellen</span><span class="hc-size">PDF · 855 KB</span></span></a>
+        <a href="/handouts/grenzsetzung.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Grenzsetzung</span><span class="hc-size">PDF · 826 KB</span></span></a>
+        <a href="/handouts/c2_suizidgedanken.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Suizidgedanken</span><span class="hc-size">PDF · 869 KB</span></span></a>
+        <a href="/handouts/c3_psychose_wahn.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Psychose / Wahn</span><span class="hc-size">PDF · 992 KB</span></span></a>
+        <a href="/handouts/b7_behandlung_ambivalenz.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Behandlung &amp; Ambivalenz</span><span class="hc-size">PDF · 948 KB</span></span></a>
+        <a href="/handouts/c6_selbstfuersorge.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M7</span><span class="hc-body"><span class="hc-title">Selbstfürsorge-Plan</span><span class="hc-size">PDF · 776 KB</span></span></a>
+        <a href="/handouts/d4_solidaritaet_wellen.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M7</span><span class="hc-body"><span class="hc-title">Belastung in Wellen</span><span class="hc-size">PDF · 800 KB</span></span></a>
+        <a href="/handouts/transformationsreise.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M7</span><span class="hc-body"><span class="hc-title">Veränderung über Zeit</span><span class="hc-size">PDF · 773 KB</span></span></a>
+        <a href="/handouts/trialog.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M7</span><span class="hc-body"><span class="hc-title">Trialog</span><span class="hc-size">PDF · 804 KB</span></span></a>
+        <a href="/handouts/b6_geschlechtsspezifisch.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M7</span><span class="hc-body"><span class="hc-title">Geschlechtsspez. Nuancen</span><span class="hc-size">PDF · 927 KB</span></span></a>
+        <a href="/handouts/b9_depression_partner.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M7</span><span class="hc-body"><span class="hc-title">Depression bei Angehörigen</span><span class="hc-size">PDF · 825 KB</span></span></a>
+      </div>
     </div>
-  </div>
+  </details>
 
-  <div class="reflection reveal">
-    <div class="reflection-label">Reflexion</div>
-    <h3>Was nehmen Sie konkret mit?</h3>
-    <p>Welche eine Erkenntnis aus diesen Modulen verändert etwas für Sie — auch wenn sie klein ist? Und welchen einen konkreten Schritt wollen Sie in den nächsten Tagen tun? Nicht als Aufgabe, sondern als Entscheidung für sich selbst.</p>
-  </div>
+  <details class="hub-details hub-details--quiet reveal">
+    <summary>
+      <span class="hub-details-kicker">Abschluss des Lernpfads</span>
+      <span class="hub-details-title">Wenn Sie dieses Modul als Ende der acht Module lesen</span>
+      <span class="hub-details-intro">Nur dann nötig, wenn Sie die Website gerade als vollständigen Lernpfad abschliessen und den Bogen zum Ganzen noch einmal sehen möchten.</span>
+    </summary>
+    <div class="hub-details-body">
+      <div class="reflection">
+        <div class="reflection-label">Nächster Schritt</div>
+        <h3>Ein nächster Schritt reicht.</h3>
+        <p>Wenn Sie gerade nicht wissen, womit beginnen: Speichern Sie heute eine Nummer, laden Sie ein passendes Dokument herunter oder vereinbaren Sie ein erstes Gespräch. Mehr muss daraus im Moment nicht werden.</p>
+      </div>
 
-  <!-- CLOSING -->
-  <div class="closing reveal">
-    <div class="closing-inner">
-      <h2>Unterstützung darf früh beginnen.</h2>
-      <p>Sie müssen nicht zuerst am Ende Ihrer Kraft sein, bevor Hilfe legitim wird. Ein früher Kontakt, ein klärendes Gespräch oder eine kleine praktische Vorbereitung kann viel entlasten.</p>
-      <p>Wenn Sie von hier aus nur eines mitnehmen: Suchen Sie nicht nach der perfekten Lösung, sondern nach dem nächsten Schritt, der für Sie gerade tragbar ist.</p>
-      <div class="closing-emphasis">«Nicht alles sofort. Aber etwas Konkretes als Nächstes.»</div>
+      <div class="takeaways">
+        <div class="takeaways-inner">
+          <h3>Was Sie durch diese acht Module mitgenommen haben können</h3>
+          <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Verstehen entlastet:</strong> Was als Symptom erkennbar ist, muss nicht mehr als persönliche Verletzung getragen werden — auch wenn beides gleichzeitig wahr sein darf.</p></div>
+          <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Ihre Belastung ist real und messbar</strong> — nicht Überempfindlichkeit. Früh-akute Erschöpfung und chronisch-kumulative Zermürbung folgen eigenen Mustern und brauchen eigene Antworten.</p></div>
+          <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Grenzen, Krisenplan und Kommunikation sind Handwerk</strong> — keine moralische Frage. Sie können geübt, angepasst und verbessert werden.</p></div>
+          <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Langfristige Tragfähigkeit entsteht aus Strukturen</strong>, nicht aus Willenskraft. Gemeint ist: Der Alltag wird über Zeit etwas haltbarer. Gemeinsames Verständnis, eigene Entlastung und Unterstützung von aussen sind keine Schwäche, sondern echte Hilfe.</p></div>
+          <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Sie sind nicht allein</strong> — auch wenn es sich oft so anfühlt. Anlaufstellen, Gruppen und Fachpersonen stehen bereit. Der nächste Schritt muss kein grosser sein.</p></div>
+        </div>
+      </div>
+
+      <div class="reflection">
+        <div class="reflection-label">Reflexion</div>
+        <h3>Was nehmen Sie konkret mit?</h3>
+        <p>Welche eine Erkenntnis aus diesen Modulen verändert etwas für Sie — auch wenn sie klein ist? Und welchen einen konkreten Schritt wollen Sie in den nächsten Tagen tun? Nicht als Aufgabe, sondern als Entscheidung für sich selbst.</p>
+      </div>
+
+      <div class="closing">
+        <div class="closing-inner">
+          <h2>Unterstützung darf früh beginnen.</h2>
+          <p>Sie müssen nicht zuerst am Ende Ihrer Kraft sein, bevor Hilfe legitim wird. Ein früher Kontakt, ein klärendes Gespräch oder eine kleine praktische Vorbereitung kann viel entlasten.</p>
+          <p>Wenn Sie von hier aus nur eines mitnehmen: Suchen Sie nicht nach der perfekten Lösung, sondern nach dem nächsten Schritt, der für Sie gerade tragbar ist.</p>
+          <div class="closing-emphasis">«Nicht alles sofort. Aber etwas Konkretes als Nächstes.»</div>
+        </div>
+      </div>
     </div>
-  </div>
+  </details>
 
   <!-- SOURCES -->
   <div class="sources reveal">
