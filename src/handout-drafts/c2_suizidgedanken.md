@@ -3,9 +3,11 @@ title: "Umgang mit Suizidgedanken"
 slug: "c2_suizidgedanken"
 source_pdf: "/handouts/c2_suizidgedanken.pdf"
 status: "draft"
+show_status_badge: false
+show_priority_badge: false
 type: "Akutblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
-goal: "Maximal klare Orientierung bei Suizidgedanken, Suizidäußerungen oder konkreter Sorge"
+goal: "Klare Orientierung bei Suizidgedanken, Suizidäusserungen oder konkreter Sorge"
 target_format: "A4, 1 Seite"
 priority: "P1"
 last_updated: "2026-04-03"
@@ -16,23 +18,22 @@ quick_steps:
   - icon: "?"
     text: "Direkt fragen: Gibt es Plan und Mittel?"
   - icon: "!"
-    text: "Bei der Person bleiben und mögliche Mittel sichern"
+    text: "Bei der Person bleiben, Mittel sichern"
   - icon: "144"
-    text: "Bei konkreter Gefahr sofort 144 rufen"
+    wide: true
+    text: "Bei konkreter Gefahr 144"
 emergency_contacts:
   - label: "Sanität"
     number: "144"
     note: "Bei konkretem Plan, vorhandenen Mitteln oder unmittelbarer Gefahr"
     tone: "urgent"
-  - label: "Psychiatrischer Notfalldienst Zürich"
+  - label: "Notfalldienst Zürich"
     number: "0800 33 66 55"
     note: "Wenn die Lage ernst ist, aber keine unmittelbare Lebensgefahr besteht"
   - label: "Dargebotene Hand"
     number: "143"
     note: "Wenn Sie sofort mit jemandem sprechen müssen"
 ---
-
-# Umgang mit Suizidgedanken
 
 Suizidgedanken sollen immer ernst genommen werden. Direkt zu fragen ist erlaubt. Direkt zu fragen löst Suizidgedanken nicht aus. Bei konkretem Plan oder vorhandenen Mitteln gilt: nicht allein tragen, sondern sofort Hilfe holen.
 
@@ -63,10 +64,11 @@ Direkt zu fragen ist kein Fehler. Es schafft oft eher Klarheit und kann entlaste
 
 - ruhig bleiben
 - zuhören
-- nicht bewerten
+- direkt und klar fragen
 - bei der Person bleiben
 - mögliche Mittel sichern, wenn das ohne zusätzliche Eskalation möglich ist
 - früh Hilfe dazuholen
+- auch bei Ablehnung selbst fachliche Hilfe holen
 
 ## Was eher schadet
 
@@ -90,10 +92,12 @@ Nicht weiter allein tragen, sondern sofort handeln, wenn:
 
 ## Nächster sinnvoller Schritt
 
-Wenn die Lage unklar, aber noch ruhig genug ist: direkt fragen und psychiatrische Hilfe dazunehmen.  
-Wenn die Gefahr konkret ist: nicht weiter ordnen oder beruhigen wollen, sondern sofort Notfallhilfe einschalten.
+Wenn die Lage unklar, aber noch ruhig genug ist: direkt fragen und psychiatrische Hilfe dazunehmen. Wenn die Gefahr konkret ist: nicht weiter ordnen oder beruhigen wollen, sondern sofort Notfallhilfe einschalten.
+
+Auch wenn die Person Hilfe ablehnt, dürfen Sie selbst Unterstützung holen. Wenn Sie im Moment niemanden erreichen, kann auch die Dargebotene Hand der erste Gesprächsschritt sein.
 
 Weiterführend:
 
-- Notfallseite
-- Modul 6: Umgang mit akuten Belastungssituationen
+- Psychiatrischer Notfalldienst Zürich: 0800 33 66 55
+- [Notfallseite](/notfall/)
+- [Modul 6: Kommunikation, Grenzen, Krisenplan](/modul/6/)
