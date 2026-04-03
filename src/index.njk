@@ -175,13 +175,16 @@ useNavJS: true
   .quick-card {
     text-decoration: none;
     color: var(--text);
-    background: linear-gradient(180deg, rgba(255,255,255,1), rgba(249,251,252,0.96));
+    background: rgba(255,255,255,0.84);
     border: 1px solid rgba(45,40,35,0.07);
+    border-left: 3px solid rgba(30,101,109,0.24);
     border-radius: var(--radius-lg);
-    padding: 24px;
+    padding: 22px 22px 20px;
     transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 24px rgba(28,43,58,0.06);
   }
 
   .quick-card::before {
@@ -189,23 +192,22 @@ useNavJS: true
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--teal-light), var(--sand-deep));
-    opacity: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--teal-light), var(--sand-deep));
+    opacity: 1;
     transition: opacity 0.2s ease;
   }
 
-  .quick-card:hover::before { opacity: 1; }
-
   .quick-card:hover {
-    box-shadow: 0 14px 34px rgba(28,43,58,0.1);
+    box-shadow: 0 12px 28px rgba(28,43,58,0.1);
     border-color: var(--sage-200);
     transform: translateY(-3px);
   }
 
   .quick-card.alert {
     border-color: var(--alert-red-border);
+    border-left-color: rgba(199,84,80,0.32);
     background: var(--alert-red-bg);
   }
 
@@ -284,6 +286,10 @@ useNavJS: true
   /* ══════════ PROGRESS BAR ══════════ */
   .progress-section {
     padding: 0 2rem 40px;
+  }
+
+  .progress-section.is-empty {
+    display: none;
   }
 
   .progress-bar-outer {
@@ -806,7 +812,7 @@ useNavJS: true
 <main id="main-content">
 
 <!-- ══════════ PROGRESS ══════════ -->
-<div class="progress-section">
+<div class="progress-section" id="progressSection">
   <div class="progress-bar-outer">
     <span class="progress-label">Ihr Fortschritt</span>
     <div class="progress-track">
@@ -1252,8 +1258,10 @@ useNavJS: true
 
     const fill = document.getElementById('progressFill');
     const counter = document.getElementById('progressCount');
+    const section = document.getElementById('progressSection');
     if (fill) fill.style.width = pct + '%';
     if (counter) counter.textContent = count + ' / ' + TOTAL_MODULES + ' Module';
+    if (section) section.classList.toggle('is-empty', count === 0);
 
     // Mark visited module cards
     document.querySelectorAll('a.module-card[href]').forEach(card => {
