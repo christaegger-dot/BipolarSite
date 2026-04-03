@@ -158,11 +158,11 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
 
   /* SOURCES */
   .sources { background: var(--sage-50); border-radius: var(--radius-lg); padding: 28px 32px; margin: 48px 0; }
-  .sources h4 { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--sage-500); margin-bottom: 14px; }
+  .sources-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--sage-500); margin-bottom: 14px; }
   .sources ul { list-style: none; max-height: 0; overflow: hidden; transition: max-height 0.5s ease; }
   .sources.sources-open ul { max-height: 2000px; }
-  .sources h4::after { content: " ▾"; font-size: 0.7rem; opacity: 0.5; }
-  .sources.sources-open h4::after { content: " ▴"; }
+  .sources-title::after { content: " ▾"; font-size: 0.7rem; opacity: 0.5; }
+  .sources.sources-open .sources-title::after { content: " ▴"; }
   .sources li { font-size: 0.82rem; color: var(--text-muted); padding: 6px 0 6px 16px; position: relative; line-height: 1.6; }
   .sources li::before { content: '·'; position: absolute; left: 0; font-weight: 700; color: var(--sage-300); }
 
@@ -514,8 +514,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
 
   <!-- SOURCES -->
   <div class="sources reveal">
-    <button type="button" class="sources-toggle" aria-expanded="false" data-sources-toggle>
-    <h4>Wissenschaftliche Quellen</h4></button>
+    <button type="button" class="sources-toggle" aria-expanded="false" data-sources-toggle><span class="sources-title">Wissenschaftliche Quellen</span></button>
     <ul>
       <li><strong>Perlick, D. A. et al. (2007).</strong> Caregiver burden and health in bipolar disorder. <em>Bipolar Disorders, 9</em>(3), 262–273.</li>
       <li><strong>Miklowitz, D. J. & Johnson, S. L. (2006).</strong> The psychopathology and treatment of bipolar disorder. <em>Annual Review of Clinical Psychology, 2</em>, 199–235.</li>

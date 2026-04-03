@@ -153,8 +153,8 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   .takeaway-item strong{color:white}
 
   .sources{background:var(--sage-50);border-radius:var(--radius-lg);padding:28px 32px;margin:48px 0}
-  .sources h4{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--sage-500);margin-bottom:14px}
-  .sources ul{list-style:none;max-height:0;overflow:hidden;transition:max-height 0.5s ease}.sources.sources-open ul{max-height:2000px}.sources h4::after{content:" ▾";font-size:0.7rem;opacity:0.5}.sources.sources-open h4::after{content:" ▴"}
+  .sources-title{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--sage-500);margin-bottom:14px}
+  .sources ul{list-style:none;max-height:0;overflow:hidden;transition:max-height 0.5s ease}.sources.sources-open ul{max-height:2000px}.sources-title::after{content:" ▾";font-size:0.7rem;opacity:0.5}.sources.sources-open .sources-title::after{content:" ▴"}
   .sources li{font-size:0.82rem;color:var(--text-muted);padding:6px 0 6px 16px;position:relative;line-height:1.6}
   .sources li::before{content:'·';position:absolute;left:0;font-weight:700;color:var(--sage-300)}
 
@@ -434,8 +434,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
 
   <!-- SOURCES -->
   <div class="sources reveal">
-    <button type="button" class="sources-toggle" aria-expanded="false" data-sources-toggle>
-    <h4>Wissenschaftliche Quellen</h4></button>
+    <button type="button" class="sources-toggle" aria-expanded="false" data-sources-toggle><span class="sources-title">Wissenschaftliche Quellen</span></button>
     <ul>
       <li><strong>Kim, E. Y. & Miklowitz, D. J. (2004).</strong> Expressed emotion as a predictor of outcome among bipolar patients undergoing family therapy. <em>J Affective Disorders, 82</em>(3), 343–352.</li>
       <li><strong>Butzlaff, R. L. & Hooley, J. M. (1998).</strong> Expressed emotion and psychiatric relapse: A meta-analysis. <em>Archives of General Psychiatry, 55</em>(6), 547–552.</li>
@@ -478,7 +477,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
 {% block scripts %}
 <script>
   
-  ;navToggle.addEventListener('click',()=>{const isOpen=navLinks.classList.toggle('nav-open');navToggle.setAttribute('aria-expanded',isOpen?'true':'false');navToggle.setAttribute('aria-label',isOpen?'Menü schliessen':'Menü öffnen')});navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeNav));document.addEventListener('keydown',e=>{if(e.key==='Escape')closeNav()});document.addEventListener('click',e=>{if(!nav.contains(e.target))closeNav()});window.addEventListener('resize',()=>{if(window.innerWidth>900)closeNav()})}
+  ;navToggle.addEventListener('click',()=>{const isOpen=navLinks.classList.toggle('nav-open');navToggle.setAttribute('aria-expanded',isOpen?'true':'false');navToggle.setAttribute('aria-label',isOpen?'Menü schliessen':'Menü öffnen')});navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeNav));document.addEventListener('keydown',e=>{if(e.key==='Escape')closeNav()});document.addEventListener('click',e=>{if(!nav.contains(e.target))closeNav()});window.addEventListener('resize',()=>{if(window.innerWidth>900)closeNav()});
   const pb=document.getElementById('readingProgress');window.addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-window.innerHeight;pb.style.width=h>0?(window.scrollY/h*100)+'%':'0%'});
   const tocLinks=document.querySelectorAll('.toc a[href^="#"]');const tocSections=Array.from(tocLinks).map(a=>{const id=a.getAttribute('href').slice(1);return{link:a,el:document.getElementById(id)}}).filter(s=>s.el);const tocObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){tocLinks.forEach(l=>l.classList.remove('active'));const match=tocSections.find(s=>s.el===e.target);if(match)match.link.classList.add('active')}})},{threshold:0.1,rootMargin:'-100px 0px -60% 0px'});tocSections.forEach(s=>tocObs.observe(s.el));
   document.querySelectorAll('[data-sources-toggle]').forEach(button=>{button.addEventListener('click',()=>{const section=button.parentElement;const isOpen=section.classList.toggle('sources-open');button.setAttribute('aria-expanded',isOpen?'true':'false');});});

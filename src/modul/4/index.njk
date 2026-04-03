@@ -168,8 +168,8 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   .takeaway-item strong{color:white}
 
   .sources{background:var(--sage-50);border-radius:var(--radius-lg);padding:28px 32px;margin:48px 0}
-  .sources h4{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--sage-500);margin-bottom:14px}
-  .sources ul{list-style:none;max-height:0;overflow:hidden;transition:max-height 0.5s ease}.sources.sources-open ul{max-height:2000px}.sources h4::after{content:" ▾";font-size:0.7rem;opacity:0.5}.sources.sources-open h4::after{content:" ▴"}
+  .sources-title{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--sage-500);margin-bottom:14px}
+  .sources ul{list-style:none;max-height:0;overflow:hidden;transition:max-height 0.5s ease}.sources.sources-open ul{max-height:2000px}.sources-title::after{content:" ▾";font-size:0.7rem;opacity:0.5}.sources.sources-open .sources-title::after{content:" ▴"}
   .sources li{font-size:0.82rem;color:var(--text-muted);padding:6px 0 6px 16px;position:relative;line-height:1.6}
   .sources li::before{content:'·';position:absolute;left:0;font-weight:700;color:var(--sage-300)}
 
@@ -574,8 +574,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
 
   <!-- SOURCES -->
   <div class="sources reveal">
-    <button type="button" class="sources-toggle" aria-expanded="false" data-sources-toggle>
-    <h4>Wissenschaftliche Quellen</h4></button>
+    <button type="button" class="sources-toggle" aria-expanded="false" data-sources-toggle><span class="sources-title">Wissenschaftliche Quellen</span></button>
     <ul>
       <li><strong>Boss, P. (1999).</strong> <em>Ambiguous Loss: Learning to Live with Unresolved Grief.</em> Harvard University Press.</li>
       <li><strong>Doka, K. J. (2002).</strong> <em>Disenfranchised Grief: New Directions, Challenges, and Strategies.</em> Research Press.</li>
@@ -617,7 +616,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
 {% block scripts %}
 <script>
   const nav=document.getElementById('navbar');
-  ;navToggle.addEventListener('click',()=>{const isOpen=navLinks.classList.toggle('nav-open');navToggle.setAttribute('aria-expanded',isOpen?'true':'false');navToggle.setAttribute('aria-label',isOpen?'Menü schliessen':'Menü öffnen')});navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeNav));document.addEventListener('keydown',e=>{if(e.key==='Escape')closeNav()});document.addEventListener('click',e=>{if(!nav.contains(e.target))closeNav()});window.addEventListener('resize',()=>{if(window.innerWidth>900)closeNav()})}
+  ;navToggle.addEventListener('click',()=>{const isOpen=navLinks.classList.toggle('nav-open');navToggle.setAttribute('aria-expanded',isOpen?'true':'false');navToggle.setAttribute('aria-label',isOpen?'Menü schliessen':'Menü öffnen')});navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeNav));document.addEventListener('keydown',e=>{if(e.key==='Escape')closeNav()});document.addEventListener('click',e=>{if(!nav.contains(e.target))closeNav()});window.addEventListener('resize',()=>{if(window.innerWidth>900)closeNav()});
   window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>20));
   const progressBar=document.getElementById('readingProgress');
   window.addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-window.innerHeight;progressBar.style.width=h>0?(window.scrollY/h*100)+'%':'0%'});

@@ -35,6 +35,20 @@
 {% block content %}{{ content | safe }}{% endblock %}
 {% block footer %}{% endblock %}
 {% if useNavJS %}<script src="/js/nav.js"></script>{% endif %}
+<script>
+  try {
+    const modulePath = window.location.pathname.match(/^\/modul\/\d+\/?$/);
+    if (modulePath) {
+      const key = 'puk_visited_modules';
+      const normalized = modulePath[0].endsWith('/') ? modulePath[0] : `${modulePath[0]}/`;
+      const visited = JSON.parse(localStorage.getItem(key) || '[]');
+      if (Array.isArray(visited) && !visited.includes(normalized)) {
+        visited.push(normalized);
+        localStorage.setItem(key, JSON.stringify(visited));
+      }
+    }
+  } catch (error) {}
+</script>
 {% block scripts %}{% endblock %}
 </body>
 </html>

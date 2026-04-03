@@ -332,14 +332,14 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
     background: var(--sage-50); border-radius: var(--radius-lg);
     padding: 28px 32px; margin: 48px 0;
   }
-  .sources h4 {
+  .sources-title {
     font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
     letter-spacing: 0.1em; color: var(--sage-500); margin-bottom: 14px;
   }
   .sources ul { list-style: none; max-height: 0; overflow: hidden; transition: max-height 0.5s ease; }
   .sources.sources-open ul { max-height: 2000px; }
-  .sources h4::after { content: " ▾"; font-size: 0.7rem; opacity: 0.5; }
-  .sources.sources-open h4::after { content: " ▴"; }
+  .sources-title::after { content: " ▾"; font-size: 0.7rem; opacity: 0.5; }
+  .sources.sources-open .sources-title::after { content: " ▴"; }
   .sources li {
     font-size: 0.82rem; color: var(--text-muted); padding: 6px 0;
     padding-left: 16px; position: relative; line-height: 1.6;
@@ -892,8 +892,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
 
   <!-- ─── SOURCES ─── -->
   <div class="sources reveal sources-open">
-    <button type="button" class="sources-toggle" aria-expanded="true" data-sources-toggle>
-    <h4>Wissenschaftliche Quellen</h4></button>
+    <button type="button" class="sources-toggle" aria-expanded="true" data-sources-toggle><span class="sources-title">Wissenschaftliche Quellen</span></button>
     <ul>
       <li><strong>Goodwin, F. K. & Jamison, K. R. (2007).</strong> <em>Manic-Depressive Illness: Bipolar Disorders and Recurrent Depression</em> (2. Aufl.). Oxford University Press.</li>
       <li><strong>Judd, L. L. et al. (2003).</strong> A prospective investigation of the natural history of the long-term weekly symptomatic status of bipolar II disorder. <em>Archives of General Psychiatry, 60</em>(3), 261–269.</li>
