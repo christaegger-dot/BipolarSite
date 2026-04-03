@@ -119,6 +119,26 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   .finder-card h4{font-size:0.96rem;font-weight:700;color:var(--navy);margin:0 0 6px}
   .finder-card p{font-size:0.84rem;color:var(--text-secondary);margin:0 0 10px}
   .finder-card a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#fff;background:linear-gradient(135deg,var(--navy),var(--teal));padding:9px 14px;border-radius:999px;font-size:0.8rem;font-weight:700}
+  .mini-plan{margin:26px 0 34px;padding:24px 26px;border-radius:24px;background:linear-gradient(180deg,#fff 0%,#fcf8f4 100%);border:1px solid rgba(45,40,35,0.06);box-shadow:var(--shadow-soft)}
+  .mini-plan-kicker{font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--sage-500);margin-bottom:10px}
+  .mini-plan h3{font-size:1.15rem;margin:0 0 8px}
+  .mini-plan p{font-size:0.9rem;color:var(--text-secondary);line-height:1.6;margin:0 0 18px}
+  .mini-plan-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .mini-plan-field{display:flex;flex-direction:column;gap:6px}
+  .mini-plan-field.full{grid-column:1 / -1}
+  .mini-plan label{font-size:0.76rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--slate)}
+  .mini-plan input,.mini-plan textarea,.mini-plan select{width:100%;padding:12px 14px;border-radius:14px;border:1px solid rgba(45,40,35,0.1);background:#fff;color:var(--text);font:inherit}
+  .mini-plan textarea{min-height:92px;resize:vertical}
+  .mini-plan-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  .mini-plan-save,.mini-plan-clear{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 16px;border-radius:999px;font-size:0.82rem;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+  .mini-plan-save{border:none;background:linear-gradient(135deg,var(--navy),var(--teal));color:#fff}
+  .mini-plan-clear{border:1px solid rgba(45,40,35,0.1);background:#fff;color:var(--slate)}
+  .mini-plan-status{font-size:0.8rem;color:var(--text-muted);margin-top:12px;min-height:1.2em}
+  .mini-plan-summary{margin-top:18px;padding:16px 18px;border-radius:18px;background:linear-gradient(180deg,var(--surface-warm) 0%,rgba(217,236,236,0.28) 100%);border:1px solid rgba(45,40,35,0.06)}
+  .mini-plan-summary[hidden]{display:none}
+  .mini-plan-summary h4{font-size:0.96rem;font-weight:700;color:var(--navy);margin:0 0 10px}
+  .mini-plan-summary p{font-size:0.84rem;color:var(--text-secondary);margin:0 0 8px}
+  .mini-plan-summary strong{color:var(--navy)}
 
   .takeaways{background:linear-gradient(135deg,var(--navy),#294051);color:white;border-radius:var(--radius-xl);padding:40px;margin:48px 0;position:relative;overflow:hidden}.takeaways::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 80%,rgba(221,210,191,0.18) 0%,transparent 60%)}
   .takeaways-inner{position:relative;z-index:2}.takeaways h3{color:white;font-family:'Source Serif 4',serif;font-size:1.3rem;font-weight:600;margin-bottom:24px}
@@ -144,7 +164,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
 
   .reveal{opacity:1}
 
-  @media(max-width:768px){.toc ol{grid-template-columns:1fr}.handout-list{grid-template-columns:1fr 1fr}.mini-visual-grid{grid-template-columns:1fr}.material-finder-options{grid-template-columns:1fr}}
+  @media(max-width:768px){.toc ol{grid-template-columns:1fr}.handout-list{grid-template-columns:1fr 1fr}.mini-visual-grid{grid-template-columns:1fr}.material-finder-options{grid-template-columns:1fr}.mini-plan-grid{grid-template-columns:1fr}}
   
   @media(max-width:900px){.module-hero-inner{grid-template-columns:1fr}}
   @media(max-width:600px){.module-hero{padding:100px 1.2rem 40px}.content{padding:0 1.2rem}.closing{padding:36px 24px}.handout-list{grid-template-columns:1fr}}
@@ -372,6 +392,45 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
     <div class="material-finder-results" id="materialFinderResults" hidden aria-live="polite" aria-atomic="true"></div>
   </div>
 
+  <div class="mini-plan reveal" aria-labelledby="mini-plan-title">
+    <div class="mini-plan-kicker">Mein Mini-Plan</div>
+    <h3 id="mini-plan-title">Meine Nummern, mein nächster Schritt, mein Dokument</h3>
+    <p>Wenn Sie etwas festhalten möchten, können Sie hier Ihren persönlichen Mini-Plan lokal im Browser speichern. Nichts wird an ein Konto oder einen Server geschickt.</p>
+    <div class="mini-plan-grid">
+      <div class="mini-plan-field">
+        <label for="miniPlanNumber">Meine wichtigste Nummer</label>
+        <input id="miniPlanNumber" name="number" type="text" placeholder="z. B. 0800 33 66 55 oder 058 384 38 00">
+      </div>
+      <div class="mini-plan-field">
+        <label for="miniPlanDocument">Mein ausgewähltes Dokument</label>
+        <select id="miniPlanDocument" name="document">
+          <option value="">Bitte wählen</option>
+          <option value="Notfallkarte Kanton Zürich">Notfallkarte Kanton Zürich</option>
+          <option value="Krisenplan-Vorlage">Krisenplan-Vorlage</option>
+          <option value="Was stabilisiert — was schadet">Was stabilisiert — was schadet</option>
+          <option value="Grenzsetzung">Grenzsetzung</option>
+          <option value="Trauer ohne klaren Abschied">Trauer ohne klaren Abschied</option>
+          <option value="Ein anderes Handout aus der Liste">Ein anderes Handout aus der Liste</option>
+        </select>
+      </div>
+      <div class="mini-plan-field full">
+        <label for="miniPlanStep">Mein nächster Schritt</label>
+        <textarea id="miniPlanStep" name="step" placeholder="z. B. Heute eine Nummer speichern, morgen bei der Fachstelle anrufen oder ein PDF ausdrucken"></textarea>
+      </div>
+    </div>
+    <div class="mini-plan-actions">
+      <button type="button" class="mini-plan-save" id="miniPlanSave">Mini-Plan speichern</button>
+      <button type="button" class="mini-plan-clear" id="miniPlanClear">Mini-Plan löschen</button>
+    </div>
+    <div class="mini-plan-status" id="miniPlanStatus" aria-live="polite"></div>
+    <div class="mini-plan-summary" id="miniPlanSummary" hidden>
+      <h4>Gespeichert auf diesem Gerät</h4>
+      <p><strong>Nummer:</strong> <span id="miniPlanSummaryNumber">—</span></p>
+      <p><strong>Dokument:</strong> <span id="miniPlanSummaryDocument">—</span></p>
+      <p><strong>Nächster Schritt:</strong> <span id="miniPlanSummaryStep">—</span></p>
+    </div>
+  </div>
+
   <!-- 3 DOWNLOAD MODULES -->
   <div class="dl-module dl-module-sos reveal">
     <div class="dl-icon">🆘</div>
@@ -537,6 +596,46 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   const materialFinderResults=document.getElementById('materialFinderResults');
   const renderMaterialFinder=(key)=>{const items=MATERIAL_FINDER[key];if(!items||!materialFinderResults)return;materialFinderButtons.forEach(btn=>btn.classList.toggle('is-active',btn.dataset.materialFinder===key));materialFinderResults.innerHTML=items.map(item=>`<div class="finder-card"><div class="finder-card-kicker">${item.kicker}</div><h4>${item.title}</h4><p>${item.text}</p><a href="${item.href}"${item.href.startsWith('http')?' target="_blank" rel="noopener"':''}>${item.label}</a></div>`).join('');materialFinderResults.hidden=false;};
   materialFinderButtons.forEach(button=>{button.addEventListener('click',()=>renderMaterialFinder(button.dataset.materialFinder));});
+  const MINI_PLAN_KEY='puk_modul8_mini_plan';
+  const miniPlanNumber=document.getElementById('miniPlanNumber');
+  const miniPlanDocument=document.getElementById('miniPlanDocument');
+  const miniPlanStep=document.getElementById('miniPlanStep');
+  const miniPlanSave=document.getElementById('miniPlanSave');
+  const miniPlanClear=document.getElementById('miniPlanClear');
+  const miniPlanStatus=document.getElementById('miniPlanStatus');
+  const miniPlanSummary=document.getElementById('miniPlanSummary');
+  const miniPlanSummaryNumber=document.getElementById('miniPlanSummaryNumber');
+  const miniPlanSummaryDocument=document.getElementById('miniPlanSummaryDocument');
+  const miniPlanSummaryStep=document.getElementById('miniPlanSummaryStep');
+  const readMiniPlan=()=>{try{return JSON.parse(localStorage.getItem(MINI_PLAN_KEY)||'null')}catch{return null}};
+  const writeMiniPlan=(data)=>{try{localStorage.setItem(MINI_PLAN_KEY,JSON.stringify(data));return true}catch{return false}};
+  const clearMiniPlanStorage=()=>{try{localStorage.removeItem(MINI_PLAN_KEY)}catch{}};
+  const renderMiniPlanSummary=(data)=>{
+    if(!data||(!data.number&&!data.document&&!data.step)){miniPlanSummary.hidden=true;miniPlanSummaryNumber.textContent='—';miniPlanSummaryDocument.textContent='—';miniPlanSummaryStep.textContent='—';return;}
+    miniPlanSummary.hidden=false;
+    miniPlanSummaryNumber.textContent=data.number||'—';
+    miniPlanSummaryDocument.textContent=data.document||'—';
+    miniPlanSummaryStep.textContent=data.step||'—';
+  };
+  const loadMiniPlan=()=>{
+    const saved=readMiniPlan();
+    if(!saved)return;
+    miniPlanNumber.value=saved.number||'';
+    miniPlanDocument.value=saved.document||'';
+    miniPlanStep.value=saved.step||'';
+    renderMiniPlanSummary(saved);
+    miniPlanStatus.textContent='Ihr zuletzt gespeicherter Mini-Plan wurde geladen.';
+  };
+  miniPlanSave.addEventListener('click',()=>{
+    const data={number:miniPlanNumber.value.trim(),document:miniPlanDocument.value,step:miniPlanStep.value.trim()};
+    if(!data.number&&!data.document&&!data.step){miniPlanStatus.textContent='Bitte zuerst mindestens ein Feld ausfüllen.';renderMiniPlanSummary(null);return;}
+    if(writeMiniPlan(data)){miniPlanStatus.textContent='Mini-Plan lokal auf diesem Gerät gespeichert.';renderMiniPlanSummary(data);}
+    else{miniPlanStatus.textContent='Speichern war in diesem Browser gerade nicht möglich.';}
+  });
+  miniPlanClear.addEventListener('click',()=>{
+    miniPlanNumber.value='';miniPlanDocument.value='';miniPlanStep.value='';clearMiniPlanStorage();renderMiniPlanSummary(null);miniPlanStatus.textContent='Mini-Plan von diesem Gerät gelöscht.';
+  });
+  loadMiniPlan();
   const pdfPreview=document.getElementById('pdf-preview');
   const pdfPreviewFrame=document.getElementById('pdf-preview-frame');
   const pdfPreviewTitle=document.getElementById('pdf-preview-title');
