@@ -15,20 +15,23 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
 .tool-back{display:flex;align-items:center;gap:8px;text-decoration:none;color:#475569;font-size:0.82rem;font-weight:500}
 .tool-back svg{width:16px;height:16px}
 .tool-brand{font-family:'Source Serif 4',serif;font-size:0.85rem;font-weight:600;color:#1c2b3a}
-.wrap{width:100%;max-width:520px;padding:32px 20px 48px;flex:1}
-.hdr{text-align:center;margin-bottom:28px}
-.badge{display:inline-flex;background:#e6f4f2;color:#1c2b3a;padding:5px 14px;border-radius:100px;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px}
+.wrap{width:100%;max-width:560px;padding:32px 20px 48px;flex:1}
+.hdr{text-align:center;margin-bottom:28px;background:linear-gradient(180deg,rgba(255,255,255,0.94),rgba(248,250,251,0.88));border:1px solid rgba(45,40,35,0.08);border-radius:26px;padding:26px 24px 24px;box-shadow:0 16px 40px rgba(28,43,58,0.08);position:relative;overflow:hidden}
+.hdr::before{content:'';position:absolute;top:-34px;left:-24px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle, rgba(141,212,217,0.3) 0%, transparent 68%)}
+.tool-glyph{width:58px;height:58px;margin:0 auto 14px;border-radius:18px;background:linear-gradient(135deg,var(--navy),var(--teal));display:flex;align-items:center;justify-content:center;box-shadow:0 10px 28px rgba(28,43,58,0.18)}
+.tool-glyph svg{width:30px;height:30px}
+.badge{display:inline-flex;background:#e6f4f2;color:#1c2b3a;padding:5px 14px;border-radius:100px;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;position:relative;z-index:1}
 .hdr h1{font-family:'Source Serif 4',Georgia,serif;font-size:clamp(1.3rem,3.5vw,1.7rem);font-weight:700;color:var(--navy);margin:0 0 8px;letter-spacing:-0.02em}
-.hdr p{font-size:0.85rem;color:#475569;line-height:1.6}
+.hdr p{font-size:0.88rem;color:#475569;line-height:1.65;max-width:44ch;margin:0 auto}
 .svg-wrap{width:100%;max-width:380px;margin:0 auto 24px;position:relative}
-.svg-wrap svg{width:100%;height:auto}
+.svg-wrap svg{width:100%;height:auto;filter:drop-shadow(0 10px 22px rgba(28,43,58,0.08))}
 .svg-wrap circle{cursor:pointer;transition:background-color 0.3s ease,color 0.3s ease,border-color 0.3s ease}
 .svg-wrap circle:hover{filter:brightness(0.95)}
 .svg-wrap [role="button"]:focus{filter:drop-shadow(0 0 0.35rem rgba(116,138,90,0.45))}
 .svg-wrap .arrow{transition:opacity 0.5s}
 .interrupted .arrow{opacity:0.2;stroke-dasharray:8 6}
 .center-text{font-family:'Source Serif 4',Georgia,serif;transition:fill 0.3s}
-.detail{background:#fff;border-radius:18px;border:1px solid rgba(45,40,35,0.06);box-shadow:0 4px 24px rgba(45,40,35,0.08);padding:24px 28px;margin-bottom:16px;display:none}
+.detail{background:linear-gradient(180deg,#ffffff 0%,#fbfcfd 100%);border-radius:22px;border:1px solid rgba(45,40,35,0.06);box-shadow:0 12px 32px rgba(28,43,58,0.08);padding:24px 28px;margin-bottom:16px;display:none}
 .detail.vis{display:block}
 .detail-num{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px}
 .detail h2{font-family:'Source Serif 4',Georgia,serif;font-size:1.06rem;font-weight:700;color:#1c2b3a;margin:0 0 10px}
@@ -36,7 +39,7 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
 .detail-exit{background:#e6f4f2;border-radius:12px;padding:14px 18px;border-left:3px solid var(--green-phase)}
 .detail-exit .exit-lbl{font-size:0.68rem;font-weight:700;color:var(--green-phase);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px}
 .detail-exit p{font-size:0.85rem;color:#1c2b3a;margin:0;line-height:1.55}
-.break-btn{width:100%;padding:14px;border-radius:14px;border:2px solid var(--green-phase);background:#fff;color:var(--green-phase);font-size:0.88rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background-color 0.3s ease,color 0.3s ease,border-color 0.3s ease;margin-bottom:16px}
+.break-btn{width:100%;padding:14px;border-radius:16px;border:2px solid var(--green-phase);background:#fff;color:var(--green-phase);font-size:0.88rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background-color 0.3s ease,color 0.3s ease,border-color 0.3s ease,box-shadow 0.3s ease;margin-bottom:16px;box-shadow:0 8px 18px rgba(13,122,95,0.08)}
 .break-btn:hover{background:#e6f4f2}
 .break-btn.active{background:var(--green-phase);color:#fff}
 .tf{text-align:center;font-size:0.68rem;color:#8DD4D9;margin-top:28px;line-height:1.5}
@@ -48,7 +51,18 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
 {% endblock %}
 {% block content %}
 <main class="wrap" id="main-content">
-  <div class="hdr"><div class="badge">Modul 5 — Interaktiv</div><h1>Wie Überlastung zum Kreislauf wird</h1><p>Der EE-Kreislauf aus Schuld, Überengagement, Erschöpfung und Kritik. Klicken Sie auf eine Station, um zu sehen, wie sich Überforderung zuspitzt — und wo der Kreislauf unterbrochen werden kann.</p></div>
+  <div class="hdr">
+    <div class="tool-glyph" aria-hidden="true">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="8" r="4" fill="#FBBF24"/>
+        <circle cx="32" cy="20" r="4" fill="#9A3412"/>
+        <circle cx="20" cy="32" r="4" fill="#5B7FA5"/>
+        <circle cx="8" cy="20" r="4" fill="#0D7A5F"/>
+        <path d="M20 8C28 8 32 12 32 20C32 28 28 32 20 32C12 32 8 28 8 20C8 12 12 8 20 8Z" stroke="#A8E4E8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="badge">Modul 5 — Interaktiv</div><h1>Wie Überlastung zum Kreislauf wird</h1><p>Der EE-Kreislauf aus Schuld, Überengagement, Erschöpfung und Kritik. Klicken Sie auf eine Station, um zu sehen, wie sich Überforderung zuspitzt — und wo der Kreislauf unterbrochen werden kann.</p>
+  </div>
   <div class="svg-wrap" id="svgWrap">
     <svg viewBox="0 0 400 400" role="group" aria-label="EE-Kreislauf: Schuld, Überengagement, Erschöpfung und Kritik als Teufelskreis">
       <!-- Arrows -->

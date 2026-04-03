@@ -16,14 +16,17 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
 .tool-back{display:flex;align-items:center;gap:8px;text-decoration:none;color:#475569;font-size:0.82rem;font-weight:500;transition:color 0.2s}
 .tool-back svg{width:16px;height:16px}
 .tool-brand{font-family:'Source Serif 4',serif;font-size:0.85rem;font-weight:600;color:#1c2b3a}
-.wrap{width:100%;max-width:600px;padding:32px 20px 56px;flex:1}
-.hdr{text-align:center;margin-bottom:28px}
-.badge{display:inline-flex;background:#e6f4f2;color:#1c2b3a;padding:5px 14px;border-radius:100px;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px}
+.wrap{width:100%;max-width:680px;padding:32px 20px 56px;flex:1}
+.hdr{text-align:center;margin-bottom:28px;background:linear-gradient(180deg,rgba(255,255,255,0.94),rgba(247,250,251,0.88));border:1px solid rgba(45,40,35,0.08);border-radius:26px;padding:26px 24px 24px;box-shadow:0 16px 40px rgba(28,43,58,0.08);position:relative;overflow:hidden}
+.hdr::before{content:'';position:absolute;top:-36px;right:-28px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle, rgba(141,212,217,0.3) 0%, transparent 68%)}
+.tool-glyph{width:58px;height:58px;margin:0 auto 14px;border-radius:18px;background:linear-gradient(135deg,var(--navy),var(--teal));display:flex;align-items:center;justify-content:center;box-shadow:0 10px 28px rgba(28,43,58,0.18)}
+.tool-glyph svg{width:30px;height:30px}
+.badge{display:inline-flex;background:#e6f4f2;color:#1c2b3a;padding:5px 14px;border-radius:100px;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;position:relative;z-index:1}
 .hdr h1{font-family:'Source Serif 4',serif;font-size:clamp(1.35rem,3.5vw,1.75rem);font-weight:700;color:var(--navy);margin:0 0 8px;letter-spacing:-0.02em;line-height:1.2}
-.hdr p{font-size:0.85rem;color:#475569;line-height:1.6}
+.hdr p{font-size:0.88rem;color:#475569;line-height:1.65;max-width:48ch;margin:0 auto}
 
 /* ── Chart wrapper ── */
-.chart-wrap{width:100%;border-radius:18px;overflow:hidden;background:#fff;border:1px solid rgba(45,40,35,0.07);box-shadow:0 4px 24px rgba(45,40,35,0.08);margin-bottom:18px}
+.chart-wrap{width:100%;border-radius:22px;overflow:hidden;background:linear-gradient(180deg,#ffffff 0%,#fbfcfd 100%);border:1px solid rgba(45,40,35,0.07);box-shadow:0 12px 34px rgba(28,43,58,0.08);margin-bottom:18px}
 .chart-top{padding:16px 18px 10px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
 .chart-heading{font-size:0.72rem;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:0.08em}
 .chart-legend{display:flex;gap:12px;flex-wrap:wrap}
@@ -52,11 +55,11 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
 .phase-btns{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:18px}
 .pbtn{padding:10px 4px;border-radius:12px;border:2px solid transparent;background:#FAFAF7;color:#475569;font-size:0.66rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background-color 0.2s ease,color 0.2s ease,border-color 0.2s ease;display:flex;flex-direction:column;align-items:center;gap:3px;-webkit-appearance:none;line-height:1.2;text-align:center}
 .pbtn .ico{font-size:1.1rem;display:block}
-.pbtn:hover{transform:translateY(-2px);box-shadow:0 3px 10px rgba(45,40,35,0.1)}
+.pbtn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(45,40,35,0.12)}
 .pbtn.active{color:#fff;transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.18)}
 
 /* ── Detail card ── */
-.detail-card{background:#fff;border-radius:18px;border:1px solid rgba(45,40,35,0.07);box-shadow:0 4px 24px rgba(45,40,35,0.08);padding:24px 24px 20px;border-left:4px solid #ddd;transition:border-color 0.3s,opacity 0.3s,transform 0.3s;opacity:0;transform:translateY(8px);pointer-events:none}
+.detail-card{background:linear-gradient(180deg,#ffffff 0%,#fbfcfd 100%);border-radius:22px;border:1px solid rgba(45,40,35,0.07);box-shadow:0 12px 34px rgba(28,43,58,0.08);padding:24px 24px 20px;border-left:4px solid #ddd;transition:border-color 0.3s,opacity 0.3s,transform 0.3s;opacity:0;transform:translateY(8px);pointer-events:none}
 .detail-card.vis{opacity:1;transform:translateY(0);pointer-events:auto}
 .det-top{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px}
 .det-icon{width:48px;height:48px;min-width:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.35rem}
@@ -91,6 +94,13 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
 {% block content %}
 <main class="wrap" id="main-content">
   <div class="hdr">
+    <div class="tool-glyph" aria-hidden="true">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 25C10 25 10 9 16 9C22 9 22 31 28 31C32 31 32 18 35 18" stroke="#A8E4E8" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="16" cy="9" r="3" fill="#FBBF24"/>
+        <circle cx="28" cy="31" r="3" fill="#5B7FA5"/>
+      </svg>
+    </div>
     <div class="badge">Modul 1 — Visualisierung</div>
     <h1>Bipolarer Phasenverlauf</h1>
     <p>Wählen Sie eine Phase — entweder im Diagramm oder über die Schaltflächen — um zu erfahren, was sie für Betroffene und Angehörige bedeutet.</p>
