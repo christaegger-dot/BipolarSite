@@ -33,6 +33,9 @@ The following rebuilt draft sources exist:
 
 These are the preferred basis for future migration work.
 
+The shared preview template in `src/_layouts/handout-draft.njk` is also part of the current production workflow.
+It should be treated as a quality gate, because visual noise in the HTML draft usually carries over into any later PDF export.
+
 ## Existing repo docs
 
 - `AUDIT_PDF_HANDOUTS_2026-04-03.md`
@@ -46,9 +49,18 @@ A previous attempt to regenerate priority handouts through a script-based export
 
 Do not repeat that mistake by optimizing for file size first.
 
+Another active risk is visual noise in the handout preview itself:
+
+- too many typographic roles
+- too many small size differences
+- too many uppercase micro-labels and badge styles
+- multiple competing emphasis systems before the main content begins
+
+This is not just a browser-only issue. If the draft preview already feels busy, the exported PDF is unlikely to feel calmer.
+
 The order of priority is:
 
-1. visual stability
+1. visual calm and stability
 2. print/read quality
 3. truthful product framing
 4. file size and technical neatness

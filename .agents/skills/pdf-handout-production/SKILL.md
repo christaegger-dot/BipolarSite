@@ -1,6 +1,6 @@
 ---
 name: "pdf-handout-production"
-description: "Use when auditing, reframing, migrating, or replacing PDF handouts for the BipolarSite project. Covers the current downloads-vs-archive logic, draft sources, release-safe UI changes, and strict QA gates before any live PDF replacement."
+description: "Use when auditing, reframing, migrating, previewing, or replacing PDF handouts for the BipolarSite project. Covers the current downloads-vs-archive logic, draft sources, handout-preview typography and layout, release-safe UI changes, and strict QA gates before any live PDF replacement."
 ---
 
 # PDF Handout Production
@@ -12,6 +12,8 @@ Use this skill when you need to:
 - improve download / preview / archive framing
 - continue the handout migration
 - edit or prioritize handout drafts
+- reduce visual noise in handout previews
+- refine handout typography or layout before any PDF export
 - decide whether a PDF can safely replace a live handout
 
 Do not use this skill for general website copy or unrelated UI work.
@@ -20,8 +22,9 @@ Do not use this skill for general website copy or unrelated UI work.
 
 1. Read [references/current-state.md](references/current-state.md).
 2. If the task is release-safe UI / framing work, update the existing website surface first.
-3. If the task is content work, edit the draft source in `src/handout-drafts/`.
-4. If the task is a real PDF replacement, follow the QA gates below before touching live files in `handouts/` or `downloads/`.
+3. If the task is draft content work, edit the source in `src/handout-drafts/`.
+4. If the task is visual draft refinement, review `src/_layouts/handout-draft.njk` and calm the HTML preview before attempting any export.
+5. If the task is a real PDF replacement, follow the QA gates below before touching live files in `handouts/` or `downloads/`.
 
 ## File map
 
@@ -36,6 +39,10 @@ Do not use this skill for general website copy or unrelated UI work.
 - `src/handout-drafts/`
   - editable source drafts for rebuilt handouts
   - these are the preferred starting point for any future migration
+
+- `src/_layouts/handout-draft.njk`
+  - shared HTML preview surface for the rebuilt handouts
+  - this is part of the QA surface, not just a throwaway interim layout
 
 - `src/modul/8/index.njk`
   - the main product surface for materials, archive framing, and material finder logic
@@ -62,6 +69,8 @@ These changes are usually safe close to release:
 - reduce confusion between download, preview, archive, and tool
 - improve ordering in Modul 8 and related resource surfaces
 - point users first to the promoted `downloads/`
+- calm the typography and layout in the handout HTML preview
+- reduce unnecessary badges, size jumps, and competing emphasis styles
 
 Prefer these before attempting risky PDF regeneration.
 
@@ -86,18 +95,22 @@ Therefore:
 - do not replace live PDFs with script-generated output unless the user explicitly asks for a new production attempt
 - do not assume a lightweight file is a good file
 - visual stability in a real PDF viewer matters more than file size alone
+- treat the HTML draft preview as a real design QA surface; if it already feels noisy there, it will likely fail harder in PDF form
 
 ## Preferred migration workflow
 
 1. Start from the relevant file in `src/handout-drafts/`.
 2. Improve wording and structure there first.
-3. Keep the website framing honest until a robust PDF output exists.
-4. Only promote a rebuilt handout into `downloads/` or replace a live archive PDF after QA passes.
+3. Review the shared preview in `src/_layouts/handout-draft.njk` if the draft feels noisy, crowded, or visually inconsistent.
+4. Keep the website framing honest until a robust PDF output exists.
+5. Only promote a rebuilt handout into `downloads/` or replace a live archive PDF after QA passes.
 
 ## QA gates before replacing a live PDF
 
 All of these must be true:
 
+- the HTML preview already feels calm, typographically consistent, and easy to scan
+- the document is not overloaded with competing label styles, badges, or size jumps
 - no overlap, clipping, or broken layout in a real PDF viewer
 - print image is visually calm and professional
 - line breaks, spacing, and emphasis still look intentional outside the browser
@@ -119,6 +132,7 @@ If one of these fails, do not replace the live PDF.
 
 - preserve the existing live PDFs
 - improve framing, grouping, and prioritization instead
+- simplify the HTML draft template before trying to solve everything at PDF-export level
 - leave draft sources in place for later migration
 
 ## References
