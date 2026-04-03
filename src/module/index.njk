@@ -1,0 +1,272 @@
+---
+layout: "base"
+title: "Die 8 Module im Überblick | PUK Zürich"
+description: "Alle 8 Module für Angehörige von Menschen mit bipolarer Störung im Überblick: vom Verstehen bis zu konkreten Schritten und Unterstützung."
+permalink: "/module/"
+navCurrent: "module-overview"
+useSharedCSS: true
+useNavJS: true
+footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
+---
+{% block headCSS %}
+<style>
+  .overview-hero {
+    padding: 120px 2rem 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .overview-hero::before {
+    content: '';
+    position: absolute;
+    top: -24%;
+    right: -10%;
+    width: 640px;
+    height: 640px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(221,210,191,0.75) 0%, transparent 72%);
+    opacity: 0.82;
+  }
+  .overview-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -18%;
+    left: -6%;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(217,236,236,0.42) 0%, transparent 72%);
+    opacity: 0.78;
+  }
+  .overview-hero-inner,
+  .overview-content {
+    max-width: var(--wide-width);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .overview-breadcrumb {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .overview-breadcrumb a {
+    color: var(--sage-500);
+    text-decoration: none;
+  }
+  .overview-breadcrumb a:hover {
+    text-decoration: underline;
+  }
+  .overview-badge {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(221,210,191,0.34);
+    color: var(--sand-deep);
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .overview-hero h1 {
+    font-family: 'Source Serif 4', serif;
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+    color: var(--earth-900);
+    margin: 0 0 16px;
+    max-width: 760px;
+  }
+  .overview-lead {
+    max-width: 760px;
+    font-size: 1rem;
+    line-height: 1.78;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+  .overview-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+    gap: 22px;
+    margin: 12px auto 0;
+  }
+  .overview-note {
+    background: linear-gradient(180deg, #fff 0%, #fcf8f4 100%);
+    border: 1px solid rgba(45,40,35,0.08);
+    border-radius: 24px;
+    box-shadow: var(--shadow-soft);
+    padding: 24px 26px;
+  }
+  .overview-note h2 {
+    margin: 0 0 10px;
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.25rem;
+    color: var(--navy);
+  }
+  .overview-note p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+  .overview-note p + p {
+    margin-top: 10px;
+  }
+  .overview-content {
+    padding: 0 2rem 80px;
+  }
+  .overview-section {
+    padding-top: 8px;
+  }
+  .overview-footer-note {
+    max-width: 760px;
+    margin-top: 32px;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+  @media (max-width: 900px) {
+    .overview-intro {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 600px) {
+    .overview-hero {
+      padding: 104px 1.2rem 28px;
+    }
+    .overview-content {
+      padding: 0 1.2rem 64px;
+    }
+    .overview-note {
+      padding: 20px 18px;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block nav %}
+{% include "nav-full.njk" %}
+{% endblock %}
+
+{% block content %}
+<header class="overview-hero">
+  <div class="overview-hero-inner">
+    <div class="overview-breadcrumb"><a href="/">Startseite</a><span>›</span><span>Module</span></div>
+    <div class="overview-badge">Lernpfad</div>
+    <h1>Die 8 Module im Überblick</h1>
+    <p class="overview-lead">Hier finden Sie den vollständigen Lernpfad in einer eigenen Übersicht. Sie können die Module der Reihe nach lesen oder gezielt dort einsteigen, wo Ihre Lage im Moment am meisten Druck macht.</p>
+  </div>
+</header>
+
+<main id="main-content" class="overview-content">
+  <div class="overview-intro">
+    <div class="overview-note">
+      <h2>Wenn Sie Schritt für Schritt lesen möchten</h2>
+      <p>Die Module 1 bis 7 bauen inhaltlich aufeinander auf: vom Verstehen über Belastung und Beziehungsdynamik bis zu konkreten Schritten und langfristiger Tragfähigkeit.</p>
+      <p><strong>Modul 8</strong> ist zugleich Abschlussmodul und direkter Einstieg für Unterstützung, Materialien und nächste Schritte.</p>
+    </div>
+    <div class="overview-note">
+      <h2>Wenn Sie sofort Orientierung brauchen</h2>
+      <p><a href="/notfall/">Notfall &amp; Krise</a> hat Vorrang, wenn Gefahr oder starke Unsicherheit im Raum stehen. Für Beratungsstellen, Materialien und rechtliche Orientierung ist <a href="/modul/8/">Modul 8</a> der schnellste Einstieg.</p>
+    </div>
+  </div>
+
+  <section class="overview-section">
+    <div class="section-label">Lernpfad</div>
+    <h2 class="section-title">Alle Module als eigener Überblick</h2>
+    <p class="section-desc">Jedes Modul steht für einen klaren Schwerpunkt. Wenn Sie nicht linear lesen möchten, wählen Sie zuerst den Bereich, der Ihre aktuelle Lage am besten trifft.</p>
+
+    <div class="modules-grid">
+      <a href="/modul/1/" class="module-card" data-accent="blue">
+        <span class="module-number">Modul 1</span>
+        <h3>Die bipolare Störung verstehen</h3>
+        <p>Was die Erkrankung ist, wie sich Episoden zeigen und warum Angehörige oft mit Unsicherheit statt mit Klarheit leben.</p>
+        <div class="module-card-footer">
+          <span class="module-time">⏱ 10–12 Min.</span>
+          <span class="module-arrow">→</span>
+        </div>
+      </a>
+
+      <a href="/modul/2/" class="module-card" data-accent="amber">
+        <span class="module-number">Modul 2</span>
+        <h3>Was das mit Ihnen macht</h3>
+        <p>Eigene Belastung, Hypervigilanz und die oft unsichtbaren Folgen des Lebens als Angehörige*r einer bipolaren Störung.</p>
+        <div class="module-card-footer">
+          <span class="module-time">⏱ 8–10 Min.</span>
+          <span class="module-arrow">→</span>
+        </div>
+      </a>
+
+      <a href="/modul/3/" class="module-card" data-accent="purple">
+        <span class="module-number">Modul 3</span>
+        <h3>Wie Beziehungen unter Druck geraten</h3>
+        <p>Rollenverschiebung, Beziehungslogik, Vertrauensbrüche und die Frage, was Episoden in Beziehungen hinterlassen.</p>
+        <div class="module-card-footer">
+          <span class="module-time">⏱ 8–10 Min.</span>
+          <span class="module-arrow">→</span>
+        </div>
+      </a>
+
+      <a href="/modul/4/" class="module-card" data-accent="amber">
+        <span class="module-number">Modul 4</span>
+        <h3>Wenn die Kraft nachlässt</h3>
+        <p>Schleichende Erschöpfung, ungreifbarer Verlust und die Frage, was chronische Belastung mit Angehörigen macht.</p>
+        <div class="module-card-footer">
+          <span class="module-time">⏱ 14–16 Min.</span>
+          <span class="module-arrow">→</span>
+        </div>
+      </a>
+
+      <a href="/modul/5/" class="module-card" data-accent="amber">
+        <span class="module-number">Modul 5</span>
+        <h3>Loyalitätskonflikte und schwierige Entscheidungen</h3>
+        <p>Das Spannungsfeld zwischen Verpflichtung und Selbstschutz — mit Schuld, Grenzenot, Isolation und der Frage nach Abstand oder Neuordnung.</p>
+        <div class="module-card-footer">
+          <span class="module-time">⏱ 14–16 Min.</span>
+          <span class="module-arrow">→</span>
+        </div>
+      </a>
+
+      <a href="/modul/6/" class="module-card" data-accent="green">
+        <span class="module-number">Modul 6</span>
+        <h3>Was Sie konkret tun können</h3>
+        <p>Gespräche, Grenzsetzung, Krisenplan und praktische Hilfen für belastende oder instabile Situationen.</p>
+        <div class="module-card-footer">
+          <span class="module-time">⏱ 10–12 Min.</span>
+          <span class="module-arrow">→</span>
+        </div>
+      </a>
+
+      <a href="/modul/7/" class="module-card" data-accent="green">
+        <span class="module-number">Modul 7</span>
+        <h3>Langfristige Tragfähigkeit</h3>
+        <p>Selbstfürsorge stärken, Stabilität im Alltag sichern und die lange Strecke etwas tragfähiger machen.</p>
+        <div class="module-card-footer">
+          <span class="module-time">⏱ 12–14 Min.</span>
+          <span class="module-arrow">→</span>
+        </div>
+      </a>
+
+      <a href="/modul/8/" class="module-card" data-accent="teal">
+        <span class="module-number">Modul 8</span>
+        <h3>Unterstützung und Ressourcen</h3>
+        <p>Abschlussmodul und direkter Ressourcen-Einstieg: Orientierung nach Situation, Anlaufstellen, Materialien und konkrete nächste Schritte.</p>
+        <div class="module-card-footer">
+          <span class="module-time">⏱ Schnellstart 3–5 Min.</span>
+          <span class="module-arrow">→</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <p class="overview-footer-note">Wenn Sie lieber interaktive Hilfen nutzen möchten, finden Sie auf der separaten Übersicht <a href="/werkzeuge/">alle Werkzeuge im Überblick</a>.</p>
+</main>
+{% endblock %}
+
+{% block footer %}
+{% include "footer-medium.njk" %}
+{% endblock %}

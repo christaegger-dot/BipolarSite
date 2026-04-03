@@ -1,0 +1,302 @@
+---
+layout: "base"
+title: "Werkzeuge im Überblick | PUK Zürich"
+description: "Alle interaktiven Werkzeuge für Angehörige von Menschen mit bipolarer Störung im Überblick: von Selbsttest bis Krisenplan."
+permalink: "/werkzeuge/"
+navCurrent: "tools-overview"
+useSharedCSS: true
+useNavJS: true
+footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
+---
+{% block headCSS %}
+<style>
+  .overview-hero {
+    padding: 120px 2rem 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .overview-hero::before {
+    content: '';
+    position: absolute;
+    top: -24%;
+    right: -10%;
+    width: 640px;
+    height: 640px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(217,236,236,0.7) 0%, transparent 72%);
+    opacity: 0.82;
+  }
+  .overview-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -16%;
+    left: -5%;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(221,210,191,0.72) 0%, transparent 72%);
+    opacity: 0.76;
+  }
+  .overview-hero-inner,
+  .overview-content {
+    max-width: var(--wide-width);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .overview-breadcrumb {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .overview-breadcrumb a {
+    color: var(--sage-500);
+    text-decoration: none;
+  }
+  .overview-breadcrumb a:hover {
+    text-decoration: underline;
+  }
+  .overview-badge {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(217,236,236,0.42);
+    color: var(--teal);
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .overview-hero h1 {
+    font-family: 'Source Serif 4', serif;
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+    color: var(--earth-900);
+    margin: 0 0 16px;
+    max-width: 760px;
+  }
+  .overview-lead {
+    max-width: 760px;
+    font-size: 1rem;
+    line-height: 1.78;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+  .overview-intro {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    margin: 12px auto 0;
+  }
+  .overview-note {
+    background: linear-gradient(180deg, #fff 0%, #f8fbfb 100%);
+    border: 1px solid rgba(45,40,35,0.08);
+    border-radius: 24px;
+    box-shadow: var(--shadow-soft);
+    padding: 24px 26px;
+  }
+  .overview-note h2 {
+    margin: 0 0 10px;
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.25rem;
+    color: var(--navy);
+  }
+  .overview-note p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+  .overview-content {
+    padding: 0 2rem 80px;
+  }
+  .tool-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+  .tool-card {
+    display: block;
+    background: linear-gradient(180deg, #fff 0%, #f8fbfb 100%);
+    border: 1px solid rgba(45,40,35,0.08);
+    border-radius: 24px;
+    box-shadow: var(--shadow-soft);
+    padding: 24px 26px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  .tool-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+    border-color: rgba(30,101,109,0.2);
+  }
+  .tool-card-kicker {
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--sage-500);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .tool-card h3 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.25rem;
+    line-height: 1.25;
+    color: var(--navy);
+    margin: 0 0 10px;
+  }
+  .tool-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+  .tool-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(45,40,35,0.08);
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    font-weight: 600;
+  }
+  .tool-card-arrow {
+    color: var(--teal);
+    font-size: 1rem;
+  }
+  .overview-footer-note {
+    max-width: 760px;
+    margin-top: 32px;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+  @media (max-width: 900px) {
+    .overview-intro,
+    .tool-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 600px) {
+    .overview-hero {
+      padding: 104px 1.2rem 28px;
+    }
+    .overview-content {
+      padding: 0 1.2rem 64px;
+    }
+    .overview-note,
+    .tool-card {
+      padding: 20px 18px;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block nav %}
+{% include "nav-full.njk" %}
+{% endblock %}
+
+{% block content %}
+<header class="overview-hero">
+  <div class="overview-hero-inner">
+    <div class="overview-breadcrumb"><a href="/">Startseite</a><span>›</span><span>Werkzeuge</span></div>
+    <div class="overview-badge">Interaktiv</div>
+    <h1>Werkzeuge im Überblick</h1>
+    <p class="overview-lead">Hier finden Sie alle interaktiven Hilfen an einem Ort. Die Werkzeuge sind dafür gedacht, Muster sichtbarer zu machen, Gespräche vorzubereiten und konkrete nächste Schritte leichter festzuhalten.</p>
+  </div>
+</header>
+
+<main id="main-content" class="overview-content">
+  <div class="overview-intro">
+    <div class="overview-note">
+      <h2>Wenn Sie lieber lesen als klicken</h2>
+      <p>Die inhaltliche Einordnung finden Sie in den <a href="/module/">acht Modulen</a>. Die Werkzeuge sind eine Ergänzung, kein Ersatz für Orientierung und Kontext.</p>
+    </div>
+    <div class="overview-note">
+      <h2>Wenn es akut ist</h2>
+      <p>In Krisen oder bei unmittelbarer Gefahr ist der <a href="/notfall/">Notfallweg</a> wichtiger als jedes Werkzeug. Für Kontakte, Materialien und rechtliche Orientierung ist <a href="/modul/8/">Modul 8</a> der schnellste Einstieg.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="section-label">Interaktiv</div>
+    <h2 class="section-title">Alle Werkzeuge als eigener Überblick</h2>
+    <p class="section-desc">Wählen Sie das Werkzeug nach Ihrer Frage: Belastung einordnen, Gespräche vorbereiten, Dynamiken besser verstehen oder einen Krisenplan festhalten.</p>
+
+    <div class="tool-grid">
+      <a href="/tools/selbsttest/" class="tool-card">
+        <span class="tool-card-kicker">Einordnung</span>
+        <h3>Belastungs-Selbsttest</h3>
+        <p>Ordnet Ihre aktuelle Belastung ein und zeigt, ob eher Information, Entlastung oder ein Gespräch der nächste sinnvolle Schritt ist.</p>
+        <div class="tool-card-footer"><span>Kurz und direkt</span><span class="tool-card-arrow">→</span></div>
+      </a>
+
+      <a href="/tools/phasenverlauf/" class="tool-card">
+        <span class="tool-card-kicker">Muster</span>
+        <h3>Bipolarer Phasenverlauf</h3>
+        <p>Hilft zu erkennen, wie sich Manie, Depression, Stabilisierung und Nachwirkungen über Episoden und Zeit verschieben können.</p>
+        <div class="tool-card-footer"><span>Verlauf sichtbar machen</span><span class="tool-card-arrow">→</span></div>
+      </a>
+
+      <a href="/tools/eisberg/" class="tool-card">
+        <span class="tool-card-kicker">Verstehen</span>
+        <h3>Eisberg-Modell</h3>
+        <p>Zeigt, was im Alltag sichtbar ist und welche Belastungen, Ängste oder Dynamiken darunter oft mitgetragen werden.</p>
+        <div class="tool-card-footer"><span>Für Gespräche und Einordnung</span><span class="tool-card-arrow">→</span></div>
+      </a>
+
+      <a href="/tools/krisenplan/" class="tool-card">
+        <span class="tool-card-kicker">Vorbereitung</span>
+        <h3>Krisenplan-Werkzeug</h3>
+        <p>Ordnet Frühwarnzeichen, Kontakte, Klinikwünsche und konkrete Schritte für instabile oder akute Phasen.</p>
+        <div class="tool-card-footer"><span>Zum Ausfüllen und Drucken</span><span class="tool-card-arrow">→</span></div>
+      </a>
+
+      <a href="/tools/komm-trainer/" class="tool-card">
+        <span class="tool-card-kicker">Kommunikation</span>
+        <h3>Kommunikations-Trainer</h3>
+        <p>Unterstützt dabei, Gespräche klarer vorzubereiten und zwischen Anliegen, Grenze und Eskalationsrisiko zu unterscheiden.</p>
+        <div class="tool-card-footer"><span>Für schwierige Gespräche</span><span class="tool-card-arrow">→</span></div>
+      </a>
+
+      <a href="/tools/saeulen-check/" class="tool-card">
+        <span class="tool-card-kicker">Stabilität</span>
+        <h3>Säulen-Check</h3>
+        <p>Macht sichtbar, welche Alltagsbereiche gerade tragen und wo Belastung, Schlafmangel oder Überforderung die Stabilität schwächen.</p>
+        <div class="tool-card-footer"><span>Für Alltag und Selbstfürsorge</span><span class="tool-card-arrow">→</span></div>
+      </a>
+
+      <a href="/tools/ee-kreislauf/" class="tool-card">
+        <span class="tool-card-kicker">Beziehungsdynamik</span>
+        <h3>EE-Kreislauf</h3>
+        <p>Zeigt, wie Kritik, Alarm, Rückzug und Überforderung sich gegenseitig hochschaukeln und wo Unterbrechungen möglich werden.</p>
+        <div class="tool-card-footer"><span>Für Muster in Beziehungen</span><span class="tool-card-arrow">→</span></div>
+      </a>
+
+      <a href="/tools/solidaritaets-chart/" class="tool-card">
+        <span class="tool-card-kicker">Langfristige Belastung</span>
+        <h3>Belastungsverlauf über Episoden</h3>
+        <p>Veranschaulicht, wie Solidarität, Erschöpfung und Dauerbelastung sich über längere Strecken verändern können.</p>
+        <div class="tool-card-footer"><span>Für längere Verläufe</span><span class="tool-card-arrow">→</span></div>
+      </a>
+    </div>
+  </section>
+
+  <p class="overview-footer-note">Wenn Sie lieber über Inhalte statt über Werkzeuge einsteigen möchten, finden Sie auf der separaten Übersicht <a href="/module/">alle Module im Überblick</a>.</p>
+</main>
+{% endblock %}
+
+{% block footer %}
+{% include "footer-medium.njk" %}
+{% endblock %}
