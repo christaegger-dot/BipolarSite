@@ -1,0 +1,46 @@
+<svg width="720" height="420" viewBox="0 0 720 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="720" height="420" rx="34" fill="#F6FAFA"/>
+  <rect x="34" y="34" width="652" height="352" rx="26" fill="url(#bg)" stroke="#D8E8E4" stroke-width="2"/>
+  <circle cx="360" cy="208" r="72" fill="#1C2B3A"/>
+  <path d="M328 170H380V202H344V230H376V262H328V170Z" fill="#A8E4E8"/>
+  <path d="M380 202H404V230H380V202Z" fill="#8DD4D9"/>
+  <path d="M380 234H404V262H380V234Z" fill="#8DD4D9"/>
+  <text x="320" y="305" fill="#1C2B3A" font-family="DM Sans, Arial, sans-serif" font-size="18" font-weight="700">Nächster Schritt</text>
+
+  <g>
+    <line x1="360" y1="118" x2="360" y2="86" stroke="#A7D9D5" stroke-width="4" stroke-linecap="round"/>
+    <rect x="296" y="42" width="128" height="44" rx="16" fill="#FFFFFF" stroke="#D7E7E3" stroke-width="2"/>
+    <text x="324" y="69" fill="#1E656D" font-family="DM Sans, Arial, sans-serif" font-size="16" font-weight="700">Beratung</text>
+  </g>
+
+  <g>
+    <line x1="437" y1="160" x2="492" y2="128" stroke="#A7D9D5" stroke-width="4" stroke-linecap="round"/>
+    <rect x="494" y="92" width="140" height="44" rx="16" fill="#FFFFFF" stroke="#D7E7E3" stroke-width="2"/>
+    <text x="526" y="119" fill="#B45309" font-family="DM Sans, Arial, sans-serif" font-size="16" font-weight="700">Selbsthilfe</text>
+  </g>
+
+  <g>
+    <line x1="442" y1="251" x2="504" y2="282" stroke="#A7D9D5" stroke-width="4" stroke-linecap="round"/>
+    <rect x="500" y="282" width="154" height="44" rx="16" fill="#FFFFFF" stroke="#D7E7E3" stroke-width="2"/>
+    <text x="527" y="309" fill="#9A3412" font-family="DM Sans, Arial, sans-serif" font-size="16" font-weight="700">Recht / Ombuds</text>
+  </g>
+
+  <g>
+    <line x1="281" y1="254" x2="216" y2="292" stroke="#A7D9D5" stroke-width="4" stroke-linecap="round"/>
+    <rect x="70" y="288" width="148" height="44" rx="16" fill="#FFFFFF" stroke="#D7E7E3" stroke-width="2"/>
+    <text x="103" y="315" fill="#5B7FA5" font-family="DM Sans, Arial, sans-serif" font-size="16" font-weight="700">Materialien</text>
+  </g>
+
+  <g>
+    <line x1="281" y1="159" x2="212" y2="122" stroke="#A7D9D5" stroke-width="4" stroke-linecap="round"/>
+    <rect x="80" y="90" width="132" height="44" rx="16" fill="#FFFFFF" stroke="#D7E7E3" stroke-width="2"/>
+    <text x="108" y="117" fill="#0D7A5F" font-family="DM Sans, Arial, sans-serif" font-size="16" font-weight="700">Notfallweg</text>
+  </g>
+
+  <defs>
+    <linearGradient id="bg" x1="90" y1="54" x2="630" y2="356" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FCFDFC"/>
+      <stop offset="1" stop-color="#F4F8FA"/>
+    </linearGradient>
+  </defs>
+</svg>

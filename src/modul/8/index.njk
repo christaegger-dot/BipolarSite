@@ -20,13 +20,16 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   
   
 
-  .module-hero{padding:120px 2rem 60px;position:relative;overflow:hidden}.module-hero::before{content:'';position:absolute;top:-30%;right:-15%;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,var(--sage-100) 0%,transparent 70%);opacity:0.6}.module-hero-inner{max-width:var(--content-width);margin:0 auto;position:relative;z-index:2}
+  .module-hero{padding:120px 2rem 60px;position:relative;overflow:hidden}.module-hero::before{content:'';position:absolute;top:-30%;right:-15%;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,var(--sage-100) 0%,transparent 70%);opacity:0.6}.module-hero-inner{max-width:1120px;margin:0 auto;position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,0.96fr) minmax(320px,0.84fr);gap:28px;align-items:start}
+  .module-hero-copy{min-width:0}
+  .module-hero-visual{background:rgba(255,255,255,0.82);border:1px solid rgba(45,40,35,0.08);border-radius:26px;padding:18px;box-shadow:var(--shadow-card);backdrop-filter:blur(10px)}
+  .module-hero-visual img{display:block;width:100%;height:auto;border-radius:18px}
   .breadcrumb{font-size:0.8rem;color:var(--text-muted);margin-bottom:20px;display:flex;align-items:center;gap:8px}.breadcrumb a{color:var(--sage-500);text-decoration:none}
   .hero-icon{width:40px;height:40px;color:var(--sage-400);opacity:0.7;margin-bottom:12px;display:block}.module-badge{display:inline-flex;background:var(--sage-100);color:var(--sage-700);padding:6px 16px;border-radius:100px;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px}
   .module-hero h1{font-family:'Source Serif 4',serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:700;line-height:1.2;letter-spacing:-0.03em;color:var(--earth-900);margin-bottom:16px}
   .module-meta{display:flex;align-items:center;gap:20px;font-size:0.85rem;color:var(--text-muted);margin-bottom:28px}
 
-  .toc{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:28px 32px;margin-bottom:48px;box-shadow:var(--shadow-soft)}.toc-title{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--sage-500);margin-bottom:14px}
+  .toc{grid-column:1 / -1;background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:28px 32px;margin-bottom:48px;box-shadow:var(--shadow-soft)}.toc-title{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--sage-500);margin-bottom:14px}
   .toc ol{list-style:none;counter-reset:toc-counter;display:grid;grid-template-columns:1fr 1fr;gap:4px 20px}.toc li{counter-increment:toc-counter}.toc li a{text-decoration:none;color:var(--text-secondary);font-size:0.88rem;display:block;padding:8px 0 8px 28px;position:relative;transition:color 0.2s}.toc li a::before{content:counter(toc-counter);font-size:0.7rem;font-weight:700;color:var(--sage-400);position:absolute;left:0;top:10px}.toc li a:hover{color:var(--sage-600)}.toc-desc{display:block;font-size:0.72rem;color:var(--text-muted);line-height:1.35;margin-top:2px;font-weight:400}.toc li a.active{color:var(--sage-700);font-weight:700}.toc li a.active::after{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--sage-400);margin-left:8px;vertical-align:middle}
 
   .content{max-width:var(--content-width);margin:0 auto;padding:0 2rem}
@@ -115,6 +118,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
 
   @media(max-width:768px){.toc ol{grid-template-columns:1fr}.handout-list{grid-template-columns:1fr 1fr}}
   
+  @media(max-width:900px){.module-hero-inner{grid-template-columns:1fr}}
   @media(max-width:600px){.module-hero{padding:100px 1.2rem 40px}.content{padding:0 1.2rem}.closing{padding:36px 24px}.handout-list{grid-template-columns:1fr}}
   .sources-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;cursor:pointer;padding:0;font:inherit;color:inherit;text-align:left}
 
@@ -143,15 +147,20 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
 <div class="reading-progress"><div class="reading-progress-fill" id="readingProgress"></div></div>
 
 <header class="module-hero"><div class="module-hero-inner">
-  <div class="breadcrumb"><a href="/">Startseite</a><span>›</span><a href="/#module">Module</a><span>›</span><span>Unterstützung und Ressourcen</span></div>
-    <svg class="hero-icon" aria-hidden="true" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="2"/><polygon points="20,8 23,18 20,16 17,18" fill="currentColor" opacity="0.4"/><polygon points="20,32 17,22 20,24 23,22" fill="currentColor" opacity="0.2"/><circle cx="20" cy="20" r="2" fill="currentColor" opacity="0.5"/></svg>
-  <div class="module-badge">Modul 8 / 8</div>
-  <h1>Unterstützung und Ressourcen</h1>
-  <div class="module-meta"><span>⏱ ca. 10 Minuten</span><span>📍 Wo Sie Hilfe finden</span></div>
+  <div class="module-hero-copy">
+    <div class="breadcrumb"><a href="/">Startseite</a><span>›</span><a href="/#module">Module</a><span>›</span><span>Unterstützung und Ressourcen</span></div>
+      <svg class="hero-icon" aria-hidden="true" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="2"/><polygon points="20,8 23,18 20,16 17,18" fill="currentColor" opacity="0.4"/><polygon points="20,32 17,22 20,24 23,22" fill="currentColor" opacity="0.2"/><circle cx="20" cy="20" r="2" fill="currentColor" opacity="0.5"/></svg>
+    <div class="module-badge">Modul 8 / 8</div>
+    <h1>Unterstützung und Ressourcen</h1>
+    <div class="module-meta"><span>⏱ ca. 10 Minuten</span><span>📍 Wo Sie Hilfe finden</span></div>
 
-  <div class="quote-block">
-    <blockquote>Der wichtigste Schritt war nicht, alles zu verstehen. Es war, einen ersten Kontakt zu speichern und nicht mehr allein mit allem zu bleiben.</blockquote>
-    <cite>— Partnerin, 55 Jahre (anonymisiert)</cite>
+    <div class="quote-block">
+      <blockquote>Der wichtigste Schritt war nicht, alles zu verstehen. Es war, einen ersten Kontakt zu speichern und nicht mehr allein mit allem zu bleiben.</blockquote>
+      <cite>— Partnerin, 55 Jahre (anonymisiert)</cite>
+    </div>
+  </div>
+  <div class="module-hero-visual">
+    <img src="/visuals/modul8-support-map.svg" alt="Grafische Übersicht eines Unterstützungsnetzes mit Beratung, Selbsthilfe, Recht, Materialien und Notfallweg rund um den nächsten Schritt." width="720" height="420">
   </div>
 
   <div class="toc">

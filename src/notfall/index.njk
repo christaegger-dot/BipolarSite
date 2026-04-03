@@ -22,9 +22,12 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   
   
 
-  .hero{padding:100px 2rem 40px;text-align:center}.hero-inner{max-width:var(--content-width);margin:0 auto}
-  .hero h1{font-family:'Source Serif 4',serif;font-size:clamp(2rem,4vw,2.6rem);font-weight:700;color:var(--earth-900);margin-bottom:12px}
-  .hero p{font-size:1rem;color:var(--text-secondary);max-width:520px;margin:0 auto 32px}
+  .hero{padding:100px 2rem 40px}.hero-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:minmax(0,0.9fr) minmax(320px,0.95fr);gap:28px;align-items:center}
+  .hero-copy{text-align:left}
+  .hero h1{font-family:'Source Serif 4',serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:700;color:var(--earth-900);margin-bottom:12px}
+  .hero p{font-size:1rem;color:var(--text-secondary);max-width:560px;margin:0 0 24px}
+  .hero-visual{background:rgba(255,255,255,0.84);border:1px solid rgba(199,84,80,0.14);border-radius:26px;padding:18px;box-shadow:var(--shadow-card)}
+  .hero-visual img{display:block;width:100%;height:auto;border-radius:18px}
 
   .content{max-width:var(--content-width);margin:0 auto;padding:0 2rem}
   .content h2{font-family:'Source Serif 4',serif;font-size:1.5rem;font-weight:700;color:var(--earth-900);margin:56px 0 20px;padding-top:20px;border-top:1px solid rgba(45,40,35,0.06)}
@@ -121,7 +124,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
 
   
 
-  @media(max-width:768px){.situations{grid-template-columns:1fr}.numbers-grid{grid-template-columns:1fr}}
+  @media(max-width:768px){.hero-inner{grid-template-columns:1fr}.situations{grid-template-columns:1fr}.numbers-grid{grid-template-columns:1fr}}
   
   @media(max-width:600px){.hero{padding:90px 1.2rem 30px}.content{padding:0 1.2rem}.fu-alert{flex-direction:column}}
   
@@ -150,16 +153,21 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
 {% endblock %}
 {% block content %}
 <header class="hero"><div class="hero-inner">
-  <h1>Notfall — Was tun Sie jetzt?</h1>
-  <p>Wenn Sie unsicher sind, rufen Sie an. Diese Seite hilft Ihnen, akute Gefahr schneller einzuordnen und die ersten Schritte zu setzen.</p>
+  <div class="hero-copy">
+    <h1>Notfall — Was tun Sie jetzt?</h1>
+    <p>Wenn Sie unsicher sind, rufen Sie an. Diese Seite hilft Ihnen, akute Gefahr schneller einzuordnen und die ersten Schritte zu setzen.</p>
 
-  <div class="situations">
-    <a href="#guide-suizid" class="sit-card urgent"><div class="sit-badge">!</div><div class="sit-text"><strong>Suizidgedanken</strong>144 oder 0800 33 66 55</div></a>
-    <a href="#guide-psychose" class="sit-card urgent"><div class="sit-badge">!</div><div class="sit-text"><strong>Psychose / Wahn / Paranoia</strong>0800 33 66 55</div></a>
-    <a href="#guide-manie" class="sit-card urgent"><div class="sit-badge">!</div><div class="sit-text"><strong>Manie ausser Kontrolle</strong>0800 33 66 55</div></a>
-    <a href="#guide-gewalt" class="sit-card urgent"><div class="sit-badge">!</div><div class="sit-text"><strong>Gewalt oder Bedrohung</strong>117 (Polizei)</div></a>
-    <a href="#guide-depression" class="sit-card"><div class="sit-badge">–</div><div class="sit-text"><strong>Schwere Depression</strong>143 oder 0800 33 66 55</div></a>
-    <a href="#guide-finanzen" class="sit-card"><div class="sit-badge">CHF</div><div class="sit-text"><strong>Finanzielle Eskalation</strong>Spontankäufe, Verträge, Schulden</div></a>
+    <div class="situations">
+      <a href="#guide-suizid" class="sit-card urgent"><div class="sit-badge">!</div><div class="sit-text"><strong>Suizidgedanken</strong>144 oder 0800 33 66 55</div></a>
+      <a href="#guide-psychose" class="sit-card urgent"><div class="sit-badge">!</div><div class="sit-text"><strong>Psychose / Wahn / Paranoia</strong>0800 33 66 55</div></a>
+      <a href="#guide-manie" class="sit-card urgent"><div class="sit-badge">!</div><div class="sit-text"><strong>Manie ausser Kontrolle</strong>0800 33 66 55</div></a>
+      <a href="#guide-gewalt" class="sit-card urgent"><div class="sit-badge">!</div><div class="sit-text"><strong>Gewalt oder Bedrohung</strong>117 (Polizei)</div></a>
+      <a href="#guide-depression" class="sit-card"><div class="sit-badge">–</div><div class="sit-text"><strong>Schwere Depression</strong>143 oder 0800 33 66 55</div></a>
+      <a href="#guide-finanzen" class="sit-card"><div class="sit-badge">CHF</div><div class="sit-text"><strong>Finanzielle Eskalation</strong>Spontankäufe, Verträge, Schulden</div></a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <img src="/visuals/notfall-triage-hero.svg" alt="Grafische Triage mit drei Wegen: 144 oder 117 bei unmittelbarer Gefahr, 0800 33 66 55 bei psychiatrischer Krise, heute handeln bei Warnzeichen." width="720" height="420">
   </div>
 </div></header>
 

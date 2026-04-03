@@ -54,6 +54,17 @@ useNavJS: true
     width: 100%;
   }
 
+  .hero-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+    gap: 40px;
+    align-items: center;
+  }
+
+  .hero-text {
+    max-width: 620px;
+  }
+
   .hero-badge {
     display: inline-flex;
     align-items: center;
@@ -98,6 +109,43 @@ useNavJS: true
     max-width: 560px;
     line-height: 1.7;
     margin-bottom: 3rem;
+  }
+
+  .hero-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 46px;
+    padding: 0 18px;
+    border-radius: 999px;
+    background: var(--navy);
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 700;
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .hero-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .hero-visual-card {
+    background: rgba(255,255,255,0.8);
+    border: 1px solid rgba(45,40,35,0.08);
+    border-radius: 26px;
+    padding: 18px;
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(12px);
+  }
+
+  .hero-visual {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 18px;
   }
 
   /* ══════════ QUICK ACTIONS ══════════ */
@@ -629,8 +677,7 @@ useNavJS: true
 
   /* ══════════ RESPONSIVE ══════════ */
   @media (max-width: 768px) {
-    
-    
+    .hero-body { grid-template-columns: 1fr; gap: 26px; }
     .footer-inner { grid-template-columns: 1fr; gap: 32px; }
     .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
     .quick-actions { grid-template-columns: 1fr 1fr; }
@@ -678,6 +725,9 @@ useNavJS: true
         <a href="#orientierung" class="hero-link">Zur Orientierung ↓</a>
       </div>
       <div class="hero-cards">
+        <div class="hero-visual-card">
+          <img src="/visuals/home-orientation-hero.svg" alt="Grafische Übersicht mit den Einstiegen Akut, Hilfe, Verstehen und Erschöpfung." class="hero-visual" width="720" height="520">
+        </div>
         <div class="quick-actions">
           <a href="/notfall/" class="quick-card alert">
             <div class="quick-card-icon">⚡</div>
