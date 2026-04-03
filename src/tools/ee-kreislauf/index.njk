@@ -39,11 +39,17 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
 .detail-exit{background:#e6f4f2;border-radius:12px;padding:14px 18px;border-left:3px solid var(--green-phase)}
 .detail-exit .exit-lbl{font-size:0.68rem;font-weight:700;color:var(--green-phase);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px}
 .detail-exit p{font-size:0.85rem;color:#1c2b3a;margin:0;line-height:1.55}
+.station-picker{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:16px}
+.station-btn{padding:12px 14px;border-radius:14px;border:1px solid rgba(45,40,35,0.08);background:#fff;color:#475569;text-align:left;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:600;cursor:pointer;transition:border-color 0.2s ease,background-color 0.2s ease,color 0.2s ease,box-shadow 0.2s ease}
+.station-btn strong{display:block;color:#1c2b3a;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px}
+.station-btn:hover{border-color:rgba(30,101,109,0.28);box-shadow:0 8px 18px rgba(28,43,58,0.08)}
+.station-btn.is-active{border-color:var(--teal);background:#e6f4f2;color:#1c2b3a}
 .break-btn{width:100%;padding:14px;border-radius:16px;border:2px solid var(--green-phase);background:#fff;color:var(--green-phase);font-size:0.88rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background-color 0.3s ease,color 0.3s ease,border-color 0.3s ease,box-shadow 0.3s ease;margin-bottom:16px;box-shadow:0 8px 18px rgba(13,122,95,0.08)}
 .break-btn:hover{background:#e6f4f2}
 .break-btn.active{background:var(--green-phase);color:#fff}
 .tf{text-align:center;font-size:0.68rem;color:#8DD4D9;margin-top:28px;line-height:1.5}
 @media(prefers-reduced-motion:reduce){*{transition-duration:0.01ms!important;animation-duration:0.01ms!important}}
+@media(max-width:600px){.station-picker{grid-template-columns:1fr}}
 </style>
 {% endblock %}
 {% block nav %}
@@ -94,6 +100,12 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
       <text x="52" y="210" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="600" fill="#1c2b3a">Kritik</text>
     </svg>
   </div>
+  <div class="station-picker" role="group" aria-label="Station direkt auswählen">
+    <button class="station-btn" type="button" data-station-btn="0" aria-pressed="false"><strong>Station 1</strong>Schuld</button>
+    <button class="station-btn" type="button" data-station-btn="1" aria-pressed="false"><strong>Station 2</strong>Überengagement</button>
+    <button class="station-btn" type="button" data-station-btn="2" aria-pressed="false"><strong>Station 3</strong>Erschöpfung</button>
+    <button class="station-btn" type="button" data-station-btn="3" aria-pressed="false"><strong>Station 4</strong>Kritik</button>
+  </div>
   <div class="detail" id="detail" aria-live="polite"></div>
   <button class="break-btn" id="breakBtn" type="button" aria-pressed="false">Kreislauf unterbrechen</button>
 </main>
@@ -114,6 +126,11 @@ function sel(i){active=active===i?null:i;rn()}
 function doBreak(){broken=!broken;const breakBtn=document.getElementById('breakBtn');document.getElementById('svgWrap').classList.toggle('interrupted',broken);breakBtn.classList.toggle('active',broken);breakBtn.setAttribute('aria-pressed',broken?'true':'false');breakBtn.textContent=broken?'Kreislauf ist unterbrochen':'Kreislauf unterbrechen';document.getElementById('centerText1').textContent=broken?'✓':'Chronische';document.getElementById('centerText2').textContent=broken?'Unterbrochen':'Anspannung';if(broken){document.getElementById('centerText1').setAttribute('fill','#1e656d');document.getElementById('centerText2').setAttribute('fill','#1e656d')}else{document.getElementById('centerText1').setAttribute('fill','#1c2b3a');document.getElementById('centerText2').setAttribute('fill','#1c2b3a')}}
 function rn(){
   [0,1,2,3].forEach(i=>document.getElementById('station'+i).setAttribute('aria-pressed',active===i?'true':'false'));
+  document.querySelectorAll('[data-station-btn]').forEach(btn=>{
+    const isActive=Number(btn.dataset.stationBtn)===active;
+    btn.classList.toggle('is-active',isActive);
+    btn.setAttribute('aria-pressed',isActive?'true':'false');
+  });
   const d=document.getElementById('detail');
   if(active!==null){
     const s=stations[active];
@@ -123,6 +140,7 @@ function rn(){
 }
 function onSvgKey(event,index){if(event.key==='Enter'||event.key===' '){event.preventDefault();sel(index)}}
 [0,1,2,3].forEach(i=>{const el=document.getElementById('station'+i);el.addEventListener('click',()=>sel(i));el.addEventListener('keydown',event=>onSvgKey(event,i))});
+document.querySelectorAll('[data-station-btn]').forEach(btn=>btn.addEventListener('click',()=>sel(Number(btn.dataset.stationBtn))));
 document.getElementById('breakBtn').addEventListener('click',doBreak);
 </script>
 {% endblock %}

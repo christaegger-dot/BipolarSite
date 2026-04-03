@@ -84,12 +84,12 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
     </svg>
   </div>
   <div class="episodes">
-    <button class="ep-btn" style="--c:var(--amber-phase)" data-ep="0">Hypomanie</button>
-    <button class="ep-btn" style="--c:var(--rose)" data-ep="1">Schwere Manie</button>
-    <button class="ep-btn" style="--c:var(--blue-phase)" data-ep="2">Lange Depression</button>
+    <button class="ep-btn" type="button" style="--c:var(--amber-phase)" data-ep="0" aria-pressed="false">Hypomanie</button>
+    <button class="ep-btn" type="button" style="--c:var(--rose)" data-ep="1" aria-pressed="false">Schwere Manie</button>
+    <button class="ep-btn" type="button" style="--c:var(--blue-phase)" data-ep="2" aria-pressed="false">Lange Depression</button>
   </div>
   <div class="detail" id="detail" aria-live="polite"></div>
-  <div class="toggle-wrap"><button class="toggle-btn" id="toggleBtn">Mit Entlastung vergleichen</button></div>
+  <div class="toggle-wrap"><button class="toggle-btn" id="toggleBtn" type="button" aria-pressed="false">Mit Entlastung vergleichen</button></div>
   <div class="disc"><strong>Konzeptionelles Modell</strong> — es soll sichtbar machen, warum Belastung sich über Episoden oft kumuliert und Erholung unvollständig bleiben kann. Individuelle Verläufe können erheblich abweichen. Quellen: Perlick et al. (2007); Reinares et al. (2016); Miklowitz (2010).</div>
 </main>
 {% endblock %}
@@ -109,7 +109,7 @@ const epBtns=document.querySelectorAll('.ep-btn');
 const epRects=[0,1,2].map(i=>document.getElementById('ep'+i));
 const elDetail=document.getElementById('detail');
 function selEp(i){activeEp=activeEp===i?null:i;rn()}
-function toggleSupport(){showSup=!showSup;document.getElementById('curveSup').setAttribute('opacity',showSup?'1':'0');document.getElementById('toggleBtn').classList.toggle('on',showSup);document.getElementById('toggleBtn').textContent=showSup?'Entlastungsvergleich ausblenden':'Mit Entlastung vergleichen';document.getElementById('legSupport').style.display=showSup?'flex':'none'}
+function toggleSupport(){showSup=!showSup;document.getElementById('curveSup').setAttribute('opacity',showSup?'1':'0');document.getElementById('toggleBtn').classList.toggle('on',showSup);document.getElementById('toggleBtn').setAttribute('aria-pressed',showSup?'true':'false');document.getElementById('toggleBtn').textContent=showSup?'Entlastungsvergleich ausblenden':'Mit Entlastung vergleichen';document.getElementById('legSupport').style.display=showSup?'flex':'none'}
 function rn(){
   // Episode buttons
   epBtns.forEach((btn,i)=>{
@@ -118,6 +118,7 @@ function rn(){
     btn.style.background=a?eps[i].col:'#fff';
     btn.style.color=a?'#fff':'#475569';
     btn.style.borderColor=a?eps[i].col:'rgba(28,43,58,0.08)';
+    btn.setAttribute('aria-pressed',a?'true':'false');
   });
   // Episode bands
   epRects.forEach((rect,i)=>{
