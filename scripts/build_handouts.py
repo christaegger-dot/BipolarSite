@@ -13,6 +13,7 @@ from reportlab.lib.styles import ParagraphStyle, StyleSheet1, getSampleStyleShee
 from reportlab.lib.units import mm
 from reportlab.platypus import (
     BalancedColumns,
+    HRFlowable,
     KeepTogether,
     ListFlowable,
     ListItem,
@@ -38,6 +39,7 @@ TEXT = colors.HexColor("#2d2823")
 MUTED = colors.HexColor("#5c5a56")
 LINE = colors.HexColor("#ddd5cc")
 PAPER = colors.HexColor("#fffdf9")
+SURFACE = colors.HexColor("#f5f1eb")
 
 
 def parse_frontmatter(path: Path) -> tuple[dict[str, Any], str]:
@@ -68,9 +70,9 @@ def make_styles() -> StyleSheet1:
             parent=styles["Heading1"],
             fontName="Times-Bold",
             fontSize=17,
-            leading=18,
+            leading=18.5,
             textColor=NAVY,
-            spaceAfter=4,
+            spaceAfter=3,
         )
     )
     styles.add(
@@ -79,9 +81,9 @@ def make_styles() -> StyleSheet1:
             parent=styles["BodyText"],
             fontName="Helvetica",
             fontSize=7.8,
-            leading=9.3,
+            leading=9.1,
             textColor=MUTED,
-            spaceAfter=6,
+            spaceAfter=4,
         )
     )
     styles.add(
@@ -113,7 +115,7 @@ def make_styles() -> StyleSheet1:
             fontSize=6.8,
             leading=8,
             textColor=ALERT,
-            spaceAfter=3,
+            spaceAfter=2,
         )
     )
     styles.add(
@@ -124,7 +126,7 @@ def make_styles() -> StyleSheet1:
             fontSize=9.9,
             leading=10.5,
             textColor=colors.HexColor("#68200b"),
-            spaceAfter=4,
+            spaceAfter=2,
         )
     )
     styles.add(
@@ -135,6 +137,7 @@ def make_styles() -> StyleSheet1:
             fontSize=7.2,
             leading=8.5,
             textColor=colors.HexColor("#5d372e"),
+            spaceAfter=0,
         )
     )
     styles.add(
@@ -153,9 +156,10 @@ def make_styles() -> StyleSheet1:
             name="StepText",
             parent=styles["BodyText"],
             fontName="Helvetica-Bold",
-            fontSize=7,
-            leading=8.2,
+            fontSize=7.4,
+            leading=8.8,
             textColor=NAVY,
+            alignment=TA_LEFT,
         )
     )
     styles.add(
@@ -198,7 +202,7 @@ def make_styles() -> StyleSheet1:
             fontSize=7.3,
             leading=8.8,
             textColor=TEXT,
-            spaceAfter=3.5,
+            spaceAfter=2.5,
         )
     )
     styles.add(
@@ -209,7 +213,7 @@ def make_styles() -> StyleSheet1:
             fontSize=9.3,
             leading=10,
             textColor=NAVY,
-            spaceBefore=4.5,
+            spaceBefore=4,
             spaceAfter=2.5,
         )
     )
@@ -221,7 +225,7 @@ def make_styles() -> StyleSheet1:
             fontSize=6.8,
             leading=8.1,
             textColor=TEXT,
-            spaceAfter=2,
+            spaceAfter=1.5,
         )
     )
     styles.add(
@@ -267,14 +271,27 @@ def build_header(data: dict[str, Any], styles: StyleSheet1, width: float) -> lis
     header: list[Any] = []
 
     badges = [
-        badge(str(data.get("priority", "")), TEAL_SOFT, NAVY, styles),
-        badge(str(data.get("type", "")), ALERT_SOFT if data.get("type") == "Akutblatt" else TEAL_SOFT, ALERT if data.get("type") == "Akutblatt" else NAVY, styles),
-        badge(str(data.get("status", "")), colors.HexColor("#e8eff0"), NAVY, styles),
+        badge(
+            str(data.get("type", "")),
+            ALERT_SOFT if data.get("type") == "Akutblatt" else TEAL_SOFT,
+            ALERT if data.get("type") == "Akutblatt" else NAVY,
+            styles,
+        )
     ]
-    badge_table = Table([badges], colWidths=[None, None, None])
-    badge_table.setStyle(TableStyle([("VALIGN", (0, 0), (-1, -1), "MIDDLE")]))
+    badge_table = Table([badges], colWidths=[None])
+    badge_table.setStyle(
+        TableStyle(
+            [
+                ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
+                ("LEFTPADDING", (0, 0), (-1, -1), 0),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 0),
+                ("TOPPADDING", (0, 0), (-1, -1), 0),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 0),
+            ]
+        )
+    )
     header.append(badge_table)
-    header.append(Spacer(1, 6))
+    header.append(Spacer(1, 7))
     header.append(Paragraph(inline_markup(data["title"]), styles["DraftTitle"]))
     header.append(Paragraph(inline_markup(data["goal"]), styles["DraftSubtitle"]))
 
@@ -290,73 +307,92 @@ def build_header(data: dict[str, Any], styles: StyleSheet1, width: float) -> lis
     meta.setStyle(
         TableStyle(
             [
-                ("BOX", (0, 0), (-1, -1), 0.8, LINE),
-                ("INNERGRID", (0, 0), (-1, -1), 10, colors.white),
-                ("BACKGROUND", (0, 0), (-1, -1), colors.white),
+                ("LINEBELOW", (0, 0), (-1, -1), 0.7, LINE),
                 ("LEFTPADDING", (0, 0), (-1, -1), 0),
                 ("RIGHTPADDING", (0, 0), (-1, -1), 0),
                 ("TOPPADDING", (0, 0), (-1, -1), 0),
-                ("BOTTOMPADDING", (0, 0), (-1, -1), 0),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
             ]
         )
     )
     header.append(meta)
 
     if data.get("emergency_callout") or data.get("quick_steps"):
-        header.append(Spacer(1, 10))
-        header.append(build_alert_panel(data, styles, width))
+        header.append(Spacer(1, 8))
+        header.extend(build_alert_panel(data, styles, width))
+    header.append(Spacer(1, 6))
+    header.append(HRFlowable(width="100%", thickness=0.8, color=LINE, spaceBefore=0, spaceAfter=0))
     return header
 
 
-def build_alert_panel(data: dict[str, Any], styles: StyleSheet1, width: float) -> Table:
-    left = [
-        Paragraph(inline_markup(str(data.get("emergency_label", ""))), styles["AlertEyebrow"]),
-        Paragraph(inline_markup(str(data.get("emergency_callout", ""))), styles["AlertLine"]),
-        Paragraph(inline_markup(str(data.get("emergency_note", ""))), styles["AlertCopy"]),
-    ]
-    left_table = Table([[item] for item in left], colWidths=[width * 0.54])
-    left_table.setStyle(TableStyle([("LEFTPADDING", (0, 0), (-1, -1), 0), ("RIGHTPADDING", (0, 0), (-1, -1), 6), ("TOPPADDING", (0, 0), (-1, -1), 0), ("BOTTOMPADDING", (0, 0), (-1, -1), 0)]))
+def build_alert_panel(data: dict[str, Any], styles: StyleSheet1, width: float) -> list[Any]:
+    is_acute = data.get("type") == "Akutblatt"
+    eyebrow = Paragraph(inline_markup(str(data.get("emergency_label", ""))), styles["AlertEyebrow"])
+    line = Paragraph(inline_markup(str(data.get("emergency_callout", ""))), styles["AlertLine"])
+    note = Paragraph(inline_markup(str(data.get("emergency_note", ""))), styles["AlertCopy"])
 
-    steps = []
-    for step in data.get("quick_steps", []):
-        icon = str(step.get("icon", "")) if isinstance(step, dict) else ""
-        text = str(step.get("text", "")) if isinstance(step, dict) else str(step)
-        icon_table = Table([[Paragraph(inline_markup(icon), styles["StepIcon"])]], colWidths=[20], rowHeights=[20])
-        icon_table.setStyle(TableStyle([("BACKGROUND", (0, 0), (-1, -1), ALERT), ("BOX", (0, 0), (-1, -1), 0, ALERT), ("VALIGN", (0, 0), (-1, -1), "MIDDLE")]))
-        row = Table([[icon_table, Paragraph(inline_markup(text), styles["StepText"])]], colWidths=[20, width * 0.27 - 20])
-        row.setStyle(
-            TableStyle(
-                [
-                    ("BACKGROUND", (0, 0), (-1, -1), colors.white),
-                    ("BOX", (0, 0), (-1, -1), 0.8, colors.HexColor("#ead7cf")),
-                    ("ROUNDEDCORNERS", (0, 0), (-1, -1), 8),
-                    ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
-                    ("LEFTPADDING", (0, 0), (-1, -1), 7),
-                    ("RIGHTPADDING", (0, 0), (-1, -1), 8),
-                    ("TOPPADDING", (0, 0), (-1, -1), 6),
-                    ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
-                ]
-            )
-        )
-        steps.append([row])
-    right_table = Table(steps, colWidths=[width * 0.28]) if steps else Table([[Spacer(1, 1)]], colWidths=[width * 0.28])
-    right_table.setStyle(TableStyle([("LEFTPADDING", (0, 0), (-1, -1), 0), ("RIGHTPADDING", (0, 0), (-1, -1), 0), ("TOPPADDING", (0, 0), (-1, -1), 0), ("BOTTOMPADDING", (0, 0), (-1, -1), 4)]))
-
-    panel = Table([[left_table, right_table]], colWidths=[width * 0.62, width * 0.30])
-    panel.setStyle(
+    top = Table([[eyebrow], [line], [note]], colWidths=[width - 18])
+    top.setStyle(
         TableStyle(
             [
-                ("BACKGROUND", (0, 0), (-1, -1), ALERT_SOFT),
-                ("BOX", (0, 0), (-1, -1), 1, colors.HexColor("#e6c8bc")),
-                ("LEFTPADDING", (0, 0), (-1, -1), 12),
-                ("RIGHTPADDING", (0, 0), (-1, -1), 12),
-                ("TOPPADDING", (0, 0), (-1, -1), 11),
-                ("BOTTOMPADDING", (0, 0), (-1, -1), 11),
-                ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                ("BACKGROUND", (0, 0), (-1, -1), ALERT_SOFT if is_acute else WARM),
+                ("LINEABOVE", (0, 0), (-1, -1), 1.2, ALERT if is_acute else TEAL),
+                ("BOX", (0, 0), (-1, -1), 0.35, colors.HexColor("#e6c8bc") if is_acute else LINE),
+                ("LEFTPADDING", (0, 0), (-1, -1), 10),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 10),
+                ("TOPPADDING", (0, 0), (-1, -1), 7),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 7),
             ]
         )
     )
-    return panel
+
+    blocks: list[Any] = [top]
+    quick_steps = data.get("quick_steps", [])
+    if quick_steps:
+        step_width = (width - 8) / len(quick_steps)
+        row_cells = []
+        for step in quick_steps:
+            icon = str(step.get("icon", "")) if isinstance(step, dict) else ""
+            text = str(step.get("text", "")) if isinstance(step, dict) else str(step)
+            icon_box = Table([[Paragraph(inline_markup(icon), styles["StepIcon"])]], colWidths=[16], rowHeights=[16])
+            icon_box.setStyle(
+                TableStyle(
+                    [
+                        ("BACKGROUND", (0, 0), (-1, -1), ALERT if is_acute else TEAL),
+                        ("BOX", (0, 0), (-1, -1), 0, ALERT if is_acute else TEAL),
+                        ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
+                    ]
+                )
+            )
+            text_para = Paragraph(inline_markup(text), styles["StepText"])
+            inner = Table([[icon_box, text_para]], colWidths=[18, step_width - 28])
+            inner.setStyle(
+                TableStyle(
+                    [
+                        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                        ("LEFTPADDING", (0, 0), (-1, -1), 6),
+                        ("RIGHTPADDING", (0, 0), (-1, -1), 6),
+                        ("TOPPADDING", (0, 0), (-1, -1), 5),
+                        ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
+                    ]
+                )
+            )
+            outer = Table([[inner]], colWidths=[step_width])
+            outer.setStyle(
+                TableStyle(
+                    [
+                        ("BACKGROUND", (0, 0), (-1, -1), PAPER),
+                        ("BOX", (0, 0), (-1, -1), 0.35, colors.HexColor("#ead7cf") if is_acute else LINE),
+                        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                    ]
+                )
+            )
+            row_cells.append(outer)
+        step_row = Table([row_cells], colWidths=[step_width] * len(quick_steps))
+        step_row.setStyle(TableStyle([("VALIGN", (0, 0), (-1, -1), "TOP")]))
+        blocks.extend([Spacer(1, 4), step_row])
+
+    return blocks
 
 
 def build_number_bar(data: dict[str, Any], styles: StyleSheet1, width: float) -> Table | None:
@@ -364,32 +400,87 @@ def build_number_bar(data: dict[str, Any], styles: StyleSheet1, width: float) ->
     if not contacts:
         return None
 
-    col_width = (width - 16) / len(contacts)
     cards = []
     for item in contacts:
         label = Paragraph(inline_markup(str(item["label"]).upper()), styles["NumberLabel"])
         value_style = styles["NumberValue"].clone("NumberValueClone")
         if item.get("tone") == "urgent":
             value_style.textColor = colors.HexColor("#68200b")
+            value_style.fontSize = 12.4
+            value_style.leading = 12.8
         note = Paragraph(inline_markup(str(item.get("note", ""))), styles["NumberNote"])
-        card = Table([[label], [Paragraph(inline_markup(str(item["number"])), value_style)], [note]], colWidths=[col_width - 10])
-        bg = ALERT_SOFT if item.get("tone") == "urgent" else colors.HexColor("#f5f1eb")
-        border = colors.HexColor("#e6c8bc") if item.get("tone") == "urgent" else LINE
-        card.setStyle(
+        body = Table([[label], [Paragraph(inline_markup(str(item["number"])), value_style)], [note]], colWidths=[width - 20])
+        body.setStyle(
             TableStyle(
                 [
-                    ("BACKGROUND", (0, 0), (-1, -1), bg),
-                    ("BOX", (0, 0), (-1, -1), 0.9, border),
-                    ("LEFTPADDING", (0, 0), (-1, -1), 9),
-                    ("RIGHTPADDING", (0, 0), (-1, -1), 9),
+                    ("LEFTPADDING", (0, 0), (-1, -1), 0),
+                    ("RIGHTPADDING", (0, 0), (-1, -1), 0),
+                    ("TOPPADDING", (0, 0), (-1, -1), 0),
+                    ("BOTTOMPADDING", (0, 0), (-1, -1), 0),
+                ]
+            )
+        )
+        cards.append((item, body))
+
+    if data.get("type") == "Akutblatt" and len(cards) == 3:
+        urgent_item, urgent_body = next((pair for pair in cards if pair[0].get("tone") == "urgent"), cards[0])
+        secondary = [pair for pair in cards if pair is not (urgent_item, urgent_body)]
+
+        urgent_card = Table([[urgent_body]], colWidths=[width])
+        urgent_card.setStyle(
+            TableStyle(
+                [
+                    ("BACKGROUND", (0, 0), (-1, -1), ALERT_SOFT),
+                    ("BOX", (0, 0), (-1, -1), 0.45, colors.HexColor("#e6c8bc")),
+                    ("LINEABOVE", (0, 0), (-1, -1), 1.2, ALERT),
+                    ("LEFTPADDING", (0, 0), (-1, -1), 10),
+                    ("RIGHTPADDING", (0, 0), (-1, -1), 10),
                     ("TOPPADDING", (0, 0), (-1, -1), 7),
                     ("BOTTOMPADDING", (0, 0), (-1, -1), 7),
                 ]
             )
         )
-        cards.append(card)
 
-    bar = Table([cards], colWidths=[col_width] * len(contacts))
+        secondary_width = (width - 8) / 2
+        secondary_cards = []
+        for item, body in secondary:
+            card = Table([[body]], colWidths=[secondary_width])
+            card.setStyle(
+                TableStyle(
+                    [
+                        ("BACKGROUND", (0, 0), (-1, -1), SURFACE),
+                        ("BOX", (0, 0), (-1, -1), 0.35, LINE),
+                        ("LEFTPADDING", (0, 0), (-1, -1), 8),
+                        ("RIGHTPADDING", (0, 0), (-1, -1), 8),
+                        ("TOPPADDING", (0, 0), (-1, -1), 6),
+                        ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
+                    ]
+                )
+            )
+            secondary_cards.append(card)
+        secondary_row = Table([secondary_cards], colWidths=[secondary_width, secondary_width])
+        secondary_row.setStyle(TableStyle([("VALIGN", (0, 0), (-1, -1), "TOP")]))
+        return KeepTogether([urgent_card, Spacer(1, 4), secondary_row])
+
+    col_width = (width - 8) / len(cards)
+    row_cards = []
+    for _, body in cards:
+        card = Table([[body]], colWidths=[col_width])
+        card.setStyle(
+            TableStyle(
+                [
+                    ("BACKGROUND", (0, 0), (-1, -1), SURFACE),
+                    ("BOX", (0, 0), (-1, -1), 0.35, LINE),
+                    ("LEFTPADDING", (0, 0), (-1, -1), 8),
+                    ("RIGHTPADDING", (0, 0), (-1, -1), 8),
+                    ("TOPPADDING", (0, 0), (-1, -1), 6),
+                    ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
+                ]
+            )
+        )
+        row_cards.append(card)
+
+    bar = Table([row_cards], colWidths=[col_width] * len(row_cards))
     bar.setStyle(TableStyle([("VALIGN", (0, 0), (-1, -1), "TOP")]))
     return bar
 
@@ -469,28 +560,13 @@ def build_story(path: Path) -> list[Any]:
     doc_width = page_width - 18 * mm
 
     story: list[Any] = []
-    header = build_header(data, styles, doc_width)
-    story.append(
-        Table(
-            [[item] for item in header],
-            colWidths=[doc_width],
-            style=TableStyle(
-                [
-                    ("BACKGROUND", (0, 0), (-1, -1), PAPER),
-                    ("BOX", (0, 0), (-1, -1), 0.8, LINE),
-                    ("LEFTPADDING", (0, 0), (-1, -1), 10),
-                    ("RIGHTPADDING", (0, 0), (-1, -1), 10),
-                    ("TOPPADDING", (0, 0), (-1, -1), 9),
-                    ("BOTTOMPADDING", (0, 0), (-1, -1), 8),
-                ]
-            ),
-        )
-    )
+    story.extend(build_header(data, styles, doc_width))
     story.append(Spacer(1, 3))
 
     number_bar = build_number_bar(data, styles, doc_width)
     if number_bar is not None:
-        story.append(KeepTogether([number_bar, Spacer(1, 3)]))
+        story.append(number_bar)
+        story.append(Spacer(1, 6))
 
     blocks = parse_blocks(body)
     body_flowables: list[Any] = []
