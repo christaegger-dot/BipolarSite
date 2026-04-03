@@ -57,15 +57,16 @@ body::before {
 }
 .nav-logo {
   width: 34px; height: 34px;
-  border-radius: 9px;
-  background: linear-gradient(135deg, var(--sage-400), var(--sage-600));
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  font-weight: 700;
-  font-size: 13px;
   flex-shrink: 0;
+  overflow: hidden;
+}
+.nav-logo img {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 .nav-brand-text {
   font-family: 'Source Serif 4', serif;
