@@ -268,6 +268,125 @@ useNavJS: true
     gap: 20px;
   }
 
+  .urgent-entry {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(220px, 0.6fr);
+    gap: 20px;
+    align-items: stretch;
+    margin-bottom: 22px;
+  }
+
+  .urgent-entry-card {
+    text-decoration: none;
+    color: var(--text);
+    background: linear-gradient(135deg, var(--alert-red-bg), rgba(255,255,255,0.98));
+    border: 1px solid var(--alert-red-border);
+    border-radius: var(--radius-xl);
+    padding: 28px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .urgent-entry-card:hover {
+    box-shadow: var(--shadow-card);
+    border-color: var(--alert-red);
+  }
+
+  .urgent-entry-kicker {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--alert-red);
+  }
+
+  .urgent-entry-card h3 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.45rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--earth-900);
+  }
+
+  .urgent-entry-card p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+  }
+
+  .urgent-entry-note {
+    background: rgba(199,84,80,0.08);
+    border: 1px solid rgba(199,84,80,0.14);
+    border-radius: var(--radius-lg);
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .urgent-entry-note strong {
+    color: var(--alert-red);
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .urgent-entry-note p {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.55;
+    color: var(--text-secondary);
+  }
+
+  .choice-split {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 22px;
+  }
+
+  .choice-card {
+    background: white;
+    border: 1px solid rgba(45,40,35,0.08);
+    border-radius: var(--radius-lg);
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .choice-kicker {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--sage-500);
+  }
+
+  .choice-card h3 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.08rem;
+    line-height: 1.3;
+    color: var(--earth-800);
+  }
+
+  .choice-card p {
+    font-size: 0.84rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .choice-link {
+    margin-top: auto;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--sage-600);
+    text-decoration: none;
+  }
+
   .module-card {
     text-decoration: none;
     color: var(--text);
@@ -515,6 +634,8 @@ useNavJS: true
     .footer-inner { grid-template-columns: 1fr; gap: 32px; }
     .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
     .quick-actions { grid-template-columns: 1fr 1fr; }
+    .urgent-entry { grid-template-columns: 1fr; }
+    .choice-split { grid-template-columns: 1fr; }
   }
   
 
@@ -602,19 +723,25 @@ useNavJS: true
   <div class="section-label reveal">Orientierung</div>
   <h2 class="section-title reveal">Wo stehen Sie gerade?</h2>
   <p class="section-desc reveal">Sie müssen nicht linear durch die Website gehen. Diese Startseite zeigt vier Zugänge: <strong>Situation zuerst</strong>, <strong>passende Einstiege</strong>, <strong>Orientierung nach Rolle</strong> und unten den <strong>kompletten Lernpfad</strong>. <strong>Ein Zugang reicht</strong> — Sie müssen nicht alle vier gleichzeitig nutzen.</p>
-  <p class="section-desc reveal" style="margin-top:-6px"><strong>Wenn es gerade akut sein könnte, beginnen Sie nicht weiter unten, sondern direkt mit der roten Karte.</strong></p>
+  <p class="section-desc reveal" style="margin-top:-6px"><strong>Wenn es gerade akut sein könnte, hat dieser Einstieg Vorrang vor allem anderen.</strong></p>
 
-  <div class="modules-grid">
-    <a href="/notfall/" class="module-card reveal" style="border-color:var(--alert-red-border);background:var(--alert-red-bg)">
-      <span class="module-number" style="color:var(--alert-red)">Akut</span>
-      <h3>Es ist unklar, ob es gerade gefährlich wird</h3>
-      <p>Bei Suizidgedanken, Manie, Psychose, Gewalt, finanzieller Eskalation oder der Frage: Ist das schon ein Notfall?</p>
+  <div class="urgent-entry reveal">
+    <a href="/notfall/" class="urgent-entry-card">
+      <span class="urgent-entry-kicker">Akut / Soforthilfe</span>
+      <h3>Es ist gerade wichtiger zu klären, ob Gefahr besteht</h3>
+      <p>Bei Suizidgedanken, Manie, Psychose, Gewalt, finanzieller Eskalation oder der Frage: Ist das schon ein Notfall? Hier finden Sie sofort die richtige Triage und die ersten Schritte.</p>
       <div class="module-card-footer">
-        <span class="module-time" style="color:var(--alert-red)">→ Soforthilfe</span>
+        <span class="module-time" style="color:var(--alert-red)">Direkt zum Notfallweg</span>
         <span class="module-arrow" style="background:rgba(199,84,80,0.12);color:var(--alert-red)">→</span>
       </div>
     </a>
+    <div class="urgent-entry-note">
+      <strong>Wichtig</strong>
+      <p>Wenn Sie unsicher sind, ob die Situation psychiatrisch akut oder unmittelbar gefährlich ist, beginnen Sie hier zuerst. Die übrigen Einstiege können warten.</p>
+    </div>
+  </div>
 
+  <div class="modules-grid">
     <a href="/modul/1/" class="module-card reveal">
       <span class="module-number">Verstehen</span>
       <h3>Ich muss erst einordnen, was hier überhaupt passiert</h3>
@@ -664,6 +791,21 @@ useNavJS: true
         <span class="module-arrow">→</span>
       </div>
     </a>
+  </div>
+
+  <div class="choice-split reveal" style="margin-top:22px">
+    <div class="choice-card">
+      <span class="choice-kicker">Wenn Sie handeln wollen</span>
+      <h3>Modul 6</h3>
+      <p>Passt, wenn Sie konkrete Schritte in einer belasteten Situation brauchen: Gespräche in stabilen Phasen, Grenzen, Krisenplan, Umgang mit Ablehnung oder angespannten Episoden.</p>
+      <a href="/modul/6/" class="choice-link">Zu Modul 6 →</a>
+    </div>
+    <div class="choice-card">
+      <span class="choice-kicker">Wenn Sie Unterstützung suchen</span>
+      <h3>Modul 8</h3>
+      <p>Passt, wenn Sie vor allem Kontakte, Downloads, rechtliche Orientierung, Materialien oder eine passende externe Anlaufstelle suchen.</p>
+      <a href="/modul/8/" class="choice-link">Zu Modul 8 →</a>
+    </div>
   </div>
 </section>
 
