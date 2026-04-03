@@ -137,6 +137,31 @@
   --teal-border:   #a7d9d5;
 }
 
+/* ── Skip Link ── */
+.skip-link {
+  position: fixed;
+  top: 14px;
+  left: 16px;
+  z-index: 1200;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--navy);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  transform: translateY(-180%);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 2px solid var(--teal-light);
+  outline-offset: 2px;
+}
+
 
 /* ╔═══════════════════════════════════════════════════════════════════╗
    ║  SCHRITT 2 – FARBSYSTEM                                         ║

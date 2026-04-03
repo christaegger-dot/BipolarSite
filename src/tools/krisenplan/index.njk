@@ -77,7 +77,7 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
 {% block content %}
 <div id="savedMsg" class="saved-msg" role="status" aria-live="polite">Gespeichert ✓</div>
 <div id="confirm" class="confirm" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
-  <div class="confirm-box">
+  <div class="confirm-box" tabindex="-1">
     <h2 id="confirm-title">Krisenplan zurücksetzen?</h2>
     <p>Alle eingetragenen Daten werden unwiderruflich gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.</p>
     <div class="confirm-btns">
@@ -131,8 +131,25 @@ const totalFields=fields.length;
 // Cache DOM references used on every progress update
 const progFill=document.getElementById('progFill');
 const progLabel=document.getElementById('progLabel');
+const confirmDialog=document.getElementById('confirm');
+const confirmBox=confirmDialog.querySelector('.confirm-box');
+const confirmCancel=document.getElementById('btnConfirmCancel');
+const FOCUSABLE_SELECTOR='a[href],button:not([disabled]),textarea:not([disabled]),input:not([disabled]),select:not([disabled]),[tabindex]:not([tabindex="-1"])';
+const pageSiblings=[...document.body.children].filter(el=>el!==confirmDialog);
 // Single shared debounce timer — avoids storing state on DOM nodes
 let saveTimer;
+let confirmTrigger=null;
+
+const setPageInert=(isInert)=>{pageSiblings.forEach(el=>{el.inert=isInert})};
+const trapFocus=(event,container)=>{
+  if(event.key!=='Tab')return;
+  const focusable=[...container.querySelectorAll(FOCUSABLE_SELECTOR)].filter(el=>!el.hidden&&el.offsetParent!==null);
+  if(!focusable.length){event.preventDefault();container.focus();return}
+  const first=focusable[0];
+  const last=focusable[focusable.length-1];
+  if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus()}
+  else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus()}
+};
 
 // Load
 function load(){
@@ -173,8 +190,17 @@ function updateProg(){
 }
 
 // Reset
-function showConfirm(){document.getElementById('confirm').classList.add('vis')}
-function hideConfirm(){document.getElementById('confirm').classList.remove('vis')}
+function showConfirm(){
+  confirmTrigger=document.activeElement;
+  confirmDialog.classList.add('vis');
+  setPageInert(true);
+  confirmCancel.focus();
+}
+function hideConfirm(){
+  confirmDialog.classList.remove('vis');
+  setPageInert(false);
+  if(confirmTrigger)confirmTrigger.focus();
+}
 function doReset(){
   fields.forEach(f=>f.value='');
   try{localStorage.removeItem(KEY)}catch(e){}
@@ -187,6 +213,9 @@ document.getElementById('btnPrint').addEventListener('click', () => window.print
 document.getElementById('btnReset').addEventListener('click', showConfirm);
 document.getElementById('btnConfirmCancel').addEventListener('click', hideConfirm);
 document.getElementById('btnConfirmDelete').addEventListener('click', doReset);
+confirmDialog.addEventListener('click',e=>{if(e.target===confirmDialog)hideConfirm()});
+confirmBox.addEventListener('keydown',e=>{trapFocus(e,confirmBox)});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&confirmDialog.classList.contains('vis'))hideConfirm()});
 
 // Print date
 document.getElementById('printDate').textContent=new Date().toLocaleDateString('de-CH');

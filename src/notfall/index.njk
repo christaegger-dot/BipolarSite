@@ -439,7 +439,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
 </main>
 
 <div class="pdf-preview-overlay" id="pdf-preview" hidden>
-  <div class="pdf-preview-dialog" role="dialog" aria-modal="true" aria-labelledby="pdf-preview-title">
+  <div class="pdf-preview-dialog" role="dialog" aria-modal="true" aria-labelledby="pdf-preview-title" tabindex="-1">
     <div class="pdf-preview-header">
       <div>
         <div class="pdf-preview-title" id="pdf-preview-title">PDF-Vorschau</div>
@@ -493,7 +493,21 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   const pdfPreviewOpen=document.getElementById('pdf-preview-open');
   const pdfPreviewDownload=document.getElementById('pdf-preview-download');
   const pdfPreviewClose=document.getElementById('pdf-preview-close');
+  const pdfPreviewDialog=pdfPreview.querySelector('.pdf-preview-dialog');
+  const FOCUSABLE_SELECTOR='a[href],button:not([disabled]),textarea:not([disabled]),input:not([disabled]),select:not([disabled]),[tabindex]:not([tabindex="-1"])';
+  const pageSiblings=[...document.body.children].filter(el=>el!==pdfPreview);
   let pdfPreviewTrigger=null;
+
+  const setPageInert=(isInert)=>{pageSiblings.forEach(el=>{el.inert=isInert})};
+  const trapFocus=(event,container)=>{
+    if(event.key!=='Tab')return;
+    const focusable=[...container.querySelectorAll(FOCUSABLE_SELECTOR)].filter(el=>!el.hidden&&el.offsetParent!==null);
+    if(!focusable.length){event.preventDefault();container.focus();return}
+    const first=focusable[0];
+    const last=focusable[focusable.length-1];
+    if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus()}
+    else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus()}
+  };
 
   const getPdfTitle=(link)=>{
     const guideTitle=link.closest('.guide')?.querySelector('.guide-title');
@@ -504,6 +518,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   const closePdfPreview=()=>{
     pdfPreview.hidden=true;
     document.body.classList.remove('pdf-preview-open');
+    setPageInert(false);
     pdfPreviewFrame.src='about:blank';
     if(pdfPreviewTrigger)pdfPreviewTrigger.focus();
   };
@@ -521,11 +536,13 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
       pdfPreviewDownload.href=href;
       pdfPreview.hidden=false;
       document.body.classList.add('pdf-preview-open');
+      setPageInert(true);
       pdfPreviewClose.focus();
     });
   });
 
   pdfPreviewClose.addEventListener('click',closePdfPreview);
+  pdfPreviewDialog.addEventListener('keydown',event=>{trapFocus(event,pdfPreviewDialog)});
   pdfPreview.addEventListener('click',(event)=>{if(event.target===pdfPreview)closePdfPreview();});
   document.addEventListener('keydown',(event)=>{if(event.key==='Escape'&&!pdfPreview.hidden)closePdfPreview();});
 </script>
