@@ -26,6 +26,7 @@
   --rose-soft:   #FEF2F2;
   --sand:        #ddd2bf;
   --sand-deep:   #b58a52;
+  --sand-ink:    #7a5630;
   --dust-rose:   #c7a8a1;
   --dust-rose-soft: #f3e5e1;
 
@@ -41,7 +42,7 @@
 
   /* ── Semantic: Text ── */
   --text:        #1c2b3a;
-  --text-soft:   #78716C;
+  --text-soft:   #625d59;
 
   /* ── Semantic: Border ── */
   --border:      #e2e8f0;
@@ -1940,7 +1941,7 @@ header.hero .hero-content {
 
 .module-hero .hero-icon,
 .module-hero .module-badge {
-  color: var(--sand-deep) !important;
+  color: var(--sand-ink) !important;
 }
 
 .module-hero .hero-icon {
@@ -1949,6 +1950,12 @@ header.hero .hero-content {
 
 .module-hero .module-badge {
   background: rgba(221,210,191,0.34) !important;
+}
+
+.quote-block cite,
+.quote-block .toc-desc,
+.reflection-label {
+  color: var(--slate) !important;
 }
 
 .quote-block {
@@ -1989,6 +1996,11 @@ header.hero .hero-content {
 
 .tool-glyph {
   background: linear-gradient(135deg, var(--navy), var(--sand-deep)) !important;
+}
+
+.stelle-badge.beratung,
+.action-icon {
+  color: var(--sand-ink) !important;
 }
 
 .card,
