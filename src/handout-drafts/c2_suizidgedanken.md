@@ -13,9 +13,23 @@ emergency_label: "Wenn es konkret wird"
 emergency_callout: "Bei konkretem Plan oder vorhandenen Mitteln: sofort 144."
 emergency_note: "Nicht erst alles ordnen wollen. Direkt fragen ist erlaubt. Wenn die Gefahr konkret ist, Hilfe sofort dazunehmen."
 quick_steps:
-  - "Direkt fragen: Gibt es Plan und Mittel?"
-  - "Bei der Person bleiben und mögliche Mittel sichern"
-  - "Bei konkreter Gefahr sofort 144 rufen"
+  - icon: "?"
+    text: "Direkt fragen: Gibt es Plan und Mittel?"
+  - icon: "!"
+    text: "Bei der Person bleiben und mögliche Mittel sichern"
+  - icon: "144"
+    text: "Bei konkreter Gefahr sofort 144 rufen"
+emergency_contacts:
+  - label: "Sanität"
+    number: "144"
+    note: "Bei konkretem Plan, vorhandenen Mitteln oder unmittelbarer Gefahr"
+    tone: "urgent"
+  - label: "Psychiatrischer Notfalldienst Zürich"
+    number: "0800 33 66 55"
+    note: "Wenn die Lage ernst ist, aber keine unmittelbare Lebensgefahr besteht"
+  - label: "Dargebotene Hand"
+    number: "143"
+    note: "Wenn Sie sofort mit jemandem sprechen müssen"
 ---
 
 # Umgang mit Suizidgedanken
@@ -73,12 +87,6 @@ Nicht weiter allein tragen, sondern sofort handeln, wenn:
 - die Lage schnell kippt und Sie sich nicht mehr auf bloßes Zuhören verlassen können
 
 **Bei konkretem Plan oder vorhandenen Mitteln: sofort 144.**
-
-## Wichtige Nummern
-
-- **Sanität:** 144
-- **Psychiatrischer Notfalldienst Zürich:** 0800 33 66 55
-- **Dargebotene Hand:** 143
 
 ## Nächster sinnvoller Schritt
 

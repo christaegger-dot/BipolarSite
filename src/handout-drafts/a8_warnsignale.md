@@ -5,65 +5,59 @@ source_pdf: "/handouts/a8_warnsignale.pdf"
 status: "draft"
 type: "Orientierungsblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
-goal: "Frühe Veränderungen schneller erkennen und angemessen reagieren"
+goal: "Frühe Veränderungen schneller erkennen und ruhiger einordnen"
 target_format: "A4, 1 Seite"
 priority: "P1"
 last_updated: "2026-04-03"
+emergency_label: "Nicht jedes Zeichen ist schon eine Krise"
+emergency_callout: "Wichtiger als ein einzelnes Signal ist ein wiederkehrendes Muster."
+emergency_note: "Dieses Blatt ist für ruhigere oder halbwegs stabile Phasen gedacht. Es soll Orientierung geben, nicht in Dauer-Alarm versetzen."
+quick_steps:
+  - icon: "A"
+    text: "Auf Veränderungen im Muster achten, nicht auf jedes einzelne Detail"
+  - icon: "~"
+    text: "Beobachtungen früh ansprechen statt lange abzuwarten"
+  - icon: "!"
+    text: "Bei deutlicher Eskalation Krisenplan oder Notfallhilfe nutzen"
+emergency_contacts:
+  - label: "Krisenplan / Vorbereitung"
+    number: "Modul 6"
+    note: "Wenn Sie aus Beobachtung ein frühes Handeln ableiten möchten"
+  - label: "Akute Unsicherheit"
+    number: "Notfallseite"
+    note: "Wenn die Situation nicht mehr nur nach Beobachtung aussieht"
+  - label: "Psychiatrischer Notfalldienst Zürich"
+    number: "0800 33 66 55"
+    note: "Wenn Sie fachliche Einschätzung brauchen"
 ---
 
 # Warnsignale früh erkennen
 
-## Zweck
+Nicht jedes Zeichen ist schon eine Episode. Wichtig ist eher, ob sich mehrere Dinge gleichzeitig verändern und ob das Muster vom üblichen Zustand abweicht.
 
-Dieses Blatt ist für ruhigere oder halbwegs stabile Phasen gedacht, in denen Angehörige lernen möchten:
+## Woran Sie früh etwas merken können
 
-- welche Veränderungen oft früh auffallen
-- was eher ein Warnsignal ist und was noch im üblichen Bereich liegen kann
-- wann Beobachten reicht
-- wann frühes Handeln sinnvoll wird
+Oft fällt nicht ein einzelnes Symptom zuerst auf, sondern eine Kombination aus:
 
-Das Blatt soll Orientierung geben, nicht jede Veränderung pathologisieren.
-
-## Kernbotschaft
-
-Frühwarnzeichen sind selten ein einzelnes Symptom. Wichtiger ist die Kombination:
-
-- mehr Tempo
 - weniger Schlaf
-- mehr Reizbarkeit
+- mehr Tempo oder mehr Rededrang
+- stärkere Gereiztheit
 - mehr Impulsivität
-- stärkerer Rückzug
-- sichtbare Veränderung im Alltag
+- mehr Rückzug
+- sichtbare Veränderungen im Alltag
 
-Je früher Veränderungen erkannt werden, desto eher kann Unterstützung helfen, bevor die Lage kippt.
+Entscheidend ist nicht perfekte Beobachtung. Entscheidend ist, wiederkehrende Muster früh zu bemerken.
 
-## Empfohlene Struktur für den Neuaufbau
+## Richtung Hochphase
 
-### 1. Titelblock
-
-**Titel:**
-Warnsignale früh erkennen
-
-**Unterzeile:**
-Welche Veränderungen oft früh sichtbar werden, bevor eine Episode voll ausgeprägt ist
-
-**Kurzsatz unter dem Titel:**
-Nicht jedes Zeichen ist schon eine Krise. Aber Muster sind wichtig.
-
-### 2. Häufige Frühveränderungen
-
-Am besten in zwei Spalten oder Gruppen:
-
-**Richtung Hochphase**
-
-- weniger Schlaf
+- deutlich weniger Schlaf
+- mehr Aktivität und mehr Ideen
 - mehr Rededrang
-- mehr Aktivität
-- mehr Ideen / Größenfantasien
+- stärkere Selbstüberschätzung
 - mehr Geld ausgeben
-- stärkere Gereiztheit bei Widerspruch
+- gereizt reagieren, wenn jemand bremst
 
-**Richtung Depression**
+## Richtung Depression
 
 - Rückzug
 - Hoffnungslosigkeit
@@ -72,9 +66,7 @@ Am besten in zwei Spalten oder Gruppen:
 - Termine absagen
 - Alltagsaufgaben nicht mehr schaffen
 
-### 3. Was Angehörige beobachten können
-
-Kurzer Praxisblock:
+## Was Angehörige beobachten können
 
 - Schlaf
 - Tempo
@@ -83,85 +75,40 @@ Kurzer Praxisblock:
 - soziale Kontakte
 - Zuverlässigkeit im Alltag
 
-**Rahmensatz:**
-Hilfreich ist nicht perfekte Kontrolle, sondern frühes Bemerken wiederkehrender Muster.
+Hilfreich ist nicht totale Kontrolle, sondern ein realistischer Blick auf Veränderungen.
 
-### 4. Was eher hilft
+## Was eher hilft
 
-- Veränderungen früh ansprechen
-- Beobachtungen statt Diagnosen formulieren
+- Beobachtungen früh ansprechen
+- eher beschreiben als diagnostizieren
 - Krisenplan oder Absprachen hervornehmen
 - Behandlungsteam früher informieren
 - nicht erst auf die volle Eskalation warten
 
-### 5. Was eher schadet
+## Was eher schadet
 
 - jede kleine Veränderung sofort dramatisieren
 - moralisch bewerten
-- nur auf Diskussion setzen
+- nur diskutieren wollen
 - aus Angst gar nichts sagen
 - alles erst dann ernst nehmen, wenn es schon kippt
 
-### 6. Wann aus Beobachtung Handlung wird
+## Wann aus Beobachtung Handlung wird
 
-Klarer Übergangsblock:
+Frühes Handeln wird sinnvoll, wenn:
 
-- wenn mehrere Warnzeichen gleichzeitig auftreten
-- wenn Schlaf deutlich kippt
-- wenn Risiko- oder Selbstgefährdung zunimmt
-- wenn die Person nicht mehr erreichbar oder stark verändert wirkt
+- mehrere Warnzeichen gleichzeitig auftreten
+- Schlaf deutlich kippt
+- Risiko oder Selbstgefährdung zunimmt
+- die Person stark verändert oder kaum erreichbar wirkt
 
-**Verweislogik:**
+Dann geht es nicht mehr nur um Beobachtung, sondern um Vorbereitung, Absprache oder Krisenhilfe.
 
-- Vorbereitung / Krisenplan: Modul 6
-- akute Unsicherheit oder Gefahr: Notfallseite
+## Nächster sinnvoller Schritt
 
-### 7. Praktischer Mini-Schritt
+Notieren Sie drei persönliche Frühwarnzeichen, die in Ihrem Umfeld oft zuerst auffallen. Halten Sie außerdem fest, wen Sie bei deutlicher Veränderung früh informieren wollen.
 
-Ein kleiner Abschlussblock:
+Weiterführend:
 
-- drei persönliche Frühwarnzeichen notieren
-- eine Kontaktperson festlegen
-- Krisenplan griffbereit halten
-
-## Tonalität
-
-Der Ton soll:
-
-- beruhigend sein
-- nicht hypervigilant machen
-- Musterorientierung vermitteln
-- Angehörige nicht in Dauerüberwachung drücken
-
-## Sprachregeln
-
-- klar und knapp
-- keine unnötigen Fachbegriffe
-- Unterschiede zwischen Beobachtung und Alarm deutlich machen
-- nicht zu viele Zeichen auf einmal gleich gewichten
-
-## Empfohlene visuelle Logik
-
-- zwei Richtungen klar unterscheidbar:
-  - Hochphase
-  - Depression
-- neutrale Grundgestaltung
-- Notfall-Rot nur für Eskalationsverweis
-- eher Orientierungsblatt als Akutblatt
-
-## Was gegenüber der alten PDF wahrscheinlich besser werden soll
-
-- bessere Struktur
-- klarere Trennung zwischen Beobachtung und Notfall
-- weniger Dateigröße
-- textbasierter Export
-- digital besser scanbar
-
-## Web-Verknüpfung
-
-Diese PDF ist aktuell besonders relevant in:
-
-- `/modul/1/`
-- `/modul/8/`
-
-Sie ist ein zentrales Blatt für frühe Orientierung und sollte deshalb zu den ersten Neuaufbauten gehören.
+- Modul 6: Vorbereitung und Krisenplan
+- Notfallseite

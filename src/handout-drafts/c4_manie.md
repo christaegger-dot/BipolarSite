@@ -9,6 +9,28 @@ goal: "Schnell erfassbare Orientierung für akute oder eskalierende manische Zus
 target_format: "A4, 1 Seite"
 priority: "P1"
 last_updated: "2026-04-03"
+emergency_label: "Wenn Schutz vorgeht"
+emergency_callout: "Bei unmittelbarer Gefahr, Gewalt, Selbstgefährdung oder massivem Kontrollverlust: 144 oder 117."
+emergency_note: "Nicht in lange Diskussionen gehen. Reize reduzieren, kurz sprechen und früh professionelle Hilfe dazunehmen."
+quick_steps:
+  - icon: "..."
+    text: "Kurz sprechen und Reize reduzieren"
+  - icon: "!"
+    text: "Krisendienst oder Behandlungsteam früh dazunehmen"
+  - icon: "144"
+    text: "Bei Gefahr sofort 144 oder 117 rufen"
+emergency_contacts:
+  - label: "Psychiatrischer Notfalldienst Zürich"
+    number: "0800 33 66 55"
+    note: "Wenn die Situation kippt, aber noch keine unmittelbare Gefahr besteht"
+  - label: "Sanität"
+    number: "144"
+    note: "Bei akuter Selbst- oder Fremdgefährdung"
+    tone: "urgent"
+  - label: "Polizei"
+    number: "117"
+    note: "Wenn Schutz oder Sicherung sofort nötig ist"
+    tone: "urgent"
 ---
 
 # Umgang mit Manie
@@ -66,12 +88,6 @@ Nicht weiter diskutieren, sondern sofort handeln, wenn:
 - Sie sich oder andere nicht mehr sicher fühlen
 
 **Bei unmittelbarer Gefahr: 144 oder 117.**
-
-## Wichtige Nummern
-
-- **Psychiatrischer Notfalldienst Zürich:** 0800 33 66 55
-- **Sanität:** 144
-- **Polizei:** 117
 
 ## Nächster sinnvoller Schritt
 
