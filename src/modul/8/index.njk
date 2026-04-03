@@ -100,6 +100,25 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   .wide-visual{margin:28px 0 36px;background:linear-gradient(180deg,#fff 0%,#fcf8f4 100%);border:1px solid rgba(45,40,35,0.06);border-radius:24px;padding:20px;box-shadow:var(--shadow-soft)}
   .wide-visual img{display:block;width:100%;height:auto;border-radius:18px}
   .wide-visual p{font-size:0.86rem;color:var(--text-secondary);margin:12px 4px 0}
+  .material-finder{margin:24px 0 32px;padding:24px 26px;border-radius:24px;background:linear-gradient(180deg,#fff 0%,#fcf8f4 100%);border:1px solid rgba(45,40,35,0.06);box-shadow:var(--shadow-soft)}
+  .material-finder-kicker{font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--sage-500);margin-bottom:10px}
+  .material-finder h3{font-size:1.15rem;margin:0 0 8px}
+  .material-finder p{font-size:0.9rem;color:var(--text-secondary);line-height:1.6;margin:0 0 18px}
+  .material-finder-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .material-finder-option{display:flex;align-items:flex-start;gap:12px;width:100%;padding:14px 16px;border-radius:16px;border:1px solid rgba(45,40,35,0.08);background:#fff;color:var(--text);text-align:left;font-family:'DM Sans',sans-serif;cursor:pointer;transition:border-color 0.2s ease,box-shadow 0.2s ease,transform 0.2s ease}
+  .material-finder-option:hover{border-color:var(--sage-200);box-shadow:var(--shadow-soft);transform:translateY(-1px)}
+  .material-finder-option.is-active{border-color:var(--teal);background:var(--green-bg)}
+  .material-finder-icon{width:34px;height:34px;border-radius:10px;background:rgba(221,210,191,0.3);color:var(--sand-ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem}
+  .material-finder-option.is-active .material-finder-icon{background:var(--teal);color:#fff}
+  .material-finder-label{display:block;font-size:0.88rem;font-weight:700;margin-bottom:3px}
+  .material-finder-sub{display:block;font-size:0.8rem;color:var(--text-muted);line-height:1.45}
+  .material-finder-results{margin-top:16px;display:grid;gap:12px}
+  .material-finder-results[hidden]{display:none}
+  .finder-card{background:linear-gradient(180deg,var(--surface-warm) 0%,rgba(217,236,236,0.34) 100%);border:1px solid rgba(45,40,35,0.06);border-radius:18px;padding:16px 18px}
+  .finder-card-kicker{font-size:0.66rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--slate);margin-bottom:6px}
+  .finder-card h4{font-size:0.96rem;font-weight:700;color:var(--navy);margin:0 0 6px}
+  .finder-card p{font-size:0.84rem;color:var(--text-secondary);margin:0 0 10px}
+  .finder-card a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#fff;background:linear-gradient(135deg,var(--navy),var(--teal));padding:9px 14px;border-radius:999px;font-size:0.8rem;font-weight:700}
 
   .takeaways{background:linear-gradient(135deg,var(--navy),#294051);color:white;border-radius:var(--radius-xl);padding:40px;margin:48px 0;position:relative;overflow:hidden}.takeaways::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 80%,rgba(221,210,191,0.18) 0%,transparent 60%)}
   .takeaways-inner{position:relative;z-index:2}.takeaways h3{color:white;font-family:'Source Serif 4',serif;font-size:1.3rem;font-weight:600;margin-bottom:24px}
@@ -125,7 +144,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
 
   .reveal{opacity:1}
 
-  @media(max-width:768px){.toc ol{grid-template-columns:1fr}.handout-list{grid-template-columns:1fr 1fr}.mini-visual-grid{grid-template-columns:1fr}}
+  @media(max-width:768px){.toc ol{grid-template-columns:1fr}.handout-list{grid-template-columns:1fr 1fr}.mini-visual-grid{grid-template-columns:1fr}.material-finder-options{grid-template-columns:1fr}}
   
   @media(max-width:900px){.module-hero-inner{grid-template-columns:1fr}}
   @media(max-width:600px){.module-hero{padding:100px 1.2rem 40px}.content{padding:0 1.2rem}.closing{padding:36px 24px}.handout-list{grid-template-columns:1fr}}
@@ -328,6 +347,31 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   <h2 id="materialien" class="reveal">Die wichtigsten Materialien zuerst</h2>
   <p class="reveal">Wenn Sie nicht die ganze Sammlung durchsuchen möchten, beginnen Sie mit den Unterlagen, die in der aktuellen Lage am meisten Entlastung oder Struktur bringen.</p>
 
+  <div class="material-finder reveal" aria-labelledby="material-finder-title">
+    <div class="material-finder-kicker">Material-Finder</div>
+    <h3 id="material-finder-title">Ich brauche jetzt ...</h3>
+    <p>Wählen Sie die Lage, die gerade am ehesten passt. Sie bekommen 1 bis 3 passende Materialien, Kontakte oder nächste Schritte statt der ganzen Liste auf einmal.</p>
+    <div class="material-finder-options">
+      <button type="button" class="material-finder-option" data-material-finder="akut">
+        <span class="material-finder-icon" aria-hidden="true">🆘</span>
+        <span><span class="material-finder-label">Akute oder unklare Krise</span><span class="material-finder-sub">Nummern, Notfallweg, schnelle Orientierung.</span></span>
+      </button>
+      <button type="button" class="material-finder-option" data-material-finder="plan">
+        <span class="material-finder-icon" aria-hidden="true">🚦</span>
+        <span><span class="material-finder-label">Vorbereiten für die nächste Krise</span><span class="material-finder-sub">Krisenplan, Kontakte, ruhige Vorbereitung.</span></span>
+      </button>
+      <button type="button" class="material-finder-option" data-material-finder="ersch">
+        <span class="material-finder-icon" aria-hidden="true">🌫</span>
+        <span><span class="material-finder-label">Erschöpfung und Belastung</span><span class="material-finder-sub">Entlastung, Einordnung, kleine nächste Schritte.</span></span>
+      </button>
+      <button type="button" class="material-finder-option" data-material-finder="recht">
+        <span class="material-finder-icon" aria-hidden="true">⚖</span>
+        <span><span class="material-finder-label">Recht / System / Blockaden</span><span class="material-finder-sub">Beratung, Ombudsstellen, Beschwerdewege.</span></span>
+      </button>
+    </div>
+    <div class="material-finder-results" id="materialFinderResults" hidden aria-live="polite" aria-atomic="true"></div>
+  </div>
+
   <!-- 3 DOWNLOAD MODULES -->
   <div class="dl-module dl-module-sos reveal">
     <div class="dl-icon">🆘</div>
@@ -488,6 +532,11 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   const pb=document.getElementById('readingProgress');window.addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-window.innerHeight;pb.style.width=h>0?(window.scrollY/h*100)+'%':'0%'});
   const tocLinks=document.querySelectorAll('.toc a[href^="#"]');const tocSections=Array.from(tocLinks).map(a=>{const id=a.getAttribute('href').slice(1);return{link:a,el:document.getElementById(id)}}).filter(s=>s.el);const tocObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){tocLinks.forEach(l=>l.classList.remove('active'));const match=tocSections.find(s=>s.el===e.target);if(match)match.link.classList.add('active')}})},{threshold:0.1,rootMargin:'-100px 0px -60% 0px'});tocSections.forEach(s=>tocObs.observe(s.el));
   document.querySelectorAll('[data-sources-toggle]').forEach(button=>{button.addEventListener('click',()=>{const section=button.parentElement;const isOpen=section.classList.toggle('sources-open');button.setAttribute('aria-expanded',isOpen?'true':'false');});});
+  const MATERIAL_FINDER={akut:[{kicker:'Jetzt zuerst',title:'Notfallseite öffnen',text:'Wenn Gefahr oder starke Unsicherheit im Raum stehen, ist die Triage wichtiger als die ganze Materialsammlung.',href:'/notfall/',label:'Zum Notfallweg →'},{kicker:'PDF',title:'Notfallkarte Kanton Zürich',text:'Alle wichtigen Nummern mit kurzer Einordnung, wann welche Stelle sinnvoll ist.',href:'/downloads/notfallkarte-kanton-zuerich-puk.pdf',label:'Notfallkarte öffnen →'},{kicker:'Danach',title:'Krisenplan bereithalten',text:'Wenn schon einer existiert, jetzt hervornehmen. Wenn nicht, später in ruhiger Phase vorbereiten.',href:'/modul/6/',label:'Zu Modul 6 →'}],plan:[{kicker:'PDF',title:'Krisenplan-Vorlage',text:'Die wichtigste Unterlage, wenn Sie Frühwarnzeichen, Kontakte und Klinikwünsche vorab ordnen möchten.',href:'/downloads/krisenplan-vorlage-bipolare-stoerung-puk-zuerich.pdf',label:'Krisenplan öffnen →'},{kicker:'Werkzeug',title:'Digitale Ausfüllhilfe',text:'Wenn Sie den Plan lieber direkt am Bildschirm vorbereiten und danach drucken möchten.',href:'/tools/krisenplan/',label:'Ausfüllhilfe öffnen →'},{kicker:'Vertiefung',title:'Modul 6: konkrete Schritte',text:'Für Krisenplan, Grenzen, Kommunikation und Vorbereitung in stabilen Phasen.',href:'/modul/6/',label:'Zu Modul 6 →'}],ersch:[{kicker:'PDF',title:'Trauer ohne klaren Abschied',text:'Hilft, schleichende Erschöpfung, Trauer und Selbstverlust besser zu verstehen.',href:'/handouts/a4_ambiguous_loss.pdf',label:'Handout öffnen →'},{kicker:'PDF',title:'Was stabilisiert — was schadet',text:'Ein kompaktes Blatt für Alltag, Selbstfürsorge und kleine entlastende Schritte.',href:'/downloads/kurzblatt-was-stabilisiert-was-schadet-puk-zuerich.pdf',label:'Kurzblatt öffnen →'},{kicker:'Kontakt',title:'Selbsthilfe oder Angehörigenberatung',text:'Wenn Information allein nicht mehr reicht, ist Resonanz oft der entlastendere nächste Schritt.',href:'#anlaufstellen',label:'Zu den Anlaufstellen →'}],recht:[{kicker:'Kontakt',title:'Pro Mente Sana',text:'Psychosoziale und juristische Beratung zu FU, Vorsorgeauftrag, Patientenverfügung und Konflikten mit Institutionen.',href:'https://www.promentesana.ch',label:'Pro Mente Sana öffnen →'},{kicker:'Kontakt',title:'Ombudsstelle Krankenversicherung',text:'Wenn Leistungsstreitigkeiten oder abgelehnte Kostengutsprachen blockieren.',href:'https://om-kv.ch',label:'Ombudsstelle öffnen →'},{kicker:'Orientierung',title:'Systemblockaden einordnen',text:'Wenn das Versorgungssystem zusätzlich belastet, hilft oft zuerst die Klärung der Beschwerde- und Beratungswege.',href:'#system',label:'Zum System-Abschnitt →'}]};
+  const materialFinderButtons=document.querySelectorAll('[data-material-finder]');
+  const materialFinderResults=document.getElementById('materialFinderResults');
+  const renderMaterialFinder=(key)=>{const items=MATERIAL_FINDER[key];if(!items||!materialFinderResults)return;materialFinderButtons.forEach(btn=>btn.classList.toggle('is-active',btn.dataset.materialFinder===key));materialFinderResults.innerHTML=items.map(item=>`<div class="finder-card"><div class="finder-card-kicker">${item.kicker}</div><h4>${item.title}</h4><p>${item.text}</p><a href="${item.href}"${item.href.startsWith('http')?' target="_blank" rel="noopener"':''}>${item.label}</a></div>`).join('');materialFinderResults.hidden=false;};
+  materialFinderButtons.forEach(button=>{button.addEventListener('click',()=>renderMaterialFinder(button.dataset.materialFinder));});
   const pdfPreview=document.getElementById('pdf-preview');
   const pdfPreviewFrame=document.getElementById('pdf-preview-frame');
   const pdfPreviewTitle=document.getElementById('pdf-preview-title');
