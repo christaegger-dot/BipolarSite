@@ -422,7 +422,7 @@
         <div class="draft-kicker">
           <span class="draft-badge">{{ priority }}</span>
           <span class="draft-badge{% if type == 'Akutblatt' %} alert{% endif %}">{{ type }}</span>
-          <span class="draft-badge">{{ status }}</span>
+          {% if status and show_status_badge != false %}<span class="draft-badge">{{ status }}</span>{% endif %}
         </div>
         <h1 class="draft-title">{{ title }}</h1>
         <p class="draft-subtitle">{{ goal }}</p>

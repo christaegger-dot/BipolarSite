@@ -3,26 +3,27 @@ title: "Umgang mit Manie"
 slug: "c4_manie"
 source_pdf: "/handouts/c4_manie.pdf"
 status: "draft"
+show_status_badge: false
 type: "Akutblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
-goal: "Schnell erfassbare Orientierung für akute oder eskalierende manische Zustände"
+goal: "Schnelle Orientierung bei akuten oder eskalierenden manischen Zuständen"
 target_format: "A4, 1 Seite"
 priority: "P1"
 last_updated: "2026-04-03"
 emergency_label: "Wenn Schutz vorgeht"
 emergency_callout: "Bei Gewalt, Selbstgefährdung, massivem Kontrollverlust oder wenn niemand mehr sicher ist: sofort 144 oder 117."
-emergency_note: "Nicht in lange Diskussionen gehen. Reize reduzieren, kurz sprechen, Risiko begrenzen und früh professionelle Hilfe dazunehmen."
+emergency_note: "Nicht diskutieren. Reize reduzieren, kurz sprechen, Risiko begrenzen und früh Hilfe dazunehmen."
 quick_steps:
   - icon: "1"
-    text: "Kurz sprechen, Reize reduzieren, bei einem Punkt bleiben"
+    text: "Kurz sprechen, Reize reduzieren"
   - icon: "!"
-    text: "Krisendienst oder Behandlungsteam früh dazunehmen"
+    text: "Krisendienst oder Team früh dazunehmen"
   - icon: "144"
-    text: "Bei Gefahr sofort 144 oder 117 rufen"
+    text: "Bei Gefahr 144 oder 117"
 emergency_contacts:
-  - label: "Psychiatrischer Notfalldienst Zürich"
+  - label: "Notfalldienst Zürich"
     number: "0800 33 66 55"
-    note: "Wenn die Situation kippt, aber noch keine unmittelbare Gefahr besteht"
+    note: "Wenn die Lage kippt, aber noch keine unmittelbare Gefahr besteht"
   - label: "Sanität"
     number: "144"
     note: "Bei akuter Selbst- oder Fremdgefährdung"
@@ -35,7 +36,7 @@ emergency_contacts:
 
 # Umgang mit Manie
 
-Wenn eine manische Episode kippt, helfen meist nicht mehr Diskussion, Erklärung oder moralischer Druck. Wichtiger sind Ruhe, kurze Sätze, Schutz und frühes Dazunehmen professioneller Hilfe.
+Wenn eine manische Episode kippt, helfen meist nicht mehr Diskussion, Erklärung oder Druck. Wichtiger sind Ruhe, kurze Sätze, Schutz und frühes Dazunehmen professioneller Hilfe.
 
 ## Woran Sie Manie erkennen können
 
@@ -55,14 +56,14 @@ Nicht jedes einzelne Zeichen bedeutet sofort Manie. Wichtig ist die Kombination 
 - ein Satz, ein Anliegen
 - Reize reduzieren: weniger Menschen, weniger Lärm, weniger Diskussion
 - Krisenplan aktivieren, wenn es einen gibt
-- früh Hilfe holen statt lange allein ordnen
+- früh Hilfe holen statt lange allein zu ordnen
 
 Hilfreicher als lange Erklärungen ist oft ein Satz wie:  
 **„Ich möchte es gerade einfach halten. Wir holen jetzt Unterstützung dazu.“**
 
 ## Was eher hilft
 
-- bei einem Punkt bleiben statt viele Themen gleichzeitig ansprechen
+- bei einem Punkt bleiben statt viele Themen gleichzeitig anzusprechen
 - mit ruhiger Stimme und klaren Sätzen sprechen
 - Finanzen, Autofahren und Sicherheit im Blick behalten
 - Behandlungsteam oder Krisendienst früh kontaktieren
