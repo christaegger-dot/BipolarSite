@@ -819,20 +819,20 @@ useNavJS: true
     <div class="start-helper-kicker">Starthelfer</div>
     <h3 id="start-helper-title">Was brauchen Sie gerade am ehesten?</h3>
     <p>Wählen Sie das, was Ihrer Lage im Moment am nächsten kommt. Sie bekommen direkt einen sinnvollen ersten Einstieg. Mehr müssen Sie jetzt nicht entscheiden.</p>
-    <div class="start-helper-options" role="list">
-      <button type="button" class="start-helper-option" data-start-helper="akut">
+    <div class="start-helper-options" role="group" aria-label="Starthelfer: Einstieg auswählen">
+      <button type="button" class="start-helper-option" data-start-helper="akut" aria-pressed="false" aria-controls="startHelperResult">
         <span class="start-helper-icon" aria-hidden="true">⚡</span>
         <span><span class="start-helper-label">Akut / unklar gefährlich</span><span class="start-helper-sub">Ich muss zuerst klären, ob Gefahr besteht.</span></span>
       </button>
-      <button type="button" class="start-helper-option" data-start-helper="verstehen">
+      <button type="button" class="start-helper-option" data-start-helper="verstehen" aria-pressed="false" aria-controls="startHelperResult">
         <span class="start-helper-icon" aria-hidden="true">🔍</span>
         <span><span class="start-helper-label">Einordnen und verstehen</span><span class="start-helper-sub">Ich brauche zuerst Überblick und Grundlagen.</span></span>
       </button>
-      <button type="button" class="start-helper-option" data-start-helper="erschoepft">
+      <button type="button" class="start-helper-option" data-start-helper="erschoepft" aria-pressed="false" aria-controls="startHelperResult">
         <span class="start-helper-icon" aria-hidden="true">🌿</span>
         <span><span class="start-helper-label">Ich bin erschöpft</span><span class="start-helper-sub">Meine eigene Belastung steht gerade im Vordergrund.</span></span>
       </button>
-      <button type="button" class="start-helper-option" data-start-helper="hilfe">
+      <button type="button" class="start-helper-option" data-start-helper="hilfe" aria-pressed="false" aria-controls="startHelperResult">
         <span class="start-helper-icon" aria-hidden="true">🧭</span>
         <span><span class="start-helper-label">Konkrete Hilfe / nächste Schritte</span><span class="start-helper-sub">Ich brauche jetzt Orientierung, Kontakte oder praktische Hilfe.</span></span>
       </button>
@@ -1249,7 +1249,11 @@ useNavJS: true
   function updateStartHelper(key) {
     const entry = START_HELPER[key];
     if (!entry || !startHelperResult) return;
-    startHelperButtons.forEach(btn => btn.classList.toggle('is-active', btn.dataset.startHelper === key));
+    startHelperButtons.forEach(btn => {
+      const isActive = btn.dataset.startHelper === key;
+      btn.classList.toggle('is-active', isActive);
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
     startHelperTitle.textContent = entry.title;
     startHelperText.textContent = entry.text;
     startHelperLink.href = entry.href;

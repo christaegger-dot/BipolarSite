@@ -982,21 +982,6 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
 {% endblock %}
 {% block scripts %}
 <script>
-  // Nav scroll
-  const nav = document.getElementById('navbar');
-  ;
-    navToggle.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('nav-open');
-      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      navToggle.setAttribute('aria-label', isOpen ? 'Menü schliessen' : 'Menü öffnen');
-    });
-    navLinks.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeNav));
-    document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeNav(); });
-    document.addEventListener('click', (event) => { if (!nav.contains(event.target)) closeNav(); });
-    window.addEventListener('resize', () => { if (window.innerWidth > 900) closeNav(); });
-  }
-  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
-
   // Reading progress
   const progressBar = document.getElementById('readingProgress');
   window.addEventListener('scroll', () => {

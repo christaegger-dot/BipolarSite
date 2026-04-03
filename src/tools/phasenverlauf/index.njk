@@ -165,11 +165,11 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
         <text x="8" y="256" font-size="10" fill="var(--earth-700)" font-weight="700" font-family="DM Sans,sans-serif">Schwere Dep.</text>
 
         <!-- Clickable zone hit areas (full width, for accessibility) -->
-        <rect x="0" y="0"   width="540" height="56"  class="zone-hit" role="button" tabindex="0" aria-label="Phase Manie wählen"       data-phase="mania"      id="hit-mania"/>
-        <rect x="0" y="56"  width="540" height="56"  class="zone-hit" role="button" tabindex="0" aria-label="Phase Hypomanie wählen"    data-phase="hypomania"  id="hit-hypo"/>
-        <rect x="0" y="112" width="540" height="56"  class="zone-hit" role="button" tabindex="0" aria-label="Phase Stabil wählen"       data-phase="stable"     id="hit-stable"/>
-        <rect x="0" y="168" width="540" height="56"  class="zone-hit" role="button" tabindex="0" aria-label="Phase Leichte Dep. wählen" data-phase="mild-dep"   id="hit-mild"/>
-        <rect x="0" y="224" width="540" height="56"  class="zone-hit" role="button" tabindex="0" aria-label="Phase Schwere Dep. wählen" data-phase="severe-dep" id="hit-severe"/>
+        <rect x="0" y="0"   width="540" height="56"  class="zone-hit" data-phase="mania"      id="hit-mania" aria-hidden="true" focusable="false"/>
+        <rect x="0" y="56"  width="540" height="56"  class="zone-hit" data-phase="hypomania"  id="hit-hypo" aria-hidden="true" focusable="false"/>
+        <rect x="0" y="112" width="540" height="56"  class="zone-hit" data-phase="stable"     id="hit-stable" aria-hidden="true" focusable="false"/>
+        <rect x="0" y="168" width="540" height="56"  class="zone-hit" data-phase="mild-dep"   id="hit-mild" aria-hidden="true" focusable="false"/>
+        <rect x="0" y="224" width="540" height="56"  class="zone-hit" data-phase="severe-dep" id="hit-severe" aria-hidden="true" focusable="false"/>
 
         <!-- Wave path (animated in) -->
         <path id="wavePath"
@@ -177,11 +177,11 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
           stroke="var(--teal)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
 
         <!-- Interactive wave points -->
-        <circle class="wpt" cx="160" cy="28"  r="9" fill="var(--amber-phase)" stroke="#fff" stroke-width="2.5" data-phase="mania"      id="pt-mania"    role="button" tabindex="0" aria-label="Manie-Gipfel — klicken für Details"/>
-        <circle class="wpt" cx="300" cy="252" r="9" fill="var(--earth-700)" stroke="#fff" stroke-width="2.5" data-phase="severe-dep" id="pt-severe"   role="button" tabindex="0" aria-label="Schwere Depression — klicken für Details"/>
-        <circle class="wpt" cx="370" cy="140" r="9" fill="var(--green-phase)" stroke="#fff" stroke-width="2.5" data-phase="stable"     id="pt-stable"   role="button" tabindex="0" aria-label="Stabile Phase — klicken für Details"/>
-        <circle class="wpt" cx="430" cy="84"  r="9" fill="var(--hypo-phase)" stroke="#fff" stroke-width="2.5" data-phase="hypomania"  id="pt-hypo"     role="button" tabindex="0" aria-label="Hypomanie — klicken für Details"/>
-        <circle class="wpt" cx="520" cy="196" r="9" fill="var(--blue-phase)" stroke="#fff" stroke-width="2.5" data-phase="mild-dep"   id="pt-mild"     role="button" tabindex="0" aria-label="Leichte Depression — klicken für Details"/>
+        <circle class="wpt" cx="160" cy="28"  r="9" fill="var(--amber-phase)" stroke="#fff" stroke-width="2.5" data-phase="mania"      id="pt-mania" aria-hidden="true" focusable="false"/>
+        <circle class="wpt" cx="300" cy="252" r="9" fill="var(--earth-700)" stroke="#fff" stroke-width="2.5" data-phase="severe-dep" id="pt-severe" aria-hidden="true" focusable="false"/>
+        <circle class="wpt" cx="370" cy="140" r="9" fill="var(--green-phase)" stroke="#fff" stroke-width="2.5" data-phase="stable"     id="pt-stable" aria-hidden="true" focusable="false"/>
+        <circle class="wpt" cx="430" cy="84"  r="9" fill="var(--hypo-phase)" stroke="#fff" stroke-width="2.5" data-phase="hypomania"  id="pt-hypo" aria-hidden="true" focusable="false"/>
+        <circle class="wpt" cx="520" cy="196" r="9" fill="var(--blue-phase)" stroke="#fff" stroke-width="2.5" data-phase="mild-dep"   id="pt-mild" aria-hidden="true" focusable="false"/>
 
         <!-- Pulse rings (animated) -->
         <circle cx="160" cy="28"  r="15" fill="none" stroke="var(--amber-phase)" stroke-width="1.5" opacity="0" class="pulse" id="pulse-mania"/>
@@ -451,9 +451,6 @@ function showPulseHints() {
 // Make zone hit areas and wave points interactive
 document.querySelectorAll('.zone-hit, .wpt').forEach(el => {
   el.addEventListener('click', () => selectPhase(el.dataset.phase));
-  el.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectPhase(el.dataset.phase); }
-  });
 });
 
 // Phase selector buttons — event delegation, no inline handlers

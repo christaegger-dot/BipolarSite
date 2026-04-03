@@ -48,6 +48,27 @@
       }
     }
   } catch (error) {}
+
+  document.querySelectorAll('[data-sources-toggle]').forEach((button, index) => {
+    const section = button.closest('.sources');
+    const list = section ? section.querySelector('ul') : null;
+    if (!section || !list) return;
+
+    if (!list.id) list.id = `sources-list-${index + 1}`;
+    const isOpen = section.classList.contains('sources-open') || button.getAttribute('aria-expanded') === 'true';
+
+    button.setAttribute('aria-controls', list.id);
+    button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    section.classList.toggle('sources-open', isOpen);
+    list.hidden = !isOpen;
+
+    button.addEventListener('click', () => {
+      const nextOpen = !section.classList.contains('sources-open');
+      section.classList.toggle('sources-open', nextOpen);
+      button.setAttribute('aria-expanded', nextOpen ? 'true' : 'false');
+      list.hidden = !nextOpen;
+    });
+  });
 </script>
 {% block scripts %}{% endblock %}
 </body>
