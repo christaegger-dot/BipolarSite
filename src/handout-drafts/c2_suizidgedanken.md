@@ -13,148 +13,72 @@ last_updated: "2026-04-03"
 
 # Umgang mit Suizidgedanken
 
-## Zweck
+Suizidgedanken sollen immer ernst genommen werden. Direkt zu fragen ist erlaubt. Direkt zu fragen löst Suizidgedanken nicht aus. Bei konkretem Plan oder vorhandenen Mitteln gilt: nicht allein tragen, sondern sofort Hilfe holen.
 
-Dieses Blatt ist für Situationen gedacht, in denen Angehörige sich fragen:
+## Woran Sie aufmerksam werden sollten
 
-- Muss ich das ernst nehmen?
-- Soll ich direkt fragen?
-- Was mache ich jetzt konkret?
-- Wann reicht Zuhören nicht mehr?
-
-Das Blatt soll vor allem helfen, Unsicherheit zu reduzieren und die wichtigsten nächsten Schritte schnell sichtbar zu machen.
-
-## Kernbotschaft
-
-Suizidgedanken sollen immer ernst genommen werden.
-
-- Direkt fragen ist erlaubt.
-- Direkt fragen löst Suizidgedanken nicht aus.
-- Bei konkretem Plan oder vorhandenen Mitteln gilt: nicht allein tragen, sondern sofort Hilfe holen.
-
-## Empfohlene Struktur für den Neuaufbau
-
-### 1. Titelblock
-
-**Titel:**
-Umgang mit Suizidgedanken
-
-**Unterzeile:**
-Was Angehörige tun können, wenn Sorge, Andeutungen oder konkrete Hinweise da sind
-
-**Direktsatz unter dem Titel:**
-Nicht beschwichtigen. Nicht allein lösen. Direkt fragen und Hilfe dazunehmen.
-
-### 2. Woran Sie aufmerksam werden sollten
-
-Kurze Liste:
-
-- direkte Aussagen:
+- direkte Aussagen wie:
   - „Ich will nicht mehr.“
   - „Es wäre besser, wenn ich nicht da wäre.“
-- indirekte Hinweise:
-  - Verabschiedungen
-  - Hoffnungslosigkeit
-  - Rückzug
-  - Ordnen von Dingen
-  - plötzlich auffällige Ruhe nach starker Verzweiflung
+- Verabschiedungen
+- starke Hoffnungslosigkeit
+- plötzlicher Rückzug
+- auffälliges Ordnen von Dingen
+- plötzlich ungewöhnliche Ruhe nach großer Verzweiflung
 
-**Rahmensatz:**
-Nicht jedes Signal bedeutet sofort akute Lebensgefahr. Aber jedes Signal verdient Aufmerksamkeit.
+Nicht jedes einzelne Signal bedeutet sofort akute Lebensgefahr. Aber jedes Signal verdient Aufmerksamkeit.
 
-### 3. Direkt fragen
+## Direkt fragen
 
-Großer, klarer Kasten:
+Hilfreiche Fragen können sein:
 
-- „Denkst du daran, dir etwas anzutun?“
-- „Hast du einen Plan, wie du das tun würdest?“
-- „Gibt es etwas, womit du es tun könntest?“
+- **„Denkst du daran, dir etwas anzutun?“**
+- **„Hast du einen Plan, wie du das tun würdest?“**
+- **„Gibt es etwas, womit du es tun könntest?“**
 
-**Kernsatz:**
-Direkt zu fragen ist kein Fehler. Es kann entlastend sein und schafft Klarheit.
+Direkt zu fragen ist kein Fehler. Es schafft oft eher Klarheit und kann entlastend sein.
 
-### 4. Was jetzt hilft
-
-Kurze Positivliste:
+## Was jetzt hilft
 
 - ruhig bleiben
 - zuhören
 - nicht bewerten
 - bei der Person bleiben
-- Mittel sichern, wenn möglich
-- Hilfe dazuholen
+- mögliche Mittel sichern, wenn das ohne zusätzliche Eskalation möglich ist
+- früh Hilfe dazuholen
 
-### 5. Was eher schadet
-
-Kurze Negativliste:
+## Was eher schadet
 
 - bagatellisieren
 - moralisieren
-- schnelle Trostsätze
-- Diskussionen über „Gründe“
-- Versprechen verlangen wie „Du machst das nicht“
+- schnelle Trostsätze wie „Das meinst du nicht so“
+- Diskussionen über Gründe oder Schuld
+- Versprechen verlangen wie „Du machst das jetzt nicht“
 
-### 6. Wann sofort handeln
+## Wann sofort handeln
 
-Roter Kasten:
+Nicht weiter allein tragen, sondern sofort handeln, wenn:
 
-- wenn ein konkreter Plan da ist
-- wenn Mittel verfügbar sind
-- wenn die Person nicht mehr sicher allein ist
-- wenn Kontakt abbricht und Sie akute Sorge haben
+- ein konkreter Plan da ist
+- Mittel verfügbar sind
+- die Person nicht mehr sicher allein ist
+- der Kontakt abbricht und Sie akute Sorge haben
+- die Lage schnell kippt und Sie sich nicht mehr auf bloßes Zuhören verlassen können
 
-**Direktsatz:**
-Bei konkretem Plan oder vorhandenen Mitteln: sofort 144.
+**Bei konkretem Plan oder vorhandenen Mitteln: sofort 144.**
 
-### 7. Wichtige Nummern / Verweis
+## Wichtige Nummern
 
-- 144
-- 0800 33 66 55
-- optional 143, wenn passend
-- Verweis auf die Notfallseite
+- **Sanität:** 144
+- **Psychiatrischer Notfalldienst Zürich:** 0800 33 66 55
+- **Dargebotene Hand:** 143
 
-## Tonalität
+## Nächster sinnvoller Schritt
 
-Der Ton soll:
+Wenn die Lage unklar, aber noch ruhig genug ist: direkt fragen und psychiatrische Hilfe dazunehmen.  
+Wenn die Gefahr konkret ist: nicht weiter ordnen oder beruhigen wollen, sondern sofort Notfallhilfe einschalten.
 
-- ruhig und klar sein
-- maximale Sicherheit vermitteln
-- keine Panik verstärken
-- keine falsche Beruhigung geben
-- Angehörige nicht in Alleinverantwortung setzen
+Weiterführend:
 
-## Sprachregeln
-
-- sehr kurze Sätze
-- direkte Verben
-- hohe Scanbarkeit
-- keine dichten Fachpassagen
-- lieber Klarheit als Vollständigkeit
-
-## Empfohlene visuelle Logik
-
-- Notfall-Rot nur für Eskalation
-- sonst ruhige Flächen
-- klare Hierarchie:
-  - ernst nehmen
-  - direkt fragen
-  - jetzt tun
-  - wann sofort 144
-
-## Was gegenüber der alten PDF wahrscheinlich besser werden soll
-
-- noch klarerer Krisenfokus
-- bessere digitale Lesbarkeit
-- bessere Druckbarkeit
-- kleinere Dateigröße
-- textbasierter Export
-
-## Web-Verknüpfung
-
-Diese PDF ist aktuell besonders relevant in:
-
-- `/notfall/`
-- `/modul/6/`
-- `/modul/8/`
-
-Deshalb sollte sie sehr früh modernisiert werden.
+- Notfallseite
+- Modul 6: Umgang mit akuten Belastungssituationen
