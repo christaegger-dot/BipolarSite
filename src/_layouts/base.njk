@@ -23,7 +23,7 @@
 <meta name="twitter:description" content="{{ ogDescription | default(description) }}">
 <meta name="twitter:image" content="{{ site.url }}/og-image.png">
 {% endif %}
-{% if noIndex %}<meta name="robots" content="noindex">{% endif %}
+{% if noIndex or site.noIndexDeploy %}<meta name="robots" content="noindex">{% endif %}
 <link rel="stylesheet" href="/fonts/fonts.css">
 {% if useSharedCSS %}<link rel="stylesheet" href="/css/shared.css">{% endif %}
 {% block headCSS %}{% endblock %}

@@ -81,7 +81,7 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
     </svg>
   </div>
   <div class="detail" id="detail" aria-live="polite"></div>
-  <button class="break-btn" id="breakBtn">Kreislauf unterbrechen</button>
+  <button class="break-btn" id="breakBtn" type="button" aria-pressed="false">Kreislauf unterbrechen</button>
 </main>
 {% endblock %}
 {% block footer %}
@@ -97,7 +97,7 @@ const stations=[
 ];
 let active=null,broken=false;
 function sel(i){active=active===i?null:i;rn()}
-function doBreak(){broken=!broken;document.getElementById('svgWrap').classList.toggle('interrupted',broken);document.getElementById('breakBtn').classList.toggle('active',broken);document.getElementById('centerText1').textContent=broken?'✓':'Chronische';document.getElementById('centerText2').textContent=broken?'Unterbrochen':'Anspannung';if(broken){document.getElementById('centerText1').setAttribute('fill','#1e656d');document.getElementById('centerText2').setAttribute('fill','#1e656d')}else{document.getElementById('centerText1').setAttribute('fill','#1c2b3a');document.getElementById('centerText2').setAttribute('fill','#1c2b3a')}}
+function doBreak(){broken=!broken;const breakBtn=document.getElementById('breakBtn');document.getElementById('svgWrap').classList.toggle('interrupted',broken);breakBtn.classList.toggle('active',broken);breakBtn.setAttribute('aria-pressed',broken?'true':'false');breakBtn.textContent=broken?'Kreislauf ist unterbrochen':'Kreislauf unterbrechen';document.getElementById('centerText1').textContent=broken?'✓':'Chronische';document.getElementById('centerText2').textContent=broken?'Unterbrochen':'Anspannung';if(broken){document.getElementById('centerText1').setAttribute('fill','#1e656d');document.getElementById('centerText2').setAttribute('fill','#1e656d')}else{document.getElementById('centerText1').setAttribute('fill','#1c2b3a');document.getElementById('centerText2').setAttribute('fill','#1c2b3a')}}
 function rn(){
   [0,1,2,3].forEach(i=>document.getElementById('station'+i).setAttribute('aria-pressed',active===i?'true':'false'));
   const d=document.getElementById('detail');

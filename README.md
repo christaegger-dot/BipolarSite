@@ -33,7 +33,7 @@ BipolarSite/
 
 ## Lokale Entwicklung
 
-Da es sich um eine reine statische HTML/CSS/JS-Website ohne Build-Tools handelt, reicht ein einfacher lokaler Webserver aus.
+Die Website wird aus dem `src/`-Verzeichnis mit **Eleventy** nach `_site/` gebaut. Für reine Sichtprüfungen reicht ein lokaler Server, für Template-Änderungen sollte der Build mitlaufen.
 
 ### Repository klonen
 
@@ -54,9 +54,21 @@ Status prüfen:
 git remote -v
 ```
 
-### Lokalen Server starten
+### Abhängigkeiten installieren
 
-Mit Python:
+```bash
+npm install
+```
+
+### Entwicklungsserver starten
+
+Mit Eleventy:
+
+```bash
+npm run serve
+```
+
+Oder für eine einfache statische Sichtprüfung des bereits gebauten Outputs mit Python:
 
 ```bash
 python3 -m http.server 8080
@@ -73,8 +85,8 @@ Die Website wird automatisch über **Netlify** aus dem `main`-Branch deployt. Ko
 
 ## Technologie
 
-- Reines HTML5, CSS3, JavaScript (keine Frameworks, keine Build-Tools)
-- Google Fonts: DM Serif Display, DM Sans
+- HTML5, CSS3 und JavaScript, gebaut mit Eleventy
+- Lokal gehostete Fonts: DM Serif Display, DM Sans
 - Farbpalette: Navy `#1C2B3A`, Teal `#1E656D`, Teal-light `#8DD4D9`, Amber `#B45309`
 
 ## Beitragen

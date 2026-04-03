@@ -2,6 +2,13 @@
   command = "npx eleventy"
   publish = "_site"
 
+[[redirects]]
+  from = "/*"
+  to = "https://www.pukzh.ch/:splat"
+  status = 301
+  force = true
+  conditions = {Host = ["bipolarsite.netlify.app"]}
+
 # Security headers applied to all pages
 [[headers]]
   for = "/*"
@@ -25,6 +32,11 @@
 
 # Short-lived cache for HTML pages (re-check after 5 minutes)
 [[headers]]
+  for = "/"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
+
+[[headers]]
   for = "/*.html"
   [headers.values]
     Cache-Control = "public, max-age=300, must-revalidate"
@@ -38,6 +50,16 @@
   for = "/tools/*"
   [headers.values]
     Cache-Control = "public, max-age=300, must-revalidate"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, must-revalidate"
+
+[[headers]]
+  for = "/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, must-revalidate"
 
 # Downloadable PDFs — cache for 7 days
 [[headers]]
