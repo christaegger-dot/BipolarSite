@@ -539,7 +539,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
 
   document.querySelectorAll('a[href$=".pdf"]').forEach((link)=>{
     const href=link.getAttribute('href');
-    if(!href||!href.startsWith('/'))return;
+    if(!href||!href.startsWith('/')||href.startsWith('/downloads/'))return;
     link.addEventListener('click',(event)=>{
       if(event.defaultPrevented||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
       event.preventDefault();
