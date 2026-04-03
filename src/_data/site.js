@@ -1,4 +1,4 @@
-const primaryUrl = "https://www.pukzh.ch";
+const primaryUrl = "https://bipolarsite.netlify.app";
 const deployContext = process.env.CONTEXT || "development";
 
 module.exports = {

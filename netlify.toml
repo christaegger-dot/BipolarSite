@@ -2,18 +2,6 @@
   command = "npx eleventy"
   publish = "_site"
 
-[[redirects]]
-  from = "http://bipolarsite.netlify.app/*"
-  to = "https://www.pukzh.ch/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "https://bipolarsite.netlify.app/*"
-  to = "https://www.pukzh.ch/:splat"
-  status = 301
-  force = true
-
 # Security headers applied to all pages
 [[headers]]
   for = "/*"
