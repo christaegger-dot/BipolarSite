@@ -10,11 +10,11 @@ target_format: "A4, 1 Seite"
 priority: "P1"
 last_updated: "2026-04-03"
 emergency_label: "Wenn Schutz vorgeht"
-emergency_callout: "Bei unmittelbarer Gefahr, Gewalt, Selbstgefährdung oder massivem Kontrollverlust: 144 oder 117."
-emergency_note: "Nicht in lange Diskussionen gehen. Reize reduzieren, kurz sprechen und früh professionelle Hilfe dazunehmen."
+emergency_callout: "Bei Gewalt, Selbstgefährdung, massivem Kontrollverlust oder wenn niemand mehr sicher ist: sofort 144 oder 117."
+emergency_note: "Nicht in lange Diskussionen gehen. Reize reduzieren, kurz sprechen, Risiko begrenzen und früh professionelle Hilfe dazunehmen."
 quick_steps:
-  - icon: "..."
-    text: "Kurz sprechen und Reize reduzieren"
+  - icon: "1"
+    text: "Kurz sprechen, Reize reduzieren, bei einem Punkt bleiben"
   - icon: "!"
     text: "Krisendienst oder Behandlungsteam früh dazunehmen"
   - icon: "144"
@@ -35,7 +35,7 @@ emergency_contacts:
 
 # Umgang mit Manie
 
-Wenn eine manische Episode kippt, hilft meist nicht mehr Diskussion, Erklärung oder moralischer Druck. Wichtiger sind Ruhe, kurze Sätze, Schutz und frühes Dazunehmen professioneller Hilfe.
+Wenn eine manische Episode kippt, helfen meist nicht mehr Diskussion, Erklärung oder moralischer Druck. Wichtiger sind Ruhe, kurze Sätze, Schutz und frühes Dazunehmen professioneller Hilfe.
 
 ## Woran Sie Manie erkennen können
 
@@ -53,6 +53,7 @@ Nicht jedes einzelne Zeichen bedeutet sofort Manie. Wichtig ist die Kombination 
 - ruhig bleiben
 - kurz und einfach sprechen
 - ein Satz, ein Anliegen
+- Reize reduzieren: weniger Menschen, weniger Lärm, weniger Diskussion
 - Krisenplan aktivieren, wenn es einen gibt
 - früh Hilfe holen statt lange allein ordnen
 
@@ -61,11 +62,12 @@ Hilfreicher als lange Erklärungen ist oft ein Satz wie:
 
 ## Was eher hilft
 
-- Reize reduzieren: weniger Diskussion, weniger Menschen, weniger Lärm
 - bei einem Punkt bleiben statt viele Themen gleichzeitig ansprechen
+- mit ruhiger Stimme und klaren Sätzen sprechen
 - Finanzen, Autofahren und Sicherheit im Blick behalten
 - Behandlungsteam oder Krisendienst früh kontaktieren
 - Schutz ernst nehmen, auch wenn die Person das anders sieht
+- wenn möglich: eine ruhige Bezugsperson spricht, nicht viele gleichzeitig
 
 ## Was eher schadet
 
@@ -73,6 +75,7 @@ Hilfreicher als lange Erklärungen ist oft ein Satz wie:
 - provozieren, belehren oder beschämen
 - Machtkämpfe anfangen
 - mit Logik oder Moral überzeugen wollen
+- zu viele Menschen gleichzeitig einbeziehen
 - aus Angst alles allein kontrollieren wollen
 
 Wenn die Person stark gereizt oder grandios ist, wird Widerspruch oft nicht als Hilfe erlebt, sondern als Angriff.
@@ -81,8 +84,8 @@ Wenn die Person stark gereizt oder grandios ist, wird Widerspruch oft nicht als 
 
 Nicht weiter diskutieren, sondern sofort handeln, wenn:
 
-- die Person nicht mehr sicher fährt
-- massive Geld- oder Risikohandlungen passieren
+- die Person nicht mehr sicher fährt oder wegfahren will
+- massive Geld-, Sexual- oder andere Risikohandlungen passieren
 - Psychose, Wahn oder starker Kontrollverlust dazukommen
 - Gewalt, Bedrohung oder Selbstgefährdung im Raum stehen
 - Sie sich oder andere nicht mehr sicher fühlen
@@ -91,10 +94,10 @@ Nicht weiter diskutieren, sondern sofort handeln, wenn:
 
 ## Nächster sinnvoller Schritt
 
-Wenn die Situation noch ansprechbar, aber instabil ist: Hilfe früh einschalten.  
+Wenn die Situation noch ansprechbar, aber instabil ist: Hilfe früh einschalten und nicht erst auf die volle Eskalation warten.  
 Wenn Schutz vorgeht: nicht mehr auf das bessere Gespräch hoffen, sondern Notfallhilfe nutzen.
 
 Weiterführend:
 
-- Notfallseite
-- Modul 6: Kommunikation in der Manie
+- [Notfallseite](/notfall/)
+- [Modul 6: Kommunikation, Grenzen, Krisenplan](/modul/6/)
