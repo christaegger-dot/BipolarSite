@@ -570,6 +570,55 @@ useNavJS: true
     border-color: rgba(30,101,109,0.18);
   }
 
+  .role-card {
+    text-decoration: none;
+  }
+
+  .role-starts {
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px solid rgba(45,40,35,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .role-starts-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sage-500);
+  }
+
+  .role-start-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .role-start-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 34px;
+    padding: 0 12px;
+    border-radius: 999px;
+    text-decoration: none;
+    border: 1px solid rgba(45,40,35,0.08);
+    background: rgba(255,255,255,0.9);
+    color: var(--navy);
+    font-size: 0.78rem;
+    font-weight: 700;
+    transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .role-start-link:hover {
+    border-color: rgba(30,101,109,0.22);
+    background: var(--green-bg);
+    color: var(--teal);
+  }
+
   .module-card {
     text-decoration: none;
     color: var(--text);
@@ -1088,45 +1137,61 @@ useNavJS: true
       </summary>
       <div class="entry-details-body">
         <div class="modules-grid modules-grid--roles">
-          <a href="/modul/1/" class="module-card module-card--role">
+          <div class="module-card module-card--role role-card">
             <span class="module-number">Partner*in</span>
             <h3>Wenn Sie mitten im gemeinsamen Alltag stehen</h3>
             <p>Beziehung, Rollenverschiebung, Grenzen, Krisenplan und Kommunikation stehen oft früh im Vordergrund.</p>
-            <div class="module-card-footer">
-              <span class="module-time">Start: Modul 1, 3 oder 6</span>
-              <span class="module-arrow">→</span>
+            <div class="role-starts">
+              <div class="role-starts-label">Sinnvolle Einstiege</div>
+              <div class="role-start-links">
+                <a href="/modul/1/" class="role-start-link">Modul 1: Verstehen</a>
+                <a href="/modul/3/" class="role-start-link">Modul 3: Beziehung</a>
+                <a href="/modul/6/" class="role-start-link">Modul 6: Konkrete Schritte</a>
+              </div>
             </div>
-          </a>
+          </div>
 
-          <a href="/modul/4/#kinder" class="module-card module-card--role">
+          <div class="module-card module-card--role role-card">
             <span class="module-number">Elternteil</span>
             <h3>Wenn Ihr erwachsenes Kind erkrankt ist</h3>
             <p>Zwischen Sorge, Schutzimpuls und Loslassen helfen oft Wissen, Systemorientierung und Entlastung für die Familie.</p>
-            <div class="module-card-footer">
-              <span class="module-time">Start: Modul 1, 4 oder 8</span>
-              <span class="module-arrow">→</span>
+            <div class="role-starts">
+              <div class="role-starts-label">Sinnvolle Einstiege</div>
+              <div class="role-start-links">
+                <a href="/modul/1/" class="role-start-link">Modul 1: Verstehen</a>
+                <a href="/modul/4/#kinder" class="role-start-link">Modul 4: Belastung in der Familie</a>
+                <a href="/modul/8/" class="role-start-link">Modul 8: Unterstützung</a>
+              </div>
             </div>
-          </a>
+          </div>
 
-          <a href="/modul/8/" class="module-card module-card--role">
+          <div class="module-card module-card--role role-card">
             <span class="module-number">Geschwister</span>
             <h3>Wenn Sie viel sehen, aber nicht für alles zuständig sein wollen</h3>
             <p>Geschwister brauchen oft eine eigene Sprache für Loyalität, Distanz, Frust mit Hilfesystemen und die Frage nach dem eigenen Anteil.</p>
-            <div class="module-card-footer">
-              <span class="module-time">Start: Modul 2, 5 oder 8</span>
-              <span class="module-arrow">→</span>
+            <div class="role-starts">
+              <div class="role-starts-label">Sinnvolle Einstiege</div>
+              <div class="role-start-links">
+                <a href="/modul/2/" class="role-start-link">Modul 2: Eigene Reaktion verstehen</a>
+                <a href="/modul/5/" class="role-start-link">Modul 5: Loyalitätskonflikte</a>
+                <a href="/modul/8/" class="role-start-link">Modul 8: Unterstützung</a>
+              </div>
             </div>
-          </a>
+          </div>
 
-          <a href="/modul/8/#rollen" class="module-card module-card--role">
+          <div class="module-card module-card--role role-card">
             <span class="module-number">Erwachsenes Kind</span>
             <h3>Wenn ein Elternteil erkrankt ist und Sie zwischen Nähe und Eigenleben stehen</h3>
             <p>Hier mischen sich Loyalität, Parentifizierung, Schuld und die Frage, wie Sie helfen können, ohne Ihr eigenes Leben aufzuschieben.</p>
-            <div class="module-card-footer">
-              <span class="module-time">Start: Modul 2, 4 oder 8</span>
-              <span class="module-arrow">→</span>
+            <div class="role-starts">
+              <div class="role-starts-label">Sinnvolle Einstiege</div>
+              <div class="role-start-links">
+                <a href="/modul/2/" class="role-start-link">Modul 2: Eigene Reaktion verstehen</a>
+                <a href="/modul/4/#kinder" class="role-start-link">Modul 4: Belastung verstehen</a>
+                <a href="/modul/8/#rollen" class="role-start-link">Modul 8: Orientierung nach Rolle</a>
+              </div>
             </div>
-          </a>
+          </div>
         </div>
       </div>
     </details>
