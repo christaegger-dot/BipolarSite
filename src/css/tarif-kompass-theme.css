@@ -19,10 +19,15 @@
   --navy-mid:    #243447;
   --teal:        #1E656D;
   --teal-light:  #8dd4d9;
+  --teal-mist:   #d9ecec;
   --amber:       #B45309;
   --amber-light: #FBBF24;
   --rose:        #9A3412;
   --rose-soft:   #FEF2F2;
+  --sand:        #ddd2bf;
+  --sand-deep:   #b58a52;
+  --dust-rose:   #c7a8a1;
+  --dust-rose-soft: #f3e5e1;
 
   /* ── Neutral / Slate ── */
   --slate:       #475569;
@@ -31,6 +36,8 @@
   /* ── Semantic: Background ── */
   --bg:          #FAFAF7;
   --card:        #ffffff;
+  --surface-alt: #f2f5f3;
+  --surface-warm:#f7f2ea;
 
   /* ── Semantic: Text ── */
   --text:        #1c2b3a;
@@ -54,9 +61,9 @@
   --radius-pill: 20px;
 
   /* ── Shadow Scale ── */
-  --shadow-soft:     0 1px 4px rgba(0,0,0,0.04);
-  --shadow-card:     0 2px 8px rgba(0,0,0,0.06);
-  --shadow-elevated: 0 4px 16px rgba(0,0,0,0.12);
+  --shadow-soft:     0 4px 18px rgba(28,43,58,0.05);
+  --shadow-card:     0 10px 28px rgba(28,43,58,0.08);
+  --shadow-elevated: 0 16px 40px rgba(28,43,58,0.14);
   --shadow-nav:      0 1px 8px rgba(0,0,0,0.06);
 
   /* ── Spacing Scale ── */
@@ -90,10 +97,10 @@
 
   /* Warm → Slate */
   --warm-50:  var(--bg);
-  --warm-100: #f1f5f9;
+  --warm-100: var(--surface-warm);
   --warm-200: var(--border);
-  --warm-300: #cbd5e1;
-  --warm-400: var(--slate-light);
+  --warm-300: var(--sand);
+  --warm-400: #b4a48b;
 
   /* Earth → Slate/Navy */
   --earth-700: #334155;
