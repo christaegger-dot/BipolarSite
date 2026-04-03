@@ -1926,3 +1926,80 @@ header.hero .hero-content {
   line-height: 1;
   flex-shrink: 0;
 }
+
+
+/* ── 34. PALETTE ROLLOUT: MODULES + TOOLS ── */
+.module-hero::before {
+  background: radial-gradient(circle, rgba(221,210,191,0.7) 0%, transparent 70%) !important;
+  opacity: 0.75 !important;
+}
+
+.module-hero::after {
+  background: radial-gradient(circle, rgba(217,236,236,0.42) 0%, transparent 72%) !important;
+}
+
+.module-hero .hero-icon,
+.module-hero .module-badge {
+  color: var(--sand-deep) !important;
+}
+
+.module-hero .hero-icon {
+  opacity: 0.75 !important;
+}
+
+.module-hero .module-badge {
+  background: rgba(221,210,191,0.34) !important;
+}
+
+.quote-block {
+  background: linear-gradient(180deg, var(--surface-warm) 0%, rgba(243,229,225,0.5) 100%) !important;
+}
+
+.reflection,
+.reflection-block {
+  background: linear-gradient(135deg, var(--surface-warm), rgba(217,236,236,0.72)) !important;
+}
+
+.reflection::before,
+.reflection-block::before,
+.reflection-block::after {
+  background: rgba(221,210,191,0.18) !important;
+}
+
+.takeaways,
+.key-takeaways {
+  background: linear-gradient(135deg, var(--navy), #294051) !important;
+}
+
+.takeaways::before,
+.key-takeaways::before {
+  background: radial-gradient(ellipse at 20% 80%, rgba(221,210,191,0.18) 0%, transparent 60%) !important;
+}
+
+.hdr,
+.tool-header {
+  background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(247,242,234,0.86)) !important;
+  border-color: rgba(181,138,82,0.14) !important;
+}
+
+.hdr::before,
+.tool-header::before {
+  background: radial-gradient(circle, rgba(221,210,191,0.34) 0%, transparent 68%) !important;
+}
+
+.tool-glyph {
+  background: linear-gradient(135deg, var(--navy), var(--sand-deep)) !important;
+}
+
+.card,
+.detail,
+.chart-wrap,
+.detail-card,
+.res-card,
+.stelle-card,
+.action-card,
+.insight-card,
+.dl-module,
+.handout-chip {
+  background: linear-gradient(180deg, #fff 0%, #fcf8f4 100%) !important;
+}
