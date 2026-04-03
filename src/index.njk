@@ -214,13 +214,16 @@ useNavJS: true
   }
 
   .quick-card-icon {
-    width: 44px;
-    height: 44px;
+    width: 46px;
+    height: 34px;
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     margin-bottom: 14px;
     background: var(--sage-100);
     color: var(--sage-600);
@@ -286,14 +289,14 @@ useNavJS: true
   .progress-bar-outer {
     max-width: 1200px;
     margin: 0 auto;
-    background: white;
+    background: rgba(255,255,255,0.9);
     border: 1px solid rgba(45,40,35,0.06);
     border-radius: var(--radius-lg);
-    padding: 24px 32px;
+    padding: 18px 24px;
     display: flex;
     align-items: center;
     gap: 24px;
-    box-shadow: var(--shadow-soft);
+    box-shadow: none;
   }
 
   .progress-label {
@@ -413,7 +416,7 @@ useNavJS: true
   }
 
   .choice-card {
-    background: white;
+    background: linear-gradient(180deg,#fff 0%,#fbf7f0 100%);
     border: 1px solid rgba(45,40,35,0.08);
     border-radius: var(--radius-lg);
     padding: 22px 24px;
@@ -722,8 +725,6 @@ useNavJS: true
     .cta-band { padding: 50px 1.2rem; }
     
   }
-  
-  }
 
   /* ══════════ PATH LIST (Startwege) ══════════ */
   .path-list{list-style:none;margin:0;padding:0}
@@ -744,7 +745,7 @@ useNavJS: true
   .start-helper-option{display:flex;align-items:flex-start;gap:12px;width:100%;padding:14px 16px;border-radius:16px;border:1px solid rgba(45,40,35,0.08);background:#fff;color:var(--text);text-align:left;font-family:'DM Sans',sans-serif;cursor:pointer;transition:border-color 0.2s ease,box-shadow 0.2s ease,transform 0.2s ease}
   .start-helper-option:hover{border-color:var(--sage-200);box-shadow:var(--shadow-soft);transform:translateY(-1px)}
   .start-helper-option.is-active{border-color:var(--teal);background:var(--green-bg)}
-  .start-helper-icon{width:34px;height:34px;border-radius:10px;background:rgba(221,210,191,0.3);color:var(--sand-ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem}
+  .start-helper-icon{width:38px;height:34px;border-radius:10px;background:rgba(221,210,191,0.3);color:var(--sand-ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.72rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase}
   .start-helper-option.is-active .start-helper-icon{background:var(--teal);color:#fff}
   .start-helper-label{display:block;font-size:0.88rem;font-weight:700;margin-bottom:3px}
   .start-helper-sub{display:block;font-size:0.8rem;color:var(--text-muted);line-height:1.45}
@@ -777,22 +778,22 @@ useNavJS: true
         </div>
         <div class="quick-actions">
           <a href="/notfall/" class="quick-card alert">
-            <div class="quick-card-icon">⚡</div>
+            <div class="quick-card-icon">AK</div>
             <div class="quick-card-title">Es ist akut</div>
             <div class="quick-card-desc">Krise, Gefahr, Notfallnummern und erste Schritte</div>
           </a>
           <a href="/modul/1/" class="quick-card">
-            <div class="quick-card-icon">🔍</div>
+            <div class="quick-card-icon">VE</div>
             <div class="quick-card-title">Ich muss erst verstehen</div>
             <div class="quick-card-desc">Grundlagen, Phasen, Behandlung und Verlauf</div>
           </a>
           <a href="/modul/4/" class="quick-card">
-            <div class="quick-card-icon">🌿</div>
+            <div class="quick-card-icon">ER</div>
             <div class="quick-card-title">Ich bin erschöpft</div>
             <div class="quick-card-desc">Schleichende Belastung, Selbstverlust, Entlastung</div>
           </a>
           <a href="/modul/6/" class="quick-card">
-            <div class="quick-card-icon">🧭</div>
+            <div class="quick-card-icon">KS</div>
             <div class="quick-card-title">Ich brauche konkrete Schritte</div>
             <div class="quick-card-desc">Krisenplan, Kommunikation, Grenzen und Alltag</div>
           </a>
@@ -828,19 +829,19 @@ useNavJS: true
     <p>Wählen Sie das, was Ihrer Lage im Moment am nächsten kommt. Sie bekommen direkt einen sinnvollen ersten Einstieg. Mehr müssen Sie jetzt nicht entscheiden.</p>
     <div class="start-helper-options" role="group" aria-label="Starthelfer: Einstieg auswählen">
       <button type="button" class="start-helper-option" data-start-helper="akut" aria-pressed="false" aria-controls="startHelperResult">
-        <span class="start-helper-icon" aria-hidden="true">⚡</span>
+        <span class="start-helper-icon" aria-hidden="true">AK</span>
         <span><span class="start-helper-label">Akut / unklar gefährlich</span><span class="start-helper-sub">Ich muss zuerst klären, ob Gefahr besteht.</span></span>
       </button>
       <button type="button" class="start-helper-option" data-start-helper="verstehen" aria-pressed="false" aria-controls="startHelperResult">
-        <span class="start-helper-icon" aria-hidden="true">🔍</span>
+        <span class="start-helper-icon" aria-hidden="true">VE</span>
         <span><span class="start-helper-label">Einordnen und verstehen</span><span class="start-helper-sub">Ich brauche zuerst Überblick und Grundlagen.</span></span>
       </button>
       <button type="button" class="start-helper-option" data-start-helper="erschoepft" aria-pressed="false" aria-controls="startHelperResult">
-        <span class="start-helper-icon" aria-hidden="true">🌿</span>
+        <span class="start-helper-icon" aria-hidden="true">ER</span>
         <span><span class="start-helper-label">Ich bin erschöpft</span><span class="start-helper-sub">Meine eigene Belastung steht gerade im Vordergrund.</span></span>
       </button>
       <button type="button" class="start-helper-option" data-start-helper="hilfe" aria-pressed="false" aria-controls="startHelperResult">
-        <span class="start-helper-icon" aria-hidden="true">🧭</span>
+        <span class="start-helper-icon" aria-hidden="true">HI</span>
         <span><span class="start-helper-label">Kontakte / Materialien / Recht</span><span class="start-helper-sub">Ich brauche jetzt Orientierung, Anlaufstellen oder praktische Unterstützung.</span></span>
       </button>
     </div>
@@ -1038,38 +1039,14 @@ useNavJS: true
   <p class="section-desc reveal">Diese interaktiven Tools helfen Ihnen, eigene Muster zu erkennen, Gespräche vorzubereiten und Krisen zu planen.</p>
 
   <div class="tools-grid reveal">
-    <a href="/tools/selbsttest/" class="tool-chip">
-      <span class="tool-chip-icon">🧭</span>
-      <span>Belastungs-Selbsttest</span>
-    </a>
-    <a href="/tools/phasenverlauf/" class="tool-chip">
-      <span class="tool-chip-icon">📊</span>
-      <span>Phasenverlauf-Tracker</span>
-    </a>
-    <a href="/tools/eisberg/" class="tool-chip">
-      <span class="tool-chip-icon">🏔</span>
-      <span>Eisberg-Modell</span>
-    </a>
-    <a href="/tools/krisenplan/" class="tool-chip">
-      <span class="tool-chip-icon">📋</span>
-      <span>Krisenplan</span>
-    </a>
-    <a href="/tools/komm-trainer/" class="tool-chip">
-      <span class="tool-chip-icon">💬</span>
-      <span>Kommunikations-Trainer</span>
-    </a>
-    <a href="/tools/saeulen-check/" class="tool-chip">
-      <span class="tool-chip-icon">⚖️</span>
-      <span>Säulen-Check</span>
-    </a>
-    <a href="/tools/ee-kreislauf/" class="tool-chip">
-      <span class="tool-chip-icon">🔄</span>
-      <span>EE-Kreislauf</span>
-    </a>
-    <a href="/tools/solidaritaets-chart/" class="tool-chip">
-      <span class="tool-chip-icon">📈</span>
-      <span>Solidaritäts-Chart</span>
-    </a>
+    <a href="/tools/selbsttest/" class="tool-chip"><span>Belastungs-Selbsttest</span></a>
+    <a href="/tools/phasenverlauf/" class="tool-chip"><span>Phasenverlauf-Tracker</span></a>
+    <a href="/tools/eisberg/" class="tool-chip"><span>Eisberg-Modell</span></a>
+    <a href="/tools/krisenplan/" class="tool-chip"><span>Krisenplan</span></a>
+    <a href="/tools/komm-trainer/" class="tool-chip"><span>Kommunikations-Trainer</span></a>
+    <a href="/tools/saeulen-check/" class="tool-chip"><span>Säulen-Check</span></a>
+    <a href="/tools/ee-kreislauf/" class="tool-chip"><span>EE-Kreislauf</span></a>
+    <a href="/tools/solidaritaets-chart/" class="tool-chip"><span>Solidaritäts-Chart</span></a>
   </div>
 </section>
 

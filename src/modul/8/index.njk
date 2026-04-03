@@ -42,8 +42,8 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   .quote-block cite{display:block;margin-top:14px;font-style:normal;font-family:'DM Sans',sans-serif;font-size:0.82rem;color:var(--text-muted);padding-left:12px}
 
   /* INSIGHT CARDS */
-  .insight-grid{display:grid;grid-template-columns:1fr;gap:12px;margin:28px 0}
-  .insight-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:22px 26px;display:flex;gap:18px;align-items:flex-start;transition:border-color 0.2s ease,box-shadow 0.2s ease}
+  .insight-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:28px 0}
+  .insight-card{background:#fff !important;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:22px 26px;display:flex;gap:18px;align-items:flex-start;transition:border-color 0.2s ease,box-shadow 0.2s ease;box-shadow:none !important}
   .insight-card:hover{box-shadow:var(--shadow-soft)}
   .insight-num{width:36px;height:36px;border-radius:10px;background:var(--sage-100);color:var(--sage-600);display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:800;flex-shrink:0}
   .insight-card h4{font-size:0.92rem;font-weight:700;color:var(--text);margin-bottom:4px}
@@ -55,13 +55,13 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   .system-items li::before{content:'—';position:absolute;left:0;color:var(--alert-red);font-weight:700}
 
   /* ACTION CARDS */
-  .action-grid{display:grid;grid-template-columns:1fr;gap:14px;margin:28px 0}
-  .action-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:24px;display:flex;gap:20px;align-items:flex-start;transition:border-color 0.2s ease,box-shadow 0.2s ease}.action-card:hover{box-shadow:var(--shadow-soft)}
+  .action-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:28px 0}
+  .action-card{background:#fff !important;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:24px;display:flex;gap:20px;align-items:flex-start;transition:border-color 0.2s ease,box-shadow 0.2s ease;box-shadow:none !important}.action-card:hover{box-shadow:var(--shadow-soft)}
   .action-icon{width:42px;height:42px;border-radius:11px;background:rgba(221,210,191,0.4);color:var(--sand-deep);display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:800;flex-shrink:0}
   .action-card h4{font-weight:700;font-size:0.92rem;margin-bottom:6px;color:var(--text)}.action-card p{font-size:0.85rem;color:var(--text-muted);line-height:1.6;margin:0}
 
   /* ANLAUFSTELLEN */
-  .stelle-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:24px;margin-bottom:14px;transition:border-color 0.2s ease,box-shadow 0.2s ease}
+  .stelle-card{background:#fff !important;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:24px;margin-bottom:14px;transition:border-color 0.2s ease,box-shadow 0.2s ease;box-shadow:none !important}
   .stelle-card:hover{box-shadow:var(--shadow-soft)}
   .stelle-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
   .stelle-card h4{font-size:0.95rem;font-weight:700;color:var(--text);margin:0}
@@ -73,7 +73,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   .stelle-contact a{color:var(--sage-500);text-decoration:none}
 
   /* DOWNLOAD MODULES */
-  .dl-module{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:24px 28px;margin-bottom:14px;display:flex;gap:20px;align-items:flex-start;transition:border-color 0.2s ease,box-shadow 0.2s ease}
+  .dl-module{background:linear-gradient(180deg,#fff 0%,#fbf7f0 100%) !important;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:24px 28px;margin-bottom:14px;display:flex;gap:20px;align-items:flex-start;transition:border-color 0.2s ease,box-shadow 0.2s ease}
   .dl-module:hover{box-shadow:var(--shadow-soft)}
   .dl-module-sos{border-left:4px solid var(--alert-red)}
   .dl-icon{font-size:1.6rem;flex-shrink:0;margin-top:2px}
@@ -92,11 +92,6 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   .handout-chip .hc-title{font-weight:600;line-height:1.3}
   .handout-chip .hc-size{font-size:0.65rem;color:var(--text-muted);font-weight:400}
 
-  .mini-visual-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:28px 0 40px}
-  .mini-visual-card{background:linear-gradient(180deg,#fff 0%,#fcf8f4 100%);border:1px solid rgba(45,40,35,0.06);border-radius:22px;padding:18px;box-shadow:var(--shadow-soft)}
-  .mini-visual-card img{display:block;width:100%;height:auto;border-radius:16px;margin-bottom:14px}
-  .mini-visual-card h3{margin:0 0 8px;font-size:1rem}
-  .mini-visual-card p{font-size:0.88rem;line-height:1.6;margin:0}
   .wide-visual{margin:28px 0 36px;background:linear-gradient(180deg,#fff 0%,#fcf8f4 100%);border:1px solid rgba(45,40,35,0.06);border-radius:24px;padding:20px;box-shadow:var(--shadow-soft)}
   .wide-visual img{display:block;width:100%;height:auto;border-radius:18px}
   .wide-visual p{font-size:0.86rem;color:var(--text-secondary);margin:12px 4px 0}
@@ -108,7 +103,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   .material-finder-option{display:flex;align-items:flex-start;gap:12px;width:100%;padding:14px 16px;border-radius:16px;border:1px solid rgba(45,40,35,0.08);background:#fff;color:var(--text);text-align:left;font-family:'DM Sans',sans-serif;cursor:pointer;transition:border-color 0.2s ease,box-shadow 0.2s ease,transform 0.2s ease}
   .material-finder-option:hover{border-color:var(--sage-200);box-shadow:var(--shadow-soft);transform:translateY(-1px)}
   .material-finder-option.is-active{border-color:var(--teal);background:var(--green-bg)}
-  .material-finder-icon{width:34px;height:34px;border-radius:10px;background:rgba(221,210,191,0.3);color:var(--sand-ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem}
+  .material-finder-icon{width:38px;height:34px;border-radius:10px;background:rgba(221,210,191,0.3);color:var(--sand-ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.72rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase}
   .material-finder-option.is-active .material-finder-icon{background:var(--teal);color:#fff}
   .material-finder-label{display:block;font-size:0.88rem;font-weight:700;margin-bottom:3px}
   .material-finder-sub{display:block;font-size:0.8rem;color:var(--text-muted);line-height:1.45}
@@ -164,10 +159,10 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
 
   .reveal{opacity:1}
 
-  @media(max-width:768px){.toc ol{grid-template-columns:1fr}.handout-list{grid-template-columns:1fr 1fr}.mini-visual-grid{grid-template-columns:1fr}.material-finder-options{grid-template-columns:1fr}.mini-plan-grid{grid-template-columns:1fr}}
+  @media(max-width:768px){.toc ol{grid-template-columns:1fr}.handout-list{grid-template-columns:1fr 1fr}.insight-grid,.action-grid{grid-template-columns:1fr}.material-finder-options{grid-template-columns:1fr}.mini-plan-grid{grid-template-columns:1fr}}
   
   @media(max-width:900px){.module-hero-inner{grid-template-columns:1fr}}
-  @media(max-width:600px){.module-hero{padding:100px 1.2rem 32px}.module-hero .quote-block,.module-hero-visual,.mini-visual-grid{display:none}.toc{padding:18px 20px;margin-bottom:26px}.toc-desc{display:none}.content{padding:0 1.2rem}.action-card,.stelle-card,.dl-module,.material-finder,.mini-plan{padding-left:18px;padding-right:18px}.closing{padding:36px 24px}.handout-list{grid-template-columns:1fr}}
+  @media(max-width:600px){.module-hero{padding:100px 1.2rem 32px}.module-hero .quote-block,.module-hero-visual{display:none}.toc{padding:18px 20px;margin-bottom:26px}.toc-desc{display:none}.content{padding:0 1.2rem}.action-card,.stelle-card,.dl-module,.material-finder,.mini-plan{padding-left:18px;padding-right:18px}.closing{padding:36px 24px}.handout-list{grid-template-columns:1fr}}
   .sources-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;cursor:pointer;padding:0;font:inherit;color:inherit;text-align:left}
 
   body.pdf-preview-open{overflow:hidden}
@@ -242,19 +237,6 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
     <div class="action-card"><div class="action-icon">4</div><div><h4>Hilfsmittel als Entlastung benutzen</h4><p>Merkblätter, Notizen oder ein gemeinsamer Krisenplan müssen nicht perfekt sein. Sie sollen tragen, nicht zusätzlichen Druck erzeugen.</p></div></div>
   </div>
 
-  <div class="mini-visual-grid reveal">
-    <div class="mini-visual-card">
-      <img src="/visuals/modul8-support-paths.svg" alt="Orientierungsgrafik mit fünf Wegen: Krise, Erschöpfung, Austausch, Recht und Familie." width="720" height="420" loading="lazy" decoding="async">
-      <h3>Schneller orientieren</h3>
-      <p>Wenn Sie sich fragen, wo Sie anfangen sollen: Ordnen Sie zuerst die Art des Drucks ein. Die passende Hilfe wird meist klarer, sobald Sie wissen, ob es um Krise, Erschöpfung, Austausch, Recht oder Familie geht.</p>
-    </div>
-    <div class="mini-visual-card">
-      <img src="/visuals/modul8-first-step-cards.svg" alt="Vier kleine erste Schritte: Nummer speichern, Gespräch vereinbaren, Merkblatt öffnen und Gruppe finden." width="720" height="420" loading="lazy" decoding="async">
-      <h3>Klein genug beginnen</h3>
-      <p>Der erste sinnvolle Schritt ist oft kleiner als gedacht. Diese vier Einstiege sind absichtlich niedrigschwellig, damit Unterstützung nicht erst beginnt, wenn Sie vollkommen erschöpft sind.</p>
-    </div>
-  </div>
-
   <!-- ══════════ 2. SITUATIONEN ══════════ -->
   <p class="reveal" style="font-size:0.88rem;color:var(--text-muted);margin-top:10px"><strong>Wenn Sie noch etwas genauer sortieren möchten:</strong> Die nächsten beiden Blöcke helfen nur dabei, den passendsten Zugang zu wählen. Sie müssen nicht beide nutzen.</p>
   <h2 id="situationen" class="reveal">Orientierung nach Situation</h2>
@@ -324,16 +306,6 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
 
   <p class="reveal" style="font-size:0.88rem;color:var(--sage-500);font-weight:600;margin-top:20px">Notfallnummern (143, 144, 117, Psychiatrischer Notfalldienst Zürich) finden Sie auf der <a href="/notfall/" style="color:var(--alert-red)">Notfallseite →</a></p>
 
-  <div class="quote-block reveal">
-    <blockquote>Ich habe zwei Jahre gewartet, bevor ich Hilfe gesucht habe — weil ich dachte, das schafft man selbst. Dann habe ich bei VASK eine Gruppe gefunden. Zum ersten Mal sassen Menschen um mich herum, die wussten, was ich meine, ohne dass ich alles erklären musste.</blockquote>
-    <cite>— Monika, 38 Jahre, Schwester (anonymisiert)</cite>
-  </div>
-
-  <div class="quote-block reveal">
-    <blockquote>Mein Sohn wurde mit 22 diagnostiziert. Als Vater wollte ich reparieren, lösen, kontrollieren — alles Dinge, die nicht funktionieren. Erst als ich gelernt habe, dass «da sein ohne zu retten» die stärkste Haltung ist, hat sich etwas verändert. Nicht bei ihm — bei mir.</blockquote>
-    <cite>— Peter, 61 Jahre, Vater (anonymisiert)</cite>
-  </div>
-
   <!-- ══════════ 5. SYSTEM ══════════ -->
   <h2 id="system" class="reveal">Wenn das System zusätzlich belastet</h2>
   <p class="reveal">Viele Angehörige tragen neben Sorge und Erschöpfung auch Frust auf das Versorgungssystem in sich: wegen Wartelisten, unklarer Zuständigkeiten, Schweigepflicht, Ablehnungen oder dem Gefühl, mitzutragen und trotzdem kaum Einfluss zu haben. Dieser Frust ist nicht bloss Ärger. Er ist oft eine zusätzliche Belastungsschicht.</p>
@@ -351,11 +323,6 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   <div class="wide-visual reveal">
     <img src="/visuals/modul8-material-ladder.svg" alt="Drei Stufen für Materialien: Notfallkarte in akuten Lagen, Krisenplan in stabilen Phasen und passende Handouts für den Alltag." width="720" height="360" loading="lazy" decoding="async">
     <p>Die Unterlagen unten sind nicht als Archiv gedacht. Nutzen Sie sie je nach Lage: zuerst das, was die Situation ordnet, nicht das, was am vollständigsten aussieht.</p>
-  </div>
-
-  <div class="quote-block reveal">
-    <blockquote>Ich habe meinen Bruder dreimal in die Notaufnahme gebracht. Dreimal wurde er nach Hause geschickt. Beim vierten Mal hat er sich verletzt. Ich war wütend — auf das System, nicht auf ihn. Diese Wut hat mir geholfen, nicht aufzugeben. Ich habe Beschwerde eingereicht. Es hat etwas verändert.</blockquote>
-    <cite>— Schwester, anonymisiert</cite>
   </div>
 
   <div class="action-box reveal">
@@ -378,19 +345,19 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
     <p>Wählen Sie die Lage, die gerade am ehesten passt. Sie bekommen 1 bis 3 passende Materialien, Kontakte oder nächste Schritte statt der ganzen Liste auf einmal.</p>
     <div class="material-finder-options">
       <button type="button" class="material-finder-option" data-material-finder="akut" aria-pressed="false" aria-controls="materialFinderResults">
-        <span class="material-finder-icon" aria-hidden="true">🆘</span>
+        <span class="material-finder-icon" aria-hidden="true">AK</span>
         <span><span class="material-finder-label">Akute oder unklare Krise</span><span class="material-finder-sub">Nummern, Notfallweg, schnelle Orientierung.</span></span>
       </button>
       <button type="button" class="material-finder-option" data-material-finder="plan" aria-pressed="false" aria-controls="materialFinderResults">
-        <span class="material-finder-icon" aria-hidden="true">🚦</span>
+        <span class="material-finder-icon" aria-hidden="true">PL</span>
         <span><span class="material-finder-label">Vorbereiten für die nächste Krise</span><span class="material-finder-sub">Krisenplan, Kontakte, ruhige Vorbereitung.</span></span>
       </button>
       <button type="button" class="material-finder-option" data-material-finder="ersch" aria-pressed="false" aria-controls="materialFinderResults">
-        <span class="material-finder-icon" aria-hidden="true">🌫</span>
+        <span class="material-finder-icon" aria-hidden="true">ER</span>
         <span><span class="material-finder-label">Erschöpfung und Belastung</span><span class="material-finder-sub">Entlastung, Einordnung, kleine nächste Schritte.</span></span>
       </button>
       <button type="button" class="material-finder-option" data-material-finder="recht" aria-pressed="false" aria-controls="materialFinderResults">
-        <span class="material-finder-icon" aria-hidden="true">⚖</span>
+        <span class="material-finder-icon" aria-hidden="true">RE</span>
         <span><span class="material-finder-label">Recht / System / Blockaden</span><span class="material-finder-sub">Beratung, Ombudsstellen, Beschwerdewege.</span></span>
       </button>
     </div>
