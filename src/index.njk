@@ -286,10 +286,6 @@ useNavJS: true
   }
 
   .entry-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.82fr);
-    gap: 22px;
-    align-items: start;
     margin-top: 18px;
   }
 
@@ -318,9 +314,10 @@ useNavJS: true
     max-width: 48ch;
   }
 
-  .entry-guidance {
-    padding: 24px 26px;
-    border-radius: 24px;
+  .entry-clarifier {
+    margin-top: 16px;
+    padding: 18px 22px;
+    border-radius: 20px;
     background: linear-gradient(180deg, rgba(247,242,234,0.94) 0%, rgba(217,236,236,0.42) 100%);
     border: 1px solid rgba(45,40,35,0.06);
   }
@@ -334,27 +331,18 @@ useNavJS: true
     margin-bottom: 10px;
   }
 
-  .entry-guidance h3 {
-    font-family: 'Source Serif 4', serif;
-    font-size: 1.18rem;
-    font-weight: 600;
-    line-height: 1.35;
-    color: var(--earth-900);
-    margin: 0 0 12px;
-  }
-
-  .entry-guidance p {
+  .entry-clarifier p {
     font-size: 0.9rem;
     line-height: 1.7;
     color: var(--text-secondary);
     margin: 0 0 12px;
   }
 
-  .entry-guidance p:last-child {
+  .entry-clarifier p:last-child {
     margin-bottom: 0;
   }
 
-  .entry-guidance strong {
+  .entry-clarifier strong {
     color: var(--earth-900);
   }
 
@@ -365,31 +353,24 @@ useNavJS: true
     gap: 20px;
   }
 
-  .urgent-entry {
+  .urgent-note {
     display: block;
     align-items: stretch;
     max-width: none;
   }
 
-  .urgent-entry-card {
-    text-decoration: none;
-    color: var(--text);
+  .urgent-note {
     background: linear-gradient(135deg, var(--alert-red-bg), rgba(255,255,255,0.98));
     border: 1px solid var(--alert-red-border);
     border-radius: var(--radius-xl);
-    padding: 28px 30px;
+    padding: 24px 26px;
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 12px;
     box-shadow: var(--shadow-soft);
   }
 
-  .urgent-entry-card:hover {
-    box-shadow: var(--shadow-card);
-    border-color: var(--alert-red);
-  }
-
-  .urgent-entry-kicker {
+  .urgent-note-kicker {
     font-size: 0.72rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -397,18 +378,26 @@ useNavJS: true
     color: var(--alert-red);
   }
 
-  .urgent-entry-card h3 {
-    font-family: 'Source Serif 4', serif;
-    font-size: 1.45rem;
-    font-weight: 600;
-    line-height: 1.25;
-    color: var(--earth-900);
-  }
-
-  .urgent-entry-card p {
-    font-size: 0.95rem;
+  .urgent-note p {
+    margin: 0;
+    font-size: 0.9rem;
     line-height: 1.65;
     color: var(--text-secondary);
+  }
+
+  .urgent-note-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    min-height: 40px;
+    padding: 0 14px;
+    border-radius: 999px;
+    text-decoration: none;
+    background: rgba(199,84,80,0.12);
+    color: var(--alert-red);
+    font-size: 0.84rem;
+    font-weight: 700;
   }
 
   .choice-note {
@@ -434,8 +423,83 @@ useNavJS: true
   }
 
   .orientation-shell .start-helper,
-  .orientation-shell .urgent-entry {
+  .orientation-shell .urgent-note {
     margin: 0;
+  }
+
+  .entry-secondary {
+    padding-top: 0;
+  }
+
+  .entry-details-stack {
+    display: grid;
+    gap: 14px;
+  }
+
+  .entry-details {
+    border-radius: 22px;
+    border: 1px solid rgba(45,40,35,0.08);
+    background: linear-gradient(180deg,#fff 0%,#fcf8f4 100%);
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+  }
+
+  .entry-details summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 20px 22px;
+    display: grid;
+    gap: 6px;
+    position: relative;
+  }
+
+  .entry-details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .entry-details summary::after {
+    content: '+';
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid rgba(45,40,35,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--sage-600);
+    font-size: 1rem;
+    font-weight: 700;
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .entry-details[open] summary::after {
+    transform: rotate(45deg);
+    background: var(--sage-500);
+    color: white;
+  }
+
+  .entry-details-kicker {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sage-500);
+  }
+
+  .entry-details-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.16rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--earth-900);
+    padding-right: 44px;
+  }
+
+  .entry-details-body {
+    padding: 0 22px 18px;
   }
 
   .modules-grid--situational {
@@ -757,8 +821,7 @@ useNavJS: true
   }
   
   @media (max-width: 900px) {
-    .orientation-shell,
-    .entry-layout {
+    .orientation-shell {
       grid-template-columns: 1fr;
     }
   }
@@ -771,13 +834,15 @@ useNavJS: true
     .progress-section { padding: 0 1.2rem 26px; }
     .progress-label { white-space: normal; text-align: center; }
     .start-helper { margin: 22px 0 28px; padding: 20px 18px; }
-    .urgent-entry-card { padding: 22px; }
+    .urgent-note { padding: 20px 18px; }
     section { padding: 50px 1.2rem; }
     .modules-grid { grid-template-columns: 1fr; }
     .progress-bar-outer { flex-direction: column; gap: 12px; padding: 20px; }
     .cta-band { padding: 50px 1.2rem; }
     .entry-list,
-    .entry-guidance { padding: 20px 18px; }
+    .entry-clarifier,
+    .entry-details summary,
+    .entry-details-body { padding-left: 18px; padding-right: 18px; }
     
   }
 
@@ -890,17 +955,11 @@ useNavJS: true
       </div>
     </div>
 
-    <div class="urgent-entry reveal">
-      <a href="/notfall/" class="urgent-entry-card">
-        <span class="urgent-entry-kicker">Akut / Soforthilfe</span>
-        <h3>Wenn es gerade wichtiger ist zu klären, ob Gefahr besteht</h3>
-        <p>Bei Suizidgedanken, Manie, Psychose, Gewalt, finanzieller Eskalation oder der Frage: Ist das schon ein Notfall? Hier finden Sie sofort die richtige Triage und die ersten Schritte.</p>
-        <div class="module-card-footer">
-          <span class="module-time" style="color:var(--alert-red)">Direkt zum Notfallweg</span>
-          <span class="module-arrow" style="background:rgba(199,84,80,0.12);color:var(--alert-red)">→</span>
-        </div>
-      </a>
-    </div>
+    <aside class="urgent-note reveal" aria-label="Akuter Einstieg">
+      <div class="urgent-note-kicker">Wenn Sie zuerst Gefahr klären müssen</div>
+      <p>Bei Suizidgedanken, Manie, Psychose, Gewalt oder finanzieller Eskalation ist der Notfallweg wichtiger als jede weitere Sortierung. Nutzen Sie ihn sofort.</p>
+      <a href="/notfall/" class="urgent-note-link">Direkt zum Notfallweg →</a>
+    </aside>
   </div>
 
   <div class="entry-layout">
@@ -956,110 +1015,121 @@ useNavJS: true
         <span class="module-time">Modul 8</span>
         <span class="module-arrow">→</span>
       </div>
-    </a>
+        </a>
       </div>
     </div>
+  </div>
 
-    <aside class="entry-guidance reveal">
-      <div class="entry-guidance-kicker">Für den Moment reicht ein Weg</div>
-      <h3>Wenn Sie zwischen zwei Wegen schwanken</h3>
-      <p><strong>Modul 6</strong> ist der passendere Einstieg für Gespräche, Grenzen und Krisenplan.</p>
-      <p><strong>Modul 8</strong> ist meist hilfreicher, wenn Sie Kontakte, Materialien oder rechtliche Orientierung suchen.</p>
-      <p>Die vertieften Einstiege und Rollen unten sind nur für später, wenn Sie noch genauer sortieren möchten.</p>
-    </aside>
+  <div class="entry-clarifier reveal">
+    <div class="entry-guidance-kicker">Für den Moment reicht ein Weg</div>
+    <p><strong>Modul 6</strong> ist der passendere Einstieg für Gespräche, Grenzen und Krisenplan.</p>
+    <p><strong>Modul 8</strong> ist meist hilfreicher, wenn Sie Kontakte, Materialien oder rechtliche Orientierung suchen.</p>
+    <p>Die geordneten Startvorschläge und die Rollen-Orientierung sind unten nur als optionale Vertiefung für später aufgeklappt.</p>
   </div>
 </section>
 
-<!-- ══════════ STARTWEGE ══════════ -->
-<section>
-  <div class="section-label reveal">Einstiege</div>
-  <h2 class="section-title reveal">Wenn Sie später systematischer lesen möchten</h2>
-  <p class="section-desc reveal">Diese Wege sind vertiefte Startvorschläge für später oder für Menschen, die lieber geordnet lesen. Wenn die situativen Kacheln oben bereits passen, können Sie diesen Block im Moment einfach überspringen.</p>
+<!-- ══════════ OPTIONAL LATER ══════════ -->
+<section class="entry-secondary">
+  <div class="section-label reveal">Optional für später</div>
+  <h2 class="section-title reveal">Wenn Sie geordneter weiterlesen oder nach Ihrer Rolle schauen möchten</h2>
+  <p class="section-desc reveal">Die erste Orientierung oben reicht völlig. Die beiden Aufklappbereiche hier sind nur für später: für Menschen, die lieber systematisch lesen oder ihre Rolle als zusätzliche Hilfe nutzen möchten.</p>
 
-  <ol class="path-list reveal">
-    <li class="path-item">
-      <span class="path-num">1</span>
-      <div class="path-body">
-        <a href="/modul/1/" class="path-title">Erst verstehen</a>
-        <p class="path-desc">Beginnen Sie mit Modul 1. Danach wird meist klarer, ob bei Ihnen eher Belastung, Beziehung oder konkrete Schritte im Vordergrund stehen.</p>
+  <div class="entry-details-stack reveal">
+    <details class="entry-details">
+      <summary>
+        <span class="entry-details-kicker">Geordnete Startvorschläge</span>
+        <span class="entry-details-title">Wenn Sie lieber systematisch statt situativ einsteigen</span>
+      </summary>
+      <div class="entry-details-body">
+        <ol class="path-list">
+          <li class="path-item">
+            <span class="path-num">1</span>
+            <div class="path-body">
+              <a href="/modul/1/" class="path-title">Erst verstehen</a>
+              <p class="path-desc">Beginnen Sie mit Modul 1. Danach wird meist klarer, ob bei Ihnen eher Belastung, Beziehung oder konkrete Schritte im Vordergrund stehen.</p>
+            </div>
+          </li>
+          <li class="path-item">
+            <span class="path-num">2</span>
+            <div class="path-body">
+              <a href="/modul/4/" class="path-title">Wenn Sie schon am Limit sind</a>
+              <p class="path-desc">Beginnen Sie mit Modul 4, dann Modul 5 und Modul 8. Sinnvoll, wenn Ihre eigene Belastung gerade dringlicher ist als Grundlagenwissen. Wenn Sie zuerst nur kurz einordnen wollen, hilft dort gleich am Anfang die Standortbestimmung.</p>
+            </div>
+          </li>
+          <li class="path-item">
+            <span class="path-num">3</span>
+            <div class="path-body">
+              <a href="/modul/3/" class="path-title">Wenn die Beziehung im Vordergrund steht</a>
+              <p class="path-desc">Beginnen Sie mit Modul 3, dann Modul 4 und 5. Passt, wenn Nähe, Vertrauen oder Rollenverschiebung die grösste Frage sind.</p>
+            </div>
+          </li>
+          <li class="path-item">
+            <span class="path-num">4</span>
+            <div class="path-body">
+              <a href="/modul/6/" class="path-title">Wenn Sie sofort konkret handeln wollen</a>
+              <p class="path-desc">Beginnen Sie mit Modul 6. Gespräche, Grenzen, Kommunikation in Episoden und Krisenplan sind direkt anwendbar, ohne Grundlagenwissen vorauszusetzen. Wenn Sie stattdessen vor allem Kontakte, Materialien oder rechtliche Orientierung suchen, gehen Sie zu Modul 8.</p>
+            </div>
+          </li>
+          <li class="path-item">
+            <span class="path-num">5</span>
+            <div class="path-body">
+              <a href="/modul/2/" class="path-title">Wenn Sie verstehen wollen, was gerade mit Ihnen passiert</a>
+              <p class="path-desc">Beginnen Sie mit Modul 2. Hypervigilanz, emotionale Erschöpfung, Suizidangst — für Angehörige, die die eigenen Reaktionen einordnen wollen.</p>
+            </div>
+          </li>
+        </ol>
       </div>
-    </li>
-    <li class="path-item">
-      <span class="path-num">2</span>
-      <div class="path-body">
-        <a href="/modul/4/" class="path-title">Wenn Sie schon am Limit sind</a>
-        <p class="path-desc">Beginnen Sie mit Modul 4, dann Modul 5 und Modul 8. Sinnvoll, wenn Ihre eigene Belastung gerade dringlicher ist als Grundlagenwissen. Wenn Sie zuerst nur kurz einordnen wollen, hilft dort gleich am Anfang die Standortbestimmung.</p>
-      </div>
-    </li>
-    <li class="path-item">
-      <span class="path-num">3</span>
-      <div class="path-body">
-        <a href="/modul/3/" class="path-title">Wenn die Beziehung im Vordergrund steht</a>
-        <p class="path-desc">Beginnen Sie mit Modul 3, dann Modul 4 und 5. Passt, wenn Nähe, Vertrauen oder Rollenverschiebung die grösste Frage sind.</p>
-      </div>
-    </li>
-    <li class="path-item">
-      <span class="path-num">4</span>
-      <div class="path-body">
-        <a href="/modul/6/" class="path-title">Wenn Sie sofort konkret handeln wollen</a>
-        <p class="path-desc">Beginnen Sie mit Modul 6. Gespräche, Grenzen, Kommunikation in Episoden und Krisenplan sind direkt anwendbar, ohne Grundlagenwissen vorauszusetzen. Wenn Sie stattdessen vor allem Kontakte, Materialien oder rechtliche Orientierung suchen, gehen Sie zu Modul 8.</p>
-      </div>
-    </li>
-    <li class="path-item">
-      <span class="path-num">5</span>
-      <div class="path-body">
-        <a href="/modul/2/" class="path-title">Wenn Sie verstehen wollen, was gerade mit Ihnen passiert</a>
-        <p class="path-desc">Beginnen Sie mit Modul 2. Hypervigilanz, emotionale Erschöpfung, Suizidangst — für Angehörige, die die eigenen Reaktionen einordnen wollen.</p>
-      </div>
-    </li>
-  </ol>
-</section>
+    </details>
 
-<section>
-  <div class="section-label reveal">Für Wen</div>
-  <h2 class="section-title reveal">Je nach Ihrer Rolle können andere Fragen im Vordergrund stehen</h2>
-  <p class="section-desc reveal">Diese Orientierung ergänzt die situativen Einstiege. Die Website ist nicht nur für Partner*innen gedacht. Wenn Sie als Mutter, Vater, Schwester, Bruder oder erwachsenes Kind mittragen, können Sie trotzdem direkt passend einsteigen. <strong>Auch das ist nur ein Zusatzweg</strong> und nicht etwas, das Sie jetzt noch entscheiden müssen, wenn Sie oben schon richtig gelandet sind.</p>
+    <details class="entry-details">
+      <summary>
+        <span class="entry-details-kicker">Nach Rolle</span>
+        <span class="entry-details-title">Wenn Ihre Rolle zusätzliche Orientierung gibt</span>
+      </summary>
+      <div class="entry-details-body">
+        <div class="modules-grid modules-grid--roles">
+          <a href="/modul/1/" class="module-card module-card--role">
+            <span class="module-number">Partner*in</span>
+            <h3>Wenn Sie mitten im gemeinsamen Alltag stehen</h3>
+            <p>Beziehung, Rollenverschiebung, Grenzen, Krisenplan und Kommunikation stehen oft früh im Vordergrund.</p>
+            <div class="module-card-footer">
+              <span class="module-time">Start: Modul 1, 3 oder 6</span>
+              <span class="module-arrow">→</span>
+            </div>
+          </a>
 
-  <div class="modules-grid modules-grid--roles">
-    <a href="/modul/1/" class="module-card module-card--role reveal">
-      <span class="module-number">Partner*in</span>
-      <h3>Wenn Sie mitten im gemeinsamen Alltag stehen</h3>
-      <p>Beziehung, Rollenverschiebung, Grenzen, Krisenplan und Kommunikation stehen oft früh im Vordergrund.</p>
-      <div class="module-card-footer">
-        <span class="module-time">Start: Modul 1, 3 oder 6</span>
-        <span class="module-arrow">→</span>
-      </div>
-    </a>
+          <a href="/modul/4/#kinder" class="module-card module-card--role">
+            <span class="module-number">Elternteil</span>
+            <h3>Wenn Ihr erwachsenes Kind erkrankt ist</h3>
+            <p>Zwischen Sorge, Schutzimpuls und Loslassen helfen oft Wissen, Systemorientierung und Entlastung für die Familie.</p>
+            <div class="module-card-footer">
+              <span class="module-time">Start: Modul 1, 4 oder 8</span>
+              <span class="module-arrow">→</span>
+            </div>
+          </a>
 
-    <a href="/modul/4/#kinder" class="module-card module-card--role reveal">
-      <span class="module-number">Elternteil</span>
-      <h3>Wenn Ihr erwachsenes Kind erkrankt ist</h3>
-      <p>Zwischen Sorge, Schutzimpuls und Loslassen helfen oft Wissen, Systemorientierung und Entlastung für die Familie.</p>
-      <div class="module-card-footer">
-        <span class="module-time">Start: Modul 1, 4 oder 8</span>
-        <span class="module-arrow">→</span>
-      </div>
-    </a>
+          <a href="/modul/8/" class="module-card module-card--role">
+            <span class="module-number">Geschwister</span>
+            <h3>Wenn Sie viel sehen, aber nicht für alles zuständig sein wollen</h3>
+            <p>Geschwister brauchen oft eine eigene Sprache für Loyalität, Distanz, Frust mit Hilfesystemen und die Frage nach dem eigenen Anteil.</p>
+            <div class="module-card-footer">
+              <span class="module-time">Start: Modul 2, 5 oder 8</span>
+              <span class="module-arrow">→</span>
+            </div>
+          </a>
 
-    <a href="/modul/8/" class="module-card module-card--role reveal">
-      <span class="module-number">Geschwister</span>
-      <h3>Wenn Sie viel sehen, aber nicht für alles zuständig sein wollen</h3>
-      <p>Geschwister brauchen oft eine eigene Sprache für Loyalität, Distanz, Frust mit Hilfesystemen und die Frage nach dem eigenen Anteil.</p>
-      <div class="module-card-footer">
-        <span class="module-time">Start: Modul 2, 5 oder 8</span>
-        <span class="module-arrow">→</span>
+          <a href="/modul/8/#rollen" class="module-card module-card--role">
+            <span class="module-number">Erwachsenes Kind</span>
+            <h3>Wenn ein Elternteil erkrankt ist und Sie zwischen Nähe und Eigenleben stehen</h3>
+            <p>Hier mischen sich Loyalität, Parentifizierung, Schuld und die Frage, wie Sie helfen können, ohne Ihr eigenes Leben aufzuschieben.</p>
+            <div class="module-card-footer">
+              <span class="module-time">Start: Modul 2, 4 oder 8</span>
+              <span class="module-arrow">→</span>
+            </div>
+          </a>
+        </div>
       </div>
-    </a>
-
-    <a href="/modul/8/#rollen" class="module-card module-card--role reveal">
-      <span class="module-number">Erwachsenes Kind</span>
-      <h3>Wenn ein Elternteil erkrankt ist und Sie zwischen Nähe und Eigenleben stehen</h3>
-      <p>Hier mischen sich Loyalität, Parentifizierung, Schuld und die Frage, wie Sie helfen können, ohne Ihr eigenes Leben aufzuschieben.</p>
-      <div class="module-card-footer">
-        <span class="module-time">Start: Modul 2, 4 oder 8</span>
-        <span class="module-arrow">→</span>
-      </div>
-    </a>
+    </details>
   </div>
 </section>
 
