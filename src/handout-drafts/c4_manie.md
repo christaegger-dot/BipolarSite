@@ -13,147 +13,72 @@ last_updated: "2026-04-03"
 
 # Umgang mit Manie
 
-## Zweck
+Wenn eine manische Episode kippt, hilft meist nicht mehr Diskussion, Erklärung oder moralischer Druck. Wichtiger sind Ruhe, kurze Sätze, Schutz und frühes Dazunehmen professioneller Hilfe.
 
-Dieses Blatt ist für Situationen gedacht, in denen Manie oder eine beginnende manische Entgleisung wahrscheinlich ist und Angehörige rasch einschätzen müssen:
-
-- Was ist gerade am wichtigsten?
-- Was hilft eher?
-- Was verschärft die Lage eher?
-- Wann reicht Reden nicht mehr?
-
-Das Blatt soll **nicht** die ganze Störung erklären. Es soll im Akutfall Orientierung geben.
-
-## Kernbotschaft
-
-Wenn eine manische Episode kippt, hilft meist nicht mehr Diskussion, Erklärung oder moralischer Druck. Hilfreicher sind:
-
-- Ruhe
-- kurze Sätze
-- Schutz
-- frühes Einschalten professioneller Hilfe
-
-## Empfohlene Struktur für den Neuaufbau
-
-### 1. Titelblock
-
-**Titel:**
-Umgang mit Manie
-
-**Unterzeile:**
-Was Angehörige in einer eskalierenden Hochphase zuerst beachten sollten
-
-**Kurzsatz direkt unter dem Titel:**
-Nicht alles lösen, nicht alles diskutieren. Erst Sicherheit, dann nächste Schritte.
-
-### 2. Woran Sie Manie erkennen können
-
-Kurze Liste, scanbar:
+## Woran Sie Manie erkennen können
 
 - sehr wenig Schlaf, ohne sich müde zu fühlen
 - stark gesteigertes Tempo oder Rededrang
-- Größenideen oder auffällige Selbstüberschätzung
+- ungewöhnliche Selbstüberschätzung oder Größenideen
 - Gereiztheit bei Widerspruch
-- unkontrollierte Ausgaben oder impulsive Entscheidungen
-- fahriges, grenzüberschreitendes oder riskantes Verhalten
+- unkontrollierte Ausgaben oder riskante Entscheidungen
+- fahriges, grenzüberschreitendes oder bedrohlich wirkendes Verhalten
 
-**Rahmensatz:**
-Nicht jedes einzelne Zeichen bedeutet sofort Manie. Entscheidend ist die Kombination und die Dynamik.
+Nicht jedes einzelne Zeichen bedeutet sofort Manie. Wichtig ist die Kombination und die Veränderung gegenüber dem üblichen Zustand.
 
-### 3. Jetzt zuerst
-
-Kurzer Kasten mit 3 bis 4 Punkten:
+## Jetzt zuerst
 
 - ruhig bleiben
 - kurz und einfach sprechen
-- Krisenplan aktivieren, wenn vorhanden
+- ein Satz, ein Anliegen
+- Krisenplan aktivieren, wenn es einen gibt
 - früh Hilfe holen statt lange allein ordnen
 
-**Beispielformulierung:**
-„Ich möchte es gerade einfach halten. Wir holen jetzt Unterstützung dazu.“
+Hilfreicher als lange Erklärungen ist oft ein Satz wie:  
+**„Ich möchte es gerade einfach halten. Wir holen jetzt Unterstützung dazu.“**
 
-### 4. Was eher hilft
+## Was eher hilft
 
-Kurze Positivliste:
+- Reize reduzieren: weniger Diskussion, weniger Menschen, weniger Lärm
+- bei einem Punkt bleiben statt viele Themen gleichzeitig ansprechen
+- Finanzen, Autofahren und Sicherheit im Blick behalten
+- Behandlungsteam oder Krisendienst früh kontaktieren
+- Schutz ernst nehmen, auch wenn die Person das anders sieht
 
-- ein Satz, ein Anliegen
-- Reize reduzieren
-- Finanzen und Sicherheit im Blick behalten
-- Behandlungsteam oder Krisendienst kontaktieren
-- nicht alles selbst übernehmen wollen
+## Was eher schadet
 
-### 5. Was eher schadet
-
-Kurze Negativliste:
-
-- diskutieren, ob die Einschätzung „stimmt“
-- provozieren oder belehren
-- ultimative Machtkämpfe anfangen
-- lange Rechtfertigungen
+- diskutieren, ob Ihre Einschätzung „stimmt“
+- provozieren, belehren oder beschämen
+- Machtkämpfe anfangen
+- mit Logik oder Moral überzeugen wollen
 - aus Angst alles allein kontrollieren wollen
 
-### 6. Wann sofort eskalieren
+Wenn die Person stark gereizt oder grandios ist, wird Widerspruch oft nicht als Hilfe erlebt, sondern als Angriff.
 
-Roter Kasten:
+## Wann sofort eskalieren
 
-- wenn die Person nicht mehr sicher fährt
-- wenn massive Geld- oder Risikohandlungen passieren
-- wenn Psychose, Bedrohung oder Kontrollverlust dazukommen
-- wenn Sie sich oder andere nicht mehr sicher fühlen
+Nicht weiter diskutieren, sondern sofort handeln, wenn:
 
-**Direktsatz:**
-Bei unmittelbarer Gefahr: 144 oder 117. Nicht weiter diskutieren.
+- die Person nicht mehr sicher fährt
+- massive Geld- oder Risikohandlungen passieren
+- Psychose, Wahn oder starker Kontrollverlust dazukommen
+- Gewalt, Bedrohung oder Selbstgefährdung im Raum stehen
+- Sie sich oder andere nicht mehr sicher fühlen
 
-### 7. Wichtige Nummern / Verweis
+**Bei unmittelbarer Gefahr: 144 oder 117.**
 
-- 0800 33 66 55
-- 144
-- 117
-- Verweis auf Notfallseite
-- optional Verweis auf Modul 6 für Kommunikation in der Manie
+## Wichtige Nummern
 
-## Tonalität
+- **Psychiatrischer Notfalldienst Zürich:** 0800 33 66 55
+- **Sanität:** 144
+- **Polizei:** 117
 
-Der Ton soll:
+## Nächster sinnvoller Schritt
 
-- klar sein
-- ruhig sein
-- nicht beschämend sein
-- keine Mitverantwortungslogik erzeugen
-- Angehörige entlasten, ohne Risiken zu verharmlosen
+Wenn die Situation noch ansprechbar, aber instabil ist: Hilfe früh einschalten.  
+Wenn Schutz vorgeht: nicht mehr auf das bessere Gespräch hoffen, sondern Notfallhilfe nutzen.
 
-## Sprachregeln
+Weiterführend:
 
-- kurze Sätze
-- wenig Fachbegriffe
-- hohe Scanbarkeit
-- Verben vor Theorie
-- keine dichten Fließtextblöcke
-
-## Empfohlene visuelle Logik
-
-- Teal / Navy als Grundsystem
-- Akzent-Rot nur für Eskalation und Gefahr
-- 3 klare Zonen:
-  - erkennen
-  - hilfreich / nicht hilfreich
-  - wann sofort handeln
-
-## Was gegenüber der alten PDF wahrscheinlich besser werden soll
-
-- kleinere Dateigröße
-- textbasierter Export
-- klarere Hierarchie
-- digital besser lesbar
-- weniger „Poster-Charakter“, mehr funktionales Handout
-
-## Web-Verknüpfung
-
-Diese PDF ist aktuell besonders relevant in:
-
-- `/notfall/`
-- `/modul/1/`
-- `/modul/6/`
-- `/modul/8/`
-
-Deshalb lohnt sich hier ein Neuaufbau besonders früh.
+- Notfallseite
+- Modul 6: Kommunikation in der Manie
