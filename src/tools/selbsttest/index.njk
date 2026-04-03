@@ -15,13 +15,16 @@ body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min
 .tool-back{display:flex;align-items:center;gap:8px;text-decoration:none;color:#475569;font-size:0.82rem;font-weight:500}
 .tool-back svg{width:16px;height:16px}
 .tool-brand{font-family:'Source Serif 4',serif;font-size:0.85rem;font-weight:600;color:#1c2b3a}
-.wrap{width:100%;max-width:560px}
-.hdr{text-align:center;margin-bottom:32px}
-.badge{display:inline-flex;background:var(--green-bg);color:var(--navy);padding:5px 14px;border-radius:100px;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px}
+.wrap{width:100%;max-width:600px}
+.hdr{text-align:center;margin-bottom:32px;background:linear-gradient(180deg,rgba(255,255,255,0.94),rgba(247,250,251,0.88));border:1px solid rgba(45,40,35,0.08);border-radius:26px;padding:26px 24px 24px;box-shadow:0 16px 40px rgba(28,43,58,0.08);position:relative;overflow:hidden}
+.hdr::before{content:'';position:absolute;top:-36px;right:-20px;width:152px;height:152px;border-radius:50%;background:radial-gradient(circle, rgba(141,212,217,0.3) 0%, transparent 68%)}
+.tool-glyph{width:58px;height:58px;margin:0 auto 14px;border-radius:18px;background:linear-gradient(135deg,var(--navy),var(--teal));display:flex;align-items:center;justify-content:center;box-shadow:0 10px 28px rgba(28,43,58,0.18)}
+.tool-glyph svg{width:30px;height:30px}
+.badge{display:inline-flex;background:var(--green-bg);color:var(--navy);padding:5px 14px;border-radius:100px;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;position:relative;z-index:1}
 .hdr h1{font-family:'Source Serif 4',Georgia,serif;font-size:clamp(1.4rem,3.5vw,1.9rem);font-weight:700;color:#1c2b3a;margin:0 0 8px;letter-spacing:-0.02em}
-.hdr p{font-size:0.85rem;color:#475569;line-height:1.6}
+.hdr p{font-size:0.88rem;color:#475569;line-height:1.65;max-width:40ch;margin:0 auto}
 .prog{display:flex;gap:6px;margin-bottom:28}.prog div{flex:1;height:4px;border-radius:2px;background:var(--green-bg);transition:background 0.4s}.prog .done{background:var(--teal)}.prog .cur{background:var(--teal-light)}
-.card{background:#fff;border-radius:22px;border:1px solid rgba(28,43,58,0.06);box-shadow:0 4px 24px rgba(28,43,58,0.08);padding:36px 32px;min-height:340px;display:flex;flex-direction:column;transition:opacity 0.3s,transform 0.3s}
+.card{background:linear-gradient(180deg,#fff 0%,#fbfcfd 100%);border-radius:24px;border:1px solid rgba(28,43,58,0.06);box-shadow:0 12px 34px rgba(28,43,58,0.08);padding:36px 32px;min-height:340px;display:flex;flex-direction:column;transition:opacity 0.3s,transform 0.3s}
 .card.fade{opacity:0;transform:translateY(12px)}
 .qhdr{display:flex;align-items:center;gap:12px;margin-bottom:24}
 .qnum{width:36px;height:36px;border-radius:10px;background:#e6f4f2;color:#475569;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:800;flex-shrink:0}
@@ -80,7 +83,7 @@ body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min
 {% endblock %}
 {% block content %}
 <main class="wrap" id="main-content">
-  <div class="hdr"><div class="badge">Modul 4 — Selbsttest</div><h1>Wo stehen Sie gerade?</h1><p>5 kurze Fragen — nicht diagnostisch, aber orientierend.<br>Ihre Antworten werden nicht gespeichert.</p></div>
+  <div class="hdr"><div class="tool-glyph" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 12H30" stroke="#A8E4E8" stroke-width="3" stroke-linecap="round"/><path d="M10 20H24" stroke="#A8E4E8" stroke-width="3" stroke-linecap="round"/><path d="M10 28H20" stroke="#A8E4E8" stroke-width="3" stroke-linecap="round"/><circle cx="29" cy="27" r="6" fill="#1E656D"/><path d="M26.5 27L28.4 28.9L31.8 24.9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="badge">Modul 4 — Selbsttest</div><h1>Wo stehen Sie gerade?</h1><p>5 kurze Fragen — nicht diagnostisch, aber orientierend.<br>Ihre Antworten werden nicht gespeichert.</p></div>
   <div class="prog" id="prog"></div>
   <div class="card" id="card" aria-live="polite" aria-atomic="true"></div>
 </main>
