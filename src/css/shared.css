@@ -9,7 +9,7 @@ html { scroll-behavior: smooth; font-size: 16px; }
 body {
   font-family: 'DM Sans', sans-serif;
   color: var(--text);
-  background: var(--cream);
+  background: var(--bg);
   line-height: 1.7;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -78,7 +78,7 @@ body::before {
 }
 .nav-brand-sub {
   font-size: 0.75rem;
-  color: var(--text-muted);
+  color: var(--text-soft);
   margin-top: -2px;
 }
 
@@ -165,7 +165,7 @@ body::before {
 
 /* ── Footer ── */
 footer {
-  background: var(--earth-900);
+  background: var(--navy);
   color: rgba(255,255,255,0.75);
   padding: var(--space-3xl) 2rem var(--space-xl);
   margin-top: 80px;
@@ -188,7 +188,7 @@ footer {
 
 /* ── Accessibility ── */
 *:focus-visible {
-  outline: 2px solid var(--sage-500);
+  outline: 2px solid var(--teal);
   outline-offset: 2px;
   border-radius: 4px;
 }

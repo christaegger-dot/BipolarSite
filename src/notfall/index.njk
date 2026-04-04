@@ -26,8 +26,8 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 15% 20%, rgba(154,52,18,0.2), transparent 28%), radial-gradient(circle at 80% 12%, rgba(241,180,175,0.5), transparent 24%), linear-gradient(180deg, #FFF5F2 0%, rgba(255,255,255,0) 100%)}
   .hero-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:minmax(0,0.9fr) minmax(320px,0.95fr);gap:28px;align-items:center;position:relative;z-index:2}
   .hero-copy{text-align:left}
-  .hero h1{font-family:'Source Serif 4',serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:700;color:var(--earth-900);margin-bottom:12px}
-  .hero p{font-size:1rem;color:var(--text-secondary);max-width:560px;margin:0 0 20px}
+  .hero h1{font-family:'Source Serif 4',serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:700;color:var(--navy);margin-bottom:12px}
+  .hero p{font-size:1rem;color:var(--slate);max-width:560px;margin:0 0 20px}
 
   .emergency-strip-hero{display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap}
   .emergency-call{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:64px;padding:12px 20px;border-radius:14px;text-decoration:none;text-align:center;transition:transform 0.15s ease,box-shadow 0.15s ease;flex:1;min-width:120px}
@@ -48,10 +48,10 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   .hero-visual img{display:block;width:100%;height:auto;border-radius:18px}
 
   .content{max-width:var(--content-width);margin:0 auto;padding:0 2rem}
-  .content h2{font-family:'Source Serif 4',serif;font-size:1.5rem;font-weight:700;color:var(--earth-900);margin:56px 0 20px;padding-top:20px;border-top:1px solid rgba(45,40,35,0.06)}
+  .content h2{font-family:'Source Serif 4',serif;font-size:1.5rem;font-weight:700;color:var(--navy);margin:56px 0 20px;padding-top:20px;border-top:1px solid rgba(45,40,35,0.06)}
   .content h2:first-of-type{border-top:none;margin-top:0}
-  .content h3{font-family:'Source Serif 4',serif;font-size:1.1rem;font-weight:600;color:var(--earth-800);margin:28px 0 12px}
-  .content p{font-size:1rem;color:var(--text-secondary);margin-bottom:16px;line-height:1.75}
+  .content h3{font-family:'Source Serif 4',serif;font-size:1.1rem;font-weight:600;color:var(--navy-mid);margin:28px 0 12px}
+  .content p{font-size:1rem;color:var(--slate);margin-bottom:16px;line-height:1.75}
   .content strong{color:var(--text);font-weight:600}
 
   /* SITUATION SELECTOR */
@@ -62,7 +62,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   .sit-card.urgent:hover{border-color:var(--alert-red)}
   .sit-badge{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:800;flex-shrink:0}
   .sit-card.urgent .sit-badge{background:rgba(199,84,80,0.15);color:var(--alert-red)}
-  .sit-card:not(.urgent) .sit-badge{background:var(--sage-100);color:var(--sage-600)}
+  .sit-card:not(.urgent) .sit-badge{background:var(--green-bg);color:var(--teal-dark)}
   .sit-text{font-size:0.85rem;line-height:1.4}
   .sit-text strong{display:block;font-size:0.88rem;margin-bottom:2px}
   .sit-card.urgent .sit-text strong{color:var(--alert-red)}
@@ -73,14 +73,14 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   .number-card:hover{box-shadow:0 12px 28px rgba(28,43,58,0.1);transform:translateY(-2px)}
   .numbers-grid .number-card:nth-child(-n+2){background:linear-gradient(180deg,#FFF8F7 0%,#FFFFFF 100%);border-color:rgba(199,84,80,0.18);border-top-color:var(--alert-red)}
   .number-card strong{display:block;font-family:'Source Serif 4',serif;font-size:1.15rem;font-weight:700;color:var(--alert-red)}
-  .number-label{font-size:0.82rem;color:var(--text-secondary);line-height:1.3}
-  .number-sub{font-size:0.75rem;color:var(--text-muted)}
+  .number-label{font-size:0.82rem;color:var(--slate);line-height:1.3}
+  .number-sub{font-size:0.75rem;color:var(--text-soft)}
 
   /* FU ALERT */
   .fu-alert{background:var(--alert-red-bg);border:2px solid var(--alert-red-border);border-radius:var(--radius-xl);padding:28px 32px;margin:32px 0;display:flex;gap:20px;align-items:flex-start}
   .fu-alert-icon{width:44px;height:44px;border-radius:12px;flex-shrink:0;background:rgba(199,84,80,0.12);color:var(--alert-red);display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:800}
   .fu-alert h3{font-family:'Source Serif 4',serif;font-size:1rem;font-weight:700;color:var(--alert-red);margin:0 0 8px}
-  .fu-alert p{font-size:0.88rem;color:var(--text-secondary);line-height:1.6;margin:0 0 8px}
+  .fu-alert p{font-size:0.88rem;color:var(--slate);line-height:1.6;margin:0 0 8px}
   .fu-alert a{color:var(--alert-red);font-weight:600}
   /* FU Flowchart */
   .fu-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:12px 0 4px;border:1px solid var(--alert-red-border);border-radius:10px;overflow:hidden}
@@ -105,30 +105,30 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   .guide-badge.amber{background:var(--amber-phase-light);color:var(--amber-phase)}
   .guide-badge.blue{background:var(--blue-phase-light);color:var(--blue-phase)}
   .guide-title{font-weight:700;font-size:0.95rem;color:var(--text)}
-  .guide-subtitle{font-size:0.78rem;color:var(--text-muted);margin-top:2px}
-  .guide-chevron{width:28px;height:28px;border-radius:50%;background:var(--sage-50);display:flex;align-items:center;justify-content:center;transition:background-color 0.2s ease,color 0.2s ease,transform 0.2s ease;color:var(--sage-400);font-size:0.8rem;flex-shrink:0}
-  .guide.open .guide-chevron{transform:rotate(180deg);background:var(--sage-200)}
+  .guide-subtitle{font-size:0.78rem;color:var(--text-soft);margin-top:2px}
+  .guide-chevron{width:28px;height:28px;border-radius:50%;background:var(--green-bg);display:flex;align-items:center;justify-content:center;transition:background-color 0.2s ease,color 0.2s ease,transform 0.2s ease;color:var(--teal);font-size:0.8rem;flex-shrink:0}
+  .guide.open .guide-chevron{transform:rotate(180deg);background:var(--teal-border)}
   .guide-body[hidden]{display:none}
   .guide-body-inner{padding:0 28px 28px}
   .guide-body-inner ul{list-style:none;margin:0 0 16px}
-  .guide-body-inner li{font-size:0.9rem;color:var(--text-secondary);padding:6px 0 6px 20px;position:relative;line-height:1.6}
-  .guide-body-inner li::before{content:'→';position:absolute;left:0;color:var(--sage-400);font-weight:700;font-size:0.8rem}
-  .guide-do{background:var(--sage-50);border-radius:var(--radius-md);padding:14px 18px;margin:12px 0;font-size:0.86rem;color:var(--sage-700)}
+  .guide-body-inner li{font-size:0.9rem;color:var(--slate);padding:6px 0 6px 20px;position:relative;line-height:1.6}
+  .guide-body-inner li::before{content:'→';position:absolute;left:0;color:var(--teal);font-weight:700;font-size:0.8rem}
+  .guide-do{background:var(--green-bg);border-radius:var(--radius-md);padding:14px 18px;margin:12px 0;font-size:0.86rem;color:var(--navy)}
   .guide-dont{background:var(--alert-red-bg);border-radius:var(--radius-md);padding:14px 18px;margin:12px 0;font-size:0.86rem;color:#9A3412}
   .guide-sos{background:var(--alert-red-bg);border:1px solid var(--alert-red-border);border-radius:var(--radius-md);padding:14px 18px;margin:12px 0;font-size:0.88rem;color:var(--alert-red);font-weight:600}
   .guide-sos a{color:var(--alert-red);font-weight:700}
   .guide-sos a[href^="tel:"]{display:inline-block;padding:6px 10px;margin:-6px -6px;border-radius:8px;background:rgba(154,52,18,0.06);min-height:44px;line-height:32px;text-decoration:underline}
-  .guide-link{display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;color:var(--sage-500);text-decoration:none;font-weight:600;margin-top:8px}
+  .guide-link{display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;color:var(--teal);text-decoration:none;font-weight:600;margin-top:8px}
 
   /* GRAUZONE */
   .grauzone{background:linear-gradient(180deg,#FFF2EF 0%, #F7EEE8 100%);border-radius:var(--radius-xl);padding:32px;margin:40px 0;border:1px solid rgba(199,84,80,0.12)}
   .grauzone-h2{margin:0 0 16px;padding:0;border:none;font-size:1.3rem}
-  .grauzone-rule{background:white;border-radius:var(--radius-md);padding:18px 22px;margin:20px 0;font-size:0.92rem;color:var(--sage-700);font-weight:600;line-height:1.5}
+  .grauzone-rule{background:white;border-radius:var(--radius-md);padding:18px 22px;margin:20px 0;font-size:0.92rem;color:var(--navy);font-weight:600;line-height:1.5}
   .grauzone-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 16px}
   .grauzone-card{background:white;border-radius:var(--radius-md);overflow:hidden;display:flex;flex-direction:column}
   .grauzone-card-top{padding:16px 18px 12px;flex:1}
-  .grauzone-scenario{font-family:'Source Serif 4',serif;font-size:0.98rem;font-weight:600;color:var(--earth-800);margin:0 0 8px;line-height:1.4}
-  .grauzone-card-top p{font-size:0.87rem;color:var(--text-secondary);line-height:1.55;margin:0}
+  .grauzone-scenario{font-family:'Source Serif 4',serif;font-size:0.98rem;font-weight:600;color:var(--navy-mid);margin:0 0 8px;line-height:1.4}
+  .grauzone-card-top p{font-size:0.87rem;color:var(--slate);line-height:1.55;margin:0}
   .grauzone-action{padding:12px 18px;font-size:0.87rem;font-weight:600;line-height:1.5}
   .grauzone-action--amber{background:var(--amber-bg);color:#92400e;border-top:2px solid #f9c97c}
   .grauzone-action--teal{background:#e6f4f2;color:var(--teal);border-top:2px solid var(--teal-light)}
@@ -137,12 +137,12 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
 
   /* NACH DER AKUTEN SICHERUNG */
   .after-steps{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 24px}
-  .after-step{display:flex;gap:14px;align-items:flex-start;background:var(--warm-100);border-radius:var(--radius-md);padding:16px 18px}
+  .after-step{display:flex;gap:14px;align-items:flex-start;background:var(--surface-warm);border-radius:var(--radius-md);padding:16px 18px}
   .after-step-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--teal);color:white;font-size:0.82rem;font-weight:700;display:flex;align-items:center;justify-content:center}
   .after-step-body{display:flex;flex-direction:column;gap:4px}
-  .after-step-body strong{font-size:0.92rem;color:var(--earth-800);display:block}
-  .after-step-body span{font-size:0.86rem;color:var(--text-secondary);line-height:1.55}
-  .after-step-why{font-size:0.8rem!important;color:var(--text-muted)!important;font-style:italic;margin-top:4px}
+  .after-step-body strong{font-size:0.92rem;color:var(--navy-mid);display:block}
+  .after-step-body span{font-size:0.86rem;color:var(--slate);line-height:1.55}
+  .after-step-why{font-size:0.8rem!important;color:var(--text-soft)!important;font-style:italic;margin-top:4px}
   @media(max-width:600px){.after-steps{grid-template-columns:1fr}}
 
   
@@ -156,16 +156,16 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   body.pdf-preview-open{overflow:hidden}
   .pdf-preview-overlay{position:fixed;inset:0;z-index:1000;background:rgba(42,33,27,0.38);padding:24px;display:flex;align-items:center;justify-content:center}
   .pdf-preview-overlay[hidden]{display:none}
-  .pdf-preview-dialog{width:min(920px,100%);max-height:calc(100vh - 48px);background:var(--cream);border:1px solid rgba(45,40,35,0.08);border-radius:var(--radius-xl);box-shadow:0 8px 40px rgba(45,40,35,0.12);display:flex;flex-direction:column;overflow:hidden}
+  .pdf-preview-dialog{width:min(920px,100%);max-height:calc(100vh - 48px);background:var(--bg);border:1px solid rgba(45,40,35,0.08);border-radius:var(--radius-xl);box-shadow:0 8px 40px rgba(45,40,35,0.12);display:flex;flex-direction:column;overflow:hidden}
   .pdf-preview-header{padding:20px 24px 16px;border-bottom:1px solid rgba(45,40,35,0.08);display:flex;gap:16px;justify-content:space-between;align-items:flex-start}
-  .pdf-preview-title{font-family:'Source Serif 4',serif;font-size:1.2rem;font-weight:600;color:var(--earth-900)}
-  .pdf-preview-sub{margin-top:6px;font-size:0.82rem;color:var(--text-muted);max-width:44ch;line-height:1.55}
+  .pdf-preview-title{font-family:'Source Serif 4',serif;font-size:1.2rem;font-weight:600;color:var(--navy)}
+  .pdf-preview-sub{margin-top:6px;font-size:0.82rem;color:var(--text-soft);max-width:44ch;line-height:1.55}
   .pdf-preview-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
   .pdf-preview-link,.pdf-preview-close{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:9px 14px;border-radius:10px;font-size:0.82rem;font-weight:600;text-decoration:none}
-  .pdf-preview-link{background:var(--sage-100);color:var(--sage-700)}
+  .pdf-preview-link{background:var(--green-bg);color:var(--navy)}
   .pdf-preview-close{background:none;border:1px solid rgba(45,40,35,0.12);color:var(--text);cursor:pointer}
   .pdf-preview-body{padding:18px 24px 24px}
-  .pdf-preview-note{font-size:0.8rem;color:var(--text-muted);margin-bottom:12px}
+  .pdf-preview-note{font-size:0.8rem;color:var(--text-soft);margin-bottom:12px}
   .pdf-preview-frame-wrap{background:white;border:1px solid rgba(45,40,35,0.08);border-radius:18px;overflow:hidden}
   .pdf-preview-frame{display:block;width:100%;height:60vh;min-height:420px;border:0;background:#f3f1ec}
   @media(max-width:720px){.pdf-preview-overlay{padding:12px}.pdf-preview-dialog{max-height:calc(100vh - 24px)}.pdf-preview-header,.pdf-preview-body{padding-left:16px;padding-right:16px}.pdf-preview-header{padding-top:16px}.pdf-preview-actions{justify-content:flex-start}.pdf-preview-link,.pdf-preview-close{width:100%}.pdf-preview-frame{height:50vh;min-height:320px}}
@@ -230,7 +230,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   <!-- NUMMERN -->
   <h2>Alle Notfallnummern</h2>
   <p>Wenn es um Leib, Leben oder unmittelbare Bedrohung geht, sind <strong>144</strong> und <strong>117</strong> die ersten Nummern. Für psychiatrische Krisen und Einschätzung ist der <strong>Psychiatrische Notfalldienst Zürich</strong> die wichtigste Stelle. Diese Seite nennt vor allem Wege für den Kanton Zürich; die Grundlogik gilt breiter, einzelne Zuständigkeiten können ausserhalb von Zürich anders organisiert sein.</p>
-  <p style="font-size:0.86rem;color:var(--text-muted);margin-top:-4px">Die obersten Nummern sind für die akute Lage. Weitere Stellen wie Fachberatung oder Rechtsberatung sind ergänzend wichtig, aber nicht die erste Triage.</p>
+  <p style="font-size:0.86rem;color:var(--text-soft);margin-top:-4px">Die obersten Nummern sind für die akute Lage. Weitere Stellen wie Fachberatung oder Rechtsberatung sind ergänzend wichtig, aber nicht die erste Triage.</p>
   <div class="numbers-grid">
     <a class="number-card" href="tel:+41800336655"><div><strong>0800 33 66 55</strong><div class="number-label">Psychiatrischer Notfalldienst ZH</div><div class="number-sub">24/7, kostenlos</div></div></a>
     <a class="number-card" href="tel:144"><div><strong>144</strong><div class="number-label">Sanität / Rettungsdienst</div><div class="number-sub">Akute Gefahr für Leib und Leben</div></div></a>
@@ -242,11 +242,11 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
     <a class="number-card" href="tel:+41848800858"><div><strong>0848 800 858</strong><div class="number-label">Pro Mente Sana</div><div class="number-sub">Rechtsberatung, FU, Vorsorge</div></div></a>
   </div>
 
-  <p style="font-size:0.88rem;color:var(--sage-500);font-weight:600"><strong>Krisenplan vorhanden?</strong> Öffnen Sie ihn jetzt und folgen Sie den vereinbarten Schritten. Noch keinen? → <a href="/modul/6/" style="color:var(--sage-500)">Modul 6: Gespräche, Grenzen, Krisenplan</a></p>
+  <p style="font-size:0.88rem;color:var(--teal);font-weight:600"><strong>Krisenplan vorhanden?</strong> Öffnen Sie ihn jetzt und folgen Sie den vereinbarten Schritten. Noch keinen? → <a href="/modul/6/" style="color:var(--teal)">Modul 6: Gespräche, Grenzen, Krisenplan</a></p>
 
   <!-- MINI GUIDES -->
   <h2>Was passiert gerade? — Kurzanleitungen</h2>
-  <p>Öffnen Sie die Situation, die dem aktuellen Moment am nächsten kommt. Ausführlichere Kommunikationshilfen finden Sie in <a href="/modul/6/" style="color:var(--sage-500)">Modul 6</a> — hier geht es um die ersten Minuten und die nächsten sicheren Schritte.</p>
+  <p>Öffnen Sie die Situation, die dem aktuellen Moment am nächsten kommt. Ausführlichere Kommunikationshilfen finden Sie in <a href="/modul/6/" style="color:var(--teal)">Modul 6</a> — hier geht es um die ersten Minuten und die nächsten sicheren Schritte.</p>
 
   <!-- SUIZID -->
   <div class="guide" id="guide-suizid">
@@ -348,7 +348,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
       </ul>
       <div class="guide-do">✓ Raum verlassen. Kinder mitnehmen. 117 anrufen. Dokumentieren.</div>
       <div class="guide-dont">✗ Sich verteidigen, wenn es eskaliert. Allein bleiben. Vorfall verschweigen.</div>
-      <p style="font-size:0.88rem;color:var(--text-secondary);margin-top:12px"><strong>Wichtig:</strong> Gewalt ist nie akzeptabel — auch nicht als Symptom einer Erkrankung. Das zu benennen ist kein Verrat an Ihrem Partner.</p>
+      <p style="font-size:0.88rem;color:var(--slate);margin-top:12px"><strong>Wichtig:</strong> Gewalt ist nie akzeptabel — auch nicht als Symptom einer Erkrankung. Das zu benennen ist kein Verrat an Ihrem Partner.</p>
     </div></div>
   </div>
 
@@ -364,11 +364,11 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
         <li>Käufe können in der Schweiz unter Umständen angefochten werden, wenn eine Geschäftsunfähigkeit nachgewiesen werden kann (Art. 18 ZGB).</li>
         <li><strong>KESB kontaktieren</strong> (Kindes- und Erwachsenenschutzbehörde), wenn rasch Schutzmassnahmen geprüft werden müssen. Zuständigkeiten laufen je nach Wohnort über die örtliche Behörde.</li>
         <li>Alles dokumentieren: Kontoauszüge, Verträge, Kommunikation — mit Datum und Uhrzeit.</li>
-        <li>Rechtsberatung: <a href="tel:+41848800858" style="color:var(--sage-500);font-weight:600">Pro Mente Sana (0848 800 858)</a> — kostenlos.</li>
+        <li>Rechtsberatung: <a href="tel:+41848800858" style="color:var(--teal);font-weight:600">Pro Mente Sana (0848 800 858)</a> — kostenlos.</li>
       </ul>
       <div class="guide-do">✓ Bank anrufen. Dokumentieren. KESB oder Rechtsberatung kontaktieren.</div>
       <div class="guide-dont">✗ Käufe selbst rückgängig machen wollen. Konfrontieren in der Manie. Abwarten.</div>
-      <p style="font-size:0.86rem;color:var(--text-muted);margin-top:12px">Das ist meist keine 144-/117-Lage, aber oft eine akute Folgenschadensituation. Präventive Massnahmen wie Transaktionslimiten, Vorsorgeauftrag und Bankabsprachen sind in der Schweiz besonders wichtig. → <a href="/modul/6/" style="color:var(--sage-500)">Modul 6: Vorbereitung</a></p>
+      <p style="font-size:0.86rem;color:var(--text-soft);margin-top:12px">Das ist meist keine 144-/117-Lage, aber oft eine akute Folgenschadensituation. Präventive Massnahmen wie Transaktionslimiten, Vorsorgeauftrag und Bankabsprachen sind in der Schweiz besonders wichtig. → <a href="/modul/6/" style="color:var(--teal)">Modul 6: Vorbereitung</a></p>
     </div></div>
   </div>
 
@@ -463,11 +463,11 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
     </div>
   </div>
 
-  <p style="font-size:0.88rem;color:var(--text-muted);text-align:center;margin-top:32px"><strong>Diese Kurzanleitungen ersetzen keine professionelle Beratung.</strong> Sie geben Orientierung für die ersten Minuten. Wenn Sie unsicher sind, rufen Sie immer an.</p>
+  <p style="font-size:0.88rem;color:var(--text-soft);text-align:center;margin-top:32px"><strong>Diese Kurzanleitungen ersetzen keine professionelle Beratung.</strong> Sie geben Orientierung für die ersten Minuten. Wenn Sie unsicher sind, rufen Sie immer an.</p>
 
   <p style="font-size:0.88rem;text-align:center;margin-top:20px"><a href="/tools/durchatmen/" style="color:var(--teal-light);font-weight:600;text-decoration:none">Brauchen Sie zuerst einen Moment Ruhe? → Durchatmen</a></p>
 
-  <p style="font-size:0.86rem;color:var(--sage-500);text-align:center;margin-top:20px"><a href="/modul/6/" style="color:var(--sage-500)">→ Modul 6: Vorbereitung, Kommunikation, Grenzen</a> · <a href="/modul/8/#anlaufstellen" style="color:var(--sage-500)">→ Modul 8: Beratungsstellen und nächste Schritte</a> · <a href="/module/" style="color:var(--sage-500)">→ Zur Übersicht der Module</a></p>
+  <p style="font-size:0.86rem;color:var(--teal);text-align:center;margin-top:20px"><a href="/modul/6/" style="color:var(--teal)">→ Modul 6: Vorbereitung, Kommunikation, Grenzen</a> · <a href="/modul/8/#anlaufstellen" style="color:var(--teal)">→ Modul 8: Beratungsstellen und nächste Schritte</a> · <a href="/module/" style="color:var(--teal)">→ Zur Übersicht der Module</a></p>
 
 </main>
 

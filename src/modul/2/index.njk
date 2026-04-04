@@ -17,27 +17,27 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   .bar-chart { margin: 32px 0 20px; }
   .bar-item { margin-bottom: 16px; }
   .bar-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
-  .bar-label { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.35; }
-  .bar-pct { font-size: 0.82rem; font-weight: 700; color: var(--sage-600); font-variant-numeric: tabular-nums; }
+  .bar-label { font-size: 0.88rem; color: var(--slate); line-height: 1.35; }
+  .bar-pct { font-size: 0.82rem; font-weight: 700; color: var(--teal-dark); font-variant-numeric: tabular-nums; }
   .bar-pct.warm-text { color: var(--amber-phase); }
-  .bar-track { width: 100%; height: 12px; background: var(--sage-50); border-radius: 100px; overflow: hidden; }
+  .bar-track { width: 100%; height: 12px; background: var(--green-bg); border-radius: 100px; overflow: hidden; }
   .bar-fill { height: 100%; border-radius: 100px; transition: width 1.2s cubic-bezier(0.25,0.46,0.45,0.94); width: 0%; }
-  .bar-fill.sage { background: linear-gradient(90deg, var(--sage-400), var(--sage-500)); }
-  .bar-fill.warm { background: linear-gradient(90deg, var(--warm-400), var(--amber-phase)); }
-  .bar-caption { font-size: 0.78rem; color: var(--text-muted); margin-top: 12px; line-height: 1.5; }
+  .bar-fill.sage { background: linear-gradient(90deg, var(--teal), var(--teal)); }
+  .bar-fill.warm { background: linear-gradient(90deg, var(--sand), var(--amber-phase)); }
+  .bar-caption { font-size: 0.78rem; color: var(--text-soft); margin-top: 12px; line-height: 1.5; }
 
   /* EISBERG */
   .eisberg-section { background: white; border: 1px solid rgba(45,40,35,0.06); border-radius: var(--radius-xl); padding: 36px; margin: 40px 0; box-shadow: var(--shadow-soft); }
   .eisberg-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 24px 0; border-radius: var(--radius-lg); overflow: hidden; }
-  .eisberg-top { background: var(--sage-50); padding: 28px; border-bottom: 2px dashed var(--sage-300); }
+  .eisberg-top { background: var(--green-bg); padding: 28px; border-bottom: 2px dashed var(--teal-light); }
   .eisberg-bottom { background: var(--blue-phase-light); padding: 28px; }
   .eisberg-top, .eisberg-bottom { grid-column: 1 / -1; }
   .eisberg-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; }
-  .eisberg-top .eisberg-label { color: var(--sage-500); }
+  .eisberg-top .eisberg-label { color: var(--teal); }
   .eisberg-bottom .eisberg-label { color: var(--blue-phase); }
   .eisberg-items { display: flex; flex-wrap: wrap; gap: 8px; }
   .eisberg-tag { font-size: 0.82rem; padding: 6px 14px; border-radius: 100px; font-weight: 500; }
-  .eisberg-top .eisberg-tag { background: var(--sage-200); color: var(--sage-700); }
+  .eisberg-top .eisberg-tag { background: var(--teal-border); color: var(--navy); }
   .eisberg-bottom .eisberg-tag { background: rgba(91,127,165,0.15); color: var(--blue-phase); }
 
   /* CYCLE DIAGRAM */
@@ -57,29 +57,29 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   .cycle-step.step-3 { background: var(--blue-phase-light); }
   .cycle-step.step-3 .cycle-step-num { color: var(--blue-phase); }
   .cycle-step.step-3 p { color: #475569; }
-  .cycle-step.step-4 { background: var(--sage-50); }
-  .cycle-step.step-4 .cycle-step-num { color: var(--sage-500); }
-  .cycle-step.step-4 p { color: var(--sage-700); }
-  .cycle-note { background: var(--sage-50); border-radius: var(--radius-md); padding: 16px 20px; margin-top: 16px; font-size: 0.88rem; color: var(--sage-700); }
+  .cycle-step.step-4 { background: var(--green-bg); }
+  .cycle-step.step-4 .cycle-step-num { color: var(--teal); }
+  .cycle-step.step-4 p { color: var(--navy); }
+  .cycle-note { background: var(--green-bg); border-radius: var(--radius-md); padding: 16px 20px; margin-top: 16px; font-size: 0.88rem; color: var(--navy); }
 
   /* DO / DONT */
   .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 28px 0; }
   .do-col, .dont-col { border-radius: var(--radius-lg); padding: 24px; }
-  .do-col { background: var(--sage-50); border: 1px solid var(--sage-200); }
+  .do-col { background: var(--green-bg); border: 1px solid var(--teal-border); }
   .dont-col { background: #fef8f7; border: 1px solid var(--alert-red-border); }
   .do-col h4, .dont-col h4 { font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 14px; }
-  .do-col h4 { color: var(--sage-600); }
+  .do-col h4 { color: var(--teal-dark); }
   .dont-col h4 { color: var(--alert-red); }
   .do-col ul, .dont-col ul { list-style: none; }
   .do-col li, .dont-col li { font-size: 0.88rem; padding: 6px 0 6px 20px; position: relative; line-height: 1.55; }
-  .do-col li { color: var(--sage-700); }
+  .do-col li { color: var(--navy); }
   .dont-col li { color: #9A3412; }
-  .do-col li::before { content: '✓'; position: absolute; left: 0; color: var(--sage-400); font-weight: 700; }
+  .do-col li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
   .dont-col li::before { content: '✗'; position: absolute; left: 0; color: var(--alert-red); font-weight: 700; }
 
   /* PAUSE BOX */
-  .pause-box { background: var(--warm-100); border-radius: var(--radius-lg); padding: 24px 28px; margin: 32px 0; text-align: center; }
-  .pause-box p { font-size: 0.92rem; color: var(--earth-700); margin: 0; }
+  .pause-box { background: var(--surface-warm); border-radius: var(--radius-lg); padding: 24px 28px; margin: 32px 0; text-align: center; }
+  .pause-box p { font-size: 0.92rem; color: var(--slate); margin: 0; }
 
   /* RESPONSIVE */
   @media (max-width: 768px) {
@@ -138,7 +138,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
 <!-- CONTENT -->
 <main class="content" id="main-content">
 
-  <p class="reveal" style="font-size:0.88rem;color:var(--text-muted);border-left:3px solid var(--teal-border,rgba(30,101,109,0.25));padding-left:14px;margin-bottom:28px"><strong>Dieses Modul:</strong> Wenn Sie noch am Anfang stehen oder verstehen wollen, was die Diagnose gerade mit Ihnen macht — Schock, Daueranspannung, Einordnungslosigkeit. Wenn Sie die Erschöpfung schon über Monate oder Jahre tragen, lesen Sie danach auch <a href="/modul/4/" style="color:var(--teal)">Modul 4</a>.</p>
+  <p class="reveal" style="font-size:0.88rem;color:var(--text-soft);border-left:3px solid var(--teal-border,rgba(30,101,109,0.25));padding-left:14px;margin-bottom:28px"><strong>Dieses Modul:</strong> Wenn Sie noch am Anfang stehen oder verstehen wollen, was die Diagnose gerade mit Ihnen macht — Schock, Daueranspannung, Einordnungslosigkeit. Wenn Sie die Erschöpfung schon über Monate oder Jahre tragen, lesen Sie danach auch <a href="/modul/4/" style="color:var(--teal)">Modul 4</a>.</p>
 
   <p class="reveal">Ihre Belastung als Angehörige*r ist real — und sie ist messbar. Angehörige von Menschen mit bipolarer Störung tragen eine der höchsten Belastungen aller Angehörigengruppen (Schmid et al., 2005; Perlick et al., 2007). Ein grosser Teil davon bleibt im Alltag unsichtbar: für das Umfeld, oft lange auch für Sie selbst.</p>
 
@@ -177,7 +177,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   <!-- Eisberg -->
   <div class="eisberg-section reveal content-wide">
     <h3>Der Belastungs-Eisberg</h3>
-    <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0;">Der grösste Teil Ihrer Belastung ist unsichtbar — für Ihr Umfeld, manchmal sogar für Sie selbst.</p>
+    <p style="font-size: 0.88rem; color: var(--text-soft); margin-bottom: 0;">Der grösste Teil Ihrer Belastung ist unsichtbar — für Ihr Umfeld, manchmal sogar für Sie selbst.</p>
 
     <div class="eisberg-visual">
       <div class="eisberg-top">
@@ -202,7 +202,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
       </div>
     </div>
 
-    <p style="font-size: 0.88rem; color: var(--text-secondary); margin-top: 16px;">Das ist kein Zeichen von Schwäche, sondern ein <strong>Merkmal chronischer Belastung</strong>: Viele Angehörige lernen, zu funktionieren, lange bevor sie merken, wie viel sie innerlich schon mittragen.</p>
+    <p style="font-size: 0.88rem; color: var(--slate); margin-top: 16px;">Das ist kein Zeichen von Schwäche, sondern ein <strong>Merkmal chronischer Belastung</strong>: Viele Angehörige lernen, zu funktionieren, lange bevor sie merken, wie viel sie innerlich schon mittragen.</p>
   </div>
 
   <div class="quote-block reveal">
@@ -358,7 +358,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
     </div>
   </div>
 
-  <p class="reveal" style="font-size: 0.88rem; color: var(--sage-600); font-weight: 500;">Wichtig zu wissen: Konsequente Behandlung — insbesondere mit Lithium — senkt das Suizidrisiko nachweislich. Die Erkrankung ist behandelbar, und Behandlung kann deutlich entlasten.</p>
+  <p class="reveal" style="font-size: 0.88rem; color: var(--teal-dark); font-weight: 500;">Wichtig zu wissen: Konsequente Behandlung — insbesondere mit Lithium — senkt das Suizidrisiko nachweislich. Die Erkrankung ist behandelbar, und Behandlung kann deutlich entlasten.</p>
 
   <div class="pause-box reveal">
     <p><strong>Atmen Sie durch.</strong> Was Sie gerade gelesen haben, ist schwer. Wenn Sie eine Pause brauchen, machen Sie eine. Dieses Modul wartet auf Sie.</p>

@@ -20,7 +20,16 @@
       "Bash(git stash:*)",
       "Bash(git commit:*)",
       "Bash(export PATH=\"/usr/local/bin:/opt/homebrew/bin:$PATH\")",
-      "WebFetch(domain:bipolarsite.netlify.app)"
+      "WebFetch(domain:bipolarsite.netlify.app)",
+      "Bash(npx eleventy:*)",
+      "Bash(git push:*)",
+      "Bash(gh pr:*)",
+      "Bash(gh api:*)",
+      "Bash(git pull:*)",
+      "Bash(for i:*)",
+      "Bash(do echo:*)",
+      "Read(//Users/christaegger/Downloads/BipolarSite-main-2/src/modul/$i/**)",
+      "Bash(done)"
     ]
   }
 }

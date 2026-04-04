@@ -19,7 +19,6 @@
   --navy-mid:    #4A443F;
   --teal:        #3A7A6D;
   --teal-light:  #A8D5CB;
-  --teal-mist:   #DDE9E5;
   --amber:       #B45309;
   --amber-light: #FBBF24;
   --rose:        #9A3412;
@@ -27,12 +26,9 @@
   --sand:        #ddd2bf;
   --sand-deep:   #b58a52;
   --sand-ink:    #7a5630;
-  --dust-rose:   #c7a8a1;
-  --dust-rose-soft: #f3e5e1;
 
   /* ── Neutral / Slate ── */
   --slate:       #475569;
-  --slate-light: #94a3b8;
 
   /* ── Semantic: Background ── */
   --bg:          #FAF8F5;
@@ -79,44 +75,7 @@
   --content-width-wide: 900px;
   --wide-width:         1140px;
 
-  /* ─────────────────────────────────────────────
-     Legacy token remapping (BipolarSite inline
-     styles reference these variables — by
-     redefining them here, every var() usage in
-     the inline <style> blocks resolves to the
-     new palette automatically)
-     ───────────────────────────────────────────── */
-
-  /* Sage → Teal/Navy (var() refs to avoid value duplication) */
-  --sage-50:  var(--green-bg);
-  --sage-100: var(--green-bg);
-  --sage-200: var(--teal-border);
-  --sage-300: var(--teal-light);
-  --sage-400: var(--teal);
-  --sage-500: var(--teal);
-  --sage-600: var(--teal-dark);
-  --sage-700: var(--navy);
-
-  /* Warm → Slate */
-  --warm-50:  var(--bg);
-  --warm-100: var(--surface-warm);
-  --warm-200: var(--border);
-  --warm-300: var(--sand);
-  --warm-400: #b4a48b;
-
-  /* Earth → Slate/Navy */
-  --earth-700: #334155;
-  --earth-800: var(--navy-mid);
-  --earth-900: var(--navy);
-
-  /* Cream → BG */
-  --cream: var(--bg);
-
-  /* Text (remap) */
-  --text-secondary: var(--slate);
-  --text-muted:     var(--text-soft);
-
-  /* Alert (remap to rose) */
+  /* ── Alert Colors ── */
   --alert-red:        var(--rose);
   --alert-red-bg:     var(--rose-soft);
   --alert-red-border: #fca5a5;
@@ -149,22 +108,10 @@
   /* ── Warm Border Scale (replaces hardcoded rgba(45,40,35,...)) ── */
   --border-warm:    rgba(45,40,35,0.06);
   --border-warm-md: rgba(45,40,35,0.08);
-  --border-warm-lg: rgba(45,40,35,0.1);
   --border-warm-xl: rgba(45,40,35,0.12);
 
   /* ── Z-Index Scale ── */
-  --z-base:      1;
   --z-tool-nav:  50;
-  --z-progress:  99;
-  --z-nav:       100;
-  --z-confirm:   200;
-  --z-overlay:   1000;
-  --z-skip:      1200;
-  --z-noise:     9999;
-
-  /* ── Transition Tokens ── */
-  --transition-fast:   0.2s ease;
-  --transition-normal: 0.3s ease;
 }
 
 /* ── Skip Link ── */
@@ -219,7 +166,6 @@ body {
 .number-card,
 .next-module,
 .toc,
-.progress-bar-outer,
 .quote-block,
 .alert-box,
 .reflection-block,
@@ -324,7 +270,6 @@ h1, h2, h3, h4 {
 .content h2,
 .content h3,
 .content h4,
-.cta-band h2,
 .footer-brand h3,
 .nav-brand-text {
   font-family: 'DM Serif Display', serif;
@@ -976,16 +921,6 @@ table tbody tr:nth-child(even),
   color: white;
 }
 
-/* ── Progress bars (module pages) ── */
-.progress-bar-outer {
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-soft);
-}
-
-.progress-fill {
-  background: linear-gradient(90deg, var(--teal), var(--teal-light));
-}
 
 /* Tool progress (hardcoded gradient) */
 .prog {
@@ -1038,7 +973,7 @@ table tbody tr:nth-child(even),
 /* ── Reflection / highlight boxes ── */
 .reflection-block,
 .refl {
-  background: linear-gradient(135deg, var(--green-bg), var(--warm-100));
+  background: linear-gradient(135deg, var(--green-bg), var(--surface-warm));
   border-radius: var(--radius-lg);
 }
 
@@ -1323,38 +1258,6 @@ section,
   background: var(--teal-dark);
 }
 
-/* ── CTA band ── */
-.cta-band {
-  background: var(--navy);
-  padding: var(--space-3xl) 2rem;
-}
-
-.cta-band::before {
-  background: radial-gradient(ellipse at 30% 50%, rgba(30,101,109,0.3), transparent 70%);
-}
-
-.cta-band h2 {
-  color: white;
-}
-
-.cta-band p {
-  color: rgba(255,255,255,0.7);
-}
-
-.cta-band .cta-btn {
-  background: white;
-  color: var(--navy);
-}
-
-.cta-band .cta-btn:hover {
-  box-shadow: 0 6px 24px rgba(0,0,0,0.2);
-}
-
-/* ── Wave divider ── */
-.wave-divider svg {
-  fill: var(--navy);
-  color: var(--navy);
-}
 
 /* ── Footer ── */
 footer {
@@ -1670,11 +1573,6 @@ footer a:visited {
   color: var(--navy);
 }
 
-/* ── Inline style="" attribute override (notfall uses style="color:var(--sage-*)") ── */
-[style*="sage"] {
-  color: var(--teal);
-}
-
 /* ── Warm-rgba box-shadows: catch remaining elements ── */
 .pdf-preview-dialog {
   box-shadow: var(--shadow-elevated);
@@ -1692,7 +1590,6 @@ svg text {
 
 /* Exception: SVG text inside dark-themed sections keeps white */
 .key-takeaways svg text,
-.cta-band svg text,
 .hero svg text,
 .module-hero svg text,
 footer svg text {
@@ -1723,7 +1620,7 @@ footer svg text {
 
 /* ── Krisenplan section colors (.s5 uses old earth tones) ── */
 .s5 {
-  background: var(--warm-100);
+  background: var(--surface-warm);
   border-color: var(--slate);
 }
 
@@ -1747,7 +1644,7 @@ footer svg text {
 .chart-wrap rect,
 .phase-row,
 .phase-count {
-  color: var(--text-secondary);
+  color: var(--slate);
 }
 
 
@@ -1780,9 +1677,6 @@ footer svg text {
   .section {
     padding: 36px 1.2rem;
   }
-  .cta-band {
-    padding: 36px 1.2rem;
-  }
 }
 
 
@@ -1792,9 +1686,7 @@ footer svg text {
 
 @media print {
   nav,
-  .nav-toggle,
-  .cta-band,
-  .wave-divider {
+  .nav-toggle {
     display: none;
   }
   body {

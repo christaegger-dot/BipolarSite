@@ -16,22 +16,22 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   /* TIMELINE */
   .timeline-section { background: white; border: 1px solid rgba(45,40,35,0.06); border-radius: var(--radius-xl); padding: 36px; margin: 40px 0; box-shadow: var(--shadow-soft); }
   .timeline { position: relative; padding-left: 32px; margin: 24px 0; }
-  .timeline::before { content: ''; position: absolute; left: 12px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--sage-300), var(--amber-phase)); border-radius: 2px; }
+  .timeline::before { content: ''; position: absolute; left: 12px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--teal-light), var(--amber-phase)); border-radius: 2px; }
   .timeline-item { position: relative; padding-bottom: 28px; }
   .timeline-item:last-child { padding-bottom: 0; }
-  .timeline-dot { position: absolute; left: -27px; top: 4px; width: 14px; height: 14px; border-radius: 50%; border: 2.5px solid var(--sage-400); background: white; }
+  .timeline-dot { position: absolute; left: -27px; top: 4px; width: 14px; height: 14px; border-radius: 50%; border: 2.5px solid var(--teal); background: white; }
   .timeline-item:last-child .timeline-dot { border-color: var(--amber-phase); background: var(--amber-phase-light); }
-  .timeline-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--sage-500); margin-bottom: 4px; }
+  .timeline-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--teal); margin-bottom: 4px; }
   .timeline-item:last-child .timeline-label { color: var(--amber-phase); }
-  .timeline-text { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
+  .timeline-text { font-size: 0.9rem; color: var(--slate); line-height: 1.6; }
 
   /* EROSION CHART */
   .erosion-section { background: white; border: 1px solid rgba(45,40,35,0.06); border-radius: var(--radius-xl); padding: 36px; margin: 40px 0; box-shadow: var(--shadow-soft); }
-  .erosion-section h3 { font-family: 'Source Serif 4', serif; font-size: 1.15rem; font-weight: 600; margin-bottom: 8px; color: var(--earth-800); }
-  .erosion-section > p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 24px; }
+  .erosion-section h3 { font-family: 'Source Serif 4', serif; font-size: 1.15rem; font-weight: 600; margin-bottom: 8px; color: var(--navy-mid); }
+  .erosion-section > p { font-size: 0.88rem; color: var(--text-soft); margin-bottom: 24px; }
   .erosion-chart { width: 100%; margin-bottom: 20px; }
   .erosion-chart svg { width: 100%; height: auto; display: block; }
-  .erosion-caption { font-size: 0.78rem; color: var(--text-muted); line-height: 1.6; }
+  .erosion-caption { font-size: 0.78rem; color: var(--text-soft); line-height: 1.6; }
 
   /* EROSION CARDS */
   .erosion-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin: 28px 0; }
@@ -44,30 +44,30 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   .erosion-card.intimacy { background: var(--amber-phase-light); }
   .erosion-card.intimacy h4 { color: var(--amber-phase); }
   .erosion-card.intimacy p { color: #B45309; }
-  .erosion-card.lightness { background: var(--sage-50); }
-  .erosion-card.lightness h4 { color: var(--sage-600); }
-  .erosion-card.lightness p { color: var(--sage-700); }
+  .erosion-card.lightness { background: var(--green-bg); }
+  .erosion-card.lightness h4 { color: var(--teal-dark); }
+  .erosion-card.lightness p { color: var(--navy); }
 
   /* EMERGENCY STRIP */
   .emergency-strip { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin: 28px 0; }
   .emergency-card {
     display: flex; flex-direction: column; align-items: center; text-align: center;
     padding: 18px 12px; border-radius: var(--radius-lg); text-decoration: none;
-    background: var(--sage-50); border: 1px solid var(--sage-200);
+    background: var(--green-bg); border: 1px solid var(--teal-border);
     transition: box-shadow 0.25s ease, border-color 0.25s ease; cursor: pointer;
   }
   .emergency-card:hover { box-shadow: var(--shadow-card); }
   .emergency-card.emergency-urgent { background: var(--alert-red-bg); border-color: var(--alert-red-border); }
   .emergency-card.emergency-urgent .emergency-num { color: var(--alert-red); }
   .emergency-card.emergency-urgent .emergency-label { color: var(--alert-red); }
-  .emergency-num { font-size: 1.1rem; font-weight: 800; color: var(--sage-700); letter-spacing: -0.02em; margin-bottom: 4px; }
-  .emergency-label { font-size: 0.78rem; font-weight: 700; color: var(--sage-600); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px; }
-  .emergency-sub { font-size: 0.72rem; color: var(--text-muted); }
+  .emergency-num { font-size: 1.1rem; font-weight: 800; color: var(--navy); letter-spacing: -0.02em; margin-bottom: 4px; }
+  .emergency-label { font-size: 0.78rem; font-weight: 700; color: var(--teal-dark); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px; }
+  .emergency-sub { font-size: 0.72rem; color: var(--text-soft); }
 
   /* TABOO SECTION */
   .taboo-item { background: white; border: 1px solid rgba(45,40,35,0.07); border-radius: var(--radius-lg); padding: 22px 26px; margin-bottom: 14px; border-left: 4px solid var(--alert-red-border); }
   .taboo-item h4 { font-size: 0.92rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
-  .taboo-item p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin: 0; }
+  .taboo-item p { font-size: 0.88rem; color: var(--slate); line-height: 1.6; margin: 0; }
 
   /* RESPONSIVE */
   @media (max-width: 768px) {
@@ -279,13 +279,13 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   <div class="taboo-item reveal">
     <h4>Finanzielle Zerstörung</h4>
     <p>Unkontrollierte Geldausgaben, die Existenzen gefährden. In einer manischen Phase kann ein Mensch in wenigen Tagen die Ersparnisse einer Familie auflösen.</p>
-    <p style="font-size:0.88rem;color:var(--text-muted);margin-top:8px">→ Konkrete Vorkehrungen (Ausgabenlimit, Vorsorgevollmacht, Bankabsprachen): <a href="/modul/6/#finanzen" style="color:var(--teal)">Modul 6, Abschnitt «Finanzen absichern»</a></p>
+    <p style="font-size:0.88rem;color:var(--text-soft);margin-top:8px">→ Konkrete Vorkehrungen (Ausgabenlimit, Vorsorgevollmacht, Bankabsprachen): <a href="/modul/6/#finanzen" style="color:var(--teal)">Modul 6, Abschnitt «Finanzen absichern»</a></p>
   </div>
 
   <div class="taboo-item reveal">
     <h4>Sexuelle Enthemmung</h4>
     <p>Grenzüberschreitungen, die die Beziehung tief verletzen. Das ist ein Thema für professionelle Begleitung — nicht für Alleinbewältigung.</p>
-    <p style="font-size:0.88rem;color:var(--text-muted);margin-top:8px">→ Professionelle Begleitung (Paar- oder Sexualberatung): Anlaufstellen nach Situation in <a href="/modul/8/" style="color:var(--teal)">Modul 8</a></p>
+    <p style="font-size:0.88rem;color:var(--text-soft);margin-top:8px">→ Professionelle Begleitung (Paar- oder Sexualberatung): Anlaufstellen nach Situation in <a href="/modul/8/" style="color:var(--teal)">Modul 8</a></p>
   </div>
 
   <div class="taboo-item reveal">

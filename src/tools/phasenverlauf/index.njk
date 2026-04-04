@@ -113,7 +113,7 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
         <span class="leg"><span class="leg-dot" style="background:var(--hypo-phase)"></span>Hypomanie</span>
         <span class="leg"><span class="leg-dot" style="background:var(--green-phase)"></span>Stabil</span>
         <span class="leg"><span class="leg-dot" style="background:var(--blue-phase)"></span>Leichte Dep.</span>
-        <span class="leg"><span class="leg-dot" style="background:var(--earth-700)"></span>Schwere Dep.</span>
+        <span class="leg"><span class="leg-dot" style="background:var(--slate)"></span>Schwere Dep.</span>
       </div>
     </div>
     <div class="chart-svg-wrap">
@@ -160,7 +160,7 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
         <text x="8" y="88"  font-size="10" fill="var(--hypo-phase)" font-weight="700" font-family="DM Sans,sans-serif">Hypomanie</text>
         <text x="8" y="144" font-size="10" fill="var(--green-phase)" font-weight="700" font-family="DM Sans,sans-serif">Stabil</text>
         <text x="8" y="200" font-size="10" fill="var(--blue-phase)" font-weight="700" font-family="DM Sans,sans-serif">Leichte Dep.</text>
-        <text x="8" y="256" font-size="10" fill="var(--earth-700)" font-weight="700" font-family="DM Sans,sans-serif">Schwere Dep.</text>
+        <text x="8" y="256" font-size="10" fill="var(--slate)" font-weight="700" font-family="DM Sans,sans-serif">Schwere Dep.</text>
 
         <!-- Clickable zone hit areas (full width, for accessibility) -->
         <rect x="0" y="0"   width="540" height="56"  class="zone-hit" data-phase="mania"      id="hit-mania" aria-hidden="true" focusable="false"/>
@@ -176,14 +176,14 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
 
         <!-- Interactive wave points -->
         <circle class="wpt" cx="160" cy="28"  r="9" fill="var(--amber-phase)" stroke="#fff" stroke-width="2.5" data-phase="mania"      id="pt-mania" aria-hidden="true" focusable="false"/>
-        <circle class="wpt" cx="300" cy="252" r="9" fill="var(--earth-700)" stroke="#fff" stroke-width="2.5" data-phase="severe-dep" id="pt-severe" aria-hidden="true" focusable="false"/>
+        <circle class="wpt" cx="300" cy="252" r="9" fill="var(--slate)" stroke="#fff" stroke-width="2.5" data-phase="severe-dep" id="pt-severe" aria-hidden="true" focusable="false"/>
         <circle class="wpt" cx="370" cy="140" r="9" fill="var(--green-phase)" stroke="#fff" stroke-width="2.5" data-phase="stable"     id="pt-stable" aria-hidden="true" focusable="false"/>
         <circle class="wpt" cx="430" cy="84"  r="9" fill="var(--hypo-phase)" stroke="#fff" stroke-width="2.5" data-phase="hypomania"  id="pt-hypo" aria-hidden="true" focusable="false"/>
         <circle class="wpt" cx="520" cy="196" r="9" fill="var(--blue-phase)" stroke="#fff" stroke-width="2.5" data-phase="mild-dep"   id="pt-mild" aria-hidden="true" focusable="false"/>
 
         <!-- Pulse rings (animated) -->
         <circle cx="160" cy="28"  r="15" fill="none" stroke="var(--amber-phase)" stroke-width="1.5" opacity="0" class="pulse" id="pulse-mania"/>
-        <circle cx="300" cy="252" r="15" fill="none" stroke="var(--earth-700)" stroke-width="1.5" opacity="0" class="pulse" id="pulse-severe"/>
+        <circle cx="300" cy="252" r="15" fill="none" stroke="var(--slate)" stroke-width="1.5" opacity="0" class="pulse" id="pulse-severe"/>
         <circle cx="370" cy="140" r="15" fill="none" stroke="var(--green-phase)" stroke-width="1.5" opacity="0" class="pulse" id="pulse-stable"/>
         <circle cx="430" cy="84"  r="15" fill="none" stroke="var(--hypo-phase)" stroke-width="1.5" opacity="0" class="pulse" id="pulse-hypo"/>
         <circle cx="520" cy="196" r="15" fill="none" stroke="var(--blue-phase)" stroke-width="1.5" opacity="0" class="pulse" id="pulse-mild"/>
@@ -324,7 +324,7 @@ const PHASES = {
     name: 'Schwere Depression',
     subtitle: 'Tiefste Erschöpfung — oft mit Suizidrisiko',
     duration: 'Variabel: Wochen bis Monate',
-    color: 'var(--earth-700)',
+    color: 'var(--slate)',
     bg: 'var(--severe-dep-phase-bg)',
     border: 'var(--severe-dep-phase-border)',
     ptId: 'pt-severe',
@@ -343,7 +343,7 @@ const PHASES = {
       'Unklare Grenze: Wann ist eine Hospitalisation nötig?',
       'Eigene Schlafstörungen, Traumatisierung möglich'
     ],
-    note: '<strong>⚠ Bei Suizidgedanken:</strong> Psychiatrischer Notfalldienst ZH: <a href="tel:+41800336655" style="color:var(--earth-700);font-weight:600">0800 33 66 55</a> (24/7, kostenlos). Dargebotene Hand: <a href="tel:143" style="color:var(--earth-700);font-weight:600">143</a>. Angehörige brauchen jetzt selbst Unterstützung: <a href="tel:+41583843800" style="color:var(--earth-700);font-weight:600">058 384 38 00</a>.'
+    note: '<strong>⚠ Bei Suizidgedanken:</strong> Psychiatrischer Notfalldienst ZH: <a href="tel:+41800336655" style="color:var(--slate);font-weight:600">0800 33 66 55</a> (24/7, kostenlos). Dargebotene Hand: <a href="tel:143" style="color:var(--slate);font-weight:600">143</a>. Angehörige brauchen jetzt selbst Unterstützung: <a href="tel:+41583843800" style="color:var(--slate);font-weight:600">058 384 38 00</a>.'
   }
 };
 
