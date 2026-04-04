@@ -502,13 +502,6 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     progressBar.style.width = h > 0 ? (window.scrollY / h * 100) + '%' : '0%';
   });
 
-  function toggleAccordion(btn) {
-    const item = btn.closest('.accordion-item');
-    const wasOpen = item.classList.contains('open');
-    document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('open'));
-    if (!wasOpen) item.classList.add('open');
-  }
-
   // Animate bars on scroll
   const barObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {

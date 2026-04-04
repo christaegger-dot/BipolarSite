@@ -515,8 +515,10 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     button.addEventListener('click',()=>openGuide(guide));
   });
   if(window.location.hash){
-    const target=document.querySelector(window.location.hash);
-    if(target&&target.classList.contains('guide'))setGuideState(target,true);
+    try{
+      const target=document.querySelector(window.location.hash);
+      if(target&&target.classList.contains('guide'))setGuideState(target,true);
+    }catch(e){}
   }
   const pdfPreview=document.getElementById('pdf-preview');
   const pdfPreviewFrame=document.getElementById('pdf-preview-frame');
@@ -526,10 +528,9 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   const pdfPreviewClose=document.getElementById('pdf-preview-close');
   const pdfPreviewDialog=pdfPreview.querySelector('.pdf-preview-dialog');
   const FOCUSABLE_SELECTOR='a[href],button:not([disabled]),textarea:not([disabled]),input:not([disabled]),select:not([disabled]),[tabindex]:not([tabindex="-1"])';
-  const pageSiblings=[...document.body.children].filter(el=>el!==pdfPreview);
   let pdfPreviewTrigger=null;
 
-  const setPageInert=(isInert)=>{pageSiblings.forEach(el=>{el.inert=isInert})};
+  const setPageInert=(isInert)=>{[...document.body.children].filter(el=>el!==pdfPreview).forEach(el=>{el.inert=isInert})};
   const trapFocus=(event,container)=>{
     if(event.key!=='Tab')return;
     const focusable=[...container.querySelectorAll(FOCUSABLE_SELECTOR)].filter(el=>!el.hidden&&el.offsetParent!==null);

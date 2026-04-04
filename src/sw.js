@@ -38,7 +38,7 @@ self.addEventListener('fetch', event => {
   const isPrecached = PRECACHE_URLS.some(u => url.pathname === u || url.pathname === u.replace(/\/$/, ''));
   if (isPrecached) {
     event.respondWith(
-      caches.match(event.request).then(cached => cached || fetch(event.request))
+      caches.match(event.request, { ignoreSearch: true }).then(cached => cached || fetch(event.request))
     );
   }
 });
