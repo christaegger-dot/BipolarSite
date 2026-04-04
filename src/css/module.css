@@ -17,13 +17,13 @@
   position: relative; z-index: 2;
 }
 
-/* ── Breadcrumb ── */
+/* ── Breadcrumb (on dark hero background) ── */
 .breadcrumb {
-  font-size: 0.8rem; color: var(--text-muted);
+  font-size: 0.8rem; color: rgba(255,255,255,0.6);
   margin-bottom: 20px; display: flex; align-items: center; gap: 8px;
 }
-.breadcrumb a { color: var(--sage-500); text-decoration: none; }
-.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb a { color: rgba(255,255,255,0.75); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; color: #fff; }
 
 /* ── Hero Icon & Badge ── */
 .hero-icon {
