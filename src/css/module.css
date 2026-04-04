@@ -515,10 +515,10 @@ body.pdf-preview-open { overflow: hidden; }
 [data-module-accent="4"] .content h2,
 [data-module-accent="5"] .content h2 { border-top: 1px solid rgba(180,83,9,0.12) !important; }
 
-/* Purple: Module 3 */
-[data-module-accent="3"] .module-badge { background: rgba(139,92,246,0.1) !important; color: var(--purple-phase) !important; }
-[data-module-accent="3"] .toc { border-left: 3px solid rgba(139,92,246,0.25) !important; }
-[data-module-accent="3"] .content h2 { border-top: 1px solid rgba(139,92,246,0.12) !important; }
+/* Sand/Warm: Module 3 */
+[data-module-accent="3"] .module-badge { background: rgba(181,138,82,0.10) !important; color: var(--sand-ink) !important; }
+[data-module-accent="3"] .toc { border-left: 3px solid rgba(181,138,82,0.25) !important; }
+[data-module-accent="3"] .content h2 { border-top: 1px solid rgba(181,138,82,0.12) !important; }
 
 /* Green: Modules 6, 7 */
 [data-module-accent="6"] .module-badge,

@@ -8,9 +8,9 @@
 :root {
 
   /* ── Brand Colors ── */
-  --navy:        #3D3530;
+  --navy:        #1c2b3a;
   --navy-mid:    #4A443F;
-  --teal:        #3A7A6D;
+  --teal:        #1E656D;
   --teal-light:  #A8D5CB;
   --amber:       #B45309;
   --amber-light: #FBBF24;
@@ -49,6 +49,8 @@
   --radius-lg:   12px;
   --radius-xl:   14px;
   --radius-pill: 20px;
+  --radius-2xl:  24px;
+  --radius-hero: 34px;
 
   /* ── Shadow Scale ── */
   --shadow-soft:     0 4px 18px rgba(28,43,58,0.05);
@@ -94,9 +96,9 @@
   --ice-deeper:              #152535;
 
   /* Derived tokens (used for hover-dark states, borders) */
-  --teal-dark:     #3A7068;
+  --teal-dark:     #195A60;
   --amber-border:  #e8c68a;
-  --teal-border:   #B8D8CF;
+  --teal-border:   #A8D5CB;
 
   /* ── Warm Border Scale (replaces hardcoded rgba(45,40,35,...)) ── */
   --border-warm:    rgba(45,40,35,0.06);
