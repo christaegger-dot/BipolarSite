@@ -277,11 +277,7 @@ useNavJS: true
     font-variant-numeric: tabular-nums;
   }
 
-  .orientation-shell {
-    display: grid;
-    grid-template-columns: minmax(0, 1.14fr) minmax(280px, 0.86fr);
-    gap: 22px;
-    align-items: start;
+  .urgent-note-standalone {
     margin: 34px 0 26px;
   }
 
@@ -422,10 +418,6 @@ useNavJS: true
     font-weight: 700;
   }
 
-  .orientation-shell .start-helper,
-  .orientation-shell .urgent-note {
-    margin: 0;
-  }
 
   .entry-secondary {
     padding-top: 0;
@@ -869,11 +861,6 @@ useNavJS: true
     .modules-grid--roles { grid-template-columns: 1fr; }
   }
   
-  @media (max-width: 900px) {
-    .orientation-shell {
-      grid-template-columns: 1fr;
-    }
-  }
 
 
   @media (max-width: 600px) {
@@ -882,7 +869,6 @@ useNavJS: true
     .home-hero-visual-card { display: none; }
     .progress-section { padding: 0 1.2rem 26px; }
     .progress-label { white-space: normal; text-align: center; }
-    .start-helper { margin: 22px 0 28px; padding: 20px 18px; }
     .urgent-note { padding: 20px 18px; }
     section { padding: 50px 1.2rem; }
     .modules-grid { grid-template-columns: 1fr; }
@@ -906,27 +892,6 @@ useNavJS: true
   .path-title:hover{color:var(--teal)}
   .path-desc{font-size:0.85rem;color:var(--slate);margin:0;line-height:1.5}
 
-  /* ══════════ STARTHELFER ══════════ */
-  .start-helper{margin:28px 0 36px;padding:24px 26px;border-radius:24px;background:linear-gradient(180deg,#fff 0%,#fcf8f4 100%);border:1px solid rgba(45,40,35,0.06);box-shadow:var(--shadow-soft)}
-  .start-helper-kicker{font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--sage-500);margin-bottom:10px}
-  .start-helper h3{font-family:'Source Serif 4',serif;font-size:1.25rem;font-weight:600;color:var(--navy);margin:0 0 8px}
-  .start-helper p{font-size:0.9rem;color:var(--text-secondary);line-height:1.6;margin:0 0 18px}
-  .start-helper-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-  .start-helper-option{display:flex;align-items:flex-start;gap:12px;width:100%;padding:14px 16px;border-radius:16px;border:1px solid rgba(45,40,35,0.08);background:#fff;color:var(--text);text-align:left;font-family:'DM Sans',sans-serif;cursor:pointer;transition:border-color 0.2s ease,box-shadow 0.2s ease,transform 0.2s ease}
-  .start-helper-option:hover{border-color:var(--sage-200);box-shadow:var(--shadow-soft);transform:translateY(-1px)}
-  .start-helper-option.is-active{border-color:var(--teal);background:var(--green-bg)}
-  .start-helper-icon{min-width:74px;height:34px;padding:0 10px;border-radius:10px;background:rgba(221,210,191,0.3);color:var(--sand-ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.72rem;font-weight:800;letter-spacing:0.05em;text-transform:none}
-  .start-helper-option.is-active .start-helper-icon{background:var(--teal);color:#fff}
-  .start-helper-label{display:block;font-size:0.88rem;font-weight:700;margin-bottom:3px}
-  .start-helper-sub{display:block;font-size:0.8rem;color:var(--text-muted);line-height:1.45}
-  .start-helper-result{margin-top:16px;padding:18px 20px;border-radius:18px;background:linear-gradient(180deg,var(--surface-warm) 0%,rgba(217,236,236,0.42) 100%);border:1px solid rgba(45,40,35,0.06)}
-  .start-helper-result[hidden]{display:none}
-  .start-helper-result-kicker{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--slate);margin-bottom:8px}
-  .start-helper-result h4{font-size:1rem;font-weight:700;color:var(--navy);margin:0 0 6px}
-  .start-helper-result p{font-size:0.86rem;color:var(--text-secondary);margin:0 0 12px}
-  .start-helper-link{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#fff;background:linear-gradient(135deg,var(--navy),var(--teal));padding:10px 16px;border-radius:999px;font-size:0.84rem;font-weight:700}
-  @media (max-width: 768px) { .start-helper-options{grid-template-columns:1fr} }
-
   /* ══════════ QUICK TRIAGE ══════════ */
   .quick-triage{background:linear-gradient(135deg,var(--rose-soft),#fff8f6);border:1px solid rgba(154,52,18,0.12);border-radius:var(--radius-xl);padding:28px 32px;margin-bottom:24px}
   .quick-triage-label{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--rose);margin-bottom:12px}
@@ -947,6 +912,14 @@ useNavJS: true
   .triage-result--safe{background:var(--green-bg);border:1px solid rgba(13,122,95,0.15);padding:14px 20px;border-radius:var(--radius-md)}
   .triage-result--safe p{font-size:0.88rem;color:var(--green-phase);margin:0}
   .triage-result--safe a{background:none;padding:0;color:var(--teal);text-decoration:underline;font-size:inherit;border-radius:0;display:inline}
+
+  /* ══════════ STORY SECTION ══════════ */
+  .story-section{max-width:var(--content-width-wide);margin:0 auto;padding:64px 2rem}
+  .story-label{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--teal);margin-bottom:12px}
+  .story-section h2{font-family:'Source Serif 4',serif;font-size:clamp(1.3rem,3vw,1.6rem);font-weight:600;color:var(--navy);margin-bottom:24px;line-height:1.35}
+  .story-body{font-size:0.95rem;color:var(--text-secondary);line-height:1.8;max-width:640px}
+  .story-body p{margin-bottom:16px}
+  .story-attribution{font-size:0.82rem;color:var(--text-muted);font-style:italic;margin-top:24px}
 
   /* ══════════ TOOLS HIGHLIGHT ══════════ */
   .tools-highlight{margin:48px auto;max-width:var(--content-width-wide);padding:0 2rem}
@@ -1043,43 +1016,11 @@ useNavJS: true
     <div class="triage-result" id="triageResult" hidden aria-live="polite" aria-atomic="true"></div>
   </div>
 
-  <div class="orientation-shell">
-    <div class="start-helper reveal" aria-labelledby="start-helper-title">
-      <div class="start-helper-kicker">Starthelfer</div>
-      <h3 id="start-helper-title">Was brauchen Sie gerade am ehesten?</h3>
-      <p>Wählen Sie das, was Ihrer Lage im Moment am nächsten kommt. Sie bekommen direkt einen sinnvollen ersten Einstieg. Mehr müssen Sie jetzt nicht entscheiden.</p>
-      <div class="start-helper-options" role="group" aria-label="Starthelfer: Einstieg auswählen">
-        <button type="button" class="start-helper-option" data-start-helper="akut" aria-pressed="false" aria-controls="startHelperResult">
-          <span class="start-helper-icon" aria-hidden="true">Akut</span>
-          <span><span class="start-helper-label">Akut / unklar gefährlich</span><span class="start-helper-sub">Ich muss zuerst klären, ob Gefahr besteht.</span></span>
-        </button>
-        <button type="button" class="start-helper-option" data-start-helper="verstehen" aria-pressed="false" aria-controls="startHelperResult">
-          <span class="start-helper-icon" aria-hidden="true">Wissen</span>
-          <span><span class="start-helper-label">Einordnen und verstehen</span><span class="start-helper-sub">Ich brauche zuerst Überblick und Grundlagen.</span></span>
-        </button>
-        <button type="button" class="start-helper-option" data-start-helper="erschoepft" aria-pressed="false" aria-controls="startHelperResult">
-          <span class="start-helper-icon" aria-hidden="true">Entlastung</span>
-          <span><span class="start-helper-label">Ich bin erschöpft</span><span class="start-helper-sub">Meine eigene Belastung steht gerade im Vordergrund.</span></span>
-        </button>
-        <button type="button" class="start-helper-option" data-start-helper="hilfe" aria-pressed="false" aria-controls="startHelperResult">
-          <span class="start-helper-icon" aria-hidden="true">Hilfe</span>
-          <span><span class="start-helper-label">Kontakte / Materialien / Recht</span><span class="start-helper-sub">Ich brauche jetzt Orientierung, Anlaufstellen oder praktische Unterstützung.</span></span>
-        </button>
-      </div>
-      <div class="start-helper-result" id="startHelperResult" hidden aria-live="polite" aria-atomic="true">
-        <div class="start-helper-result-kicker">Empfohlener Einstieg</div>
-        <h4 id="startHelperTitle"></h4>
-        <p id="startHelperText"></p>
-        <a id="startHelperLink" class="start-helper-link" href="/">Empfohlenen Einstieg öffnen →</a>
-      </div>
-    </div>
-
-    <aside class="urgent-note reveal" aria-label="Akuter Einstieg">
-      <div class="urgent-note-kicker">Wenn Sie zuerst Gefahr klären müssen</div>
-      <p>Bei Suizidgedanken, Manie, Psychose, Gewalt oder finanzieller Eskalation ist der Notfallweg wichtiger als jede weitere Sortierung. Nutzen Sie ihn sofort.</p>
-      <a href="/notfall/" class="urgent-note-link">Direkt zum Notfallweg →</a>
-    </aside>
-  </div>
+  <aside class="urgent-note urgent-note-standalone reveal" aria-label="Akuter Einstieg">
+    <div class="urgent-note-kicker">Wenn Sie zuerst Gefahr klären müssen</div>
+    <p>Bei Suizidgedanken, Manie, Psychose, Gewalt oder finanzieller Eskalation ist der Notfallweg wichtiger als jede weitere Sortierung. Nutzen Sie ihn sofort.</p>
+    <a href="/notfall/" class="urgent-note-link">Direkt zum Notfallweg →</a>
+  </aside>
 
   <div class="entry-layout">
     <div class="entry-list reveal">
@@ -1402,6 +1343,19 @@ useNavJS: true
   </div>
 </div>
 
+<!-- ══════════ STORY ══════════ -->
+<section class="story-section reveal">
+  <div class="story-label">Erfahrungsbericht</div>
+  <h2>«Am Anfang dachte ich, ich muss nur stark genug sein»</h2>
+  <div class="story-body">
+    <p>Die erste Manie kam drei Monate nach unserer Hochzeit. Marc schlief nicht mehr, kündigte seinen Job und kaufte ein Auto, das wir uns nicht leisten konnten. Ich dachte: Das ist Stress. Das geht vorbei. Ich muss einfach stark sein.</p>
+    <p>Es ging nicht vorbei. Es kamen weitere Episoden. Depressionen, in denen er wochenlang kaum aus dem Bett kam. Manien, in denen ich ihn nicht erreichen konnte. Dazwischen Phasen, in denen ich vor lauter Wachsamkeit selbst nicht mehr schlafen konnte — weil ich bei jedem Geräusch dachte: Fängt es wieder an?</p>
+    <p>Ich habe anderthalb Jahre gebraucht, bis ich mir eingestanden habe, dass ich selbst Hilfe brauche. Nicht für ihn — für mich. Die Fachstelle Angehörigenarbeit hat mir zwei Dinge gegeben, die alles verändert haben: Das Wort «Hypervigilanz» — endlich konnte ich benennen, was mit mir passiert. Und eine Gruppe von Menschen, die genau das kennen.</p>
+    <p>Heute, vier Jahre später, ist nicht alles gut. Marc hat immer noch Episoden. Aber wir haben einen Krisenplan, ich habe meine eigene Therapeutin, und ich weiss: Ich darf auch an mich denken, ohne dass das Verrat ist. Das Schwierigste war nicht seine Erkrankung. Das Schwierigste war zu akzeptieren, dass ich nicht alles allein tragen muss.</p>
+  </div>
+  <p class="story-attribution">— Marina, 43 Jahre, Partnerin seit 12 Jahren (fiktiver Erfahrungsbericht, basierend auf realen Mustern)</p>
+</section>
+
 </main>
 
 <!-- ══════════ FOOTER ══════════ -->
@@ -1444,54 +1398,6 @@ useNavJS: true
     return m ? '/modul/' + m[1] + '/' : null;
   }
 
-  const START_HELPER = {
-    akut: {
-      title: 'Beginnen Sie mit der Notfallseite',
-      text: 'Wenn Gefahr, Kontrollverlust oder starke Unsicherheit im Raum stehen, ist zuerst die Triage wichtiger als alles andere.',
-      href: '/notfall/',
-      cta: 'Notfallweg öffnen →'
-    },
-    verstehen: {
-      title: 'Beginnen Sie mit Modul 1',
-      text: 'Dort bekommen Sie die Grundlagen, mit denen spätere Entscheidungen und Belastungen oft besser einordenbar werden.',
-      href: '/modul/1/',
-      cta: 'Modul 1 öffnen →'
-    },
-    erschoepft: {
-      title: 'Beginnen Sie mit Modul 4',
-      text: 'Wenn Ihre eigene Belastung gerade lauter ist als alle anderen Fragen, ist das meist der entlastendste Einstieg.',
-      href: '/modul/4/',
-      cta: 'Modul 4 öffnen →'
-    },
-    hilfe: {
-      title: 'Beginnen Sie mit Modul 8',
-      text: 'Dort finden Sie Kontakte, Materialien und rechtliche Orientierung. Wenn Sie danach vor allem Gespräche, Grenzen oder einen Krisenplan brauchen, wechseln Sie weiter zu Modul 6.',
-      href: '/modul/8/',
-      cta: 'Modul 8 öffnen →'
-    }
-  };
-
-  const startHelperButtons = document.querySelectorAll('[data-start-helper]');
-  const startHelperResult = document.getElementById('startHelperResult');
-  const startHelperTitle = document.getElementById('startHelperTitle');
-  const startHelperText = document.getElementById('startHelperText');
-  const startHelperLink = document.getElementById('startHelperLink');
-
-  function updateStartHelper(key) {
-    const entry = START_HELPER[key];
-    if (!entry || !startHelperResult) return;
-    startHelperButtons.forEach(btn => {
-      const isActive = btn.dataset.startHelper === key;
-      btn.classList.toggle('is-active', isActive);
-      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-    });
-    startHelperTitle.textContent = entry.title;
-    startHelperText.textContent = entry.text;
-    startHelperLink.href = entry.href;
-    startHelperLink.textContent = entry.cta;
-    startHelperResult.hidden = false;
-  }
-
   function updateProgressUI() {
     const visited = getVisited();
     const count = Math.min(visited.length, TOTAL_MODULES);
@@ -1529,10 +1435,6 @@ useNavJS: true
     }
   });
 
-  startHelperButtons.forEach(button => {
-    button.addEventListener('click', () => updateStartHelper(button.dataset.startHelper));
-  });
-
   // Initialise progress on load
   updateProgressUI();
 
@@ -1545,7 +1447,7 @@ useNavJS: true
       'q1-yes': { html: '<a href="/notfall/">Zum Notfallweg &rarr;</a>', cls: '' },
       'q2-yes': { html: '<a href="/modul/4/">Modul 4: Wenn die Kraft nachlässt &rarr;</a>', cls: '' },
       'q3-yes': { html: '<a href="/modul/1/">Modul 1: Die bipolare Störung verstehen &rarr;</a>', cls: '' },
-      'q3-no':  { html: '<p>Nutzen Sie den Starthelfer unten oder stöbern Sie in den <a href="/werkzeuge/" style="color:var(--teal);font-weight:600">Werkzeugen</a>.</p>', cls: 'triage-result--safe' }
+      'q3-no':  { html: '<p>Nutzen Sie die situativen Einstiege unten oder stöbern Sie in den <a href="/werkzeuge/" style="color:var(--teal);font-weight:600">Werkzeugen</a>.</p>', cls: 'triage-result--safe' }
     };
 
     document.getElementById('quickTriage').addEventListener('click', function(e) {

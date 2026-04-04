@@ -533,6 +533,62 @@ body.pdf-preview-open { overflow: hidden; }
 [data-module-accent="8"] .toc { border-left: 3px solid rgba(30,101,109,0.25) !important; }
 [data-module-accent="8"] .content h2 { border-top: 1px solid rgba(30,101,109,0.12) !important; }
 
+/* ── Community Block (end of each module) ── */
+.community-block {
+  background: var(--surface-warm);
+  border-left: 4px solid var(--teal);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  padding: 28px 32px; margin: 48px 0;
+}
+.community-block h3 {
+  font-family: 'Source Serif 4', serif; font-size: 1.1rem; font-weight: 600;
+  color: var(--navy); margin-bottom: 10px;
+}
+.community-block > p {
+  font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;
+}
+.community-block ul { list-style: none; margin: 0; padding: 0; }
+.community-block li {
+  font-size: 0.88rem; color: var(--text-secondary); padding: 8px 0;
+  border-top: 1px solid rgba(45,40,35,0.06); line-height: 1.55;
+}
+.community-block li:first-child { border-top: none; }
+.community-block a { color: var(--teal); font-weight: 600; text-decoration: none; }
+.community-block a:hover { text-decoration: underline; }
+
+/* ── Quick Summary (top of long modules) ── */
+.quick-summary {
+  background: linear-gradient(135deg, var(--green-bg), #f0fafa);
+  border: 1px solid rgba(30,101,109,0.15);
+  border-radius: var(--radius-xl); padding: 24px 28px;
+  margin-bottom: 24px;
+}
+.quick-summary strong {
+  font-size: 0.88rem; color: var(--teal); display: block; margin-bottom: 10px;
+}
+.quick-summary p {
+  font-size: 0.9rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 10px;
+}
+.quick-summary a {
+  color: var(--teal); font-weight: 600; text-decoration: none;
+  font-size: 0.85rem;
+}
+.quick-summary a:hover { text-decoration: underline; }
+
+/* ── Bright Moment (positive counterweight) ── */
+.bright-moment {
+  background: linear-gradient(135deg, #f8fdf6, #f0faf5);
+  border: 1px solid rgba(13,122,95,0.12);
+  border-left: 4px solid var(--green-phase);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  padding: 24px 28px; margin: 40px 0;
+}
+.bright-moment p {
+  font-family: 'Source Serif 4', serif;
+  font-size: 1rem; font-style: italic; color: var(--text-secondary);
+  line-height: 1.7; margin: 0;
+}
+
 /* ── Print Styles (Issue #14) ── */
 @media print {
   #navbar, .reading-progress, footer, .next-module, .tool-cta,

@@ -1,0 +1,77 @@
+---
+layout: "base"
+title: "Durchatmen | PUK Zürich"
+description: "Ein Moment Ruhe. Atemübung und Orientierung für Angehörige in belastenden Momenten."
+permalink: "/tools/durchatmen/"
+toolBackHref: "/"
+toolBackLabel: "Zurück zur Startseite"
+useSharedCSS: true
+useNavJS: false
+useToolCSS: true
+---
+{% block headCSS %}
+<style>
+body{font-family:'DM Sans',sans-serif;color:rgba(255,255,255,0.88);background:#1a2332;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;-webkit-font-smoothing:antialiased;overflow:hidden}
+.tool-nav{background:rgba(26,35,50,0.9);border-bottom:1px solid rgba(255,255,255,0.06)}
+.tool-back{color:rgba(255,255,255,0.5)}.tool-brand{color:rgba(255,255,255,0.6)}
+.breathe-wrap{width:100%;max-width:480px;text-align:center;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.breathe-title{font-family:'Source Serif 4',Georgia,serif;font-size:clamp(1.4rem,3.5vw,1.8rem);font-weight:600;color:#fff;margin-bottom:8px}
+.breathe-sub{font-size:0.88rem;color:rgba(255,255,255,0.5);margin-bottom:40px;line-height:1.55}
+.breathe-circle{width:160px;height:160px;border-radius:50%;border:3px solid rgba(141,212,217,0.3);display:flex;align-items:center;justify-content:center;margin:0 auto 32px;animation:breathe 14s ease-in-out infinite}
+.breathe-label{font-size:1.1rem;font-weight:600;color:var(--teal-light,#8dd4d9)}
+@keyframes breathe{0%,100%{transform:scale(1);border-color:rgba(141,212,217,0.3)}28.6%{transform:scale(1.25);border-color:rgba(141,212,217,0.6)}57.1%{transform:scale(1.25);border-color:rgba(141,212,217,0.4)}100%{transform:scale(1);border-color:rgba(141,212,217,0.3)}}
+.breathe-steps{display:flex;gap:20px;justify-content:center;margin-bottom:48px;font-size:0.78rem;color:rgba(255,255,255,0.4)}
+.breathe-step{text-align:center}
+.breathe-step span{display:block;font-size:1.1rem;font-weight:700;color:rgba(255,255,255,0.7);margin-bottom:2px}
+.breathe-divider{width:60px;height:1px;background:rgba(255,255,255,0.08);margin:0 auto 32px}
+.breathe-q{font-family:'Source Serif 4',Georgia,serif;font-size:1.05rem;font-weight:600;color:rgba(255,255,255,0.8);margin-bottom:20px}
+.breathe-actions{display:flex;flex-direction:column;gap:10px;width:100%;max-width:320px}
+.breathe-action{display:block;padding:14px 20px;border-radius:12px;text-decoration:none;text-align:center;font-size:0.88rem;font-weight:600;transition:transform 0.15s ease,box-shadow 0.15s ease}
+.breathe-action:hover{transform:translateY(-1px)}
+.breathe-action--emergency{background:linear-gradient(135deg,#991b1b,#b91c1c);color:#fff}
+.breathe-action--krisenplan{background:rgba(30,101,109,0.2);color:var(--teal-light,#8dd4d9);border:1px solid rgba(141,212,217,0.2)}
+.breathe-action--weiter{background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.1)}
+@media(prefers-reduced-motion:reduce){.breathe-circle{animation:none}}
+</style>
+{% endblock %}
+{% block nav %}
+{% include "nav-tool.njk" %}
+{% endblock %}
+{% block content %}
+<main class="breathe-wrap" id="main-content">
+  <h1 class="breathe-title">Einen Moment.</h1>
+  <p class="breathe-sub">Sie müssen gerade nichts entscheiden. Atmen Sie erst.</p>
+
+  <div class="breathe-circle" aria-hidden="true">
+    <span class="breathe-label" id="breatheLabel">Einatmen</span>
+  </div>
+
+  <div class="breathe-steps">
+    <div class="breathe-step"><span>4s</span>Einatmen</div>
+    <div class="breathe-step"><span>4s</span>Halten</div>
+    <div class="breathe-step"><span>6s</span>Ausatmen</div>
+  </div>
+
+  <div class="breathe-divider"></div>
+
+  <div class="breathe-q">Besteht gerade Gefahr?</div>
+  <div class="breathe-actions">
+    <a href="tel:144" class="breathe-action breathe-action--emergency">Ja — 144 anrufen</a>
+    <a href="/tools/krisenplan/" class="breathe-action breathe-action--krisenplan">Krisenplan öffnen</a>
+    <a href="/" class="breathe-action breathe-action--weiter">Nein — zur Orientierung</a>
+  </div>
+</main>
+{% endblock %}
+{% block footer %}{% endblock %}
+{% block scripts %}
+<script>
+var phases = [{text:'Einatmen',ms:4000},{text:'Halten',ms:4000},{text:'Ausatmen',ms:6000}];
+var label = document.getElementById('breatheLabel');
+var i = 0;
+function cycle(){
+  label.textContent = phases[i].text;
+  setTimeout(function(){ i = (i+1)%3; cycle(); }, phases[i].ms);
+}
+cycle();
+</script>
+{% endblock %}
