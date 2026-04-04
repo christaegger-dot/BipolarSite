@@ -337,6 +337,7 @@
 }
 @media (max-width: 768px) {
   .toc-mobile-toggle { display: block; }
+  .toc ol[hidden] { display: none !important; }
 }
 
 /* ── TL;DR Card ── */
@@ -496,39 +497,41 @@ body.pdf-preview-open { overflow: hidden; }
 }
 
 /* ── Module Accent Colors (per-module visual identity) ── */
+/* !important needed because tarif-kompass-theme.css loads AFTER this file */
+
 /* Blue: Module 1 */
-[data-module-accent="1"] .module-badge { background: rgba(91,127,165,0.12); color: var(--blue-phase); }
-[data-module-accent="1"] .toc { border-left: 3px solid rgba(91,127,165,0.3); }
-[data-module-accent="1"] .content h2 { border-top-color: rgba(91,127,165,0.15); }
+[data-module-accent="1"] .module-badge { background: rgba(91,127,165,0.12) !important; color: var(--blue-phase) !important; }
+[data-module-accent="1"] .toc { border-left: 3px solid rgba(91,127,165,0.3) !important; }
+[data-module-accent="1"] .content h2 { border-top: 1px solid rgba(91,127,165,0.15) !important; }
 
 /* Amber: Modules 2, 4, 5 */
 [data-module-accent="2"] .module-badge,
 [data-module-accent="4"] .module-badge,
-[data-module-accent="5"] .module-badge { background: rgba(180,83,9,0.1); color: var(--amber-phase); }
+[data-module-accent="5"] .module-badge { background: rgba(180,83,9,0.1) !important; color: var(--amber-phase) !important; }
 [data-module-accent="2"] .toc,
 [data-module-accent="4"] .toc,
-[data-module-accent="5"] .toc { border-left: 3px solid rgba(180,83,9,0.25); }
+[data-module-accent="5"] .toc { border-left: 3px solid rgba(180,83,9,0.25) !important; }
 [data-module-accent="2"] .content h2,
 [data-module-accent="4"] .content h2,
-[data-module-accent="5"] .content h2 { border-top-color: rgba(180,83,9,0.12); }
+[data-module-accent="5"] .content h2 { border-top: 1px solid rgba(180,83,9,0.12) !important; }
 
 /* Purple: Module 3 */
-[data-module-accent="3"] .module-badge { background: rgba(139,92,246,0.1); color: var(--purple-phase); }
-[data-module-accent="3"] .toc { border-left: 3px solid rgba(139,92,246,0.25); }
-[data-module-accent="3"] .content h2 { border-top-color: rgba(139,92,246,0.12); }
+[data-module-accent="3"] .module-badge { background: rgba(139,92,246,0.1) !important; color: var(--purple-phase) !important; }
+[data-module-accent="3"] .toc { border-left: 3px solid rgba(139,92,246,0.25) !important; }
+[data-module-accent="3"] .content h2 { border-top: 1px solid rgba(139,92,246,0.12) !important; }
 
 /* Green: Modules 6, 7 */
 [data-module-accent="6"] .module-badge,
-[data-module-accent="7"] .module-badge { background: rgba(13,122,95,0.1); color: var(--green-phase); }
+[data-module-accent="7"] .module-badge { background: rgba(13,122,95,0.1) !important; color: var(--green-phase) !important; }
 [data-module-accent="6"] .toc,
-[data-module-accent="7"] .toc { border-left: 3px solid rgba(13,122,95,0.25); }
+[data-module-accent="7"] .toc { border-left: 3px solid rgba(13,122,95,0.25) !important; }
 [data-module-accent="6"] .content h2,
-[data-module-accent="7"] .content h2 { border-top-color: rgba(13,122,95,0.12); }
+[data-module-accent="7"] .content h2 { border-top: 1px solid rgba(13,122,95,0.12) !important; }
 
 /* Teal: Module 8 */
-[data-module-accent="8"] .module-badge { background: rgba(30,101,109,0.1); color: var(--teal); }
-[data-module-accent="8"] .toc { border-left: 3px solid rgba(30,101,109,0.25); }
-[data-module-accent="8"] .content h2 { border-top-color: rgba(30,101,109,0.12); }
+[data-module-accent="8"] .module-badge { background: rgba(30,101,109,0.1) !important; color: var(--teal) !important; }
+[data-module-accent="8"] .toc { border-left: 3px solid rgba(30,101,109,0.25) !important; }
+[data-module-accent="8"] .content h2 { border-top: 1px solid rgba(30,101,109,0.12) !important; }
 
 /* ── Print Styles (Issue #14) ── */
 @media print {
