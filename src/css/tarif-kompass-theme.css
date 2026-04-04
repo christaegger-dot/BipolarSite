@@ -17,7 +17,7 @@
   /* ── Brand Colors ── */
   --navy:        #3D3530;
   --navy-mid:    #4A443F;
-  --teal:        #4A8C7F;
+  --teal:        #3A7A6D;
   --teal-light:  #A8D5CB;
   --teal-mist:   #DDE9E5;
   --amber:       #B45309;
@@ -1404,7 +1404,7 @@ footer {
 }
 
 .footer-kicker {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
