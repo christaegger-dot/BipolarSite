@@ -59,7 +59,7 @@
   margin-bottom: 48px; box-shadow: var(--shadow-soft);
 }
 .toc-title {
-  font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+  font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
   letter-spacing: 0.12em; color: var(--sage-500); margin-bottom: 14px;
 }
 .toc ol {
@@ -78,7 +78,7 @@
 }
 .toc li a:hover { color: var(--sage-600); }
 .toc-desc {
-  display: block; font-size: 0.72rem; color: var(--text-muted);
+  display: block; font-size: 0.75rem; color: var(--text-muted);
   line-height: 1.35; margin-top: 2px; font-weight: 400;
 }
 .toc li a.active { color: var(--sage-700); font-weight: 700; }
@@ -158,7 +158,7 @@
   background: rgba(141,156,115,0.1);
 }
 .reflection-label {
-  font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+  font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
   letter-spacing: 0.1em; color: var(--sage-500); margin-bottom: 12px;
 }
 .reflection h3 {
@@ -270,7 +270,7 @@
   border-color: var(--sage-200);
 }
 .next-module-label {
-  font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+  font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
   letter-spacing: 0.1em; color: var(--sage-500); margin-bottom: 8px;
 }
 .next-module-title {
@@ -349,7 +349,7 @@
 }
 .tldr-card::before {
   content: 'Auf einen Blick'; display: block;
-  font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+  font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
   letter-spacing: 0.1em; color: var(--teal); margin-bottom: 12px;
 }
 .tldr-card ul {

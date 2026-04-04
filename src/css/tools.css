@@ -55,7 +55,7 @@ body.tool-page {
   display: inline-flex;
   background: var(--green-bg); color: var(--navy);
   padding: 5px 14px; border-radius: 100px;
-  font-size: 0.68rem; font-weight: 700;
+  font-size: 0.75rem; font-weight: 700;
   letter-spacing: 0.1em; text-transform: uppercase;
   margin-bottom: 12px; position: relative; z-index: 1;
 }
@@ -86,7 +86,7 @@ body.tool-page {
 
 /* ── Tool Breadcrumb ── */
 .tool-breadcrumb {
-  font-size: 0.72rem; color: var(--text-soft);
+  font-size: 0.75rem; color: var(--text-soft);
   margin-bottom: 14px; display: flex; align-items: center; gap: 6px;
   justify-content: center;
 }
@@ -99,8 +99,32 @@ body.tool-page {
 
 /* ── Footer Tag ── */
 .tf {
-  text-align: center; font-size: 0.68rem; color: var(--teal-light);
+  text-align: center; font-size: 0.75rem; color: var(--teal-light);
   margin-top: 28px; line-height: 1.5;
+}
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  .tool-nav {
+    flex-wrap: wrap;
+    padding: 10px 14px;
+    gap: 8px;
+  }
+  .tool-back {
+    font-size: 0.8rem;
+  }
+  .tool-actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+  .tool-actions button {
+    flex: 1;
+    padding: 6px 8px;
+    font-size: 0.75rem;
+  }
+  .wrap {
+    padding: 16px 14px;
+  }
 }
 
 /* Reduced motion handled by shared.css */
