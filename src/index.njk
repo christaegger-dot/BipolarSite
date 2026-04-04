@@ -546,6 +546,13 @@ useNavJS: true
         <button type="button" class="triage-btn triage-btn--no" data-triage="q1-no">Nein</button>
       </div>
     </div>
+    <div class="triage-question" id="triageQ1b" hidden>
+      <div class="triage-q-text">Haben Sie gerade zum ersten Mal von der Diagnose erfahren?</div>
+      <div class="triage-btns">
+        <button type="button" class="triage-btn triage-btn--yes" data-triage="q1b-yes">Ja, die Diagnose ist ganz neu</button>
+        <button type="button" class="triage-btn triage-btn--no" data-triage="q1b-no">Nein, ich kenne die Erkrankung schon länger</button>
+      </div>
+    </div>
     <div class="triage-question" id="triageQ2" hidden>
       <div class="triage-q-text">Sind Sie selbst gerade am Limit — erschöpft, überfordert, ausgebrannt?</div>
       <div class="triage-btns">
@@ -734,6 +741,7 @@ useNavJS: true
 
     var responses = {
       'q1-yes': { html: '<a href="/notfall/">Zum Notfallweg &rarr;</a>', cls: '' },
+      'q1b-yes': { html: '<a href="/modul/1/#neu">Erste Orientierung: Diagnose neu &rarr;</a>', cls: 'triage-result--safe' },
       'q2-yes': { html: '<a href="/modul/4/">Modul 4: Wenn die Kraft nachlässt &rarr;</a>', cls: '' },
       'q3-yes': { html: '<a href="/modul/1/">Modul 1: Die bipolare Störung verstehen &rarr;</a>', cls: '' },
       'q4-beziehung': { html: '<a href="/modul/3/">Modul 3: Wie Beziehungen unter Druck geraten &rarr;</a>', cls: 'triage-result--safe' },
@@ -748,6 +756,9 @@ useNavJS: true
 
       if (action === 'q1-no') {
         document.getElementById('triageQ1').hidden = true;
+        document.getElementById('triageQ1b').hidden = false;
+      } else if (action === 'q1b-no') {
+        document.getElementById('triageQ1b').hidden = true;
         document.getElementById('triageQ2').hidden = false;
       } else if (action === 'q2-no') {
         document.getElementById('triageQ2').hidden = true;
