@@ -575,9 +575,8 @@ body::before {
 }
 
 .module-badge {
-  background: var(--teal) !important;
-  color: white !important;
   border-radius: var(--radius-pill) !important;
+  /* background + color now set per-module via [data-module-accent] in module.css */
 }
 
 .module-hero .module-meta {
@@ -2033,18 +2032,11 @@ header.hero .hero-content {
   background: radial-gradient(circle, rgba(217,236,236,0.42) 0%, transparent 72%) !important;
 }
 
-.module-hero .hero-icon,
-.module-hero .module-badge {
-  color: var(--sand-ink) !important;
-}
-
 .module-hero .hero-icon {
+  color: var(--sand-ink) !important;
   opacity: 0.75 !important;
 }
-
-.module-hero .module-badge {
-  background: rgba(221,210,191,0.34) !important;
-}
+/* .module-badge background + color now driven by [data-module-accent] in module.css */
 
 .quote-block cite,
 .quote-block .toc-desc,
