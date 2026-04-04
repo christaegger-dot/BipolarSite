@@ -389,22 +389,24 @@ h1, h2, h3, h4 {
 
 /* ╔═══════════════════════════════════════════════════════════════════╗
    ║  SCHRITT 4 – NAVIGATION                                         ║
-   ║  Solid Navy header, white text, teal hover/active states         ║
+   ║  Light header on warm cream background, dark text                ║
    ║  Must override inline styles on ALL pages (incl. impressum,      ║
    ║  notfall, module pages)                                          ║
    ╚═══════════════════════════════════════════════════════════════════╝ */
 
 /* ── Nav bar (fixed/sticky top bar) ── */
 #navbar {
-  background: var(--navy);
+  background: var(--bg);
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid var(--border);
 }
 
 #navbar.scrolled {
   box-shadow: var(--shadow-nav);
-  background: var(--navy);
+  background: rgba(250, 248, 245, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .nav-inner {
@@ -417,7 +419,6 @@ h1, h2, h3, h4 {
   height: 34px;
   border-radius: 0;
   overflow: hidden;
-  box-shadow: 0 0 0 1px rgba(155,220,226,0.14);
 }
 
 .nav-logo img {
@@ -428,74 +429,71 @@ h1, h2, h3, h4 {
 
 /* ── Brand text ── */
 .nav-brand {
-  color: white;
+  color: var(--text);
 }
 
 .nav-brand-text {
   font-family: 'DM Serif Display', serif;
-  color: white;
+  color: var(--text);
 }
 
 .nav-brand-sub {
-  color: rgba(255,255,255,0.75);
+  color: var(--text-soft);
 }
 
 /* ── Links ── */
 .nav-links a {
-  color: rgba(255,255,255,0.7);
+  color: var(--text-soft);
   border-radius: var(--radius-sm);
 }
 
 .nav-links a:hover {
-  background: rgba(30,101,109,0.15);
-  color: white;
+  background: var(--surface-alt);
+  color: var(--text);
 }
 
 .nav-links a.active {
-  background: rgba(30,101,109,0.2);
-  color: white;
+  color: var(--teal);
 }
 
-/* ── SOS button (adapt for dark background) ── */
+/* ── SOS button (light background) ── */
 .nav-sos {
-  background: rgba(154,52,18,0.15);
-  border: 1px solid rgba(154,52,18,0.3);
-  color: var(--alert-red-border);
+  background: var(--rose-soft);
+  border: 1px solid rgba(154,52,18,0.25);
+  color: var(--rose);
 }
 
 .nav-sos:hover {
-  background: var(--rose);
-  color: white;
-  border-color: var(--rose);
+  background: rgba(154,52,18,0.12);
+  color: var(--rose);
 }
 
 /* ── Mobile toggle ── */
 .nav-toggle {
-  color: white;
+  color: var(--text);
   background: transparent;
 }
 
 .nav-toggle svg {
-  color: white;
-  stroke: white;
+  color: var(--text);
+  stroke: var(--text);
 }
 
-/* ── Mobile dropdown (nav-open) ──
-   Inline styles use rgba(254,252,248,...) and rgba(45,40,35,...) */
+/* ── Mobile dropdown (nav-open) ── */
 .nav-links.nav-open {
-  background: var(--navy-mid);
-  border-color: rgba(255,255,255,0.1);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+  background: rgba(254,252,248,0.98);
+  border-color: rgba(45,40,35,0.08);
+  box-shadow: 0 12px 30px rgba(45,40,35,0.14);
   border-radius: var(--radius-lg);
 }
 
 .nav-links.nav-open a {
-  color: rgba(255,255,255,0.8);
+  color: var(--text-soft);
 }
 
 .nav-links.nav-open a:hover {
-  background: rgba(30,101,109,0.15);
-  color: white;
+  background: var(--surface-alt);
+  color: var(--text);
 }
 
 
@@ -628,7 +626,7 @@ header.hero[style*="linear-gradient"] {
 }
 
 .module-card::before {
-  background: var(--teal);
+  background: var(--sand-deep);
 }
 
 .module-number {
