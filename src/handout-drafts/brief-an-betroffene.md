@@ -1,6 +1,7 @@
 ---
 layout: "handout-draft"
 title: "Was Ihre Angehörigen durchmachen — ein Brief"
+slug: "brief-an-betroffene"
 version: "1.0"
 date: "2026-04-04"
 status: "Entwurf"
