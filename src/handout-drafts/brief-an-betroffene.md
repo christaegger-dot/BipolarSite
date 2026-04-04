@@ -2,7 +2,7 @@
 layout: "handout-draft"
 title: "Was Ihre Angehörigen durchmachen — ein Brief"
 slug: "brief-an-betroffene"
-version: "1.0"
+version: "1.1"
 date: "2026-04-04"
 status: "Entwurf"
 ---
@@ -17,7 +17,13 @@ status: "Entwurf"
 
 Wenn Sie eine Episode haben — ob Manie, Depression oder etwas dazwischen — erleben Sie die Erkrankung von innen. Ihr\*e Angehörige\*r erlebt sie von aussen. Das ist ein fundamentaler Unterschied.
 
-Von aussen sieht das so aus: Schlaflose Nächte, weil man nicht weiss, was als Nächstes passiert. Angst, die nicht aufhört, auch wenn Sie sagen, es sei alles gut. Das Gefühl, den Menschen, den man liebt, zeitweise nicht wiederzuerkennen. Und danach: die Erschöpfung, die nicht einfach verschwindet, wenn die Episode vorbei ist.
+Von aussen sieht das so aus: Schlaflose Nächte, weil man nicht weiss, was als Nächstes passiert. Angst, die nicht aufhört, auch wenn Sie sagen, es sei alles gut. Das Gefühl, den Menschen, den man liebt, zeitweise nicht wiederzuerkennen.
+
+## Was nach der Episode bleibt
+
+Wenn die Episode vorbei ist, ist die Belastung für Angehörige nicht einfach weg. Was bleibt, ist oft: Erschöpfung, die sich nicht erholt, weil die Anspannung so lange angedauert hat. Erleichterung, gemischt mit Wut darüber, dass es wieder passiert ist. Und manchmal das Schweigen — weil man nicht weiss, wie man über das reden soll, was war.
+
+Das ist kein Verbleib in der Vergangenheit. Das ist die Nachwirkung von etwas, das wirklich schwer war.
 
 ## Was er oder sie braucht
 
@@ -32,7 +38,7 @@ Sie müssen die Erkrankung nicht heilen. Aber Sie können:
 
 - **Fragen**: «Wie geht es dir damit?» — und zuhören, auch wenn die Antwort schwer ist.
 - **Mitwirken**: An einem gemeinsamen Krisenplan, an der Behandlung, an Absprachen.
-- **Akzeptieren**, dass Ihre Angehörigen eigene Unterstützung brauchen — und dass das kein Verrat an Ihnen ist.
+- **Akzeptieren**, dass Ihre Angehörigen eigene Unterstützung brauchen — das kein Verrat an Ihnen ist, sondern Selbstschutz.
 
 ## Was nicht hilft
 
@@ -44,5 +50,5 @@ Sie müssen die Erkrankung nicht heilen. Aber Sie können:
 
 *Dieser Brief wurde Ihnen von einer Person gegeben, die Sie liebt und die nach einem Weg sucht, gemeinsam weiterzugehen.*
 
-*Psychiatrische Universitätsklinik Zürich — Fachstelle Angehörigenarbeit*
-*058 384 38 00 · Kostenlos, vertraulich*
+*Wenn Sie als Angehörige\*r Unterstützung suchen — auch unabhängig davon, ob die betroffene Person selbst Hilfe in Anspruch nimmt:*
+**Fachstelle Angehörigenarbeit PUK Zürich · 058 384 38 00 · kostenlos, vertraulich**

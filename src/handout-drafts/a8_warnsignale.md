@@ -8,12 +8,12 @@ audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Frühe Veränderungen schneller erkennen und ruhiger einordnen"
 target_format: "A4, 1 Seite"
 priority: "P1"
-last_updated: "2026-04-03"
+last_updated: "2026-04-04"
 emergency_label: "Nicht jedes Zeichen ist schon eine Krise"
 emergency_callout: "Wichtiger als ein einzelnes Signal ist ein wiederkehrendes Muster."
 emergency_note: "Dieses Blatt ist für ruhigere oder halbwegs stabile Phasen gedacht. Es soll Orientierung geben, nicht in Dauer-Alarm versetzen."
 quick_steps:
-  - icon: "A"
+  - icon: "◎"
     text: "Auf Veränderungen im Muster achten, nicht auf jedes einzelne Detail"
   - icon: "~"
     text: "Beobachtungen früh ansprechen statt lange abzuwarten"
@@ -66,16 +66,11 @@ Entscheidend ist nicht perfekte Beobachtung. Entscheidend ist, wiederkehrende Mu
 - Termine absagen
 - Alltagsaufgaben nicht mehr schaffen
 
-## Was Angehörige beobachten können
+## Ihre persönlichen Frühwarnzeichen
 
-- Schlaf
-- Tempo
-- Stimmung
-- Geld
-- soziale Kontakte
-- Zuverlässigkeit im Alltag
+Was fällt in Ihrem Umfeld erfahrungsgemäss zuerst auf? Markieren Sie aus den Listen oben zwei oder drei Zeichen, die bei Ihnen am verlässlichsten früh erscheinen. Das sind Ihre persönlichen Ankerpunkte — nicht die Lehrbuchliste.
 
-Hilfreich ist nicht totale Kontrolle, sondern ein realistischer Blick auf Veränderungen.
+Halten Sie ausserdem fest, wen Sie bei deutlicher Veränderung früh informieren wollen: Behandlungsteam, Vertrauensperson, Krisenplan hervornehmen.
 
 ## Was eher hilft
 
@@ -103,10 +98,6 @@ Frühes Handeln wird sinnvoll, wenn:
 - die Person stark verändert oder kaum erreichbar wirkt
 
 Dann geht es nicht mehr nur um Beobachtung, sondern um Vorbereitung, Absprache oder Krisenhilfe.
-
-## Nächster sinnvoller Schritt
-
-Notieren Sie drei persönliche Frühwarnzeichen, die in Ihrem Umfeld oft zuerst auffallen. Halten Sie außerdem fest, wen Sie bei deutlicher Veränderung früh informieren wollen.
 
 Weiterführend:
 
