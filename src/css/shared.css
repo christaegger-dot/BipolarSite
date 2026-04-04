@@ -31,12 +31,15 @@ body::before {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  background: rgba(254,252,248,0.88);
-  backdrop-filter: blur(20px) saturate(1.4);
-  -webkit-backdrop-filter: blur(20px) saturate(1.4);
-  border-bottom: 1px solid rgba(45,40,35,0.06);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
 }
-#navbar.scrolled { box-shadow: 0 1px 12px rgba(45,40,35,0.08); }
+#navbar.scrolled {
+  box-shadow: var(--shadow-nav);
+  background: rgba(250, 248, 245, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
 
 .nav-inner {
   max-width: 1200px;
@@ -87,25 +90,28 @@ body::before {
 .nav-links a {
   text-decoration: none;
   font-size: 0.8rem;
-  color: var(--text-secondary);
+  color: var(--text-soft);
   padding: 6px 12px;
   border-radius: var(--radius-sm);
   transition: background-color 0.25s ease, color 0.25s ease;
   font-weight: 500;
 }
 .nav-links a:hover {
-  background: var(--sage-100);
-  color: var(--sage-700);
+  background: var(--surface-alt);
+  color: var(--text);
+}
+.nav-links a[aria-current="page"] {
+  color: var(--teal);
 }
 .nav-sos {
-  background: var(--alert-red-bg) !important;
-  color: var(--alert-red) !important;
+  background: var(--rose-soft) !important;
+  color: var(--rose) !important;
   font-weight: 600 !important;
-  border: 1px solid var(--alert-red-border) !important;
+  border: 1px solid rgba(154,52,18,0.25) !important;
 }
 .nav-sos:hover {
-  background: var(--alert-red) !important;
-  color: white !important;
+  background: rgba(154,52,18,0.12) !important;
+  color: var(--rose) !important;
 }
 
 .nav-toggle {

@@ -67,10 +67,9 @@ useNavJS: true
   }
 
   .home-hero-body {
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
-    gap: 40px;
-    align-items: center;
+    display: block;
+    max-width: var(--content-width-wide);
+    margin: 0 auto;
     position: relative;
     z-index: 2;
   }
@@ -175,21 +174,6 @@ useNavJS: true
     font-weight: 700;
   }
 
-  .home-hero-visual-card {
-    background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(243,229,225,0.48));
-    border: 1px solid rgba(181,138,82,0.14);
-    border-radius: 26px;
-    padding: 18px;
-    box-shadow: 0 18px 46px rgba(28,43,58,0.1);
-    backdrop-filter: blur(12px);
-  }
-
-  .home-hero-visual {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 18px;
-  }
 
   /* ══════════ SECTION GENERIC ══════════ */
   section {
@@ -225,121 +209,8 @@ useNavJS: true
     margin-bottom: 3rem;
   }
 
-  /* ══════════ PROGRESS BAR ══════════ */
-  .progress-section {
-    padding: 0 2rem 40px;
-  }
-
-  .progress-section.is-empty {
-    display: none;
-  }
-
-  .progress-bar-outer {
-    max-width: 1200px;
-    margin: 0 auto;
-    background: rgba(255,255,255,0.9);
-    border: 1px solid rgba(45,40,35,0.06);
-    border-radius: var(--radius-lg);
-    padding: 18px 24px;
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    box-shadow: none;
-  }
-
-  .progress-label {
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-    white-space: nowrap;
-  }
-
-  .progress-track {
-    flex: 1;
-    height: 8px;
-    background: var(--sage-100);
-    border-radius: 100px;
-    overflow: hidden;
-  }
-
-  .progress-fill {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, var(--sage-400), var(--sage-500));
-    border-radius: 100px;
-    transition: width 0.6s ease;
-  }
-
-  .progress-count {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--sage-600);
-    font-variant-numeric: tabular-nums;
-  }
-
   .urgent-note-standalone {
     margin: 34px 0 26px;
-  }
-
-  .entry-layout {
-    margin-top: 18px;
-  }
-
-  .entry-list {
-    background: linear-gradient(180deg, #fff 0%, #fcf8f4 100%);
-    border: 1px solid rgba(45,40,35,0.06);
-    border-radius: 24px;
-    padding: 24px 26px;
-    box-shadow: var(--shadow-soft);
-  }
-
-  .entry-list-kicker {
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--sage-500);
-    margin-bottom: 10px;
-  }
-
-  .entry-list-intro {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    line-height: 1.65;
-    margin: 0 0 10px;
-    max-width: 48ch;
-  }
-
-  .entry-clarifier {
-    margin-top: 16px;
-    padding: 18px 22px;
-    border-radius: 20px;
-    background: linear-gradient(180deg, rgba(247,242,234,0.94) 0%, rgba(217,236,236,0.42) 100%);
-    border: 1px solid rgba(45,40,35,0.06);
-  }
-
-  .entry-guidance-kicker {
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--sand-ink);
-    margin-bottom: 10px;
-  }
-
-  .entry-clarifier p {
-    font-size: 0.9rem;
-    line-height: 1.7;
-    color: var(--text-secondary);
-    margin: 0 0 12px;
-  }
-
-  .entry-clarifier p:last-child {
-    margin-bottom: 0;
-  }
-
-  .entry-clarifier strong {
-    color: var(--earth-900);
   }
 
   /* ══════════ MODULE GRID ══════════ */
@@ -419,197 +290,6 @@ useNavJS: true
   }
 
 
-  .entry-secondary {
-    padding-top: 0;
-  }
-
-  .entry-details-stack {
-    display: grid;
-    gap: 14px;
-  }
-
-  .entry-details {
-    border-radius: 22px;
-    border: 1px solid rgba(45,40,35,0.08);
-    background: linear-gradient(180deg,#fff 0%,#fcf8f4 100%);
-    box-shadow: var(--shadow-soft);
-    overflow: hidden;
-  }
-
-  .entry-details summary {
-    list-style: none;
-    cursor: pointer;
-    padding: 20px 22px;
-    display: grid;
-    gap: 6px;
-    position: relative;
-  }
-
-  .entry-details summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .entry-details summary::after {
-    content: '+';
-    position: absolute;
-    top: 18px;
-    right: 20px;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    border: 1px solid rgba(45,40,35,0.08);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--sage-600);
-    font-size: 1rem;
-    font-weight: 700;
-    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
-  }
-
-  .entry-details[open] summary::after {
-    transform: rotate(45deg);
-    background: var(--sage-500);
-    color: white;
-  }
-
-  .entry-details-kicker {
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--sage-500);
-  }
-
-  .entry-details-title {
-    font-family: 'Source Serif 4', serif;
-    font-size: 1.16rem;
-    font-weight: 600;
-    line-height: 1.35;
-    color: var(--earth-900);
-    padding-right: 44px;
-  }
-
-  .entry-details-body {
-    padding: 0 22px 18px;
-  }
-
-  .modules-grid--situational {
-    grid-template-columns: 1fr;
-    gap: 0;
-    margin-top: 8px;
-  }
-
-  .module-card--situational {
-    background: transparent;
-    border: none;
-    border-top: 1px solid rgba(45,40,35,0.08);
-    border-radius: 0;
-    padding: 18px 0;
-    box-shadow: none;
-    gap: 10px;
-  }
-
-  .module-card--situational:hover {
-    box-shadow: none;
-    border-color: rgba(45,40,35,0.08);
-  }
-
-  .module-card--situational:first-child {
-    border-top: none;
-  }
-
-  .module-card--situational .module-number {
-    color: var(--sand-ink);
-  }
-
-  .module-card--situational h3 {
-    font-size: 1.08rem;
-    line-height: 1.4;
-  }
-
-  .module-card--situational p {
-    font-size: 0.88rem;
-    max-width: 58ch;
-  }
-
-  .module-card--situational .module-card-footer {
-    justify-content: flex-start;
-    gap: 12px;
-    border-top: none;
-    padding-top: 0;
-  }
-
-  .module-card--situational .module-arrow {
-    width: 28px;
-    height: 28px;
-    background: transparent;
-    border: 1px solid rgba(45,40,35,0.08);
-  }
-
-  .modules-grid--roles {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
-  }
-
-  .module-card--role {
-    background: linear-gradient(180deg, #fff 0%, #fcf8f4 100%);
-    border-color: rgba(181,138,82,0.14);
-    box-shadow: none;
-  }
-
-  .module-card--role:hover {
-    border-color: rgba(30,101,109,0.18);
-  }
-
-  .role-card {
-    text-decoration: none;
-  }
-
-  .role-starts {
-    margin-top: auto;
-    padding-top: 14px;
-    border-top: 1px solid rgba(45,40,35,0.05);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .role-starts-label {
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--sage-500);
-  }
-
-  .role-start-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .role-start-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 34px;
-    padding: 0 12px;
-    border-radius: 999px;
-    text-decoration: none;
-    border: 1px solid rgba(45,40,35,0.08);
-    background: rgba(255,255,255,0.9);
-    color: var(--navy);
-    font-size: 0.78rem;
-    font-weight: 700;
-    transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
-  }
-
-  .role-start-link:hover {
-    border-color: rgba(30,101,109,0.22);
-    background: var(--green-bg);
-    color: var(--teal);
-  }
 
   .module-card {
     text-decoration: none;
@@ -689,77 +369,6 @@ useNavJS: true
     color: white;
   }
 
-  /* ══════════ DECORATIVE DIVIDER ══════════ */
-  .wave-divider {
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    margin: -1px 0;
-  }
-
-  .wave-divider svg {
-    width: 100%;
-    height: 60px;
-    display: block;
-  }
-
-  /* ══════════ CTA BAND ══════════ */
-  .cta-band {
-    background: var(--sage-700);
-    padding: 60px 2rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .cta-band::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 30% 50%, rgba(141,156,115,0.3) 0%, transparent 60%);
-  }
-
-  .cta-inner {
-    max-width: 600px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-  }
-
-  .cta-band h2 {
-    font-family: 'Source Serif 4', serif;
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: white;
-    margin-bottom: 12px;
-    letter-spacing: -0.02em;
-  }
-
-  .cta-band p {
-    color: rgba(255,255,255,0.75);
-    font-size: 0.95rem;
-    margin-bottom: 28px;
-  }
-
-  .cta-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: white;
-    color: var(--sage-700);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.95rem;
-    padding: 14px 32px;
-    border-radius: 100px;
-    transition: background-color 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-  }
-
-  .cta-btn:hover {
-    box-shadow: 0 6px 20px rgba(0,0,0,0.18);
-  }
-
   /* ══════════ FOOTER ══════════ */
   
 
@@ -837,15 +446,6 @@ useNavJS: true
   /* Fallback: show all content if JS is disabled */
   .no-js .reveal { opacity: 1; transform: none; }
 
-  /* ══════════ VISITED MODULE BADGE ══════════ */
-  .module-card.visited .module-arrow {
-    background: var(--sage-500);
-    color: white;
-  }
-  .module-card.visited {
-    border-color: var(--sage-200);
-  }
-
   /* ══════════ MOBILE NAV ══════════ */
   
 
@@ -854,11 +454,9 @@ useNavJS: true
   /* ══════════ RESPONSIVE ══════════ */
   @media (max-width: 768px) {
     .home-hero-content::before { inset: 12px 0 auto 0; width: 100%; height: 320px; }
-    .home-hero-body { grid-template-columns: 1fr; gap: 26px; }
     .home-hero-text { padding: 18px 0 0; }
     .footer-inner { grid-template-columns: 1fr; gap: 32px; }
     .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
-    .modules-grid--roles { grid-template-columns: 1fr; }
   }
   
 
@@ -866,31 +464,11 @@ useNavJS: true
   @media (max-width: 600px) {
     .home-hero { padding: 110px 1.2rem 60px; min-height: auto; }
     .home-hero h1 { font-size: 2rem; }
-    .home-hero-visual-card { display: none; }
-    .progress-section { padding: 0 1.2rem 26px; }
-    .progress-label { white-space: normal; text-align: center; }
     .urgent-note { padding: 20px 18px; }
     section { padding: 50px 1.2rem; }
     .modules-grid { grid-template-columns: 1fr; }
-    .progress-bar-outer { flex-direction: column; gap: 12px; padding: 20px; }
-    .progress-track { width: 100%; height: 8px; }
-    .cta-band { padding: 50px 1.2rem; }
-    .entry-list,
-    .entry-clarifier,
-    .entry-details summary,
-    .entry-details-body { padding-left: 18px; padding-right: 18px; }
     
   }
-
-  /* ══════════ PATH LIST (Startwege) ══════════ */
-  .path-list{list-style:none;margin:0;padding:0}
-  .path-item{display:flex;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px solid rgba(45,40,35,0.06)}
-  .path-item:last-child{border-bottom:none}
-  .path-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--sage-100);color:var(--teal);font-size:0.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px}
-  .path-body{flex:1}
-  .path-title{font-weight:700;color:var(--navy);font-size:0.95rem;margin:0 0 4px;text-decoration:none;display:block}
-  .path-title:hover{color:var(--teal)}
-  .path-desc{font-size:0.85rem;color:var(--slate);margin:0;line-height:1.5}
 
   /* ══════════ QUICK TRIAGE ══════════ */
   .quick-triage{background:linear-gradient(135deg,var(--rose-soft),#fff8f6);border:1px solid rgba(154,52,18,0.12);border-radius:var(--radius-xl);padding:28px 32px;margin-bottom:24px}
@@ -912,14 +490,6 @@ useNavJS: true
   .triage-result--safe{background:var(--green-bg);border:1px solid rgba(13,122,95,0.15);padding:14px 20px;border-radius:var(--radius-md)}
   .triage-result--safe p{font-size:0.88rem;color:var(--green-phase);margin:0}
   .triage-result--safe a{background:none;padding:0;color:var(--teal);text-decoration:underline;font-size:inherit;border-radius:0;display:inline}
-
-  /* ══════════ STORY SECTION ══════════ */
-  .story-section{max-width:var(--content-width-wide);margin:0 auto;padding:64px 2rem}
-  .story-label{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--teal);margin-bottom:12px}
-  .story-section h2{font-family:'Source Serif 4',serif;font-size:clamp(1.3rem,3vw,1.6rem);font-weight:600;color:var(--navy);margin-bottom:24px;line-height:1.35}
-  .story-body{font-size:0.95rem;color:var(--text-secondary);line-height:1.8;max-width:640px}
-  .story-body p{margin-bottom:16px}
-  .story-attribution{font-size:0.82rem;color:var(--text-muted);font-style:italic;margin-top:24px}
 
   /* ══════════ TOOLS HIGHLIGHT ══════════ */
   .tools-highlight{margin:48px auto;max-width:var(--content-width-wide);padding:0 2rem}
@@ -957,30 +527,11 @@ useNavJS: true
           <a href="/notfall/" class="home-hero-emergency-link">Wenn es akut sein könnte: direkt zum Notfallweg</a>
         </div>
       </div>
-      <div>
-        <div class="home-hero-visual-card">
-          <picture>
-            <source type="image/webp" srcset="/visuals/home-editorial-hero-v3-web.webp 1280w, /visuals/home-editorial-hero-v3.webp 1536w" sizes="(max-width: 900px) 100vw, 42vw">
-            <img src="/visuals/home-editorial-hero-v3-web.png" srcset="/visuals/home-editorial-hero-v3-web.png 1280w, /visuals/home-editorial-hero-v3.png 1536w" sizes="(max-width: 900px) 100vw, 42vw" alt="Ruhige editoriale Illustration von drei erwachsenen Angehörigen in einem häuslichen Gesprächs- und Unterstützungsmoment." class="home-hero-visual" width="1536" height="1024" loading="eager" decoding="async" fetchpriority="high">
-          </picture>
-        </div>
-      </div>
     </div>
   </div>
 </header>
 
 <main id="main-content">
-
-<!-- ══════════ PROGRESS ══════════ -->
-<div class="progress-section" id="progressSection">
-  <div class="progress-bar-outer">
-    <span class="progress-label">Ihr Fortschritt</span>
-    <div class="progress-track">
-      <div class="progress-fill" id="progressFill"></div>
-    </div>
-    <span class="progress-count" id="progressCount">0 / 8 Module</span>
-  </div>
-</div>
 
 <!-- ══════════ TRIAGE ══════════ -->
 <section id="orientierung">
@@ -1007,6 +558,14 @@ useNavJS: true
       <div class="triage-btns">
         <button type="button" class="triage-btn triage-btn--yes" data-triage="q3-yes">Ja</button>
         <button type="button" class="triage-btn triage-btn--no" data-triage="q3-no">Nein, eher Werkzeuge und Orientierung</button>
+      </div>
+    </div>
+    <div class="triage-question" id="triageQ4" hidden>
+      <div class="triage-q-text">Was steht bei Ihnen gerade am meisten im Vordergrund?</div>
+      <div class="triage-btns">
+        <button type="button" class="triage-btn triage-btn--no" data-triage="q4-beziehung">Beziehung, Vertrauen, Nähe</button>
+        <button type="button" class="triage-btn triage-btn--no" data-triage="q4-handeln">Konkret handeln, Grenzen, Gespräche</button>
+        <button type="button" class="triage-btn triage-btn--no" data-triage="q4-selbst">Verstehen, was gerade mit mir passiert</button>
       </div>
     </div>
     <div class="triage-result" id="triageResult" hidden aria-live="polite" aria-atomic="true"></div>
@@ -1139,153 +698,8 @@ useNavJS: true
   </div>
 </div>
 
-<!-- ══════════ STORY ══════════ -->
-<section class="story-section reveal">
-  <div class="story-label">Erfahrungsbericht</div>
-  <h2>«Am Anfang dachte ich, ich muss nur stark genug sein»</h2>
-  <div class="story-body">
-    <p>Die erste Manie kam drei Monate nach unserer Hochzeit. Marc schlief nicht mehr, kündigte seinen Job und kaufte ein Auto, das wir uns nicht leisten konnten. Ich dachte: Das ist Stress. Das geht vorbei. Ich muss einfach stark sein.</p>
-    <p>Es ging nicht vorbei. Es kamen weitere Episoden. Depressionen, in denen er wochenlang kaum aus dem Bett kam. Manien, in denen ich ihn nicht erreichen konnte. Dazwischen Phasen, in denen ich vor lauter Wachsamkeit selbst nicht mehr schlafen konnte — weil ich bei jedem Geräusch dachte: Fängt es wieder an?</p>
-    <p>Ich habe anderthalb Jahre gebraucht, bis ich mir eingestanden habe, dass ich selbst Hilfe brauche. Nicht für ihn — für mich. Die Fachstelle Angehörigenarbeit hat mir zwei Dinge gegeben, die alles verändert haben: Das Wort «Hypervigilanz» — endlich konnte ich benennen, was mit mir passiert. Und eine Gruppe von Menschen, die genau das kennen.</p>
-    <p>Heute, vier Jahre später, ist nicht alles gut. Marc hat immer noch Episoden. Aber wir haben einen Krisenplan, ich habe meine eigene Therapeutin, und ich weiss: Ich darf auch an mich denken, ohne dass das Verrat ist. Das Schwierigste war nicht seine Erkrankung. Das Schwierigste war zu akzeptieren, dass ich nicht alles allein tragen muss.</p>
-  </div>
-  <p class="story-attribution">— Marina, 43 Jahre, Partnerin seit 12 Jahren (fiktiver Erfahrungsbericht, basierend auf realen Mustern)</p>
-</section>
 
-<!-- ══════════ CTA ══════════ -->
-<div class="wave-divider">
-  <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
-    <path d="M0,60 C360,0 720,60 1080,20 C1260,0 1380,30 1440,10 L1440,60 Z" fill="var(--sage-700)"/>
-  </svg>
-</div>
-<div class="cta-band">
-  <div class="cta-inner">
-    <h2>Ein sinnvoller nächster Schritt reicht.</h2>
-    <p>Sie müssen nicht automatisch bei Modul 1 beginnen. Wenn Sie jetzt losgehen möchten, kehren Sie zur Orientierung zurück und wählen Sie den Weg, der Ihrer Lage im Moment am ehesten entspricht.</p>
-    <a href="#orientierung" class="cta-btn">Zur Orientierung zurück ↑</a>
-  </div>
-</div>
 
-<!-- ══════════ OPTIONAL (zugeklappt) ══════════ -->
-<section class="entry-secondary">
-  <div class="section-label reveal">Weitere Orientierung</div>
-  <h2 class="section-title reveal">Situative Einstiege, Startvorschläge und Rollen</h2>
-  <p class="section-desc reveal">Wenn Sie einen anderen Einstieg als die Module oben suchen — nach Situation, Lesereihenfolge oder Ihrer Rolle.</p>
-
-  <div class="entry-details-stack reveal">
-    <details class="entry-details">
-      <summary>
-        <span class="entry-details-kicker">Geordnete Startvorschläge</span>
-        <span class="entry-details-title">Wenn Sie lieber systematisch statt situativ einsteigen</span>
-      </summary>
-      <div class="entry-details-body">
-        <ol class="path-list">
-          <li class="path-item">
-            <span class="path-num">1</span>
-            <div class="path-body">
-              <a href="/modul/1/" class="path-title">Erst verstehen</a>
-              <p class="path-desc">Beginnen Sie mit Modul 1. Danach wird meist klarer, ob bei Ihnen eher Belastung, Beziehung oder konkrete Schritte im Vordergrund stehen.</p>
-            </div>
-          </li>
-          <li class="path-item">
-            <span class="path-num">2</span>
-            <div class="path-body">
-              <a href="/modul/4/" class="path-title">Wenn Sie schon am Limit sind</a>
-              <p class="path-desc">Beginnen Sie mit Modul 4, dann Modul 5 und Modul 8. Sinnvoll, wenn Ihre eigene Belastung gerade dringlicher ist als Grundlagenwissen. Wenn Sie zuerst nur kurz einordnen wollen, hilft dort gleich am Anfang die Standortbestimmung.</p>
-            </div>
-          </li>
-          <li class="path-item">
-            <span class="path-num">3</span>
-            <div class="path-body">
-              <a href="/modul/3/" class="path-title">Wenn die Beziehung im Vordergrund steht</a>
-              <p class="path-desc">Beginnen Sie mit Modul 3, dann Modul 4 und 5. Passt, wenn Nähe, Vertrauen oder Rollenverschiebung die grösste Frage sind.</p>
-            </div>
-          </li>
-          <li class="path-item">
-            <span class="path-num">4</span>
-            <div class="path-body">
-              <a href="/modul/6/" class="path-title">Wenn Sie sofort konkret handeln wollen</a>
-              <p class="path-desc">Beginnen Sie mit Modul 6. Gespräche, Grenzen, Kommunikation in Episoden und Krisenplan sind direkt anwendbar, ohne Grundlagenwissen vorauszusetzen. Wenn Sie stattdessen vor allem Kontakte, Materialien oder rechtliche Orientierung suchen, gehen Sie zu Modul 8.</p>
-            </div>
-          </li>
-          <li class="path-item">
-            <span class="path-num">5</span>
-            <div class="path-body">
-              <a href="/modul/2/" class="path-title">Wenn Sie verstehen wollen, was gerade mit Ihnen passiert</a>
-              <p class="path-desc">Beginnen Sie mit Modul 2. Hypervigilanz, emotionale Erschöpfung, Suizidangst — für Angehörige, die die eigenen Reaktionen einordnen wollen.</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </details>
-
-    <details class="entry-details">
-      <summary>
-        <span class="entry-details-kicker">Nach Rolle</span>
-        <span class="entry-details-title">Wenn Ihre Rolle zusätzliche Orientierung gibt</span>
-      </summary>
-      <div class="entry-details-body">
-        <div class="modules-grid modules-grid--roles">
-          <div class="module-card module-card--role role-card">
-            <span class="module-number">Partner*in</span>
-            <h3>Wenn Sie mitten im gemeinsamen Alltag stehen</h3>
-            <p>Beziehung, Rollenverschiebung, Grenzen, Krisenplan und Kommunikation stehen oft früh im Vordergrund.</p>
-            <div class="role-starts">
-              <div class="role-starts-label">Sinnvolle Einstiege</div>
-              <div class="role-start-links">
-                <a href="/modul/1/" class="role-start-link">Modul 1: Verstehen</a>
-                <a href="/modul/3/" class="role-start-link">Modul 3: Beziehung</a>
-                <a href="/modul/6/" class="role-start-link">Modul 6: Konkrete Schritte</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="module-card module-card--role role-card">
-            <span class="module-number">Elternteil</span>
-            <h3>Wenn Ihr erwachsenes Kind erkrankt ist</h3>
-            <p>Zwischen Sorge, Schutzimpuls und Loslassen helfen oft Wissen, Systemorientierung und Entlastung für die Familie.</p>
-            <div class="role-starts">
-              <div class="role-starts-label">Sinnvolle Einstiege</div>
-              <div class="role-start-links">
-                <a href="/modul/1/" class="role-start-link">Modul 1: Verstehen</a>
-                <a href="/modul/4/#kinder" class="role-start-link">Modul 4: Belastung in der Familie</a>
-                <a href="/modul/8/" class="role-start-link">Modul 8: Unterstützung</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="module-card module-card--role role-card">
-            <span class="module-number">Geschwister</span>
-            <h3>Wenn Sie viel sehen, aber nicht für alles zuständig sein wollen</h3>
-            <p>Geschwister brauchen oft eine eigene Sprache für Loyalität, Distanz, Frust mit Hilfesystemen und die Frage nach dem eigenen Anteil.</p>
-            <div class="role-starts">
-              <div class="role-starts-label">Sinnvolle Einstiege</div>
-              <div class="role-start-links">
-                <a href="/modul/2/" class="role-start-link">Modul 2: Eigene Reaktion verstehen</a>
-                <a href="/modul/5/" class="role-start-link">Modul 5: Loyalitätskonflikte</a>
-                <a href="/modul/8/" class="role-start-link">Modul 8: Unterstützung</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="module-card module-card--role role-card">
-            <span class="module-number">Erwachsenes Kind</span>
-            <h3>Wenn ein Elternteil erkrankt ist und Sie zwischen Nähe und Eigenleben stehen</h3>
-            <p>Hier mischen sich Loyalität, Parentifizierung, Schuld und die Frage, wie Sie helfen können, ohne Ihr eigenes Leben aufzuschieben.</p>
-            <div class="role-starts">
-              <div class="role-starts-label">Sinnvolle Einstiege</div>
-              <div class="role-start-links">
-                <a href="/modul/2/" class="role-start-link">Modul 2: Eigene Reaktion verstehen</a>
-                <a href="/modul/4/#kinder" class="role-start-link">Modul 4: Belastung verstehen</a>
-                <a href="/modul/8/#rollen" class="role-start-link">Modul 8: Orientierung nach Rolle</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </details>
-  </div>
-</section>
 
 
 </main>
@@ -1313,63 +727,6 @@ useNavJS: true
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('revealed'));
   }
 
-  // ── Module progress tracking (localStorage) ──
-  const TOTAL_MODULES = 8;
-  const STORAGE_KEY = 'puk_visited_modules';
-
-  function getVisited() {
-    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch { return []; }
-  }
-
-  function saveVisited(list) {
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(list)); } catch {}
-  }
-
-  function getModulePath(href) {
-    const m = href && href.match(/^\/modul\/(\d+)\/?$/);
-    return m ? '/modul/' + m[1] + '/' : null;
-  }
-
-  function updateProgressUI() {
-    const visited = getVisited();
-    const count = Math.min(visited.length, TOTAL_MODULES);
-    const pct = (count / TOTAL_MODULES) * 100;
-
-    const fill = document.getElementById('progressFill');
-    const counter = document.getElementById('progressCount');
-    const section = document.getElementById('progressSection');
-    if (fill) fill.style.width = pct + '%';
-    if (counter) counter.textContent = count + ' / ' + TOTAL_MODULES + ' Module';
-    if (section) section.classList.toggle('is-empty', count === 0);
-
-    // Mark visited module cards
-    document.querySelectorAll('a.module-card[href]').forEach(card => {
-      const path = getModulePath(card.getAttribute('href'));
-      if (path && visited.includes(path)) {
-        card.classList.add('visited');
-        const arrow = card.querySelector('.module-arrow');
-        if (arrow && arrow.textContent.trim() === '→') arrow.textContent = '✓';
-      }
-    });
-  }
-
-  // Track clicks on module cards
-  document.querySelectorAll('a.module-card[href]').forEach(card => {
-    const path = getModulePath(card.getAttribute('href'));
-    if (path) {
-      card.addEventListener('click', () => {
-        const visited = getVisited();
-        if (!visited.includes(path)) {
-          visited.push(path);
-          saveVisited(visited);
-        }
-      });
-    }
-  });
-
-  // Initialise progress on load
-  updateProgressUI();
-
   // ══════════ Quick Triage ══════════
   (function() {
     var result = document.getElementById('triageResult');
@@ -1379,7 +736,9 @@ useNavJS: true
       'q1-yes': { html: '<a href="/notfall/">Zum Notfallweg &rarr;</a>', cls: '' },
       'q2-yes': { html: '<a href="/modul/4/">Modul 4: Wenn die Kraft nachlässt &rarr;</a>', cls: '' },
       'q3-yes': { html: '<a href="/modul/1/">Modul 1: Die bipolare Störung verstehen &rarr;</a>', cls: '' },
-      'q3-no':  { html: '<p>Nutzen Sie die situativen Einstiege unten oder stöbern Sie in den <a href="/werkzeuge/" style="color:var(--teal);font-weight:600">Werkzeugen</a>.</p>', cls: 'triage-result--safe' }
+      'q4-beziehung': { html: '<a href="/modul/3/">Modul 3: Wie Beziehungen unter Druck geraten &rarr;</a>', cls: 'triage-result--safe' },
+      'q4-handeln':   { html: '<a href="/modul/6/">Modul 6: Was Sie konkret tun können &rarr;</a>', cls: 'triage-result--safe' },
+      'q4-selbst':    { html: '<a href="/modul/2/">Modul 2: Was das mit Ihnen macht &rarr;</a>', cls: 'triage-result--safe' }
     };
 
     document.getElementById('quickTriage').addEventListener('click', function(e) {
@@ -1393,6 +752,9 @@ useNavJS: true
       } else if (action === 'q2-no') {
         document.getElementById('triageQ2').hidden = true;
         document.getElementById('triageQ3').hidden = false;
+      } else if (action === 'q3-no') {
+        document.getElementById('triageQ3').hidden = true;
+        document.getElementById('triageQ4').hidden = false;
       } else if (responses[action]) {
         var r = responses[action];
         result.className = 'triage-result' + (r.cls ? ' ' + r.cls : '');
