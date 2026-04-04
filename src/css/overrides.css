@@ -336,14 +336,8 @@ h1, h2, h3, h4 {
 
 /* ╔═══════════════════════════════════════════════════════════════════╗
    ║  SCHRITT 5 – HERO / MODULE-HERO                                 ║
-   ║  Navy background, teal accents, noise texture off                ║
+   ║  Navy background, teal accents                                   ║
    ╚═══════════════════════════════════════════════════════════════════╝ */
-
-/* ── Noise texture: kill globally ── */
-body::before {
-  display: none !important;
-  opacity: 0 !important;
-}
 
 /* ── Main hero (index.html) ── */
 .hero {
@@ -1740,7 +1734,7 @@ header.hero .hero-content {
 }
 
 .module-card[data-accent="purple"] {
-  border-left: 3px solid #7c3aed;
+  border-left: 3px solid var(--sand-deep);
 }
 
 /* Fix inconsistency: theme targets .module-card-arrow but HTML uses .module-arrow */
