@@ -10,7 +10,7 @@ audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Klare Orientierung bei Suizidgedanken, Suizidäusserungen oder konkreter Sorge"
 target_format: "A4, 1 Seite"
 priority: "P1"
-last_updated: "2026-04-03"
+last_updated: "2026-04-04"
 emergency_label: "Wenn es konkret wird"
 emergency_callout: "Bei konkretem Plan oder vorhandenen Mitteln: sofort 144."
 emergency_note: "Nicht erst alles ordnen wollen. Direkt fragen ist erlaubt. Wenn die Gefahr konkret ist, Hilfe sofort dazunehmen."
@@ -35,18 +35,20 @@ emergency_contacts:
     note: "Wenn Sie sofort mit jemandem sprechen müssen"
 ---
 
-Suizidgedanken sollen immer ernst genommen werden. Direkt zu fragen ist erlaubt. Direkt zu fragen löst Suizidgedanken nicht aus. Bei konkretem Plan oder vorhandenen Mitteln gilt: nicht allein tragen, sondern sofort Hilfe holen.
+## Suizidgedanken ernst nehmen
+
+Suizidgedanken sollen immer ernst genommen werden. Direkt zu fragen ist erlaubt — direkt zu fragen löst Suizidgedanken nicht aus. Bei konkretem Plan oder vorhandenen Mitteln gilt: nicht allein tragen, sondern sofort Hilfe holen.
 
 ## Woran Sie aufmerksam werden sollten
 
 - direkte Aussagen wie:
-  - „Ich will nicht mehr.“
-  - „Es wäre besser, wenn ich nicht da wäre.“
+  - «Ich will nicht mehr.»
+  - «Es wäre besser, wenn ich nicht da wäre.»
 - Verabschiedungen
 - starke Hoffnungslosigkeit
 - plötzlicher Rückzug
 - auffälliges Ordnen von Dingen
-- plötzlich ungewöhnliche Ruhe nach großer Verzweiflung
+- plötzlich ungewöhnliche Ruhe nach grosser Verzweiflung
 
 Nicht jedes einzelne Signal bedeutet sofort akute Lebensgefahr. Aber jedes Signal verdient Aufmerksamkeit.
 
@@ -54,9 +56,9 @@ Nicht jedes einzelne Signal bedeutet sofort akute Lebensgefahr. Aber jedes Signa
 
 Hilfreiche Fragen können sein:
 
-- **„Denkst du daran, dir etwas anzutun?“**
-- **„Hast du einen Plan, wie du das tun würdest?“**
-- **„Gibt es etwas, womit du es tun könntest?“**
+- **«Denkst du daran, dir etwas anzutun?»**
+- **«Hast du einen Plan, wie du das tun würdest?»**
+- **«Gibt es etwas, womit du es tun könntest?»**
 
 Direkt zu fragen ist kein Fehler. Es schafft oft eher Klarheit und kann entlastend sein.
 
@@ -70,13 +72,15 @@ Direkt zu fragen ist kein Fehler. Es schafft oft eher Klarheit und kann entlaste
 - früh Hilfe dazuholen
 - auch bei Ablehnung selbst fachliche Hilfe holen
 
+Auch wenn Sie selbst gerade nicht wissen, wie Sie reagieren sollen — das ist normal. Holen Sie trotzdem Hilfe. Für sie. Und für sich.
+
 ## Was eher schadet
 
 - bagatellisieren
 - moralisieren
-- schnelle Trostsätze wie „Das meinst du nicht so“
+- schnelle Trostsätze wie «Das meinst du nicht so»
 - Diskussionen über Gründe oder Schuld
-- Versprechen verlangen wie „Du machst das jetzt nicht“
+- Versprechen verlangen wie «Du machst das jetzt nicht»
 
 ## Wann sofort handeln
 
@@ -86,7 +90,7 @@ Nicht weiter allein tragen, sondern sofort handeln, wenn:
 - Mittel verfügbar sind
 - die Person nicht mehr sicher allein ist
 - der Kontakt abbricht und Sie akute Sorge haben
-- die Lage schnell kippt und Sie sich nicht mehr auf bloßes Zuhören verlassen können
+- die Lage schnell kippt und Sie sich nicht mehr auf blosses Zuhören verlassen können
 
 **Bei konkretem Plan oder vorhandenen Mitteln: sofort 144.**
 
