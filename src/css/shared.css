@@ -187,6 +187,34 @@ footer {
   border-radius: 4px;
 }
 
+/* ── Storage Consent Banner ── */
+.storage-banner {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 1100;
+  background: var(--navy, #1c2b3a); color: rgba(255,255,255,0.88);
+  padding: 14px 24px; font-size: 0.82rem; line-height: 1.55;
+  display: flex; align-items: center; justify-content: center;
+  gap: 16px; flex-wrap: wrap;
+}
+.storage-banner-btns { display: flex; gap: 8px; flex-shrink: 0; }
+.storage-btn-accept {
+  background: var(--teal, #1E656D); color: #fff; border: none;
+  padding: 8px 18px; border-radius: 8px; font-size: 0.78rem;
+  font-weight: 600; cursor: pointer; white-space: nowrap;
+}
+.storage-btn-decline {
+  background: transparent; color: rgba(255,255,255,0.7);
+  border: 1px solid rgba(255,255,255,0.25);
+  padding: 8px 18px; border-radius: 8px; font-size: 0.78rem;
+  font-weight: 600; cursor: pointer; white-space: nowrap;
+}
+.storage-btn-decline:hover { color: #fff; border-color: rgba(255,255,255,0.5); }
+
+@media (max-width: 600px) {
+  .storage-banner { padding: 10px 14px; font-size: 0.75rem; gap: 10px; }
+  .storage-banner-btns { width: 100%; }
+  .storage-btn-accept, .storage-btn-decline { flex: 1; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
 }

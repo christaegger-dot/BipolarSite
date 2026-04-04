@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /Users/christaegger/Downloads/BipolarSite-main-2/src -name \"*.njk\" -exec wc -l {})",
+      "Bash(python3 -c \":*)",
+      "Bash(python3:*)",
+      "Bash(npm run:*)",
+      "Bash(export PATH=\"/opt/homebrew/bin:/usr/local/bin:$PATH\")",
+      "Bash(npx @11ty/eleventy)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(git init:*)",
+      "Bash(git remote:*)",
+      "Bash(git fetch:*)",
+      "Bash(git checkout:*)",
+      "Bash(git add:*)",
+      "Bash(git reset:*)",
+      "Bash(git rm:*)",
+      "Bash(printf node_modules/n_site/n)",
+      "Bash(git branch:*)",
+      "Bash(git stash:*)",
+      "Bash(git commit:*)"
+    ]
+  }
+}
