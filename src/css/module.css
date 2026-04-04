@@ -497,7 +497,7 @@ body.pdf-preview-open { overflow: hidden; }
 }
 
 /* ── Module Accent Colors (per-module visual identity) ── */
-/* !important needed because tarif-kompass-theme.css loads AFTER this file */
+/* !important needed because overrides.css loads AFTER this file */
 
 /* Blue: Module 1 */
 [data-module-accent="1"] .module-badge { background: rgba(91,127,165,0.12) !important; color: var(--blue-phase) !important; }

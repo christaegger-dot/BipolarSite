@@ -1,0 +1,108 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   DESIGN TOKENS — BipolarSite
+   ───────────────────────────────────────────────────────────────────────
+   Single source of truth for all CSS custom properties.
+   Loaded FIRST in the cascade — no selectors, no rules, only variables.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+
+  /* ── Brand Colors ── */
+  --navy:        #3D3530;
+  --navy-mid:    #4A443F;
+  --teal:        #3A7A6D;
+  --teal-light:  #A8D5CB;
+  --amber:       #B45309;
+  --amber-light: #FBBF24;
+  --rose:        #9A3412;
+  --rose-soft:   #FEF2F2;
+  --sand:        #ddd2bf;
+  --sand-deep:   #b58a52;
+  --sand-ink:    #7a5630;
+
+  /* ── Neutral / Slate ── */
+  --slate:       #475569;
+
+  /* ── Semantic: Background ── */
+  --bg:          #FAF8F5;
+  --card:        #ffffff;
+  --surface-alt: #F4F1EC;
+  --surface-warm:#f7f2ea;
+
+  /* ── Semantic: Text ── */
+  --text:        #3D3530;
+  --text-soft:   #625d59;
+
+  /* ── Semantic: Border ── */
+  --border:      #e2e8f0;
+
+  /* ── Semantic: Status/Feedback ── */
+  --green:       #0d7a5f;
+  --green-bg:    #e6f4f2;
+  --red-bg:      #FEF2F2;
+  --amber-bg:    #fef3e2;
+
+  /* ── Radius Scale (Tarif-Kompass: 6 / 8 / 10 / 12 / 14 / 20) ── */
+  --radius-xs:   6px;
+  --radius-sm:   8px;
+  --radius-md:   10px;
+  --radius-lg:   12px;
+  --radius-xl:   14px;
+  --radius-pill: 20px;
+
+  /* ── Shadow Scale ── */
+  --shadow-soft:     0 4px 18px rgba(28,43,58,0.05);
+  --shadow-card:     0 10px 28px rgba(28,43,58,0.08);
+  --shadow-elevated: 0 16px 40px rgba(28,43,58,0.14);
+  --shadow-nav:      0 1px 8px rgba(0,0,0,0.06);
+
+  /* ── Spacing Scale ── */
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  32px;
+  --space-2xl: 40px;
+  --space-3xl: 52px;
+
+  /* ── Content Widths ── */
+  --content-width:      720px;
+  --content-width-wide: 900px;
+  --wide-width:         1140px;
+
+  /* ── Alert Colors ── */
+  --alert-red:        var(--rose);
+  --alert-red-bg:     var(--rose-soft);
+  --alert-red-border: #fca5a5;
+
+  /* Phase colors (content-semantic) */
+  --blue-phase:       #5b7fa5;
+  --blue-phase-light: #eef3f8;
+  --amber-phase:      #B45309;
+  --amber-phase-light:#fef3e2;
+  --purple-phase:     #7c3aed;
+  --green-phase:      #0d7a5f;
+  --green-phase-light:#e6f4f2;
+  /* Phase-specific bg/border values (used in phasenverlauf + selbsttest JS) */
+  --mania-phase-bg:          #fff3e0;
+  --mania-phase-border:      #f0c070;
+  --hypo-phase-bg:           #fff9f0;
+  --amber-phase-border:      #e8c68a;
+  --mild-dep-phase-border:   #c5d5e8;
+  --severe-dep-phase-bg:     #e4eaf2;
+  --severe-dep-phase-border: #8899aa;
+  --caregiver-col-bg:        #f9f6f2;
+  --ice-deep:                #1e3044;
+  --ice-deeper:              #152535;
+
+  /* Derived tokens (used for hover-dark states, borders) */
+  --teal-dark:     #3A7068;
+  --amber-border:  #e8c68a;
+  --teal-border:   #B8D8CF;
+
+  /* ── Warm Border Scale (replaces hardcoded rgba(45,40,35,...)) ── */
+  --border-warm:    rgba(45,40,35,0.06);
+  --border-warm-md: rgba(45,40,35,0.08);
+  --border-warm-xl: rgba(45,40,35,0.12);
+
+  /* ── Z-Index Scale ── */
+  --z-tool-nav:  50;
+}

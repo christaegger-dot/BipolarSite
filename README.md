@@ -11,7 +11,8 @@ BipolarSite/
 ├── robots.txt
 ├── netlify.toml        # Netlify-Konfiguration (Deployment, Security-Header, Caching)
 ├── css/
-│   └── tarif-kompass-theme.css   # Globales Stylesheet (Navy/Teal-Farbpalette)
+│   ├── tokens.css               # Design tokens (CSS custom properties)
+│   └── overrides.css            # Override-Regeln (Navy/Teal-Farbpalette)
 ├── modul/              # Psychoedukations-Module 1–8
 │   ├── 1/index.html
 │   ├── 2/index.html
