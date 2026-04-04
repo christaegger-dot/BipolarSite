@@ -126,6 +126,7 @@
   --blue-phase-light: #eef3f8;
   --amber-phase:      #B45309;
   --amber-phase-light:#fef3e2;
+  --purple-phase:     #7c3aed;
   --green-phase:      #0d7a5f;
   --green-phase-light:#e6f4f2;
   /* Phase-specific bg/border values (used in phasenverlauf + selbsttest JS) */

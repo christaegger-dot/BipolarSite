@@ -70,7 +70,7 @@
 {% if useNavJS %}<script src="/js/nav.js"></script>{% endif %}
 <script>
   try {
-    if (localStorage.getItem('puk_storage_consent')) {
+    if (localStorage.getItem('puk_storage_consent') === 'true') {
       const modulePath = window.location.pathname.match(/^\/modul\/\d+\/?$/);
       if (modulePath) {
         const key = 'puk_visited_modules';
