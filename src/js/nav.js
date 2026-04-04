@@ -16,7 +16,11 @@ if (navToggle && navLinks) {
     navLinks.classList.remove('nav-open');
     navToggle.setAttribute('aria-expanded', 'false');
     navToggle.setAttribute('aria-label', 'Menü öffnen');
-    navLinks.setAttribute('aria-hidden', 'true');
+    if (window.innerWidth <= 900) {
+      navLinks.setAttribute('aria-hidden', 'true');
+    } else {
+      navLinks.removeAttribute('aria-hidden');
+    }
     if (restoreFocus && wasOpen && lastFocusedBeforeOpen && typeof lastFocusedBeforeOpen.focus === 'function') {
       lastFocusedBeforeOpen.focus();
     }
@@ -30,7 +34,9 @@ if (navToggle && navLinks) {
     const [, firstLink] = getOpenNavFocusables();
     if (firstLink) firstLink.focus();
   };
-  navLinks.setAttribute('aria-hidden', 'true');
+  if (window.innerWidth <= 900) {
+    navLinks.setAttribute('aria-hidden', 'true');
+  }
   navToggle.addEventListener('click', () => {
     const isOpen = navLinks.classList.contains('nav-open');
     if (isOpen) closeNav({ restoreFocus: true });

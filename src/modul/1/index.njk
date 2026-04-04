@@ -250,20 +250,20 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   <p class="reveal">Die Phasenlehre ist nur dann hilfreich, wenn sie in den Alltag übersetzt wird. Entscheidend ist nicht nur, wie eine Episode diagnostisch heisst, sondern wie sie sich für Sie zu Hause anfühlt: unberechenbar, laut, leer, beschämend, angsteinflössend oder seltsam schwer greifbar.</p>
 
   <div class="phase-explorer reveal content-wide">
-    <div class="phase-tabs">
-      <button class="phase-tab active-mania" data-phase="mania">
+    <div class="phase-tabs" role="tablist" aria-label="Erkrankungsphasen">
+      <button class="phase-tab active-mania" role="tab" aria-selected="true" aria-controls="phase-mania" data-phase="mania">
         <span class="phase-tab-icon">↑</span> Manie / Hypomanie
       </button>
-      <button class="phase-tab" data-phase="stable">
+      <button class="phase-tab" role="tab" aria-selected="false" aria-controls="phase-stable" data-phase="stable">
         <span class="phase-tab-icon">→</span> Stabile Phase
       </button>
-      <button class="phase-tab" data-phase="depression">
+      <button class="phase-tab" role="tab" aria-selected="false" aria-controls="phase-depression" data-phase="depression">
         <span class="phase-tab-icon">↓</span> Depression
       </button>
     </div>
 
     <!-- Mania -->
-    <div class="phase-content visible" id="phase-mania">
+    <div class="phase-content visible" id="phase-mania" role="tabpanel">
       <div class="phase-header" style="color: var(--amber-phase);">Manie / Hypomanie</div>
       <div class="phase-subtitle">Nicht nur «zu gute Laune», sondern oft Gereiztheit, Enthemmung und fehlende Einsicht</div>
 
@@ -292,7 +292,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     </div>
 
     <!-- Stable -->
-    <div class="phase-content" id="phase-stable">
+    <div class="phase-content" id="phase-stable" role="tabpanel">
       <div class="phase-header" style="color: var(--green-phase);">Stabile Phase (Euthymie)</div>
       <div class="phase-subtitle">Wichtige Zeitfenster — aber nicht immer echte innere Entwarnung</div>
 
@@ -316,7 +316,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     </div>
 
     <!-- Depression -->
-    <div class="phase-content" id="phase-depression">
+    <div class="phase-content" id="phase-depression" role="tabpanel">
       <div class="phase-header" style="color: var(--blue-phase);">Depression</div>
       <div class="phase-subtitle">Nicht nur Traurigkeit, sondern Leere, Verlangsamung und oft lange Hilflosigkeit auf beiden Seiten</div>
 
@@ -734,9 +734,11 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     document.querySelectorAll('.phase-content').forEach(el => el.classList.remove('visible'));
     document.querySelectorAll('.phase-tab').forEach(el => {
       el.className = 'phase-tab';
+      el.setAttribute('aria-selected', 'false');
     });
     document.getElementById('phase-' + phase).classList.add('visible');
     const tab = document.querySelector(`[data-phase="${phase}"]`);
+    tab.setAttribute('aria-selected', 'true');
     if (phase === 'mania') tab.classList.add('active-mania');
     if (phase === 'stable') tab.classList.add('active-stable');
     if (phase === 'depression') tab.classList.add('active-depression');
@@ -787,11 +789,10 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   const pdfPreviewClose = document.getElementById('pdf-preview-close');
   const pdfPreviewDialog = pdfPreview.querySelector('.pdf-preview-dialog');
   const FOCUSABLE_SELECTOR = 'a[href],button:not([disabled]),textarea:not([disabled]),input:not([disabled]),select:not([disabled]),[tabindex]:not([tabindex="-1"])';
-  const pageSiblings = [...document.body.children].filter((el) => el !== pdfPreview);
   let pdfPreviewTrigger = null;
 
   const setPageInert = (isInert) => {
-    pageSiblings.forEach((el) => {
+    [...document.body.children].filter((el) => el !== pdfPreview).forEach((el) => {
       el.inert = isInert;
     });
   };
