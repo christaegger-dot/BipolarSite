@@ -1879,3 +1879,35 @@ header.hero .hero-content {
 .handout-chip {
   background: linear-gradient(180deg, #fff 0%, #fcf8f4 100%) !important;
 }
+
+/* ── M1 Behandlungs-Akkordeon ── */
+.treatment-details {
+  border: 1px solid var(--line-color, rgba(28,43,58,0.12));
+  border-radius: var(--radius-md, 12px);
+  padding: 0;
+  margin: 1.5rem 0;
+}
+.treatment-details summary {
+  cursor: pointer;
+  padding: 1rem 1.25rem;
+  font-weight: 600;
+  color: var(--navy);
+  font-size: 0.95rem;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.treatment-details summary::before {
+  content: '\25B6';
+  font-size: 0.65rem;
+  color: var(--teal);
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+.treatment-details[open] summary::before {
+  transform: rotate(90deg);
+}
+.treatment-details > :not(summary) {
+  padding: 0 1.25rem 1.25rem;
+}
