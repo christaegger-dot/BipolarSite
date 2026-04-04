@@ -5,38 +5,13 @@ description: "Nachkrise, Selbstfürsorge, Trialog und langfristige Tragfähigkei
 permalink: "/modul/7/"
 useSharedCSS: true
 useNavJS: true
+useModuleCSS: true
+moduleAccent: "7"
 footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
 ---
 {% block headCSS %}
 <style>
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  .module-hero{padding:120px 2rem 60px;position:relative;overflow:hidden}.module-hero::before{content:'';position:absolute;top:-30%;right:-15%;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,var(--sage-100) 0%,transparent 70%);opacity:0.6}.module-hero-inner{max-width:var(--content-width);margin:0 auto;position:relative;z-index:2}
-  .breadcrumb{font-size:0.8rem;color:var(--text-muted);margin-bottom:20px;display:flex;align-items:center;gap:8px}.breadcrumb a{color:var(--sage-500);text-decoration:none}
-  .hero-icon{width:40px;height:40px;color:var(--sage-400);opacity:0.7;margin-bottom:12px;display:block}.module-badge{display:inline-flex;background:var(--sage-100);color:var(--sage-700);padding:6px 16px;border-radius:100px;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px}
-  .module-hero h1{font-family:'Source Serif 4',serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:700;line-height:1.2;letter-spacing:-0.03em;color:var(--earth-900);margin-bottom:16px}
-  .module-meta{display:flex;align-items:center;gap:20px;font-size:0.85rem;color:var(--text-muted);margin-bottom:28px}
-
-  .toc{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:28px 32px;margin-bottom:48px;box-shadow:var(--shadow-soft)}.toc-title{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--sage-500);margin-bottom:14px}
-  .toc ol{list-style:none;counter-reset:toc-counter;display:grid;grid-template-columns:1fr 1fr;gap:4px 20px}.toc li{counter-increment:toc-counter}.toc li a{text-decoration:none;color:var(--text-secondary);font-size:0.88rem;display:block;padding:8px 0 8px 28px;position:relative;transition:color 0.2s}.toc li a::before{content:counter(toc-counter);font-size:0.7rem;font-weight:700;color:var(--sage-400);position:absolute;left:0;top:10px}.toc li a:hover{color:var(--sage-600)}.toc-desc{display:block;font-size:0.72rem;color:var(--text-muted);line-height:1.35;margin-top:2px;font-weight:400}.toc li a.active{color:var(--sage-700);font-weight:700}.toc li a.active::after{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--sage-400);margin-left:8px;vertical-align:middle}
-
-  .content{max-width:var(--content-width);margin:0 auto;padding:0 2rem}
-  .content h2{scroll-margin-top:84px;font-family:'Source Serif 4',serif;font-size:1.65rem;font-weight:700;line-height:1.25;letter-spacing:-0.02em;color:var(--earth-900);margin:64px 0 20px;padding-top:20px;border-top:1px solid rgba(45,40,35,0.06)}.content h2:first-of-type{border-top:none;margin-top:0}
-  .content h3{font-family:'Source Serif 4',serif;font-size:1.15rem;font-weight:600;line-height:1.35;color:var(--earth-800);margin:32px 0 14px}
-  .content p{font-size:1rem;color:var(--text-secondary);margin-bottom:18px;line-height:1.75}.content strong{color:var(--text);font-weight:600}
-
-  .quote-block{background:var(--warm-100);border-radius:var(--radius-lg);padding:32px 36px;margin:36px 0;position:relative}.quote-block::before{content:'«';font-family:'Source Serif 4',serif;font-size:4rem;color:var(--warm-400);position:absolute;top:12px;left:20px;line-height:1;opacity:0.5}
-  .quote-block blockquote{font-family:'Source Serif 4',serif;font-size:1.05rem;font-style:italic;color:var(--earth-700);line-height:1.65;padding-left:12px}
-  .quote-block cite{display:block;margin-top:14px;font-style:normal;font-family:'DM Sans',sans-serif;font-size:0.82rem;color:var(--text-muted);padding-left:12px}
+  /* Module-specific styles only — shared styles in module.css */
 
   /* SELFCARE GRID */
   .selfcare-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:28px 0}
@@ -95,45 +70,8 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   .ptg-card .ptg-icon{font-size:1.3rem;margin-bottom:6px}
   .ptg-card p{font-size:0.84rem;color:var(--sage-700);line-height:1.5;margin:0}
 
-  .action-grid{display:grid;grid-template-columns:1fr;gap:14px;margin:28px 0}
-  .action-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:24px;display:flex;gap:20px;align-items:flex-start;transition:border-color 0.2s ease,box-shadow 0.2s ease}.action-card:hover{box-shadow:var(--shadow-soft)}
-  .action-icon{width:42px;height:42px;border-radius:11px;background:var(--sage-100);color:var(--sage-600);display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:800;flex-shrink:0}
-  .action-card h4{font-weight:700;font-size:0.92rem;margin-bottom:6px;color:var(--text)}.action-card p{font-size:0.85rem;color:var(--text-muted);line-height:1.6;margin:0}
   .resource-box{background:var(--sage-50,#f7f9f6);border:1px solid var(--teal-border,rgba(30,101,109,0.18));border-radius:var(--radius-lg);padding:28px 28px 24px;margin:28px 0}
 
-  .reflection{background:linear-gradient(135deg,var(--warm-100),var(--sage-50));border-radius:var(--radius-xl);padding:36px;margin:48px 0;position:relative;overflow:hidden}.reflection::before{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;border-radius:50%;background:rgba(141,156,115,0.1)}
-  .reflection-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--sage-500);margin-bottom:12px}
-  .reflection h3{font-family:'Source Serif 4',serif;font-size:1.15rem;font-weight:600;color:var(--earth-800);margin-bottom:14px;line-height:1.35}
-  .reflection p{font-size:0.92rem;color:var(--text-secondary);line-height:1.7;position:relative;z-index:1;margin:0}
-
-  .takeaways{background:var(--sage-700);color:white;border-radius:var(--radius-xl);padding:40px;margin:48px 0;position:relative;overflow:hidden}.takeaways::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 80%,rgba(141,156,115,0.25) 0%,transparent 60%)}
-  .takeaways-inner{position:relative;z-index:2}.takeaways h3{color:white;font-family:'Source Serif 4',serif;font-size:1.3rem;font-weight:600;margin-bottom:24px}
-  .takeaway-item{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-top:1px solid rgba(255,255,255,0.1)}.takeaway-item:first-of-type{border-top:none}
-  .takeaway-check{width:24px;height:24px;border-radius:6px;flex-shrink:0;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-size:0.7rem;margin-top:2px}
-  .takeaway-item p{font-size:0.92rem;line-height:1.65;color:rgba(255,255,255,0.88);margin:0}.takeaway-item strong{color:white}
-
-  .sources{background:var(--sage-50);border-radius:var(--radius-lg);padding:28px 32px;margin:48px 0}.sources-title{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--sage-500);margin-bottom:14px}.sources ul{list-style:none;max-height:0;overflow:hidden;transition:max-height 0.5s ease}.sources.sources-open ul{max-height:2000px}.sources-title::after{content:" ▾";font-size:0.7rem;opacity:0.5}.sources.sources-open .sources-title::after{content:" ▴"}.sources li{font-size:0.82rem;color:var(--text-muted);padding:6px 0 6px 16px;position:relative;line-height:1.6}.sources li::before{content:'·';position:absolute;left:0;font-weight:700;color:var(--sage-300)}
-
-  .handouts{margin:48px 0}.handouts-title{font-family:'Source Serif 4',serif;font-size:1.2rem;font-weight:600;color:var(--earth-800);margin-bottom:20px}
-  .handouts-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  .handout-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-md);padding:20px;text-decoration:none;color:var(--text);display:flex;align-items:center;gap:16px;transition:border-color 0.2s ease,box-shadow 0.2s ease}.handout-card:hover{box-shadow:var(--shadow-soft);border-color:var(--sage-200)}
-  .handout-icon{width:44px;height:44px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700}.handout-icon.green{background:var(--sage-100);color:var(--sage-600)}
-  .handout-card-title{font-weight:600;font-size:0.88rem;margin-bottom:2px}.handout-card-sub{font-size:0.75rem;color:var(--text-muted)}
-
-  .next-module{margin:64px 0 0;border-top:1px solid rgba(45,40,35,0.06);padding-top:48px}
-  .next-module-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-xl);padding:36px;text-decoration:none;color:var(--text);display:flex;align-items:center;justify-content:space-between;gap:32px;transition:border-color 0.2s ease,box-shadow 0.2s ease}.next-module-card:hover{box-shadow:0 8px 40px rgba(45,40,35,0.12);transform:translateY(-3px);border-color:var(--sage-200)}
-  .next-module-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--sage-500);margin-bottom:8px}.next-module-title{font-family:'Source Serif 4',serif;font-size:1.3rem;font-weight:600;color:var(--earth-800);margin-bottom:8px}.next-module-desc{font-size:0.88rem;color:var(--text-muted);line-height:1.55}
-  .next-module-arrow{width:56px;height:56px;border-radius:50%;flex-shrink:0;background:var(--sage-100);color:var(--sage-600);display:flex;align-items:center;justify-content:center;font-size:1.3rem;transition:border-color 0.2s ease,box-shadow 0.2s ease}.next-module-card:hover .next-module-arrow{background:var(--sage-500);color:white}
-
-  
-
-  .reveal{opacity:1}
-
-  @media(max-width:768px){.toc ol{grid-template-columns:1fr}.selfcare-grid{grid-template-columns:1fr}.wish-cards{grid-template-columns:1fr}.trialog-visual{grid-template-columns:1fr}.ptg-grid{grid-template-columns:1fr}.coping-grid{grid-template-columns:1fr}.handouts-grid{grid-template-columns:1fr}}
-  
-  @media(max-width:600px){.module-hero{padding:100px 1.2rem 40px}.content{padding:0 1.2rem}.next-module-card{flex-direction:column;text-align:center}.takeaways{padding:28px 24px}}
-  .sources-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;cursor:pointer;padding:0;font:inherit;color:inherit;text-align:left}
-  .tool-cta{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:22px;padding:24px 28px;margin:32px 0;display:flex;gap:20px;align-items:center;box-shadow:0 2px 16px rgba(45,40,35,0.06);transition:border-color 0.2s ease,box-shadow 0.2s ease;text-decoration:none;color:inherit}.tool-cta:hover{box-shadow:0 4px 20px rgba(45,40,35,0.1)}.tool-cta-icon{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}.tool-cta-body h4{font-size:0.95rem;font-weight:700;color:var(--text);margin:0 0 4px}.tool-cta-body p{font-size:0.82rem;color:var(--text-muted);margin:0 0 8px;line-height:1.45}.tool-cta-btn{display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;font-weight:700;color:var(--sage-500);transition:color 0.2s}.tool-cta:hover .tool-cta-btn{color:var(--sage-700)}
   .example-block{background:#FAFAF7;border-radius:14px;padding:20px 24px;margin:20px 0}
   .example-label{font-size:0.68rem;font-weight:700;color:#1E656D;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:14px}
   .example-items{display:flex;flex-direction:column;gap:10px}
@@ -180,6 +118,8 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   .coping-nav-need{font-size:0.8rem;font-style:italic;color:var(--text-muted);line-height:1.4}
   .coping-nav-arrow{font-size:0.72rem;color:var(--text-muted);margin-top:2px}
   .coping-nav-label{font-size:0.9rem;font-weight:700;color:var(--earth-800)}
+
+  @media(max-width:768px){.selfcare-grid{grid-template-columns:1fr}.wish-cards{grid-template-columns:1fr}.trialog-visual{grid-template-columns:1fr}.ptg-grid{grid-template-columns:1fr}.coping-grid{grid-template-columns:1fr}}
   @media(max-width:600px){.coping-nav{grid-template-columns:1fr}}
 </style>
 {% endblock %}
@@ -212,6 +152,16 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
       <li><a href="#wachstum">Was Wachstum heissen kann — und was nicht<span class="toc-desc">Ohne Pflicht zur positiven Bilanz</span></a></li>
       <li><a href="#handeln">Was Sie jetzt für die lange Strecke tun können<span class="toc-desc">Vier kleine, wiederholbare Schritte</span></a></li>
     </ol>
+  </div>
+
+  <div class="tldr-card">
+    <ul>
+      <li>Nach der Krise kommt eine eigene Phase: Erschöpfung, Wut und Erleichterung sind gleichzeitig normal.</li>
+      <li>Selbstfürsorge ist kein Luxus — sie schützt vor Auszehrung und erhält Ihre Handlungsfähigkeit.</li>
+      <li>Tragfähigkeit entsteht durch Routinen, nicht durch Perfektion oder Krisenfreiheit.</li>
+      <li>Trialog (Betroffene, Angehörige, Fachpersonen) macht Ihre Perspektive im System sichtbar.</li>
+      <li>Wachstum nach Krisen ist möglich, aber keine Pflicht — auch Durchhalten zählt.</li>
+    </ul>
   </div>
 </div></header>
 
@@ -305,7 +255,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   <p class="reveal">Selbstfürsorge klingt schnell nach Kür. In Angehörigenrealitäten ist sie oft eher Schadensbegrenzung. Wenn Sie dauerhaft zu viel tragen, zu wenig schlafen, sich sozial zurückziehen und nur noch reagieren, ist sie nicht Optimierung, sondern Schutz vor weiterer Auszehrung.</p>
   <p class="reveal"><strong>Ihre Gesundheit hat einen Eigenwert.</strong> Nicht erst, wenn Sie zusammenbrechen. Und nicht nur, damit Sie weiter funktionieren können.</p>
 
-  <div class="selfcare-grid reveal">
+  <div class="selfcare-grid reveal content-wide">
     <div class="selfcare-card body">
       <h4>Körper</h4>
       <ul>
@@ -340,7 +290,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   <p class="reveal">Was helfen kann: Mit einer einzigen Vertrauensperson beginnen, nicht mit dem ganzen Netz. Erklären, was in der eigenen Sprache stimmig ist — ohne Vollständigkeit. Angehörigengruppen (VASK Zürich, Selbsthilfe Zürich) bieten den Vorteil, dass kein Erklärungsbedarf besteht. <strong>Das Ziel ist nicht das alte Netz zurück, sondern ein neues, das zu Ihrer jetzigen Situation passt.</strong></p>
 
   <h3 class="reveal">Bewältigungsstrategien — drei Ansätze</h3>
-  <div class="coping-nav reveal">
+  <div class="coping-nav reveal content-wide">
     <div class="coping-nav-item coping-nav-item--problem">
       <span class="coping-nav-need">«Ich muss etwas tun — die Lage ist konkret»</span>
       <span class="coping-nav-arrow">→</span>
@@ -357,7 +307,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
       <span class="coping-nav-label">Bedeutungsfokussiert</span>
     </div>
   </div>
-  <div class="coping-grid reveal">
+  <div class="coping-grid reveal content-wide">
     <div class="coping-card">
       <h4>Problemfokussiert</h4>
       <ul>
@@ -397,7 +347,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   <p class="reveal">Langfristige Tragfähigkeit entsteht selten aus grossen Durchbrüchen. Gemeint ist: Der Alltag wird Schritt für Schritt etwas stabiler und haltbarer. Meist entsteht das aus wiederholbaren Strukturen: aus Absprachen, Entlastung, guten Momenten ohne Krankheitsthema, geteiltem Wissen und dem Mut, Belastung nicht nur allein zu tragen.</p>
   <p class="reveal">Die folgenden fünf Säulen sind kein Idealzustand. Sie sind eher eine praktische Orientierung: Was hilft Beziehungen und Angehörigen, über Zeit nicht nur zu überleben, sondern etwas tragfähiger zu werden?</p>
 
-  <div class="saeulen-pentagon reveal">
+  <div class="saeulen-pentagon reveal content-wide">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 272" style="width:100%;max-width:300px" aria-label="Fünf-Säulen-Diagramm: fünf verbundene Bereiche für langfristige Stabilität" role="img">
       <!-- spokes (center to each vertex) -->
       <line x1="170" y1="153" x2="170" y2="43" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="5,3"/>
@@ -436,7 +386,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
     </div>
   </div>
 
-  <div class="pillar-cards reveal">
+  <div class="pillar-cards reveal content-wide">
     <div class="pillar-card"><div class="pillar-num">1</div><div><h4>Gemeinsames Krankheitsverständnis</h4><p>Beide Partner verstehen die Erkrankung — als gemeinsame Grundlage, nicht als Schuldzuweisung.</p></div></div>
     <div class="pillar-card"><div class="pillar-num">2</div><div><h4>Krankheitsfreie Inseln + Wertschätzung</h4><p>Bewusste Momente, die nicht von der Erkrankung bestimmt sind. Zeigen Sie Wertschätzung für das, was gelingt. <span style="font-size:0.82em;color:var(--text-muted)">(Konzept aus <a href="/modul/3/" style="color:var(--teal)">Modul 3</a> — hier als dauerhafte Struktur.)</span></p></div></div>
     <div class="pillar-card"><div class="pillar-num">3</div><div><h4>Grenzen + faire Lastverteilung</h4><p>Klare Absprachen, wer was trägt. Grenzen schützen die Beziehung — sie gefährden sie nicht.</p></div></div>
@@ -462,7 +412,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   <h3 id="wuensche" class="reveal">Was erkrankte Partner sich häufig wünschen</h3>
   <p class="reveal">Ein kurzer Blick auf die andere Seite kann helfen, Missverständnisse zu entschärfen. Nicht, um Ihre Belastung kleiner zu machen, sondern um zu sehen, welche Formen von Unterstützung oft eher tragen als Kontrolle oder Schonhaltung.</p>
 
-  <div class="wish-cards reveal">
+  <div class="wish-cards reveal content-wide">
     <div class="wish-card"><h4>Nicht als Erkrankung behandelt werden</h4><p>«Ich bin mehr als meine Diagnose. Ich bin immer noch ich.»</p></div>
     <div class="wish-card"><h4>Frühzeichen bemerkt, nicht kontrolliert</h4><p>«Sag mir, was du siehst — aber entscheide nicht für mich.»</p></div>
     <div class="wish-card"><h4>Ehrlichkeit statt Schonhaltung</h4><p>«Ich spüre, wenn du mir etwas verheimlichst. Das macht mir mehr Angst als die Wahrheit.»</p></div>
@@ -475,7 +425,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   <h2 id="trialog" class="reveal">Trialog und Zusammenarbeit</h2>
   <p class="reveal">Langfristig tragfähiger wird Versorgung oft dann, wenn nicht nur zwischen Betroffenen und Fachpersonen gesprochen wird. Angehörige tragen Alltagswissen, Warnzeichen, Belastungswissen und eigene Bedürfnisse mit hinein. Das macht Zusammenarbeit nicht automatisch leicht, aber oft realistischer.</p>
 
-  <div class="trialog-visual reveal">
+  <div class="trialog-visual reveal content-wide">
     <div class="trialog-card"><div class="trialog-icon">🏥</div><h4>Fachpersonen</h4><p>Fachwissen, Diagnostik, Behandlung</p></div>
     <div class="trialog-card"><div class="trialog-icon">🤝</div><h4>Angehörige</h4><p>Alltagswissen, Beobachtungen, eigene Bedürfnisse</p></div>
     <div class="trialog-card"><div class="trialog-icon">💚</div><h4>Betroffene</h4><p>Erfahrungswissen, Präferenzen, Selbstbestimmung</p></div>
@@ -500,7 +450,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   <p class="reveal"><em>Dieser Abschnitt ist für Momente mit etwas Abstand, nicht für akute Erschöpfung.</em></p>
   <p class="reveal">Wenn nach langen Belastungen von Wachstum gesprochen wird, klingt das schnell so, als müsse am Ende etwas Gutes herauskommen. Das ist nicht gemeint. Posttraumatisches Wachstum beschreibt nur, dass manche Menschen mit der Zeit neue Sprache, klarere Grenzen oder veränderte Prioritäten entwickeln. Das Leiden wird dadurch nicht sinnvoller. Und Wachstum ist keine Pflicht.</p>
 
-  <div class="ptg-grid reveal">
+  <div class="ptg-grid reveal content-wide">
     <div class="ptg-card"><div class="ptg-icon">🫀</div><p>Erhöhte Empathie und tieferes Verständnis für Leiden anderer</p></div>
     <div class="ptg-card"><div class="ptg-icon">🌱</div><p>Persönliche Reife — Geduld, Toleranz, Bewusstsein für das Wesentliche</p></div>
     <div class="ptg-card"><div class="ptg-icon">💪</div><p>Entdeckung eigener Ressourcen, die man vorher nicht kannte</p></div>
@@ -519,7 +469,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   <!-- ══════════ 7. HANDLUNGSSCHRITTE ══════════ -->
   <h2 id="handeln" class="reveal">Was Sie jetzt für die lange Strecke tun können</h2>
 
-  <div class="action-grid reveal">
+  <div class="action-grid reveal content-wide">
     <div class="action-card"><div class="action-icon">1</div><div><h4>Eine Nachkrise-Bilanz machen</h4><p>Nach einer schwierigeren Phase kurz festhalten: Was hat geholfen? Was hat gefehlt? Was müsste beim nächsten Mal früher oder anders passieren?</p></div></div>
     <div class="action-card"><div class="action-icon">2</div><div><h4>Einen nicht-verhandelbaren Selbstfürsorge-Termin setzen</h4><p>Etwas, das nur Ihnen gehört. Eintragen wie einen Arzttermin. Nicht als Belohnung nach Funktionieren, sondern als fester Teil Ihrer Stabilität.</p></div></div>
     <div class="action-card"><div class="action-icon">3</div><div><h4>Zusammenarbeit aktiv einfordern</h4><p>Bitten Sie um Angehörigengespräche oder wenigstens darum, dass Ihre Beobachtungen gehört und dokumentiert werden. Zusammenarbeit wird selten von allein klar.</p></div></div>

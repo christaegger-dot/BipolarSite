@@ -24,12 +24,45 @@
 <meta name="twitter:image" content="{{ site.url }}/og-image.png">
 {% endif %}
 {% if noIndex or site.noIndexDeploy %}<meta name="robots" content="noindex">{% endif %}
+<link rel="preload" as="font" href="/fonts/dm-sans-variable.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="/fonts/dm-serif-display-400.woff2" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts/fonts.css">
 {% if useSharedCSS %}<link rel="stylesheet" href="/css/shared.css">{% endif %}
+{% if useModuleCSS %}<link rel="stylesheet" href="/css/module.css">{% endif %}
+{% if useToolCSS %}<link rel="stylesheet" href="/css/tools.css">{% endif %}
 {% block headCSS %}{% endblock %}
 <link rel="stylesheet" href="/css/tarif-kompass-theme.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Psychiatrische Universitätsklinik Zürich",
+      "alternateName": "PUK Zürich",
+      "url": "{{ site.url }}"
+    },
+    {
+      "@type": "WebSite",
+      "name": "Bipolare Störung — Psychoedukation für Angehörige",
+      "url": "{{ site.url }}",
+      "publisher": { "@type": "Organization", "name": "PUK Zürich" },
+      "inLanguage": "de"
+    }{% if useModuleCSS %},
+    {
+      "@type": "MedicalWebPage",
+      "name": "{{ title }}",
+      "description": "{{ description }}",
+      "url": "{{ site.url }}{{ page.url }}",
+      "inLanguage": "de",
+      "medicalAudience": { "@type": "MedicalAudience", "audienceType": "Caregiver" },
+      "publisher": { "@type": "Organization", "name": "PUK Zürich" }
+    }{% endif %}
+  ]
+}
+</script>
 </head>
-<body>
+<body{% if moduleAccent %} data-module-accent="{{ moduleAccent }}"{% endif %}>
 <a href="#main-content" class="skip-link">Direkt zum Inhalt</a>
 {% block nav %}{% endblock %}
 {% block content %}{{ content | safe }}{% endblock %}
@@ -37,17 +70,19 @@
 {% if useNavJS %}<script src="/js/nav.js"></script>{% endif %}
 <script>
   try {
-    const modulePath = window.location.pathname.match(/^\/modul\/\d+\/?$/);
-    if (modulePath) {
-      const key = 'puk_visited_modules';
-      const normalized = modulePath[0].endsWith('/') ? modulePath[0] : `${modulePath[0]}/`;
-      const visited = JSON.parse(localStorage.getItem(key) || '[]');
-      if (Array.isArray(visited) && !visited.includes(normalized)) {
-        visited.push(normalized);
-        localStorage.setItem(key, JSON.stringify(visited));
+    if (localStorage.getItem('puk_storage_consent')) {
+      const modulePath = window.location.pathname.match(/^\/modul\/\d+\/?$/);
+      if (modulePath) {
+        const key = 'puk_visited_modules';
+        const normalized = modulePath[0].endsWith('/') ? modulePath[0] : `${modulePath[0]}/`;
+        const visited = JSON.parse(localStorage.getItem(key) || '[]');
+        if (Array.isArray(visited) && !visited.includes(normalized)) {
+          visited.push(normalized);
+          localStorage.setItem(key, JSON.stringify(visited));
+        }
       }
     }
-  } catch (error) {}
+  } catch (error) { console.warn('Storage unavailable:', error.message); }
 
   document.querySelectorAll('[data-sources-toggle]').forEach((button, index) => {
     const section = button.closest('.sources');
@@ -69,7 +104,66 @@
       list.hidden = !nextOpen;
     });
   });
+
+  // Mobile TOC accordion
+  if (window.innerWidth <= 768) {
+    document.querySelectorAll('.toc').forEach(toc => {
+      const ol = toc.querySelector('ol');
+      if (!ol) return;
+      ol.hidden = true;
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'toc-mobile-toggle';
+      btn.setAttribute('aria-expanded', 'false');
+      btn.textContent = 'Inhaltsverzeichnis anzeigen ▾';
+      toc.querySelector('.toc-title').after(btn);
+      btn.addEventListener('click', () => {
+        const open = ol.hidden;
+        ol.hidden = !open;
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.textContent = open ? 'Inhaltsverzeichnis ausblenden ▴' : 'Inhaltsverzeichnis anzeigen ▾';
+      });
+    });
+  }
+
+  // Expandable sections
+  document.querySelectorAll('.expandable-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const more = btn.previousElementSibling;
+      if (!more || !more.classList.contains('expandable-more')) return;
+      const open = more.hidden;
+      more.hidden = !open;
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.textContent = open ? 'Weniger anzeigen ▴' : 'Weiterlesen ▾';
+    });
+  });
 </script>
 {% block scripts %}{% endblock %}
+<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js').catch(function(){})}</script>
+<div id="storageBanner" class="storage-banner" hidden role="status">
+  <span>Diese Seite speichert Ihren Fortschritt lokal auf diesem Gerät. Es werden keine Daten an Server gesendet.</span>
+  <div class="storage-banner-btns">
+    <button type="button" id="storageAccept" class="storage-btn-accept">Akzeptieren</button>
+    <button type="button" id="storageDecline" class="storage-btn-decline">Ablehnen</button>
+  </div>
+</div>
+<script>
+(function(){
+  try {
+    var consent = localStorage.getItem('puk_storage_consent');
+    if (consent === 'true' || consent === 'false') return;
+    var b = document.getElementById('storageBanner');
+    if (b) b.hidden = false;
+    document.getElementById('storageAccept').addEventListener('click', function(){
+      try { localStorage.setItem('puk_storage_consent', 'true'); } catch(e){}
+      b.hidden = true;
+    });
+    document.getElementById('storageDecline').addEventListener('click', function(){
+      try { localStorage.setItem('puk_storage_consent', 'false'); } catch(e){}
+      b.hidden = true;
+    });
+  } catch(e){}
+})();
+</script>
 </body>
 </html>

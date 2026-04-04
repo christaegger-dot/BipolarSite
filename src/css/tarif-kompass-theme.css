@@ -75,8 +75,9 @@
   --space-3xl: 52px;
 
   /* ── Content Widths ── */
-  --content-width: 900px;
-  --wide-width:    1140px;
+  --content-width:      720px;
+  --content-width-wide: 900px;
+  --wide-width:         1140px;
 
   /* ─────────────────────────────────────────────
      Legacy token remapping (BipolarSite inline
@@ -143,6 +144,26 @@
   --teal-dark:     #1a5960;
   --amber-border:  #e8c68a;
   --teal-border:   #a7d9d5;
+
+  /* ── Warm Border Scale (replaces hardcoded rgba(45,40,35,...)) ── */
+  --border-warm:    rgba(45,40,35,0.06);
+  --border-warm-md: rgba(45,40,35,0.08);
+  --border-warm-lg: rgba(45,40,35,0.1);
+  --border-warm-xl: rgba(45,40,35,0.12);
+
+  /* ── Z-Index Scale ── */
+  --z-base:      1;
+  --z-tool-nav:  50;
+  --z-progress:  99;
+  --z-nav:       100;
+  --z-confirm:   200;
+  --z-overlay:   1000;
+  --z-skip:      1200;
+  --z-noise:     9999;
+
+  /* ── Transition Tokens ── */
+  --transition-fast:   0.2s ease;
+  --transition-normal: 0.3s ease;
 }
 
 /* ── Skip Link ── */
@@ -261,9 +282,9 @@ select:focus {
    ║  DM Serif Display (headings) + DM Sans (body), 15px base        ║
    ╚═══════════════════════════════════════════════════════════════════╝ */
 
-/* ── Base font size (inline has 16px) ── */
+/* ── Base font size ── */
 html {
-  font-size: 15px;
+  font-size: 16px;
 }
 
 /* Catch-all: remap any remaining Source Serif 4 references to DM Serif Display.

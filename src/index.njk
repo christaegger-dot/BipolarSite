@@ -13,7 +13,7 @@ useNavJS: true
 <style>
   /* ══════════ HERO ══════════ */
   .home-hero {
-    min-height: 100vh;
+    min-height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -925,6 +925,44 @@ useNavJS: true
   .start-helper-result p{font-size:0.86rem;color:var(--text-secondary);margin:0 0 12px}
   .start-helper-link{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#fff;background:linear-gradient(135deg,var(--navy),var(--teal));padding:10px 16px;border-radius:999px;font-size:0.84rem;font-weight:700}
   @media (max-width: 768px) { .start-helper-options{grid-template-columns:1fr} }
+
+  /* ══════════ QUICK TRIAGE ══════════ */
+  .quick-triage{background:linear-gradient(135deg,var(--rose-soft),#fff8f6);border:1px solid rgba(154,52,18,0.12);border-radius:var(--radius-xl);padding:28px 32px;margin-bottom:24px}
+  .quick-triage-label{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--rose);margin-bottom:12px}
+  .quick-triage h3{font-family:'Source Serif 4',serif;font-size:1.15rem;font-weight:600;color:var(--navy);margin-bottom:8px}
+  .quick-triage p{font-size:0.88rem;color:var(--text-secondary);margin-bottom:16px;line-height:1.6}
+  .triage-question{margin-bottom:16px}
+  .triage-question[hidden]{display:none}
+  .triage-q-text{font-size:0.95rem;font-weight:600;color:var(--navy);margin-bottom:12px;line-height:1.45}
+  .triage-btns{display:flex;gap:10px}
+  .triage-btn{padding:10px 24px;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:600;cursor:pointer;transition:background 0.2s,color 0.2s;border:none}
+  .triage-btn--yes{background:var(--rose);color:#fff}
+  .triage-btn--yes:hover{background:#7f1d1d}
+  .triage-btn--no{background:rgba(45,40,35,0.06);color:var(--text-secondary)}
+  .triage-btn--no:hover{background:rgba(45,40,35,0.1)}
+  .triage-result{padding:16px 20px;border-radius:var(--radius-md);margin-top:12px}
+  .triage-result[hidden]{display:none}
+  .triage-result a{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:0.9rem;text-decoration:none;color:#fff;background:var(--rose);padding:10px 20px;border-radius:999px}
+  .triage-result--safe{background:var(--green-bg);border:1px solid rgba(13,122,95,0.15);padding:14px 20px;border-radius:var(--radius-md)}
+  .triage-result--safe p{font-size:0.88rem;color:var(--green-phase);margin:0}
+  .triage-result--safe a{background:none;padding:0;color:var(--teal);text-decoration:underline;font-size:inherit;border-radius:0;display:inline}
+
+  /* ══════════ TOOLS HIGHLIGHT ══════════ */
+  .tools-highlight{margin:48px auto;max-width:var(--content-width-wide);padding:0 2rem}
+  .tools-highlight-label{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--teal);margin-bottom:12px}
+  .tools-highlight h2{font-family:'Source Serif 4',serif;font-size:1.4rem;font-weight:600;color:var(--navy);margin-bottom:8px}
+  .tools-highlight > p{font-size:0.88rem;color:var(--text-secondary);margin-bottom:20px;max-width:48ch}
+  .tools-highlight-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .tool-highlight-card{background:linear-gradient(180deg,#f0fafa,#fff);border:1px solid rgba(30,101,109,0.12);border-radius:var(--radius-lg);padding:20px;text-decoration:none;color:var(--navy);transition:box-shadow 0.2s,transform 0.2s}
+  .tool-highlight-card:hover{box-shadow:var(--shadow-card);transform:translateY(-2px)}
+  .tool-highlight-icon{width:40px;height:40px;border-radius:10px;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;margin-bottom:12px;font-size:1rem}
+  .tool-highlight-card h3{font-size:0.88rem;font-weight:700;margin-bottom:4px}
+  .tool-highlight-card p{font-size:0.75rem;color:var(--text-secondary);line-height:1.45;margin:0}
+  .tool-highlight-all{text-align:center;margin-top:14px}
+  .tool-highlight-all a{font-size:0.82rem;font-weight:600;color:var(--teal);text-decoration:none}
+  .tool-highlight-all a:hover{text-decoration:underline}
+  @media(max-width:768px){.tools-highlight-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:480px){.tools-highlight-grid{grid-template-columns:1fr}}
 </style>
 {% endblock %}
 {% block nav %}
@@ -947,7 +985,10 @@ useNavJS: true
       </div>
       <div>
         <div class="home-hero-visual-card">
-          <img src="/visuals/home-editorial-hero-v3-web.png" srcset="/visuals/home-editorial-hero-v3-web.png 1280w, /visuals/home-editorial-hero-v3.png 1536w" sizes="(max-width: 900px) 100vw, 42vw" alt="Ruhige editoriale Illustration von drei erwachsenen Angehörigen in einem häuslichen Gesprächs- und Unterstützungsmoment." class="home-hero-visual" width="1536" height="1024" loading="eager" decoding="async" fetchpriority="high">
+          <picture>
+            <source type="image/webp" srcset="/visuals/home-editorial-hero-v3-web.webp 1280w, /visuals/home-editorial-hero-v3.webp 1536w" sizes="(max-width: 900px) 100vw, 42vw">
+            <img src="/visuals/home-editorial-hero-v3-web.png" srcset="/visuals/home-editorial-hero-v3-web.png 1280w, /visuals/home-editorial-hero-v3.png 1536w" sizes="(max-width: 900px) 100vw, 42vw" alt="Ruhige editoriale Illustration von drei erwachsenen Angehörigen in einem häuslichen Gesprächs- und Unterstützungsmoment." class="home-hero-visual" width="1536" height="1024" loading="eager" decoding="async" fetchpriority="high">
+          </picture>
         </div>
       </div>
     </div>
@@ -972,6 +1013,34 @@ useNavJS: true
   <div class="section-label reveal">Orientierung</div>
   <h2 class="section-title reveal">Wo stehen Sie gerade?</h2>
   <p class="section-desc reveal">Sie müssen nicht linear durch die Website gehen. Beginnen Sie mit der Frage, was <strong>jetzt</strong> am meisten drängt: Gefahr, Verstehen, eigene Erschöpfung oder konkrete Unterstützung. <strong>Ein Einstieg reicht.</strong></p>
+
+  <div class="quick-triage reveal" id="quickTriage">
+    <div class="quick-triage-label">Schnelleinordnung</div>
+    <h3>Was passiert gerade?</h3>
+    <p>Drei kurze Fragen helfen Ihnen, den richtigen Einstieg zu finden.</p>
+    <div class="triage-question" id="triageQ1">
+      <div class="triage-q-text">Besteht gerade Gefahr für Leib und Leben?</div>
+      <div class="triage-btns">
+        <button type="button" class="triage-btn triage-btn--yes" data-triage="q1-yes">Ja oder unklar</button>
+        <button type="button" class="triage-btn triage-btn--no" data-triage="q1-no">Nein</button>
+      </div>
+    </div>
+    <div class="triage-question" id="triageQ2" hidden>
+      <div class="triage-q-text">Sind Sie selbst gerade am Limit — erschöpft, überfordert, ausgebrannt?</div>
+      <div class="triage-btns">
+        <button type="button" class="triage-btn triage-btn--yes" data-triage="q2-yes">Ja</button>
+        <button type="button" class="triage-btn triage-btn--no" data-triage="q2-no">Nein</button>
+      </div>
+    </div>
+    <div class="triage-question" id="triageQ3" hidden>
+      <div class="triage-q-text">Brauchen Sie vor allem Grundlagenwissen über die Erkrankung?</div>
+      <div class="triage-btns">
+        <button type="button" class="triage-btn triage-btn--yes" data-triage="q3-yes">Ja</button>
+        <button type="button" class="triage-btn triage-btn--no" data-triage="q3-no">Nein, eher Werkzeuge und Orientierung</button>
+      </div>
+    </div>
+    <div class="triage-result" id="triageResult" hidden aria-live="polite"></div>
+  </div>
 
   <div class="orientation-shell">
     <div class="start-helper reveal" aria-labelledby="start-helper-title">
@@ -1198,23 +1267,34 @@ useNavJS: true
   </div>
 </section>
 
-<!-- ══════════ TOOLS ══════════ -->
-<section id="tools">
-  <div class="section-label reveal">Interaktiv</div>
-  <h2 class="section-title reveal">Werkzeuge für den Alltag</h2>
-  <p class="section-desc reveal">Diese interaktiven Tools helfen Ihnen, eigene Muster zu erkennen, Gespräche vorzubereiten und Krisen zu planen.</p>
-
-  <div class="tools-grid reveal">
-    <a href="/tools/selbsttest/" class="tool-chip"><span>Belastungs-Selbsttest</span></a>
-    <a href="/tools/phasenverlauf/" class="tool-chip"><span>Bipolarer Phasenverlauf</span></a>
-    <a href="/tools/eisberg/" class="tool-chip"><span>Eisberg-Modell</span></a>
-    <a href="/tools/krisenplan/" class="tool-chip"><span>Krisenplan-Werkzeug</span></a>
-    <a href="/tools/komm-trainer/" class="tool-chip"><span>Kommunikations-Trainer</span></a>
-    <a href="/tools/saeulen-check/" class="tool-chip"><span>Säulen-Check</span></a>
-    <a href="/tools/ee-kreislauf/" class="tool-chip"><span>EE-Kreislauf</span></a>
-    <a href="/tools/solidaritaets-chart/" class="tool-chip"><span>Belastungsverlauf über Episoden</span></a>
+<!-- ══════════ TOOLS HIGHLIGHT ══════════ -->
+<div class="tools-highlight reveal" id="tools">
+  <div class="tools-highlight-label">Interaktive Werkzeuge</div>
+  <h2>Direkt ausprobieren — ohne vorher zu lesen</h2>
+  <p>Diese Tools helfen Ihnen, Ihre Lage einzuordnen, Gespräche vorzubereiten und Krisen zu planen.</p>
+  <div class="tools-highlight-grid">
+    <a href="/tools/selbsttest/" class="tool-highlight-card">
+      <div class="tool-highlight-icon" aria-hidden="true">?</div>
+      <h3>Belastungs-Selbsttest</h3>
+      <p>Wo stehen Sie gerade? 5 Fragen zur Orientierung.</p>
+    </a>
+    <a href="/tools/krisenplan/" class="tool-highlight-card">
+      <div class="tool-highlight-icon" aria-hidden="true">&#9998;</div>
+      <h3>Krisenplan erstellen</h3>
+      <p>Gemeinsam in stabiler Phase ausfüllen.</p>
+    </a>
+    <a href="/tools/phasenverlauf/" class="tool-highlight-card">
+      <div class="tool-highlight-icon" aria-hidden="true">&#8767;</div>
+      <h3>Phasenverlauf</h3>
+      <p>Manie, Depression, Stabilität interaktiv erkunden.</p>
+    </a>
+    <a href="/werkzeuge/" class="tool-highlight-card">
+      <div class="tool-highlight-icon" aria-hidden="true">&rarr;</div>
+      <h3>Alle 8 Werkzeuge</h3>
+      <p>Eisberg, Kommunikation, Säulen-Check und mehr.</p>
+    </a>
   </div>
-</section>
+</div>
 
 <!-- ══════════ MODULES ══════════ -->
 <section id="module">
@@ -1454,6 +1534,40 @@ useNavJS: true
 
   // Initialise progress on load
   updateProgressUI();
+
+  // ══════════ Quick Triage ══════════
+  (function() {
+    var result = document.getElementById('triageResult');
+    if (!result) return;
+
+    var responses = {
+      'q1-yes': { html: '<a href="/notfall/">Zum Notfallweg &rarr;</a>', cls: '' },
+      'q2-yes': { html: '<a href="/modul/4/">Modul 4: Wenn die Kraft nachlässt &rarr;</a>', cls: '' },
+      'q3-yes': { html: '<a href="/modul/1/">Modul 1: Die bipolare Störung verstehen &rarr;</a>', cls: '' },
+      'q3-no':  { html: '<p>Nutzen Sie den Starthelfer unten oder stöbern Sie in den <a href="/werkzeuge/" style="color:var(--teal);font-weight:600">Werkzeugen</a>.</p>', cls: 'triage-result--safe' }
+    };
+
+    document.getElementById('quickTriage').addEventListener('click', function(e) {
+      var btn = e.target.closest('[data-triage]');
+      if (!btn) return;
+      var action = btn.dataset.triage;
+
+      if (action === 'q1-no') {
+        document.getElementById('triageQ1').hidden = true;
+        document.getElementById('triageQ2').hidden = false;
+      } else if (action === 'q2-no') {
+        document.getElementById('triageQ2').hidden = true;
+        document.getElementById('triageQ3').hidden = false;
+      } else if (responses[action]) {
+        var r = responses[action];
+        result.className = 'triage-result' + (r.cls ? ' ' + r.cls : '');
+        result.innerHTML = r.html;
+        result.hidden = false;
+        // hide all questions
+        document.querySelectorAll('.triage-question').forEach(function(q) { q.hidden = true; });
+      }
+    });
+  })();
 
 </script>
 {% endblock %}

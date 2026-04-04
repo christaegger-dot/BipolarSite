@@ -5,46 +5,32 @@ description: "Anlaufstellen, Downloads und Orientierung für Angehörige von Men
 permalink: "/modul/8/"
 useSharedCSS: true
 useNavJS: true
+useModuleCSS: true
+moduleAccent: "8"
 footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
 ---
 {% block headCSS %}
 <style>
-  
-  
-  
+  /* Module-specific styles only — shared styles in module.css */
 
-  
-  
-  
-  
-  
-  
-
-  .module-hero{padding:120px 2rem 60px;position:relative;overflow:hidden}.module-hero::before{content:'';position:absolute;top:-30%;right:-15%;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(221,210,191,0.7) 0%,transparent 70%);opacity:0.75}.module-hero-inner{max-width:1120px;margin:0 auto;position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,0.96fr) minmax(320px,0.84fr);gap:28px;align-items:start}
+  /* Module 8 hero overrides (grid hero with image) */
+  .module-hero::before{content:'';position:absolute;top:-30%;right:-15%;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(221,210,191,0.7) 0%,transparent 70%);opacity:0.75}
+  .module-hero-inner{max-width:1120px;margin:0 auto;position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,0.96fr) minmax(320px,0.84fr);gap:28px;align-items:start}
   .module-hero-copy{min-width:0}
   .module-hero-visual{background:linear-gradient(180deg,rgba(255,255,255,0.9),rgba(247,242,234,0.82));border:1px solid rgba(181,138,82,0.16);border-radius:26px;padding:18px;box-shadow:var(--shadow-card);backdrop-filter:blur(10px)}
   .module-hero-visual img{display:block;width:100%;height:auto;border-radius:18px}
-  .breadcrumb{font-size:0.8rem;color:var(--text-muted);margin-bottom:20px;display:flex;align-items:center;gap:8px}.breadcrumb a{color:var(--sage-500);text-decoration:none}
-  .hero-icon{width:40px;height:40px;color:var(--sand-deep);opacity:0.75;margin-bottom:12px;display:block}.module-badge{display:inline-flex;background:rgba(221,210,191,0.34);color:var(--sand-deep);padding:6px 16px;border-radius:100px;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px}
-  .module-hero h1{font-family:'Source Serif 4',serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:700;line-height:1.2;letter-spacing:-0.03em;color:var(--earth-900);margin-bottom:16px}
+  .hero-icon{width:40px;height:40px;color:var(--sand-deep);opacity:0.75;margin-bottom:12px;display:block}
+  .module-badge{display:inline-flex;background:rgba(221,210,191,0.34);color:var(--sand-deep);padding:6px 16px;border-radius:100px;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px}
   .module-meta{display:flex;align-items:center;gap:20px;font-size:0.85rem;color:var(--text-muted);margin-bottom:28px;flex-wrap:wrap}
   .module-hero-note{background:linear-gradient(180deg,var(--surface-warm) 0%, rgba(217,236,236,0.34) 100%);border:1px solid rgba(45,40,35,0.06);border-radius:18px;padding:18px 20px}
   .module-hero-note p{font-size:0.92rem;line-height:1.7;color:var(--text-secondary);margin:0}
   .module-hero-note p + p{margin-top:8px}
   .module-hero-note strong{color:var(--earth-900)}
 
-  .toc{grid-column:1 / -1;background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:28px 32px;margin-bottom:48px;box-shadow:var(--shadow-soft)}.toc-title{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--sage-500);margin-bottom:14px}
-  .toc ol{list-style:none;counter-reset:toc-counter;display:grid;grid-template-columns:1fr 1fr;gap:4px 20px}.toc li{counter-increment:toc-counter}.toc li a{text-decoration:none;color:var(--text-secondary);font-size:0.88rem;display:block;padding:8px 0 8px 28px;position:relative;transition:color 0.2s}.toc li a::before{content:counter(toc-counter);font-size:0.7rem;font-weight:700;color:var(--sage-400);position:absolute;left:0;top:10px}.toc li a:hover{color:var(--sage-600)}.toc-desc{display:block;font-size:0.72rem;color:var(--text-muted);line-height:1.35;margin-top:2px;font-weight:400}.toc li a.active{color:var(--sage-700);font-weight:700}.toc li a.active::after{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--sage-400);margin-left:8px;vertical-align:middle}
+  .toc{grid-column:1 / -1}
   .toc-note{font-size:0.8rem;color:var(--text-muted);line-height:1.55;margin-top:14px}
 
-  .content{max-width:var(--content-width);margin:0 auto;padding:0 2rem}
-  .content h2{scroll-margin-top:84px;font-family:'Source Serif 4',serif;font-size:1.65rem;font-weight:700;line-height:1.25;letter-spacing:-0.02em;color:var(--earth-900);margin:64px 0 20px;padding-top:20px;border-top:1px solid rgba(45,40,35,0.06)}.content h2:first-of-type{border-top:none;margin-top:0}
-  .content h3{font-family:'Source Serif 4',serif;font-size:1.15rem;font-weight:600;line-height:1.35;color:var(--earth-800);margin:32px 0 14px}
-  .content p{font-size:1rem;color:var(--text-secondary);margin-bottom:18px;line-height:1.75}.content strong{color:var(--text);font-weight:600}
-
-  .quote-block{background:linear-gradient(180deg,var(--surface-warm) 0%, rgba(243,229,225,0.5) 100%);border-radius:var(--radius-lg);padding:32px 36px;margin:36px 0;position:relative}.quote-block::before{content:'«';font-family:'Source Serif 4',serif;font-size:4rem;color:var(--warm-400);position:absolute;top:12px;left:20px;line-height:1;opacity:0.5}
-  .quote-block blockquote{font-family:'Source Serif 4',serif;font-size:1.05rem;font-style:italic;color:var(--earth-700);line-height:1.65;padding-left:12px}
-  .quote-block cite{display:block;margin-top:14px;font-style:normal;font-family:'DM Sans',sans-serif;font-size:0.82rem;color:var(--text-muted);padding-left:12px}
+  .quote-block{background:linear-gradient(180deg,var(--surface-warm) 0%, rgba(243,229,225,0.5) 100%)}
 
   /* INSIGHT CARDS */
   .insight-grid{display:block;margin:24px 0 34px;border-top:1px solid rgba(45,40,35,0.08)}
@@ -59,7 +45,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   .system-items li{font-size:0.92rem;color:var(--text-secondary);padding:10px 0 10px 24px;position:relative;line-height:1.6;border-bottom:1px solid rgba(45,40,35,0.04)}
   .system-items li::before{content:'—';position:absolute;left:0;color:var(--alert-red);font-weight:700}
 
-  /* ACTION CARDS */
+  /* ACTION CARDS (Module 8 overrides) */
   .action-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:28px 0}
   .action-card{background:#fff;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:24px;display:flex;gap:20px;align-items:flex-start;transition:border-color 0.2s ease,box-shadow 0.2s ease;box-shadow:none}.action-card:hover{box-shadow:var(--shadow-soft)}
   .action-icon{width:42px;height:42px;border-radius:11px;background:rgba(221,210,191,0.4);color:var(--sand-deep);display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:800;flex-shrink:0}
@@ -159,15 +145,10 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   .mini-plan-summary p{font-size:0.84rem;color:var(--text-secondary);margin:0 0 8px}
   .mini-plan-summary strong{color:var(--navy)}
 
-  .takeaways{background:linear-gradient(135deg,var(--navy),#294051);color:white;border-radius:var(--radius-xl);padding:40px;margin:48px 0;position:relative;overflow:hidden}.takeaways::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 80%,rgba(221,210,191,0.18) 0%,transparent 60%)}
-  .takeaways-inner{position:relative;z-index:2}.takeaways h3{color:white;font-family:'Source Serif 4',serif;font-size:1.3rem;font-weight:600;margin-bottom:24px}
-  .takeaway-item{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-top:1px solid rgba(255,255,255,0.1)}.takeaway-item:first-of-type{border-top:none}
-  .takeaway-check{width:24px;height:24px;border-radius:6px;flex-shrink:0;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-size:0.7rem;margin-top:2px}
-  .takeaway-item p{font-size:0.92rem;line-height:1.65;color:rgba(255,255,255,0.88);margin:0}.takeaway-item strong{color:white}
-  .reflection{background:linear-gradient(135deg,var(--surface-warm),rgba(217,236,236,0.72));border-radius:var(--radius-xl);padding:36px;margin:48px 0;position:relative;overflow:hidden}.reflection::before{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;border-radius:50%;background:rgba(221,210,191,0.18)}
-  .reflection-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--sage-500);margin-bottom:12px}
-  .reflection h3{font-family:'Source Serif 4',serif;font-size:1.15rem;font-weight:600;color:var(--earth-800);margin-bottom:14px;line-height:1.35}
-  .reflection p{font-size:0.92rem;color:var(--text-secondary);line-height:1.7;position:relative;z-index:1;margin:0}
+  .takeaways{background:linear-gradient(135deg,var(--navy),#294051);color:white}
+  .takeaways::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 80%,rgba(221,210,191,0.18) 0%,transparent 60%)}
+  .reflection{background:linear-gradient(135deg,var(--surface-warm),rgba(217,236,236,0.72))}
+  .reflection::before{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;border-radius:50%;background:rgba(221,210,191,0.18)}
 
   /* CLOSING */
   .closing{background:var(--sage-700);color:white;border-radius:var(--radius-xl);padding:48px 40px;margin:48px 0;position:relative;overflow:hidden;text-align:center}
@@ -177,34 +158,9 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   .closing p{font-size:1rem;line-height:1.75;color:rgba(255,255,255,0.8);margin-bottom:12px;max-width:560px;margin-left:auto;margin-right:auto}
   .closing .closing-emphasis{font-family:'Source Serif 4',serif;font-size:1.1rem;font-style:italic;color:rgba(255,255,255,0.95);margin-top:24px}
 
-  .sources{background:var(--sage-50);border-radius:var(--radius-lg);padding:28px 32px;margin:48px 0}.sources-title{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--sage-500);margin-bottom:14px}.sources ul{list-style:none;max-height:0;overflow:hidden;transition:max-height 0.5s ease}.sources.sources-open ul{max-height:2000px}.sources-title::after{content:" ▾";font-size:0.7rem;opacity:0.5}.sources.sources-open .sources-title::after{content:" ▴"}.sources li{font-size:0.82rem;color:var(--text-muted);padding:6px 0 6px 16px;position:relative;line-height:1.6}.sources li::before{content:'·';position:absolute;left:0;font-weight:700;color:var(--sage-300)}
-
-  
-
-  .reveal{opacity:1}
-
-  @media(max-width:768px){.toc ol{grid-template-columns:1fr}.handout-list{grid-template-columns:1fr 1fr}.insight-grid,.action-grid{grid-template-columns:1fr}.material-finder-options{grid-template-columns:1fr}.mini-plan-grid{grid-template-columns:1fr}}
-  
+  @media(max-width:768px){.handout-list{grid-template-columns:1fr 1fr}.insight-grid,.action-grid{grid-template-columns:1fr}.material-finder-options{grid-template-columns:1fr}.mini-plan-grid{grid-template-columns:1fr}}
   @media(max-width:900px){.module-hero-inner{grid-template-columns:1fr}}
   @media(max-width:600px){.module-hero{padding:100px 1.2rem 32px}.module-hero .quote-block,.module-hero-visual{display:none}.toc{padding:18px 20px;margin-bottom:26px}.toc-desc{display:none}.content{padding:0 1.2rem}.action-card,.stelle-card,.dl-module,.material-finder,.mini-plan,.hub-details summary,.hub-details-body{padding-left:18px;padding-right:18px}.closing{padding:36px 24px}.handout-list{grid-template-columns:1fr}}
-  .sources-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;cursor:pointer;padding:0;font:inherit;color:inherit;text-align:left}
-
-  body.pdf-preview-open{overflow:hidden}
-  .pdf-preview-overlay{position:fixed;inset:0;z-index:1000;background:rgba(42,33,27,0.38);padding:24px;display:flex;align-items:center;justify-content:center}
-  .pdf-preview-overlay[hidden]{display:none}
-  .pdf-preview-dialog{width:min(960px,100%);max-height:calc(100vh - 48px);background:var(--cream);border:1px solid rgba(45,40,35,0.08);border-radius:var(--radius-xl);box-shadow:var(--shadow-card);display:flex;flex-direction:column;overflow:hidden}
-  .pdf-preview-header{padding:20px 24px 16px;border-bottom:1px solid rgba(45,40,35,0.08);display:flex;gap:16px;justify-content:space-between;align-items:flex-start}
-  .pdf-preview-title{font-family:'Source Serif 4',serif;font-size:1.2rem;font-weight:600;color:var(--earth-900)}
-  .pdf-preview-sub{margin-top:6px;font-size:0.82rem;color:var(--text-muted);max-width:44ch;line-height:1.55}
-  .pdf-preview-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
-  .pdf-preview-link,.pdf-preview-close{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:9px 14px;border-radius:10px;font-size:0.82rem;font-weight:600;text-decoration:none}
-  .pdf-preview-link{background:var(--sage-100);color:var(--sage-700)}
-  .pdf-preview-close{background:none;border:1px solid rgba(45,40,35,0.12);color:var(--text);cursor:pointer}
-  .pdf-preview-body{padding:18px 24px 24px}
-  .pdf-preview-note{font-size:0.8rem;color:var(--text-muted);margin-bottom:12px}
-  .pdf-preview-frame-wrap{background:white;border:1px solid rgba(45,40,35,0.08);border-radius:18px;overflow:hidden}
-  .pdf-preview-frame{display:block;width:100%;height:60vh;min-height:420px;border:0;background:#f3f1ec}
-  @media(max-width:720px){.pdf-preview-overlay{padding:12px}.pdf-preview-dialog{max-height:calc(100vh - 24px)}.pdf-preview-header,.pdf-preview-body{padding-left:16px;padding-right:16px}.pdf-preview-header{padding-top:16px}.pdf-preview-actions{justify-content:flex-start}.pdf-preview-link,.pdf-preview-close{width:100%}.pdf-preview-frame{height:50vh;min-height:320px}}
 </style>
 {% endblock %}
 {% block nav %}
@@ -240,6 +196,15 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
     </ol>
     <p class="toc-note">Rollenfragen, Systemblockaden, Mini-Plan und das vollständige Materialarchiv folgen weiter unten als optionale Vertiefung.</p>
   </div>
+
+  <div class="tldr-card">
+    <ul>
+      <li>Sie müssen nicht alles auf einmal klären — ein konkreter nächster Schritt reicht.</li>
+      <li>Angehörigenberatung und Selbsthilfegruppen sind die wichtigsten ersten Anlaufstellen.</li>
+      <li>Rechtliche und finanzielle Fragen früh klären, bevor sie zusätzlich belasten.</li>
+      <li>Materialien wie Krisenplan, Notfallkarte und Merkblätter stehen zum Download bereit.</li>
+    </ul>
+  </div>
 </div></header>
 
 <main class="content" id="main-content">
@@ -252,7 +217,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   <p class="reveal">Häufig hilfreicher als noch mehr Information ist etwas Kleines und Konkretes: einen Kontakt speichern, ein passendes Merkblatt öffnen, einen Gesprächstermin vereinbaren oder eine rechtliche Frage nicht länger allein herumtragen. <strong>Ein nächster Schritt reicht.</strong> Wenn Sie unsicher sind, beginnen Sie mit genau einem davon.</p>
   <p class="reveal" style="font-size:0.95rem;color:var(--text-secondary);background:var(--surface-warm);border:1px solid rgba(181,138,82,0.2);border-radius:16px;padding:16px 18px;margin-bottom:24px"><strong>Wenn Sie gerade nur eines tun möchten:</strong> Wählen Sie zuerst entweder die Orientierung nach Situation weiter unten, den Material-Finder oder den Mini-Plan. Alles andere ist Vertiefung für später.</p>
 
-  <div class="action-grid action-grid--steps reveal">
+  <div class="action-grid action-grid--steps reveal content-wide">
     <div class="action-card"><div class="action-icon">1</div><div><h4>Den nächsten Schritt klein genug machen</h4><p>Sie müssen nicht alles sortieren. Oft reicht es, heute eine Nummer zu speichern, eine Fachstelle zu kontaktieren oder ein passendes Dokument zu öffnen.</p></div></div>
     <div class="action-card"><div class="action-icon">2</div><div><h4>Von Ihrer aktuellen Lage ausgehen</h4><p>Suchen Sie nicht gleich nach dem ganzen System, sondern zuerst nach dem, was gerade drängt: Krise, Erschöpfung, Austausch, Recht oder Familie.</p></div></div>
     <div class="action-card"><div class="action-icon">3</div><div><h4>Die Schwelle zum ersten Kontakt senken</h4><p>Ein erstes Gespräch darf unfertig sein. Sie müssen Ihre Geschichte nicht geordnet erzählen können, damit Unterstützung sinnvoll ist.</p></div></div>
@@ -264,7 +229,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   <h2 id="situationen" class="reveal">Orientierung nach Situation</h2>
   <p class="reveal">Nicht jede Hilfe ist für jede Lage gleich sinnvoll. Ordnen Sie zuerst ein, was gerade am meisten drängt. Die Logik ist bewusst dieselbe wie auf der Startseite: erst die Lage klären, dann den passenden nächsten Weg wählen.</p>
 
-  <div class="insight-grid reveal">
+  <div class="insight-grid reveal content-wide">
     <div class="insight-card"><div class="insight-num">1</div><div><h4>Wenn es akut oder unklar gefährlich ist</h4><p>Gehen Sie nicht zuerst in lange Suchprozesse. Nutzen Sie die <a href="/notfall/" style="color:var(--alert-red)">Notfallseite</a>, speichern Sie Nummern und halten Sie die Notfallkarte griffbereit.</p></div></div>
     <div class="insight-card"><div class="insight-num">2</div><div><h4>Wenn Sie selbst erschöpft sind und reden müssen</h4><p>Beginnen Sie mit einer Angehörigenberatung oder einer Selbsthilfegruppe. Nicht erst dann, wenn Sie zusammenbrechen.</p></div></div>
     <div class="insight-card"><div class="insight-num">3</div><div><h4>Wenn Sie Austausch mit Menschen in ähnlicher Lage suchen</h4><p>Selbsthilfe entlastet oft dort, wo reine Information nicht mehr reicht. Sie müssen dort nicht mehr alles von Grund auf erklären.</p></div></div>
@@ -357,10 +322,10 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
       <p>Diesen Frust ernst zu nehmen heisst nicht, das System pauschal abzuwerten. Es heisst, zusätzliche Belastung nicht mit persönlichem Versagen zu verwechseln. Wenn Hilfewege zermürben, dürfen Sie Beratung, Beschwerdewege und Ombudsstellen nutzen.</p>
       <p><strong>Besonders sinnvoll sind hier:</strong> Pro Mente Sana für psychosoziale und juristische Einordnung, die Ombudsstelle Krankenversicherung bei Leistungsstreitigkeiten, Selbsthilfeverbände für Erfahrungsaustausch und die jeweiligen Rückmelde- oder Beschwerdewege von Kliniken oder Trägerschaften.</p>
 
-      <div class="wide-visual">
+      <figure class="wide-visual">
         <img src="/visuals/modul8-material-ladder.svg" alt="Drei Stufen für Materialien: Notfallkarte in akuten Lagen, Krisenplan in stabilen Phasen und passende Handouts für den Alltag." width="720" height="360" loading="lazy" decoding="async">
-        <p>Die Unterlagen unten sind nicht als Archiv gedacht. Nutzen Sie sie je nach Lage: zuerst das, was die Situation ordnet, nicht das, was am vollständigsten aussieht.</p>
-      </div>
+        <figcaption>Die Unterlagen unten sind nicht als Archiv gedacht. Nutzen Sie sie je nach Lage: zuerst das, was die Situation ordnet, nicht das, was am vollständigsten aussieht.</figcaption>
+      </figure>
 
       <div class="action-box">
         <h3>Was Sie konkret tun können — wenn das System blockiert</h3>
@@ -378,7 +343,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   <h2 id="materialien" class="reveal">Die wichtigsten Materialien zuerst</h2>
   <p class="reveal">Wenn Sie nicht die ganze Sammlung durchsuchen möchten, beginnen Sie mit den Unterlagen, die in der aktuellen Lage am meisten Entlastung oder Struktur bringen. <strong>Wenn Sie nur noch eine Sache anklicken möchten, beginnen Sie hier.</strong></p>
 
-  <div class="material-finder reveal" aria-labelledby="material-finder-title">
+  <div class="material-finder reveal content-wide" aria-labelledby="material-finder-title">
     <div class="material-finder-kicker">Material-Finder</div>
     <h3 id="material-finder-title">Ich brauche jetzt ...</h3>
     <p>Wählen Sie die Lage, die gerade am ehesten passt. Sie bekommen 1 bis 3 passende Materialien, Kontakte oder nächste Schritte statt der ganzen Liste auf einmal.</p>
