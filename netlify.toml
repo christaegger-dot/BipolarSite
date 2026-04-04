@@ -2,6 +2,9 @@
   command = "npx eleventy"
   publish = "_site"
 
+[build.environment]
+  NODE_VERSION = "18"
+
 # Security headers applied to all pages
 [[headers]]
   for = "/*"
