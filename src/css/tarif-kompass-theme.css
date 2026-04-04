@@ -15,11 +15,11 @@
 :root {
 
   /* ── Brand Colors ── */
-  --navy:        #1c2b3a;
-  --navy-mid:    #243447;
-  --teal:        #1E656D;
-  --teal-light:  #8dd4d9;
-  --teal-mist:   #d9ecec;
+  --navy:        #3D3530;
+  --navy-mid:    #4A443F;
+  --teal:        #4A8C7F;
+  --teal-light:  #A8D5CB;
+  --teal-mist:   #DDE9E5;
   --amber:       #B45309;
   --amber-light: #FBBF24;
   --rose:        #9A3412;
@@ -35,13 +35,13 @@
   --slate-light: #94a3b8;
 
   /* ── Semantic: Background ── */
-  --bg:          #FAFAF7;
+  --bg:          #FAF8F5;
   --card:        #ffffff;
-  --surface-alt: #f2f5f3;
+  --surface-alt: #F4F1EC;
   --surface-warm:#f7f2ea;
 
   /* ── Semantic: Text ── */
-  --text:        #1c2b3a;
+  --text:        #3D3530;
   --text-soft:   #625d59;
 
   /* ── Semantic: Border ── */
@@ -142,9 +142,9 @@
   --ice-deeper:              #152535;
 
   /* Derived tokens (used for hover-dark states, borders) */
-  --teal-dark:     #1a5960;
+  --teal-dark:     #3A7068;
   --amber-border:  #e8c68a;
-  --teal-border:   #a7d9d5;
+  --teal-border:   #B8D8CF;
 
   /* ── Warm Border Scale (replaces hardcoded rgba(45,40,35,...)) ── */
   --border-warm:    rgba(45,40,35,0.06);
@@ -1019,13 +1019,13 @@ table tbody tr:nth-child(even),
 
 /* ── Quote blocks ── */
 .quote-block {
-  background: var(--warm-100);
+  background: var(--surface-warm);
   border-radius: var(--radius-lg);
-  border-left: 4px solid var(--teal);
+  border-left: 4px solid var(--sand-deep);
 }
 
 .quote-block::before {
-  color: var(--teal-light);
+  color: var(--sand);
 }
 
 .quote-block blockquote {

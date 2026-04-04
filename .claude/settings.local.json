@@ -18,7 +18,8 @@
       "Bash(printf node_modules/n_site/n)",
       "Bash(git branch:*)",
       "Bash(git stash:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(export PATH=\"/usr/local/bin:/opt/homebrew/bin:$PATH\")"
     ]
   }
 }
