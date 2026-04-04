@@ -589,10 +589,157 @@ body.pdf-preview-open { overflow: hidden; }
   line-height: 1.7; margin: 0;
 }
 
+/* ── Module Nav Bar (prev / overview / next) ── */
+.module-nav {
+  max-width: var(--content-width);
+  margin: 48px auto 0;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.82rem;
+}
+.module-nav a {
+  text-decoration: none;
+  color: var(--text-soft);
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  transition: background-color 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+.module-nav a:hover {
+  background: var(--surface-alt);
+  color: var(--text);
+}
+.module-nav-prev::before { content: '← '; }
+.module-nav-next::after { content: ' →'; }
+.module-nav-center {
+  font-weight: 500;
+  color: var(--text-soft);
+}
+@media (max-width: 600px) {
+  .module-nav { font-size: 0.75rem; gap: 4px; padding: 0 1rem; }
+  .module-nav a { padding: 8px 8px; }
+}
+
+/* ── "Nicht Ihr Thema?" escape link ── */
+.next-module-escape {
+  max-width: var(--content-width);
+  margin: 12px auto 0;
+  padding: 0 2rem;
+  text-align: center;
+  font-size: 0.78rem;
+}
+.next-module-escape a {
+  color: var(--text-soft);
+  text-decoration: none;
+}
+.next-module-escape a:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+/* ── Tool Links Block ── */
+.tool-links {
+  max-width: var(--content-width);
+  margin: 32px auto;
+  padding: 24px 28px;
+  background: var(--surface-warm, #f7f2ea);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--sand-deep);
+}
+.tool-links h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+.tool-links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+.tool-link-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--card);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: var(--text);
+  border: 1px solid var(--border);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.tool-link-card:hover {
+  box-shadow: var(--shadow-soft);
+  border-color: var(--sand-deep);
+}
+.tool-link-icon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.tool-link-title {
+  font-weight: 600;
+  font-size: 0.88rem;
+  margin-bottom: 2px;
+}
+.tool-link-desc {
+  font-size: 0.78rem;
+  color: var(--text-soft);
+  line-height: 1.5;
+}
+
+/* ── Completion Block (M8) ── */
+.completion-block {
+  max-width: var(--content-width);
+  margin: 48px auto 0;
+  padding: 32px 28px;
+  background: var(--green-bg);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(13, 122, 95, 0.15);
+  text-align: center;
+}
+.completion-block h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.2rem;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.completion-block > p {
+  font-size: 0.88rem;
+  color: var(--text-soft);
+  line-height: 1.7;
+  max-width: 540px;
+  margin: 0 auto 20px;
+}
+.completion-steps {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: left;
+}
+.completion-steps li {
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+.completion-steps a {
+  color: var(--teal);
+  text-decoration: none;
+  font-weight: 500;
+}
+.completion-steps a:hover { text-decoration: underline; }
+
 /* ── Print Styles (Issue #14) ── */
 @media print {
   #navbar, .reading-progress, footer, .next-module, .tool-cta,
-  .sources-toggle, .pdf-preview-overlay { display: none !important; }
+  .sources-toggle, .pdf-preview-overlay, .module-nav,
+  .next-module-escape, .completion-block { display: none !important; }
   body { background: white !important; color: black !important; }
   .module-hero { padding-top: 20px; background: none !important; }
   .module-hero::before { display: none; }
