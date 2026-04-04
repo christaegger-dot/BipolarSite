@@ -103,7 +103,4 @@ body.tool-page {
   margin-top: 28px; line-height: 1.5;
 }
 
-/* ── Reduced Motion ── */
-@media (prefers-reduced-motion: reduce) {
-  * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
-}
+/* Reduced motion handled by shared.css */
