@@ -14,12 +14,12 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   /* Module-specific styles only — shared styles in module.css */
 
   /* SECTION LABEL */
-  .section-group-label{font-size:0.68rem;font-weight:800;text-transform:uppercase;letter-spacing:0.14em;color:var(--sage-400);margin:56px 0 -8px;padding-top:16px}
+  .section-group-label{font-size:0.68rem;font-weight:800;text-transform:uppercase;letter-spacing:0.14em;color:var(--teal);margin:56px 0 -8px;padding-top:16px}
 
   /* AMPEL */
   .ampel{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px;margin:28px 0}
   .ampel-card{padding:24px;border-radius:var(--radius-lg);border-top:5px solid}
-  .ampel-card.green{background:var(--sage-50);border-top-color:var(--green-phase)}
+  .ampel-card.green{background:var(--green-bg);border-top-color:var(--green-phase)}
   .ampel-card.amber{background:var(--amber-phase-light);border-top-color:var(--amber-phase)}
   .ampel-card.red{background:var(--alert-red-bg);border-top-color:var(--alert-red)}
   .ampel-card.slate{background:#f1f5f9;border-top-color:var(--slate)}
@@ -30,50 +30,50 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   .ampel-card.red .ampel-label{color:var(--alert-red)}
   .ampel-card h4{font-size:0.92rem;font-weight:700;color:var(--text);margin-bottom:8px}
   .ampel-card p{font-size:0.84rem;line-height:1.55;margin:0}
-  .ampel-card.green p{color:var(--sage-700)}
+  .ampel-card.green p{color:var(--navy)}
   .ampel-card.amber p{color:#B45309}
   .ampel-card.red p{color:#9A3412}
 
   /* TOOL CARD */
   .tool-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-xl);padding:32px;margin:32px 0;box-shadow:var(--shadow-soft)}
-  .tool-card h3{font-family:'Source Serif 4',serif;font-size:1.1rem;font-weight:600;margin-bottom:12px;color:var(--earth-800)}
-  .tool-card p{font-size:0.92rem;color:var(--text-secondary);line-height:1.7}
+  .tool-card h3{font-family:'Source Serif 4',serif;font-size:1.1rem;font-weight:600;margin-bottom:12px;color:var(--navy-mid)}
+  .tool-card p{font-size:0.92rem;color:var(--slate);line-height:1.7}
   .decision-visual{margin:24px 0 32px;background:linear-gradient(180deg,#fff 0%,#fcf8f4 100%);border:1px solid rgba(45,40,35,0.06);border-radius:24px;padding:20px;box-shadow:var(--shadow-soft)}
   .decision-visual img{display:block;width:100%;height:auto;border-radius:18px}
-  .decision-visual p{font-size:0.87rem;color:var(--text-secondary);line-height:1.6;margin:12px 4px 0}
+  .decision-visual p{font-size:0.87rem;color:var(--slate);line-height:1.6;margin:12px 4px 0}
 
   /* STEPS */
   .step-list{list-style:none;counter-reset:step-counter;margin:20px 0}
-  .step-list li{counter-increment:step-counter;padding:14px 0 14px 48px;position:relative;font-size:0.92rem;color:var(--text-secondary);line-height:1.65;border-bottom:1px solid rgba(45,40,35,0.04)}
-  .step-list li::before{content:counter(step-counter);position:absolute;left:0;top:14px;width:32px;height:32px;border-radius:8px;background:var(--sage-100);color:var(--sage-600);display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:800}
+  .step-list li{counter-increment:step-counter;padding:14px 0 14px 48px;position:relative;font-size:0.92rem;color:var(--slate);line-height:1.65;border-bottom:1px solid rgba(45,40,35,0.04)}
+  .step-list li::before{content:counter(step-counter);position:absolute;left:0;top:14px;width:32px;height:32px;border-radius:8px;background:var(--green-bg);color:var(--teal-dark);display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:800}
 
   /* COMM RULES */
-  .comm-rule{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:22px 26px;margin-bottom:14px;border-left:4px solid var(--sage-300)}
+  .comm-rule{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:22px 26px;margin-bottom:14px;border-left:4px solid var(--teal-light)}
   .comm-rule h4{font-size:0.92rem;font-weight:700;color:var(--text);margin-bottom:6px}
-  .comm-rule p{font-size:0.86rem;color:var(--text-secondary);line-height:1.55;margin:0 0 8px}
+  .comm-rule p{font-size:0.86rem;color:var(--slate);line-height:1.55;margin:0 0 8px}
   .comm-rule .avoid{font-size:0.82rem;color:var(--alert-red);font-weight:500}
 
   /* SITUATION CARDS */
   .situation-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:24px;margin-bottom:16px}
   .situation-card h4{font-size:0.92rem;font-weight:700;color:var(--text);margin-bottom:10px}
-  .situation-card .response{font-size:0.88rem;color:var(--sage-700);background:var(--sage-50);padding:12px 16px;border-radius:var(--radius-md);margin-bottom:8px;line-height:1.55}
+  .situation-card .response{font-size:0.88rem;color:var(--navy);background:var(--green-bg);padding:12px 16px;border-radius:var(--radius-md);margin-bottom:8px;line-height:1.55}
   .situation-card .avoid{font-size:0.82rem;color:var(--alert-red);font-weight:500}
 
   /* GRENZEN EXAMPLES */
   .grenz-example{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:24px;margin-bottom:14px}
   .grenz-bad{font-size:0.88rem;color:var(--alert-red);margin-bottom:8px;padding:10px 14px;background:var(--alert-red-bg);border-radius:var(--radius-sm)}
-  .grenz-good{font-size:0.88rem;color:var(--sage-700);padding:10px 14px;background:var(--sage-50);border-radius:var(--radius-sm);margin-bottom:8px}
-  .grenz-why{font-size:0.82rem;color:var(--text-muted);line-height:1.55}
+  .grenz-good{font-size:0.88rem;color:var(--navy);padding:10px 14px;background:var(--green-bg);border-radius:var(--radius-sm);margin-bottom:8px}
+  .grenz-why{font-size:0.82rem;color:var(--text-soft);line-height:1.55}
 
   /* DO DONT */
   .do-dont{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
   .do-col,.dont-col{border-radius:var(--radius-lg);padding:22px}
-  .do-col{background:var(--sage-50);border:1px solid var(--sage-200)}.dont-col{background:var(--alert-red-bg);border:1px solid var(--alert-red-border)}
+  .do-col{background:var(--green-bg);border:1px solid var(--teal-border)}.dont-col{background:var(--alert-red-bg);border:1px solid var(--alert-red-border)}
   .do-col h4,.dont-col h4{font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px}
-  .do-col h4{color:var(--sage-600)}.dont-col h4{color:var(--alert-red)}
+  .do-col h4{color:var(--teal-dark)}.dont-col h4{color:var(--alert-red)}
   .do-col ul,.dont-col ul{list-style:none}.do-col li,.dont-col li{font-size:0.86rem;padding:5px 0 5px 18px;position:relative;line-height:1.5}
-  .do-col li{color:var(--sage-700)}.dont-col li{color:#9A3412}
-  .do-col li::before{content:'✓';position:absolute;left:0;color:var(--sage-400);font-weight:700}
+  .do-col li{color:var(--navy)}.dont-col li{color:#9A3412}
+  .do-col li::before{content:'✓';position:absolute;left:0;color:var(--teal);font-weight:700}
   .dont-col li::before{content:'✗';position:absolute;left:0;color:var(--alert-red);font-weight:700}
 
   /* M6-2: Einsicht comparison table */
@@ -84,32 +84,32 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   .einsicht-col-header--red{background:var(--alert-red-bg);border-bottom:1px solid var(--alert-red-border)}
   .einsicht-col-header--amber{background:var(--amber-bg);border-bottom:1px solid var(--amber-border)}
   .einsicht-tag{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;opacity:0.6}
-  .einsicht-col-header strong{font-size:0.95rem;color:var(--earth-800)}
-  .einsicht-col-header span:last-child{font-size:0.8rem;color:var(--text-muted)}
+  .einsicht-col-header strong{font-size:0.95rem;color:var(--navy-mid)}
+  .einsicht-col-header span:last-child{font-size:0.8rem;color:var(--text-soft)}
   .einsicht-row{padding:14px 20px;border-bottom:1px solid var(--border);display:flex;flex-direction:column;gap:6px}
   .einsicht-row:last-child{border-bottom:none}
-  .einsicht-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-muted)}
-  .einsicht-value{font-size:0.88rem;color:var(--text-secondary);line-height:1.55}
+  .einsicht-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-soft)}
+  .einsicht-value{font-size:0.88rem;color:var(--slate);line-height:1.55}
   .einsicht-value.do-list,.einsicht-value.dont-list{display:flex;flex-direction:column;gap:4px}
   .einsicht-value.do-list span{color:var(--teal)}
-  .einsicht-value.dont-list span{color:var(--text-muted)}
+  .einsicht-value.dont-list span{color:var(--text-soft)}
   .einsicht-row--dont{background:rgba(0,0,0,0.015)}
 
   /* M6-1: Stabile-Phase Prioritäts-Raster */
   .stabil-prio{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;margin:16px 0 24px}
   .stabil-prio-col{display:flex;flex-direction:column}
   .stabil-prio-col:not(:last-child){border-right:1px solid var(--border)}
-  .stabil-prio-header{padding:10px 16px;background:var(--warm-100);border-bottom:1px solid var(--border);font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-muted);display:flex;align-items:center;gap:8px}
+  .stabil-prio-header{padding:10px 16px;background:var(--surface-warm);border-bottom:1px solid var(--border);font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-soft);display:flex;align-items:center;gap:8px}
   .stabil-prio-num{width:18px;height:18px;border-radius:50%;background:var(--teal);color:white;font-size:0.65rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
   .stabil-prio-num--2{background:var(--amber)}
   .stabil-prio-num--3{background:var(--slate)}
   .stabil-prio-items{padding:12px 16px;display:flex;flex-direction:column;gap:10px}
-  .stabil-prio-item strong{font-size:0.86rem;color:var(--earth-800);display:block;margin-bottom:2px}
-  .stabil-prio-item span{font-size:0.78rem;color:var(--text-muted);line-height:1.4}
+  .stabil-prio-item strong{font-size:0.86rem;color:var(--navy-mid);display:block;margin-bottom:2px}
+  .stabil-prio-item span{font-size:0.78rem;color:var(--text-soft);line-height:1.4}
 
   /* M6-3: Grenz-Formel */
-  .grenz-formel{background:var(--warm-100);border-radius:var(--radius-lg);padding:18px 22px;margin:0 0 20px}
-  .grenz-formel-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-muted);margin-bottom:10px}
+  .grenz-formel{background:var(--surface-warm);border-radius:var(--radius-lg);padding:18px 22px;margin:0 0 20px}
+  .grenz-formel-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-soft);margin-bottom:10px}
   .grenz-formel-parts{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:10px;overflow:hidden}
   .grenz-part{padding:12px 14px;display:flex;flex-direction:column;gap:5px}
   .grenz-part:not(:last-child){border-right:1px solid var(--border)}
@@ -120,8 +120,8 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
   .grenz-part--ich .grenz-part-tag{color:var(--teal)}
   .grenz-part--konsequenz .grenz-part-tag{color:#92400e}
   .grenz-part--rueckkehr .grenz-part-tag{color:var(--slate)}
-  .grenz-part-example{font-size:0.84rem;line-height:1.45;color:var(--earth-800);font-style:italic}
-  .grenz-part-note{font-size:0.74rem;color:var(--text-muted);line-height:1.4}
+  .grenz-part-example{font-size:0.84rem;line-height:1.45;color:var(--navy-mid);font-style:italic}
+  .grenz-part-note{font-size:0.74rem;color:var(--text-soft);line-height:1.4}
 
   @media(max-width:768px){.ampel{grid-template-columns:1fr}.do-dont{grid-template-columns:1fr}}
   @media(max-width:600px){.einsicht-compare{grid-template-columns:1fr}.einsicht-col:first-child{border-right:none;border-bottom:1px solid var(--border)}}
@@ -174,7 +174,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
 
   <h2 id="zuerst" class="reveal">Was in belastenden Situationen zuerst hilft</h2>
   <p class="reveal">Dieses Modul soll nicht noch mehr Druck erzeugen. Es soll ordnen. In belastenden Situationen hilft selten, alles gleichzeitig lösen zu wollen. Hilfreicher ist die Frage: <strong>Geht es gerade um Vorbereitung, um Deeskalation, um Begrenzung oder bereits um Schutz und Notfallhandeln?</strong></p>
-  <p class="reveal">Ein Teil dieser Hilfen gehört in ruhige Phasen: Krisenplan, Schweigepflichtentbindung, finanzielle Vorkehrungen. Ein anderer Teil hilft mitten in der Belastung: Sprache in Manie oder Depression, Umgang mit fehlender Einsicht, Grenzen und Konsequenzen. Und manche Situationen brauchen nicht den besseren Satz, sondern schnelleres Handeln. <strong>Wenn Sie nur eines klären:</strong> Geht es gerade noch um Gespräch oder schon um Schutz? Für akute Gefährdung gilt immer: <a href="/notfall/" style="color:var(--sage-500);font-weight:600">Notfallseite öffnen →</a></p>
+  <p class="reveal">Ein Teil dieser Hilfen gehört in ruhige Phasen: Krisenplan, Schweigepflichtentbindung, finanzielle Vorkehrungen. Ein anderer Teil hilft mitten in der Belastung: Sprache in Manie oder Depression, Umgang mit fehlender Einsicht, Grenzen und Konsequenzen. Und manche Situationen brauchen nicht den besseren Satz, sondern schnelleres Handeln. <strong>Wenn Sie nur eines klären:</strong> Geht es gerade noch um Gespräch oder schon um Schutz? Für akute Gefährdung gilt immer: <a href="/notfall/" style="color:var(--teal);font-weight:600">Notfallseite öffnen →</a></p>
 
   <div class="ampel reveal content-wide">
     <div class="ampel-card green">
@@ -240,7 +240,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
     <p><strong>Massnahmen:</strong> Termin bei Psychiater*in vorziehen, Reize reduzieren</p>
     <p><strong>Klinikwunsch:</strong> Wenn möglich PUK Zürich</p>
     <p><strong>Kontaktpersonen:</strong> Partner*in (Tel: ...), Geschwister (Tel: ...)</p>
-    <p style="margin-top:16px;font-size:0.85rem;color:var(--sage-500);font-weight:600;">↓ Download: Krisenplan-Vorlage (PDF) — Füllen Sie diese Vorlage gemeinsam in einer stabilen Phase aus.</p>
+    <p style="margin-top:16px;font-size:0.85rem;color:var(--teal);font-weight:600;">↓ Download: Krisenplan-Vorlage (PDF) — Füllen Sie diese Vorlage gemeinsam in einer stabilen Phase aus.</p>
   </div>
 
   <!-- 2. SCHWEIGEPFLICHT -->
@@ -264,7 +264,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
     <li><strong>Auch ohne Entbindung:</strong> Sie können dem Behandlungsteam jederzeit Informationen <em>geben</em> — Sie erhalten nur keine zurück.</li>
   </ol>
 
-  <p class="reveal" style="font-size:0.88rem;color:var(--text-muted)"><strong>Beratung:</strong> Pro Mente Sana (<a href="tel:+41848800858" style="color:var(--sage-500)">0848 800 858</a> · <a href="https://www.promentesana.ch" target="_blank" rel="noopener" style="color:var(--sage-500)">promentesana.ch</a>) ist hier eine gute erste Anlaufstelle für Vorsorgeauftrag und Patientenverfügung. Diese Fragen lassen sich fast immer besser in ruhigen Phasen klären als mitten in einer Eskalation.</p>
+  <p class="reveal" style="font-size:0.88rem;color:var(--text-soft)"><strong>Beratung:</strong> Pro Mente Sana (<a href="tel:+41848800858" style="color:var(--teal)">0848 800 858</a> · <a href="https://www.promentesana.ch" target="_blank" rel="noopener" style="color:var(--teal)">promentesana.ch</a>) ist hier eine gute erste Anlaufstelle für Vorsorgeauftrag und Patientenverfügung. Diese Fragen lassen sich fast immer besser in ruhigen Phasen klären als mitten in einer Eskalation.</p>
 
   <!-- 3. FINANZIELLE PRÄVENTION -->
   <h3 id="finanzen" class="reveal">Finanzen absichern</h3>
@@ -277,7 +277,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
     <li><strong>Krisenplan ergänzen:</strong> Festhalten, wer im Ernstfall Zugang zu Konten hat und welche Schritte eingeleitet werden.</li>
   </ol>
 
-  <p class="reveal" style="font-size:0.86rem;color:var(--text-muted)">Wenn es bereits eskaliert ist, hilft Vorbereitung nicht mehr rückwirkend. Für akute finanzielle Eskalation: <a href="/notfall/" style="color:var(--alert-red);font-weight:600">Notfallseite</a>.</p>
+  <p class="reveal" style="font-size:0.86rem;color:var(--text-soft)">Wenn es bereits eskaliert ist, hilft Vorbereitung nicht mehr rückwirkend. Für akute finanzielle Eskalation: <a href="/notfall/" style="color:var(--alert-red);font-weight:600">Notfallseite</a>.</p>
 
   <h3 id="komorbid" class="reveal">Wenn Sucht oder andere Belastungen mitlaufen</h3>
   <p class="reveal">Nicht jede Zuspitzung ist allein durch die bipolare Störung erklärbar. Alkohol, Cannabis, andere Substanzen, Traumafolgen, starke Angst oder zusätzliche psychische Belastungen können die Lage verschärfen, Episoden überlagern oder die Krankheitseinsicht weiter erschweren. Für Angehörige fühlt sich das oft an, als würden mehrere Probleme gleichzeitig ineinandergreifen.</p>
@@ -303,7 +303,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
     </div>
   </div>
 
-  <p class="reveal" style="font-size:0.88rem;color:var(--text-muted)"><strong>Faustregel:</strong> Wenn Substanzkonsum, massive Schlaflosigkeit, Psychose, Suizidalität oder Gewalt zusammen auftreten, behandeln Sie die Situation nicht mehr nur als Kommunikationsproblem. Dann sind <a href="/notfall/" style="color:var(--alert-red);font-weight:600">Notfalllogik</a> und professionelle Einschätzung wichtiger als die perfekte Einordnung.</p>
+  <p class="reveal" style="font-size:0.88rem;color:var(--text-soft)"><strong>Faustregel:</strong> Wenn Substanzkonsum, massive Schlaflosigkeit, Psychose, Suizidalität oder Gewalt zusammen auftreten, behandeln Sie die Situation nicht mehr nur als Kommunikationsproblem. Dann sind <a href="/notfall/" style="color:var(--alert-red);font-weight:600">Notfalllogik</a> und professionelle Einschätzung wichtiger als die perfekte Einordnung.</p>
 
   <!-- ═══════════════════════════════════
        BLOCK A+: STABILE PHASE
@@ -378,7 +378,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
     </div>
   </div>
 
-  <p class="reveal" style="font-size:0.88rem;color:var(--text-muted);border-left:3px solid var(--teal-border,rgba(30,101,109,0.25));padding-left:14px;margin-top:4px">Ein Tipp aus der Praxis: Fragen Sie Ihren Partner nicht «Darf ich das ansprechen?», sondern «Wann wäre ein guter Zeitpunkt, über den Krisenplan zu reden?» — das signalisiert, dass das Gespräch kommen wird, gibt aber Kontrolle über den Zeitpunkt zurück.</p>
+  <p class="reveal" style="font-size:0.88rem;color:var(--text-soft);border-left:3px solid var(--teal-border,rgba(30,101,109,0.25));padding-left:14px;margin-top:4px">Ein Tipp aus der Praxis: Fragen Sie Ihren Partner nicht «Darf ich das ansprechen?», sondern «Wann wäre ein guter Zeitpunkt, über den Krisenplan zu reden?» — das signalisiert, dass das Gespräch kommen wird, gibt aber Kontrolle über den Zeitpunkt zurück.</p>
 
   <!-- ═══════════════════════════════════
        BLOCK B: KOMMUNIKATION
@@ -514,11 +514,11 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: März 2026"
       </div>
     </div>
   </div>
-  <p class="reveal" style="font-size:0.86rem;color:var(--text-muted);margin-top:4px">Wenn Ablehnung mit akuter Gefährdung zusammenfällt, endet der Gesprächsrahmen. Dann zählt Schutz: <a href="/notfall/" style="color:var(--alert-red);font-weight:600">Notfallseite</a>.</p>
+  <p class="reveal" style="font-size:0.86rem;color:var(--text-soft);margin-top:4px">Wenn Ablehnung mit akuter Gefährdung zusammenfällt, endet der Gesprächsrahmen. Dann zählt Schutz: <a href="/notfall/" style="color:var(--alert-red);font-weight:600">Notfallseite</a>.</p>
 
   <!-- 6. GRENZEN KONKRET -->
   <h2 id="grenzen" class="reveal">Grenzen, die tragen statt eskalieren</h2>
-  <p class="reveal">In <a href="/modul/5/" style="color:var(--sage-500)">Modul 5</a> ging es darum, warum Grenzen emotional so schwer sind. Hier geht es um die Form. Hilfreiche Grenzen drohen nicht nur, sie markieren Verhalten, benennen Konsequenzen und schützen, ohne unnötig zu eskalieren.</p>
+  <p class="reveal">In <a href="/modul/5/" style="color:var(--teal)">Modul 5</a> ging es darum, warum Grenzen emotional so schwer sind. Hier geht es um die Form. Hilfreiche Grenzen drohen nicht nur, sie markieren Verhalten, benennen Konsequenzen und schützen, ohne unnötig zu eskalieren.</p>
 
   <div class="grenz-formel reveal content-wide">
     <div class="grenz-formel-label">Aufbau einer hilfreichen Grenz-Aussage</div>

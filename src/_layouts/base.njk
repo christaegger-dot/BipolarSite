@@ -26,12 +26,13 @@
 {% if noIndex or site.noIndexDeploy %}<meta name="robots" content="noindex">{% endif %}
 <link rel="preload" as="font" href="/fonts/dm-sans-variable.woff2" type="font/woff2" crossorigin>
 <link rel="preload" as="font" href="/fonts/dm-serif-display-400.woff2" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/fonts/fonts.css?v=4">
-{% if useSharedCSS %}<link rel="stylesheet" href="/css/shared.css?v=4">{% endif %}
-{% if useModuleCSS %}<link rel="stylesheet" href="/css/module.css?v=4">{% endif %}
-{% if useToolCSS %}<link rel="stylesheet" href="/css/tools.css?v=4">{% endif %}
+<link rel="stylesheet" href="/css/tokens.css?v=5">
+<link rel="stylesheet" href="/fonts/fonts.css?v=5">
+{% if useSharedCSS %}<link rel="stylesheet" href="/css/shared.css?v=5">{% endif %}
+{% if useModuleCSS %}<link rel="stylesheet" href="/css/module.css?v=5">{% endif %}
+{% if useToolCSS %}<link rel="stylesheet" href="/css/tools.css?v=5">{% endif %}
 {% block headCSS %}{% endblock %}
-<link rel="stylesheet" href="/css/tarif-kompass-theme.css?v=4">
+<link rel="stylesheet" href="/css/overrides.css?v=5">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",

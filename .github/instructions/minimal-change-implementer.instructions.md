@@ -28,7 +28,7 @@ Setze **nur explizit bestätigte Probleme** um — nichts darüber hinaus.
 ## Website-Kontext
 
 - Reines static HTML/CSS/JS, kein Build-System
-- `css/tarif-kompass-theme.css` überschreibt Inline-Styles (lädt nach, gewinnt Kaskade via `!important`)
+- `css/overrides.css` überschreibt Inline-Styles (lädt nach, gewinnt Kaskade via `!important`). Tokens in `css/tokens.css`.
 - CSS-Variablen: `--navy #1C2B3A`, `--teal #1E656D`, `--teal-light #8DD4D9`, `--amber #B45309`
 - Breakpoint Mobile: `max-width: 768px`
 - Kein Test-Runner — Verifikation = visuelles Review + git diff

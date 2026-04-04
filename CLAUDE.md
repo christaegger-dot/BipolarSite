@@ -13,9 +13,10 @@
 - **Deploy:** Netlify via GitHub, `netlify.toml` in root
 
 ## CSS Cascade (critical — read before editing styles)
-- Load order: `fonts.css` → `shared.css` → inline `<style>` per page → `tarif-kompass-theme.css`
-- **Theme CSS wins by cascade position** (loads last) — `!important` only needed for inline `style=""` HTML attributes
-- Remaining 41 `!important` in theme CSS are all in SCHRITT 2 (Farbsystem) — they override inline `style=""` on HTML elements. Do not remove.
+- Load order: `tokens.css` → `fonts.css` → `shared.css` → `module.css` → `tools.css` → inline `<style>` per page → `overrides.css`
+- **`tokens.css`** — only `:root` custom properties (variables), no selectors
+- **`overrides.css`** wins by cascade position (loads last) — `!important` only needed for inline `style=""` HTML attributes
+- Remaining `!important` in overrides.css override inline `style=""` on HTML elements. Do not remove.
 - shared.css nav rules scoped to `#navbar` to avoid conflict with `.tool-nav` on tool pages
 - Tool pages have `body{align-items:center}` in inline styles — child elements need explicit `width:100%`
 
@@ -38,11 +39,11 @@
 - Module pages use `noJs: true` frontmatter + `<script>document.documentElement.classList.remove('no-js')</script>` pattern
 - `.reveal` elements use IntersectionObserver — always provide `.no-js .reveal { opacity:1 }` fallback
 - Fonts: DM Sans (body), DM Serif Display (headings) — self-hosted WOFF2 in `src/fonts/`
-- Design tokens in `:root` of `tarif-kompass-theme.css` — use `var(--token)` not hardcoded values
+- Design tokens in `:root` of `tokens.css` — use `var(--token)` not hardcoded values
 
 ## Gotchas
 - Do NOT duplicate nav logic in page scripts — `nav.js` handles all nav behavior
 - Tool pages inline their own `<style>` with body layout (flex centering) — shared.css body styles get overridden
-- `body::before` noise texture is defined in shared.css but killed globally by theme CSS (`display:none`)
+- `body::before` noise texture is defined in shared.css but killed globally by overrides.css (`display:none`)
 - Homepage has scroll-reveal animation — content is `opacity:0` until IntersectionObserver fires
 - Phase colors in tools use inline `style=""` (JS-generated) — cannot be overridden without `!important`
