@@ -129,6 +129,42 @@
     });
   }
 
+  // Desktop sticky TOC sidebar (modules only, ≥1100px)
+  if (window.innerWidth >= 1100) {
+    const tocOl = document.querySelector('.toc ol');
+    const contentEl = document.querySelector('main.content');
+    if (tocOl && contentEl) {
+      const nav = document.createElement('nav');
+      nav.className = 'toc-sidebar';
+      nav.setAttribute('aria-label', 'Inhaltsverzeichnis');
+      const ol = document.createElement('ol');
+      tocOl.querySelectorAll('li > a').forEach(a => {
+        const li = document.createElement('li');
+        const link = document.createElement('a');
+        link.href = a.getAttribute('href');
+        link.textContent = a.childNodes[0].textContent.trim();
+        li.appendChild(link);
+        ol.appendChild(li);
+      });
+      nav.appendChild(ol);
+      contentEl.parentNode.insertBefore(nav, contentEl);
+      // Track active section
+      const headings = Array.from(contentEl.querySelectorAll('h2[id]'));
+      const sidebarLinks = Array.from(nav.querySelectorAll('a'));
+      if (headings.length && sidebarLinks.length) {
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const id = entry.target.id;
+              sidebarLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + id));
+            }
+          });
+        }, { rootMargin: '-80px 0px -70% 0px' });
+        headings.forEach(h => observer.observe(h));
+      }
+    }
+  }
+
   // Expandable sections
   document.querySelectorAll('.expandable-toggle').forEach(btn => {
     btn.addEventListener('click', () => {

@@ -88,6 +88,63 @@
   margin-left: 8px; vertical-align: middle;
 }
 
+/* ── Desktop Sticky TOC Sidebar ── */
+.toc-sidebar {
+  display: none;
+}
+@media (min-width: 1100px) {
+  .toc-sidebar {
+    display: block;
+    position: fixed;
+    top: 100px;
+    left: max(16px, calc((100vw - 1060px) / 2 - 200px));
+    width: 180px;
+    max-height: calc(100vh - 140px);
+    overflow-y: auto;
+    font-size: var(--text-xs);
+    line-height: 1.4;
+    z-index: 10;
+  }
+  .toc-sidebar ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: toc-s;
+  }
+  .toc-sidebar li {
+    counter-increment: toc-s;
+  }
+  .toc-sidebar a {
+    display: block;
+    padding: 6px 0 6px 20px;
+    position: relative;
+    text-decoration: none;
+    color: var(--text-soft);
+    transition: color 0.15s ease;
+    border-left: 2px solid var(--border-warm);
+  }
+  .toc-sidebar a::before {
+    content: counter(toc-s);
+    position: absolute;
+    left: 4px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--text-soft);
+    top: 7px;
+  }
+  .toc-sidebar a:hover {
+    color: var(--teal-dark);
+  }
+  .toc-sidebar a.active {
+    color: var(--navy);
+    font-weight: 700;
+    border-left-color: var(--teal);
+  }
+  .toc-sidebar a.active::before {
+    color: var(--teal);
+  }
+}
+
 /* ── Prose ── */
 .content { max-width: var(--content-width); margin: 0 auto; padding: 0 2rem; }
 .content h2 {

@@ -113,6 +113,44 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     line-height: 1.7;
     color: var(--slate);
   }
+  /* ── Situativer Guide ── */
+  .tool-guide { margin: 0 auto 48px; }
+  .tool-guide h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.25rem; font-weight: 400;
+    color: var(--navy); margin: 0 0 16px;
+  }
+  .tool-guide-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .tool-guide-item {
+    display: flex; flex-direction: column; gap: 4px;
+    padding: 16px 18px; border-radius: var(--radius-md);
+    background: white; border: 1px solid var(--border-warm);
+    text-decoration: none; color: var(--text);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .tool-guide-item:hover {
+    border-color: var(--teal-border);
+    box-shadow: var(--shadow-soft);
+  }
+  .tool-guide-item strong {
+    font-size: var(--text-base); font-weight: 600; color: var(--navy);
+  }
+  .tool-guide-item span {
+    font-size: var(--text-sm); color: var(--teal); font-weight: 600;
+  }
+  .tool-guide-item--alert {
+    border-color: var(--alert-red-border);
+    background: var(--alert-red-bg);
+  }
+  .tool-guide-item--alert strong { color: var(--alert-red); }
+  .tool-guide-item--alert span { color: var(--alert-red); }
+  @media (max-width: 900px) { .tool-guide-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .tool-guide-grid { grid-template-columns: 1fr; } }
+
   .overview-content {
     padding: 0 2rem 80px;
   }
@@ -218,14 +256,33 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 </header>
 
 <main id="main-content" class="overview-content">
-  <div class="overview-intro">
-    <div class="overview-note">
-      <h2>Wenn Sie lieber lesen als klicken</h2>
-      <p>Die inhaltliche Einordnung finden Sie in den <a href="/module/">acht Modulen</a>. Die Werkzeuge sind eine Ergänzung, kein Ersatz für Orientierung und Kontext.</p>
-    </div>
-    <div class="overview-note">
-      <h2>Wenn es akut ist</h2>
-      <p>In Krisen oder bei unmittelbarer Gefahr ist der <a href="/notfall/">Notfallweg</a> wichtiger als jedes Werkzeug. Für Kontakte, Materialien und rechtliche Orientierung ist <a href="/modul/8/">Modul 8</a> der schnellste Einstieg.</p>
+  <div class="tool-guide">
+    <h2>Welches Werkzeug passt gerade?</h2>
+    <div class="tool-guide-grid">
+      <a href="/tools/selbsttest/" class="tool-guide-item">
+        <strong>Ich weiss nicht, wo ich stehe</strong>
+        <span>→ Belastungs-Selbsttest</span>
+      </a>
+      <a href="/tools/krisenplan/" class="tool-guide-item">
+        <strong>Ich will vorbereitet sein</strong>
+        <span>→ Krisenplan-Werkzeug</span>
+      </a>
+      <a href="/tools/komm-trainer/" class="tool-guide-item">
+        <strong>Ein schwieriges Gespräch steht an</strong>
+        <span>→ Kommunikations-Trainer</span>
+      </a>
+      <a href="/tools/eisberg/" class="tool-guide-item">
+        <strong>Ich will verstehen, was unter der Oberfläche passiert</strong>
+        <span>→ Eisberg-Modell</span>
+      </a>
+      <a href="/tools/durchatmen/" class="tool-guide-item">
+        <strong>Ich brauche gerade einen Moment Ruhe</strong>
+        <span>→ Durchatmen</span>
+      </a>
+      <a href="/notfall/" class="tool-guide-item tool-guide-item--alert">
+        <strong>Es ist akut</strong>
+        <span>→ Notfallweg</span>
+      </a>
     </div>
   </div>
 
