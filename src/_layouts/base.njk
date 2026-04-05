@@ -179,6 +179,7 @@
 </script>
 {% block scripts %}{% endblock %}
 <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js').catch(function(){})}</script>
+{% if not noStorageBanner %}
 <div id="storageBanner" class="storage-banner" hidden role="status">
   <span>Fortschritt lokal speichern? Keine Daten werden gesendet.</span>
   <div class="storage-banner-btns">
@@ -204,5 +205,6 @@
   } catch(e){}
 })();
 </script>
+{% endif %}
 </body>
 </html>

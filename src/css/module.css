@@ -565,6 +565,88 @@ body.pdf-preview-open { overflow: hidden; }
   .takeaways { padding: 28px 24px; }
 }
 
+/* ── Reusable Utility Classes (replacing inline styles) ── */
+
+/* Links */
+.link-teal       { color: var(--teal); }
+.link-teal-bold  { color: var(--teal); font-weight: 600; }
+.link-alert      { color: var(--alert-red); font-weight: 700; }
+.link-alert-mid  { color: var(--alert-red); font-weight: 600; }
+.link-sand       { color: var(--sand); }
+
+/* Text helpers */
+.text-soft-sm    { font-size: 0.88rem; color: var(--text-soft); }
+.text-soft-xs    { font-size: 0.86rem; color: var(--text-soft); }
+.text-italic-soft { margin-top: 12px; font-style: italic; color: var(--text-soft); }
+
+/* Phase header colors */
+.phase-header--mania      { color: var(--amber-phase); }
+.phase-header--stable     { color: var(--green-phase); }
+.phase-header--depression { color: var(--blue-phase); }
+
+/* Tool CTA icon backgrounds */
+.tool-cta-icon--neutral { background: #FAFAF7; }
+.tool-cta-icon--green   { background: var(--green-phase-light); }
+.tool-cta-icon--amber   { background: var(--amber-bg); }
+.tool-cta-icon--teal    { background: var(--green-bg); }
+.tool-cta-icon--blue    { background: var(--blue-phase-light); }
+.tool-cta-icon--rose    { background: var(--rose-soft); }
+
+/* Treatment/step cards — horizontal layout */
+.treatment-card--horizontal { display: flex; gap: 20px; align-items: flex-start; }
+.treatment-card-icon--num   { font-size: 0.85rem; font-weight: 800; }
+
+/* Info callout (warm background box) */
+.info-callout {
+  font-size: 0.95rem; color: var(--slate);
+  background: var(--surface-warm);
+  border: 1px solid rgba(181,138,82,0.2);
+  border-radius: 16px;
+  padding: 16px 18px;
+  margin-bottom: 24px;
+}
+
+/* Reflection/narrative body text */
+.reflection-body { font-style: normal; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; margin-bottom: 12px; }
+.reflection-body:last-of-type { margin-bottom: 0; }
+.reflection-cite { display: block; margin-top: 14px; font-size: 0.82rem; color: var(--text-soft); font-style: italic; }
+
+/* Hint note spacing variants */
+.hint-note--spaced { margin-bottom: 24px; }
+.hint-note--spaced-lg { margin-bottom: 28px; }
+
+/* Bright moment (positive break) */
+.bright-moment {
+  font-size: 0.88rem; color: var(--teal-dark);
+  margin-top: 8px;
+}
+
+/* Saeulen legend dots (pillar colors) */
+.saeulen-legend-dot--1 { background: var(--teal); }
+.saeulen-legend-dot--2 { background: var(--amber); }
+.saeulen-legend-dot--3 { background: var(--slate); }
+.saeulen-legend-dot--4 { background: var(--navy); }
+.saeulen-legend-dot--5 { background: #2D5F8A; }
+
+/* Helper text inside cards */
+.card-helper { font-size: 0.82em; color: var(--text-soft); }
+.card-helper a { color: var(--teal); }
+
+/* Anlaufstellen box */
+.anlaufstellen-box h4 { margin: 0 0 var(--space-sm, 8px); font-size: 1rem; color: var(--navy); }
+.anlaufstellen-box p  { margin: 0; font-size: 0.9em; color: var(--slate); }
+.anlaufstellen-box a  { color: var(--teal); }
+
+/* Subsection Heading (visually smaller h2 for semantic hierarchy) */
+.content h2.subsection-heading {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-top: 36px;
+  margin-bottom: 10px;
+  border-top: none;
+  padding-top: 0;
+}
+
 /* ── Module Accent Colors (per-module visual identity) ── */
 /* !important needed because overrides.css loads AFTER this file */
 
