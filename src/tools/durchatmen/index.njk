@@ -23,7 +23,8 @@ body{font-family:'DM Sans',sans-serif;color:rgba(255,255,255,0.88);background:#1
 .breathe-steps{display:flex;gap:20px;justify-content:center;margin-bottom:48px;font-size:0.78rem;color:rgba(255,255,255,0.4)}
 .breathe-step{text-align:center}
 .breathe-step span{display:block;font-size:1.1rem;font-weight:700;color:rgba(255,255,255,0.7);margin-bottom:2px}
-.breathe-divider{width:60px;height:1px;background:rgba(255,255,255,0.08);margin:0 auto 32px}
+.breathe-transition{margin:0 auto 24px;text-align:center}
+.breathe-transition-text{font-size:0.82rem;color:rgba(255,255,255,0.4);letter-spacing:0.02em}
 .breathe-q{font-family:'DM Serif Display',Georgia,serif;font-size:1.05rem;font-weight:600;color:rgba(255,255,255,0.8);margin-bottom:20px}
 .breathe-actions{display:flex;flex-direction:column;gap:10px;width:100%;max-width:320px}
 .breathe-action{display:block;padding:14px 20px;border-radius:12px;text-decoration:none;text-align:center;font-size:0.88rem;font-weight:600;transition:transform 0.15s ease,box-shadow 0.15s ease}
@@ -52,13 +53,15 @@ body{font-family:'DM Sans',sans-serif;color:rgba(255,255,255,0.88);background:#1
     <div class="breathe-step"><span>6s</span>Ausatmen</div>
   </div>
 
-  <div class="breathe-divider"></div>
+  <div class="breathe-transition">
+    <p class="breathe-transition-text">Wenn Sie bereit sind — ein kurzer Check:</p>
+  </div>
 
-  <div class="breathe-q">Besteht gerade Gefahr?</div>
+  <div class="breathe-q">Brauchen Sie gerade Hilfe?</div>
   <div class="breathe-actions">
-    <a href="tel:144" class="breathe-action breathe-action--emergency">Ja — 144 anrufen</a>
+    <a href="tel:144" class="breathe-action breathe-action--emergency">Es besteht Gefahr — 144 anrufen</a>
     <a href="/tools/krisenplan/" class="breathe-action breathe-action--krisenplan">Krisenplan öffnen</a>
-    <a href="/" class="breathe-action breathe-action--weiter">Nein — zur Orientierung</a>
+    <a href="/" class="breathe-action breathe-action--weiter">Ich schaue mich um → Orientierung</a>
   </div>
 </main>
 {% endblock %}

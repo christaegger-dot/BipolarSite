@@ -824,7 +824,7 @@ body.pdf-preview-open { overflow: hidden; }
   .module-nav a { padding: 8px 8px; }
 }
 
-/* ── "Nicht Ihr Thema?" escape link ── */
+/* ── Module escape link ── */
 .next-module-escape {
   max-width: var(--content-width);
   margin: 12px auto 0;
