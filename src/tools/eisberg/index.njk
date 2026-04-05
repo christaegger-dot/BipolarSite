@@ -13,11 +13,11 @@ useToolCSS: true
 <style>
 body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-height:100vh;display:flex;flex-direction:column;align-items:center;-webkit-font-smoothing:antialiased}
 .tool-wrap{width:100%;max-width:560px;padding:32px 20px 48px;flex:1}
-.tool-header{text-align:center;margin-bottom:28px;background:linear-gradient(180deg,rgba(255,255,255,0.94),rgba(247,250,251,0.88));border:1px solid rgba(45,40,35,0.08);border-radius:26px;padding:26px 24px 24px;box-shadow:0 16px 40px rgba(28,43,58,0.08);position:relative;overflow:hidden}
+.tool-header{text-align:center;margin-bottom:28px;background:linear-gradient(180deg,rgba(255,255,255,0.94),rgba(247,250,251,0.88));border:1px solid var(--border-warm-md);border-radius:26px;padding:26px 24px 24px;box-shadow:0 16px 40px rgba(28,43,58,0.08);position:relative;overflow:hidden}
 .tool-header::before{content:'';position:absolute;top:-34px;right:-22px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle, rgba(141,212,217,0.3) 0%, transparent 68%)}
 .tool-header h1{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.4rem,3.5vw,1.75rem);font-weight:700;color:#2a211b;margin:0 0 8px;letter-spacing:-0.02em}
 .tool-header p{font-size:0.88rem;color:#475569;line-height:1.65;max-width:42ch;margin:0 auto}
-.iceberg{width:100%;border-radius:24px;overflow:hidden;box-shadow:0 14px 36px rgba(28,43,58,0.08);border:1px solid rgba(45,40,35,0.07)}
+.iceberg{width:100%;border-radius:24px;overflow:hidden;box-shadow:0 14px 36px rgba(28,43,58,0.08);border:1px solid var(--border-warm-md)}
 .ice-above{background:linear-gradient(180deg,#FAFAF7,#eef3f8);padding:24px 20px 32px}
 .ice-lbl{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;text-align:center;margin-bottom:16px}
 .ice-lbl-a{color:var(--blue-phase)}.ice-lbl-b{color:rgba(255,255,255,0.5)}
@@ -35,7 +35,7 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
 #dp{width:100%;margin-top:16px;transition:background-color 0.3s ease,opacity 0.3s ease,border-color 0.3s ease}
 #dp.hide{opacity:0;transform:translateY(8px);pointer-events:none;max-height:0;overflow:hidden;margin:0}
 .dc{border-radius:18px;padding:24px 28px}
-.dcl{background:#fff;border:1px solid #c5d5e8;box-shadow:0 4px 20px rgba(45,40,35,0.08)}
+.dcl{background:#fff;border:1px solid #c5d5e8;box-shadow:0 4px 20px var(--border-warm-md)}
 .dcd{background:var(--ice-deep);border:1px solid rgba(255,255,255,0.12);box-shadow:0 8px 32px rgba(0,0,0,0.3)}
 .dlbl{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.45);margin-bottom:10px}
 .dc h2{font-family:'DM Serif Display',Georgia,serif;font-size:1.06rem;font-weight:700;margin:0 0 10px}

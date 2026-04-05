@@ -14,10 +14,10 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   /* Module-specific styles only — shared styles in module.css */
 
   /* SELFTEST */
-  .selftest{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-xl);padding:36px;margin:40px 0;box-shadow:var(--shadow-soft)}
+  .selftest{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-xl);padding:36px;margin:40px 0;box-shadow:var(--shadow-soft)}
   .selftest .selftest-heading{font-family:'DM Serif Display',serif;font-size:1.15rem;font-weight:600;color:var(--navy-mid);margin-bottom:8px}
   .selftest>p{font-size:0.85rem;color:var(--text-soft);margin-bottom:24px}
-  .selftest-item{padding:16px 0;border-top:1px solid rgba(45,40,35,0.06);font-size:0.92rem;color:var(--slate);line-height:1.55}
+  .selftest-item{padding:16px 0;border-top:1px solid var(--border-warm);font-size:0.92rem;color:var(--slate);line-height:1.55}
   .selftest-item:first-of-type{border-top:none}
 
   /* GLASWAND */
@@ -31,7 +31,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 
   /* LOSS CARDS */
   .loss-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0}
-  .loss-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:22px;border-left:4px solid var(--blue-phase)}
+  .loss-card{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-lg);padding:22px;border-left:4px solid var(--blue-phase)}
   .loss-card h4{font-size:0.88rem;font-weight:700;color:var(--blue-phase);margin-bottom:6px}
   .loss-card p{font-size:0.84rem;color:var(--slate);line-height:1.55;margin:0}
 
@@ -52,7 +52,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .phase-card.p3 p{color:#475569}
 
   /* EROSION CHART */
-  .chart-section{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-xl);padding:36px;margin:40px 0;box-shadow:var(--shadow-soft)}
+  .chart-section{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-xl);padding:36px;margin:40px 0;box-shadow:var(--shadow-soft)}
   .chart-section h3{font-family:'DM Serif Display',serif;font-size:1.15rem;font-weight:600;margin-bottom:8px;color:var(--navy-mid)}
   .chart-section>p{font-size:0.88rem;color:var(--text-soft);margin-bottom:24px}
   .chart-wrap svg{width:100%;height:auto;display:block}
@@ -60,14 +60,14 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 
   /* MECHANISM CARDS */
   .mech-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0}
-  .mech-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:24px}
+  .mech-card{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-lg);padding:24px}
   .mech-card h4{font-size:0.92rem;font-weight:700;color:var(--text);margin-bottom:8px}
   .mech-card p{font-size:0.88rem;color:var(--slate);line-height:1.6;margin:0 0 10px}
   .mech-card .mech-result{font-size:0.82rem;color:var(--alert-red);font-weight:600}
 
   /* IDENTITY BLOCK (from Modul 3) */
   .identity-signs{list-style:none;margin:20px 0}
-  .identity-signs li{font-size:0.92rem;color:var(--slate);padding:10px 0 10px 24px;position:relative;border-bottom:1px solid rgba(45,40,35,0.04)}
+  .identity-signs li{font-size:0.92rem;color:var(--slate);padding:10px 0 10px 24px;position:relative;border-bottom:1px solid var(--border-warm)}
   .identity-signs li::before{content:'—';position:absolute;left:0;color:var(--teal-light);font-weight:700}
 
   /* KIDS SECTION */
@@ -89,7 +89,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   @media(max-width:768px){.phase-cards{grid-template-columns:1fr}.mech-cards{grid-template-columns:1fr}.loss-cards{grid-template-columns:1fr}.kids-grid{grid-template-columns:1fr}}
 
   .age-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:16px 0 24px}
-  .age-card{background:#fff;border:1px solid rgba(45,40,35,0.08);border-radius:14px;padding:20px 18px}
+  .age-card{background:#fff;border:1px solid var(--border-warm-md);border-radius:14px;padding:20px 18px}
   .age-card h4{font-size:0.9rem;font-weight:700;color:#1c2b3a;margin:8px 0 8px}
   .age-card p{font-size:0.83rem;line-height:1.6;color:#475569;margin:0 0 8px}.age-card p:last-child{margin:0}
   .age-label{display:inline-flex;background:#e6f4f2;color:#1E656D;padding:3px 10px;border-radius:100px;font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase}

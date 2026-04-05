@@ -49,7 +49,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .hero-visual img{display:block;width:100%;height:auto;border-radius:18px}
 
   .content{max-width:var(--content-width);margin:0 auto;padding:0 2rem}
-  .content h2{font-family:'DM Serif Display',serif;font-size:1.5rem;font-weight:700;color:var(--navy);margin:56px 0 20px;padding-top:20px;border-top:1px solid rgba(45,40,35,0.06)}
+  .content h2{font-family:'DM Serif Display',serif;font-size:1.5rem;font-weight:700;color:var(--navy);margin:56px 0 20px;padding-top:20px;border-top:1px solid var(--border-warm)}
   .content h2:first-of-type{border-top:none;margin-top:0}
   .content h3{font-family:'DM Serif Display',serif;font-size:1.1rem;font-weight:600;color:var(--navy-mid);margin:28px 0 12px}
   .content p{font-size:1rem;color:var(--slate);margin-bottom:16px;line-height:1.75}
@@ -57,7 +57,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 
   /* SITUATION SELECTOR */
   .situations{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 40px}
-  .sit-card{display:flex;align-items:center;gap:14px;padding:16px 20px;border-radius:var(--radius-lg);text-decoration:none;color:var(--text);border:1px solid rgba(45,40,35,0.06);transition:border-color 0.2s ease,box-shadow 0.2s ease,transform 0.2s ease;background:linear-gradient(180deg,#fff 0%,#fcf8f7 100%)}
+  .sit-card{display:flex;align-items:center;gap:14px;padding:16px 20px;border-radius:var(--radius-lg);text-decoration:none;color:var(--text);border:1px solid var(--border-warm);transition:border-color 0.2s ease,box-shadow 0.2s ease,transform 0.2s ease;background:linear-gradient(180deg,#fff 0%,#fcf8f7 100%)}
   .sit-card:hover{box-shadow:0 12px 28px rgba(28,43,58,0.1);transform:translateY(-2px)}
   .sit-card.urgent{border-color:var(--alert-red-border);background:var(--alert-red-bg)}
   .sit-card.urgent:hover{border-color:var(--alert-red)}
@@ -70,7 +70,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 
   /* NUMBERS */
   .numbers-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:24px 0}
-  .number-card{background:linear-gradient(180deg,#fff 0%,#fcf8f7 100%);border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-md);padding:16px 20px;display:flex;align-items:center;gap:14px;transition:box-shadow 0.2s ease,transform 0.2s ease;border-top:3px solid transparent;text-decoration:none;color:inherit}
+  .number-card{background:linear-gradient(180deg,#fff 0%,#fcf8f7 100%);border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:16px 20px;display:flex;align-items:center;gap:14px;transition:box-shadow 0.2s ease,transform 0.2s ease;border-top:3px solid transparent;text-decoration:none;color:inherit}
   .number-card:hover{box-shadow:0 12px 28px rgba(28,43,58,0.1);transform:translateY(-2px)}
   .numbers-grid .number-card:nth-child(-n+2){background:linear-gradient(180deg,#FFF8F7 0%,#FFFFFF 100%);border-color:rgba(199,84,80,0.18);border-top-color:var(--alert-red)}
   .number-card strong{display:block;font-family:'DM Serif Display',serif;font-size:1.15rem;font-weight:700;color:var(--alert-red)}
@@ -95,7 +95,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   @media(max-width:600px){.fu-steps{grid-template-columns:1fr 1fr}.fu-step:nth-child(2){border-right:none}.fu-step:nth-child(n+3){border-top:1px solid var(--alert-red-border)}}
 
   /* MINI GUIDES */
-  .guide{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-xl);margin:20px 0;overflow:hidden;transition:box-shadow 0.2s ease,transform 0.2s ease;border-left:4px solid transparent}.guide:hover{box-shadow:0 16px 34px rgba(28,43,58,0.08);transform:translateY(-2px)}
+  .guide{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-xl);margin:20px 0;overflow:hidden;transition:box-shadow 0.2s ease,transform 0.2s ease;border-left:4px solid transparent}.guide:hover{box-shadow:0 16px 34px rgba(28,43,58,0.08);transform:translateY(-2px)}
   #guide-suizid,#guide-manie,#guide-psychose,#guide-gewalt{border-left-color:var(--alert-red)}
   #guide-depression{border-left-color:var(--blue-phase)}
   #guide-finanzen{border-left-color:var(--amber-phase)}
@@ -120,6 +120,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .guide-sos a{color:var(--alert-red);font-weight:700}
   .guide-sos a[href^="tel:"]{display:inline-block;padding:6px 10px;margin:-6px -6px;border-radius:8px;background:rgba(154,52,18,0.06);min-height:44px;line-height:32px;text-decoration:underline}
   .guide-link{display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;color:var(--teal);text-decoration:none;font-weight:600;margin-top:8px}
+  .guide-context-hint{font-size:0.85rem;color:var(--text-soft);margin-top:16px;padding-top:12px;border-top:1px solid var(--border-warm)}
 
   /* GRAUZONE */
   .grauzone{background:linear-gradient(180deg,#FFF2EF 0%, #F7EEE8 100%);border-radius:var(--radius-xl);padding:32px;margin:40px 0;border:1px solid rgba(199,84,80,0.12)}
@@ -183,17 +184,17 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   body.pdf-preview-open{overflow:hidden}
   .pdf-preview-overlay{position:fixed;inset:0;z-index:1000;background:rgba(42,33,27,0.38);padding:24px;display:flex;align-items:center;justify-content:center}
   .pdf-preview-overlay[hidden]{display:none}
-  .pdf-preview-dialog{width:min(920px,100%);max-height:calc(100vh - 48px);background:var(--bg);border:1px solid rgba(45,40,35,0.08);border-radius:var(--radius-xl);box-shadow:0 8px 40px rgba(45,40,35,0.12);display:flex;flex-direction:column;overflow:hidden}
-  .pdf-preview-header{padding:20px 24px 16px;border-bottom:1px solid rgba(45,40,35,0.08);display:flex;gap:16px;justify-content:space-between;align-items:flex-start}
+  .pdf-preview-dialog{width:min(920px,100%);max-height:calc(100vh - 48px);background:var(--bg);border:1px solid var(--border-warm-md);border-radius:var(--radius-xl);box-shadow:0 8px 40px var(--border-warm-xl);display:flex;flex-direction:column;overflow:hidden}
+  .pdf-preview-header{padding:20px 24px 16px;border-bottom:1px solid var(--border-warm-md);display:flex;gap:16px;justify-content:space-between;align-items:flex-start}
   .pdf-preview-title{font-family:'DM Serif Display',serif;font-size:1.2rem;font-weight:600;color:var(--navy)}
   .pdf-preview-sub{margin-top:6px;font-size:0.82rem;color:var(--text-soft);max-width:44ch;line-height:1.55}
   .pdf-preview-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
   .pdf-preview-link,.pdf-preview-close{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:9px 14px;border-radius:10px;font-size:0.82rem;font-weight:600;text-decoration:none}
   .pdf-preview-link{background:var(--green-bg);color:var(--navy)}
-  .pdf-preview-close{background:none;border:1px solid rgba(45,40,35,0.12);color:var(--text);cursor:pointer}
+  .pdf-preview-close{background:none;border:1px solid var(--border-warm-xl);color:var(--text);cursor:pointer}
   .pdf-preview-body{padding:18px 24px 24px}
   .pdf-preview-note{font-size:0.8rem;color:var(--text-soft);margin-bottom:12px}
-  .pdf-preview-frame-wrap{background:white;border:1px solid rgba(45,40,35,0.08);border-radius:18px;overflow:hidden}
+  .pdf-preview-frame-wrap{background:white;border:1px solid var(--border-warm-md);border-radius:18px;overflow:hidden}
   .pdf-preview-frame{display:block;width:100%;height:60vh;min-height:420px;border:0;background:#f3f1ec}
   @media(max-width:720px){.pdf-preview-overlay{padding:12px}.pdf-preview-dialog{max-height:calc(100vh - 24px)}.pdf-preview-header,.pdf-preview-body{padding-left:16px;padding-right:16px}.pdf-preview-header{padding-top:16px}.pdf-preview-actions{justify-content:flex-start}.pdf-preview-link,.pdf-preview-close{width:100%}.pdf-preview-frame{height:50vh;min-height:320px}}
   @media print{
@@ -293,6 +294,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
       <div class="guide-do">✓ Zuhören. Direkt fragen. Bei der Person bleiben. Fachpersonen einbeziehen.</div>
       <div class="guide-dont">✗ «Das wird schon.» Bagatellisieren. Allein lassen. Versprechen erzwingen.</div>
       <a href="/handouts/c2_suizidgedanken.pdf" target="_blank" rel="noopener" class="guide-link">↓ PDF: Umgang mit Suizidgedanken</a>
+      <p class="guide-context-hint">Diese Kurzanleitung ist für die ersten Minuten. Ausführlichere Gesprächshilfen finden Sie in <a href="/modul/6/">Modul 6</a>.</p>
     </div></div>
   </div>
 
