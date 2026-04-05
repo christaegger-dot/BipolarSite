@@ -514,7 +514,7 @@ useNavJS: true
   }
 
   /* ══════════ QUICK TRIAGE ══════════ */
-  .quick-triage{background:linear-gradient(135deg,var(--rose-soft),#fff8f6);border:1px solid rgba(154,52,18,0.12);border-radius:var(--radius-xl);padding:28px 32px;margin-bottom:24px}
+  .quick-triage{background:linear-gradient(135deg,var(--rose-soft),#fff8f6);border:2px solid rgba(154,52,18,0.18);border-radius:var(--radius-xl);padding:28px 32px;margin-bottom:24px;box-shadow:0 4px 24px rgba(154,52,18,0.08)}
   .quick-triage-label{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--rose);margin-bottom:12px}
   .quick-triage h3{font-family:'Source Serif 4',serif;font-size:1.15rem;font-weight:600;color:var(--navy);margin-bottom:8px}
   .quick-triage p{font-size:0.88rem;color:var(--slate);margin-bottom:16px;line-height:1.6}
@@ -666,6 +666,47 @@ useNavJS: true
     transition: border-color 0.2s ease;
   }
   .invitation-email:hover { border-color: var(--teal); }
+
+  /* ══════════ WER STEHT DAHINTER ══════════ */
+  .about-section {
+    padding: 0 2rem 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .about-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 32px 36px;
+    background: white;
+    border: 1px solid var(--border-warm);
+    border-radius: var(--radius-xl);
+  }
+  .about-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-soft);
+    margin-bottom: 10px;
+  }
+  .about-section h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+  .about-inner p {
+    font-size: var(--text-sm);
+    line-height: 1.7;
+    color: var(--slate);
+    margin: 0 0 8px;
+  }
+  .about-inner p:last-child { margin-bottom: 0; }
+  .about-inner a { color: var(--teal); }
+  @media (max-width: 600px) {
+    .about-inner { padding: 24px 20px; }
+  }
 </style>
 {% endblock %}
 {% block nav %}
@@ -907,6 +948,16 @@ useNavJS: true
   </div>
 </section>
 
+<!-- ══════════ WER STEHT DAHINTER ══════════ -->
+<section class="about-section reveal">
+  <div class="about-inner">
+    <div class="about-label">Hintergrund</div>
+    <h2>Wer steht dahinter?</h2>
+    <p>Diese Website wurde von der <strong>Fachstelle Angehörigenarbeit</strong> der Psychiatrischen Universitätsklinik Zürich entwickelt. Sie richtet sich an Angehörige von Menschen mit bipolarer Störung und ist als Ergänzung zur persönlichen Beratung gedacht.</p>
+    <p>Inhaltliche Verantwortung: <strong>Christa Egger</strong>, Fachstelle Angehörigenarbeit PUK Zürich.</p>
+    <p>Es handelt sich nicht um eine offizielle Website der PUK Zürich. Alle Inhalte basieren auf aktueller Fachliteratur und klinischer Erfahrung, ersetzen aber keine professionelle Beratung. Mehr dazu im <a href="/impressum/">Impressum</a>.</p>
+  </div>
+</section>
 
 </main>
 
