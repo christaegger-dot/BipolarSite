@@ -10,109 +10,21 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 ---
 {% block headCSS %}
 <style>
-  .overview-hero {
-    padding: 120px 2rem 48px;
-    position: relative;
-    overflow: hidden;
-  }
+  /* ── Page-specific: decorative blobs + colors ── */
   .overview-hero::before {
-    content: '';
-    position: absolute;
-    top: -24%;
-    right: -10%;
-    width: 640px;
-    height: 640px;
-    border-radius: 50%;
+    top: -24%; right: -10%; width: 640px; height: 640px;
     background: radial-gradient(circle, rgba(217,236,236,0.7) 0%, transparent 72%);
     opacity: 0.82;
   }
   .overview-hero::after {
-    content: '';
-    position: absolute;
-    bottom: -16%;
-    left: -5%;
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
+    bottom: -16%; left: -5%; width: 500px; height: 500px;
     background: radial-gradient(circle, rgba(221,210,191,0.72) 0%, transparent 72%);
     opacity: 0.76;
   }
-  .overview-hero-inner,
-  .overview-content {
-    max-width: var(--wide-width);
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-  }
-  .overview-breadcrumb {
-    font-size: 0.8rem;
-    color: var(--text-soft);
-    margin-bottom: 18px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .overview-breadcrumb a {
-    color: var(--teal);
-    text-decoration: none;
-  }
-  .overview-breadcrumb a:hover {
-    text-decoration: underline;
-  }
-  .overview-badge {
-    display: inline-flex;
-    align-items: center;
-    background: rgba(217,236,236,0.42);
-    color: var(--teal);
-    padding: 6px 16px;
-    border-radius: 100px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-  .overview-hero h1 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(2.2rem, 5vw, 3.4rem);
-    line-height: 1.08;
-    letter-spacing: -0.035em;
-    color: var(--navy);
-    margin: 0 0 16px;
-    max-width: 760px;
-  }
-  .overview-lead {
-    max-width: 760px;
-    font-size: 1rem;
-    line-height: 1.78;
-    color: var(--slate);
-    margin: 0;
-  }
-  .overview-intro {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 22px;
-    margin: 12px auto 0;
-  }
-  .overview-note {
-    background: linear-gradient(180deg, #fff 0%, #f8fbfb 100%);
-    border: 1px solid rgba(45,40,35,0.08);
-    border-radius: 24px;
-    box-shadow: var(--shadow-soft);
-    padding: 24px 26px;
-  }
-  .overview-note h2 {
-    margin: 0 0 10px;
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.25rem;
-    color: var(--navy);
-  }
-  .overview-note p {
-    margin: 0;
-    font-size: 0.95rem;
-    line-height: 1.7;
-    color: var(--slate);
-  }
+  .overview-badge { background: rgba(217,236,236,0.42); color: var(--teal); }
+  .overview-intro { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .overview-note { background: linear-gradient(180deg, #fff 0%, #f8fbfb 100%); }
+
   /* ── Situativer Guide ── */
   .tool-guide { margin: 0 auto 48px; }
   .tool-guide h2 {
@@ -151,9 +63,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   @media (max-width: 900px) { .tool-guide-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 480px) { .tool-guide-grid { grid-template-columns: 1fr; } }
 
-  .overview-content {
-    padding: 0 2rem 80px;
-  }
+  /* ── Tool grid + cards ── */
   .tool-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -176,97 +86,43 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     border-color: rgba(30,101,109,0.2);
   }
   .tool-card-kicker {
-    font-size: 0.74rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--teal);
-    margin-bottom: 10px;
-    display: block;
+    font-size: 0.74rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 10px; display: block;
   }
   .tool-card h3 {
     font-family: 'DM Serif Display', serif;
-    font-size: 1.25rem;
-    line-height: 1.25;
-    color: var(--navy);
-    margin: 0 0 10px;
+    font-size: 1.25rem; line-height: 1.25; color: var(--navy); margin: 0 0 10px;
   }
-  .tool-card p {
-    margin: 0;
-    font-size: 0.95rem;
-    line-height: 1.7;
-    color: var(--slate);
-  }
+  .tool-card p { margin: 0; font-size: 0.95rem; line-height: 1.7; color: var(--slate); }
   .tool-card-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    margin-top: 18px;
-    padding-top: 14px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    margin-top: 18px; padding-top: 14px;
     border-top: 1px solid rgba(45,40,35,0.08);
-    color: var(--text-soft);
-    font-size: 0.82rem;
-    font-weight: 600;
+    color: var(--text-soft); font-size: 0.82rem; font-weight: 600;
   }
-  .tool-card-arrow {
-    color: var(--teal);
-    font-size: 1rem;
-  }
-  .overview-footer-note {
-    max-width: 760px;
-    margin-top: 32px;
-    font-size: 0.92rem;
-    line-height: 1.7;
-    color: var(--text-soft);
-  }
+  .tool-card-arrow { color: var(--teal); font-size: 1rem; }
+
   /* ── Collapsible tool grid ── */
-  .tool-details {
-    margin: 12px 0 0;
-  }
+  .tool-details { margin: 12px 0 0; }
   .tool-details-summary {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
+    display: flex; align-items: center; gap: 8px; cursor: pointer;
     font-family: 'DM Serif Display', serif;
-    font-size: 1.15rem;
-    font-weight: 400;
-    color: var(--navy);
-    padding: 14px 0;
-    list-style: none;
+    font-size: 1.15rem; font-weight: 400; color: var(--navy);
+    padding: 14px 0; list-style: none;
   }
   .tool-details-summary::-webkit-details-marker { display: none; }
   .tool-details-summary::after {
-    content: '▸';
-    margin-left: 8px;
-    transition: transform 0.2s ease;
-    font-size: 0.8rem;
-    color: var(--teal);
+    content: '▸'; margin-left: 8px;
+    transition: transform 0.2s ease; font-size: 0.8rem; color: var(--teal);
   }
-  .tool-details[open] .tool-details-summary::after {
-    transform: rotate(90deg);
-  }
-  .tool-details .tool-grid {
-    margin-top: 16px;
-  }
+  .tool-details[open] .tool-details-summary::after { transform: rotate(90deg); }
+  .tool-details .tool-grid { margin-top: 16px; }
+
   @media (max-width: 900px) {
-    .overview-intro,
-    .tool-grid {
-      grid-template-columns: 1fr;
-    }
+    .tool-grid { grid-template-columns: 1fr; }
   }
   @media (max-width: 600px) {
-    .overview-hero {
-      padding: 104px 1.2rem 28px;
-    }
-    .overview-content {
-      padding: 0 1.2rem 64px;
-    }
-    .overview-note,
-    .tool-card {
-      padding: 20px 18px;
-    }
+    .tool-card { padding: 20px 18px; }
   }
 </style>
 {% endblock %}
