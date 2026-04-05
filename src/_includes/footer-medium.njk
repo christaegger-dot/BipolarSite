@@ -1,13 +1,13 @@
 <footer class="site-footer"><div class="footer-inner footer-inner--editorial">
-  <div class="footer-lead">
-    <div class="footer-kicker">Bipolare Störung · Angehörige</div>
-    <p class="footer-summary">Orientierung, Entlastung und konkrete nächste Schritte für Angehörige von Menschen mit bipolarer Störung.</p>
-  </div>
   <div class="footer-meta">
     <p class="footer-org">{{ site.org }}</p>
     <p>{{ site.department }}</p>
-    <p>{{ site.address }}</p>
-    {% if footerAttribution %}<p>{{ footerAttribution }}</p>{% endif %}
+    <p class="footer-contact">
+      <a href="tel:{{ site.phone | replace(' ', '') }}">{{ site.phone }}</a><br>
+      <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+    </p>
+    <p class="footer-address">{{ site.address }}</p>
+    {% if footerAttribution %}<p class="footer-attribution">{{ footerAttribution }}</p>{% endif %}
   </div>
   <div class="footer-note">
     <p>Diese Inhalte ersetzen keine professionelle Beratung. In akuten Lagen hat der Notfallweg Vorrang.</p>
