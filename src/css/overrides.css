@@ -1192,24 +1192,6 @@ footer {
   align-items: start;
 }
 
-.footer-kicker {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.55);
-  margin-bottom: 10px;
-}
-
-.footer-summary {
-  margin: 0;
-  max-width: 26ch;
-  font-family: 'DM Serif Display', serif;
-  font-size: 1.32rem;
-  line-height: 1.45;
-  color: white;
-}
-
 .footer-meta p,
 .footer-note p {
   margin: 0 0 8px;
@@ -1243,20 +1225,17 @@ footer {
 }
 
 .footer-contact a {
-  color: rgba(255,255,255,0.85);
-  text-decoration: none;
   transition: color 0.15s ease;
 }
-.footer-contact a:hover { color: white; }
 
-.footer-address {
-  color: rgba(255,255,255,0.5) !important;
-  font-size: 0.78rem !important;
+p.footer-address {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.78rem;
 }
 
-.footer-attribution {
-  color: rgba(255,255,255,0.45) !important;
-  font-size: 0.75rem !important;
+p.footer-attribution {
+  color: rgba(255,255,255,0.45);
+  font-size: 0.75rem;
   margin-top: 4px;
 }
 
