@@ -332,16 +332,33 @@ useNavJS: true
 
   .module-card:hover {
     box-shadow: var(--shadow-card);
-    border-color: var(--teal-border);
   }
+
+  /* Cluster-Akzent: linker Rand + Hover-Border + Nummer-Farbe */
+  .module-card { border-left: 3px solid transparent; }
+  .module-card[data-accent="blue"]   { border-left-color: var(--blue-phase); }
+  .module-card[data-accent="amber"]  { border-left-color: var(--amber-phase); }
+  .module-card[data-accent="purple"] { border-left-color: var(--purple-phase); }
+  .module-card[data-accent="green"]  { border-left-color: var(--green-phase); }
+  .module-card[data-accent="teal"]   { border-left-color: var(--teal); }
+
+  .module-card[data-accent="blue"]:hover   { border-color: var(--blue-phase); }
+  .module-card[data-accent="amber"]:hover  { border-color: var(--amber-phase); }
+  .module-card[data-accent="purple"]:hover { border-color: var(--purple-phase); }
+  .module-card[data-accent="green"]:hover  { border-color: var(--green-phase); }
+  .module-card[data-accent="teal"]:hover   { border-color: var(--teal); }
 
   .module-number {
     font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.14em;
-    color: var(--teal);
   }
+  .module-card[data-accent="blue"]   .module-number { color: var(--blue-phase); }
+  .module-card[data-accent="amber"]  .module-number { color: var(--amber-phase); }
+  .module-card[data-accent="purple"] .module-number { color: var(--purple-phase); }
+  .module-card[data-accent="green"]  .module-number { color: var(--green-phase); }
+  .module-card[data-accent="teal"]   .module-number { color: var(--teal); }
 
   .module-card h3 {
     font-family: 'Source Serif 4', serif;
