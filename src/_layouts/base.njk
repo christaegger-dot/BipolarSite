@@ -7,12 +7,14 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#1c2b3a">
 <meta name="description" content="{{ description }}">
 <title>{{ title }}</title>
 {% if canonical %}<link rel="canonical" href="{{ canonical }}">
 {% else %}<link rel="canonical" href="{{ site.url }}{{ page.url }}">
 {% endif %}
 {% if not noIndex %}
+<meta property="og:locale" content="de_CH">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
 <meta property="og:title" content="{{ ogTitle | default(title) }}">
