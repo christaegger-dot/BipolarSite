@@ -9,7 +9,7 @@
 - **Static site generator:** Eleventy (11ty) v2 with Nunjucks templates
 - **Source:** `src/` → **Output:** `_site/`
 - **Templates:** `src/_layouts/base.njk` (single base layout), pages in `src/modul/`, `src/tools/`, etc.
-- **Includes:** `nav-full.njk` (main nav, id="navbar"), `nav-tool.njk` (tool back-nav), `footer-medium.njk`, `footer-compact.njk`
+- **Includes:** `nav-full.njk` (main nav, id="navbar"), `nav-tool.njk` (tool back-nav), `footer-medium.njk`
 - **Deploy:** Netlify via GitHub, `netlify.toml` in root
 
 ## CSS Cascade (critical — read before editing styles)
