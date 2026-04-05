@@ -17,45 +17,32 @@ useNavJS: true
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 120px 2rem 80px;
+    padding: 120px 2rem 72px;
     position: relative;
     overflow: hidden;
   }
 
+  /* Single subtle backdrop — one soft wash, not two competing gradients */
   .home-hero::before {
     content: '';
     position: absolute;
-    top: -20%;
-    right: -10%;
-    width: 800px;
-    height: 800px;
+    top: -30%;
+    right: -15%;
+    width: 900px;
+    height: 900px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(141, 212, 217, 0.72) 0%, transparent 70%);
-    opacity: 0.88;
+    background: radial-gradient(circle, rgba(168, 213, 203, 0.28) 0%, transparent 70%);
+    pointer-events: none;
   }
 
+  /* Second gradient removed — was adding visual noise */
   .home-hero::after {
-    content: '';
-    position: absolute;
-    bottom: -10%;
-    left: -5%;
-    width: 600px;
-    height: 600px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(221, 210, 191, 0.95) 0%, transparent 70%);
-    opacity: 0.82;
+    display: none;
   }
 
+  /* Card panel removed — was creating boxy "app" feel */
   .home-hero-content::before {
-    content: '';
-    position: absolute;
-    inset: 24px auto 24px 0;
-    width: min(560px, 100%);
-    border-radius: var(--radius-2xl);
-    background: linear-gradient(160deg, rgba(255,255,255,0.94), rgba(247,242,234,0.74));
-    border: 1px solid rgba(45,40,35,0.08);
-    box-shadow: var(--shadow-card);
-    z-index: 1;
+    display: none;
   }
 
   .home-hero-content {
@@ -76,21 +63,21 @@ useNavJS: true
 
   .home-hero-text {
     max-width: 540px;
-    padding: 26px 30px 26px 0;
+    padding: 0 30px 0 0;
     position: relative;
     z-index: 3;
   }
   .home-hero-visual-card {
     position: absolute;
-    right: -8vw;
+    right: -6vw;
     top: 50%;
     transform: translateY(-50%);
-    width: clamp(320px, 38vw, 520px);
+    width: clamp(280px, 32vw, 440px);
     z-index: 1;
     pointer-events: none;
     border-radius: var(--radius-2xl);
     overflow: hidden;
-    opacity: 0.92;
+    opacity: 0.72;
   }
   .home-hero-visual {
     width: 100%;
@@ -101,37 +88,39 @@ useNavJS: true
     .home-hero-visual-card { display: none; }
   }
 
+  /* Badge — demoted to quiet meta-text, no longer dark bar */
   .home-hero-badge {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    background: rgba(28,43,58,0.92);
-    color: white;
-    padding: 8px 18px;
-    border-radius: 100px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.03em;
-    margin-bottom: 2rem;
+    gap: 6px;
+    background: none;
+    color: var(--text-soft);
+    padding: 0;
+    border-radius: 0;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
   }
 
   .home-hero-badge::before {
     content: '';
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
-    background: var(--sand);
+    background: var(--teal-light);
   }
 
   .home-hero h1 {
     font-family: 'Source Serif 4', serif;
-    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
     font-weight: 700;
-    line-height: 1.15;
+    line-height: 1.13;
     letter-spacing: -0.03em;
     color: var(--navy);
-    max-width: 780px;
-    margin-bottom: 1.5rem;
+    max-width: 620px;
+    margin-bottom: 1.25rem;
   }
 
   .home-hero h1 em {
@@ -140,60 +129,74 @@ useNavJS: true
   }
 
   .home-hero-subtitle {
-    font-size: clamp(1.05rem, 2vw, 1.2rem);
+    font-size: clamp(1.02rem, 1.8vw, 1.12rem);
     color: var(--slate);
-    max-width: 560px;
+    max-width: 480px;
     line-height: 1.7;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
 
+  /* CTA — solid, calm, no gradient or heavy shadow */
   .home-hero-link {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    min-height: 46px;
-    padding: 0 18px;
-    border-radius: 999px;
-    background: linear-gradient(135deg, var(--navy), var(--teal));
+    min-height: 44px;
+    padding: 0 20px;
+    border-radius: var(--radius-lg);
+    background: var(--navy);
     color: white;
     text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 700;
-    box-shadow: var(--shadow-elevated);
+    font-size: 0.88rem;
+    font-weight: 600;
+    box-shadow: var(--shadow-soft);
+    transition: background 0.2s ease;
+  }
+
+  .home-hero-link:hover {
+    background: var(--teal);
   }
 
   .home-hero-meta {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin-top: 18px;
-    max-width: 520px;
+    gap: 10px;
+    margin-top: 1.5rem;
+    max-width: 480px;
   }
 
   .home-hero-meta p {
     margin: 0;
-    font-size: 0.9rem;
-    line-height: 1.65;
-    color: var(--slate);
+    font-size: 0.84rem;
+    line-height: 1.6;
+    color: var(--text-soft);
   }
 
   .home-hero-meta strong {
-    color: var(--navy);
+    color: var(--slate);
+    font-weight: 600;
   }
 
+  /* Emergency link — text-level, clearly tertiary */
   .home-hero-emergency-link {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     width: fit-content;
-    min-height: 40px;
-    padding: 0 14px;
-    border-radius: 999px;
+    min-height: 36px;
+    padding: 0;
+    border-radius: 0;
     text-decoration: none;
-    background: rgba(199,84,80,0.1);
+    background: none;
     color: var(--alert-red);
-    font-size: 0.82rem;
-    font-weight: 700;
+    font-size: 0.78rem;
+    font-weight: 600;
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
+  }
+
+  .home-hero-emergency-link:hover {
+    opacity: 1;
   }
 
 
@@ -475,8 +478,8 @@ useNavJS: true
 
   /* ══════════ RESPONSIVE ══════════ */
   @media (max-width: 768px) {
-    .home-hero-content::before { inset: 12px 0 auto 0; width: 100%; height: 320px; }
-    .home-hero-text { padding: 18px 0 0; }
+    .home-hero-text { padding: 0; max-width: 100%; }
+    .home-hero-meta { max-width: 100%; }
     .footer-inner { grid-template-columns: 1fr; gap: 32px; }
     .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
   }
@@ -484,12 +487,13 @@ useNavJS: true
 
 
   @media (max-width: 600px) {
-    .home-hero { padding: 110px 1.2rem 60px; min-height: auto; }
-    .home-hero h1 { font-size: 2rem; }
+    .home-hero { padding: 100px 1.2rem 48px; min-height: auto; }
+    .home-hero h1 { font-size: 2rem; margin-bottom: 1rem; }
+    .home-hero-subtitle { margin-bottom: 1.5rem; }
+    .home-hero-badge { font-size: 0.65rem; margin-bottom: 1rem; }
     .urgent-note { padding: 20px 18px; }
     section { padding: 50px 1.2rem; }
     .modules-grid { grid-template-columns: 1fr; }
-    
   }
 
   /* ══════════ QUICK TRIAGE ══════════ */
