@@ -54,7 +54,7 @@ body.tool-page {
 .badge, .tool-badge {
   display: inline-flex;
   background: var(--green-bg); color: var(--navy);
-  padding: 5px 14px; border-radius: 100px;
+  padding: 5px 14px; border-radius: var(--radius-round);
   font-size: var(--text-xs); font-weight: 700;
   letter-spacing: 0.1em; text-transform: uppercase;
   margin-bottom: 12px; position: relative; z-index: 1;
