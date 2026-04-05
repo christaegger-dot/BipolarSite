@@ -38,9 +38,11 @@
    ╚═══════════════════════════════════════════════════════════════════╝ */
 
 /* ── Global surface, text & font ── */
-body {
+body:not(.dark-tool) {
   background: var(--bg) !important;
   color: var(--text) !important;
+}
+body {
   font-family: 'DM Sans', sans-serif;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
@@ -76,8 +78,8 @@ body {
    These need explicit !important overrides. */
 
 /* Tool page elements with hardcoded #2e2a25 text */
-.tool-back,
-.tool-brand,
+body:not(.dark-tool) .tool-back,
+body:not(.dark-tool) .tool-brand,
 .hdr h1,
 .hdr p,
 .detail h2,
@@ -1478,15 +1480,15 @@ footer svg text {
   -webkit-backdrop-filter: blur(12px);
 }
 
-.tool-nav .tool-back {
+body:not(.dark-tool) .tool-nav .tool-back {
   color: var(--slate);
 }
 
-.tool-nav .tool-back:hover {
+body:not(.dark-tool) .tool-nav .tool-back:hover {
   color: var(--teal);
 }
 
-.tool-nav .tool-brand {
+body:not(.dark-tool) .tool-nav .tool-brand {
   color: var(--navy);
 }
 

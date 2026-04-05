@@ -65,7 +65,7 @@
 }
 </script>
 </head>
-<body{% if moduleAccent %} data-module-accent="{{ moduleAccent }}"{% endif %}>
+<body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}{% if moduleAccent %} data-module-accent="{{ moduleAccent }}"{% endif %}>
 <a href="#main-content" class="skip-link">Direkt zum Inhalt</a>
 {% block nav %}{% endblock %}
 {% block content %}{{ content | safe }}{% endblock %}

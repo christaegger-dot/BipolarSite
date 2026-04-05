@@ -8,6 +8,7 @@ toolBackLabel: "Zurück zur Startseite"
 useSharedCSS: true
 useNavJS: false
 useToolCSS: true
+bodyClass: "dark-tool"
 ---
 {% block headCSS %}
 <style>
@@ -20,11 +21,11 @@ body{font-family:'DM Sans',sans-serif;color:rgba(255,255,255,0.88);background:#1
 .breathe-circle{width:160px;height:160px;border-radius:50%;border:3px solid rgba(141,212,217,0.3);display:flex;align-items:center;justify-content:center;margin:0 auto 32px;animation:breathe 14s ease-in-out infinite}
 .breathe-label{font-size:1.1rem;font-weight:600;color:var(--teal-light,#8dd4d9)}
 @keyframes breathe{0%,100%{transform:scale(1);border-color:rgba(141,212,217,0.3)}28.6%{transform:scale(1.25);border-color:rgba(141,212,217,0.6)}57.1%{transform:scale(1.25);border-color:rgba(141,212,217,0.4)}100%{transform:scale(1);border-color:rgba(141,212,217,0.3)}}
-.breathe-steps{display:flex;gap:20px;justify-content:center;margin-bottom:48px;font-size:0.78rem;color:rgba(255,255,255,0.4)}
+.breathe-steps{display:flex;gap:20px;justify-content:center;margin-bottom:48px;font-size:0.78rem;color:rgba(255,255,255,0.6)}
 .breathe-step{text-align:center}
 .breathe-step span{display:block;font-size:1.1rem;font-weight:700;color:rgba(255,255,255,0.7);margin-bottom:2px}
 .breathe-transition{margin:0 auto 24px;text-align:center}
-.breathe-transition-text{font-size:0.82rem;color:rgba(255,255,255,0.4);letter-spacing:0.02em}
+.breathe-transition-text{font-size:0.82rem;color:rgba(255,255,255,0.6);letter-spacing:0.02em}
 .breathe-q{font-family:'DM Serif Display',Georgia,serif;font-size:1.05rem;font-weight:600;color:rgba(255,255,255,0.8);margin-bottom:20px}
 .breathe-actions{display:flex;flex-direction:column;gap:10px;width:100%;max-width:320px}
 .breathe-action{display:block;padding:14px 20px;border-radius:12px;text-decoration:none;text-align:center;font-size:0.88rem;font-weight:600;transition:transform 0.15s ease,box-shadow 0.15s ease}
