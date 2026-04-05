@@ -424,26 +424,32 @@
   .toc ol[hidden] { display: none !important; }
 }
 
-/* ── TL;DR Card ── */
-.tldr-card {
-  background: linear-gradient(135deg, var(--surface-warm), #fff);
-  border: 1px solid var(--border-warm-md);
+/* ── Module Summary (unified: was .tldr-card + .quick-summary) ── */
+.module-summary {
+  background: linear-gradient(135deg, var(--green-bg), #f0fafa);
+  border: 1px solid rgba(30,101,109,0.15);
   border-radius: var(--radius-xl); padding: 24px 28px;
-  margin-bottom: 32px; position: relative;
+  margin-bottom: 24px; position: relative;
 }
-.tldr-card::before {
-  content: 'Auf einen Blick'; display: block;
-  font-size: var(--text-xs); font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.1em; color: var(--teal); margin-bottom: 12px;
+.module-summary strong {
+  font-size: var(--text-base); color: var(--teal); display: block; margin-bottom: 10px;
 }
-.tldr-card ul {
+.module-summary p {
+  font-size: var(--text-base); color: var(--slate); line-height: 1.65; margin-bottom: 10px;
+}
+.module-summary a {
+  color: var(--teal); font-weight: 600; text-decoration: none;
+  font-size: var(--text-sm);
+}
+.module-summary a:hover { text-decoration: underline; }
+.module-summary ul {
   list-style: none; margin: 0; padding: 0;
 }
-.tldr-card li {
+.module-summary li {
   font-size: var(--text-base); color: var(--slate); line-height: 1.6;
   padding: 6px 0 6px 20px; position: relative;
 }
-.tldr-card li::before {
+.module-summary li::before {
   content: '→'; position: absolute; left: 0;
   color: var(--teal); font-weight: 700;
 }
@@ -757,24 +763,7 @@ body.pdf-preview-open { overflow: hidden; }
 }
 .hint-note--alert a { color: var(--alert-red); }
 
-/* ── Quick Summary (top of long modules) ── */
-.quick-summary {
-  background: linear-gradient(135deg, var(--green-bg), #f0fafa);
-  border: 1px solid rgba(30,101,109,0.15);
-  border-radius: var(--radius-xl); padding: 24px 28px;
-  margin-bottom: 24px;
-}
-.quick-summary strong {
-  font-size: var(--text-base); color: var(--teal); display: block; margin-bottom: 10px;
-}
-.quick-summary p {
-  font-size: var(--text-base); color: var(--slate); line-height: 1.65; margin-bottom: 10px;
-}
-.quick-summary a {
-  color: var(--teal); font-weight: 600; text-decoration: none;
-  font-size: var(--text-sm);
-}
-.quick-summary a:hover { text-decoration: underline; }
+/* quick-summary and tldr-card: now unified as .module-summary (see above) */
 
 /* ── Bright Moment (positive counterweight) ── */
 .bright-moment {
