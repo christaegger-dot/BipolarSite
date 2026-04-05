@@ -126,30 +126,6 @@ html {
   font-size: 16px;
 }
 
-/* Catch-all: remap any remaining Source Serif 4 references to DM Serif Display.
-   local() checks system fonts; the URL fallback ensures the mapping works even
-   when DM Serif Display is not installed locally. */
-@font-face {
-  font-family: 'Source Serif 4';
-  src: local('DM Serif Display'),
-       local('DMSerifDisplay-Regular'),
-       local('DM Serif Text'),
-       url('/fonts/dm-serif-display-400.woff2') format('woff2');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Source Serif 4';
-  src: local('DM Serif Display'),
-       local('DMSerifDisplay-Regular'),
-       local('DM Serif Text'),
-       url('/fonts/dm-serif-display-400.woff2') format('woff2');
-  font-weight: 100 900;
-  font-style: italic;
-  font-display: swap;
-}
-
 /* ── Heading font overrides (explicit selectors for robustness) ── */
 h1, h2, h3, h4 {
   font-family: 'DM Serif Display', serif;
@@ -200,7 +176,7 @@ h1, h2, h3, h4 {
   font-family: 'DM Serif Display', serif;
 }
 
-/* Tool pages (hardcoded 'Source Serif 4', Georgia, serif) */
+/* Tool pages — ensure DM Serif Display on headings */
 .tool-brand,
 .hdr h1,
 .detail h2,

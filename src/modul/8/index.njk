@@ -119,7 +119,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .hub-details summary::after{content:'+';position:absolute;top:18px;right:20px;width:28px;height:28px;border-radius:50%;border:1px solid rgba(45,40,35,0.08);display:flex;align-items:center;justify-content:center;color:var(--teal-dark);font-size:1rem;font-weight:700;transition:transform 0.2s ease,background-color 0.2s ease,color 0.2s ease}
   .hub-details[open] summary::after{transform:rotate(45deg);background:var(--teal);color:#fff}
   .hub-details-kicker{font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal)}
-  .hub-details-title{font-family:'Source Serif 4',serif;font-size:1.1rem;font-weight:600;line-height:1.35;color:var(--navy);padding-right:44px}
+  .hub-details-title{font-family:'DM Serif Display',serif;font-size:1.1rem;font-weight:600;line-height:1.35;color:var(--navy);padding-right:44px}
   .hub-details-intro{font-size:0.86rem;color:var(--text-soft);line-height:1.55;padding-right:44px}
   .hub-details-body{padding:0 22px 22px}
   .hub-details-body>p:first-child{margin-top:0}
@@ -154,9 +154,9 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .closing{background:var(--navy);color:white;border-radius:var(--radius-xl);padding:48px 40px;margin:48px 0;position:relative;overflow:hidden;text-align:center}
   .closing::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 70%,rgba(141,156,115,0.3) 0%,transparent 60%)}
   .closing-inner{position:relative;z-index:2}
-  .closing h2{font-family:'Source Serif 4',serif;font-size:1.5rem;font-weight:700;margin-bottom:20px;line-height:1.3}
+  .closing h2{font-family:'DM Serif Display',serif;font-size:1.5rem;font-weight:700;margin-bottom:20px;line-height:1.3}
   .closing p{font-size:1rem;line-height:1.75;color:rgba(255,255,255,0.8);margin-bottom:12px;max-width:560px;margin-left:auto;margin-right:auto}
-  .closing .closing-emphasis{font-family:'Source Serif 4',serif;font-size:1.1rem;font-style:italic;color:rgba(255,255,255,0.95);margin-top:24px}
+  .closing .closing-emphasis{font-family:'DM Serif Display',serif;font-size:1.1rem;font-style:italic;color:rgba(255,255,255,0.95);margin-top:24px}
 
   @media(max-width:768px){.handout-list{grid-template-columns:1fr 1fr}.insight-grid,.action-grid{grid-template-columns:1fr}.material-finder-options{grid-template-columns:1fr}.mini-plan-grid{grid-template-columns:1fr}}
   @media(max-width:900px){.module-hero-inner{grid-template-columns:1fr}}
@@ -576,6 +576,8 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
       </a>
     </div>
   </div>
+
+  {% include "community-block.njk" %}
 
   <!-- SOURCES -->
   <div class="sources reveal">
