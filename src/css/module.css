@@ -376,8 +376,20 @@
 /* ── Content Wide (for grids/visuals that need more than 720px) ── */
 .content-wide {
   max-width: var(--content-width-wide);
-  margin-left: auto;
-  margin-right: auto;
+  /* Break out of .content's 2rem padding on each side,
+     then extend to content-width-wide centered */
+  width: min(
+    var(--content-width-wide),
+    calc(100vw - 4rem)
+  );
+  margin-left: max(
+    -2rem,
+    calc((var(--content-width) - var(--content-width-wide)) / 2)
+  );
+  margin-right: max(
+    -2rem,
+    calc((var(--content-width) - var(--content-width-wide)) / 2)
+  );
 }
 
 /* ── Scroll Reveal ── */

@@ -113,6 +113,81 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     .phase-tabs { grid-template-columns: 1fr; }
     .phase-content { padding: 24px 20px; }
   }
+
+  /* ── Diagnoseschock-Einstieg (#neu) ── */
+  .neu-block {
+    background: linear-gradient(180deg, var(--teal-bg, #D6EFEC) 0%, transparent 100%);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-2xl) var(--space-xl) var(--space-lg);
+    margin-bottom: var(--space-2xl);
+    border: 1px solid rgba(30, 101, 109, 0.15);
+  }
+  .neu-kicker {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--teal); margin-bottom: var(--space-md);
+  }
+  .neu-title {
+    font-family: 'Source Serif 4', serif; font-size: 1.55rem; font-weight: 600;
+    color: var(--navy); margin-bottom: var(--space-sm, 14px); line-height: 1.25;
+  }
+  .neu-intro {
+    color: var(--text); line-height: 1.7; margin-bottom: var(--space-lg);
+  }
+  .neu-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm, 14px); margin-bottom: var(--space-lg);
+  }
+  .neu-col-bad {
+    background: rgba(217, 113, 90, 0.08); border: 1px solid rgba(217, 113, 90, 0.2);
+    border-radius: var(--radius-lg); padding: var(--space-md) 18px;
+  }
+  .neu-col-good {
+    background: rgba(30, 101, 109, 0.07); border: 1px solid rgba(30, 101, 109, 0.18);
+    border-radius: var(--radius-lg); padding: var(--space-md) 18px;
+  }
+  .neu-col-label {
+    font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.06em; margin-bottom: var(--space-sm);
+  }
+  .neu-col-bad .neu-col-label { color: #9A3412; }
+  .neu-col-good .neu-col-label { color: var(--teal); }
+  .neu-col-list {
+    font-size: 0.875rem; color: var(--text); line-height: 1.6;
+    padding-left: var(--space-md); margin: 0;
+  }
+  .neu-col-list li { margin-bottom: var(--space-xs, 5px); }
+  .neu-col-list li:last-child { margin-bottom: 0; }
+  .neu-fragen {
+    background: white; border: 1px solid rgba(45, 40, 35, 0.1);
+    border-radius: var(--radius-lg); padding: var(--space-md) 18px;
+    margin-bottom: var(--space-md);
+  }
+  .neu-fragen-label {
+    font-size: 0.78rem; font-weight: 700; color: var(--navy);
+    text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: var(--space-md);
+  }
+  .neu-fragen-list {
+    font-size: 0.875rem; color: var(--text); line-height: 1.65;
+    padding-left: 18px; margin: 0;
+  }
+  .neu-fragen-list li { margin-bottom: 7px; }
+  .neu-fragen-list li:last-child { margin-bottom: 0; }
+  .neu-cta {
+    display: flex; align-items: center; gap: var(--space-sm, 14px);
+    background: var(--navy); border-radius: var(--radius-lg);
+    padding: var(--space-sm, 14px) 18px; margin-bottom: var(--space-lg);
+  }
+  .neu-cta-icon { font-size: 1.3rem; flex-shrink: 0; }
+  .neu-cta-label {
+    font-size: 0.78rem; font-weight: 700; color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px;
+  }
+  .neu-cta-text { font-size: 0.92rem; color: white; font-weight: 600; }
+  .neu-cta-sub { font-size: 0.8rem; color: rgba(255, 255, 255, 0.65); margin-top: 2px; }
+  .neu-footer { text-align: center; font-size: 0.85rem; color: var(--slate); }
+  @media (max-width: 640px) {
+    .neu-grid { grid-template-columns: 1fr; }
+  }
 </style>
 {% endblock %}
 {% block nav %}
@@ -175,54 +250,54 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 <main class="content" id="main-content">
 
   <!-- ══════════ DIAGNOSESCHOCK-EINSTIEG ══════════ -->
-  <div id="neu" class="reveal" style="background:linear-gradient(180deg,var(--teal-bg,#D6EFEC) 0%,transparent 100%);border-radius:var(--radius-xl,20px);padding:28px 32px 24px;margin-bottom:40px;border:1px solid rgba(30,101,109,0.15)">
+  <div id="neu" class="neu-block reveal">
 
-    <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--teal,#1E656D);margin-bottom:10px">Wenn die Diagnose gerade neu ist</div>
+    <div class="neu-kicker">Wenn die Diagnose gerade neu ist</div>
 
-    <h2 style="font-family:'Source Serif 4',serif;font-size:1.55rem;font-weight:600;color:var(--navy,#1c2b3a);margin-bottom:14px;line-height:1.25">Erste Orientierung für die ersten Tage</h2>
+    <h2 class="neu-title">Erste Orientierung für die ersten Tage</h2>
 
-    <p style="color:var(--text,#2d2823);line-height:1.7;margin-bottom:18px">Sie haben vielleicht gerade erfahren, dass jemand den Sie lieben eine bipolare Störung hat. Das kann sich anfühlen wie ein Sturz in unbekanntes Terrain — Schock, Ungewissheit, vielleicht auch Erleichterung, weil endlich ein Name da ist für das, was Sie beobachtet haben. Alle diese Reaktionen sind normal. Sie müssen jetzt nicht alles wissen, nichts lösen und keine Entscheidungen treffen.</p>
+    <p class="neu-intro">Sie haben vielleicht gerade erfahren, dass jemand den Sie lieben eine bipolare Störung hat. Das kann sich anfühlen wie ein Sturz in unbekanntes Terrain — Schock, Ungewissheit, vielleicht auch Erleichterung, weil endlich ein Name da ist für das, was Sie beobachtet haben. Alle diese Reaktionen sind normal. Sie müssen jetzt nicht alles wissen, nichts lösen und keine Entscheidungen treffen.</p>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px">
-      <div style="background:rgba(217,113,90,0.08);border:1px solid rgba(217,113,90,0.2);border-radius:12px;padding:16px 18px">
-        <div style="font-size:0.78rem;font-weight:700;color:#9A3412;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px">Was in den ersten Tagen oft schadet</div>
-        <ul style="font-size:0.875rem;color:var(--text,#2d2823);line-height:1.6;padding-left:16px;margin:0">
-          <li style="margin-bottom:5px">Stundenlang im Internet suchen — die meisten Seiten sind nicht für Angehörige</li>
-          <li style="margin-bottom:5px">Grosse Entscheidungen treffen, die warten können</li>
-          <li style="margin-bottom:5px">Der erkrankten Person sofort «helfen» wollen, bevor Sie selbst orientiert sind</li>
+    <div class="neu-grid">
+      <div class="neu-col-bad">
+        <div class="neu-col-label">Was in den ersten Tagen oft schadet</div>
+        <ul class="neu-col-list">
+          <li>Stundenlang im Internet suchen — die meisten Seiten sind nicht für Angehörige</li>
+          <li>Grosse Entscheidungen treffen, die warten können</li>
+          <li>Der erkrankten Person sofort «helfen» wollen, bevor Sie selbst orientiert sind</li>
           <li>Das ganze Umfeld sofort informieren</li>
         </ul>
       </div>
-      <div style="background:rgba(30,101,109,0.07);border:1px solid rgba(30,101,109,0.18);border-radius:12px;padding:16px 18px">
-        <div style="font-size:0.78rem;font-weight:700;color:var(--teal,#1E656D);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px">Was hingegen helfen kann</div>
-        <ul style="font-size:0.875rem;color:var(--text,#2d2823);line-height:1.6;padding-left:16px;margin:0">
-          <li style="margin-bottom:5px">Eine einzige Vertrauensperson ins Vertrauen ziehen</li>
-          <li style="margin-bottom:5px">Die Fachstelle anrufen — auch wenn Sie noch nicht wissen, was Sie fragen sollen</li>
+      <div class="neu-col-good">
+        <div class="neu-col-label">Was hingegen helfen kann</div>
+        <ul class="neu-col-list">
+          <li>Eine einzige Vertrauensperson ins Vertrauen ziehen</li>
+          <li>Die Fachstelle anrufen — auch wenn Sie noch nicht wissen, was Sie fragen sollen</li>
           <li>Den nächsten Schritt klein halten: nur einen</li>
         </ul>
       </div>
     </div>
 
-    <div style="background:white;border:1px solid rgba(45,40,35,0.1);border-radius:12px;padding:16px 18px;margin-bottom:16px">
-      <div style="font-size:0.78rem;font-weight:700;color:var(--navy,#1c2b3a);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px">Drei Fragen, die Sie dem Behandlungsteam stellen dürfen</div>
-      <ol style="font-size:0.875rem;color:var(--text,#2d2823);line-height:1.65;padding-left:18px;margin:0">
-        <li style="margin-bottom:7px">«Wie behandelbar ist diese Erkrankung — und was bedeutet das konkret für uns?»</li>
-        <li style="margin-bottom:7px">«Was kann ich als Angehörige*r tun — und was sollte ich besser lassen?»</li>
+    <div class="neu-fragen">
+      <div class="neu-fragen-label">Drei Fragen, die Sie dem Behandlungsteam stellen dürfen</div>
+      <ol class="neu-fragen-list">
+        <li>«Wie behandelbar ist diese Erkrankung — und was bedeutet das konkret für uns?»</li>
+        <li>«Was kann ich als Angehörige*r tun — und was sollte ich besser lassen?»</li>
         <li>«Gibt es eine Angehörigenberatung oder Psychoedukation, die wir besuchen können?»</li>
       </ol>
     </div>
 
-    <div style="display:flex;align-items:center;gap:14px;background:var(--navy,#1c2b3a);border-radius:12px;padding:14px 18px;margin-bottom:20px">
-      <div style="font-size:1.3rem;flex-shrink:0">📞</div>
+    <div class="neu-cta">
+      <div class="neu-cta-icon">📞</div>
       <div>
-        <div style="font-size:0.78rem;font-weight:700;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px">Wenn Sie nicht wissen, wo anfangen</div>
-        <div style="font-size:0.92rem;color:white;font-weight:600">Fachstelle Angehörigenarbeit PUK Zürich — <a href="tel:+41583843800" style="color:var(--sand,#ddd2bf)">058 384 38 00</a></div>
-        <div style="font-size:0.8rem;color:rgba(255,255,255,0.65);margin-top:2px">Kostenlos, vertraulich, auch wenn Sie noch gar nicht wissen, was Sie fragen sollen.</div>
+        <div class="neu-cta-label">Wenn Sie nicht wissen, wo anfangen</div>
+        <div class="neu-cta-text">Fachstelle Angehörigenarbeit PUK Zürich — <a href="tel:+41583843800" style="color:var(--sand)">058 384 38 00</a></div>
+        <div class="neu-cta-sub">Kostenlos, vertraulich, auch wenn Sie noch gar nicht wissen, was Sie fragen sollen.</div>
       </div>
     </div>
 
-    <div style="text-align:center;font-size:0.85rem;color:var(--slate,#5c5752)">
-      Wenn Sie bereit sind, weiterzulesen: <a href="#verstehen" style="color:var(--teal,#1E656D);font-weight:600">Modul 1 beginnt hier ↓</a>
+    <div class="neu-footer">
+      Wenn Sie bereit sind, weiterzulesen: <a href="#verstehen" style="color:var(--teal);font-weight:600">Modul 1 beginnt hier ↓</a>
     </div>
 
   </div>
