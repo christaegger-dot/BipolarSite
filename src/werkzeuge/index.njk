@@ -73,7 +73,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     margin-bottom: 16px;
   }
   .overview-hero h1 {
-    font-family: 'Source Serif 4', serif;
+    font-family: 'DM Serif Display', serif;
     font-size: clamp(2.2rem, 5vw, 3.4rem);
     line-height: 1.08;
     letter-spacing: -0.035em;
@@ -103,7 +103,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   }
   .overview-note h2 {
     margin: 0 0 10px;
-    font-family: 'Source Serif 4', serif;
+    font-family: 'DM Serif Display', serif;
     font-size: 1.25rem;
     color: var(--navy);
   }
@@ -185,7 +185,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     display: block;
   }
   .tool-card h3 {
-    font-family: 'Source Serif 4', serif;
+    font-family: 'DM Serif Display', serif;
     font-size: 1.25rem;
     line-height: 1.25;
     color: var(--navy);
@@ -219,6 +219,36 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     font-size: 0.92rem;
     line-height: 1.7;
     color: var(--text-soft);
+  }
+  /* ── Collapsible tool grid ── */
+  .tool-details {
+    margin: 12px 0 0;
+  }
+  .tool-details-summary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--navy);
+    padding: 14px 0;
+    list-style: none;
+  }
+  .tool-details-summary::-webkit-details-marker { display: none; }
+  .tool-details-summary::after {
+    content: '▸';
+    margin-left: 8px;
+    transition: transform 0.2s ease;
+    font-size: 0.8rem;
+    color: var(--teal);
+  }
+  .tool-details[open] .tool-details-summary::after {
+    transform: rotate(90deg);
+  }
+  .tool-details .tool-grid {
+    margin-top: 16px;
   }
   @media (max-width: 900px) {
     .overview-intro,
@@ -286,11 +316,8 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     </div>
   </div>
 
-  <section>
-    <div class="section-label">Interaktiv</div>
-    <h2 class="section-title">Alle Werkzeuge als eigener Überblick</h2>
-    <p class="section-desc">Wählen Sie das Werkzeug nach Ihrer Frage: Belastung einordnen, Gespräche vorbereiten, Dynamiken besser verstehen oder einen Krisenplan festhalten.</p>
-
+  <details class="tool-details">
+    <summary class="tool-details-summary">Alle 8 Werkzeuge im Detail anzeigen</summary>
     <div class="tool-grid">
       <a href="/tools/selbsttest/" class="tool-card">
         <span class="tool-card-kicker">Einordnung</span>
@@ -348,7 +375,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
         <div class="tool-card-footer"><span>Für längere Verläufe</span><span class="tool-card-arrow">→</span></div>
       </a>
     </div>
-  </section>
+  </details>
 
   <p class="overview-footer-note">Wenn Sie lieber über Inhalte statt über Werkzeuge einsteigen möchten, finden Sie auf der separaten Übersicht <a href="/module/">alle Module im Überblick</a>.</p>
 </main>

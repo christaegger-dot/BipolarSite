@@ -25,7 +25,7 @@
   <text x="382" y="310" text-anchor="middle" fill="#9A3412" font-family="DM Sans, sans-serif" font-size="18" font-weight="700">Schützen</text>
   <text x="548" y="310" fill="#475569" font-family="DM Sans, sans-serif" font-size="14">Notfall, Sicherheit, Hilfe</text>
 
-  <text x="88" y="102" fill="#1C2B3A" font-family="Source Serif 4, serif" font-size="22" font-weight="700">Frage</text>
+  <text x="88" y="102" fill="#1C2B3A" font-family="DM Serif Display, serif" font-size="22" font-weight="700">Frage</text>
   <text x="88" y="132" fill="#475569" font-family="DM Sans, sans-serif" font-size="15">Geht es noch um</text>
   <text x="88" y="154" fill="#475569" font-family="DM Sans, sans-serif" font-size="15">Gespräch oder schon</text>
   <text x="88" y="176" fill="#475569" font-family="DM Sans, sans-serif" font-size="15">um Schutz?</text>

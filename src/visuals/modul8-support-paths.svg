@@ -3,7 +3,7 @@
   <desc id="desc">Eine zentrale Frage führt zu fünf Wegen: Krise, Erschöpfung, Austausch, Recht und Familie.</desc>
   <rect width="720" height="420" rx="28" fill="#FAFAF7"/>
   <rect x="250" y="38" width="220" height="92" rx="24" fill="#1C2B3A"/>
-  <text x="360" y="76" text-anchor="middle" fill="white" font-family="Source Serif 4, serif" font-size="25" font-weight="700">Was drängt</text>
+  <text x="360" y="76" text-anchor="middle" fill="white" font-family="DM Serif Display, serif" font-size="25" font-weight="700">Was drängt</text>
   <text x="360" y="104" text-anchor="middle" fill="#D8E8EA" font-family="DM Sans, sans-serif" font-size="15">gerade am meisten?</text>
 
   <path d="M360 130V178" stroke="#B58A52" stroke-width="4" stroke-linecap="round"/>

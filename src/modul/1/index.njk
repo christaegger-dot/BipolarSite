@@ -41,7 +41,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
   .phase-header {
-    font-family: 'Source Serif 4', serif; font-size: 1.2rem; font-weight: 600;
+    font-family: 'DM Serif Display', serif; font-size: 1.2rem; font-weight: 600;
     margin-bottom: 6px;
   }
   .phase-subtitle { font-size: 0.88rem; color: var(--text-soft); margin-bottom: 24px; }
@@ -75,7 +75,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     box-shadow: var(--shadow-soft);
   }
   .wave-chart-section h3 {
-    font-family: 'Source Serif 4', serif; font-size: 1.15rem; font-weight: 600;
+    font-family: 'DM Serif Display', serif; font-size: 1.15rem; font-weight: 600;
     margin-bottom: 8px; color: var(--navy-mid);
   }
   .wave-chart-section > p { font-size: 0.88rem; color: var(--text-soft); margin-bottom: 24px; }
@@ -127,7 +127,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     letter-spacing: 0.1em; color: var(--teal); margin-bottom: var(--space-md);
   }
   .neu-title {
-    font-family: 'Source Serif 4', serif; font-size: 1.55rem; font-weight: 600;
+    font-family: 'DM Serif Display', serif; font-size: 1.55rem; font-weight: 600;
     color: var(--navy); margin-bottom: var(--space-sm, 14px); line-height: 1.25;
   }
   .neu-intro {
@@ -682,9 +682,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     </div>
   </div>
 
-  <div class="community-block reveal">
-    <p>Die erste Zeit nach der Diagnose ist für viele Angehörige eine der schwersten — Sie müssen das nicht allein tragen. <a href="/modul/8/#anlaufstellen">Anlaufstellen und Selbsthilfegruppen →</a></p>
-  </div>
+  {% include "community-block.njk" %}
 
   <!-- ─── SOURCES ─── -->
   <div class="sources reveal sources-open">

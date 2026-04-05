@@ -39,7 +39,7 @@
   margin-bottom: 16px;
 }
 .module-hero h1 {
-  font-family: 'Source Serif 4', serif;
+  font-family: 'DM Serif Display', serif;
   font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700;
   line-height: 1.2; letter-spacing: -0.03em;
   color: var(--navy); margin-bottom: 16px;
@@ -149,7 +149,7 @@
 .content { max-width: var(--content-width); margin: 0 auto; padding: 0 2rem; }
 .content h2 {
   scroll-margin-top: 84px;
-  font-family: 'Source Serif 4', serif;
+  font-family: 'DM Serif Display', serif;
   font-size: var(--text-2xl); font-weight: 700; line-height: 1.25;
   letter-spacing: -0.02em; color: var(--navy);
   margin: 64px 0 20px; padding-top: 20px;
@@ -157,7 +157,7 @@
 }
 .content h2:first-of-type { border-top: none; margin-top: 0; }
 .content h3 {
-  font-family: 'Source Serif 4', serif;
+  font-family: 'DM Serif Display', serif;
   font-size: 1.2rem; font-weight: 600; line-height: 1.35;
   color: var(--navy-mid); margin: 40px 0 14px;
 }
@@ -173,12 +173,12 @@
   padding: 32px 36px; margin: 36px 0; position: relative;
 }
 .quote-block::before {
-  content: '«'; font-family: 'Source Serif 4', serif;
+  content: '«'; font-family: 'DM Serif Display', serif;
   font-size: 4rem; color: var(--sand); position: absolute;
   top: 12px; left: 20px; line-height: 1; opacity: 0.5;
 }
 .quote-block blockquote {
-  font-family: 'Source Serif 4', serif;
+  font-family: 'DM Serif Display', serif;
   font-size: var(--text-lg); font-style: italic; color: var(--slate);
   line-height: 1.65; padding-left: 12px;
 }
@@ -219,7 +219,7 @@
   letter-spacing: 0.1em; color: var(--teal); margin-bottom: 12px;
 }
 .reflection h3 {
-  font-family: 'Source Serif 4', serif; font-size: var(--text-lg); font-weight: 600;
+  font-family: 'DM Serif Display', serif; font-size: var(--text-lg); font-weight: 600;
   color: var(--navy-mid); margin-bottom: 14px; line-height: 1.35;
 }
 .reflection p {
@@ -239,7 +239,7 @@
 }
 .takeaways-inner { position: relative; z-index: 2; }
 .takeaways h3 {
-  color: white; font-family: 'Source Serif 4', serif;
+  color: white; font-family: 'DM Serif Display', serif;
   font-size: var(--text-xl); font-weight: 600; margin-bottom: 24px;
 }
 .takeaway-item {
@@ -257,6 +257,33 @@
 .takeaway-item strong { color: white; }
 
 /* ── Sources ── */
+/* ── Community Block (end of each module) ── */
+.community-block {
+  background: var(--surface-warm);
+  border-left: 4px solid var(--teal-light);
+  border-radius: var(--radius-lg);
+  padding: 24px 28px;
+  margin: 40px 0 32px;
+}
+.community-block h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.1rem; font-weight: 400;
+  color: var(--navy); margin: 0 0 8px;
+}
+.community-block > p {
+  font-size: 0.88rem; color: var(--slate);
+  line-height: 1.65; margin: 0 0 12px;
+}
+.community-list {
+  list-style: none; padding: 0; margin: 0;
+}
+.community-list li {
+  font-size: 0.88rem; color: var(--text);
+  padding: 6px 0; line-height: 1.55;
+}
+.community-list li strong { color: var(--navy); }
+.community-list li a { color: var(--teal); font-weight: 600; }
+
 .sources {
   background: var(--green-bg); border-radius: var(--radius-lg);
   padding: 28px 32px; margin: 48px 0;
@@ -289,7 +316,7 @@
 /* ── Handouts ── */
 .handouts { margin: 48px 0; }
 .handouts-title {
-  font-family: 'Source Serif 4', serif; font-size: 1.2rem; font-weight: 600;
+  font-family: 'DM Serif Display', serif; font-size: 1.2rem; font-weight: 600;
   color: var(--navy-mid); margin-bottom: 20px;
 }
 .handouts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -331,7 +358,7 @@
   letter-spacing: 0.1em; color: var(--teal); margin-bottom: 8px;
 }
 .next-module-title {
-  font-family: 'Source Serif 4', serif; font-size: var(--text-xl); font-weight: 600;
+  font-family: 'DM Serif Display', serif; font-size: var(--text-xl); font-weight: 600;
   color: var(--navy-mid); margin-bottom: 8px;
 }
 .next-module-desc { font-size: var(--text-base); color: var(--text-soft); line-height: 1.55; }
@@ -471,7 +498,7 @@ body.pdf-preview-open { overflow: hidden; }
   display: flex; gap: 16px; justify-content: space-between; align-items: flex-start;
 }
 .pdf-preview-title {
-  font-family: 'Source Serif 4', serif; font-size: 1.2rem; font-weight: 600;
+  font-family: 'DM Serif Display', serif; font-size: 1.2rem; font-weight: 600;
   color: var(--navy);
 }
 .pdf-preview-sub {
@@ -692,7 +719,7 @@ body.pdf-preview-open { overflow: hidden; }
   padding: 28px 32px; margin: 48px 0;
 }
 .community-block h3 {
-  font-family: 'Source Serif 4', serif; font-size: var(--text-lg); font-weight: 600;
+  font-family: 'DM Serif Display', serif; font-size: var(--text-lg); font-weight: 600;
   color: var(--navy); margin-bottom: 10px;
 }
 .community-block > p {
@@ -758,7 +785,7 @@ body.pdf-preview-open { overflow: hidden; }
   padding: 24px 28px; margin: 40px 0;
 }
 .bright-moment p {
-  font-family: 'Source Serif 4', serif;
+  font-family: 'DM Serif Display', serif;
   font-size: 1rem; font-style: italic; color: var(--slate);
   line-height: 1.7; margin: 0;
 }
