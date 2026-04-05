@@ -184,30 +184,29 @@ footer {
 
 /* ── Storage Consent Banner ── */
 .storage-banner {
-  position: fixed; bottom: 0; left: 0; right: 0; z-index: 1100;
-  background: var(--navy, #1c2b3a); color: var(--white-text);
-  padding: 14px 24px; font-size: var(--text-sm); line-height: 1.55;
-  display: flex; align-items: center; justify-content: center;
-  gap: 16px; flex-wrap: wrap;
+  position: fixed; bottom: var(--space-md); right: var(--space-md);
+  z-index: 1100; max-width: 340px;
+  background: var(--navy, #1c2b3a); color: var(--white-text-secondary);
+  padding: 10px 16px; font-size: var(--text-xs); line-height: 1.5;
+  display: flex; align-items: center; gap: 12px;
+  border-radius: var(--radius-md); box-shadow: var(--shadow-elevated);
 }
-.storage-banner-btns { display: flex; gap: 8px; flex-shrink: 0; }
+.storage-banner-btns { display: flex; gap: 6px; flex-shrink: 0; }
 .storage-btn-accept {
   background: var(--teal, #1E656D); color: #fff; border: none;
-  padding: 8px 18px; border-radius: 8px; font-size: var(--text-sm);
+  padding: 5px 12px; border-radius: 6px; font-size: var(--text-xs);
   font-weight: 600; cursor: pointer; white-space: nowrap;
 }
 .storage-btn-decline {
-  background: transparent; color: var(--white-text-secondary);
-  border: 1px solid rgba(255,255,255,0.25);
-  padding: 8px 18px; border-radius: 8px; font-size: var(--text-sm);
+  background: transparent; color: var(--white-text-muted);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 5px 12px; border-radius: 6px; font-size: var(--text-xs);
   font-weight: 600; cursor: pointer; white-space: nowrap;
 }
 .storage-btn-decline:hover { color: #fff; border-color: rgba(255,255,255,0.5); }
 
 @media (max-width: 600px) {
-  .storage-banner { padding: 10px 14px; font-size: var(--text-xs); gap: 10px; }
-  .storage-banner-btns { width: 100%; }
-  .storage-btn-accept, .storage-btn-decline { flex: 1; }
+  .storage-banner { right: var(--space-sm); bottom: var(--space-sm); left: var(--space-sm); max-width: none; }
 }
 
 /* ── No-JS fallback: show nav links when hamburger can't work ── */
