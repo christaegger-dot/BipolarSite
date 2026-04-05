@@ -8,6 +8,9 @@ eleventyExcludeFromCollections: true
 {%- if not page.data.noIndex and page.url != '/sitemap.xml' %}
   <url>
     <loc>{{ site.url }}{{ page.url }}</loc>
+    {%- if page.date %}
+    <lastmod>{{ page.date.toISOString().slice(0, 10) }}</lastmod>
+    {%- endif %}
   </url>
 {%- endif %}
 {%- endfor %}

@@ -17,7 +17,7 @@
   background: var(--navy);
   color: #fff;
   text-decoration: none;
-  font-size: 0.85rem;
+  font-size: var(--text-sm);
   font-weight: 700;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
   transform: translateY(-180%);
@@ -377,7 +377,7 @@ h1, h2, h3, h4 {
 }
 
 .hero-subtitle {
-  color: rgba(255,255,255,0.7) !important;
+  color: var(--white-text-secondary) !important;
 }
 
 /* ── Module hero (modul pages) ── */
@@ -417,7 +417,7 @@ h1, h2, h3, h4 {
 }
 
 .breadcrumb a {
-  color: rgba(255,255,255,0.5) !important;
+  color: var(--white-text-muted) !important;
 }
 
 .breadcrumb a:hover {
@@ -717,7 +717,7 @@ table th,
   border: 1px solid var(--border);
   font-weight: 700;
   padding: 0.7rem 0.8rem;
-  font-size: 0.85rem;
+  font-size: var(--text-sm);
   text-align: left;
 }
 
@@ -849,7 +849,7 @@ table tbody tr:nth-child(even),
 
 .quote-block blockquote {
   color: var(--navy);
-  font-size: 1.05rem;
+  font-size: var(--text-lg);
 }
 
 .quote-block cite {
@@ -1012,14 +1012,14 @@ section,
   margin-top: 0;
   padding-top: 0;
   border-top: none;
-  font-size: 0.78rem;
+  font-size: var(--text-sm);
   display: flex;
   flex-wrap: wrap;
   gap: 10px 14px;
 }
 .footer-links a {
   margin: 0;
-  color: rgba(255,255,255,0.75);
+  color: var(--white-text-secondary);
   text-decoration: none;
 }
 .footer-links a:hover {
@@ -1148,7 +1148,7 @@ section,
 /* ── Footer ── */
 footer {
   background: var(--navy);
-  color: rgba(255,255,255,0.75);
+  color: var(--white-text-secondary);
   padding: var(--space-xl) var(--space-lg) var(--space-2xl);
 }
 
@@ -1165,7 +1165,7 @@ footer {
 }
 
 .footer-col a {
-  color: rgba(255,255,255,0.75);
+  color: var(--white-text-secondary);
 }
 
 .footer-col a:hover {
@@ -1182,7 +1182,7 @@ footer {
 }
 
 .footer-bottom a:hover {
-  color: rgba(255,255,255,0.7);
+  color: var(--white-text-secondary);
 }
 
 .footer-inner--editorial {
@@ -1195,9 +1195,9 @@ footer {
 .footer-meta p,
 .footer-note p {
   margin: 0 0 8px;
-  font-size: 0.84rem;
+  font-size: var(--text-sm);
   line-height: 1.7;
-  color: rgba(255,255,255,0.72);
+  color: var(--white-text-secondary);
 }
 
 .footer-org {
@@ -1229,13 +1229,13 @@ footer {
 }
 
 p.footer-address {
-  color: rgba(255,255,255,0.5);
-  font-size: 0.78rem;
+  color: var(--white-text-muted);
+  font-size: var(--text-sm);
 }
 
 p.footer-attribution {
-  color: rgba(255,255,255,0.45);
-  font-size: 0.75rem;
+  color: var(--white-text-muted);
+  font-size: var(--text-xs);
   margin-top: 4px;
 }
 
@@ -1247,7 +1247,7 @@ p.footer-attribution {
   .footer-note p {
     max-width: none;
   }
-  .footer-address {
+  p.footer-address {
     display: none;
   }
 }
@@ -1305,7 +1305,7 @@ footer.tf a[href="/notfall/"] {
   background: var(--navy);
   color: white;
   border-radius: var(--radius-sm);
-  font-size: 0.85rem;
+  font-size: var(--text-sm);
   font-weight: 600;
   z-index: 10000;
   text-decoration: none;
@@ -1624,9 +1624,9 @@ header.hero .hero-content {
   gap: 8px;
   background: rgba(255,255,255,0.10);
   border: 1px solid rgba(255,255,255,0.15);
-  color: rgba(255,255,255,0.88);
+  color: var(--white-text);
   text-decoration: none;
-  font-size: 0.88rem;
+  font-size: var(--text-base);
   font-weight: 500;
   padding: 10px 22px;
   border-radius: 100px;
@@ -1675,7 +1675,7 @@ header.hero .hero-content {
 
 .hero-cards .quick-card-icon {
   background: rgba(255,255,255,0.11);
-  color: rgba(255,255,255,0.9);
+  color: var(--white-text);
 }
 
 .hero-cards .quick-card.alert {
@@ -1746,7 +1746,7 @@ header.hero .hero-content {
   justify-content: center;
   background: var(--green-bg);
   color: var(--teal);
-  font-size: 0.85rem;
+  font-size: var(--text-sm);
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
@@ -1775,7 +1775,7 @@ header.hero .hero-content {
   border-radius: 100px;
   text-decoration: none;
   color: var(--navy);
-  font-size: 0.875rem;
+  font-size: var(--text-base);
   font-weight: 500;
   transition: all 0.2s ease;
   box-shadow: var(--shadow-soft);
@@ -1790,7 +1790,7 @@ header.hero .hero-content {
 }
 
 .tool-chip-icon {
-  font-size: 1.05rem;
+  font-size: var(--text-lg);
   line-height: 1;
   flex-shrink: 0;
 }
@@ -1884,7 +1884,7 @@ header.hero .hero-content {
   padding: 1rem 1.25rem;
   font-weight: 600;
   color: var(--navy);
-  font-size: 0.95rem;
+  font-size: var(--text-md);
   list-style: none;
   display: flex;
   align-items: center;
@@ -1913,7 +1913,7 @@ header.hero .hero-content {
   margin: 28px 0;
 }
 .content-note p {
-  font-size: 0.9rem;
+  font-size: var(--text-base);
   color: var(--slate);
   line-height: 1.65;
   margin: 0;
