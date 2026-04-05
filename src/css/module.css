@@ -578,6 +578,19 @@ body.pdf-preview-open { overflow: hidden; }
   font-size: 0.9rem;
 }
 
+/* ── Hint Note (teal left-border callout) ── */
+.hint-note {
+  font-size: 0.88rem;
+  color: var(--text-soft);
+  border-left: 3px solid var(--teal-border, rgba(30,101,109,0.25));
+  padding: 10px 0 10px 14px;
+}
+.hint-note a { color: var(--teal); }
+.hint-note--alert {
+  border-left-color: var(--alert-red-border, rgba(199,84,80,0.3));
+}
+.hint-note--alert a { color: var(--alert-red); }
+
 /* ── Quick Summary (top of long modules) ── */
 .quick-summary {
   background: linear-gradient(135deg, var(--green-bg), #f0fafa);
