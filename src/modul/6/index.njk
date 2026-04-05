@@ -35,32 +35,32 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .ampel-card.red p{color:#9A3412}
 
   /* SECTION CARD (content container, distinct from .tool-card in werkzeuge) */
-  .section-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-xl);padding:32px;margin:32px 0;box-shadow:var(--shadow-soft)}
+  .section-card{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-xl);padding:32px;margin:32px 0;box-shadow:var(--shadow-soft)}
   .section-card h3{font-family:'DM Serif Display',serif;font-size:1.1rem;font-weight:600;margin-bottom:12px;color:var(--navy-mid)}
   .section-card p{font-size:0.92rem;color:var(--slate);line-height:1.7}
-  .decision-visual{margin:24px 0 32px;background:linear-gradient(180deg,#fff 0%,#fcf8f4 100%);border:1px solid rgba(45,40,35,0.06);border-radius:24px;padding:20px;box-shadow:var(--shadow-soft)}
+  .decision-visual{margin:24px 0 32px;background:linear-gradient(180deg,#fff 0%,#fcf8f4 100%);border:1px solid var(--border-warm);border-radius:24px;padding:20px;box-shadow:var(--shadow-soft)}
   .decision-visual img{display:block;width:100%;height:auto;border-radius:18px}
   .decision-visual p{font-size:0.87rem;color:var(--slate);line-height:1.6;margin:12px 4px 0}
 
   /* STEPS */
   .step-list{list-style:none;counter-reset:step-counter;margin:20px 0}
-  .step-list li{counter-increment:step-counter;padding:14px 0 14px 48px;position:relative;font-size:0.92rem;color:var(--slate);line-height:1.65;border-bottom:1px solid rgba(45,40,35,0.04)}
+  .step-list li{counter-increment:step-counter;padding:14px 0 14px 48px;position:relative;font-size:0.92rem;color:var(--slate);line-height:1.65;border-bottom:1px solid var(--border-warm)}
   .step-list li::before{content:counter(step-counter);position:absolute;left:0;top:14px;width:32px;height:32px;border-radius:8px;background:var(--green-bg);color:var(--teal-dark);display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:800}
 
   /* COMM RULES */
-  .comm-rule{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:22px 26px;margin-bottom:14px;border-left:4px solid var(--teal-light)}
+  .comm-rule{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-lg);padding:22px 26px;margin-bottom:14px;border-left:4px solid var(--teal-light)}
   .comm-rule h4{font-size:0.92rem;font-weight:700;color:var(--text);margin-bottom:6px}
   .comm-rule p{font-size:0.86rem;color:var(--slate);line-height:1.55;margin:0 0 8px}
   .comm-rule .avoid{font-size:0.82rem;color:var(--alert-red);font-weight:500}
 
   /* SITUATION CARDS */
-  .situation-card{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:24px;margin-bottom:16px}
+  .situation-card{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-lg);padding:24px;margin-bottom:16px}
   .situation-card h4{font-size:0.92rem;font-weight:700;color:var(--text);margin-bottom:10px}
   .situation-card .response{font-size:0.88rem;color:var(--navy);background:var(--green-bg);padding:12px 16px;border-radius:var(--radius-md);margin-bottom:8px;line-height:1.55}
   .situation-card .avoid{font-size:0.82rem;color:var(--alert-red);font-weight:500}
 
   /* GRENZEN EXAMPLES */
-  .grenz-example{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-lg);padding:24px;margin-bottom:14px}
+  .grenz-example{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-lg);padding:24px;margin-bottom:14px}
   .grenz-bad{font-size:0.88rem;color:var(--alert-red);margin-bottom:8px;padding:10px 14px;background:var(--alert-red-bg);border-radius:var(--radius-sm)}
   .grenz-good{font-size:0.88rem;color:var(--navy);padding:10px 14px;background:var(--green-bg);border-radius:var(--radius-sm);margin-bottom:8px}
   .grenz-why{font-size:0.82rem;color:var(--text-soft);line-height:1.55}

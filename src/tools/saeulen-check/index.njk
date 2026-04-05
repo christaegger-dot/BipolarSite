@@ -12,30 +12,30 @@ useToolCSS: true
 {% block headCSS %}
 <style>
 body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-height:100vh;display:flex;flex-direction:column;align-items:center;-webkit-font-smoothing:antialiased}
-.tool-nav{width:100%;background:rgba(254,252,248,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(45,40,35,0.06);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
+.tool-nav{width:100%;background:rgba(254,252,248,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border-warm);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
 .wrap{width:100%;max-width:600px;padding:32px 20px 48px;flex:1}
-.hdr{text-align:center;margin-bottom:28px;background:linear-gradient(180deg,rgba(255,255,255,0.94),rgba(247,250,251,0.88));border:1px solid rgba(45,40,35,0.08);border-radius:26px;padding:26px 24px 24px;box-shadow:0 16px 40px rgba(28,43,58,0.08);position:relative;overflow:hidden}
+.hdr{text-align:center;margin-bottom:28px;background:linear-gradient(180deg,rgba(255,255,255,0.94),rgba(247,250,251,0.88));border:1px solid var(--border-warm-md);border-radius:26px;padding:26px 24px 24px;box-shadow:0 16px 40px rgba(28,43,58,0.08);position:relative;overflow:hidden}
 .hdr p{font-size:0.88rem;color:#475569;line-height:1.65;max-width:46ch;margin:0 auto}
-.pc{background:#fff;border-radius:18px;border:1px solid rgba(45,40,35,0.06);box-shadow:0 2px 16px rgba(45,40,35,0.06);padding:22px 24px;margin-bottom:14px;border-left:4px solid}
+.pc{background:#fff;border-radius:18px;border:1px solid var(--border-warm);box-shadow:0 2px 16px var(--border-warm);padding:22px 24px;margin-bottom:14px;border-left:4px solid}
 .pc-hdr{display:flex;align-items:center;gap:10px;margin-bottom:10px}
 .pc-num{width:28px;height:28px;border-radius:8px;color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800;flex-shrink:0}
 .pc h2{font-family:'DM Serif Display',Georgia,serif;font-size:0.93rem;font-weight:600;color:#1c2b3a;margin:0}
 .pc p{font-size:0.8rem;color:#475569;margin:0 0 14px;line-height:1.5}
 .sc{display:flex;gap:6px}
-.sc button{flex:1;padding:10px 4px;border-radius:10px;border:1px solid rgba(45,40,35,0.08);background:#fff;color:#475569;font-size:0.68rem;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background-color 0.2s ease,color 0.2s ease,border-color 0.2s ease;display:flex;flex-direction:column;align-items:center;gap:2px;-webkit-appearance:none}
+.sc button{flex:1;padding:10px 4px;border-radius:10px;border:1px solid var(--border-warm-md);background:#fff;color:#475569;font-size:0.68rem;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background-color 0.2s ease,color 0.2s ease,border-color 0.2s ease;display:flex;flex-direction:column;align-items:center;gap:2px;-webkit-appearance:none}
 .sc button.sel{font-weight:700;color:#fff}
 .sc .sv{font-size:0.93rem}
 .sc .sl{font-size:0.56rem;opacity:0.8}
 .submit{width:100%;padding:14px;border-radius:14px;border:none;background:#a7d9d5;color:#fff;font-size:0.88rem;font-weight:700;cursor:default;font-family:'DM Sans',sans-serif;margin-top:8px;transition:background 0.3s}
 .submit.ready{background:#1E656D;cursor:pointer}
-.res-card{background:linear-gradient(180deg,#fff 0%,#fbfcfd 100%);border-radius:24px;border:1px solid rgba(45,40,35,0.06);box-shadow:0 12px 34px rgba(28,43,58,0.08);padding:32px 28px}
+.res-card{background:linear-gradient(180deg,#fff 0%,#fbfcfd 100%);border-radius:24px;border:1px solid var(--border-warm);box-shadow:0 12px 34px rgba(28,43,58,0.08);padding:32px 28px}
 .res-card h2{font-family:'DM Serif Display',Georgia,serif;font-size:1.1rem;font-weight:700;color:#1c2b3a;margin:0 0 20px;text-align:center}
 .pillars{display:flex;align-items:flex-end;justify-content:center;gap:12px;height:200px;margin-bottom:28px;padding:0 8px}
 .pillar{display:flex;flex-direction:column;align-items:center;flex:1}
 .pillar .pv{font-size:1rem;font-weight:700;margin-bottom:6px}
 .pillar .pb{width:100%;max-width:56px;border-radius:10px 10px 4px 4px;transition:height 0.8s cubic-bezier(0.34,1.56,0.64,1)}
 .pillar .pl{font-size:0.6rem;font-weight:600;margin-top:8px;text-align:center;line-height:1.2}
-.res-score{text-align:center;margin-bottom:24px;padding:12px 0;border-top:1px solid rgba(45,40,35,0.06);border-bottom:1px solid rgba(45,40,35,0.06)}
+.res-score{text-align:center;margin-bottom:24px;padding:12px 0;border-top:1px solid var(--border-warm);border-bottom:1px solid var(--border-warm)}
 .res-score span{font-size:0.8rem;color:#475569}
 .res-score strong{color:#1c2b3a;font-size:1rem}
 .rbox{border-radius:14px;padding:18px 20px;margin-bottom:14px;border-left:4px solid}
@@ -44,12 +44,12 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
 .rbox-weak{background:#FEF2F2}.rbox-strong{background:#e6f4f2}
 .all-detail{margin-top:20px}
 .all-title{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#475569;margin-bottom:12px}
-.ad-row{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid rgba(45,40,35,0.04)}
+.ad-row{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid var(--border-warm)}
 .ad-num{width:24px;height:24px;border-radius:6px;color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.68rem;font-weight:800;flex-shrink:0;margin-top:2px}
 .ad-name{font-size:0.8rem;font-weight:600;color:#1c2b3a;margin-bottom:2px}
 .ad-text{font-size:0.72rem;color:#475569;line-height:1.5}
 .btns{display:flex;gap:10px;margin-top:24px}.btns button{flex:1;padding:12px;border-radius:12px;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:600;cursor:pointer}
-.btn-r{border:1px solid rgba(45,40,35,0.08);background:#fff;color:#475569}
+.btn-r{border:1px solid var(--border-warm-md);background:#fff;color:#475569}
 .btn-c{border:none;background:#1E656D;color:#fff}
 .disc{font-size:0.68rem;color:#8DD4D9;margin-top:16px;line-height:1.5;text-align:center}
 </style>
