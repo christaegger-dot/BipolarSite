@@ -295,7 +295,7 @@ h1, h2, h3, h4 {
 /* ── Mobile dropdown (nav-open) ── */
 .nav-links.nav-open {
   background: rgba(254,252,248,0.98);
-  border-color: rgba(45,40,35,0.08);
+  border-color: var(--border-warm-md);
   box-shadow: 0 12px 30px rgba(45,40,35,0.14);
   border-radius: var(--radius-lg);
 }
@@ -1618,7 +1618,7 @@ header.hero .hero-content {
   font-size: var(--text-base);
   font-weight: 500;
   padding: 10px 22px;
-  border-radius: 100px;
+  border-radius: var(--radius-round);
   transition: all 0.2s ease;
   margin-top: 1.5rem;
 }
@@ -1761,7 +1761,7 @@ header.hero .hero-content {
   min-height: 44px;
   background: white;
   border: 1px solid var(--border);
-  border-radius: 100px;
+  border-radius: var(--radius-round);
   text-decoration: none;
   color: var(--navy);
   font-size: var(--text-base);

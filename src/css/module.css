@@ -33,7 +33,7 @@
 .module-badge {
   display: inline-flex; align-items: center; gap: 8px;
   background: var(--green-bg); color: var(--navy);
-  padding: 6px 16px; border-radius: 100px;
+  padding: 6px 16px; border-radius: var(--radius-round);
   font-size: var(--text-xs); font-weight: 700;
   letter-spacing: 0.08em; text-transform: uppercase;
   margin-bottom: 16px;
@@ -390,7 +390,7 @@
 
 /* ── Tool CTA (used in most modules) ── */
 .tool-cta {
-  background: white; border: 1px solid rgba(45,40,35,0.07);
+  background: white; border: 1px solid var(--border-warm-md);
   border-radius: var(--radius-xl); padding: 24px 28px; margin: 28px 0;
   display: flex; gap: 20px; align-items: center;
   box-shadow: var(--shadow-soft);
@@ -539,7 +539,7 @@ body.pdf-preview-open { overflow: hidden; }
 /* ── Accordion (used in modules 1, 2, 4) ── */
 .accordion-group { margin: 36px 0; }
 .accordion-item {
-  background: white; border: 1px solid rgba(45,40,35,0.07);
+  background: white; border: 1px solid var(--border-warm-md);
   border-radius: var(--radius-lg); margin-bottom: 12px;
   overflow: hidden; transition: box-shadow 0.3s ease;
 }
@@ -734,7 +734,7 @@ body.pdf-preview-open { overflow: hidden; }
 .community-block ul { list-style: none; margin: 0; padding: 0; }
 .community-block li {
   font-size: var(--text-base); color: var(--slate); padding: 8px 0;
-  border-top: 1px solid rgba(45,40,35,0.06); line-height: 1.55;
+  border-top: 1px solid var(--border-warm); line-height: 1.55;
 }
 .community-block li:first-child { border-top: none; }
 .community-block a { color: var(--teal); font-weight: 600; text-decoration: none; }

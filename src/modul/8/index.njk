@@ -150,10 +150,8 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .reflection{background:linear-gradient(135deg,var(--surface-warm),rgba(217,236,236,0.72))}
   .reflection::before{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;border-radius:50%;background:rgba(221,210,191,0.18)}
 
-  /* CLOSING */
-  .closing{background:var(--navy);color:white;border-radius:var(--radius-xl);padding:48px 40px;margin:48px 0;position:relative;overflow:hidden;text-align:center}
-  .closing::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 70%,rgba(141,156,115,0.3) 0%,transparent 60%)}
-  .closing-inner{position:relative;z-index:2}
+  /* CLOSING — inherits .takeaways base (navy bg, radius, gradient overlay) */
+  .closing{text-align:center;padding:48px 40px}
   .closing h2{font-family:'DM Serif Display',serif;font-size:1.5rem;font-weight:700;margin-bottom:20px;line-height:1.3}
   .closing p{font-size:1rem;line-height:1.75;color:rgba(255,255,255,0.8);margin-bottom:12px;max-width:560px;margin-left:auto;margin-right:auto}
   .closing .closing-emphasis{font-family:'DM Serif Display',serif;font-size:1.1rem;font-style:italic;color:rgba(255,255,255,0.95);margin-top:24px}
@@ -525,8 +523,8 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
         <p>Welche eine Erkenntnis aus diesen Modulen verändert etwas für Sie — auch wenn sie klein ist? Und welchen einen konkreten Schritt wollen Sie in den nächsten Tagen tun? Nicht als Aufgabe, sondern als Entscheidung für sich selbst.</p>
       </div>
 
-      <div class="closing">
-        <div class="closing-inner">
+      <div class="takeaways closing">
+        <div class="takeaways-inner closing-inner">
           <h2>Unterstützung darf früh beginnen.</h2>
           <p>Sie müssen nicht zuerst am Ende Ihrer Kraft sein, bevor Hilfe legitim wird. Ein früher Kontakt, ein klärendes Gespräch oder eine kleine praktische Vorbereitung kann viel entlasten.</p>
           <p>Wenn Sie von hier aus nur eines mitnehmen: Suchen Sie nicht nach der perfekten Lösung, sondern nach dem nächsten Schritt, der für Sie gerade tragbar ist.</p>

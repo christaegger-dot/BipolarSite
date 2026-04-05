@@ -65,7 +65,9 @@ body{font-family:'DM Sans',sans-serif;color:rgba(255,255,255,0.88);background:#1
   </div>
 </main>
 {% endblock %}
-{% block footer %}{% endblock %}
+{% block footer %}
+{% include "footer-medium.njk" %}
+{% endblock %}
 {% block scripts %}
 <script>
 var phases = [{text:'Einatmen',ms:4000},{text:'Halten',ms:4000},{text:'Ausatmen',ms:6000}];

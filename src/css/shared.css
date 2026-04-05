@@ -129,7 +129,7 @@ body {
     gap: 6px;
     padding: 12px;
     background: rgba(254,252,248,0.98);
-    border: 1px solid rgba(45,40,35,0.08);
+    border: 1px solid var(--border-warm-md);
     border-radius: 16px;
     box-shadow: 0 12px 30px rgba(45,40,35,0.14);
     z-index: 60;
@@ -257,7 +257,7 @@ footer {
   display: inline-flex;
   align-items: center;
   padding: 6px 16px;
-  border-radius: 100px;
+  border-radius: var(--radius-round);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -286,7 +286,7 @@ footer {
   margin: 12px auto 0;
 }
 .overview-note {
-  border: 1px solid rgba(45,40,35,0.08);
+  border: 1px solid var(--border-warm-md);
   border-radius: 24px;
   box-shadow: var(--shadow-soft);
   padding: 24px 26px;
