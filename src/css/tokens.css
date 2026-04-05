@@ -92,6 +92,13 @@
   --mania-phase-border:      #f0c070;
   --hypo-phase-bg:           #fff9f0;
   --amber-phase-border:      #e8c68a;
+
+  /* Helle Varianten für Verwendung auf dunklem Navy-Hintergrund (WCAG AA) */
+  --blue-phase-on-dark:  #93b4d4; /* 6.7:1 auf Navy */
+  --amber-phase-on-dark: #f59e4a; /* 6.8:1 auf Navy */
+  --sand-on-dark:        #c9a97a; /* 6.5:1 auf Navy */
+  --green-on-dark:       #34d399; /* 7.5:1 auf Navy */
+  --teal-on-dark:        #5bbac4; /* 6.4:1 auf Navy */
   --mild-dep-phase-border:   #c5d5e8;
   --severe-dep-phase-bg:     #e4eaf2;
   --severe-dep-phase-border: #8899aa;
