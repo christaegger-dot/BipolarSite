@@ -568,6 +568,16 @@ body.pdf-preview-open { overflow: hidden; }
 .community-block a { color: var(--teal); font-weight: 600; text-decoration: none; }
 .community-block a:hover { text-decoration: underline; }
 
+/* Compact community-block (without h3, links only) */
+.community-block:not(:has(h3)) {
+  padding: 18px 24px;
+  margin: 32px 0;
+}
+.community-block:not(:has(h3)) > p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
 /* ── Quick Summary (top of long modules) ── */
 .quick-summary {
   background: linear-gradient(135deg, var(--green-bg), #f0fafa);
