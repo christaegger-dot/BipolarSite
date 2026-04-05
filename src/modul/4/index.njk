@@ -15,7 +15,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 
   /* SELFTEST */
   .selftest{background:white;border:1px solid rgba(45,40,35,0.06);border-radius:var(--radius-xl);padding:36px;margin:40px 0;box-shadow:var(--shadow-soft)}
-  .selftest h3{font-family:'Source Serif 4',serif;font-size:1.15rem;font-weight:600;color:var(--navy-mid);margin-bottom:8px}
+  .selftest .selftest-heading{font-family:'Source Serif 4',serif;font-size:1.15rem;font-weight:600;color:var(--navy-mid);margin-bottom:8px}
   .selftest>p{font-size:0.85rem;color:var(--text-soft);margin-bottom:24px}
   .selftest-item{padding:16px 0;border-top:1px solid rgba(45,40,35,0.06);font-size:0.92rem;color:var(--slate);line-height:1.55}
   .selftest-item:first-of-type{border-top:none}
@@ -117,7 +117,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     <strong>Keine Zeit oder Kraft zum Lesen?</strong>
     <p>Erschöpfung als Angehörige*r baut sich über Jahre auf und verschwindet nicht zwischen Episoden. «Ambiguous Loss» — die Trauer um jemanden, der da ist und doch verändert — ist real. Schonhaltung und Identitätsverlust sind häufige Folgen. Wenn Ihr Alltag nur noch um die Erkrankung kreist, ist Gegensteuerung nötig.</p>
     <p>Konkreter nächster Schritt: Machen Sie den kurzen Selbsttest weiter unten — 5 Fragen, 2 Minuten.</p>
-    <p style="margin-top:8px;font-size:0.88rem;color:var(--teal-dark)">Zwischen den schweren Zeiten gibt es auch Inseln: ein ruhiger Sonntag, ein gutes Gespräch, das Gefühl, dass es sich doch lohnt. Diese Inseln sind klein, aber sie tragen.</p>
+    <p class="bright-moment">Zwischen den schweren Zeiten gibt es auch Inseln: ein ruhiger Sonntag, ein gutes Gespräch, das Gefühl, dass es sich doch lohnt. Diese Inseln sind klein, aber sie tragen.</p>
   </div>
 
   <div class="toc">
@@ -138,18 +138,18 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 
   <!-- SELBSTTEST -->
   <div class="selftest reveal content-wide">
-    <h3>Kurze Standortbestimmung</h3>
+    <h2 class="selftest-heading">Kurze Standortbestimmung</h2>
     <p>Vielleicht merken Sie beim Lesen bereits, wie viel in letzter Zeit an Ihnen hängen geblieben ist: ständige Anspannung, vernachlässigte eigene Bedürfnisse, Rückzug oder das Gefühl, zu lange durchzuhalten. Dieses Modul ordnet diese Erschöpfung zuerst ein, bevor es zu konkreten Schritten kommt.</p>
   </div>
 
-  <p class="hint-note reveal" style="margin-bottom:28px"><strong>Dieses Modul:</strong> Für Angehörige, bei denen sich Erschöpfung über Monate oder Jahre aufgebaut hat. Stehen Sie eher am Anfang, beginnen Sie mit <a href="/modul/2/">Modul 2</a>.</p>
+  <p class="hint-note hint-note--spaced-lg reveal"><strong>Dieses Modul:</strong> Für Angehörige, bei denen sich Erschöpfung über Monate oder Jahre aufgebaut hat. Stehen Sie eher am Anfang, beginnen Sie mit <a href="/modul/2/">Modul 2</a>.</p>
 
-  <p class="reveal" style="font-size:0.95rem;color:var(--slate);background:var(--surface-warm);border:1px solid rgba(181,138,82,0.2);border-radius:16px;padding:16px 18px;margin-bottom:24px"><strong>Bevor Sie weiterlesen:</strong> Sie müssen in diesem Modul nicht alles auf einmal aufnehmen. Wenn Sie sich an einer Stelle stark wiedererkennen, reicht es, kurz innezuhalten, nur einen Gedanken mitzunehmen oder später weiterzulesen. Dieses Modul soll einordnen, nicht zusätzlich überrollen.</p>
+  <p class="reveal info-callout"><strong>Bevor Sie weiterlesen:</strong> Sie müssen in diesem Modul nicht alles auf einmal aufnehmen. Wenn Sie sich an einer Stelle stark wiedererkennen, reicht es, kurz innezuhalten, nur einen Gedanken mitzunehmen oder später weiterzulesen. Dieses Modul soll einordnen, nicht zusätzlich überrollen.</p>
 
   <!-- ══════════ 1. AMBIGUOUS LOSS ══════════ -->
   
   <a href="/tools/selbsttest/" class="tool-cta reveal">
-    <div class="tool-cta-icon" style="background:#FAFAF7">📋</div>
+    <div class="tool-cta-icon tool-cta-icon--neutral">📋</div>
     <div class="tool-cta-body">
       <h4>Optionale Standortbestimmung</h4>
       <p>Wenn Sie Ihre momentane Belastung kurz einordnen möchten, finden Sie hier eine knappe, nicht diagnostische Orientierung.</p>
@@ -178,7 +178,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     <div class="loss-card"><h4>Intimität</h4><p>Emotionale und körperliche Nähe leidet unter der Verschiebung vom Partner zum Pfleger.</p></div>
   </div>
 
-  <p class="reveal" style="font-size:0.88rem;color:var(--text-soft)"><strong>Wenn diese Trauer gross wird:</strong> Unterstützung kann helfen — sei es über Einzel- oder Paartherapie, eine Angehörigengruppe (VASK Zürich, Selbsthilfe Zürich) oder bei anhaltend komplizierter Trauer eine Fachperson für Trauerbegleitung. Kontaktdaten und weitere Anlaufstellen finden Sie in <a href="/modul/8/" style="color:var(--teal)">Modul 8</a>.</p>
+  <p class="reveal text-soft-sm"><strong>Wenn diese Trauer gross wird:</strong> Unterstützung kann helfen — sei es über Einzel- oder Paartherapie, eine Angehörigengruppe (VASK Zürich, Selbsthilfe Zürich) oder bei anhaltend komplizierter Trauer eine Fachperson für Trauerbegleitung. Kontaktdaten und weitere Anlaufstellen finden Sie in <a href="/modul/8/" class="link-teal">Modul 8</a>.</p>
 
   <div class="bright-moment reveal">
     <p>Zwischen den schweren Zeiten gibt es auch Inseln: ein ruhiger Sonntag, ein gutes Gespräch, das Gefühl, dass es sich doch lohnt. Diese Inseln sind klein, aber sie tragen.</p>
@@ -272,7 +272,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   <!-- ══════════ 3. MECHANISMEN + IDENTITÄTSVERLUST ══════════ -->
 
   <a href="/tools/solidaritaets-chart/" class="tool-cta reveal">
-    <div class="tool-cta-icon" style="background:#fef3e2">📈</div>
+    <div class="tool-cta-icon tool-cta-icon--amber">📈</div>
     <div class="tool-cta-body">
       <h4>Belastungsverlauf — interaktiv</h4>
       <p>Wie sich Belastbarkeit über Episoden verändern kann. Klicken Sie auf die Episoden und sehen Sie den Unterschied mit und ohne Unterstützung.</p>
@@ -394,7 +394,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     <li>Sprechen Sie das Kind direkt und klar an: «Das ist nicht deine Aufgabe. Du darfst Kind sein.»</li>
     <li>Verringern Sie sichtbar die Verantwortung des Kindes — konkret und wiederholt.</li>
     <li>Sprechen Sie mit der Schule: Lehrpersonen und Schulsozialarbeit können früh entlasten.</li>
-    <li>Holen Sie Fachunterstützung: <a href="https://www.kinderseele.ch" target="_blank" rel="noopener" style="color:var(--teal)">kinderseele.ch</a> bietet Beratung. In der Schweiz finden Sie kantonale Angebote für Kinder psychisch belasteter Eltern, oft über den jeweiligen Kinder- und Jugendpsychiatrischen Dienst (KJPD).</li>
+    <li>Holen Sie Fachunterstützung: <a href="https://www.kinderseele.ch" target="_blank" rel="noopener" class="link-teal">kinderseele.ch</a> bietet Beratung. In der Schweiz finden Sie kantonale Angebote für Kinder psychisch belasteter Eltern, oft über den jeweiligen Kinder- und Jugendpsychiatrischen Dienst (KJPD).</li>
   </ul>
 
   <!-- Genetik FAQ -->
@@ -414,7 +414,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
         <p>Ja, die Genetik spielt eine Rolle. Die Heritabilität liegt bei 60–85% (Craddock & Sklar, 2013). Aber: Ein erhöhtes Risiko ist keine Gewissheit. <strong>Die meisten Kinder betroffener Eltern entwickeln keine bipolare Störung.</strong></p>
         <p><strong>Im Alltag:</strong> Aufmerksam sein reicht — bei Schlafveränderungen, extremen Stimmungsschwankungen in der Pubertät oder anhaltendem Rückzug.</p>
         <p><strong>Aufklärung schützt:</strong> «Papa hat eine Erkrankung im Gehirn. Das hat nichts mit dir zu tun.» Schweigen macht Kindern mehr Angst als Ehrlichkeit.</p>
-        <p><strong>Bei Sorgen:</strong> Sprechen Sie das Behandlungsteam an. Für Familien in der Schweiz hilft <a href="https://www.kinderseele.ch" target="_blank" rel="noopener" style="color:var(--teal)">kinderseele.ch</a>. Ergänzend kann <a href="https://www.kidkit.de" target="_blank" rel="noopener" style="color:var(--teal)">kidkit.de</a> als deutschsprachige Online-Ressource für Kinder hilfreich sein.</p>
+        <p><strong>Bei Sorgen:</strong> Sprechen Sie das Behandlungsteam an. Für Familien in der Schweiz hilft <a href="https://www.kinderseele.ch" target="_blank" rel="noopener" class="link-teal">kinderseele.ch</a>. Ergänzend kann <a href="https://www.kidkit.de" target="_blank" rel="noopener" class="link-teal">kidkit.de</a> als deutschsprachige Online-Ressource für Kinder hilfreich sein.</p>
       </div>
     </div>
   </div>
@@ -497,11 +497,11 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   <div class="reflection reveal" style="margin-top:48px">
     <div class="reflection-label">Aus Gesprächen mit Angehörigen</div>
     <h3>«Am Anfang dachte ich, ich muss nur stark genug sein»</h3>
-    <p style="font-style:normal;font-family:'DM Sans',sans-serif;font-size:0.9rem;margin-bottom:12px">Die erste Manie kam drei Monate nach unserer Hochzeit. Marc schlief nicht mehr, kündigte seinen Job und kaufte ein Auto, das wir uns nicht leisten konnten. Ich dachte: Das ist Stress. Das geht vorbei. Ich muss einfach stark sein.</p>
-    <p style="font-style:normal;font-family:'DM Sans',sans-serif;font-size:0.9rem;margin-bottom:12px">Es ging nicht vorbei. Es kamen weitere Episoden. Dazwischen Phasen, in denen ich vor lauter Wachsamkeit selbst nicht mehr schlafen konnte — weil ich bei jedem Geräusch dachte: Fängt es wieder an?</p>
-    <p style="font-style:normal;font-family:'DM Sans',sans-serif;font-size:0.9rem;margin-bottom:12px">Ich habe anderthalb Jahre gebraucht, bis ich mir eingestanden habe, dass ich selbst Hilfe brauche. Die Fachstelle Angehörigenarbeit hat mir zwei Dinge gegeben: Das Wort «Hypervigilanz» — endlich konnte ich benennen, was mit mir passiert. Und eine Gruppe von Menschen, die genau das kennen.</p>
-    <p style="font-style:normal;font-family:'DM Sans',sans-serif;font-size:0.9rem">Heute ist nicht alles gut. Aber wir haben einen Krisenplan, ich habe meine eigene Therapeutin, und ich weiss: Ich darf auch an mich denken, ohne dass das Verrat ist.</p>
-    <cite style="display:block;margin-top:14px;font-size:0.82rem;color:var(--text-soft);font-style:italic">— Zusammengesetzt aus Gesprächen mit Angehörigen (anonymisiert und verdichtet)</cite>
+    <p class="reflection-body">Die erste Manie kam drei Monate nach unserer Hochzeit. Marc schlief nicht mehr, kündigte seinen Job und kaufte ein Auto, das wir uns nicht leisten konnten. Ich dachte: Das ist Stress. Das geht vorbei. Ich muss einfach stark sein.</p>
+    <p class="reflection-body">Es ging nicht vorbei. Es kamen weitere Episoden. Dazwischen Phasen, in denen ich vor lauter Wachsamkeit selbst nicht mehr schlafen konnte — weil ich bei jedem Geräusch dachte: Fängt es wieder an?</p>
+    <p class="reflection-body">Ich habe anderthalb Jahre gebraucht, bis ich mir eingestanden habe, dass ich selbst Hilfe brauche. Die Fachstelle Angehörigenarbeit hat mir zwei Dinge gegeben: Das Wort «Hypervigilanz» — endlich konnte ich benennen, was mit mir passiert. Und eine Gruppe von Menschen, die genau das kennen.</p>
+    <p class="reflection-body">Heute ist nicht alles gut. Aber wir haben einen Krisenplan, ich habe meine eigene Therapeutin, und ich weiss: Ich darf auch an mich denken, ohne dass das Verrat ist.</p>
+    <cite class="reflection-cite">— Zusammengesetzt aus Gesprächen mit Angehörigen (anonymisiert und verdichtet)</cite>
   </div>
 
   <!-- NEXT -->
