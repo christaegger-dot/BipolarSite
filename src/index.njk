@@ -533,6 +533,122 @@ useNavJS: true
   .tool-highlight-all a:hover{text-decoration:underline}
   @media(max-width:768px){.tools-highlight-grid{grid-template-columns:1fr 1fr}}
   @media(max-width:480px){.tools-highlight-grid{grid-template-columns:1fr}}
+
+  /* ══════════ ERFAHRUNGSBERICHT ══════════ */
+  .story-section {
+    padding: 0 2rem 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .story-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 48px 40px;
+    background: var(--surface-warm);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-warm);
+  }
+  .story-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--teal);
+    margin-bottom: 12px;
+  }
+  .story-section h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.3rem, 2.5vw, 1.65rem);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.35;
+    color: var(--navy);
+    margin-bottom: 24px;
+  }
+  .story-body p {
+    font-size: var(--text-base);
+    line-height: 1.8;
+    color: var(--text);
+    margin: 0 0 14px;
+  }
+  .story-body p:last-child { margin-bottom: 0; }
+  .story-body em { font-style: italic; }
+  .story-attribution {
+    margin-top: 20px;
+    font-size: var(--text-sm);
+    color: var(--text-soft);
+  }
+  .story-note {
+    font-size: var(--text-xs);
+    color: var(--slate);
+  }
+  @media (max-width: 600px) {
+    .story-inner { padding: 32px 24px; }
+  }
+
+  /* ══════════ EINLADUNG ══════════ */
+  .invitation-section {
+    padding: 0 2rem 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .invitation-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px 32px;
+  }
+  .invitation-section h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    font-weight: 400;
+    line-height: 1.35;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+  .invitation-inner > p {
+    font-size: var(--text-base);
+    color: var(--text-soft);
+    line-height: 1.7;
+    max-width: 460px;
+    margin: 0 auto 24px;
+  }
+  .invitation-contacts {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .invitation-phone {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 20px;
+    border-radius: var(--radius-lg);
+    background: var(--navy);
+    color: white;
+    text-decoration: none;
+    font-size: var(--text-base);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: background 0.2s ease;
+  }
+  .invitation-phone:hover { background: var(--teal); }
+  .invitation-email {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 20px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    background: white;
+    color: var(--teal);
+    text-decoration: none;
+    font-size: var(--text-base);
+    font-weight: 600;
+    transition: border-color 0.2s ease;
+  }
+  .invitation-email:hover { border-color: var(--teal); }
 </style>
 {% endblock %}
 {% block nav %}
@@ -747,8 +863,32 @@ useNavJS: true
   </div>
 </div>
 
+<!-- ══════════ ERFAHRUNGSBERICHT ══════════ -->
+<section class="story-section reveal">
+  <div class="story-inner">
+    <div class="story-label">Erfahrungsbericht</div>
+    <h2>«Ich dachte, ich müsse einfach funktionieren»</h2>
+    <div class="story-body">
+      <p>Als mein Partner vor sechs Jahren die Diagnose bekam, habe ich zuerst alles gelesen, was ich finden konnte. Meistens stand da, was <em>er</em> braucht. Selten, was mit <em>mir</em> passiert.</p>
+      <p>Die ersten zwei Jahre habe ich durchgehalten. Ich habe Arzttermine organisiert, Krisen aufgefangen, bei der Arbeit so getan, als sei alles normal. Irgendwann habe ich gemerkt, dass ich abends nicht mehr weinen konnte, aber auch nicht mehr lachen. Ich war einfach da — funktional, aber leer.</p>
+      <p>Der Wendepunkt war kein grosser Moment. Ich habe bei der Fachstelle angerufen, ohne genau zu wissen, was ich sagen wollte. Die Frau am Telefon hat mir nicht erklärt, was bipolare Störung ist. Sie hat gefragt, wie es <em>mir</em> geht. Das war das Erste, was geholfen hat.</p>
+      <p>Heute ist es nicht einfach. Aber ich kenne den Unterschied zwischen seinen Episoden und meiner Erschöpfung. Ich weiss, wann ich Hilfe brauche und wann er sie braucht. Und ich weiss, dass beides gleichzeitig gelten darf.</p>
+    </div>
+    <p class="story-attribution">— S., 39, Partnerin seit 11 Jahren <span class="story-note">(anonymisiert, keine reale Person)</span></p>
+  </div>
+</section>
 
-
+<!-- ══════════ EINLADUNG ══════════ -->
+<section class="invitation-section reveal">
+  <div class="invitation-inner">
+    <h2>Sie müssen nicht wissen, was Sie sagen wollen</h2>
+    <p>Die Fachstelle Angehörigenarbeit berät auch Sie — nicht nur die erkrankte Person. Auch wenn Sie sich noch nicht sicher sind, ob Sie Hilfe brauchen.</p>
+    <div class="invitation-contacts">
+      <a href="tel:+41583843800" class="invitation-phone">058 384 38 00</a>
+      <a href="mailto:{{ site.email }}" class="invitation-email">{{ site.email }}</a>
+    </div>
+  </div>
+</section>
 
 
 </main>
