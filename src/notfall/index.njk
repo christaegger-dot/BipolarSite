@@ -135,6 +135,32 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .grauzone-action--red{background:var(--alert-red-bg);color:var(--alert-red);border-top:2px solid var(--alert-red-border)}
   @media(max-width:700px){.grauzone-grid{grid-template-columns:1fr}}
 
+  /* INLINE-STYLE REPLACEMENTS */
+  .grauzone--hero{margin:24px 0 32px}
+  .content-note{font-size:0.86rem;color:var(--text-soft);margin-top:-4px}
+  .krisenplan-hint{font-size:0.88rem;color:var(--teal);font-weight:600}
+  .krisenplan-hint a,.link-teal{color:var(--teal)}
+  .guide-body-inner .link-alert{color:var(--alert-red);font-weight:700}
+  .guide-body-inner .link-alert-mid{color:var(--alert-red);font-weight:600}
+  .guide-note{font-size:0.88rem;color:var(--slate);margin-top:12px}
+  .guide-note-small{font-size:0.86rem;color:var(--text-soft);margin-top:12px}
+  .fu-details{margin-top:12px}
+  .fu-summary{cursor:pointer;font-size:0.85rem;font-weight:600;color:var(--navy);padding:4px 0}
+  .fu-details-inner{margin-top:10px}
+  .fu-contact{margin-top:12px}
+  .fu-alert-wrapper{margin:32px 0;border:2px solid var(--alert-red-border);border-radius:var(--radius-xl);overflow:hidden}
+  .fu-alert-wrapper .fu-alert{border:none;border-radius:0;margin:0}
+  .fu-alert-summary{padding:18px 24px;cursor:pointer;display:flex;align-items:center;gap:14px;font-family:'DM Sans',sans-serif;font-size:0.95rem;font-weight:700;color:var(--alert-red);background:var(--alert-red-bg);list-style:none}
+  .fu-alert-summary::-webkit-details-marker{display:none}
+  .fu-alert-summary::after{content:'▸';margin-left:auto;transition:transform 0.2s ease;font-size:0.8rem}
+  .fu-alert-wrapper[open] .fu-alert-summary::after{transform:rotate(90deg)}
+  .fu-alert-summary .fu-alert-icon{margin:0}
+  .content-footer{font-size:0.88rem;color:var(--text-soft);text-align:center;margin-top:32px}
+  .content-footer-link{font-size:0.88rem;text-align:center;margin-top:20px}
+  .content-footer-link a{color:var(--teal);font-weight:600;text-decoration:none}
+  .content-footer-nav{font-size:0.86rem;color:var(--teal);text-align:center;margin-top:20px}
+  .content-footer-nav a{color:var(--teal)}
+
   /* NACH DER AKUTEN SICHERUNG */
   .after-steps{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 24px}
   .after-step{display:flex;gap:14px;align-items:flex-start;background:var(--surface-warm);border-radius:var(--radius-md);padding:16px 18px}
@@ -216,7 +242,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   <h2>Zuerst klären: akut gefährlich oder eskalierend?</h2>
   <p>Sie müssen nicht sofort alles lösen. Zuerst geht es darum, die Lage einzuordnen: <strong>Ist gerade unmittelbare Gefahr da, kippt es akut, oder ist es noch keine akute Gefahr, aber Sie sollten jetzt handeln?</strong></p>
   <p><strong>Kurzregel:</strong> Bei unmittelbarer Gefahr <strong>144</strong> oder <strong>117</strong>. Bei psychiatrischer Krise ohne unmittelbare Lebensgefahr zuerst <strong>0800 33 66 55</strong>.</p>
-  <div class="grauzone" style="margin:24px 0 32px">
+  <div class="grauzone grauzone--hero">
     <h3>Akut gefährlich</h3>
     <p>Konkrete Suizidabsicht, Gewalt, schwere Bedrohung, Psychose mit massiver Entgleisung. <strong>→ 144 oder 117 anrufen.</strong></p>
 
@@ -230,7 +256,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   <!-- NUMMERN -->
   <h2>Alle Notfallnummern</h2>
   <p>Wenn es um Leib, Leben oder unmittelbare Bedrohung geht, sind <strong>144</strong> und <strong>117</strong> die ersten Nummern. Für psychiatrische Krisen und Einschätzung ist der <strong>Psychiatrische Notfalldienst Zürich</strong> die wichtigste Stelle. Diese Seite nennt vor allem Wege für den Kanton Zürich; die Grundlogik gilt breiter, einzelne Zuständigkeiten können ausserhalb von Zürich anders organisiert sein.</p>
-  <p style="font-size:0.86rem;color:var(--text-soft);margin-top:-4px">Die obersten Nummern sind für die akute Lage. Weitere Stellen wie Fachberatung oder Rechtsberatung sind ergänzend wichtig, aber nicht die erste Triage.</p>
+  <p class="content-note">Die obersten Nummern sind für die akute Lage. Weitere Stellen wie Fachberatung oder Rechtsberatung sind ergänzend wichtig, aber nicht die erste Triage.</p>
   <div class="numbers-grid">
     <a class="number-card" href="tel:+41800336655"><div><strong>0800 33 66 55</strong><div class="number-label">Psychiatrischer Notfalldienst ZH</div><div class="number-sub">24/7, kostenlos</div></div></a>
     <a class="number-card" href="tel:144"><div><strong>144</strong><div class="number-label">Sanität / Rettungsdienst</div><div class="number-sub">Akute Gefahr für Leib und Leben</div></div></a>
@@ -242,11 +268,11 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     <a class="number-card" href="tel:+41848800858"><div><strong>0848 800 858</strong><div class="number-label">Pro Mente Sana</div><div class="number-sub">Rechtsberatung, FU, Vorsorge</div></div></a>
   </div>
 
-  <p style="font-size:0.88rem;color:var(--teal);font-weight:600"><strong>Krisenplan vorhanden?</strong> Öffnen Sie ihn jetzt und folgen Sie den vereinbarten Schritten. Noch keinen? → <a href="/modul/6/" style="color:var(--teal)">Modul 6: Gespräche, Grenzen, Krisenplan</a></p>
+  <p class="krisenplan-hint"><strong>Krisenplan vorhanden?</strong> Öffnen Sie ihn jetzt und folgen Sie den vereinbarten Schritten. Noch keinen? → <a href="/modul/6/">Modul 6: Gespräche, Grenzen, Krisenplan</a></p>
 
   <!-- MINI GUIDES -->
   <h2>Was passiert gerade? — Kurzanleitungen</h2>
-  <p>Öffnen Sie die Situation, die dem aktuellen Moment am nächsten kommt. Ausführlichere Kommunikationshilfen finden Sie in <a href="/modul/6/" style="color:var(--teal)">Modul 6</a> — hier geht es um die ersten Minuten und die nächsten sicheren Schritte.</p>
+  <p>Öffnen Sie die Situation, die dem aktuellen Moment am nächsten kommt. Ausführlichere Kommunikationshilfen finden Sie in <a href="/modul/6/" class="link-teal">Modul 6</a> — hier geht es um die ersten Minuten und die nächsten sicheren Schritte.</p>
 
   <!-- SUIZID -->
   <div class="guide" id="guide-suizid">
@@ -341,14 +367,14 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     <div class="guide-body" id="guide-panel-gewalt" hidden><div class="guide-body-inner">
       <ul>
         <li><strong>Ihre Sicherheit geht vor.</strong> Verlassen Sie den Raum. Nehmen Sie Kinder mit.</li>
-        <li>Rufen Sie <a href="tel:117" style="color:var(--alert-red);font-weight:700">117</a> (Polizei) an. Das ist kein Verrat — es ist Schutz.</li>
+        <li>Rufen Sie <a href="tel:117" class="link-alert">117</a> (Polizei) an. Das ist kein Verrat — es ist Schutz.</li>
         <li>Gehen Sie zu Nachbarn, Freunden oder einem öffentlichen Ort.</li>
         <li>Dokumentieren Sie Verletzungen (Fotos, Datum, Uhrzeit).</li>
-        <li>Opferhilfe Zürich: <a href="tel:+41442994050" style="color:var(--alert-red);font-weight:600">044 299 40 50</a> — kostenlos, vertraulich.</li>
+        <li>Opferhilfe Zürich: <a href="tel:+41442994050" class="link-alert-mid">044 299 40 50</a> — kostenlos, vertraulich.</li>
       </ul>
       <div class="guide-do">✓ Raum verlassen. Kinder mitnehmen. 117 anrufen. Dokumentieren.</div>
       <div class="guide-dont">✗ Sich verteidigen, wenn es eskaliert. Allein bleiben. Vorfall verschweigen.</div>
-      <p style="font-size:0.88rem;color:var(--slate);margin-top:12px"><strong>Wichtig:</strong> Gewalt ist nie akzeptabel — auch nicht als Symptom einer Erkrankung. Das zu benennen ist kein Verrat an Ihrem Partner.</p>
+      <p class="guide-note"><strong>Wichtig:</strong> Gewalt ist nie akzeptabel — auch nicht als Symptom einer Erkrankung. Das zu benennen ist kein Verrat an Ihrem Partner.</p>
     </div></div>
   </div>
 
@@ -364,24 +390,24 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
         <li>Käufe können in der Schweiz unter Umständen angefochten werden, wenn eine Geschäftsunfähigkeit nachgewiesen werden kann (Art. 18 ZGB).</li>
         <li><strong>KESB kontaktieren</strong> (Kindes- und Erwachsenenschutzbehörde), wenn rasch Schutzmassnahmen geprüft werden müssen. Zuständigkeiten laufen je nach Wohnort über die örtliche Behörde.</li>
         <li>Alles dokumentieren: Kontoauszüge, Verträge, Kommunikation — mit Datum und Uhrzeit.</li>
-        <li>Rechtsberatung: <a href="tel:+41848800858" style="color:var(--teal);font-weight:600">Pro Mente Sana (0848 800 858)</a> — kostenlos.</li>
+        <li>Rechtsberatung: <a href="tel:+41848800858" class="link-teal">Pro Mente Sana (0848 800 858)</a> — kostenlos.</li>
       </ul>
       <div class="guide-do">✓ Bank anrufen. Dokumentieren. KESB oder Rechtsberatung kontaktieren.</div>
       <div class="guide-dont">✗ Käufe selbst rückgängig machen wollen. Konfrontieren in der Manie. Abwarten.</div>
-      <p style="font-size:0.86rem;color:var(--text-soft);margin-top:12px">Das ist meist keine 144-/117-Lage, aber oft eine akute Folgenschadensituation. Präventive Massnahmen wie Transaktionslimiten, Vorsorgeauftrag und Bankabsprachen sind in der Schweiz besonders wichtig. → <a href="/modul/6/" style="color:var(--teal)">Modul 6: Vorbereitung</a></p>
+      <p class="guide-note-small">Das ist meist keine 144-/117-Lage, aber oft eine akute Folgenschadensituation. Präventive Massnahmen wie Transaktionslimiten, Vorsorgeauftrag und Bankabsprachen sind in der Schweiz besonders wichtig. → <a href="/modul/6/" class="link-teal">Modul 6: Vorbereitung</a></p>
     </div></div>
   </div>
 
-  <!-- FU ALERT -->
-  <div class="fu-alert">
-    <div class="fu-alert-icon">FU</div>
-    <div>
-      <h3>Fürsorgerische Unterbringung (FU)</h3>
-      <p>Wenn eine Person sich selbst oder andere erheblich gefährdet und keine Einsicht zeigt, kann eine FU in eine Klinik erfolgen — auch gegen den Willen. Das ist ein letztes Mittel und eine schwere Entscheidung.</p>
+  <!-- FU ALERT (collapsible) -->
+  <details class="fu-alert-wrapper">
+    <summary class="fu-alert-summary"><span class="fu-alert-icon">FU</span> Fürsorgerische Unterbringung (FU) — Was ist das?</summary>
+    <div class="fu-alert">
+      <div>
+        <p>Wenn eine Person sich selbst oder andere erheblich gefährdet und keine Einsicht zeigt, kann eine FU in eine Klinik erfolgen — auch gegen den Willen. Das ist ein letztes Mittel und eine schwere Entscheidung.</p>
 
-      <details style="margin-top:12px">
-        <summary style="cursor:pointer;font-size:0.85rem;font-weight:600;color:var(--navy);padding:4px 0">Wie läuft eine FU ab? ▸</summary>
-        <div style="margin-top:10px">
+        <details class="fu-details">
+          <summary class="fu-summary">Wie läuft eine FU ab? ▸</summary>
+        <div class="fu-details-inner">
           <div class="fu-steps">
             <div class="fu-step">
               <div class="fu-step-num">1</div>
@@ -409,9 +435,10 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
         </div>
       </details>
 
-      <p style="margin-top:12px"><a href="tel:+41848800858">Pro Mente Sana (0848 800 858)</a> berät kostenlos zu rechtlichen Fragen und hilft bei der Einordnung von FU, Vorsorge und Beschwerdewegen in der Schweiz. Die Fachstelle Angehörigenarbeit der PUK unterstützt Sie bei dieser Entscheidung.</p>
+        <p class="fu-contact"><a href="tel:+41848800858">Pro Mente Sana (0848 800 858)</a> berät kostenlos zu rechtlichen Fragen und hilft bei der Einordnung von FU, Vorsorge und Beschwerdewegen in der Schweiz. Die Fachstelle Angehörigenarbeit der PUK unterstützt Sie bei dieser Entscheidung.</p>
+      </div>
     </div>
-  </div>
+  </details>
 
   <!-- GRAUZONE -->
   <div class="grauzone">
@@ -463,11 +490,11 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     </div>
   </div>
 
-  <p style="font-size:0.88rem;color:var(--text-soft);text-align:center;margin-top:32px"><strong>Diese Kurzanleitungen ersetzen keine professionelle Beratung.</strong> Sie geben Orientierung für die ersten Minuten. Wenn Sie unsicher sind, rufen Sie immer an.</p>
+  <p class="content-footer"><strong>Diese Kurzanleitungen ersetzen keine professionelle Beratung.</strong> Sie geben Orientierung für die ersten Minuten. Wenn Sie unsicher sind, rufen Sie immer an.</p>
 
-  <p style="font-size:0.88rem;text-align:center;margin-top:20px"><a href="/tools/durchatmen/" style="color:var(--teal-light);font-weight:600;text-decoration:none">Brauchen Sie zuerst einen Moment Ruhe? → Durchatmen</a></p>
+  <p class="content-footer-link"><a href="/tools/durchatmen/">Brauchen Sie zuerst einen Moment Ruhe? → Durchatmen</a></p>
 
-  <p style="font-size:0.86rem;color:var(--teal);text-align:center;margin-top:20px"><a href="/modul/6/" style="color:var(--teal)">→ Modul 6: Vorbereitung, Kommunikation, Grenzen</a> · <a href="/modul/8/#anlaufstellen" style="color:var(--teal)">→ Modul 8: Beratungsstellen und nächste Schritte</a> · <a href="/module/" style="color:var(--teal)">→ Zur Übersicht der Module</a></p>
+  <p class="content-footer-nav"><a href="/modul/6/">→ Modul 6: Vorbereitung, Kommunikation, Grenzen</a> · <a href="/modul/8/#anlaufstellen">→ Modul 8: Beratungsstellen und nächste Schritte</a> · <a href="/module/">→ Zur Übersicht der Module</a></p>
 
 </main>
 
