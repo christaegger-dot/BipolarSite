@@ -1215,6 +1215,19 @@ footer {
   max-width: 34ch;
 }
 
+.footer-invitation {
+  color: var(--white-text) !important;
+  font-weight: 600;
+  font-size: var(--text-base) !important;
+  font-family: 'DM Serif Display', serif;
+  letter-spacing: 0.01em;
+}
+
+.footer-disclaimer {
+  font-size: var(--text-xs) !important;
+  color: var(--white-text-muted) !important;
+}
+
 .footer-link-alert {
   color: #fca5a5 !important;
   font-weight: 700;

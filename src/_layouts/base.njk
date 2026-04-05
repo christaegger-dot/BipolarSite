@@ -28,13 +28,13 @@
 {% if noIndex or site.noIndexDeploy %}<meta name="robots" content="noindex">{% endif %}
 <link rel="preload" as="font" href="/fonts/dm-sans-variable.woff2" type="font/woff2" crossorigin>
 <link rel="preload" as="font" href="/fonts/dm-serif-display-400.woff2" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/tokens.css?v=5">
-<link rel="stylesheet" href="/fonts/fonts.css?v=5">
-{% if useSharedCSS %}<link rel="stylesheet" href="/css/shared.css?v=5">{% endif %}
-{% if useModuleCSS %}<link rel="stylesheet" href="/css/module.css?v=5">{% endif %}
-{% if useToolCSS %}<link rel="stylesheet" href="/css/tools.css?v=5">{% endif %}
+<link rel="stylesheet" href="/css/tokens.css?v=6">
+<link rel="stylesheet" href="/fonts/fonts.css?v=6">
+{% if useSharedCSS %}<link rel="stylesheet" href="/css/shared.css?v=6">{% endif %}
+{% if useModuleCSS %}<link rel="stylesheet" href="/css/module.css?v=6">{% endif %}
+{% if useToolCSS %}<link rel="stylesheet" href="/css/tools.css?v=6">{% endif %}
 {% block headCSS %}{% endblock %}
-<link rel="stylesheet" href="/css/overrides.css?v=5">
+<link rel="stylesheet" href="/css/overrides.css?v=6">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -144,10 +144,10 @@
 {% block scripts %}{% endblock %}
 <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js').catch(function(){})}</script>
 <div id="storageBanner" class="storage-banner" hidden role="status">
-  <span>Diese Seite speichert Ihren Fortschritt lokal auf diesem Gerät. Es werden keine Daten an Server gesendet.</span>
+  <span>Fortschritt lokal speichern? Keine Daten werden gesendet.</span>
   <div class="storage-banner-btns">
-    <button type="button" id="storageAccept" class="storage-btn-accept">Akzeptieren</button>
-    <button type="button" id="storageDecline" class="storage-btn-decline">Ablehnen</button>
+    <button type="button" id="storageAccept" class="storage-btn-accept">Ja</button>
+    <button type="button" id="storageDecline" class="storage-btn-decline">Nein</button>
   </div>
 </div>
 <script>
