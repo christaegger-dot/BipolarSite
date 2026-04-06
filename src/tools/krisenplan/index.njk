@@ -17,13 +17,13 @@ body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min
 .tool-actions button{padding:8px 16px;border-radius:var(--radius-sm);font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:600;cursor:pointer;transition:background-color 0.2s ease,color 0.2s ease}
 .btn-save{border:none;background:var(--teal);color:var(--card)}.btn-save:hover{background:var(--slate)}
 .btn-print{border:1px solid var(--border-warm-xl);background:var(--card);color:var(--slate)}.btn-print:hover{background:var(--bg)}
-.btn-reset{border:1px solid var(--alert-red-border);background:var(--card);color:var(--rose);font-size:0.72rem}.btn-reset:hover{background:var(--rose-soft)}
+.btn-reset{border:1px solid var(--alert-red-border);background:var(--card);color:var(--alert);font-size:0.72rem}.btn-reset:hover{background:var(--alert-soft)}
 .wrap{max-width:700px;margin:0 auto;padding:24px 20px 60px}
 .hdr{text-align:center;margin-bottom:24px;background:var(--bg);border:1px solid var(--border-warm-md);border-radius:var(--card-radius);padding:26px 24px 24px;box-shadow:var(--shadow-elevated);position:relative;overflow:hidden}
-.prog-wrap{margin-bottom:24px}.prog-bar{height:6px;border-radius:3px;background:var(--green-bg);overflow:hidden}.prog-fill{height:100%;background:var(--teal);transition:width 0.4s;border-radius:3px}
+.prog-wrap{margin-bottom:24px}.prog-bar{height:6px;border-radius:3px;background:var(--success-soft);overflow:hidden}.prog-fill{height:100%;background:var(--teal);transition:width 0.4s;border-radius:3px}
 .prog-label{font-size:0.72rem;color:var(--slate);margin-top:6px;text-align:right}
 .section{border-radius:var(--card-radius);padding:24px;margin-bottom:16px;border-left:5px solid}
-.section h2{font-family:'DM Serif Display',Georgia,serif;font-size:1.06rem;font-weight:700;margin:0 0 6px;display:flex;align-items:center;gap:10px}
+.section h2{font-family:'DM Serif Display',Georgia,serif;font-size:1.06rem;font-weight:400;margin:0 0 6px;display:flex;align-items:center;gap:10px}
 .section-step{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:var(--radius-round);border:1px solid currentColor;background:rgba(255,255,255,0.55);font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:700;line-height:1;flex-shrink:0}
 .section .sdesc{font-size:0.78rem;color:var(--slate);margin-bottom:16px;line-height:1.4}
 .field{margin-bottom:12px}
@@ -32,26 +32,26 @@ body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min
 .field textarea:focus,.field input:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px var(--teal-subtle)}
 .field textarea{min-height:80px}
 .s1{background:var(--amber-bg);border-color:var(--amber)}.s1 h2{color:var(--amber)}
-.s2{background:var(--green-bg);border-color:var(--green-phase)}.s2 h2{color:var(--green-phase)}
-.s3{background:var(--rose-soft);border-color:var(--rose)}.s3 h2{color:var(--rose)}
+.s2{background:var(--success-soft);border-color:var(--phase-green)}.s2 h2{color:var(--phase-green)}
+.s3{background:var(--alert-soft);border-color:var(--alert)}.s3 h2{color:var(--alert)}
 .s4{background:#eef3f8;border-color:var(--blue-phase)}.s4 h2{color:var(--blue-phase)}
-.s5{background:var(--surface-warm-deep);border-color:var(--brown-warm)}.s5 h2{color:var(--brown-warm)}
+.s5{background:var(--surface-alt);border-color:var(--slate)}.s5 h2{color:var(--slate)}
 .s6{background:var(--bg);border-color:var(--slate)}.s6 h2{color:var(--slate)}
 .saved-msg{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--teal);color:var(--card);padding:10px 24px;border-radius:var(--radius-sm);font-size:0.82rem;font-weight:600;box-shadow:0 4px 20px rgba(0,0,0,0.15);opacity:0;transition:opacity 0.3s;pointer-events:none;z-index:100}
 .saved-msg.vis{opacity:1}
 .confirm{border:none;padding:0;background:transparent;max-width:100vw;max-height:100vh}
 .confirm::backdrop{background:var(--overlay-dark)}
 .confirm-box{background:var(--card);border-radius:var(--card-radius);padding:32px;max-width:360px;text-align:center;box-shadow:0 8px 40px var(--overlay-light)}
-.confirm-box h2{font-family:'DM Serif Display',Georgia,serif;font-size:1.1rem;font-weight:700;margin:0 0 12px}
+.confirm-box h2{font-family:'DM Serif Display',Georgia,serif;font-size:1.1rem;font-weight:400;margin:0 0 12px}
 .confirm-box p{font-size:0.85rem;color:var(--slate);line-height:1.5;margin:0 0 20px}
 .confirm-btns{display:flex;gap:10px}.confirm-btns button{flex:1;padding:12px;border-radius:var(--radius-md);font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:600;cursor:pointer}
 .confirm-cancel{border:1px solid var(--border-warm-md);background:var(--card);color:var(--slate)}
-.confirm-delete{border:none;background:var(--rose);color:var(--card)}
+.confirm-delete{border:none;background:var(--alert);color:var(--card)}
 .print-hdr{display:none}
 @media print{
   .tool-nav,.prog-wrap,.btn-save,.btn-print,.btn-reset,.tf,.confirm{display:none!important}
   .print-hdr{display:block;text-align:center;margin-bottom:24px;padding-bottom:16px;border-bottom:2px solid var(--navy)}
-  .print-hdr .print-title{font-family:'DM Serif Display',Georgia,serif;font-size:1.4rem;font-weight:700;margin:0 0 4px}
+  .print-hdr .print-title{font-family:'DM Serif Display',Georgia,serif;font-size:1.4rem;font-weight:400;margin:0 0 4px}
   .print-hdr p{font-size:0.8rem;color:var(--slate)}
   .section{break-inside:avoid;border-radius:0;box-shadow:none}
   body{background:var(--card)}
@@ -116,7 +116,7 @@ body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min
     </div>
   </form>
   <noscript>
-    <div style="padding:20px 24px;background:var(--surface-warm);border-radius:var(--radius-md);margin:20px 0;font-family:'DM Sans',sans-serif">
+    <div style="padding:20px 24px;background:var(--surface-alt);border-radius:var(--radius-md);margin:20px 0;font-family:'DM Sans',sans-serif">
       <p style="font-weight:600;margin:0 0 8px">Dieses Werkzeug benötigt JavaScript.</p>
       <p style="margin:0">Sie können alternativ die <a href="/downloads/krisenplan-vorlage-bipolare-stoerung-puk-zuerich.pdf" style="color:var(--teal);font-weight:600">Krisenplan-Vorlage als PDF</a> herunterladen oder <a href="/modul/6/" style="color:var(--teal);font-weight:600">Modul 6</a> lesen.</p>
     </div>
@@ -159,7 +159,7 @@ function save(){
     savedMsg.classList.add('vis');
   }catch(e){
     savedMsg.textContent='Speichern nicht möglich — privater Modus?';
-    savedMsg.style.background='var(--rose)';
+    savedMsg.style.background='var(--alert)';
     savedMsg.classList.add('vis');
   }
   setTimeout(()=>{savedMsg.classList.remove('vis');savedMsg.style.background='';},2500);

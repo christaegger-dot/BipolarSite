@@ -39,8 +39,8 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
 .detail-col{padding:12px;border-radius:10px;font-size:0.82rem;line-height:1.5}
 .detail-col h4{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px}
 .toggle-wrap{text-align:center;margin-bottom:16px}
-.toggle-btn{padding:10px 20px;border-radius:10px;border:2px solid var(--green-phase);background:#fff;color:var(--green-phase);font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background-color 0.2s ease,color 0.2s ease,border-color 0.2s ease}
-.toggle-btn.on{background:var(--green-phase);color:#fff}
+.toggle-btn{padding:10px 20px;border-radius:10px;border:2px solid var(--phase-green);background:#fff;color:var(--phase-green);font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background-color 0.2s ease,color 0.2s ease,border-color 0.2s ease}
+.toggle-btn.on{background:var(--phase-green);color:#fff}
 .disc{text-align:center;font-size:0.72rem;color:#475569;background:#FAFAF7;border-radius:10px;padding:12px 16px;margin-bottom:16px;line-height:1.5}
 .tf{text-align:center;font-size:0.68rem;color:#8DD4D9;margin-top:20px;line-height:1.5}
 *:focus-visible{outline:2px solid #1E656D;outline-offset:2px;border-radius:4px}
@@ -57,7 +57,7 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
   <div class="legend">
     <div class="legend-item"><div class="legend-line" style="background:var(--amber-phase)"></div>Belastungsreserve</div>
     <div class="legend-item"><div class="legend-line" style="background:var(--blue-phase)"></div>Stimmung der erkrankten Person</div>
-    <div class="legend-item" id="legSupport" style="display:none"><div class="legend-line" style="background:var(--green-phase);border-style:dashed"></div>Mit Unterstützung abgefedert</div>
+    <div class="legend-item" id="legSupport" style="display:none"><div class="legend-line" style="background:var(--phase-green);border-style:dashed"></div>Mit Unterstützung abgefedert</div>
   </div>
   <div class="chart-wrap">
     <svg viewBox="0 0 600 280" role="group" aria-label="Konzeptionelles Modell: Belastungsreserve und Stimmung über mehrere Episoden">
@@ -80,23 +80,23 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
       <!-- Stimmung curve (blue) -->
       <path d="M80,120 Q120,60 160,40 Q200,80 230,130 Q260,30 310,20 Q340,60 380,130 Q420,170 460,200 Q500,220 540,210 Q560,200 580,190" fill="none" stroke="var(--blue-phase)" stroke-width="3" stroke-linecap="round" id="curveSt"/>
       <!-- Support curve (green, hidden) -->
-      <path d="M80,60 Q140,55 160,70 Q200,90 240,80 Q280,70 310,110 Q340,140 380,130 Q420,120 460,125 Q500,130 540,128 Q560,126 580,130" fill="none" stroke="var(--green-phase)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="8 5" opacity="0" id="curveSup"/>
+      <path d="M80,60 Q140,55 160,70 Q200,90 240,80 Q280,70 310,110 Q340,140 380,130 Q420,120 460,125 Q500,130 540,128 Q560,126 580,130" fill="none" stroke="var(--phase-green)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="8 5" opacity="0" id="curveSup"/>
     </svg>
   </div>
   <div class="episodes">
     <button class="ep-btn" style="--c:var(--amber-phase)" data-ep="0">Hypomanie</button>
-    <button class="ep-btn" style="--c:var(--rose)" data-ep="1">Schwere Manie</button>
+    <button class="ep-btn" style="--c:var(--alert)" data-ep="1">Schwere Manie</button>
     <button class="ep-btn" style="--c:var(--blue-phase)" data-ep="2">Lange Depression</button>
   </div>
   <div class="detail" id="detail" aria-live="polite"></div>
   <div class="toggle-wrap"><button class="toggle-btn" id="toggleBtn">Mit Entlastung vergleichen</button></div>
   <div class="disc"><strong>Konzeptionelles Modell</strong> — es soll sichtbar machen, warum Belastung sich über Episoden oft kumuliert und Erholung unvollständig bleiben kann. Individuelle Verläufe können erheblich abweichen. Quellen: Perlick et al. (2007); Reinares et al. (2016); Miklowitz (2010).</div>
 </main>
-<footer class="tf">Psychiatrische Universitätsklinik Zürich · Fachstelle Angehörigenarbeit · <a href="/impressum/" style="color:inherit">Impressum</a> · <a href="/notfall/" style="color:var(--rose)">Notfall</a></footer>
+<footer class="tf">Psychiatrische Universitätsklinik Zürich · Fachstelle Angehörigenarbeit · <a href="/impressum/" style="color:inherit">Impressum</a> · <a href="/notfall/" style="color:var(--alert)">Notfall</a></footer>
 <script>
 const eps=[
   {name:"Hypomanie",col:"var(--amber-phase)",bg:"rgba(196,147,59,0.1)",impact:"Leicht–Mittel",bel:"Die Belastungsreserve sinkt oft zunächst nur leicht. Gerade das macht Hypomanie für Angehörige schwer lesbar: Viel wirkt noch produktiv oder charmant, gleichzeitig werden Schlaf, Reizbarkeit und Unsicherheit grösser.",stim:"Die Stimmung steigt an — mehr Energie, weniger Schlaf, grössere Ideen. Für Angehörige bleibt oft unklar, ob es noch eine gute Phase ist oder schon der Beginn einer Episode."},
-  {name:"Schwere Manie",col:"var(--rose)",bg:"rgba(199,84,80,0.1)",impact:"Hoch",bel:"Die Belastungsreserve bricht deutlich ein. Sicherheit, Geld, Konflikte, Kontrollverlust und Schlafentzug kommen oft gleichzeitig. Nach einer schweren Manie fühlt sich Erholung selten wie ein echter Neustart an.",stim:"Der Ausschlag nach oben wird extrem: Grössenideen, Impulsivität, Gereiztheit, möglicherweise Psychose. Professionelle Intervention oder Hospitalisation ist häufig nötig."},
+  {name:"Schwere Manie",col:"var(--alert)",bg:"rgba(199,84,80,0.1)",impact:"Hoch",bel:"Die Belastungsreserve bricht deutlich ein. Sicherheit, Geld, Konflikte, Kontrollverlust und Schlafentzug kommen oft gleichzeitig. Nach einer schweren Manie fühlt sich Erholung selten wie ein echter Neustart an.",stim:"Der Ausschlag nach oben wird extrem: Grössenideen, Impulsivität, Gereiztheit, möglicherweise Psychose. Professionelle Intervention oder Hospitalisation ist häufig nötig."},
   {name:"Lange Depression",col:"var(--blue-phase)",bg:"rgba(91,127,165,0.1)",impact:"Mittel–Hoch",bel:"Die Belastungsreserve sinkt langsamer, aber stetig. Gerade diese schleichende Form wird oft unterschätzt: wenig sichtbare Dramatik, aber hohe Langzeitlast, Monotonie und innere Ausdünnung.",stim:"Die Stimmung bleibt über Wochen oder Monate tief. Rückzug, Hoffnungslosigkeit, verlangsamter Alltag und Suizidgedanken können Angehörige auf andere Weise zermürben als eine Manie."}
 ];
 let activeEp=null,showSup=false;

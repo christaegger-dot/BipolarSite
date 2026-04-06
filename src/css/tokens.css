@@ -9,31 +9,27 @@
 
   /* ── Brand Colors (5 active families) ──
      Navy = leadership · Teal = accent/CTA · Sand = warm neutral
-     Rose = emergency only · Phase colors (amber/blue/green) = semantic */
+     Alert = emergency only · Phase colors (amber/blue/green) = semantic */
   --navy:        #1c2b3a;
   --navy-mid:    #4A443F;
   --teal:        #1E656D;
   --teal-light:  #A8D5CB;
   --amber:       #B45309;
   --amber-light: #FBBF24;
-  --rose:        #9A3412;
-  --rose-soft:   #FEF2F2;
+  --alert:       #B91C1C;
+  --alert-soft:  #FEF2F2;
   --sand:        #ddd2bf;
   --sand-deep:   #b58a52;
   --sand-ink:    #7a5630;
 
   /* ── Neutral (consolidated — brown family merged into navy/slate) ── */
   --slate:       #475569;
-  --brown-mid:   #4A443F; /* = navy-mid */
-  --brown-warm:  #475569; /* = slate */
+  /* brown-mid → navy-mid, brown-warm → slate (consolidated) */
 
   /* ── Semantic: Background (3 values only) ── */
   --bg:          #FAF8F5;
   --card:        #ffffff;
-  --card-end:    #ffffff; /* consolidated → card */
   --surface-alt: #F4F1EC;
-  --surface-warm: #F4F1EC; /* consolidated → surface-alt */
-  --surface-warm-deep: #F4F1EC; /* consolidated → surface-alt */
 
   /* ── Semantic: Text ── */
   --text:        #3D3530;
@@ -43,8 +39,7 @@
   --border:      #e2e8f0;
 
   /* ── Semantic: Status/Feedback ── */
-  --green:       #0d7a5f;
-  --green-bg:    #e6f4f2;
+  --success-soft: #e6f4f2;
   --red-bg:      #FEF2F2;
   --amber-bg:    #fef3e2;
 
@@ -123,8 +118,8 @@
   --wide-width:         1140px;
 
   /* ── Alert Colors ── */
-  --alert-red:        var(--rose);
-  --alert-red-bg:     var(--rose-soft);
+  --alert-red:        var(--alert);
+  --alert-red-bg:     var(--alert-soft);
   --alert-red-border: #fca5a5;
   --alert-red-light:  #fecaca;
   --alert-red-coral:  #f87171;
@@ -138,8 +133,8 @@
   --amber-phase:      #B45309;
   --amber-phase-light:#fef3e2;
   --purple-phase:     #7c3aed;
-  --green-phase:      #0d7a5f;
-  --green-phase-light:#e6f4f2;
+  --phase-green:      #0d7a5f;
+  --phase-green-light:#e6f4f2;
   /* Phase-specific bg/border values (used in phasenverlauf + selbsttest JS) */
   --mania-phase-bg:          #fff3e0;
   --mania-phase-border:      #f0c070;
@@ -170,10 +165,10 @@
   --border-warm-md: rgba(45,40,35,0.08);
   --border-warm-xl: rgba(45,40,35,0.12);
 
-  /* ── Rose Opacity Scale ── */
-  --rose-faint:  rgba(154,52,18,0.06);
-  --rose-subtle: rgba(154,52,18,0.12);
-  --rose-muted:  rgba(154,52,18,0.25);
+  /* ── Alert Opacity Scale ── */
+  --alert-faint:  rgba(185,28,28,0.06);
+  --alert-subtle: rgba(185,28,28,0.12);
+  --alert-muted:  rgba(185,28,28,0.25);
 
   /* ── Teal Opacity Scale ── */
   --teal-faint:  rgba(30,101,109,0.04);
@@ -196,16 +191,20 @@
   --overlay-dark:   rgba(0,0,0,0.4);
   --overlay-light:  rgba(0,0,0,0.2);
 
-  /* ── Type Scale ── */
-  --text-2xs:  0.7rem;   /* 11.2px — decorative (::before, check marks) */
-  --text-xs:   0.75rem;  /* 12px   — badges, labels, small UI */
-  --text-sm:   0.82rem;  /* 13.1px — citations, nav, secondary */
-  --text-base: 0.95rem;  /* 15.2px — body text, hints, callouts */
-  --text-md:   1.02rem;  /* 16.3px — emphasis, accordion titles */
-  --text-lg:   1.1rem;   /* 17.6px — subheadings (h3 small) */
-  --text-xl:   1.3rem;   /* 20.8px — headings (h3 large) */
-  --text-2xl:  2rem;     /* 32px   — section headings (h2) */
-  --text-3xl:  clamp(2.4rem, 5vw, 3.2rem); /* 38–51px — display / h1 */
+  /* ── Type Scale (6 conscious hierarchy steps) ──
+     Caption → Body → Large → Heading → Display → Hero
+     Stronger jumps between steps for clearer visual hierarchy. */
+  --text-xs:   0.75rem;  /* 12px   — caption: badges, labels, nav, secondary */
+  --text-base: 1rem;     /* 16px   — body: prose, callouts, UI text */
+  --text-lg:   1.25rem;  /* 20px   — large: subheadings, emphasis */
+  --text-xl:   1.6rem;   /* 25.6px — heading: h3, section sub-titles */
+  --text-2xl:  2.2rem;   /* 35.2px — display: h2, section headings */
+  --text-3xl:  clamp(2.8rem, 5vw, 3.6rem); /* 44.8–57.6px — hero: h1 */
+
+  /* Legacy aliases (consolidated into 6-step scale) */
+  --text-2xs:  var(--text-xs);   /* decorative → caption */
+  --text-sm:   var(--text-xs);   /* secondary → caption */
+  --text-md:   var(--text-base); /* emphasis → body */
 
   /* ── White-on-Dark Text Scale ── */
   --white-text:          rgba(255,255,255,0.88);

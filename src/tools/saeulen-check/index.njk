@@ -19,7 +19,7 @@ body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min
 .pc{background:var(--card);border-radius:var(--card-radius);border:1px solid var(--border-warm);box-shadow:var(--card-shadow);padding:22px 24px;margin-bottom:14px;border-left:4px solid}
 .pc-hdr{display:flex;align-items:center;gap:10px;margin-bottom:10px}
 .pc-num{width:28px;height:28px;border-radius:var(--radius-sm);color:var(--card);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800;flex-shrink:0}
-.pc h2{font-family:'DM Serif Display',Georgia,serif;font-size:0.93rem;font-weight:600;color:var(--navy);margin:0}
+.pc h2{font-family:'DM Serif Display',Georgia,serif;font-size:0.93rem;font-weight:400;color:var(--navy);margin:0}
 .pc p{font-size:var(--text-base);color:var(--slate);margin:0 0 14px;line-height:1.5}
 .sc{display:flex;gap:6px}
 .sc button{flex:1;padding:10px 4px;border-radius:var(--radius-sm);border:1px solid var(--border-warm-md);background:var(--card);color:var(--slate);font-size:0.68rem;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background-color 0.2s ease,color 0.2s ease,border-color 0.2s ease;display:flex;flex-direction:column;align-items:center;gap:2px;-webkit-appearance:none}
@@ -29,7 +29,7 @@ body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min
 .submit{width:100%;padding:14px;border-radius:var(--radius-md);border:none;background:#a7d9d5;color:var(--card);font-size:0.88rem;font-weight:700;cursor:default;font-family:'DM Sans',sans-serif;margin-top:8px;transition:background 0.3s}
 .submit.ready{background:var(--teal);cursor:pointer}
 .res-card{background:var(--card);border-radius:var(--card-radius);border:1px solid var(--border-warm);box-shadow:var(--card-shadow);padding:32px 28px}
-.res-card h2{font-family:'DM Serif Display',Georgia,serif;font-size:1.1rem;font-weight:700;color:var(--navy);margin:0 0 20px;text-align:center}
+.res-card h2{font-family:'DM Serif Display',Georgia,serif;font-size:1.1rem;font-weight:400;color:var(--navy);margin:0 0 20px;text-align:center}
 .pillars{display:flex;align-items:flex-end;justify-content:center;gap:12px;height:200px;margin-bottom:28px;padding:0 8px}
 .pillar{display:flex;flex-direction:column;align-items:center;flex:1}
 .pillar .pv{font-size:1rem;font-weight:700;margin-bottom:6px}
@@ -41,7 +41,7 @@ body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min
 .rbox{border-radius:var(--radius-md);padding:18px 20px;margin-bottom:14px;border-left:4px solid}
 .rbox-title{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px}
 .rbox p{font-size:0.85rem;line-height:1.6;margin:0}
-.rbox-weak{background:var(--rose-soft)}.rbox-strong{background:var(--green-bg)}
+.rbox-weak{background:var(--alert-soft)}.rbox-strong{background:var(--success-soft)}
 .all-detail{margin-top:20px}
 .all-title{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--slate);margin-bottom:12px}
 .ad-row{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid var(--border-warm)}
@@ -64,7 +64,7 @@ body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min
 <div class="tool-glyph" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="22" width="5" height="12" rx="2.5" fill="#1E656D"/><rect x="14" y="16" width="5" height="18" rx="2.5" fill="#B45309"/><rect x="22" y="10" width="5" height="24" rx="2.5" fill="#9A3412"/><rect x="30" y="6" width="5" height="28" rx="2.5" fill="#5B7FA5"/></svg></div><div class="badge">Modul 7</div><h1>Was trägt Sie gerade auf der langen Strecke?</h1><p>Schätzen Sie die fünf Bereiche ein. Sie sehen, was Sie derzeit trägt — und wo etwas instabil geworden ist.</p></div>
   <div id="app" aria-live="polite" aria-atomic="true"></div>
   <noscript>
-    <div style="padding:20px 24px;background:var(--surface-warm);border-radius:var(--radius-md);margin:20px 0;font-family:'DM Sans',sans-serif">
+    <div style="padding:20px 24px;background:var(--surface-alt);border-radius:var(--radius-md);margin:20px 0;font-family:'DM Sans',sans-serif">
       <p style="font-weight:600;margin:0 0 8px">Dieses Werkzeug benötigt JavaScript.</p>
       <p style="margin:0">Die fünf Säulen werden auch in <a href="/modul/7/" style="color:var(--teal);font-weight:600">Modul 7</a> erklärt.</p>
     </div>
@@ -99,7 +99,7 @@ function rn(){
     <div class="pillars">${P.map(p=>{const v=rat[p.id]||1;const h=(v/5)*160;const isW=p.id===weak.id&&v<4;return`<div class="pillar"><span class="pv" style="color:${p.c}">${v}</span><div class="pb" style="height:${h}px;background:${isW?'repeating-linear-gradient(45deg,'+p.c+'22,'+p.c+'22 4px,'+p.c+'11 4px,'+p.c+'11 8px)':p.c};opacity:${isW?1:0.85};${isW?'border:2px dashed '+p.c:''}"></div><span class="pl" style="color:${p.c}">${p.s}</span></div>`}).join('')}</div>
     <div class="res-score"><span>Gesamt: <strong>${ts}</strong> / ${P.length*5}</span></div>
     ${weak&&rat[weak.id]<4?`<div class="rbox rbox-weak" style="border-color:${weak.c}"><div class="rbox-title" style="color:${weak.c}">Hier fehlt aktuell am meisten Boden: ${weak.l}</div><p style="color:var(--slate)">${weak.lo}</p></div>`:''}
-    ${strong&&rat[strong.id]>=4?`<div class="rbox rbox-strong" style="border-color:var(--green-phase)"><div class="rbox-title" style="color:var(--green-phase)">Was Sie bereits trägt: ${strong.l}</div><p style="color:var(--navy)">${strong.hi}</p></div>`:''}
+    ${strong&&rat[strong.id]>=4?`<div class="rbox rbox-strong" style="border-color:var(--phase-green)"><div class="rbox-title" style="color:var(--phase-green)">Was Sie bereits trägt: ${strong.l}</div><p style="color:var(--navy)">${strong.hi}</p></div>`:''}
     <div class="all-detail"><div class="all-title">Alle fünf Bereiche im Detail</div>${P.map(p=>{const v=rat[p.id]||1;return`<div class="ad-row"><div class="ad-num" style="background:${p.c}">${v}</div><div><div class="ad-name">${p.l}</div><div class="ad-text">${v<3?p.lo:p.hi}</div></div></div>`}).join('')}</div>
     <div class="btns"><button class="btn-r" data-action="rs">Erneut einschätzen</button><button class="btn-c" data-action="nav" data-href="/modul/7/">Zurück zu Modul 7 →</button></div>
     <div class="disc">Standortbestimmung, keine Diagnose. Beginnen Sie dort, wo aktuell am wenigsten trägt oder am meisten Druck entsteht.</div></div>`;

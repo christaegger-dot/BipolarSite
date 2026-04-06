@@ -104,7 +104,7 @@
   }
   .module-hero h1 {
     font-family: 'Source Serif 4', serif;
-    font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700; line-height: 1.2;
+    font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 400; line-height: 1.2;
     letter-spacing: -0.03em; color: var(--earth-900); margin-bottom: 16px;
   }
   .module-meta {
@@ -202,7 +202,7 @@
   }
   .phase-tab:hover { background: rgba(45,40,35,0.02); }
   .phase-tab.active-mania { color: var(--amber-phase); border-bottom-color: var(--amber-phase); background: var(--amber-phase-light); }
-  .phase-tab.active-stable { color: var(--green-phase); border-bottom-color: var(--green-phase); background: var(--green-phase-light); }
+  .phase-tab.active-stable { color: var(--phase-green); border-bottom-color: var(--phase-green); background: var(--phase-green-light); }
   .phase-tab.active-depression { color: var(--blue-phase); border-bottom-color: var(--blue-phase); background: var(--blue-phase-light); }
 
   .phase-tab-icon { font-size: 1.1rem; display: block; margin-bottom: 4px; }
@@ -223,7 +223,7 @@
     border-left: 4px solid transparent;
   }
   .symptom-card.mania { border-left-color: var(--amber-phase); }
-  .symptom-card.stable { border-left-color: var(--green-phase); }
+  .symptom-card.stable { border-left-color: var(--phase-green); }
   .symptom-card.depression { border-left-color: var(--blue-phase); }
 
   .symptom-title { font-weight: 700; font-size: 0.92rem; margin-bottom: 4px; }
@@ -642,7 +642,7 @@
 
     <!-- Stable -->
     <div class="phase-content" id="phase-stable">
-      <div class="phase-header" style="color: var(--green-phase);">Stabile Phase (Euthymie)</div>
+      <div class="phase-header" style="color: var(--phase-green);">Stabile Phase (Euthymie)</div>
       <div class="phase-subtitle">Wichtige Zeitfenster — aber nicht immer echte innere Entwarnung</div>
 
       <div class="symptom-card stable">
@@ -694,7 +694,7 @@
 
   <!-- Tool link: Phasenverlauf -->
   <a href="/tools/phasenverlauf/" class="tool-cta reveal">
-    <div class="tool-cta-icon" style="background:var(--green-phase-light)">📈</div>
+    <div class="tool-cta-icon" style="background:var(--phase-green-light)">📈</div>
     <div class="tool-cta-body">
       <h4>Bipolarer Phasenverlauf — interaktiv</h4>
       <p>Klicken Sie die einzelnen Phasen an und erfahren Sie, was sie für Betroffene und Angehörige bedeuten — inkl. typischer Dauer und praktischer Hinweise.</p>

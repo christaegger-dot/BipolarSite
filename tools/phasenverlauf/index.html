@@ -114,7 +114,7 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
       <div class="chart-legend">
         <span class="leg"><span class="leg-dot" style="background:var(--amber-phase)"></span>Manie</span>
         <span class="leg"><span class="leg-dot" style="background:var(--hypo-phase)"></span>Hypomanie</span>
-        <span class="leg"><span class="leg-dot" style="background:var(--green-phase)"></span>Stabil</span>
+        <span class="leg"><span class="leg-dot" style="background:var(--phase-green)"></span>Stabil</span>
         <span class="leg"><span class="leg-dot" style="background:var(--blue-phase)"></span>Leichte Dep.</span>
         <span class="leg"><span class="leg-dot" style="background:var(--earth-700)"></span>Schwere Dep.</span>
       </div>
@@ -145,7 +145,7 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
         <!-- Zone backgrounds -->
         <rect x="0" y="0"   width="540" height="56"  fill="var(--amber-phase-light)" id="zone-mania"       class="zone-bg" data-phase="mania"/>
         <rect x="0" y="56"  width="540" height="56"  fill="#fff9f0" id="zone-hypo"        class="zone-bg" data-phase="hypomania"/>
-        <rect x="0" y="112" width="540" height="56"  fill="var(--green-phase-light)" id="zone-stable"      class="zone-bg" data-phase="stable"/>
+        <rect x="0" y="112" width="540" height="56"  fill="var(--phase-green-light)" id="zone-stable"      class="zone-bg" data-phase="stable"/>
         <rect x="0" y="168" width="540" height="56"  fill="var(--blue-phase-light)" id="zone-mild"        class="zone-bg" data-phase="mild-dep"/>
         <rect x="0" y="224" width="540" height="56"  style="fill:var(--severe-dep-phase-bg)" id="zone-severe"      class="zone-bg" data-phase="severe-dep"/>
 
@@ -156,12 +156,12 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
         <line x1="0" y1="224" x2="540" y2="224" stroke="#ddd" stroke-width="0.6" stroke-dasharray="4 3"/>
 
         <!-- Baseline (stable midline) -->
-        <line x1="80" y1="140" x2="540" y2="140" stroke="var(--green-phase)" stroke-width="0.8" stroke-dasharray="6 4" opacity="0.35"/>
+        <line x1="80" y1="140" x2="540" y2="140" stroke="var(--phase-green)" stroke-width="0.8" stroke-dasharray="6 4" opacity="0.35"/>
 
         <!-- Zone labels -->
         <text x="8" y="32"  font-size="10" fill="var(--amber-phase)" font-weight="700" font-family="DM Sans,sans-serif">Manie</text>
         <text x="8" y="88"  font-size="10" fill="var(--hypo-phase)" font-weight="700" font-family="DM Sans,sans-serif">Hypomanie</text>
-        <text x="8" y="144" font-size="10" fill="var(--green-phase)" font-weight="700" font-family="DM Sans,sans-serif">Stabil</text>
+        <text x="8" y="144" font-size="10" fill="var(--phase-green)" font-weight="700" font-family="DM Sans,sans-serif">Stabil</text>
         <text x="8" y="200" font-size="10" fill="var(--blue-phase)" font-weight="700" font-family="DM Sans,sans-serif">Leichte Dep.</text>
         <text x="8" y="256" font-size="10" fill="var(--earth-700)" font-weight="700" font-family="DM Sans,sans-serif">Schwere Dep.</text>
 
@@ -180,14 +180,14 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
         <!-- Interactive wave points -->
         <circle class="wpt" cx="160" cy="28"  r="9" fill="var(--amber-phase)" stroke="#fff" stroke-width="2.5" data-phase="mania"      id="pt-mania"    role="button" tabindex="0" aria-label="Manie-Gipfel — klicken für Details"/>
         <circle class="wpt" cx="300" cy="252" r="9" fill="var(--earth-700)" stroke="#fff" stroke-width="2.5" data-phase="severe-dep" id="pt-severe"   role="button" tabindex="0" aria-label="Schwere Depression — klicken für Details"/>
-        <circle class="wpt" cx="370" cy="140" r="9" fill="var(--green-phase)" stroke="#fff" stroke-width="2.5" data-phase="stable"     id="pt-stable"   role="button" tabindex="0" aria-label="Stabile Phase — klicken für Details"/>
+        <circle class="wpt" cx="370" cy="140" r="9" fill="var(--phase-green)" stroke="#fff" stroke-width="2.5" data-phase="stable"     id="pt-stable"   role="button" tabindex="0" aria-label="Stabile Phase — klicken für Details"/>
         <circle class="wpt" cx="430" cy="84"  r="9" fill="var(--hypo-phase)" stroke="#fff" stroke-width="2.5" data-phase="hypomania"  id="pt-hypo"     role="button" tabindex="0" aria-label="Hypomanie — klicken für Details"/>
         <circle class="wpt" cx="520" cy="196" r="9" fill="var(--blue-phase)" stroke="#fff" stroke-width="2.5" data-phase="mild-dep"   id="pt-mild"     role="button" tabindex="0" aria-label="Leichte Depression — klicken für Details"/>
 
         <!-- Pulse rings (animated) -->
         <circle cx="160" cy="28"  r="15" fill="none" stroke="var(--amber-phase)" stroke-width="1.5" opacity="0" class="pulse" id="pulse-mania"/>
         <circle cx="300" cy="252" r="15" fill="none" stroke="var(--earth-700)" stroke-width="1.5" opacity="0" class="pulse" id="pulse-severe"/>
-        <circle cx="370" cy="140" r="15" fill="none" stroke="var(--green-phase)" stroke-width="1.5" opacity="0" class="pulse" id="pulse-stable"/>
+        <circle cx="370" cy="140" r="15" fill="none" stroke="var(--phase-green)" stroke-width="1.5" opacity="0" class="pulse" id="pulse-stable"/>
         <circle cx="430" cy="84"  r="15" fill="none" stroke="var(--hypo-phase)" stroke-width="1.5" opacity="0" class="pulse" id="pulse-hypo"/>
         <circle cx="520" cy="196" r="15" fill="none" stroke="var(--blue-phase)" stroke-width="1.5" opacity="0" class="pulse" id="pulse-mild"/>
       </svg>
@@ -273,8 +273,8 @@ const PHASES = {
     name: 'Stabile Phase (Euthymie)',
     subtitle: 'Keine Episode — aber nicht immer innere Entwarnung',
     duration: 'Sehr variabel: Wochen bis Jahre',
-    color: 'var(--green-phase)',
-    bg: 'var(--green-bg)',
+    color: 'var(--phase-green)',
+    bg: 'var(--success-soft)',
     border: 'var(--teal-light)',
     ptId: 'pt-stable',
     pulseId: 'pulse-stable',
@@ -292,7 +292,7 @@ const PHASES = {
       'Wichtiges Zeitfenster für gemeinsamen Krisenplan',
       'Eigene Erholung kommt häufig zu kurz'
     ],
-    note: '<strong>Stabile Phasen sind wertvoll.</strong> Sie sind der richtige Moment für Gespräche, Vereinbarungen und Erholung — auch für Angehörige. Nutzen Sie diese Zeit für gemeinsame Planung, z. B. mit dem <a href="/tools/krisenplan/" style="color:var(--green-phase);font-weight:600">Krisenplan-Generator</a>.'
+    note: '<strong>Stabile Phasen sind wertvoll.</strong> Sie sind der richtige Moment für Gespräche, Vereinbarungen und Erholung — auch für Angehörige. Nutzen Sie diese Zeit für gemeinsame Planung, z. B. mit dem <a href="/tools/krisenplan/" style="color:var(--phase-green);font-weight:600">Krisenplan-Generator</a>.'
   },
   'mild-dep': {
     name: 'Leichte bis mittelschwere Depression',
