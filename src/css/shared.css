@@ -468,6 +468,57 @@ a, button, input, select, textarea,
   color: white;
 }
 
+/* ── Progress bar ── */
+.progress-bar {
+  max-width: 860px;
+  margin: 0 auto 32px;
+  padding: 18px 22px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(180deg, #fff 0%, #fcf8f4 100%);
+  border: 1px solid var(--border-warm);
+}
+.progress-bar[hidden] { display: none; }
+.progress-bar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.progress-bar-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--navy-mid);
+}
+.progress-bar-count {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-soft);
+}
+.progress-bar-track {
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(45,40,35,0.07);
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: var(--teal);
+  transition: width 0.4s ease;
+  width: 0;
+}
+
+/* ── Module card visited state ── */
+.module-card.visited {
+  background: linear-gradient(180deg, #f6faf9 0%, #fff 100%);
+}
+.module-card.visited .module-arrow {
+  background: var(--teal);
+  color: #fff;
+}
+
 @media (max-width: 600px) {
   .modules-grid { grid-template-columns: 1fr; }
 }

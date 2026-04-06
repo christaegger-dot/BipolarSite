@@ -170,7 +170,7 @@
 /* ── Quote Block ── */
 .quote-block {
   background: #ffffff; border-radius: var(--radius-lg);
-  padding: 32px 36px; margin: 36px 0; position: relative;
+  padding: 32px 36px; margin: 48px 0; position: relative;
 }
 .quote-block::before {
   content: '«'; font-family: 'DM Serif Display', serif;
@@ -191,7 +191,7 @@
 /* ── Alert Box ── */
 .alert-box {
   background: var(--alert-red-bg); border: 1px solid var(--alert-red-border);
-  border-radius: var(--radius-lg); padding: 24px 28px; margin: 32px 0;
+  border-radius: var(--radius-lg); padding: 24px 28px; margin: 48px 0;
   display: flex; gap: 16px; align-items: flex-start;
 }
 .alert-box-icon {
@@ -263,7 +263,7 @@
   border-left: 4px solid var(--teal-light);
   border-radius: var(--radius-lg);
   padding: 24px 28px;
-  margin: 40px 0 32px;
+  margin: 48px 0;
 }
 .community-block h3 {
   font-family: 'DM Serif Display', serif;
@@ -371,7 +371,7 @@
 .next-module-card:hover .next-module-arrow { background: var(--teal); color: white; }
 
 /* ── Action Grid (used in most modules) ── */
-.action-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin: 28px 0; }
+.action-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin: 40px 0; }
 .action-card {
   background: white; border: 1px solid var(--border-warm);
   border-radius: var(--radius-lg); padding: 24px;
@@ -391,7 +391,7 @@
 /* ── Tool CTA (used in most modules) ── */
 .tool-cta {
   background: white; border: 1px solid var(--border-warm-md);
-  border-radius: var(--radius-xl); padding: 24px 28px; margin: 28px 0;
+  border-radius: var(--radius-xl); padding: 24px 28px; margin: 40px 0;
   display: flex; gap: 20px; align-items: center;
   box-shadow: var(--shadow-soft);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -537,7 +537,7 @@ body.pdf-preview-open { overflow: hidden; }
 }
 
 /* ── Accordion (used in modules 1, 2, 4) ── */
-.accordion-group { margin: 36px 0; }
+.accordion-group { margin: 48px 0; }
 .accordion-item {
   background: white; border: 1px solid var(--border-warm-md);
   border-radius: var(--radius-lg); margin-bottom: 12px;
@@ -636,7 +636,7 @@ body.pdf-preview-open { overflow: hidden; }
   border: 1px solid rgba(181,138,82,0.2);
   border-radius: 16px;
   padding: 16px 18px;
-  margin-bottom: 24px;
+  margin: 40px 0;
 }
 
 /* Reflection/narrative body text */
@@ -645,8 +645,8 @@ body.pdf-preview-open { overflow: hidden; }
 .reflection-cite { display: block; margin-top: 14px; font-size: 0.82rem; color: var(--text-soft); font-style: italic; }
 
 /* Hint note spacing variants */
-.hint-note--spaced { margin-bottom: 24px; }
-.hint-note--spaced-lg { margin-bottom: 28px; }
+.hint-note--spaced { margin-bottom: 32px; }
+.hint-note--spaced-lg { margin-bottom: 36px; }
 
 /* Bright moment (positive break) */
 .bright-moment {
@@ -743,7 +743,7 @@ body.pdf-preview-open { overflow: hidden; }
 /* Compact community-block (without h3, links only) */
 .community-block:not(:has(h3)) {
   padding: 18px 24px;
-  margin: 32px 0;
+  margin: 40px 0;
 }
 .community-block:not(:has(h3)) > p {
   margin: 0;
@@ -771,7 +771,7 @@ body.pdf-preview-open { overflow: hidden; }
   border: 1px solid rgba(13,122,95,0.12);
   border-left: 4px solid var(--green-phase);
   border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
-  padding: 24px 28px; margin: 40px 0;
+  padding: 24px 28px; margin: 48px 0;
 }
 .bright-moment p {
   font-family: 'DM Serif Display', serif;

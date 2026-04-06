@@ -696,6 +696,16 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   <h2 class="section-title reveal">Die 8 Module im Überblick</h2>
   <p class="section-desc reveal">Wählen Sie das Modul, das Ihrer Lage am nächsten kommt. Sie müssen nicht bei Modul 1 anfangen.</p>
 
+  <div class="progress-bar" id="homeProgressBar" hidden>
+    <div class="progress-bar-header">
+      <span class="progress-bar-label">Ihr Fortschritt</span>
+      <span class="progress-bar-count" id="homeProgressCount"></span>
+    </div>
+    <div class="progress-bar-track">
+      <div class="progress-bar-fill" id="homeProgressFill"></div>
+    </div>
+  </div>
+
   <div class="modules-grid">
 
     <a href="/modul/1/" class="module-card reveal" data-accent="blue">
@@ -914,6 +924,38 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
         document.querySelectorAll('.triage-question').forEach(function(q) { q.hidden = true; });
       }
     });
+  })();
+
+  // ══════════ Module Progress ══════════
+  (function() {
+    try {
+      if (localStorage.getItem('puk_storage_consent') !== 'true') return;
+      var visited = JSON.parse(localStorage.getItem('puk_visited_modules') || '[]');
+      var visitedNums = visited.map(function(p) { var m = p.match(/\d+/); return m ? parseInt(m[0]) : 0; }).filter(Boolean);
+      if (!visitedNums.length) return;
+
+      // Progress bar
+      var bar = document.getElementById('homeProgressBar');
+      var fill = document.getElementById('homeProgressFill');
+      var count = document.getElementById('homeProgressCount');
+      if (bar && fill && count) {
+        bar.hidden = false;
+        var pct = Math.round((visitedNums.length / 8) * 100);
+        count.textContent = visitedNums.length + ' von 8 Modulen';
+        fill.style.width = pct + '%';
+      }
+
+      // Mark visited cards
+      document.querySelectorAll('a.module-card[href]').forEach(function(card) {
+        var href = card.getAttribute('href');
+        var m = href.match(/\/modul\/(\d+)/);
+        if (m && visitedNums.indexOf(parseInt(m[1])) !== -1) {
+          card.classList.add('visited');
+          var arrow = card.querySelector('.module-arrow');
+          if (arrow && arrow.textContent.trim() === '\u2192') arrow.textContent = '\u2713';
+        }
+      });
+    } catch(e) { console.warn('Progress:', e.message); }
   })();
 
 </script>
