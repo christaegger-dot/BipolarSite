@@ -658,8 +658,8 @@ footer *:focus-visible,
   min-height: var(--cta-min-height);
   padding: 0 20px;
   border-radius: var(--cta-radius);
-  background: var(--navy);
-  color: white;
+  background: var(--cta-primary-bg);
+  color: var(--cta-primary-text);
   text-decoration: none;
   font-size: var(--text-base);
   font-weight: 600;
@@ -667,7 +667,7 @@ footer *:focus-visible,
   transition: background 0.2s ease;
 }
 .home-hero-link:hover {
-  background: var(--teal);
+  background: var(--cta-primary-hover);
 }
 
 /* ── Entry Paths ── */
@@ -777,14 +777,15 @@ footer *:focus-visible,
   align-items: center;
   gap: 8px;
   width: fit-content;
-  min-height: 40px;
-  padding: 0 14px;
-  border-radius: var(--radius-round);
   text-decoration: none;
-  background: rgba(199,84,80,0.12);
   color: var(--alert);
   font-size: var(--text-xs);
   font-weight: 700;
+  transition: color 0.2s ease;
+}
+.urgent-note-link:hover {
+  text-decoration: underline;
+  color: var(--emergency-dark);
 }
 .choice-note {
   margin-top: 22px;
@@ -881,14 +882,14 @@ footer *:focus-visible,
 .triage-q-text{font-size:var(--text-base);font-weight:600;color:var(--navy);margin-bottom:12px;line-height:1.5}
 .triage-btns{display:flex;gap:10px;flex-wrap:wrap}
 .triage-btn{padding:10px 24px;border-radius:var(--radius-sm);font-family:'DM Sans',sans-serif;font-size:var(--text-xs);font-weight:600;cursor:pointer;transition:background 0.2s,color 0.2s;border:none;min-height:44px}
-.triage-btn--yes{background:var(--navy);color:#fff}
-.triage-btn--yes:hover{background:var(--teal)}
+.triage-btn--yes{background:var(--cta-primary-bg);color:var(--cta-primary-text)}
+.triage-btn--yes:hover{background:var(--cta-primary-hover)}
 .triage-btn--no{background:var(--surface-alt);color:var(--slate);border:1px solid var(--border-warm)}
 .triage-btn--no:hover{background:var(--border-warm-xl)}
 .triage-result{padding:16px 20px;border-radius:var(--radius-sm);margin-top:12px}
 .triage-result[hidden]{display:none}
-.triage-result a{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:var(--text-base);text-decoration:none;color:#fff;background:var(--navy);padding:10px 20px;border-radius:var(--radius-round)}
-.triage-result a:hover{background:var(--teal)}
+.triage-result a{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:var(--text-base);text-decoration:none;color:var(--cta-primary-text);background:var(--cta-primary-bg);padding:10px 20px;border-radius:var(--radius-round)}
+.triage-result a:hover{background:var(--cta-primary-hover)}
 .triage-result--urgent{background:var(--alert-soft);border:1px solid var(--alert-subtle)}
 .triage-result--urgent a{background:var(--alert)}
 .triage-result--urgent a:hover{background:var(--emergency-dark)}
@@ -1004,15 +1005,15 @@ footer *:focus-visible,
   min-height: 46px;
   padding: 0 24px;
   border-radius: var(--radius-md);
-  background: var(--teal);
-  color: white;
+  background: var(--cta-primary-bg);
+  color: var(--cta-primary-text);
   text-decoration: none;
   font-size: var(--text-base);
   font-weight: 700;
   letter-spacing: 0.02em;
   transition: background 0.2s ease;
 }
-.invitation-phone:hover { background: var(--teal-dark); }
+.invitation-phone:hover { background: var(--cta-primary-hover); }
 .invitation-email {
   display: inline-flex;
   align-items: center;
