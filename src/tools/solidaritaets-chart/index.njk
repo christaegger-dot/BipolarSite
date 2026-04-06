@@ -8,38 +8,9 @@ toolBackLabel: "Zurück zu Modul 4"
 useSharedCSS: true
 useNavJS: false
 useToolCSS: true
+bodyClass: "solidaritaets-chart-page"
 ---
-{% block headCSS %}
-<style>
-body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min-height:100vh;display:flex;flex-direction:column;align-items:center;-webkit-font-smoothing:antialiased}
-.tool-nav{width:100%;background:rgba(254,252,248,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border-warm);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:var(--z-tool-nav)}
-.wrap{width:100%;max-width:680px;padding:32px 20px 48px;flex:1}
-.hdr{text-align:center;margin-bottom:24px;background:var(--bg);border:1px solid var(--border-warm-md);border-radius:var(--card-radius);padding:26px 24px 24px;box-shadow:var(--shadow-elevated);position:relative;overflow:hidden}
-.legend{display:flex;gap:var(--grid-gap-tight);justify-content:center;margin-bottom:16px;flex-wrap:wrap}
-.legend-item{display:flex;align-items:center;gap:6px;font-size:0.72rem;color:var(--slate);cursor:pointer;padding:4px 8px;border-radius:var(--radius-sm);transition:background 0.2s}
-.legend-item:hover{background:var(--border-warm)}
-.legend-line{width:20px;height:3px;border-radius:2px}
-.chart-wrap{width:100%;background:var(--card);border-radius:var(--card-radius);border:1px solid var(--border-warm);box-shadow:var(--card-shadow);padding:20px;margin-bottom:16px;overflow-x:auto}
-.chart-wrap svg{width:100%;height:auto;display:block}
-.chart-wrap [role="button"]:focus{filter:drop-shadow(0 0 0.35rem rgba(116,138,90,0.45))}
-.episodes{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;justify-content:center}
-.ep-btn{padding:8px 16px;border-radius:var(--radius-sm);border:1px solid var(--border-warm-md);background:var(--card);font-size:0.78rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background-color 0.2s ease,color 0.2s ease,border-color 0.2s ease;-webkit-appearance:none}
-.ep-btn.active{color:var(--card)}
-.detail{background:var(--card);border-radius:var(--card-radius);border:1px solid var(--border-warm);box-shadow:var(--card-shadow);padding:24px;margin-bottom:16px;display:none}
-.detail.vis{display:block}
-.detail h2{font-family:'DM Serif Display',Georgia,serif;font-size:1rem;font-weight:400;color:var(--navy);margin:0 0 12px}
-.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gap-tight)}
-.detail-col{padding:12px;border-radius:var(--radius-sm);font-size:0.82rem;line-height:1.5}
-.detail-col h4{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px}
-.toggle-wrap{text-align:center;margin-bottom:16px}
-.toggle-btn{padding:10px 20px;border-radius:var(--radius-sm);border:2px solid var(--phase-green);background:var(--card);color:var(--phase-green);font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background-color 0.2s ease,color 0.2s ease,border-color 0.2s ease}
-.toggle-btn.on{background:var(--phase-green);color:var(--card)}
-.disc{text-align:center;font-size:0.72rem;color:var(--slate);background:var(--bg);border-radius:var(--radius-sm);padding:12px 16px;margin-bottom:16px;line-height:1.5}
-.mobile-chart-note{display:none;background:var(--bg);border:1px solid var(--border-warm-md);border-radius:var(--radius-md);padding:12px 14px;margin-bottom:14px;font-size:0.76rem;line-height:1.55;color:var(--slate);text-align:center}
-.tf{text-align:center;font-size:0.68rem;color:var(--teal-light);margin-top:20px;line-height:1.5}
-@media(max-width:600px){.chart-wrap{display:none}.mobile-chart-note{display:block}.detail-grid{grid-template-columns:1fr}}
-</style>
-{% endblock %}
+{% block headCSS %}<!-- Solidaritäts-Chart styles migrated to tools.css (P2.4) -->{% endblock %}
 {% block nav %}
 {% include "nav-tool.njk" %}
 {% endblock %}
@@ -49,7 +20,7 @@ body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min
 <div class="tool-breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><a href="/werkzeuge/">Werkzeuge</a><span class="sep" aria-hidden="true">›</span><span>Belastungsverlauf</span></div>
 <div class="tool-glyph" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 28C10 22 14 12 18 12C22 12 23 30 28 30C31 30 33 22 34 18" stroke="#A8E4E8" stroke-width="3.4" stroke-linecap="round"/><path d="M6 20C10 19 13 22 18 22C23 22 25 14 30 14C32 14 34 15 36 17" stroke="#5B7FA5" stroke-width="3" stroke-linecap="round"/></svg></div><div class="badge">Modul 4 — Interaktiv</div><h1>Belastungsverlauf über Episoden</h1><p>Wie sich Belastungsreserve und Stimmung über wiederholte Episoden verändern. Klicken Sie auf eine Episode.</p></div>
   <div class="legend">
-    <div class="legend-item"><div class="legend-line" style="background:var(--amber-phase)"></div>Belastungsreserve</div>
+    <div class="legend-item"><div class="legend-line" style="background:var(--amber)"></div>Belastungsreserve</div>
     <div class="legend-item"><div class="legend-line" style="background:var(--blue-phase)"></div>Stimmung der erkrankten Person</div>
     <div class="legend-item" id="legSupport" style="display:none"><div class="legend-line" style="background:var(--phase-green);border-style:dashed"></div>Mit Unterstützung abgefedert</div>
   </div>
@@ -71,7 +42,7 @@ body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min
       <text x="310" y="256" text-anchor="middle" font-size="9" fill="#8DD4D9">Schwere Manie</text>
       <text x="500" y="256" text-anchor="middle" font-size="9" fill="#8DD4D9">Lange Depression</text>
       <!-- Belastbarkeit curve (amber) -->
-      <path d="M80,60 Q140,50 160,80 Q200,120 240,100 Q280,70 310,150 Q340,210 380,190 Q420,170 460,180 Q500,195 540,200 Q560,205 580,210" fill="none" stroke="var(--amber-phase)" stroke-width="3" stroke-linecap="round" id="curveBel"/>
+      <path d="M80,60 Q140,50 160,80 Q200,120 240,100 Q280,70 310,150 Q340,210 380,190 Q420,170 460,180 Q500,195 540,200 Q560,205 580,210" fill="none" stroke="var(--amber)" stroke-width="3" stroke-linecap="round" id="curveBel"/>
       <!-- Stimmung curve (blue) -->
       <path d="M80,120 Q120,60 160,40 Q200,80 230,130 Q260,30 310,20 Q340,60 380,130 Q420,170 460,200 Q500,220 540,210 Q560,200 580,190" fill="none" stroke="var(--blue-phase)" stroke-width="3" stroke-linecap="round" id="curveSt"/>
       <!-- Support curve (green, hidden) -->
@@ -79,7 +50,7 @@ body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min
     </svg>
   </div>
   <div class="episodes">
-    <button class="ep-btn" type="button" style="--c:var(--amber-phase)" data-ep="0" aria-pressed="false">Hypomanie</button>
+    <button class="ep-btn" type="button" style="--c:var(--amber)" data-ep="0" aria-pressed="false">Hypomanie</button>
     <button class="ep-btn" type="button" style="--c:var(--alert)" data-ep="1" aria-pressed="false">Schwere Manie</button>
     <button class="ep-btn" type="button" style="--c:var(--blue-phase)" data-ep="2" aria-pressed="false">Lange Depression</button>
   </div>
@@ -100,7 +71,7 @@ body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min
 {% block scripts %}
 <script>
 const eps=[
-  {name:"Hypomanie",col:"var(--amber-phase)",bg:"rgba(196,147,59,0.1)",impact:"Leicht–Mittel",bel:"Die Belastungsreserve sinkt oft zunächst nur leicht. Gerade das macht Hypomanie für Angehörige schwer lesbar: Viel wirkt noch produktiv oder charmant, gleichzeitig werden Schlaf, Reizbarkeit und Unsicherheit grösser.",stim:"Die Stimmung steigt an — mehr Energie, weniger Schlaf, grössere Ideen. Für Angehörige bleibt oft unklar, ob es noch eine gute Phase ist oder schon der Beginn einer Episode."},
+  {name:"Hypomanie",col:"var(--amber)",bg:"rgba(196,147,59,0.1)",impact:"Leicht–Mittel",bel:"Die Belastungsreserve sinkt oft zunächst nur leicht. Gerade das macht Hypomanie für Angehörige schwer lesbar: Viel wirkt noch produktiv oder charmant, gleichzeitig werden Schlaf, Reizbarkeit und Unsicherheit grösser.",stim:"Die Stimmung steigt an — mehr Energie, weniger Schlaf, grössere Ideen. Für Angehörige bleibt oft unklar, ob es noch eine gute Phase ist oder schon der Beginn einer Episode."},
   {name:"Schwere Manie",col:"var(--alert)",bg:"rgba(199,84,80,0.1)",impact:"Hoch",bel:"Die Belastungsreserve bricht deutlich ein. Sicherheit, Geld, Konflikte, Kontrollverlust und Schlafentzug kommen oft gleichzeitig. Nach einer schweren Manie fühlt sich Erholung selten wie ein echter Neustart an.",stim:"Der Ausschlag nach oben wird extrem: Grössenideen, Impulsivität, Gereiztheit, möglicherweise Psychose. Professionelle Intervention oder Hospitalisation ist häufig nötig."},
   {name:"Lange Depression",col:"var(--blue-phase)",bg:"rgba(91,127,165,0.1)",impact:"Mittel–Hoch",bel:"Die Belastungsreserve sinkt langsamer, aber stetig. Gerade diese schleichende Form wird oft unterschätzt: wenig sichtbare Dramatik, aber hohe Langzeitlast, Monotonie und innere Ausdünnung.",stim:"Die Stimmung bleibt über Wochen oder Monate tief. Rückzug, Hoffnungslosigkeit, verlangsamter Alltag und Suizidgedanken können Angehörige auf andere Weise zermürben als eine Manie."}
 ];
@@ -129,8 +100,8 @@ function rn(){
   if(activeEp!==null){
     const e=eps[activeEp];
     elDetail.className='detail vis';
-    elDetail.innerHTML=`<h2>${e.name} <span style="font-size:0.72rem;font-weight:600;color:${e.col};background:${e.bg};padding:2px 8px;border-radius:var(--radius-sm);margin-left:8px">Belastung: ${e.impact}</span></h2>
-    <div class="detail-grid"><div class="detail-col" style="background:var(--amber-phase-light)"><h4 style="color:var(--amber-phase)">Belastungsreserve</h4><p style="color:var(--slate)">${e.bel}</p></div><div class="detail-col" style="background:var(--blue-phase-light)"><h4 style="color:var(--blue-phase)">Stimmung</h4><p style="color:var(--slate)">${e.stim}</p></div></div>`;
+    elDetail.innerHTML=`<h2>${e.name} <span style="font-size:var(--text-xs);font-weight:600;color:${e.col};background:${e.bg};padding:2px 8px;border-radius:var(--radius-sm);margin-left:8px">Belastung: ${e.impact}</span></h2>
+    <div class="detail-grid"><div class="detail-col" style="background:var(--amber-phase-light)"><h4 style="color:var(--amber)">Belastungsreserve</h4><p style="color:var(--slate)">${e.bel}</p></div><div class="detail-col" style="background:var(--blue-phase-light)"><h4 style="color:var(--blue-phase)">Stimmung</h4><p style="color:var(--slate)">${e.stim}</p></div></div>`;
   }else{elDetail.className='detail'}
 }
 [0,1,2].forEach(i=>{const el=document.getElementById('ep'+i);el.addEventListener('click',()=>selEp(i));});

@@ -8,7 +8,7 @@
 :root {
 
   /* ── Brand Colors (5 active families) ──
-     Navy = leadership · Teal = accent/CTA · Sand = warm neutral
+     Navy = leadership · Teal = interactive/CTA · Sand = warm neutral
      Alert = emergency only · Phase colors (amber/blue/green) = semantic */
   --navy:        #1c2b3a;
   --navy-mid:    #4A443F;
@@ -40,7 +40,6 @@
 
   /* ── Semantic: Status/Feedback ── */
   --success-soft: #e6f4f2;
-  --red-bg:      #FEF2F2;
   --amber-bg:    #fef3e2;
 
   /* ── Badge Base (unified) ── */
@@ -67,7 +66,7 @@
   --card-radius:  var(--radius-md);    /* 12px — all cards */
   --card-border:  1px solid var(--border-warm);
   --card-padding: var(--space-lg);     /* 24px */
-  --card-shadow:  var(--shadow-soft);
+  --card-shadow:  none;
 
   /* ── Shadow Scale ── */
   --shadow-soft:     0 4px 18px rgba(28,43,58,0.05);
@@ -94,11 +93,11 @@
      Dense  = compact info (grids, tables, accordions) — tight coupling
      Standard = normal reading flow (prose, lists, CTAs)
      Pause  = deliberate deceleration (quotes, reflections, takeaways) */
-  --temp-dense-margin:    28px;
+  --temp-dense-margin:    var(--space-lg);        /* 24px — compact grids, accordions */
   --temp-dense-padding:   20px;
-  --temp-standard-margin: 40px;  /* = section-tight */
-  --temp-standard-padding: var(--card-padding);  /* 24px */
-  --temp-pause-margin:    56px;
+  --temp-standard-margin: var(--section-tight);   /* 40px — normal reading flow */
+  --temp-standard-padding: var(--card-padding);   /* 24px */
+  --temp-pause-margin:    var(--section-standard); /* 64px — deliberate pauses */
   --temp-pause-padding:   32px;
 
   /* ── Grid System (3 variants, 2 gap sizes) ──
@@ -118,19 +117,15 @@
   --wide-width:         1140px;
 
   /* ── Alert Colors ── */
-  --alert-red:        var(--alert);
-  --alert-red-bg:     var(--alert-soft);
   --alert-red-border: #fca5a5;
   --alert-red-light:  #fecaca;
   --alert-red-coral:  #f87171;
   --emergency-dark:   #7f1d1d;
   --emergency-mid:    #991b1b;
-  --emergency-bright: #b91c1c;
 
   /* Phase colors (content-semantic) */
   --blue-phase:       #4a6f95;
   --blue-phase-light: #eef3f8;
-  --amber-phase:      #B45309;
   --amber-phase-light:#fef3e2;
   --purple-phase:     #7c3aed;
   --phase-green:      #0d7a5f;
@@ -206,20 +201,15 @@
   --text-sm:   var(--text-xs);   /* secondary → caption */
   --text-md:   var(--text-base); /* emphasis → body */
 
-  /* ── White-on-Dark Text Scale ── */
+  /* ── White-on-Dark Text Scale (4 steps) ── */
   --white-text:          rgba(255,255,255,0.88);
-  --white-text-link:     rgba(255,255,255,0.85);
-  --white-text-secondary: rgba(255,255,255,0.75);
-  --white-text-muted:    rgba(255,255,255,0.6);
-  --white-text-faint:    rgba(255,255,255,0.5);
-  --white-text-dim:      rgba(255,255,255,0.4);
-  --white-text-ghost:    rgba(255,255,255,0.3);
+  --white-text-secondary: rgba(255,255,255,0.70);
+  --white-text-muted:    rgba(255,255,255,0.50);
+  --white-text-dim:      rgba(255,255,255,0.30);
 
-  /* ── White Overlay Scale (for glass effects on dark bg) ── */
-  --white-overlay-xs:    rgba(255,255,255,0.06);
-  --white-overlay-sm:    rgba(255,255,255,0.10);
+  /* ── White Overlay Scale (2 steps — glass effects on dark bg) ── */
+  --white-overlay-sm:    rgba(255,255,255,0.08);
   --white-overlay-md:    rgba(255,255,255,0.15);
-  --white-overlay-lg:    rgba(255,255,255,0.22);
 
   /* ── Z-Index Scale ── */
   --z-tool-nav:  50;

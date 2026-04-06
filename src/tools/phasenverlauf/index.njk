@@ -8,82 +8,9 @@ toolBackLabel: "Zurück zu Modul 1"
 useSharedCSS: true
 useNavJS: false
 useToolCSS: true
+bodyClass: "phasenverlauf-page"
 ---
-{% block headCSS %}
-<style>
-:root{--hypo-phase:var(--amber-light)}
-body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min-height:100vh;display:flex;flex-direction:column;align-items:center;-webkit-font-smoothing:antialiased}
-.tool-nav{width:100%;background:rgba(254,252,248,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border-warm);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:var(--z-tool-nav)}
-.wrap{width:100%;max-width:680px;padding:32px 20px 56px;flex:1}
-.hdr{text-align:center;margin-bottom:28px;background:var(--bg);border:1px solid var(--border-warm-md);border-radius:var(--card-radius);padding:26px 24px 24px;box-shadow:var(--shadow-elevated);position:relative;overflow:hidden}
-.hdr::before{display:none}
-.hdr h1{font-family:'DM Serif Display',serif;font-size:clamp(1.35rem,3.5vw,1.75rem);font-weight:400;color:var(--navy);margin:0 0 8px;letter-spacing:-0.02em;line-height:1.2}
-
-/* ── Chart wrapper ── */
-.chart-wrap{width:100%;border-radius:var(--card-radius);overflow:hidden;background:var(--card);border:1px solid var(--border-warm-md);box-shadow:var(--card-shadow);margin-bottom:18px}
-.chart-top{padding:16px 18px 10px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
-.chart-heading{font-size:0.72rem;font-weight:700;color:var(--slate);text-transform:uppercase;letter-spacing:0.08em}
-.chart-legend{display:flex;gap:12px;flex-wrap:wrap}
-.leg{display:flex;align-items:center;gap:5px;font-size:0.64rem;color:var(--slate);font-weight:500}
-.leg-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
-
-/* SVG chart */
-.chart-svg-wrap{padding:4px 18px 0}
-.chart-svg{width:100%;height:auto;display:block;overflow:visible}
-
-/* Clickable zone overlays */
-.zone-hit{cursor:pointer;fill:transparent}
-.zone-hit:hover{fill:rgba(255,255,255,0.12)}
-
-/* Wave path */
-#wavePath{stroke:var(--teal);stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
-
-/* Wave points */
-.wpt{cursor:pointer;transition:r 0.2s,filter 0.2s}
-.wpt:focus{outline:none}
-.wpt:focus-visible{filter:drop-shadow(0 0 0 3px rgba(116,138,90,0.5))}
-
-.chart-xlab{text-align:center;font-size:0.65rem;color:var(--text-soft);padding:10px 18px 16px;font-style:italic}
-
-/* ── Phase buttons ── */
-.phase-btns{display:grid;grid-template-columns:repeat(5, 1fr);gap:6px;margin-bottom:18px}
-.pbtn{padding:10px 4px;border-radius:var(--radius-md);border:2px solid transparent;background:var(--bg);color:var(--slate);font-size:0.66rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background-color 0.2s ease,color 0.2s ease,border-color 0.2s ease;display:flex;flex-direction:column;align-items:center;gap:3px;-webkit-appearance:none;line-height:1.2;text-align:center}
-.pbtn .ico{font-size:1.1rem;display:block}
-.pbtn:hover{transform:translateY(-2px);box-shadow:0 8px 18px var(--border-warm-xl)}
-.pbtn.active{color:var(--card);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.18)}
-
-/* ── Detail card ── */
-.detail-card{background:var(--card);border-radius:var(--card-radius);border:1px solid var(--border-warm-md);box-shadow:var(--card-shadow);padding:24px 24px 20px;border-left:4px solid var(--border);transition:border-color 0.3s,opacity 0.3s,transform 0.3s;opacity:0;transform:translateY(8px);pointer-events:none}
-.detail-card.vis{opacity:1;transform:translateY(0);pointer-events:auto}
-.det-top{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px}
-.det-icon{width:48px;height:48px;min-width:48px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:1.35rem}
-.det-phase-name{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px}
-.det-title{font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;color:var(--navy);line-height:1.3}
-.det-dur{display:inline-flex;align-items:center;gap:6px;font-size:0.72rem;color:var(--slate);background:var(--bg);padding:4px 12px;border-radius:var(--radius-round);margin-bottom:16px}
-.det-cols{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gap-tight);margin-bottom:14px}
-.det-col{border-radius:var(--radius-md);padding:14px 15px;border-left:3px solid}
-.det-col-lbl{font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:8px}
-.det-col ul{list-style:none;display:flex;flex-direction:column;gap:5px}
-.det-col li{font-size:0.8rem;line-height:1.5;padding-left:14px;position:relative;color:var(--slate)}
-.det-col li::before{content:'–';position:absolute;left:0;color:#c5bdb5}
-.det-note{border-radius:var(--radius-md);padding:12px 15px;font-size:0.8rem;line-height:1.6;color:var(--slate)}
-.det-note strong{color:var(--navy)}
-
-.hint{text-align:center;font-size:0.78rem;color:var(--text-soft);margin:0 0 18px;line-height:1.5}
-.mobile-chart-note{display:none;background:var(--bg);border:1px solid var(--border-warm-md);border-radius:var(--radius-md);padding:12px 14px;margin-bottom:14px;font-size:0.76rem;line-height:1.55;color:var(--slate);text-align:center}
-
-.tf{text-align:center;font-size:0.68rem;color:var(--teal-light);margin-top:28px;line-height:1.6}
-
-@media(max-width:600px){
-  .phase-btns{grid-template-columns:repeat(3, 1fr)}
-  .det-cols{grid-template-columns:1fr}
-  .chart-legend{display:none}
-  .chart-wrap{display:none}
-  .mobile-chart-note{display:block}
-  .wrap{padding:24px 14px 40px}
-}
-</style>
-{% endblock %}
+{% block headCSS %}<!-- Phasenverlauf styles migrated to tools.css (P2.4) -->{% endblock %}
 {% block nav %}
 {% include "nav-tool.njk" %}
 {% endblock %}
@@ -109,7 +36,7 @@ body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min
     <div class="chart-top">
       <span class="chart-heading">Stimmungsverlauf über die Zeit</span>
       <div class="chart-legend">
-        <span class="leg"><span class="leg-dot" style="background:var(--amber-phase)"></span>Manie</span>
+        <span class="leg"><span class="leg-dot" style="background:var(--amber)"></span>Manie</span>
         <span class="leg"><span class="leg-dot" style="background:var(--hypo-phase)"></span>Hypomanie</span>
         <span class="leg"><span class="leg-dot" style="background:var(--phase-green)"></span>Stabil</span>
         <span class="leg"><span class="leg-dot" style="background:var(--blue-phase)"></span>Leichte Dep.</span>
@@ -156,7 +83,7 @@ body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min
         <line x1="80" y1="140" x2="540" y2="140" stroke="var(--phase-green)" stroke-width="0.8" stroke-dasharray="6 4" opacity="0.35"/>
 
         <!-- Zone labels -->
-        <text x="8" y="32"  font-size="10" fill="var(--amber-phase)" font-weight="700" font-family="DM Sans,sans-serif">Manie</text>
+        <text x="8" y="32"  font-size="10" fill="var(--amber)" font-weight="700" font-family="DM Sans,sans-serif">Manie</text>
         <text x="8" y="88"  font-size="10" fill="var(--hypo-phase)" font-weight="700" font-family="DM Sans,sans-serif">Hypomanie</text>
         <text x="8" y="144" font-size="10" fill="var(--phase-green)" font-weight="700" font-family="DM Sans,sans-serif">Stabil</text>
         <text x="8" y="200" font-size="10" fill="var(--blue-phase)" font-weight="700" font-family="DM Sans,sans-serif">Leichte Dep.</text>
@@ -175,14 +102,14 @@ body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min
           stroke="var(--teal)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
 
         <!-- Interactive wave points -->
-        <circle class="wpt" cx="160" cy="28"  r="9" fill="var(--amber-phase)" stroke="#fff" stroke-width="2.5" data-phase="mania"      id="pt-mania" aria-hidden="true" focusable="false"/>
+        <circle class="wpt" cx="160" cy="28"  r="9" fill="var(--amber)" stroke="#fff" stroke-width="2.5" data-phase="mania"      id="pt-mania" aria-hidden="true" focusable="false"/>
         <circle class="wpt" cx="300" cy="252" r="9" fill="var(--slate)" stroke="#fff" stroke-width="2.5" data-phase="severe-dep" id="pt-severe" aria-hidden="true" focusable="false"/>
         <circle class="wpt" cx="370" cy="140" r="9" fill="var(--phase-green)" stroke="#fff" stroke-width="2.5" data-phase="stable"     id="pt-stable" aria-hidden="true" focusable="false"/>
         <circle class="wpt" cx="430" cy="84"  r="9" fill="var(--hypo-phase)" stroke="#fff" stroke-width="2.5" data-phase="hypomania"  id="pt-hypo" aria-hidden="true" focusable="false"/>
         <circle class="wpt" cx="520" cy="196" r="9" fill="var(--blue-phase)" stroke="#fff" stroke-width="2.5" data-phase="mild-dep"   id="pt-mild" aria-hidden="true" focusable="false"/>
 
         <!-- Pulse rings (animated) -->
-        <circle cx="160" cy="28"  r="15" fill="none" stroke="var(--amber-phase)" stroke-width="1.5" opacity="0" class="pulse" id="pulse-mania"/>
+        <circle cx="160" cy="28"  r="15" fill="none" stroke="var(--amber)" stroke-width="1.5" opacity="0" class="pulse" id="pulse-mania"/>
         <circle cx="300" cy="252" r="15" fill="none" stroke="var(--slate)" stroke-width="1.5" opacity="0" class="pulse" id="pulse-severe"/>
         <circle cx="370" cy="140" r="15" fill="none" stroke="var(--phase-green)" stroke-width="1.5" opacity="0" class="pulse" id="pulse-stable"/>
         <circle cx="430" cy="84"  r="15" fill="none" stroke="var(--hypo-phase)" stroke-width="1.5" opacity="0" class="pulse" id="pulse-hypo"/>
@@ -224,7 +151,7 @@ const PHASES = {
     name: 'Manie',
     subtitle: 'Ausgeprägte Hochphase — oft mit Realitätsverlust',
     duration: 'Typisch: 2–4 Wochen bis mehrere Monate',
-    color: 'var(--amber-phase)',
+    color: 'var(--amber)',
     bg: 'var(--mania-phase-bg)',
     border: 'var(--mania-phase-border)',
     ptId: 'pt-mania',

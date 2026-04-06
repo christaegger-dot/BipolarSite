@@ -8,42 +8,9 @@ toolBackLabel: "Zurück zu Modul 5"
 useSharedCSS: true
 useNavJS: false
 useToolCSS: true
+bodyClass: "ee-kreislauf-page"
 ---
-{% block headCSS %}
-<style>
-body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min-height:100vh;display:flex;flex-direction:column;align-items:center;-webkit-font-smoothing:antialiased}
-.tool-nav{width:100%;background:rgba(254,252,248,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border-warm);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:var(--z-tool-nav)}
-.wrap{width:100%;max-width:560px;padding:32px 20px 48px;flex:1}
-.hdr{text-align:center;margin-bottom:28px;background:var(--bg);border:1px solid var(--border-warm-md);border-radius:var(--card-radius);padding:26px 24px 24px;box-shadow:var(--shadow-elevated);position:relative;overflow:hidden}
-.hdr::before{display:none}
-.hdr p{font-size:0.88rem;color:var(--slate);line-height:1.65;max-width:44ch;margin:0 auto}
-.svg-wrap{width:100%;max-width:380px;margin:0 auto 24px;position:relative}
-.svg-wrap svg{width:100%;height:auto;filter:drop-shadow(0 10px 22px rgba(28,43,58,0.08))}
-.svg-wrap circle{cursor:pointer;transition:background-color 0.3s ease,color 0.3s ease,border-color 0.3s ease}
-.svg-wrap circle:hover{filter:brightness(0.95)}
-.svg-wrap [role="button"]:focus{filter:drop-shadow(0 0 0.35rem rgba(116,138,90,0.45))}
-.svg-wrap .arrow{transition:opacity 0.5s}
-.interrupted .arrow{opacity:0.2;stroke-dasharray:8 6}
-.center-text{font-family:'DM Serif Display',Georgia,serif;transition:fill 0.3s}
-.detail{background:var(--card);border-radius:var(--card-radius);border:1px solid var(--border-warm);box-shadow:var(--card-shadow);padding:24px 28px;margin-bottom:16px;display:none}
-.detail.vis{display:block}
-.detail-num{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px}
-.detail h2{font-family:'DM Serif Display',Georgia,serif;font-size:1.06rem;font-weight:400;color:var(--navy);margin:0 0 10px}
-.detail p{font-size:0.88rem;color:var(--slate);line-height:1.65;margin:0 0 12px}
-.detail-exit{background:var(--success-soft);border-radius:var(--radius-md);padding:14px 18px;border-left:3px solid var(--phase-green)}
-.detail-exit .exit-lbl{font-size:0.68rem;font-weight:700;color:var(--phase-green);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px}
-.detail-exit p{font-size:0.85rem;color:var(--navy);margin:0;line-height:1.55}
-.station-picker{display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:var(--grid-gap-tight);margin-bottom:16px}
-.station-btn{padding:12px 14px;border-radius:var(--radius-md);border:1px solid var(--border-warm-md);background:var(--card);color:var(--slate);text-align:left;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:600;cursor:pointer;transition:border-color 0.2s ease,background-color 0.2s ease,color 0.2s ease,box-shadow 0.2s ease}
-.station-btn strong{display:block;color:var(--navy);font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px}
-.station-btn:hover{border-color:rgba(30,101,109,0.28);box-shadow:0 8px 18px rgba(28,43,58,0.08)}
-.station-btn.is-active{border-color:var(--teal);background:var(--success-soft);color:var(--navy)}
-.break-btn{width:100%;padding:14px;border-radius:var(--radius-md);border:2px solid var(--phase-green);background:var(--card);color:var(--phase-green);font-size:0.88rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background-color 0.3s ease,color 0.3s ease,border-color 0.3s ease,box-shadow 0.3s ease;margin-bottom:16px;box-shadow:0 8px 18px rgba(13,122,95,0.08)}
-.break-btn:hover{background:var(--success-soft)}
-.break-btn.active{background:var(--phase-green);color:var(--card)}
-@media(max-width:600px){.station-picker{grid-template-columns:1fr}}
-</style>
-{% endblock %}
+{% block headCSS %}<!-- EE-Kreislauf styles migrated to tools.css (P2.4) -->{% endblock %}
 {% block nav %}
 {% include "nav-tool.njk" %}
 {% endblock %}
@@ -134,7 +101,7 @@ function rn(){
   if(active!==null){
     const s=stations[active];
     d.className='detail vis';
-    d.innerHTML=`<div class="detail-num" style="color:${s.c}">Station ${active+1} — ${s.n}</div><h2>${s.n}</h2><p>${s.desc}</p><p style="font-size:0.82rem;color:var(--slate);font-style:italic">${s.mech}</p><div class="detail-exit"><div class="exit-lbl">Ausweg</div><p>${s.exit}</p></div>`;
+    d.innerHTML=`<div class="detail-num" style="color:${s.c}">Station ${active+1} — ${s.n}</div><h2>${s.n}</h2><p>${s.desc}</p><p style="font-size:var(--text-xs);color:var(--slate);font-style:italic">${s.mech}</p><div class="detail-exit"><div class="exit-lbl">Ausweg</div><p>${s.exit}</p></div>`;
   }else{d.className='detail'}
 }
 function onSvgKey(event,index){if(event.key==='Enter'||event.key===' '){event.preventDefault();sel(index)}}

@@ -9,57 +9,7 @@ useSharedCSS: true
 useNavJS: false
 useToolCSS: true
 ---
-{% block headCSS %}
-<style>
-body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min-height:100vh;display:flex;flex-direction:column;align-items:center;-webkit-font-smoothing:antialiased}
-.tool-wrap{width:100%;max-width:560px;padding:32px 20px 48px;flex:1}
-.tool-header{text-align:center;margin-bottom:28px;background:var(--bg);border:1px solid var(--border-warm-md);border-radius:var(--card-radius);padding:26px 24px 24px;box-shadow:var(--shadow-elevated);position:relative;overflow:hidden}
-.tool-header::before{display:none}
-.tool-header h1{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.4rem,3.5vw,1.75rem);font-weight:400;color:var(--brown);margin:0 0 8px;letter-spacing:-0.02em}
-.tool-header p{font-size:0.88rem;color:var(--slate);line-height:1.65;max-width:42ch;margin:0 auto}
-.iceberg{width:100%;border-radius:var(--card-radius);overflow:hidden;box-shadow:var(--card-shadow);border:1px solid var(--border-warm-md)}
-.ice-above{background:var(--bg);padding:24px 20px 32px}
-.ice-lbl{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;text-align:center;margin-bottom:16px}
-.ice-lbl-a{color:var(--blue-phase)}.ice-lbl-b{color:rgba(255,255,255,0.5)}
-.ice-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
-.ice-wl{height:4px;background:var(--blue-phase);opacity:0.3;position:relative}
-.ice-wl span{position:absolute;left:50%;top:-10px;transform:translateX(-50%);background:var(--blue-phase-light);border:1px solid var(--border);border-radius:var(--radius-round);padding:2px 14px;font-size:0.6rem;font-weight:700;color:var(--blue-phase);letter-spacing:0.06em;white-space:nowrap}
-.ice-below{background:var(--ice-deep);padding:36px 20px 28px}
-.tag{padding:8px 16px;border-radius:var(--radius-sm);font-size:0.8rem;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background-color 0.25s ease,color 0.25s ease,border-color 0.25s ease;-webkit-appearance:none;line-height:1.3}
-.tv{background:var(--card);color:var(--slate);border:1px solid var(--border);font-weight:600;animation:gf 4s ease-in-out infinite}
-.tv.on{background:var(--blue-phase);color:var(--card);border:2px solid var(--blue-phase)}
-.ti{font-weight:500;background:var(--white-overlay-xs);color:rgba(255,255,255,0.65);border:1px solid var(--white-text-dim)}
-.ti.rev{background:var(--white-overlay-sm);color:var(--white-text-secondary);border-color:rgba(255,255,255,0.35)}
-.ti.on{background:var(--teal-muted);color:rgba(255,255,255,0.95);border:2px solid var(--white-text-secondary);font-weight:700}
-.ctr{text-align:center;margin-top:20px;font-size:0.75rem;color:rgba(255,255,255,0.65)}
-#dp{width:100%;margin-top:16px;transition:background-color 0.3s ease,opacity 0.3s ease,border-color 0.3s ease}
-#dp.hide{opacity:0;transform:translateY(8px);pointer-events:none;max-height:0;overflow:hidden;margin:0}
-.dc{border-radius:var(--card-radius);padding:24px 28px}
-.dcl{background:var(--card);border:1px solid var(--border);box-shadow:0 4px 20px var(--border-warm-md)}
-.dcd{background:var(--ice-deep);border:1px solid rgba(255,255,255,0.12);box-shadow:0 8px 32px rgba(0,0,0,0.3)}
-.dlbl{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--white-text-faint);margin-bottom:10px}
-.dc h2{font-family:'DM Serif Display',Georgia,serif;font-size:1.06rem;font-weight:400;margin:0 0 10px}
-.dc p{font-size:0.93rem;line-height:1.7;margin:0}
-.dcl h2{color:var(--navy)}.dcl p{color:var(--slate)}
-.dcd h2{color:var(--white-text)}.dcd p{color:var(--white-text-secondary)}
-.refl{width:100%;margin-top:20px;background:var(--bg);border-radius:var(--card-radius);padding:24px 28px;display:none}
-.refl.vis{display:block}
-.refl-lbl{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--teal);margin-bottom:10px}
-.refl h2{font-family:'DM Serif Display',Georgia,serif;font-size:1rem;font-weight:400;color:var(--navy-mid);line-height:1.45;margin:0 0 10px}
-.refl p{font-size:0.85rem;color:var(--slate);line-height:1.65;margin:0}
-.tf{text-align:center;font-size:0.68rem;color:var(--teal-light);margin-top:32px;line-height:1.5}
-@keyframes gf{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
-@media(prefers-reduced-motion:reduce){.tv{animation:none}*{transition-duration:0.01ms!important}}
-@media(max-width:480px){
-  .tool-wrap{padding:20px 14px 36px}
-  .ice-above{padding:16px 14px 24px}
-  .ice-below{padding:24px 14px 20px}
-  .dc{padding:16px}
-  .refl{padding:16px}
-  .tag{padding:6px 12px;font-size:0.75rem}
-}
-</style>
-{% endblock %}
+{% block headCSS %}<!-- Eisberg styles migrated to tools.css (P2.4) -->{% endblock %}
 {% block nav %}
 {% include "nav-tool.njk" %}
 {% endblock %}
