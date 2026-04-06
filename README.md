@@ -26,13 +26,13 @@ BipolarSite/
 │   │   └── site.js               # Globale Metadaten (URL, Org, Kontakt)
 │   ├── css/
 │   │   ├── tokens.css            # Design-Tokens (CSS custom properties)
-│   │   ├── fonts.css             # Font-Face-Deklarationen
 │   │   ├── shared.css            # Globale Stile (Nav, Layout, Typografie)
 │   │   ├── module.css            # Modul-spezifische Stile
 │   │   ├── tools.css             # Tool-spezifische Stile
 │   │   ├── print.css             # Druckstile
-│   │   └── overrides.css        # Kaskaden-Overrides (lädt zuletzt)
+│   │   └── overrides.css         # Kaskaden-Overrides (lädt zuletzt)
 │   ├── fonts/                    # Selbst gehostete WOFF2-Fonts
+│   │   └── fonts.css             # Font-Face-Deklarationen
 │   ├── js/
 │   │   └── nav.js                # Navigationslogik (Hamburger-Menü etc.)
 │   ├── modul/                    # Psychoedukations-Module 1–8
