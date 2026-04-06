@@ -44,7 +44,7 @@ body {
 .tool-glyph {
   width: 58px; height: 58px; margin: 0 auto 14px;
   border-radius: var(--card-radius);
-  background: var(--navy);
+  background: var(--teal);
   display: flex; align-items: center; justify-content: center;
 }
 .tool-glyph svg { width: 30px; height: 30px; }

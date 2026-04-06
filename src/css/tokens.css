@@ -3,239 +3,293 @@
    ───────────────────────────────────────────────────────────────────────
    Single source of truth for all CSS custom properties.
    Loaded FIRST in the cascade — no selectors, no rules, only variables.
+
+   Palette: "Luftig warm-editorial" (L2)
+   ─────────────────────────────────────
+   Three temperature poles:
+     1. Warm-Neutral  → structure, text, orientation
+     2. Teal (transparent) → action, tools, CTAs
+     3. Rosé          → emotion, reflection, gentle attention
+
+   Transparency principle: colors are controlled via opacity,
+   not by creating new hex values. This keeps the palette light.
    ═══════════════════════════════════════════════════════════════════════ */
 
 :root {
 
-  /* ── Brand Colors (5 active families) ──
-     Navy = leadership · Teal = interactive/CTA · Sand = warm neutral
-     Alert = emergency only · Phase colors (amber/blue/green) = semantic */
-  --navy:        #1c2b3a;
-  --navy-mid:    #4A443F;
-  --teal:        #1E656D;
-  --teal-light:  #A8D5CB;
-  --amber:       #B45309;
-  --amber-light: #FBBF24;
-  --alert:       #B91C1C;
-  --alert-soft:  #FEF2F2;
+  /* ══════════════════════════════════════════
+     1. WARM-NEUTRAL  (structure, text)
+     ══════════════════════════════════════════ */
+
+  /* Heading / emphasis — warmest dark tone */
+  --navy:        #7a6f66;
+  --navy-mid:    #8a7f76;
+
+  /* Body text */
+  --slate:       #a39890;
+
+  /* Text semantic aliases */
+  --text:        #7a6f66;
+  --text-soft:   #a39890;
+
+  /* Sand family (warm accents, badges, subtle fills) */
   --sand:        #ddd2bf;
   --sand-deep:   #b58a52;
   --sand-ink:    #7a5630;
+  --sand-faint:  rgba(221,210,191,0.18);
+  --sand-subtle: rgba(221,210,191,0.34);
+  --sand-muted:  rgba(221,210,191,0.7);
+  --sand-border: rgba(181,138,82,0.14);
 
-  /* ── Neutral (consolidated — brown family merged into navy/slate) ── */
-  --slate:       #475569;
-  /* brown-mid → navy-mid, brown-warm → slate (consolidated) */
 
-  /* ── Semantic: Background (3 values only) ── */
+  /* ══════════════════════════════════════════
+     2. TEAL  (action, tools, CTAs)
+     ══════════════════════════════════════════ */
+
+  --teal:        rgba(58,154,163,0.75);
+  --teal-solid:  #3a9aa3;         /* opaque fallback for borders, small UI */
+  --teal-light:  rgba(168,213,203,0.3);
+  --teal-dark:   rgba(58,154,163,0.9);
+
+  /* Teal opacity scale */
+  --teal-faint:  rgba(58,154,163,0.04);
+  --teal-subtle: rgba(58,154,163,0.1);
+  --teal-muted:  rgba(58,154,163,0.2);
+
+  /* Teal accent (for dark-bg Durchatmen tool) */
+  --teal-accent-light: rgba(141,212,217,0.7);
+  --teal-accent-20:  rgba(141,212,217,0.2);
+  --teal-accent-30:  rgba(141,212,217,0.3);
+  --teal-accent-40:  rgba(141,212,217,0.4);
+  --teal-accent-60:  rgba(141,212,217,0.6);
+
+
+  /* ══════════════════════════════════════════
+     3. ROSÉ  (emotion, reflection, attention)
+     ══════════════════════════════════════════ */
+
+  --rose:        rgba(175,115,110,0.55);
+  --rose-text:   rgba(175,115,110,0.75);
+  --rose-border: rgba(175,115,110,0.3);
+  --rose-bg:     rgba(175,115,110,0.04);
+  --rose-soft:   rgba(175,115,110,0.08);
+  --rose-badge:  rgba(175,115,110,0.15);
+
+
+  /* ══════════════════════════════════════════
+     BACKGROUNDS
+     ══════════════════════════════════════════ */
+
   --bg:          #FAF8F5;
   --card:        #ffffff;
   --surface-alt: #F4F1EC;
+  --caregiver-col-bg: #f9f6f2;
 
-  /* ── Semantic: Text ── */
-  --text:        #3D3530;
-  --text-soft:   #56514d;
 
-  /* ── Semantic: Border ── */
-  --border:      #e2e8f0;
+  /* ══════════════════════════════════════════
+     BORDERS
+     ══════════════════════════════════════════ */
 
-  /* ── Semantic: Status/Feedback ── */
-  --success-soft: #e6f4f2;
+  --border:      rgba(45,40,35,0.08);
+  --border-warm:    rgba(45,40,35,0.05);
+  --border-warm-md: rgba(45,40,35,0.07);
+  --border-warm-xl: rgba(45,40,35,0.1);
+
+
+  /* ══════════════════════════════════════════
+     STATUS / FEEDBACK
+     ══════════════════════════════════════════ */
+
+  --success-soft: rgba(168,213,203,0.15);
   --amber-bg:    #fef3e2;
+  --amber:       #B45309;
+  --amber-light: #FBBF24;
+  --amber-border: #e8c68a;
 
-  /* ── Badge Base (unified) ── */
-  --badge-radius:  var(--radius-round);  /* pill shape */
-  --badge-padding: 5px 14px;
-  --badge-font:    var(--text-xs);
 
-  /* ── CTA Hierarchy (3 levels) ──
-     Primary   = Teal solid — one per viewport, the main action
-     Secondary = outline/border — supporting actions
-     Tertiary  = text-link style — navigation, "learn more"
+  /* ══════════════════════════════════════════
+     ALERT / EMERGENCY  (unchanged — stays strong)
+     ══════════════════════════════════════════ */
 
-     CTA hierarchy per page type:
-     ┌─────────────┬──────────────────────┬────────────────────────┬──────────────────────┐
-     │ Page type   │ Primary (teal solid) │ Secondary (outline)    │ Tertiary (text link) │
-     ├─────────────┼──────────────────────┼────────────────────────┼──────────────────────┤
-     │ Homepage    │ Hero CTA, Phone      │ Entry paths, Email     │ Module/tool cards    │
-     │ Module      │ Tool-CTA, Download   │ Back, Print            │ In-text links        │
-     │ Tool        │ Save, Next, Continue │ Back, Reset, Print     │ Breadcrumb links     │
-     │ Notfall     │ Emergency calls      │ —                      │ Guide links          │
-     │ Overview    │ 1 per section max    │ Card actions           │ Card descriptions    │
-     └─────────────┴──────────────────────┴────────────────────────┴──────────────────────┘
-     Rule: max 1 primary CTA visible per viewport. Navigation cards (module-card,
-     tool-highlight-card, entry-path) are NOT CTAs — they use card styling (border+hover). */
-  --cta-primary-bg:     var(--teal);
-  --cta-primary-hover:  var(--teal-dark);
-  --cta-primary-text:   #ffffff;
-  --cta-secondary-bg:   var(--card);
-  --cta-secondary-border: var(--border);
-  --cta-secondary-text: var(--slate);
-  --cta-secondary-hover-border: var(--teal);
-  --cta-secondary-hover-text:   var(--teal);
-  --cta-secondary-hover-bg:     var(--success-soft);
-  --cta-tertiary-text:  var(--teal);
-  --cta-tertiary-hover: var(--teal-dark);
-  --cta-radius:    var(--radius-md);     /* 12px */
-  --cta-min-height: 44px;
-
-  /* ── Radius Scale ──
-     4 semantic steps — use these in all new code.
-     sm → small UI (badges, icons, buttons, inputs)
-     md → medium containers (cards, accordions, detail columns)
-     lg → large panels (hero headers, tool wrappers, sections)
-     round → pills & full-round badges                         */
-  --radius-sm:    8px;
-  --radius-md:   12px;
-  --radius-lg:   20px;
-  --radius-round:100px;
-
-  /* ── Card Base (unified card module) ── */
-  --card-radius:  var(--radius-md);    /* 12px — all cards */
-  --card-border:  1px solid var(--border-warm);
-  --card-padding: var(--space-lg);     /* 24px */
-  --card-shadow:  none;
-
-  /* ── Shadow Scale ── */
-  --shadow-soft:     0 4px 18px rgba(28,43,58,0.05);
-  --shadow-card:     0 10px 28px rgba(28,43,58,0.08);
-  --shadow-elevated: 0 16px 40px rgba(28,43,58,0.14);
-  --shadow-nav:      0 1px 8px rgba(0,0,0,0.06);
-
-  /* ── Spacing Scale ── */
-  --space-xs:  4px;
-  --space-sm:  8px;
-  --space-base: 12px;
-  --space-md:  16px;
-  --space-lg:  24px;
-  --space-xl:  32px;
-  --space-2xl: 40px;
-  --space-3xl: 52px;
-
-  /* ── Section Rhythm (3 fixed vertical values) ── */
-  --section-tight:    40px;  /* related blocks, tight grouping */
-  --section-standard: 64px;  /* default section spacing */
-  --section-wide:     96px;  /* thematic breaks, hero spacing */
-
-  /* ── Content Temperature (vertical rhythm for content blocks) ──
-     Dense  = compact info (grids, tables, accordions) — tight coupling
-     Standard = normal reading flow (prose, lists, CTAs)
-     Pause  = deliberate deceleration (quotes, reflections, takeaways) */
-  --temp-dense-margin:    var(--space-lg);        /* 24px — compact grids, accordions */
-  --temp-dense-padding:   20px;
-  --temp-standard-margin: var(--section-tight);   /* 40px — normal reading flow */
-  --temp-standard-padding: var(--card-padding);   /* 24px */
-  --temp-pause-margin:    var(--section-standard); /* 64px — deliberate pauses */
-  --temp-pause-padding:   32px;
-
-  /* ── Grid System (3 variants, 2 gap sizes) ──
-     tight  = dense info grids (cards, tables, compact layouts)
-     standard = default card grids, content layouts
-     Columns: 2-col (1fr 1fr), 3-col (repeat(3,1fr)), auto (repeat(auto-fill,minmax(280px,1fr))) */
-  --grid-gap-tight:    16px;
-  --grid-gap-standard: 24px;
-
-  /* ── Content Gaps (within sections) ── */
-  --content-gap:      24px;  /* between sibling elements */
-  --group-gap:        40px;  /* between content groups */
-
-  /* ── Content Widths ── */
-  --content-width:      640px;
-  --content-width-wide: 900px;
-  --wide-width:         1140px;
-
-  /* ── Alert Colors ── */
+  --alert:       #B91C1C;
+  --alert-soft:  #FEF2F2;
   --alert-red-border: #fca5a5;
   --alert-red-light:  #fecaca;
   --alert-red-coral:  #f87171;
   --emergency-dark:   #7f1d1d;
   --emergency-mid:    #991b1b;
 
-  /* Phase colors (content-semantic) */
-  --blue-phase:       #4a6f95;
-  --blue-phase-light: #eef3f8;
-  --purple-phase:     #7c3aed;
-  --phase-green:      #0d7a5f;
-  /* Phase-specific bg/border values (used in phasenverlauf + selbsttest JS) */
-  --mania-phase-bg:          #fff3e0;
-  --mania-phase-border:      #f0c070;
-  --hypo-phase-bg:           #fff9f0;
-
-  /* Helle Varianten für Verwendung auf dunklem Navy-Hintergrund (WCAG AA) */
-  --navy-deep:       #294051;
-  --blue-phase-on-dark:  #93b4d4; /* 6.7:1 auf Navy */
-  --amber-phase-on-dark: #f59e4a; /* 6.8:1 auf Navy */
-  --sand-on-dark:        #c9a97a; /* 6.5:1 auf Navy */
-  --green-on-dark:       #34d399; /* 7.5:1 auf Navy */
-  --teal-on-dark:        #5bbac4; /* 6.4:1 auf Navy */
-  --mild-dep-phase-border:   #c5d5e8;
-  --severe-dep-phase-bg:     #e4eaf2;
-  --severe-dep-phase-border: #8899aa;
-  --caregiver-col-bg:        #f9f6f2;
-  --ice-deep:                #1e3044;
-  --ice-deeper:              #152535;
-
-  /* Derived tokens (used for hover-dark states, borders) */
-  --teal-dark:     #195A60;
-  --amber-border:  #e8c68a;
-
-  /* ── Warm Border Scale (replaces hardcoded rgba(45,40,35,...)) ── */
-  --border-warm:    rgba(45,40,35,0.06);
-  --border-warm-md: rgba(45,40,35,0.08);
-  --border-warm-xl: rgba(45,40,35,0.12);
-
-  /* ── Alert Opacity Scale ── */
+  /* Alert opacity scale */
   --alert-faint:  rgba(185,28,28,0.06);
   --alert-subtle: rgba(185,28,28,0.12);
   --alert-muted:  rgba(185,28,28,0.25);
 
-  /* ── Teal Opacity Scale ── */
-  --teal-faint:  rgba(30,101,109,0.04);
-  --teal-subtle: rgba(30,101,109,0.1);
-  --teal-muted:  rgba(30,101,109,0.2);
-  --teal-accent-light: #8dd4d9;
-  --teal-accent-20:  rgba(141,212,217,0.2);
-  --teal-accent-30:  rgba(141,212,217,0.3);
-  --teal-accent-40:  rgba(141,212,217,0.4);
-  --teal-accent-60:  rgba(141,212,217,0.6);
 
-  /* ── Dark Tool Theme (Durchatmen) ── */
+  /* ══════════════════════════════════════════
+     PHASE COLORS  (content-semantic, unchanged)
+     ══════════════════════════════════════════ */
+
+  --blue-phase:       #4a6f95;
+  --blue-phase-light: #eef3f8;
+  --purple-phase:     #7c3aed;
+  --phase-green:      #0d7a5f;
+
+  --mania-phase-bg:          #fff3e0;
+  --mania-phase-border:      #f0c070;
+  --hypo-phase-bg:           #fff9f0;
+  --mild-dep-phase-border:   #c5d5e8;
+  --severe-dep-phase-bg:     #e4eaf2;
+  --severe-dep-phase-border: #8899aa;
+
+  /* Phase colors on dark bg (Durchatmen, Phasenverlauf) */
+  --navy-deep:       #294051;
+  --blue-phase-on-dark:  #93b4d4;
+  --amber-phase-on-dark: #f59e4a;
+  --sand-on-dark:        #c9a97a;
+  --green-on-dark:       #34d399;
+  --teal-on-dark:        #5bbac4;
+  --ice-deep:            #1e3044;
+  --ice-deeper:          #152535;
+
+
+  /* ══════════════════════════════════════════
+     CTA HIERARCHY
+     ══════════════════════════════════════════ */
+
+  --cta-primary-bg:     var(--teal);
+  --cta-primary-hover:  rgba(58,154,163,0.85);
+  --cta-primary-text:   #ffffff;
+  --cta-secondary-bg:   var(--card);
+  --cta-secondary-border: var(--border);
+  --cta-secondary-text: var(--slate);
+  --cta-secondary-hover-border: var(--teal-solid);
+  --cta-secondary-hover-text:   var(--teal-solid);
+  --cta-secondary-hover-bg:     var(--success-soft);
+  --cta-tertiary-text:  rgba(58,154,163,0.8);
+  --cta-tertiary-hover: rgba(58,154,163,0.95);
+  --cta-radius:    var(--radius-md);
+  --cta-min-height: 44px;
+
+
+  /* ══════════════════════════════════════════
+     RADIUS SCALE
+     ══════════════════════════════════════════ */
+
+  --radius-sm:    8px;
+  --radius-md:   12px;
+  --radius-lg:   20px;
+  --radius-round: 100px;
+
+
+  /* ══════════════════════════════════════════
+     CARD BASE
+     ══════════════════════════════════════════ */
+
+  --card-radius:  var(--radius-md);
+  --card-border:  1px solid var(--border-warm);
+  --card-padding: var(--space-lg);
+  --card-shadow:  none;
+
+
+  /* ══════════════════════════════════════════
+     SHADOW SCALE  (warm-tinted)
+     ══════════════════════════════════════════ */
+
+  --shadow-soft:     0 4px 18px rgba(122,111,102,0.05);
+  --shadow-card:     0 10px 28px rgba(122,111,102,0.06);
+  --shadow-elevated: 0 16px 40px rgba(122,111,102,0.1);
+  --shadow-nav:      0 1px 8px rgba(0,0,0,0.04);
+
+
+  /* ══════════════════════════════════════════
+     SPACING SCALE
+     ══════════════════════════════════════════ */
+
+  --space-xs:   4px;
+  --space-sm:   8px;
+  --space-base: 12px;
+  --space-md:   16px;
+  --space-lg:   24px;
+  --space-xl:   32px;
+  --space-2xl:  40px;
+  --space-3xl:  52px;
+
+  /* Section rhythm */
+  --section-tight:    40px;
+  --section-standard: 64px;
+  --section-wide:     96px;
+
+  /* Content temperature */
+  --temp-dense-margin:    var(--space-lg);
+  --temp-dense-padding:   20px;
+  --temp-standard-margin: var(--section-tight);
+  --temp-standard-padding: var(--card-padding);
+  --temp-pause-margin:    var(--section-standard);
+  --temp-pause-padding:   32px;
+
+
+  /* ══════════════════════════════════════════
+     GRID & LAYOUT
+     ══════════════════════════════════════════ */
+
+  --grid-gap-tight:    16px;
+  --grid-gap-standard: 24px;
+  --content-gap:       24px;
+  --group-gap:         40px;
+  --content-width:      640px;
+  --content-width-wide: 900px;
+  --wide-width:         1140px;
+
+
+  /* ══════════════════════════════════════════
+     BADGE BASE
+     ══════════════════════════════════════════ */
+
+  --badge-radius:  var(--radius-round);
+  --badge-padding: 5px 14px;
+  --badge-font:    var(--text-xs);
+
+
+  /* ══════════════════════════════════════════
+     TYPE SCALE  (6 steps)
+     ══════════════════════════════════════════ */
+
+  --text-xs:   0.75rem;   /* 12px */
+  --text-base: 1rem;      /* 16px */
+  --text-lg:   1.25rem;   /* 20px */
+  --text-xl:   1.6rem;    /* 25.6px */
+  --text-2xl:  2.2rem;    /* 35.2px */
+  --text-3xl:  clamp(2.8rem, 5vw, 3.6rem);
+
+
+  /* ══════════════════════════════════════════
+     WHITE-ON-DARK  (Durchatmen dark theme)
+     ══════════════════════════════════════════ */
+
+  --white-text:           rgba(255,255,255,0.88);
+  --white-text-secondary: rgba(255,255,255,0.70);
+  --white-text-muted:     rgba(255,255,255,0.50);
+  --white-text-dim:       rgba(255,255,255,0.30);
+  --white-overlay-sm:     rgba(255,255,255,0.08);
+  --white-overlay-md:     rgba(255,255,255,0.15);
+
+  /* Dark tool backgrounds */
   --dark-bg:       #1a2332;
   --dark-nav-bg:   rgba(26,35,50,0.9);
   --dark-border:   rgba(255,255,255,0.06);
 
-  /* ── Sand Opacity Scale ── */
-  --sand-faint:  rgba(221,210,191,0.18);
-  --sand-subtle: rgba(221,210,191,0.34);
-  --sand-muted:  rgba(221,210,191,0.7);
-  --sand-border: rgba(181,138,82,0.14);
 
-  /* ── Overlay / Backdrop ── */
-  --overlay-dark:   rgba(0,0,0,0.4);
-  --overlay-light:  rgba(0,0,0,0.2);
+  /* ══════════════════════════════════════════
+     OVERLAY / BACKDROP
+     ══════════════════════════════════════════ */
 
-  /* ── Type Scale (6 conscious hierarchy steps) ──
-     Caption → Body → Large → Heading → Display → Hero
-     Stronger jumps between steps for clearer visual hierarchy. */
-  --text-xs:   0.75rem;  /* 12px   — caption: badges, labels, nav, secondary */
-  --text-base: 1rem;     /* 16px   — body: prose, callouts, UI text */
-  --text-lg:   1.25rem;  /* 20px   — large: subheadings, emphasis */
-  --text-xl:   1.6rem;   /* 25.6px — heading: h3, section sub-titles */
-  --text-2xl:  2.2rem;   /* 35.2px — display: h2, section headings */
-  --text-3xl:  clamp(2.8rem, 5vw, 3.6rem); /* 44.8–57.6px — hero: h1 */
+  --overlay-dark:  rgba(0,0,0,0.3);
+  --overlay-light: rgba(0,0,0,0.15);
 
-  /* Legacy aliases removed — was: --text-2xs, --text-sm, --text-md
-     Consolidated into 6-step scale: xs / base / lg / xl / 2xl / 3xl */
 
-  /* ── White-on-Dark Text Scale (4 steps) ── */
-  --white-text:          rgba(255,255,255,0.88);
-  --white-text-secondary: rgba(255,255,255,0.70);
-  --white-text-muted:    rgba(255,255,255,0.50);
-  --white-text-dim:      rgba(255,255,255,0.30);
+  /* ══════════════════════════════════════════
+     Z-INDEX
+     ══════════════════════════════════════════ */
 
-  /* ── White Overlay Scale (2 steps — glass effects on dark bg) ── */
-  --white-overlay-sm:    rgba(255,255,255,0.08);
-  --white-overlay-md:    rgba(255,255,255,0.15);
-
-  /* ── Z-Index Scale ── */
-  --z-tool-nav:  50;
+  --z-tool-nav: 50;
 }

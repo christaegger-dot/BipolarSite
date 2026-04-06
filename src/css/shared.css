@@ -152,16 +152,15 @@ body {
   transition: width 0.1s linear;
 }
 
-/* ── Footer ── */
+/* ── Footer (light, warm — L2 palette) ── */
 footer {
-  background: var(--navy);
-  color: var(--white-text-secondary);
+  background: var(--surface-alt);
+  color: var(--slate);
   padding: var(--space-3xl) 2rem var(--space-xl);
   margin-top: var(--section-wide);
   border-top: none;
   position: relative;
 }
-/* Subtle top accent: thin teal line for quiet separation */
 footer::before {
   content: '';
   position: absolute;
@@ -177,12 +176,12 @@ footer::before {
   text-align: center;
 }
 .footer-inner p { font-size: var(--text-xs); line-height: 1.75; margin-bottom: 8px; }
-.footer-inner a { color: var(--white-text); text-decoration: none; }
-.footer-inner a:hover { color: white; }
+.footer-inner a { color: var(--navy); text-decoration: none; }
+.footer-inner a:hover { color: var(--teal-solid); }
 .footer-links {
   margin-top: var(--space-lg);
   padding-top: var(--space-lg);
-  border-top: 1px solid var(--white-overlay-sm);
+  border-top: 1px solid var(--border-warm);
   font-size: var(--text-xs);
 }
 .footer-links a { margin: 0 12px; }
@@ -204,7 +203,6 @@ a, button, input, select, textarea,
 .home-hero *:focus-visible,
 .module-hero *:focus-visible,
 .takeaways *:focus-visible,
-footer *:focus-visible,
 .storage-banner *:focus-visible {
   outline-color: var(--teal-light);
 }
@@ -213,26 +211,27 @@ footer *:focus-visible,
 .storage-banner {
   position: fixed; bottom: var(--space-md); right: var(--space-md);
   z-index: 1100; max-width: 340px;
-  background: var(--navy, #1c2b3a); color: var(--white-text-secondary);
+  background: var(--card); color: var(--navy);
   padding: 10px 16px; font-size: var(--text-xs); line-height: 1.5;
   display: flex; align-items: center; gap: 12px;
+  border: 1px solid var(--border-warm-md);
   border-radius: var(--radius-md); box-shadow: var(--shadow-elevated);
 }
 .storage-banner-btns { display: flex; gap: 6px; flex-shrink: 0; }
 .storage-btn-accept {
-  background: var(--teal, #1E656D); color: #fff; border: none;
+  background: var(--teal); color: #fff; border: none;
   padding: 8px 14px; border-radius: 6px; font-size: var(--text-xs);
   font-weight: 600; cursor: pointer; white-space: nowrap;
   min-height: 44px; min-width: 44px;
 }
 .storage-btn-decline {
-  background: transparent; color: var(--white-text-muted);
-  border: 1px solid rgba(255,255,255,0.2);
+  background: transparent; color: var(--slate);
+  border: 1px solid var(--border-warm-md);
   padding: 8px 14px; border-radius: 6px; font-size: var(--text-xs);
   font-weight: 600; cursor: pointer; white-space: nowrap;
   min-height: 44px; min-width: 44px;
 }
-.storage-btn-decline:hover { color: #fff; border-color: rgba(255,255,255,0.5); }
+.storage-btn-decline:hover { color: var(--navy); border-color: var(--border-warm-lg); }
 
 @media (max-width: 600px) {
   .storage-banner { right: var(--space-sm); bottom: var(--space-sm); left: var(--space-sm); max-width: none; }
@@ -811,7 +810,7 @@ footer *:focus-visible,
 .footer-brand h3 {
   font-family: 'DM Sans', sans-serif;
   font-size: var(--text-lg);
-  color: white;
+  color: var(--navy);
   font-weight: 700;
   margin-bottom: 6px;
 }
@@ -819,9 +818,10 @@ footer *:focus-visible,
   font-size: var(--text-xs);
   line-height: 1.75;
   margin-bottom: 4px;
+  color: var(--slate);
 }
 .footer-col h4 {
-  color: var(--white-text-dim);
+  color: var(--navy);
   font-size: var(--text-xs);
   font-weight: 700;
   text-transform: uppercase;
@@ -830,31 +830,31 @@ footer *:focus-visible,
 }
 .footer-col a {
   display: block;
-  color: var(--white-text-secondary);
+  color: var(--slate);
   text-decoration: none;
   font-size: var(--text-xs);
   padding: 4px 0;
   transition: color 0.2s ease;
 }
-.footer-col a:hover { color: white; }
+.footer-col a:hover { color: var(--navy); }
 .footer-bottom {
   max-width: var(--wide-width);
   margin: 40px auto 0;
   padding-top: 24px;
-  border-top: 1px solid var(--white-overlay-sm);
+  border-top: 1px solid var(--border-warm-sm);
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: var(--text-xs);
-  color: var(--white-text-dim);
+  color: var(--slate);
 }
 .footer-bottom a {
-  color: var(--white-text-dim);
+  color: var(--slate);
   text-decoration: none;
   margin-left: 20px;
   transition: color 0.2s ease;
 }
-.footer-bottom a:hover { color: var(--white-text-secondary); }
+.footer-bottom a:hover { color: var(--navy); }
 
 /* ── Scroll Reveal ── */
 .reveal {
@@ -969,7 +969,7 @@ footer *:focus-visible,
 
 /* ── Einladung ── */
 .invitation-section {
-  background: var(--navy);
+  background: var(--teal);
   padding: var(--section-standard) 2rem;
 }
 .invitation-inner {
@@ -1117,7 +1117,7 @@ footer *:focus-visible,
   z-index: 10000;
   padding: 12px 20px;
   border-radius: var(--radius-sm);
-  background: var(--navy);
+  background: var(--teal);
   color: white;
   text-decoration: none;
   font-size: var(--text-xs);
@@ -1281,7 +1281,7 @@ h3, h4 {
 
 /* ── Main hero (index.html) ── */
 .hero {
-  background: var(--navy) !important;
+  background: var(--teal) !important;
   color: white !important;
 }
 
@@ -1319,7 +1319,7 @@ h3, h4 {
 
 /* ── Module hero (modul pages) ── */
 .module-hero {
-  background: var(--navy) !important;
+  background: var(--teal) !important;
   color: white !important;
 }
 
@@ -1528,11 +1528,11 @@ section,
 }
 .footer-links a {
   margin: 0;
-  color: var(--white-text-secondary);
+  color: var(--slate);
   text-decoration: none;
 }
 .footer-links a:hover {
-  color: white;
+  color: var(--navy);
 }
 
 /* ── Module grid ── */
@@ -1550,43 +1550,43 @@ section,
 
 /* ── [from overrides.css] FOOTER ── */
 footer {
-  background: var(--navy);
-  color: var(--white-text-secondary);
+  background: var(--surface-alt);
+  color: var(--navy);
   padding: var(--space-xl) var(--space-lg) var(--space-2xl);
   border-top: none;
 }
 
 .footer-brand h3 {
-  color: white;
+  color: var(--navy);
 }
 
 .footer-brand p {
-  color: var(--white-text-muted);
+  color: var(--slate);
 }
 
 .footer-col h4 {
-  color: var(--white-text-muted);
+  color: var(--navy);
 }
 
 .footer-col a {
-  color: var(--white-text-secondary);
+  color: var(--slate);
 }
 
 .footer-col a:hover {
-  color: white;
+  color: var(--navy);
 }
 
 .footer-bottom {
-  border-top-color: var(--white-overlay-sm);
-  color: var(--white-text-dim);
+  border-top-color: var(--border-warm-sm);
+  color: var(--slate);
 }
 
 .footer-bottom a {
-  color: var(--white-text-dim);
+  color: var(--slate);
 }
 
 .footer-bottom a:hover {
-  color: var(--white-text-secondary);
+  color: var(--navy);
 }
 
 .footer-inner--editorial {
@@ -1601,12 +1601,12 @@ footer {
   margin: 0 0 8px;
   font-size: var(--text-xs);
   line-height: 1.75;
-  color: var(--white-text-secondary);
+  color: var(--slate);
 }
 
 .footer-org {
   font-weight: 700;
-  color: white !important;
+  color: var(--navy) !important;
 }
 
 .footer-note {
@@ -1620,7 +1620,7 @@ footer {
 }
 
 .footer-invitation {
-  color: var(--white-text) !important;
+  color: var(--navy) !important;
   font-weight: 600;
   font-size: var(--text-base) !important;
   font-family: 'DM Sans', sans-serif;
@@ -1628,7 +1628,7 @@ footer {
 
 .footer-disclaimer {
   font-size: var(--text-xs) !important;
-  color: var(--white-text-muted) !important;
+  color: var(--slate) !important;
 }
 
 .footer-link-alert {
@@ -1645,12 +1645,12 @@ footer {
 }
 
 p.footer-address {
-  color: var(--white-text-muted);
+  color: var(--slate);
   font-size: var(--text-xs);
 }
 
 p.footer-attribution {
-  color: var(--white-text-muted);
+  color: var(--slate);
   font-size: var(--text-xs);
   margin-top: 4px;
 }
