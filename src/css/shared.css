@@ -3,7 +3,7 @@
 
 /* ── Reset ── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; font-size: 16px; }
 
 /* ── Body ── */
 body {
@@ -176,11 +176,16 @@ footer {
 }
 .footer-links a { margin: 0 12px; }
 
+/* ── Global Transitions for Interactive Elements ── */
+a, button, input, .module-card {
+  transition: all 0.2s ease;
+}
+
 /* ── Accessibility ── */
 *:focus-visible {
   outline: 2px solid var(--teal);
-  outline-offset: 2px;
-  border-radius: 4px;
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
 }
 /* Focus outline on dark backgrounds: use lighter variant for visibility (WCAG 2.4.7) */
 .hero *:focus-visible,
