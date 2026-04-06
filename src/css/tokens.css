@@ -47,7 +47,34 @@
   --badge-padding: 5px 14px;
   --badge-font:    var(--text-xs);
 
-  /* ── CTA Base (two variants only) ── */
+  /* ── CTA Hierarchy (3 levels) ──
+     Primary   = Teal solid — one per viewport, the main action
+     Secondary = outline/border — supporting actions
+     Tertiary  = text-link style — navigation, "learn more"
+
+     CTA hierarchy per page type:
+     ┌─────────────┬──────────────────────┬────────────────────────┬──────────────────────┐
+     │ Page type   │ Primary (teal solid) │ Secondary (outline)    │ Tertiary (text link) │
+     ├─────────────┼──────────────────────┼────────────────────────┼──────────────────────┤
+     │ Homepage    │ Hero CTA, Phone      │ Entry paths, Email     │ Module/tool cards    │
+     │ Module      │ Tool-CTA, Download   │ Back, Print            │ In-text links        │
+     │ Tool        │ Save, Next, Continue │ Back, Reset, Print     │ Breadcrumb links     │
+     │ Notfall     │ Emergency calls      │ —                      │ Guide links          │
+     │ Overview    │ 1 per section max    │ Card actions           │ Card descriptions    │
+     └─────────────┴──────────────────────┴────────────────────────┴──────────────────────┘
+     Rule: max 1 primary CTA visible per viewport. Navigation cards (module-card,
+     tool-highlight-card, entry-path) are NOT CTAs — they use card styling (border+hover). */
+  --cta-primary-bg:     var(--teal);
+  --cta-primary-hover:  var(--teal-dark);
+  --cta-primary-text:   #ffffff;
+  --cta-secondary-bg:   var(--card);
+  --cta-secondary-border: var(--border);
+  --cta-secondary-text: var(--slate);
+  --cta-secondary-hover-border: var(--teal);
+  --cta-secondary-hover-text:   var(--teal);
+  --cta-secondary-hover-bg:     var(--success-soft);
+  --cta-tertiary-text:  var(--teal);
+  --cta-tertiary-hover: var(--teal-dark);
   --cta-radius:    var(--radius-md);     /* 12px */
   --cta-min-height: 44px;
 
