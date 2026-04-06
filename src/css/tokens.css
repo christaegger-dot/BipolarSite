@@ -125,7 +125,7 @@
   --text-md:   1.02rem;  /* 16.3px — emphasis, accordion titles */
   --text-lg:   1.1rem;   /* 17.6px — subheadings (h3 small) */
   --text-xl:   1.3rem;   /* 20.8px — headings (h3 large) */
-  --text-2xl:  1.65rem;  /* 26.4px — section headings (h2) */
+  --text-2xl:  1.8rem;   /* 28.8px — section headings (h2) */
 
   /* ── White-on-Dark Text Scale ── */
   --white-text:          rgba(255,255,255,0.88);
