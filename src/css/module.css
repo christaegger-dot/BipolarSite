@@ -680,7 +680,7 @@ body.pdf-preview-open { overflow: hidden; }
 }
 
 /* ── Module Accent Colors (per-module visual identity) ── */
-/* !important needed because overrides.css loads AFTER this file */
+/* Per-module accent: badge bg + color, driven by [data-module-accent] */
 
 /* Blue: Module 1 */
 [data-module-accent="1"] .module-badge { background: rgba(147,180,212,0.18) !important; color: var(--blue-phase-on-dark) !important; }
@@ -1858,4 +1858,571 @@ body.pdf-preview-open{overflow:hidden}
 }
 @media (max-width: 900px) {
   [data-module-accent="8"] .module-hero-inner { grid-template-columns: 1fr; }
+}
+
+/* ── [from overrides.css] BORDER OVERRIDES ── */
+.module-card,
+.quick-card,
+.guide,
+.sit-card,
+.number-card,
+.next-module,
+.toc,
+.quote-block,
+.alert-box,
+.reflection-block,
+.refl {
+  border-color: var(--border) !important;
+}
+
+/* Content dividers */
+.content h2,
+.module-card-footer {
+  border-top-color: var(--border) !important;
+}
+
+/* Input focus states */
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--teal) !important;
+  box-shadow: 0 0 0 3px var(--teal-subtle) !important;
+}
+
+/* ── [from overrides.css] CARDS ── */
+
+/* ── Module cards (index.html grid) ── */
+.module-card {
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border);
+  padding: var(--card-padding);
+}
+
+.module-card:hover {
+  box-shadow: var(--shadow-soft);
+  border-color: var(--teal);
+  transform: translateY(-2px);
+}
+
+.module-card::before {
+  background: var(--sand-deep);
+}
+
+.module-number {
+  color: var(--teal);
+}
+
+.module-card h3 {
+  color: var(--navy);
+}
+
+.module-card-arrow {
+  background: var(--success-soft);
+  color: var(--teal);
+  border-radius: 50%;
+}
+
+.module-card:hover .module-card-arrow {
+  background: var(--teal);
+  color: white;
+}
+
+/* ── Quick action cards (index.html) ── */
+.quick-card {
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border);
+}
+
+.quick-card::before {
+  background: var(--teal);
+}
+
+.quick-card:hover {
+  border-color: var(--teal);
+  box-shadow: var(--shadow-soft);
+}
+
+.quick-card-icon {
+  background: var(--success-soft);
+  color: var(--teal);
+  border-radius: var(--radius-sm);
+}
+
+.quick-card.alert .quick-card-icon {
+  background: var(--alert-subtle);
+  color: var(--alert);
+}
+
+/* ── Situation / number cards (notfall + modules) ── */
+.sit-card {
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border);
+}
+
+.sit-card:hover {
+  border-color: var(--teal);
+  box-shadow: var(--shadow-soft);
+}
+
+.sit-badge {
+  background: var(--success-soft);
+  color: var(--teal);
+  border-radius: var(--radius-sm);
+}
+
+.sit-card.urgent .sit-badge {
+  background: var(--alert-subtle);
+  color: var(--alert);
+}
+
+.number-card {
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border);
+}
+
+/* ── Guide / Accordion cards ── */
+.guide {
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border);
+}
+
+.guide-badge {
+  background: var(--success-soft);
+  color: var(--teal);
+  border-radius: var(--radius-sm);
+}
+
+.guide-badge.red {
+  background: var(--alert-soft);
+  color: var(--alert);
+}
+
+.guide-badge.amber {
+  background: var(--amber-bg);
+  color: var(--amber);
+}
+
+.guide-badge.blue {
+  background: var(--blue-phase-light);
+  color: var(--blue-phase);
+}
+
+.guide-title {
+  color: var(--navy);
+}
+
+.guide-chevron {
+  background: var(--success-soft);
+  color: var(--teal);
+  border-radius: 50%;
+}
+
+.guide.open .guide-chevron {
+  background: var(--teal);
+  color: white;
+}
+
+/* ── Next module card ── */
+.next-module {
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border);
+}
+
+.next-module:hover {
+  border-color: var(--teal);
+  box-shadow: var(--shadow-soft);
+}
+
+.next-module-title {
+  color: var(--navy);
+}
+
+.next-module .next-arrow {
+  background: var(--success-soft);
+  color: var(--teal);
+}
+
+/* ── Treatment / handout cards ── */
+.treatment-card,
+.handout-card {
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border);
+}
+
+.treatment-card:hover,
+.handout-card:hover {
+  border-color: var(--teal);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ── PDF preview dialog ── */
+.pdf-preview-dialog {
+  border-radius: var(--card-radius);
+}
+
+.pdf-preview-title {
+  color: var(--navy);
+}
+
+.pdf-preview-close:hover {
+  background: var(--success-soft);
+  color: var(--teal);
+}
+
+/* ── Table of contents card ── */
+.toc {
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border);
+}
+
+.toc a:hover {
+  color: var(--teal);
+}
+
+.toc a.active {
+  color: var(--teal);
+}
+
+.toc a.active::after {
+  background: var(--teal);
+}
+
+/* ── [from overrides.css] TABLES / DATA-GRIDS / BAR CHARTS ── */
+
+/* ── Bar charts (modul/2) ── */
+.bar-track {
+  background: var(--success-soft);
+}
+
+.bar-fill,
+.bar-fill.sage {
+  background: var(--teal);
+}
+
+.bar-fill.warm {
+  background: var(--amber);
+}
+
+.bar-pct {
+  color: var(--teal);
+}
+
+.bar-pct.warm-text {
+  color: var(--amber);
+}
+
+/* ── HTML Tables (striped rows, teal header) ── */
+table,
+.content table,
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+table thead th,
+table th,
+.content table th {
+  background: var(--teal);
+  color: white;
+  border: 1px solid var(--border);
+  font-weight: 700;
+  padding: 0.7rem 0.8rem;
+  font-size: var(--text-xs);
+  text-align: left;
+}
+
+table td,
+.content table td {
+  border: 1px solid var(--border);
+  padding: 0.7rem 0.8rem;
+  color: var(--text);
+}
+
+table tbody tr:nth-child(even),
+.content table tbody tr:nth-child(even) {
+  background: var(--bg);
+}
+
+/* ── Phase explorer / tabs (modul/1) ── */
+.phase-explorer {
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border);
+}
+
+.phase-tab {
+  border-radius: var(--radius-md);
+}
+
+.phase-tab:hover {
+  background: rgba(30,101,109,0.04);
+}
+
+/* Phase-specific active colors (content-semantic, keep distinct) */
+.phase-tab.active-mania {
+  color: var(--amber);
+  border-bottom-color: var(--amber);
+  background: var(--amber-bg);
+}
+
+.phase-tab.active-stable {
+  color: var(--phase-green);
+  border-bottom-color: var(--phase-green);
+  background: var(--success-soft);
+}
+
+.phase-tab.active-depression {
+  color: var(--blue-phase);
+  border-bottom-color: var(--blue-phase);
+  background: var(--blue-phase-light);
+}
+
+/* Symptom cards within phases */
+.symptom-card {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+}
+
+/* ── [from overrides.css] INFO-BOXEN / HIGHLIGHT-BEREICHE ── */
+
+/* ── Quote blocks ── */
+.quote-block {
+  background: var(--surface-alt);
+  border-radius: var(--card-radius);
+  border-left: 4px solid var(--sand-deep);
+}
+
+.quote-block::before {
+  color: var(--sand);
+}
+
+.quote-block blockquote {
+  color: var(--navy);
+  font-size: var(--text-lg);
+}
+
+.quote-block cite {
+  color: var(--text-soft);
+}
+
+/* ── Alert / warning boxes ── */
+.alert-box {
+  background: var(--alert-soft);
+  border: 2px solid var(--alert-red-border);
+  border-radius: var(--card-radius);
+}
+
+.alert-icon {
+  background: var(--alert-subtle);
+  color: var(--alert);
+  border-radius: var(--radius-sm);
+}
+
+.alert-box strong {
+  color: var(--alert);
+}
+
+/* ── Note boxes ── */
+.note-box {
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-border);
+  border-radius: var(--radius-md);
+}
+
+/* ── Notfall-specific: fu-alert ── */
+.fu-alert {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--alert-red-border);
+}
+
+.fu-alert h3 {
+  color: var(--alert);
+}
+
+/* ── Grauzone (notfall page) ── */
+.grauzone {
+  border-radius: var(--card-radius);
+}
+
+.grauzone h3 {
+  color: var(--navy-mid);
+}
+
+/* ── Guide Do/Don't/SOS boxes ── */
+.guide-do {
+  background: var(--success-soft);
+  border: 1px solid var(--teal-light);
+  border-radius: var(--radius-md);
+}
+
+.guide-dont {
+  background: var(--alert-soft);
+  border: 1px solid var(--alert-red-border);
+  border-radius: var(--radius-md);
+}
+
+.guide-sos {
+  background: var(--alert-soft);
+  border: 1px solid var(--alert-red-border);
+  border-radius: var(--radius-md);
+  color: var(--alert);
+}
+
+/* ── Section labels & titles ── */
+.section-label {
+  color: var(--teal);
+}
+
+.section-title {
+  color: var(--navy);
+}
+
+/* ── [from overrides.css] COVERAGE AUDIT FIXES ── */
+
+/* info-box (impressum) */
+.info-box {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--card-radius);
+}
+
+/* pdf-preview-link (notfall, modules) */
+.pdf-preview-link {
+  background: var(--success-soft);
+  color: var(--teal);
+  border-radius: var(--card-radius);
+}
+
+.pdf-preview-link:hover {
+  background: var(--teal);
+  color: white;
+}
+
+/* grauzone-rule (notfall) */
+.grauzone-rule {
+  color: var(--navy);
+}
+
+/* ── Shared border-radius (module page elements) ── */
+.handout-preview,
+.treatment-preview {
+  border-radius: var(--card-radius);
+}
+
+/* ── [from overrides.css] PALETTE ROLLOUT: MODULES ── */
+.module-hero::before,
+.module-hero::after {
+  display: none !important;
+}
+
+.module-hero .hero-icon {
+  color: var(--sand-ink) !important;
+  opacity: 0.75 !important;
+}
+
+/* .module-badge background + color now driven by [data-module-accent] in module.css */
+
+.quote-block cite,
+.quote-block .toc-desc,
+.reflection-label {
+  color: var(--slate) !important;
+}
+
+.quote-block {
+  background: var(--card) !important;
+}
+
+.reflection,
+.reflection-block {
+  background: var(--surface-alt) !important;
+}
+
+.reflection::before,
+.reflection-block::before,
+.reflection-block::after {
+  display: none !important;
+}
+
+.takeaways,
+.key-takeaways {
+  background: var(--navy) !important;
+}
+
+.takeaways::before,
+.key-takeaways::before {
+  display: none !important;
+}
+
+.hdr,
+.tool-header {
+  background: var(--bg) !important;
+  border-color: var(--sand-border) !important;
+}
+
+.hdr::before,
+.tool-header::before {
+  display: none !important;
+}
+
+.tool-glyph {
+  background: var(--navy) !important;
+}
+
+.stelle-badge.beratung,
+.action-icon {
+  color: var(--sand-ink) !important;
+}
+
+.handout-chip {
+  background: var(--card) !important;
+}
+
+/* ── M1 Behandlungs-Akkordeon ── */
+.treatment-details {
+  border: 1px solid var(--line-color, rgba(28,43,58,0.12));
+  border-radius: var(--radius-md, 12px);
+  padding: 0;
+  margin: 1.5rem 0;
+}
+.treatment-details summary {
+  cursor: pointer;
+  padding: 1rem 1.25rem;
+  font-weight: 600;
+  color: var(--navy);
+  font-size: var(--text-base);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.treatment-details summary::before {
+  content: '\25B6';
+  font-size: var(--text-xs);
+  color: var(--teal);
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+.treatment-details[open] summary::before {
+  transform: rotate(90deg);
+}
+.treatment-details > :not(summary) {
+  padding: 0 1.25rem 1.25rem;
+}
+
+/* ── Content Note (informationeller Hinweis, ohne Icon-Spalte) ── */
+.content-note {
+  border-left: 3px solid var(--amber);
+  background: var(--amber-bg);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 14px 20px;
+  margin: var(--space-lg) 0;
+}
+.content-note p {
+  font-size: var(--text-base);
+  color: var(--slate);
+  line-height: 1.75;
+  margin: 0;
 }
