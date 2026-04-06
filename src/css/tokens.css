@@ -42,17 +42,11 @@
   --red-bg:      #FEF2F2;
   --amber-bg:    #fef3e2;
 
-  /* ── Radius Scale (Tarif-Kompass: 6 / 8 / 10 / 12 / 14 / 20) ── */
-  --radius-xs:   6px;
-  --radius-sm:   8px;
-  --radius-md:   10px;
-  --radius-lg:   12px;
-  --radius-xl:   14px;
-  --radius-pill: 20px;
-  --radius-2xl:  24px;
-  --radius-3xl:  32px;
-  --radius-hero: 34px;
-  --radius-round: 100px;
+  /* ── Radius Scale (4 Stufen) ── */
+  --radius-sm:   8px;   /* kleine Elemente: Inputs, Badges, innere Boxen */
+  --radius-md:   12px;  /* Cards, Content-Boxen */
+  --radius-lg:   20px;  /* Hero-Sections, Tool-Sections, große Panels */
+  --radius-pill: 100px; /* Pill-Buttons, runde Badges */
 
   /* ── Shadow Scale ── */
   --shadow-soft:     0 4px 18px rgba(28,43,58,0.05);

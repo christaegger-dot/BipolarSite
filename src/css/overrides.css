@@ -13,7 +13,7 @@
   left: 16px;
   z-index: 1200;
   padding: 10px 14px;
-  border-radius: 10px;
+  border-radius: var(--radius-sm);
   background: var(--navy);
   color: #fff;
   text-decoration: none;
@@ -296,7 +296,7 @@ h1, h2, h3, h4 {
   background: rgba(254,252,248,0.98);
   border-color: var(--border-warm-md);
   box-shadow: 0 12px 30px rgba(45,40,35,0.14);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
 }
 
 .nav-links.nav-open a {
@@ -336,7 +336,7 @@ h1, h2, h3, h4 {
 .hero-badge {
   background: var(--teal) !important;
   color: white !important;
-  border-radius: var(--radius-pill) !important;
+  border-radius: var(--radius-lg) !important;
 }
 
 .hero-badge::before {
@@ -379,7 +379,7 @@ h1, h2, h3, h4 {
 }
 
 .module-badge {
-  border-radius: var(--radius-pill) !important;
+  border-radius: var(--radius-lg) !important;
   /* background + color now set per-module via [data-module-accent] in module.css */
 }
 
@@ -420,7 +420,7 @@ header.hero[style*="linear-gradient"] {
 
 /* ── Module cards (index.html grid) ── */
 .module-card {
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-soft);
   padding: var(--space-lg);
@@ -456,7 +456,7 @@ header.hero[style*="linear-gradient"] {
 
 /* ── Quick action cards (index.html) ── */
 .quick-card {
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-soft);
 }
@@ -483,7 +483,7 @@ header.hero[style*="linear-gradient"] {
 
 /* ── Situation / number cards (notfall + modules) ── */
 .sit-card {
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   border: 1px solid var(--border);
 }
 
@@ -504,13 +504,13 @@ header.hero[style*="linear-gradient"] {
 }
 
 .number-card {
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   border: 1px solid var(--border);
 }
 
 /* ── Guide / Accordion cards ── */
 .guide {
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-soft);
 }
@@ -553,7 +553,7 @@ header.hero[style*="linear-gradient"] {
 
 /* ── Next module card ── */
 .next-module {
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   border: 1px solid var(--border);
 }
 
@@ -571,10 +571,10 @@ header.hero[style*="linear-gradient"] {
   color: var(--teal);
 }
 
-/* ── Tool page cards (hardcoded border-radius:22px) ── */
+/* ── Tool page cards ── */
 .card,
 .wrap .card {
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-soft);
 }
@@ -582,7 +582,7 @@ header.hero[style*="linear-gradient"] {
 /* ── Treatment / handout cards ── */
 .treatment-card,
 .handout-card {
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   border: 1px solid var(--border);
 }
 
@@ -594,7 +594,7 @@ header.hero[style*="linear-gradient"] {
 
 /* ── Detail cards (tool results) ── */
 .detail {
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   border: 1px solid var(--border);
 }
 
@@ -605,7 +605,7 @@ header.hero[style*="linear-gradient"] {
 
 /* ── PDF preview dialog ── */
 .pdf-preview-dialog {
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
 }
 
 .pdf-preview-title {
@@ -619,7 +619,7 @@ header.hero[style*="linear-gradient"] {
 
 /* ── Table of contents card ── */
 .toc {
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-soft);
 }
@@ -636,9 +636,9 @@ header.hero[style*="linear-gradient"] {
   background: var(--teal);
 }
 
-/* ── Res cards in tools (hardcoded border-radius:22px) ── */
+/* ── Res cards in tools ── */
 .res-card {
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   border: 1px solid var(--border);
 }
 
@@ -680,7 +680,7 @@ article table {
   border-collapse: collapse;
   border: 1px solid var(--border);
   background: var(--card);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   overflow: hidden;
 }
 
@@ -710,13 +710,13 @@ table tbody tr:nth-child(even),
 
 /* ── Phase explorer / tabs (modul/1) ── */
 .phase-explorer {
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-soft);
 }
 
 .phase-tab {
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
 }
 
 .phase-tab:hover {
@@ -744,7 +744,7 @@ table tbody tr:nth-child(even),
 
 /* Symptom cards within phases */
 .symptom-card {
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   border: 1px solid var(--border);
 }
 
@@ -766,7 +766,7 @@ table tbody tr:nth-child(even),
 /* ── Eisberg tool sections ── */
 .eisberg-section,
 .iceberg {
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
 }
 
 .eisberg-top {
@@ -774,7 +774,7 @@ table tbody tr:nth-child(even),
 }
 
 .eisberg-tag {
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
 }
 
 .eisberg-tag.active {
@@ -785,14 +785,14 @@ table tbody tr:nth-child(even),
 
 /* Tool progress (hardcoded gradient) */
 .prog {
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   background: var(--green-bg);
 }
 
 .prog div,
 .prog-fill {
   background: linear-gradient(90deg, var(--teal), var(--teal-light));
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
 }
 
 /* ── Stat numbers ── */
@@ -814,7 +814,7 @@ table tbody tr:nth-child(even),
 /* ── Quote blocks ── */
 .quote-block {
   background: var(--surface-warm);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   border-left: 4px solid var(--sand-deep);
 }
 
@@ -835,7 +835,7 @@ table tbody tr:nth-child(even),
 .reflection-block,
 .refl {
   background: linear-gradient(135deg, var(--green-bg), var(--surface-warm));
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
 }
 
 .reflection-block::after,
@@ -858,7 +858,7 @@ table tbody tr:nth-child(even),
 /* ── Key takeaways (dark section) ── */
 .key-takeaways {
   background: var(--navy);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
 }
 
 .key-takeaways::before {
@@ -882,7 +882,7 @@ table tbody tr:nth-child(even),
 .alert-box {
   background: var(--red-bg);
   border: 2px solid var(--alert-red-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
 }
 
 .alert-icon {
@@ -899,12 +899,12 @@ table tbody tr:nth-child(even),
 .note-box {
   background: var(--amber-bg);
   border: 1px solid var(--amber-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
 }
 
 /* ── Notfall-specific: fu-alert ── */
 .fu-alert {
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   border: 1px solid var(--alert-red-border);
 }
 
@@ -914,7 +914,7 @@ table tbody tr:nth-child(even),
 
 /* ── Grauzone (notfall page) ── */
 .grauzone {
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
 }
 
 .grauzone h3 {
@@ -925,19 +925,19 @@ table tbody tr:nth-child(even),
 .guide-do {
   background: var(--green-bg);
   border: 1px solid var(--teal-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
 }
 
 .guide-dont {
   background: var(--red-bg);
   border: 1px solid var(--alert-red-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
 }
 
 .guide-sos {
   background: var(--alert-red-bg);
   border: 1px solid var(--alert-red-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   color: var(--alert-red);
 }
 
@@ -1036,7 +1036,7 @@ section,
 .btn-save {
   background: var(--teal);
   color: white;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-lg);
   border: none;
   box-shadow: 0 4px 16px rgba(0,0,0,0.15);
   min-height: 44px;
@@ -1057,7 +1057,7 @@ section,
   background: white;
   border: 1px solid var(--border);
   color: var(--slate);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   min-height: 44px;
 }
 
@@ -1072,7 +1072,7 @@ section,
 .opt,
 .opt-btn {
   border: 1.5px solid var(--border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   background: white;
   color: var(--navy);
   min-height: 44px;
@@ -1112,7 +1112,7 @@ section,
 .submit {
   background: var(--teal);
   color: white;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
 }
 
 .submit:hover {
@@ -1270,7 +1270,7 @@ footer.tf a[href="/notfall/"] {
 *:focus-visible {
   outline: 2px solid var(--teal);
   outline-offset: 2px;
-  border-radius: var(--radius-xs);
+  border-radius: var(--radius-sm);
 }
 
 .skip-link {
@@ -1351,7 +1351,7 @@ footer a:visited {
   background: white;
   border: 1px solid var(--border);
   color: var(--slate);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
 }
 
 .btn-print:hover {
@@ -1365,7 +1365,7 @@ footer a:visited {
   background: white;
   border: 1px solid var(--border);
   color: var(--teal);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
 }
 
 .btn-reset:hover {
@@ -1390,7 +1390,7 @@ footer a:visited {
 /* ep-btn (solidaritaets-chart) */
 .ep-btn {
   border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   color: var(--navy);
 }
 
@@ -1403,14 +1403,14 @@ footer a:visited {
 .chart-wrap {
   border: 1px solid var(--border);
   box-shadow: var(--shadow-soft);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
 }
 
 /* pc cards (saeulen-check) */
 .pc {
   border: 1px solid var(--border);
   box-shadow: var(--shadow-soft);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
 }
 
 /* tool-header h1 (eisberg) */
@@ -1425,14 +1425,14 @@ footer a:visited {
 .info-box {
   background: var(--bg);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
 }
 
 /* pdf-preview-link (notfall, modules) */
 .pdf-preview-link {
   background: var(--green-bg);
   color: var(--teal);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
 }
 
 .pdf-preview-link:hover {
@@ -1508,7 +1508,7 @@ body:not(.dark-tool) .tool-nav .tool-brand {
 .dcl,
 .handout-preview,
 .treatment-preview {
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
 }
 
 /* ── Remaining warm-rgba borders on uncovered tool components ── */
@@ -1617,7 +1617,7 @@ header.hero .hero-content {
   font-size: var(--text-base);
   font-weight: 500;
   padding: 10px 22px;
-  border-radius: var(--radius-round);
+  border-radius: var(--radius-pill);
   transition: all 0.2s ease;
   margin-top: 1.5rem;
 }
@@ -1760,7 +1760,7 @@ header.hero .hero-content {
   min-height: 44px;
   background: white;
   border: 1px solid var(--border);
-  border-radius: var(--radius-round);
+  border-radius: var(--radius-pill);
   text-decoration: none;
   color: var(--navy);
   font-size: var(--text-base);
@@ -1863,7 +1863,7 @@ header.hero .hero-content {
 /* ── M1 Behandlungs-Akkordeon ── */
 .treatment-details {
   border: 1px solid var(--line-color, rgba(28,43,58,0.12));
-  border-radius: var(--radius-md, 12px);
+  border-radius: var(--radius-sm, 8px);
   padding: 0;
   margin: 1.5rem 0;
 }
