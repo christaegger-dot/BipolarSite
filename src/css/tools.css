@@ -99,7 +99,7 @@ body.tool-page {
 
 /* ── Footer Tag ── */
 .tf {
-  text-align: center; font-size: var(--text-xs); color: var(--teal-light);
+  text-align: center; font-size: var(--text-xs); color: var(--sand-deep);
   margin-top: 28px; line-height: 1.5;
 }
 

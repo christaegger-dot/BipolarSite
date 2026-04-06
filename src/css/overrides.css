@@ -107,7 +107,7 @@ body:not(.dark-tool) .tool-brand,
 /* Badges with hardcoded #eaede4 bg / #3d4a30 text */
 .badge {
   background: var(--green-bg) !important;
-  color: var(--teal) !important;
+  color: var(--navy-mid) !important;
 }
 
 /* Input focus states (hardcoded sage colors) */
