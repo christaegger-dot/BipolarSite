@@ -45,7 +45,6 @@ const A=[...V,...I];let aid=null;const rev=new Set();
 const AMap=new Map(A.map(i=>[i.id,i]));
 const ISet=new Set(I.map(i=>i.id));
 // Pre-compute animation delays once so they don't re-randomise on every render
-const Vdelays=V.map(()=>(Math.random()*2).toFixed(1));
 // Cache DOM references used on every render
 const elTv=document.getElementById('tv');
 const elTi=document.getElementById('ti');
@@ -55,7 +54,7 @@ const elDc=document.getElementById('dc');
 const elRefl=document.getElementById('refl');
 function ck(id){aid=aid===id?null:id;rev.add(id);rn();}
 function rn(){
-  elTv.innerHTML=V.map((i,idx)=>`<button class="tag tv${aid===i.id?' on':''}" data-id="${i.id}" style="animation-delay:${Vdelays[idx]}s">${i.l}</button>`).join('');
+  elTv.innerHTML=V.map((i,idx)=>`<button class="tag tv${aid===i.id?' on':''}" data-id="${i.id}">${i.l}</button>`).join('');
   elTi.innerHTML=I.map(i=>{let c='tag ti';if(aid===i.id)c+=' on';else if(rev.has(i.id))c+=' rev';return`<button class="${c}" data-id="${i.id}">${i.l}</button>`}).join('');
   const rc=[...rev].filter(id=>ISet.has(id)).length;
   elCtr.textContent=rc>0?`${rc} von ${I.length} aufgedeckt`:'';
