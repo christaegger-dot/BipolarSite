@@ -208,6 +208,64 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     opacity: 1;
   }
 
+  /* ══════════ ENTRY PATHS ══════════ */
+  .home-hero-paths {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 1.75rem;
+    max-width: 540px;
+  }
+
+  .home-hero-path {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 16px 14px;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    border: 1px solid var(--border-warm);
+    background: rgba(255,255,255,0.7);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  }
+
+  .home-hero-path:hover {
+    box-shadow: var(--shadow-card);
+    border-color: var(--teal-light);
+    transform: translateY(-2px);
+  }
+
+  .home-hero-path-icon {
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+
+  .home-hero-path-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.3;
+  }
+
+  .home-hero-path-desc {
+    font-size: 0.72rem;
+    color: var(--text-soft);
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .home-hero-path--crisis {
+    border-color: var(--alert-red-border);
+    background: linear-gradient(135deg, rgba(199,84,80,0.04), rgba(255,255,255,0.8));
+  }
+
+  .home-hero-path--crisis:hover {
+    border-color: var(--alert-red);
+  }
+
+  .home-hero-path--crisis .home-hero-path-title {
+    color: var(--alert-red);
+  }
 
   /* ══════════ SECTION GENERIC ══════════ */
   section {
@@ -383,16 +441,19 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     .home-hero-text { padding: 0; max-width: 100%; }
     .home-hero-meta { max-width: 100%; }
     .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+    .home-hero-paths { grid-template-columns: 1fr; max-width: 100%; }
     .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
   }
-  
-
 
   @media (max-width: 600px) {
     .home-hero { padding: 100px 1.2rem 48px; min-height: auto; }
     .home-hero h1 { font-size: 2rem; margin-bottom: 1rem; }
     .home-hero-subtitle { margin-bottom: 1.5rem; }
     .home-hero-badge { font-size: 0.65rem; margin-bottom: 1rem; }
+    .home-hero-paths { gap: 10px; margin-top: 1.25rem; }
+    .home-hero-path { padding: 14px 12px; flex-direction: row; align-items: center; gap: 12px; }
+    .home-hero-path-icon { font-size: 1.1rem; flex-shrink: 0; }
+    .home-hero-path-desc { display: none; }
     .urgent-note { padding: 20px 18px; }
     section { padding: 50px 1.2rem; }
     /* .modules-grid responsive → shared.css */
@@ -610,10 +671,34 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
         <div class="home-hero-badge">Psychiatrische Universitätsklinik Zürich · Fachstelle Angehörigenarbeit</div>
         <h1>Als Angehörige*r von Menschen mit <em>bipolarer Störung</em></h1>
         <p class="home-hero-subtitle">Sie müssen hier nicht alles auf einmal verstehen. Diese Website hilft Ihnen, Ihre Lage einzuordnen und den Einstieg zu wählen, der im Moment am ehesten passt.</p>
-        <a href="#orientierung" class="home-hero-link">Zur Orientierung ↓</a>
+        <a href="/modul/1/" class="home-hero-link">Jetzt starten: Modul 1 lesen →</a>
+
+        <nav class="home-hero-paths" aria-label="Einstiegspfade">
+          <a href="/notfall/" class="home-hero-path home-hero-path--crisis">
+            <span class="home-hero-path-icon" aria-hidden="true">🆘</span>
+            <div>
+              <span class="home-hero-path-title">Ich bin gerade in einer Krise</span>
+              <p class="home-hero-path-desc">Sofort-Hilfe und Notfallnummern</p>
+            </div>
+          </a>
+          <a href="/modul/1/" class="home-hero-path">
+            <span class="home-hero-path-icon" aria-hidden="true">📖</span>
+            <div>
+              <span class="home-hero-path-title">Ich möchte die Krankheit verstehen</span>
+              <p class="home-hero-path-desc">Grundlagen, Phasen und Behandlung</p>
+            </div>
+          </a>
+          <a href="/tools/" class="home-hero-path">
+            <span class="home-hero-path-icon" aria-hidden="true">🛠️</span>
+            <div>
+              <span class="home-hero-path-title">Ich suche praktische Werkzeuge</span>
+              <p class="home-hero-path-desc">Krisenplan, Selbsttest und mehr</p>
+            </div>
+          </a>
+        </nav>
+
         <div class="home-hero-meta">
           <p><strong>Für Partner*innen, Eltern, Geschwister und erwachsene Kinder.</strong> Sie dürfen hier von Ihrer eigenen Lage ausgehen, nicht nur von der erkrankten Person.</p>
-          <a href="/notfall/" class="home-hero-emergency-link">Wenn es akut sein könnte: direkt zum Notfallweg</a>
         </div>
       </div>
       <div class="home-hero-visual-card">
