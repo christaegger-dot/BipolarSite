@@ -617,10 +617,10 @@
 </div></footer>
 
 <script>
-  const nav=document.getElementById('navbar');window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>20));
+  const nav=document.getElementById('navbar');if(nav)window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>20));
   const navToggle=document.querySelector('.nav-toggle');const navLinks=document.getElementById('primary-nav');
   if(navToggle&&navLinks){const closeNav=()=>{navLinks.classList.remove('nav-open');navToggle.setAttribute('aria-expanded','false');navToggle.setAttribute('aria-label','Menü öffnen')};navToggle.addEventListener('click',()=>{const isOpen=navLinks.classList.toggle('nav-open');navToggle.setAttribute('aria-expanded',isOpen?'true':'false');navToggle.setAttribute('aria-label',isOpen?'Menü schliessen':'Menü öffnen')});navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeNav));document.addEventListener('keydown',e=>{if(e.key==='Escape')closeNav()});document.addEventListener('click',e=>{if(!nav.contains(e.target))closeNav()});window.addEventListener('resize',()=>{if(window.innerWidth>900)closeNav()})}
-  const pb=document.getElementById('readingProgress');window.addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-window.innerHeight;pb.style.width=h>0?(window.scrollY/h*100)+'%':'0%'});
+  const pb=document.getElementById('readingProgress');if(pb)window.addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-window.innerHeight;pb.style.width=h>0?(window.scrollY/h*100)+'%':'0%'});
   const tocLinks=document.querySelectorAll('.toc a[href^="#"]');const tocSections=Array.from(tocLinks).map(a=>{const id=a.getAttribute('href').slice(1);return{link:a,el:document.getElementById(id)}}).filter(s=>s.el);const tocObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){tocLinks.forEach(l=>l.classList.remove('active'));const match=tocSections.find(s=>s.el===e.target);if(match)match.link.classList.add('active')}})},{threshold:0.1,rootMargin:'-100px 0px -60% 0px'});tocSections.forEach(s=>tocObs.observe(s.el));
   document.querySelectorAll('[data-sources-toggle]').forEach(button=>{button.addEventListener('click',()=>{const section=button.parentElement;const isOpen=section.classList.toggle('sources-open');button.setAttribute('aria-expanded',isOpen?'true':'false');});});
 </script>

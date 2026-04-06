@@ -1081,11 +1081,11 @@
     document.addEventListener('click', (event) => { if (!nav.contains(event.target)) closeNav(); });
     window.addEventListener('resize', () => { if (window.innerWidth > 900) closeNav(); });
   }
-  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
+  if (nav) window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
 
   // Reading progress
   const progressBar = document.getElementById('readingProgress');
-  window.addEventListener('scroll', () => {
+  if (progressBar) window.addEventListener('scroll', () => {
     const h = document.documentElement.scrollHeight - window.innerHeight;
     progressBar.style.width = h > 0 ? (window.scrollY / h * 100) + '%' : '0%';
   });
@@ -1112,13 +1112,15 @@
   }
 
   // Phase tabs — event delegation, no inline handlers
-  document.querySelector('.phase-tabs').addEventListener('click', e => {
+  const phaseTabs = document.querySelector('.phase-tabs');
+  if (phaseTabs) phaseTabs.addEventListener('click', e => {
     const btn = e.target.closest('.phase-tab[data-phase]');
     if (btn) showPhase(btn.dataset.phase);
   });
 
   // Accordion — event delegation, no inline handlers
-  document.querySelector('.accordion-group').addEventListener('click', e => {
+  const accordionGroup = document.querySelector('.accordion-group');
+  if (accordionGroup) accordionGroup.addEventListener('click', e => {
     const btn = e.target.closest('.accordion-header');
     if (btn) toggleAccordion(btn);
   });
@@ -1148,43 +1150,45 @@
   const pdfPreviewClose = document.getElementById('pdf-preview-close');
   let pdfPreviewTrigger = null;
 
-  const getPdfTitle = (link) => {
-    const scopedTitle = link.querySelector('.handout-card-title, .hc-title, .guide-title');
-    if (scopedTitle) return scopedTitle.textContent.trim();
-    return link.textContent.replace(/\s+/g, ' ').replace(/^↓\s*PDF:\s*/i, '').trim() || 'PDF-Vorschau';
-  };
+  if (pdfPreview && pdfPreviewFrame && pdfPreviewTitle && pdfPreviewOpen && pdfPreviewDownload && pdfPreviewClose) {
+    const getPdfTitle = (link) => {
+      const scopedTitle = link.querySelector('.handout-card-title, .hc-title, .guide-title');
+      if (scopedTitle) return scopedTitle.textContent.trim();
+      return link.textContent.replace(/\s+/g, ' ').replace(/^↓\s*PDF:\s*/i, '').trim() || 'PDF-Vorschau';
+    };
 
-  const closePdfPreview = () => {
-    pdfPreview.hidden = true;
-    document.body.classList.remove('pdf-preview-open');
-    pdfPreviewFrame.src = 'about:blank';
-    if (pdfPreviewTrigger) pdfPreviewTrigger.focus();
-  };
+    const closePdfPreview = () => {
+      pdfPreview.hidden = true;
+      document.body.classList.remove('pdf-preview-open');
+      pdfPreviewFrame.src = 'about:blank';
+      if (pdfPreviewTrigger) pdfPreviewTrigger.focus();
+    };
 
-  document.querySelectorAll('a[href$=".pdf"]').forEach((link) => {
-    const href = link.getAttribute('href');
-    if (!href || !href.startsWith('/')) return;
-    link.addEventListener('click', (event) => {
-      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-      event.preventDefault();
-      pdfPreviewTrigger = link;
-      pdfPreviewTitle.textContent = getPdfTitle(link);
-      pdfPreviewFrame.src = `${href}#view=FitH`;
-      pdfPreviewOpen.href = href;
-      pdfPreviewDownload.href = href;
-      pdfPreview.hidden = false;
-      document.body.classList.add('pdf-preview-open');
-      pdfPreviewClose.focus();
+    document.querySelectorAll('a[href$=".pdf"]').forEach((link) => {
+      const href = link.getAttribute('href');
+      if (!href || !href.startsWith('/')) return;
+      link.addEventListener('click', (event) => {
+        if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        pdfPreviewTrigger = link;
+        pdfPreviewTitle.textContent = getPdfTitle(link);
+        pdfPreviewFrame.src = `${href}#view=FitH`;
+        pdfPreviewOpen.href = href;
+        pdfPreviewDownload.href = href;
+        pdfPreview.hidden = false;
+        document.body.classList.add('pdf-preview-open');
+        pdfPreviewClose.focus();
+      });
     });
-  });
 
-  pdfPreviewClose.addEventListener('click', closePdfPreview);
-  pdfPreview.addEventListener('click', (event) => {
-    if (event.target === pdfPreview) closePdfPreview();
-  });
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && !pdfPreview.hidden) closePdfPreview();
-  });
+    pdfPreviewClose.addEventListener('click', closePdfPreview);
+    pdfPreview.addEventListener('click', (event) => {
+      if (event.target === pdfPreview) closePdfPreview();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !pdfPreview.hidden) closePdfPreview();
+    });
+  }
 </script>
 
 </body>

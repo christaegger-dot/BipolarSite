@@ -393,31 +393,33 @@ function selectPhase(phase) {
 
   // Render detail card
   const card = document.getElementById('detailCard');
-  card.style.borderLeftColor = d.color;
-  card.innerHTML = `
-    <div class="det-top">
-      <div class="det-icon" style="background:${d.bg}">${d.name === 'Manie' ? '↑↑' : d.name === 'Hypomanie' ? '↑' : d.name.includes('Stabil') ? '→' : d.name.includes('Schwere') ? '↓↓' : '↓'}</div>
-      <div>
-        <div class="det-phase-name" style="color:${d.color}">${d.name}</div>
-        <div class="det-title">${d.subtitle}</div>
+  if (card) {
+    card.style.borderLeftColor = d.color;
+    card.innerHTML = `
+      <div class="det-top">
+        <div class="det-icon" style="background:${d.bg}">${d.name === 'Manie' ? '↑↑' : d.name === 'Hypomanie' ? '↑' : d.name.includes('Stabil') ? '→' : d.name.includes('Schwere') ? '↓↓' : '↓'}</div>
+        <div>
+          <div class="det-phase-name" style="color:${d.color}">${d.name}</div>
+          <div class="det-title">${d.subtitle}</div>
+        </div>
       </div>
-    </div>
-    <div class="det-dur">⏱ ${d.duration}</div>
-    <div class="det-cols">
-      <div class="det-col" style="background:${d.bg};border-color:${d.color}">
-        <div class="det-col-lbl" style="color:${d.color}">Für die betroffene Person</div>
-        <ul>${d.person.map(i => `<li>${i}</li>`).join('')}</ul>
+      <div class="det-dur">⏱ ${d.duration}</div>
+      <div class="det-cols">
+        <div class="det-col" style="background:${d.bg};border-color:${d.color}">
+          <div class="det-col-lbl" style="color:${d.color}">Für die betroffene Person</div>
+          <ul>${d.person.map(i => `<li>${i}</li>`).join('')}</ul>
+        </div>
+        <div class="det-col" style="background:var(--caregiver-col-bg);border-color:var(--teal-light)">
+          <div class="det-col-lbl" style="color:var(--slate)">Für Angehörige</div>
+          <ul>${d.caregiver.map(i => `<li>${i}</li>`).join('')}</ul>
+        </div>
       </div>
-      <div class="det-col" style="background:var(--caregiver-col-bg);border-color:var(--teal-light)">
-        <div class="det-col-lbl" style="color:var(--slate)">Für Angehörige</div>
-        <ul>${d.caregiver.map(i => `<li>${i}</li>`).join('')}</ul>
-      </div>
-    </div>
-    <div class="det-note" style="background:${d.bg}">${d.note}</div>
-  `;
-  card.classList.add('vis');
-  // Scroll card into view
-  setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
+      <div class="det-note" style="background:${d.bg}">${d.note}</div>
+    `;
+    card.classList.add('vis');
+    // Scroll card into view
+    setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
+  }
 }
 
 // Wave animation on load
@@ -460,7 +462,8 @@ document.querySelectorAll('.zone-hit, .wpt').forEach(el => {
 });
 
 // Phase selector buttons — event delegation, no inline handlers
-document.querySelector('.phase-btns').addEventListener('click', e => {
+const phaseBtns = document.querySelector('.phase-btns');
+if (phaseBtns) phaseBtns.addEventListener('click', e => {
   const btn = e.target.closest('.pbtn[data-phase]');
   if (btn) selectPhase(btn.dataset.phase);
 });
