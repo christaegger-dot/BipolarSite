@@ -15,6 +15,7 @@ bodyClass: "dark-tool"
 body{font-family:'DM Sans',sans-serif;color:rgba(255,255,255,0.88);background:#1a2332;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;-webkit-font-smoothing:antialiased;overflow:hidden}
 .tool-nav{background:rgba(26,35,50,0.9);border-bottom:1px solid rgba(255,255,255,0.06)}
 .tool-back{color:rgba(255,255,255,0.5)}.tool-brand{color:rgba(255,255,255,0.6)}
+.tool-breadcrumb a{color:rgba(141,212,217,0.7)}.tool-breadcrumb{color:rgba(255,255,255,0.4)}.tool-breadcrumb .sep{opacity:0.4}
 .breathe-wrap{width:100%;max-width:480px;text-align:center;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .breathe-title{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.4rem,3.5vw,1.8rem);font-weight:600;color:#fff;margin-bottom:8px}
 .breathe-sub{font-size:0.88rem;color:rgba(255,255,255,0.5);margin-bottom:40px;line-height:1.55}
@@ -41,6 +42,7 @@ body{font-family:'DM Sans',sans-serif;color:rgba(255,255,255,0.88);background:#1
 {% endblock %}
 {% block content %}
 <main class="breathe-wrap" id="main-content">
+  <div class="tool-breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><a href="/werkzeuge/">Werkzeuge</a><span class="sep" aria-hidden="true">›</span><span>Durchatmen</span></div>
   <h1 class="breathe-title">Einen Moment.</h1>
   <p class="breathe-sub">Sie müssen gerade nichts entscheiden. Atmen Sie erst.</p>
 
