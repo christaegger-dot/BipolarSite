@@ -469,7 +469,7 @@ body.selbsttest-page .card.result--green .res-score span,body.selbsttest-page .c
 body.selbsttest-page .card.result--green .bar-dot{border-color:var(--phase-green)}
 body.selbsttest-page .card.result--green .rec{background:var(--success-soft);border-color:var(--phase-green)}
 body.selbsttest-page .card.result--green .rec-title,body.selbsttest-page .card.result--green .rec-item::before{color:var(--phase-green)}
-body.selbsttest-page .card.result--amber .res-score{background:var(--amber-bg);border:2px solid var(--amber-phase-border)}
+body.selbsttest-page .card.result--amber .res-score{background:var(--amber-bg);border:2px solid var(--amber-border)}
 body.selbsttest-page .card.result--amber .res-score span,body.selbsttest-page .card.result--amber .res-level{color:var(--amber)}
 body.selbsttest-page .card.result--amber .bar-dot{border-color:var(--amber)}
 body.selbsttest-page .card.result--amber .rec{background:var(--amber-bg);border-color:var(--amber)}

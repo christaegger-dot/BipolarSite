@@ -97,7 +97,7 @@
   /* Sage → Teal/Navy (var() refs to avoid value duplication) */
   --sage-50:  var(--success-soft);
   --sage-100: var(--success-soft);
-  --sage-200: var(--teal-border);
+  --sage-200: var(--teal-light);
   --sage-300: var(--teal-light);
   --sage-400: var(--teal);
   --sage-500: var(--teal);
@@ -134,14 +134,10 @@
   --blue-phase:       #5b7fa5;
   --blue-phase-light: #eef3f8;
   --amber-phase:      #B45309;
-  --amber-phase-light:#fef3e2;
-  --phase-green:      #0d7a5f;
-  --phase-green-light:#e6f4f2;
   /* Phase-specific bg/border values (used in phasenverlauf + selbsttest JS) */
   --mania-phase-bg:          #fff3e0;
   --mania-phase-border:      #f0c070;
   --hypo-phase-bg:           #fff9f0;
-  --amber-phase-border:      #e8c68a;
   --mild-dep-phase-border:   #c5d5e8;
   --severe-dep-phase-bg:     #e4eaf2;
   --severe-dep-phase-border: #8899aa;
@@ -152,7 +148,6 @@
   /* Derived tokens (used for hover-dark states, borders) */
   --teal-dark:     #1a5960;
   --amber-border:  #e8c68a;
-  --teal-border:   #a7d9d5;
 }
 
 
@@ -887,13 +882,13 @@ table tbody tr:nth-child(even),
 .phase-tab.active-mania {
   color: var(--amber-phase) !important;
   border-bottom-color: var(--amber-phase) !important;
-  background: var(--amber-phase-light) !important;
+  background: var(--amber-bg) !important;
 }
 
 .phase-tab.active-stable {
   color: var(--phase-green) !important;
   border-bottom-color: var(--phase-green) !important;
-  background: var(--phase-green-light) !important;
+  background: var(--success-soft) !important;
 }
 
 .phase-tab.active-depression {
@@ -1094,7 +1089,7 @@ table tbody tr:nth-child(even),
 /* ── Guide Do/Don't/SOS boxes ── */
 .guide-do {
   background: var(--success-soft) !important;
-  border: 1px solid var(--teal-border) !important;
+  border: 1px solid var(--teal-light) !important;
   border-radius: var(--radius-md) !important;
 }
 
