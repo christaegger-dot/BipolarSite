@@ -47,17 +47,16 @@
   --red-bg:      #FEF2F2;
   --amber-bg:    #fef3e2;
 
-  /* ── Radius Scale (simplified: 4 core steps + pill) ── */
-  --radius-xs:   6px;   /* legacy alias */
-  --radius-sm:   8px;   /* small UI: badges, icons, buttons */
-  --radius-md:   12px;  /* cards, inputs, accordions */
-  --radius-lg:   12px;  /* alias → same as md (was 12px) */
-  --radius-xl:   20px;  /* hero sections, tool wrappers, large panels */
-  --radius-pill: 20px;  /* legacy alias → xl */
-  --radius-2xl:  20px;  /* legacy alias → xl */
-  --radius-3xl:  20px;  /* legacy alias → xl */
-  --radius-hero: 20px;  /* legacy alias → xl */
-  --radius-round: 100px; /* pill buttons, full-round badges */
+  /* ── Radius Scale ──
+     4 semantic steps — use these in all new code.
+     sm → small UI (badges, icons, buttons, inputs)
+     md → medium containers (cards, accordions, detail columns)
+     lg → large panels (hero headers, tool wrappers, sections)
+     round → pills & full-round badges                         */
+  --radius-sm:    8px;
+  --radius-md:   12px;
+  --radius-lg:   20px;
+  --radius-round:100px;
 
   /* ── Shadow Scale ── */
   --shadow-soft:     0 4px 18px rgba(28,43,58,0.05);

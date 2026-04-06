@@ -1,0 +1,109 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   PRINT STYLESHEET — BipolarSite
+   ───────────────────────────────────────────────────────────────────────
+   Loaded via media="print" — only applies when printing.
+   Medical information site: prioritise readable, ink-friendly output.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@media print {
+
+  /* ── Hide non-content chrome ── */
+  #navbar,
+  .tool-nav,
+  footer,
+  .skip-link,
+  .scroll-top,
+  .cookie-banner,
+  .hero-badge,
+  .module-badge,
+  nav {
+    display: none !important;
+  }
+
+  /* ── Reset backgrounds & shadows ── */
+  body,
+  main,
+  .content,
+  .module-card,
+  .quick-card,
+  .sit-card,
+  .number-card,
+  .guide,
+  .next-module,
+  .treatment-card,
+  .handout-card,
+  .alert-box,
+  .quote-block,
+  .reflection-block,
+  .toc {
+    background: #fff !important;
+    box-shadow: none !important;
+    color: #000 !important;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ── Typography for print ── */
+  h1, h2, h3, h4 {
+    color: #000 !important;
+    page-break-after: avoid;
+  }
+
+  p, li, blockquote {
+    orphans: 3;
+    widows: 3;
+  }
+
+  img, figure, .iceberg, .chart-wrap {
+    page-break-inside: avoid;
+    max-width: 100% !important;
+  }
+
+  /* ── Show link URLs ── */
+  .content a[href^="http"]::after,
+  main a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    font-weight: normal;
+    color: #555;
+    word-break: break-all;
+  }
+
+  /* Don't annotate internal or anchor links */
+  a[href^="#"]::after,
+  a[href^="/"]::after,
+  .nav-links a::after {
+    content: none !important;
+  }
+
+  /* ── Reveal hidden content ── */
+  .reveal,
+  .no-js .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* ── Borders instead of shadows for cards ── */
+  .module-card,
+  .quick-card,
+  .sit-card,
+  .guide,
+  .alert-box {
+    border: 1px solid #ccc !important;
+  }
+
+  /* ── Remove noise texture ── */
+  body::before {
+    display: none !important;
+  }
+
+  /* ── Page margins ── */
+  @page {
+    margin: 2cm;
+  }
+}
