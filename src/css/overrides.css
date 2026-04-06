@@ -237,7 +237,7 @@ h1, h2, h3, h4 {
 .hero-badge {
   background: var(--teal) !important;
   color: white !important;
-  border-radius: var(--radius-pill) !important;
+  border-radius: var(--radius-round) !important;
 }
 
 .hero-badge::before {
@@ -271,7 +271,7 @@ h1, h2, h3, h4 {
 }
 
 .module-badge {
-  border-radius: var(--radius-pill) !important;
+  border-radius: var(--radius-round) !important;
   /* background + color now set per-module via [data-module-accent] in module.css */
 }
 
@@ -769,7 +769,7 @@ section,
 .cta-btn {
   background: var(--teal);
   color: white;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-round);
   border: none;
   box-shadow: 0 4px 16px rgba(0,0,0,0.15);
   min-height: 44px;
