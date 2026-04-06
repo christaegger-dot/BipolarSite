@@ -193,6 +193,10 @@
   --teal-subtle: rgba(30,101,109,0.1);
   --teal-muted:  rgba(30,101,109,0.2);
   --teal-accent-light: #8dd4d9;
+  --teal-accent-20:  rgba(141,212,217,0.2);
+  --teal-accent-30:  rgba(141,212,217,0.3);
+  --teal-accent-40:  rgba(141,212,217,0.4);
+  --teal-accent-60:  rgba(141,212,217,0.6);
 
   /* ── Dark Tool Theme (Durchatmen) ── */
   --dark-bg:       #1a2332;

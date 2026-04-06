@@ -52,13 +52,24 @@ breadcrumbs:
 {% endblock %}
 {% block scripts %}
 <script>
-var phases = [{text:'Einatmen',ms:4000},{text:'Halten',ms:4000},{text:'Ausatmen',ms:6000}];
-var label = document.getElementById('breatheLabel');
-var i = 0;
-function cycle(){
-  label.textContent = phases[i].text;
-  setTimeout(function(){ i = (i+1)%3; cycle(); }, phases[i].ms);
-}
-cycle();
+(function(){
+  var phases = [{text:'Einatmen',ms:4000},{text:'Halten',ms:4000},{text:'Ausatmen',ms:6000}];
+  var label = document.getElementById('breatheLabel');
+  var circle = document.querySelector('.breathe-circle');
+  var total = 14000; /* 4s + 4s + 6s = 14s — must match @keyframes breathe */
+  var i = 0;
+  /* Restart CSS animation in sync with JS cycle */
+  function restartAnim(){
+    circle.style.animation = 'none';
+    circle.offsetHeight; /* force reflow */
+    circle.style.animation = '';
+  }
+  function cycle(){
+    label.textContent = phases[i].text;
+    setTimeout(function(){ i = (i+1)%3; if(i===0) restartAnim(); cycle(); }, phases[i].ms);
+  }
+  restartAnim();
+  cycle();
+})();
 </script>
 {% endblock %}
