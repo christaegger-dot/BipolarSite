@@ -1,5 +1,7 @@
 // BipolarSite Service Worker — Offline-Cache for emergency + crisis plan
-const CACHE_NAME = 'bipolarsite-v3';
+// Cache version is bumped on each deploy so old caches get purged
+const CACHE_NAME = 'bipolarsite-v4';
+
 const PRECACHE_URLS = [
   '/notfall/',
   '/tools/krisenplan/',
@@ -12,6 +14,9 @@ const PRECACHE_URLS = [
   '/fonts/dm-serif-display-400.woff2',
   '/js/nav.js'
 ];
+
+// HTML pages that should use network-first (always show latest content)
+const HTML_URLS = ['/notfall/', '/tools/krisenplan/'];
 
 self.addEventListener('install', event => {
   event.waitUntil(
@@ -34,9 +39,24 @@ self.addEventListener('fetch', event => {
   // Only handle same-origin GET requests
   if (event.request.method !== 'GET' || url.origin !== self.location.origin) return;
 
-  // Cache-first for precached URLs
+  const isHTML = HTML_URLS.some(u => url.pathname === u || url.pathname === u.replace(/\/$/, ''));
   const isPrecached = PRECACHE_URLS.some(u => url.pathname === u || url.pathname === u.replace(/\/$/, ''));
-  if (isPrecached) {
+
+  if (isHTML) {
+    // Network-first for HTML pages: always try to fetch the latest version,
+    // fall back to cache only when offline
+    event.respondWith(
+      fetch(event.request)
+        .then(response => {
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
+          return response;
+        })
+        .catch(() => caches.match(event.request, { ignoreSearch: true }))
+    );
+  } else if (isPrecached) {
+    // Cache-first for static assets (CSS, fonts, JS) — fast loading,
+    // updated when the SW itself updates (new CACHE_NAME)
     event.respondWith(
       caches.match(event.request, { ignoreSearch: true }).then(cached => cached || fetch(event.request))
     );
