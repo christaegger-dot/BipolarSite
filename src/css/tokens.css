@@ -31,7 +31,7 @@
 
   /* ── Semantic: Text ── */
   --text:        #3D3530;
-  --text-soft:   #625d59;
+  --text-soft:   #56514d;
 
   /* ── Semantic: Border ── */
   --border:      #e2e8f0;
@@ -42,17 +42,17 @@
   --red-bg:      #FEF2F2;
   --amber-bg:    #fef3e2;
 
-  /* ── Radius Scale (Tarif-Kompass: 6 / 8 / 10 / 12 / 14 / 20) ── */
-  --radius-xs:   6px;
-  --radius-sm:   8px;
-  --radius-md:   10px;
-  --radius-lg:   12px;
-  --radius-xl:   14px;
-  --radius-pill: 20px;
-  --radius-2xl:  24px;
-  --radius-3xl:  32px;
-  --radius-hero: 34px;
-  --radius-round: 100px;
+  /* ── Radius Scale (simplified: 4 core steps + pill) ── */
+  --radius-xs:   6px;   /* legacy alias */
+  --radius-sm:   8px;   /* small UI: badges, icons, buttons */
+  --radius-md:   12px;  /* cards, inputs, accordions */
+  --radius-lg:   12px;  /* alias → same as md (was 12px) */
+  --radius-xl:   20px;  /* hero sections, tool wrappers, large panels */
+  --radius-pill: 20px;  /* legacy alias → xl */
+  --radius-2xl:  20px;  /* legacy alias → xl */
+  --radius-3xl:  20px;  /* legacy alias → xl */
+  --radius-hero: 20px;  /* legacy alias → xl */
+  --radius-round: 100px; /* pill buttons, full-round badges */
 
   /* ── Shadow Scale ── */
   --shadow-soft:     0 4px 18px rgba(28,43,58,0.05);
@@ -121,11 +121,11 @@
   --text-2xs:  0.7rem;   /* 11.2px — decorative (::before, check marks) */
   --text-xs:   0.75rem;  /* 12px   — badges, labels, small UI */
   --text-sm:   0.82rem;  /* 13.1px — citations, nav, secondary */
-  --text-base: 0.88rem;  /* 14.1px — body text, hints, callouts */
-  --text-md:   0.95rem;  /* 15.2px — emphasis, accordion titles */
+  --text-base: 0.95rem;  /* 15.2px — body text, hints, callouts */
+  --text-md:   1.0rem;   /* 16px   — emphasis, accordion titles */
   --text-lg:   1.1rem;   /* 17.6px — subheadings (h3 small) */
   --text-xl:   1.3rem;   /* 20.8px — headings (h3 large) */
-  --text-2xl:  1.65rem;  /* 26.4px — section headings (h2) */
+  --text-2xl:  1.8rem;   /* 28.8px — section headings (h2) */
 
   /* ── White-on-Dark Text Scale ── */
   --white-text:          rgba(255,255,255,0.88);
