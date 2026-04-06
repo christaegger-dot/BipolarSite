@@ -1,41 +1,37 @@
-/* ═══════════════════════════════════════════════════════════════════════
-   OVERRIDES — BipolarSite Design System
-   ───────────────────────────────────────────────────────────────────────
-   Loaded LAST in the cascade (after tokens → fonts → shared → module →
-   tools → inline <style>). Overrides inline styles via cascade position
-   + !important where inline specificity would otherwise win.
-   ═══════════════════════════════════════════════════════════════════════ */
+/* OVERRIDES — BipolarSite Design System
+   Loaded LAST in the cascade. Overrides inline styles where needed. */
 
 /* ── Skip Link ── */
 .skip-link {
-  position: fixed;
-  top: 14px;
-  left: 16px;
-  z-index: 1200;
-  padding: 10px 14px;
-  border-radius: 10px;
-  background: var(--navy);
-  color: #fff;
-  text-decoration: none;
-  font-size: var(--text-sm);
-  font-weight: 700;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-  transform: translateY(-180%);
-  transition: transform 0.2s ease;
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 .skip-link:focus,
 .skip-link:focus-visible {
-  transform: translateY(0);
+  position: fixed;
+  top: 14px;
+  left: 16px;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  z-index: 10000;
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  background: var(--navy);
+  color: white;
+  text-decoration: none;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
   outline: 2px solid var(--teal-light);
   outline-offset: 2px;
 }
-
-
-/* ╔═══════════════════════════════════════════════════════════════════╗
-   ║  SCHRITT 2 – FARBSYSTEM                                         ║
-   ║  Neutralisiert alle hardcoded Sage/Earth-Farben in Inline-Styles ║
-   ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ── SCHRITT 2 – FARBSYSTEM ── */
 
 /* ── Global surface, text & font ── */
 body:not(.dark-tool) {
@@ -73,141 +69,47 @@ body {
   border-top-color: var(--border) !important;
 }
 
-/* ── Tool pages: hardcoded Sage hex colors ──
-   Tool pages use hardcoded hex values instead of variables.
-   These need explicit !important overrides. */
-
-/* Tool page elements with hardcoded #2e2a25 text */
+/* ── Tool nav text (nav-tool.njk has no inline styles; needs cascade rule) ── */
 body:not(.dark-tool) .tool-back,
-body:not(.dark-tool) .tool-brand,
-.hdr h1,
-.hdr p,
-.detail h2,
-.detail h3,
-.detail p,
-.sit,
-.qtxt,
-.res h2,
-.res-title,
-.res-card h2,
-.pc h2,
-.pc h3,
-.confirm-box h2,
-.confirm-box h3 {
-  color: var(--navy) !important;
+body:not(.dark-tool) .tool-brand {
+  color: var(--navy);
 }
 
-/* Muted text in tools (hardcoded #706860 / #5e564e) */
-.hdr p,
-.detail p,
-.res-card p {
-  color: var(--text-soft) !important;
-}
-
-/* Badges with hardcoded #eaede4 bg / #3d4a30 text */
-.badge {
-  background: var(--green-bg) !important;
-  color: var(--teal) !important;
-}
-
-/* Input focus states (hardcoded sage colors) */
+/* Input focus states */
 input:focus,
 textarea:focus,
 select:focus {
   border-color: var(--teal) !important;
-  box-shadow: 0 0 0 3px rgba(30,101,109,0.1) !important;
+  box-shadow: 0 0 0 3px var(--teal-subtle) !important;
 }
 
-/* ╔═══════════════════════════════════════════════════════════════════╗
-   ║  SCHRITT 3 – TYPOGRAFIE                                         ║
-   ║  DM Serif Display (headings) + DM Sans (body), 15px base        ║
-   ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ── SCHRITT 3 – TYPOGRAFIE ── */
 
-/* ── Base font size ── */
-html {
-  font-size: 16px;
-}
+html { font-size: 16px; }
 
-/* ── Heading font overrides (explicit selectors for robustness) ── */
 h1, h2, h3, h4 {
   font-family: 'DM Serif Display', serif;
 }
 
-/* Main site headings */
-.hero h1,
-.module-hero h1,
-.section-title,
-.content h2,
-.content h3,
-.content h4,
-.footer-brand h3,
-.nav-brand-text {
+/* Non-heading elements that need serif font */
+.nav-brand-text,
+.quote-block blockquote,
+.glaswand-quote,
+.closing-emphasis,
+.guide-title,
+.stat-num,
+.number-card a,
+.toc-link {
   font-family: 'DM Serif Display', serif;
 }
 
-/* Normalize h3 size across all modules (M1-5: 1.25rem, M6-8: 1.15rem, Notfall: 1.1rem) */
+/* Normalize h3 size across all modules */
 .content h3 {
   font-size: 1.2rem;
   font-weight: 700;
 }
 
-/* Prose / quote elements */
-.quote-block blockquote,
-.glaswand-quote,
-.closing-emphasis {
-  font-family: 'DM Serif Display', serif;
-}
-
-/* Module page specific */
-.guide-title,
-.handouts-title,
-.next-module-title,
-.pdf-preview-title,
-.reflection-block h3,
-.refl h2,
-.refl h3,
-.key-takeaways h3,
-.stat-num {
-  font-family: 'DM Serif Display', serif;
-}
-
-/* Notfall page */
-.grauzone h3,
-.fu-alert h3,
-.number-card a {
-  font-family: 'DM Serif Display', serif;
-}
-
-/* Tool pages — ensure DM Serif Display on headings */
-.tool-brand,
-.hdr h1,
-.detail h2,
-.detail h3,
-.sit,
-.qtxt,
-.res-score span,
-.res h2,
-.res-title,
-.res-card h2,
-.pc h2,
-.pc h3,
-.center-text,
-.section h2,
-.confirm-box h2,
-.confirm-box h3,
-.print-title,
-.print-hdr .print-title,
-.toc-link,
-.res-circle span {
-  font-family: 'DM Serif Display', Georgia, serif;
-}
-
-/* ╔═══════════════════════════════════════════════════════════════════╗
-   ║  SCHRITT 4 – NAVIGATION                                         ║
-   ║  Light header on warm cream background, dark text                ║
-   ║  Must override inline styles on ALL pages (incl. impressum,      ║
-   ║  notfall, module pages)                                          ║
-   ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ── SCHRITT 4 – NAVIGATION ── */
 
 /* ── Nav bar (fixed/sticky top bar) ── */
 #navbar {
@@ -275,12 +177,12 @@ h1, h2, h3, h4 {
 /* ── SOS button (light background) ── */
 .nav-sos {
   background: var(--rose-soft);
-  border: 1px solid rgba(154,52,18,0.25);
+  border: 1px solid var(--rose-muted);
   color: var(--rose);
 }
 
 .nav-sos:hover {
-  background: rgba(154,52,18,0.12);
+  background: var(--rose-subtle);
   color: var(--rose);
 }
 
@@ -311,12 +213,7 @@ h1, h2, h3, h4 {
   background: var(--surface-alt);
   color: var(--text);
 }
-
-
-/* ╔═══════════════════════════════════════════════════════════════════╗
-   ║  SCHRITT 5 – HERO / MODULE-HERO                                 ║
-   ║  Navy background, teal accents                                   ║
-   ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ── SCHRITT 5 – HERO / MODULE-HERO ── */
 
 /* ── Main hero (index.html) ── */
 .hero {
@@ -365,15 +262,6 @@ h1, h2, h3, h4 {
   color: white !important;
 }
 
-/* Neutralise pseudo-element gradients */
-.module-hero::before {
-  background: radial-gradient(circle, rgba(30,101,109,0.15), transparent 70%) !important;
-}
-
-.module-hero::after {
-  background: radial-gradient(circle, rgba(180,83,9,0.10), transparent 70%) !important;
-}
-
 .module-hero-inner {
   max-width: var(--content-width) !important;
 }
@@ -388,7 +276,7 @@ h1, h2, h3, h4 {
 }
 
 .module-hero .module-meta {
-  color: rgba(255,255,255,0.8) !important;
+  color: var(--white-text) !important;
 }
 
 .module-hero .module-meta svg {
@@ -396,7 +284,7 @@ h1, h2, h3, h4 {
 }
 
 .breadcrumb a {
-  color: rgba(255,255,255,0.75) !important;
+  color: var(--white-text-secondary) !important;
 }
 
 .breadcrumb a:hover {
@@ -407,7 +295,7 @@ h1, h2, h3, h4 {
    Keep emergency red, but integrate with new system */
 .hero.notfall-hero,
 header.hero[style*="linear-gradient"] {
-  background: linear-gradient(135deg, #7f1d1d, #991b1b) !important;
+  background: linear-gradient(135deg, var(--emergency-dark), var(--emergency-mid)) !important;
 }
 
 /* ── Reading progress bar (sits below nav) ── */
@@ -415,12 +303,7 @@ header.hero[style*="linear-gradient"] {
 #reading-progress {
   background: linear-gradient(90deg, var(--teal), var(--teal-light)) !important;
 }
-
-
-/* ╔═══════════════════════════════════════════════════════════════════╗
-   ║  SCHRITT 6 – CARDS                                              ║
-   ║  Radius 10-12px, subtle shadows, teal hover-border              ║
-   ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ── SCHRITT 6 – CARDS ── */
 
 /* ── Module cards (index.html grid) ── */
 .module-card {
@@ -482,7 +365,7 @@ header.hero[style*="linear-gradient"] {
 }
 
 .quick-card.alert .quick-card-icon {
-  background: rgba(154,52,18,0.12);
+  background: var(--rose-subtle);
   color: var(--rose);
 }
 
@@ -504,7 +387,7 @@ header.hero[style*="linear-gradient"] {
 }
 
 .sit-card.urgent .sit-badge {
-  background: rgba(154,52,18,0.12);
+  background: var(--rose-subtle);
   color: var(--rose);
 }
 
@@ -576,14 +459,6 @@ header.hero[style*="linear-gradient"] {
   color: var(--teal);
 }
 
-/* ── Tool page cards (hardcoded border-radius:22px) ── */
-.card,
-.wrap .card {
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-soft);
-}
-
 /* ── Treatment / handout cards ── */
 .treatment-card,
 .handout-card {
@@ -595,17 +470,6 @@ header.hero[style*="linear-gradient"] {
 .handout-card:hover {
   border-color: var(--teal);
   box-shadow: var(--shadow-card);
-}
-
-/* ── Detail cards (tool results) ── */
-.detail {
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
-}
-
-.detail h2,
-.detail h3 {
-  color: var(--navy);
 }
 
 /* ── PDF preview dialog ── */
@@ -641,19 +505,7 @@ header.hero[style*="linear-gradient"] {
   background: var(--teal);
 }
 
-/* ── Res cards in tools (hardcoded border-radius:22px) ── */
-.res-card {
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
-}
-
-
-/* ╔═══════════════════════════════════════════════════════════════════╗
-   ║  SCHRITT 7 – TABELLEN / DATEN-GRIDS / BAR CHARTS                ║
-   ║  Striped rows, teal headers, border token                       ║
-   ║  (No <table> elements – site uses bar charts, phase tabs,       ║
-   ║   position grids, stat cards)                                   ║
-   ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ── SCHRITT 7 – TABELLEN / DATEN-GRIDS / BAR CHARTS ── */
 
 /* ── Bar charts (modul/2) ── */
 .bar-track {
@@ -753,68 +605,7 @@ table tbody tr:nth-child(even),
   border: 1px solid var(--border);
 }
 
-/* ── Phase badges in tools (hardcoded colors) ── */
-.phase-badge {
-  border-radius: var(--radius-sm);
-}
-
-.phase-m {
-  background: var(--amber-bg);
-  color: var(--amber);
-}
-
-.phase-d {
-  background: var(--blue-phase-light);
-  color: var(--blue-phase);
-}
-
-/* ── Eisberg tool sections ── */
-.eisberg-section,
-.iceberg {
-  border-radius: var(--radius-lg);
-}
-
-.eisberg-top {
-  background: linear-gradient(180deg, white, var(--green-bg));
-}
-
-.eisberg-tag {
-  border-radius: var(--radius-md);
-}
-
-.eisberg-tag.active {
-  background: var(--teal);
-  color: white;
-}
-
-
-/* Tool progress (hardcoded gradient) */
-.prog {
-  border-radius: var(--radius-md);
-  background: var(--green-bg);
-}
-
-.prog div,
-.prog-fill {
-  background: linear-gradient(90deg, var(--teal), var(--teal-light));
-  border-radius: var(--radius-md);
-}
-
-/* ── Stat numbers ── */
-.stat-num {
-  color: var(--navy);
-}
-
-/* ── Bar dot (selbsttest tool) ── */
-.bar-dot {
-  border: 2px solid var(--teal);
-}
-
-
-/* ╔═══════════════════════════════════════════════════════════════════╗
-   ║  SCHRITT 8 – INFO-BOXEN / HIGHLIGHT-BEREICHE                    ║
-   ║  Do/Don't, Note, Alert, Reflection, Key Takeaways, Quotes       ║
-   ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ── SCHRITT 8 – INFO-BOXEN / HIGHLIGHT-BEREICHE ── */
 
 /* ── Quote blocks ── */
 .quote-block {
@@ -836,52 +627,9 @@ table tbody tr:nth-child(even),
   color: var(--text-soft);
 }
 
-/* ── Reflection / highlight boxes ── */
-.reflection-block,
-.refl {
-  background: linear-gradient(135deg, var(--green-bg), var(--surface-warm));
-  border-radius: var(--radius-lg);
-}
+/* ── Reflection / highlight boxes (final palette in section 34) ── */
 
-.reflection-block::after,
-.refl::after {
-  background: radial-gradient(circle, rgba(30,101,109,0.08), transparent 70%);
-}
-
-.reflection-label,
-.refl label,
-.refl .refl-label {
-  color: var(--teal);
-}
-
-.reflection-block h3,
-.refl h2,
-.refl h3 {
-  color: var(--navy);
-}
-
-/* ── Key takeaways (dark section) ── */
-.key-takeaways {
-  background: var(--navy);
-  border-radius: var(--radius-lg);
-}
-
-.key-takeaways::before {
-  background: linear-gradient(135deg, rgba(30,101,109,0.2), transparent);
-}
-
-.key-takeaways h3 {
-  color: white;
-}
-
-.key-takeaways .check-circle {
-  background: rgba(141,212,217,0.2);
-  color: var(--teal-light);
-}
-
-.key-takeaways li {
-  border-top-color: rgba(255,255,255,0.08);
-}
+/* ── Key takeaways (final palette in section 34) ── */
 
 /* ── Alert / warning boxes ── */
 .alert-box {
@@ -891,7 +639,7 @@ table tbody tr:nth-child(even),
 }
 
 .alert-icon {
-  background: rgba(154,52,18,0.12);
+  background: var(--rose-subtle);
   color: var(--rose);
   border-radius: var(--radius-sm);
 }
@@ -954,12 +702,7 @@ table tbody tr:nth-child(even),
 .section-title {
   color: var(--navy);
 }
-
-
-/* ╔═══════════════════════════════════════════════════════════════════╗
-   ║  SCHRITT 9 – SPACING                                            ║
-   ║  Section padding 52px, content-width 900px, wide 1140px         ║
-   ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ── SCHRITT 9 – SPACING ── */
 
 /* ── Section padding (inline has 80px 2rem) ── */
 .modules-section,
@@ -1020,25 +763,10 @@ section,
 }
 
 /* Footer spacing handled in Schritt 10 consolidated footer block */
+/* ── SCHRITT 10 – BUTTONS, FOOTER, CTA, WAVE, ACCESSIBILITY ── */
 
-/* ── Tool page wrappers ── */
-.wrap {
-  max-width: 560px;
-  padding: var(--space-xl) var(--space-md) var(--space-3xl);
-}
-
-
-/* ╔═══════════════════════════════════════════════════════════════════╗
-   ║  SCHRITT 10 – BUTTONS, FOOTER, CTA, WAVE, ACCESSIBILITY         ║
-   ║  Final component alignment                                      ║
-   ╚═══════════════════════════════════════════════════════════════════╝ */
-
-/* ── Primary buttons (CTA, tool actions) ── */
-.cta-btn,
-.btn-c,
-.btn-next,
-.btn-cont,
-.btn-save {
+/* ── Primary buttons (CTA, main pages) ── */
+.cta-btn {
   background: var(--teal);
   color: white;
   border-radius: var(--radius-pill);
@@ -1047,11 +775,7 @@ section,
   min-height: 44px;
 }
 
-.cta-btn:hover,
-.btn-c:hover,
-.btn-next:hover,
-.btn-cont:hover,
-.btn-save:hover {
+.cta-btn:hover {
   background: var(--teal-dark);
   box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
@@ -1073,58 +797,6 @@ section,
   background: var(--green-bg);
 }
 
-/* ── Option buttons in tools (hardcoded 14px radius) ── */
-.opt,
-.opt-btn {
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-md);
-  background: white;
-  color: var(--navy);
-  min-height: 44px;
-}
-
-.opt:hover,
-.opt-btn:hover {
-  border-color: var(--teal);
-  color: var(--teal);
-  background: var(--green-bg);
-}
-
-.opt.sel,
-.opt.selected,
-.opt-btn.sel {
-  border-color: var(--teal);
-  background: var(--green-bg);
-  color: var(--teal);
-}
-
-/* ── Correct / wrong (quiz tools) ── */
-.btn-correct,
-.opt.correct {
-  border-color: var(--teal);
-  background: var(--green-bg);
-  color: var(--teal);
-}
-
-.btn-wrong,
-.opt.wrong {
-  border-color: var(--rose);
-  background: var(--red-bg);
-  color: var(--rose);
-}
-
-/* ── Submit button in tools (hardcoded #d5dbc9 bg) ── */
-.submit {
-  background: var(--teal);
-  color: white;
-  border-radius: var(--radius-md);
-}
-
-.submit:hover {
-  background: var(--teal-dark);
-}
-
-
 /* ── Footer ── */
 footer {
   background: var(--navy);
@@ -1139,11 +811,11 @@ footer {
 }
 
 .footer-brand p {
-  color: rgba(255,255,255,0.65);
+  color: var(--white-text-muted);
 }
 
 .footer-col h4 {
-  color: rgba(255,255,255,0.55);
+  color: var(--white-text-faint);
 }
 
 .footer-col a {
@@ -1155,12 +827,12 @@ footer {
 }
 
 .footer-bottom {
-  border-top-color: rgba(255,255,255,0.08);
-  color: rgba(255,255,255,0.3);
+  border-top-color: var(--white-overlay-xs);
+  color: var(--white-text-ghost);
 }
 
 .footer-bottom a {
-  color: rgba(255,255,255,0.4);
+  color: var(--white-text-dim);
 }
 
 .footer-bottom a:hover {
@@ -1211,12 +883,12 @@ footer {
 }
 
 .footer-link-alert {
-  color: #fca5a5 !important;
+  color: var(--alert-red-border) !important;
   font-weight: 700;
 }
 
 .footer-link-alert:hover {
-  color: #fecaca !important;
+  color: var(--alert-red-light) !important;
 }
 
 .footer-contact a {
@@ -1253,24 +925,8 @@ p.footer-attribution {
 /* --rose (#9A3412) on navy (#1C2B3A) = ~1.65:1 — WCAG fail.
    Light red (#fca5a5) on navy = ~5.8:1 — passes AA. */
 footer.tf a[href="/notfall/"] {
-  color: #fca5a5;
+  color: var(--alert-red-border);
   font-weight: 600;
-}
-
-/* ── Tool result sections ── */
-/* res-circle border-color and span color intentionally NOT overridden here —
-   the Komm-Trainer injects dynamic feedback colours (green/amber/red) via JS inline styles.
-   Only res-score (static) gets a teal fallback. */
-.res-score {
-  border-color: var(--teal);
-}
-.res-score span {
-  color: var(--teal);
-}
-
-.res h2,
-.res-title {
-  color: var(--navy);
 }
 
 /* ── Accessibility ── */
@@ -1278,32 +934,6 @@ footer.tf a[href="/notfall/"] {
   outline: 2px solid var(--teal);
   outline-offset: 3px;
   border-radius: var(--radius-sm);
-}
-
-.skip-link {
-  position: absolute;
-  left: -9999px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-
-.skip-link:focus {
-  position: fixed;
-  top: 12px;
-  left: 12px;
-  width: auto;
-  height: auto;
-  overflow: visible;
-  padding: 12px 20px;
-  background: var(--navy);
-  color: white;
-  border-radius: var(--radius-sm);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  z-index: 10000;
-  text-decoration: none;
 }
 
 /* ── Visited link styling ── */
@@ -1344,87 +974,9 @@ footer a:visited {
 .error-page a {
   color: var(--teal);
 }
-
-
-/* ╔═══════════════════════════════════════════════════════════════════╗
-   ║  COVERAGE-AUDIT FIXES                                            ║
-   ║  Gaps identified by systematic audit of all 19 HTML files        ║
-   ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ── COVERAGE-AUDIT FIXES ── */
 
 /* ── Missing tool selectors ── */
-
-/* btn-print (krisenplan) */
-.btn-print {
-  background: white;
-  border: 1px solid var(--border);
-  color: var(--slate);
-  border-radius: var(--radius-md);
-}
-
-.btn-print:hover {
-  border-color: var(--teal);
-  color: var(--teal);
-  background: var(--green-bg);
-}
-
-/* btn-reset: expand to cover background + border (was color-only) */
-.btn-reset {
-  background: white;
-  border: 1px solid var(--border);
-  color: var(--teal);
-  border-radius: var(--radius-md);
-}
-
-.btn-reset:hover {
-  border-color: var(--teal);
-  color: var(--teal-dark);
-  background: var(--green-bg);
-}
-
-/* opt-btn.correct: class name mismatch fix (komm-trainer uses .opt-btn.correct) */
-.opt-btn.correct {
-  border-color: var(--teal);
-  background: var(--green-bg);
-  color: var(--teal);
-}
-
-.opt-btn.wrong {
-  border-color: var(--rose);
-  background: var(--red-bg);
-  color: var(--rose);
-}
-
-/* ep-btn (solidaritaets-chart) */
-.ep-btn {
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  color: var(--navy);
-}
-
-.ep-btn:hover,
-.ep-btn.active {
-  border-color: var(--teal);
-}
-
-/* chart-wrap (solidaritaets-chart) */
-.chart-wrap {
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-soft);
-  border-radius: var(--radius-lg);
-}
-
-/* pc cards (saeulen-check) */
-.pc {
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-soft);
-  border-radius: var(--radius-lg);
-}
-
-/* tool-header h1 (eisberg) */
-.tool-header h1 {
-  font-family: 'DM Serif Display', serif;
-  color: var(--navy);
-}
 
 /* ── Missing page-specific selectors ── */
 
@@ -1452,30 +1004,7 @@ footer a:visited {
   color: var(--navy);
 }
 
-/* ── Warm-rgba box-shadows: catch remaining elements ── */
-.pdf-preview-dialog {
-  box-shadow: var(--shadow-elevated);
-}
-
-.dcl,
-.iceberg {
-  box-shadow: var(--shadow-soft);
-}
-
-/* ── SVG text color override (best-effort, won't catch fill= attributes) ── */
-svg text {
-  fill: var(--navy);
-}
-
-/* Exception: SVG text inside dark-themed sections keeps white */
-.key-takeaways svg text,
-.hero svg text,
-.module-hero svg text,
-footer svg text {
-  fill: white;
-}
-
-/* ── Tool nav light variant (tool pages use light sticky nav, NOT dark) ── */
+/* ── Tool nav light variant (shared nav-tool.njk needs cascade rule) ── */
 .tool-nav {
   width: 100%;
   background: rgba(250,250,247,0.95);
@@ -1496,40 +1025,12 @@ body:not(.dark-tool) .tool-nav .tool-brand {
   color: var(--navy);
 }
 
-
-/* ── Krisenplan section colors (.s5 uses old earth tones) ── */
-.s5 {
-  background: var(--surface-warm);
-  border-color: var(--slate);
-}
-
-.s5 h2 {
-  color: var(--slate);
-}
-
-/* ── Hardcoded border-radius on elements not yet covered ── */
-.break-btn,
-.rules,
-.rbox,
-.rec,
-.dcl,
+/* ── Shared border-radius (module page elements) ── */
 .handout-preview,
 .treatment-preview {
   border-radius: var(--radius-lg);
 }
-
-/* ── Remaining warm-rgba borders on uncovered tool components ── */
-.ep-btn,
-.chart-wrap rect,
-.phase-row,
-.phase-count {
-  color: var(--slate);
-}
-
-
-/* ╔═══════════════════════════════════════════════════════════════════╗
-   ║  RESPONSIVE OVERRIDES                                            ║
-   ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ── RESPONSIVE OVERRIDES ── */
 
 @media (max-width: 900px) {
   .nav-links {
@@ -1583,11 +1084,7 @@ body:not(.dark-tool) .tool-nav .tool-brand {
     font-size: 0.82rem;        /* was 0.72 rem / 11.5 px */
   }
 }
-
-
-/* ╔═══════════════════════════════════════════════════════════════════╗
-   ║  PRINT OVERRIDES                                                 ║
-   ╚═══════════════════════════════════════════════════════════════════╝ */
+/* ── PRINT OVERRIDES ── */
 
 @media print {
   /* Hide non-content elements */
@@ -1644,8 +1141,6 @@ body:not(.dark-tool) .tool-nav .tool-brand {
   /* Ensure images don't overflow */
   img { max-width: 100% !important; }
 }
-
-
 /* ── 31. HERO SPLIT LAYOUT ── */
 header.hero .hero-content {
   max-width: var(--wide-width);
@@ -1670,8 +1165,8 @@ header.hero .hero-content {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255,255,255,0.10);
-  border: 1px solid rgba(255,255,255,0.15);
+  background: var(--white-overlay-sm);
+  border: 1px solid var(--white-overlay-md);
   color: var(--white-text);
   text-decoration: none;
   font-size: var(--text-base);
@@ -1684,7 +1179,7 @@ header.hero .hero-content {
 
 .hero-link:hover {
   background: rgba(255,255,255,0.17);
-  border-color: rgba(255,255,255,0.28);
+  border-color: var(--white-overlay-lg);
   color: white;
 }
 
@@ -1697,7 +1192,7 @@ header.hero .hero-content {
 
 .hero-cards .quick-card {
   background: rgba(255,255,255,0.07);
-  border-color: rgba(255,255,255,0.10);
+  border-color: var(--white-overlay-sm);
   color: white;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
@@ -1705,7 +1200,7 @@ header.hero .hero-content {
 
 .hero-cards .quick-card:hover {
   background: rgba(255,255,255,0.13);
-  border-color: rgba(255,255,255,0.22);
+  border-color: var(--white-overlay-lg);
   box-shadow: 0 4px 20px rgba(0,0,0,0.22);
 }
 
@@ -1718,21 +1213,21 @@ header.hero .hero-content {
 }
 
 .hero-cards .quick-card-desc {
-  color: rgba(255,255,255,0.65);
+  color: var(--white-text-muted);
 }
 
 .hero-cards .quick-card-icon {
-  background: rgba(255,255,255,0.11);
+  background: var(--white-overlay-sm);
   color: var(--white-text);
 }
 
 .hero-cards .quick-card.alert {
-  background: rgba(154,52,18,0.25);
+  background: var(--rose-muted);
   border-color: rgba(239,100,80,0.35);
 }
 
 .hero-cards .quick-card.alert::before {
-  background: #f87171;
+  background: var(--alert-red-coral);
 }
 
 .hero-cards .quick-card.alert .quick-card-icon {
@@ -1740,7 +1235,7 @@ header.hero .hero-content {
 }
 
 .hero-cards .quick-card.alert .quick-card-title {
-  color: #fca5a5;
+  color: var(--alert-red-border);
 }
 
 .hero-cards .quick-card.alert .quick-card-desc {
@@ -1756,8 +1251,6 @@ header.hero .hero-content {
     max-width: none;
   }
 }
-
-
 /* ── 32. MODULE CARD COLOR ACCENTS ── */
 .module-card[data-accent="red"] {
   border-left: 3px solid var(--alert-red);
@@ -1803,8 +1296,6 @@ header.hero .hero-content {
   background: var(--teal);
   color: white;
 }
-
-
 /* ── 33. TOOLS SECTION ── */
 .tools-grid {
   display: flex;
@@ -1842,11 +1333,9 @@ header.hero .hero-content {
   line-height: 1;
   flex-shrink: 0;
 }
-
-
-/* ── 34. PALETTE ROLLOUT: MODULES + TOOLS ── */
+/* ── 34. PALETTE ROLLOUT: MODULES ── */
 .module-hero::before {
-  background: radial-gradient(circle, rgba(221,210,191,0.7) 0%, transparent 70%) !important;
+  background: radial-gradient(circle, var(--sand-muted) 0%, transparent 70%) !important;
   opacity: 0.75 !important;
 }
 
@@ -1867,7 +1356,7 @@ header.hero .hero-content {
 }
 
 .quote-block {
-  background: #fff !important;
+  background: var(--card) !important;
 }
 
 .reflection,
@@ -1878,28 +1367,28 @@ header.hero .hero-content {
 .reflection::before,
 .reflection-block::before,
 .reflection-block::after {
-  background: rgba(221,210,191,0.18) !important;
+  background: var(--sand-faint) !important;
 }
 
 .takeaways,
 .key-takeaways {
-  background: linear-gradient(135deg, var(--navy), #294051) !important;
+  background: linear-gradient(135deg, var(--navy), var(--navy-deep)) !important;
 }
 
 .takeaways::before,
 .key-takeaways::before {
-  background: radial-gradient(ellipse at 20% 80%, rgba(221,210,191,0.18) 0%, transparent 60%) !important;
+  background: radial-gradient(ellipse at 20% 80%, var(--sand-faint) 0%, transparent 60%) !important;
 }
 
 .hdr,
 .tool-header {
   background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(247,242,234,0.86)) !important;
-  border-color: rgba(181,138,82,0.14) !important;
+  border-color: var(--sand-border) !important;
 }
 
 .hdr::before,
 .tool-header::before {
-  background: radial-gradient(circle, rgba(221,210,191,0.34) 0%, transparent 68%) !important;
+  background: radial-gradient(circle, var(--sand-subtle) 0%, transparent 68%) !important;
 }
 
 .tool-glyph {
@@ -1911,13 +1400,8 @@ header.hero .hero-content {
   color: var(--sand-ink) !important;
 }
 
-.card,
-.detail,
-.chart-wrap,
-.detail-card,
-.res-card,
 .handout-chip {
-  background: linear-gradient(180deg, #fff 0%, #fcf8f4 100%) !important;
+  background: linear-gradient(180deg, var(--card) 0%, var(--card-end) 100%) !important;
 }
 
 /* ── M1 Behandlungs-Akkordeon ── */
