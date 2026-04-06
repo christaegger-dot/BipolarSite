@@ -682,41 +682,43 @@ body.pdf-preview-open { overflow: hidden; }
 }
 
 /* ── Module Accent Colors (per-module visual identity) ── */
-/* Per-module accent: badge bg + color, driven by [data-module-accent] */
+/* Per-module accent: badge bg + color, toc border, h2 dividers
+   Driven by [data-module-accent] attribute on module wrapper.
+   L2 palette: light hero background, so badges use normal phase colors. */
 
 /* Blue: Module 1 */
-[data-module-accent="1"] .module-badge { background: rgba(147,180,212,0.18) !important; color: var(--blue-phase-on-dark) !important; }
-[data-module-accent="1"] .toc { border-left: 3px solid rgba(91,127,165,0.3) !important; }
-[data-module-accent="1"] .content h2 { border-top: 1px solid rgba(91,127,165,0.15) !important; }
+[data-module-accent="1"] .module-badge { background: var(--blue-phase-light); color: var(--blue-phase); }
+[data-module-accent="1"] .toc { border-left: 3px solid rgba(91,127,165,0.3); }
+[data-module-accent="1"] .content h2 { border-top: 1px solid rgba(91,127,165,0.15); }
 
 /* Amber: Modules 2, 4, 5 */
 [data-module-accent="2"] .module-badge,
 [data-module-accent="4"] .module-badge,
-[data-module-accent="5"] .module-badge { background: rgba(245,158,74,0.15) !important; color: var(--amber-phase-on-dark) !important; }
+[data-module-accent="5"] .module-badge { background: rgba(245,158,74,0.12); color: var(--amber); }
 [data-module-accent="2"] .toc,
 [data-module-accent="4"] .toc,
-[data-module-accent="5"] .toc { border-left: 3px solid rgba(180,83,9,0.25) !important; }
+[data-module-accent="5"] .toc { border-left: 3px solid rgba(180,83,9,0.25); }
 [data-module-accent="2"] .content h2,
 [data-module-accent="4"] .content h2,
-[data-module-accent="5"] .content h2 { border-top: 1px solid rgba(180,83,9,0.12) !important; }
+[data-module-accent="5"] .content h2 { border-top: 1px solid rgba(180,83,9,0.12); }
 
 /* Sand/Warm: Module 3 */
-[data-module-accent="3"] .module-badge { background: rgba(201,169,122,0.15) !important; color: var(--sand-on-dark) !important; }
-[data-module-accent="3"] .toc { border-left: 3px solid rgba(181,138,82,0.25) !important; }
-[data-module-accent="3"] .content h2 { border-top: 1px solid rgba(181,138,82,0.12) !important; }
+[data-module-accent="3"] .module-badge { background: var(--sand-faint); color: var(--sand-deep); }
+[data-module-accent="3"] .toc { border-left: 3px solid rgba(181,138,82,0.25); }
+[data-module-accent="3"] .content h2 { border-top: 1px solid rgba(181,138,82,0.12); }
 
 /* Green: Modules 6, 7 */
 [data-module-accent="6"] .module-badge,
-[data-module-accent="7"] .module-badge { background: rgba(52,211,153,0.12) !important; color: var(--green-on-dark) !important; }
+[data-module-accent="7"] .module-badge { background: rgba(13,122,95,0.08); color: var(--phase-green); }
 [data-module-accent="6"] .toc,
-[data-module-accent="7"] .toc { border-left: 3px solid rgba(13,122,95,0.25) !important; }
+[data-module-accent="7"] .toc { border-left: 3px solid rgba(13,122,95,0.25); }
 [data-module-accent="6"] .content h2,
-[data-module-accent="7"] .content h2 { border-top: 1px solid rgba(13,122,95,0.12) !important; }
+[data-module-accent="7"] .content h2 { border-top: 1px solid rgba(13,122,95,0.12); }
 
 /* Teal: Module 8 */
-[data-module-accent="8"] .module-badge { background: rgba(91,186,196,0.15) !important; color: var(--teal-on-dark) !important; }
-[data-module-accent="8"] .toc { border-left: 3px solid rgba(30,101,109,0.25) !important; }
-[data-module-accent="8"] .content h2 { border-top: 1px solid rgba(30,101,109,0.12) !important; }
+[data-module-accent="8"] .module-badge { background: var(--teal-subtle); color: var(--teal-solid); }
+[data-module-accent="8"] .toc { border-left: 3px solid rgba(30,101,109,0.25); }
+[data-module-accent="8"] .content h2 { border-top: 1px solid rgba(30,101,109,0.12); }
 
 /* ── Community Block (end of each module) ── [temp: standard] */
 .community-block {
@@ -1095,7 +1097,7 @@ body.pdf-preview-open { overflow: hidden; }
 .after-step-body{display:flex;flex-direction:column;gap:4px}
 .after-step-body strong{font-size:var(--text-base);color:var(--navy-mid);display:block}
 .after-step-body span{font-size:var(--text-xs);color:var(--slate);line-height:1.5}
-.after-step-why{font-size:var(--text-xs)!important;color:var(--text-soft)!important;font-style:italic;margin-top:4px}
+.after-step-why{font-size:var(--text-xs);color:var(--text-soft);font-style:italic;margin-top:4px}
 @media(max-width:600px){.after-steps{grid-template-columns:1fr}}
 
 /* ── Notfall Responsive ── */
@@ -1874,13 +1876,13 @@ body.pdf-preview-open{overflow:hidden}
 .alert-box,
 .reflection-block,
 .refl {
-  border-color: var(--border) !important;
+  border-color: var(--border);
 }
 
 /* Content dividers */
 .content h2,
 .module-card-footer {
-  border-top-color: var(--border) !important;
+  border-top-color: var(--border);
 }
 
 /* Input focus states */
@@ -2314,72 +2316,49 @@ table tbody tr:nth-child(even),
   border-radius: var(--card-radius);
 }
 
-/* ── [from overrides.css] PALETTE ROLLOUT: MODULES ── */
+/* ── PALETTE INTEGRATION (L2 — no more !important overrides) ── */
 .module-hero::before,
 .module-hero::after {
-  display: none !important;
+  display: none;
 }
 
 .module-hero .hero-icon {
-  color: var(--sand-ink) !important;
-  opacity: 0.75 !important;
-}
-
-/* .module-badge background + color now driven by [data-module-accent] in module.css */
-
-.quote-block cite,
-.quote-block .toc-desc,
-.reflection-label {
-  color: var(--slate) !important;
-}
-
-.quote-block {
-  background: var(--card) !important;
-}
-
-.reflection,
-.reflection-block {
-  background: var(--surface-alt) !important;
-}
-
-.reflection::before,
-.reflection-block::before,
-.reflection-block::after {
-  display: none !important;
+  color: var(--sand-ink);
+  opacity: 0.75;
 }
 
 .takeaways,
 .key-takeaways {
-  background: var(--teal) !important;
+  background: var(--teal);
 }
 
 .takeaways::before,
 .key-takeaways::before {
-  display: none !important;
+  display: none;
 }
 
 .hdr,
 .tool-header {
-  background: var(--bg) !important;
-  border-color: var(--sand-border) !important;
+  background: var(--bg);
+  border-color: var(--sand-border);
 }
 
 .hdr::before,
 .tool-header::before {
-  display: none !important;
+  display: none;
 }
 
 .tool-glyph {
-  background: var(--teal) !important;
+  background: var(--teal);
 }
 
 .stelle-badge.beratung,
 .action-icon {
-  color: var(--sand-ink) !important;
+  color: var(--sand-ink);
 }
 
 .handout-chip {
-  background: var(--card) !important;
+  background: var(--card);
 }
 
 /* ── M1 Behandlungs-Akkordeon ── */
