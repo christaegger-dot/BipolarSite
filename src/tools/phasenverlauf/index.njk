@@ -36,11 +36,11 @@ bodyClass: "phasenverlauf-page"
     <div class="chart-top">
       <span class="chart-heading">Stimmungsverlauf über die Zeit</span>
       <div class="chart-legend">
-        <span class="leg"><span class="leg-dot" style="background:var(--amber)"></span>Manie</span>
-        <span class="leg"><span class="leg-dot" style="background:var(--hypo-phase)"></span>Hypomanie</span>
-        <span class="leg"><span class="leg-dot" style="background:var(--phase-green)"></span>Stabil</span>
-        <span class="leg"><span class="leg-dot" style="background:var(--blue-phase)"></span>Leichte Dep.</span>
-        <span class="leg"><span class="leg-dot" style="background:var(--slate)"></span>Schwere Dep.</span>
+        <span class="leg"><span class="leg-dot leg-dot--mania"></span>Manie</span>
+        <span class="leg"><span class="leg-dot leg-dot--hypo"></span>Hypomanie</span>
+        <span class="leg"><span class="leg-dot leg-dot--stable"></span>Stabil</span>
+        <span class="leg"><span class="leg-dot leg-dot--dep-mild"></span>Leichte Dep.</span>
+        <span class="leg"><span class="leg-dot leg-dot--dep-severe"></span>Schwere Dep.</span>
       </div>
     </div>
     <div class="chart-svg-wrap">
@@ -71,7 +71,7 @@ bodyClass: "phasenverlauf-page"
         <rect x="0" y="56"  width="540" height="56"  fill="#fff9f0" id="zone-hypo"        class="zone-bg" data-phase="hypomania"/>
         <rect x="0" y="112" width="540" height="56"  fill="var(--success-soft)" id="zone-stable"      class="zone-bg" data-phase="stable"/>
         <rect x="0" y="168" width="540" height="56"  fill="var(--blue-phase-light)" id="zone-mild"        class="zone-bg" data-phase="mild-dep"/>
-        <rect x="0" y="224" width="540" height="56"  style="fill:var(--severe-dep-phase-bg)" id="zone-severe"      class="zone-bg" data-phase="severe-dep"/>
+        <rect x="0" y="224" width="540" height="56"  id="zone-severe"      class="zone-bg" data-phase="severe-dep"/>
 
         <!-- Zone separators -->
         <line x1="0" y1="56"  x2="540" y2="56"  stroke="#ddd" stroke-width="0.6" stroke-dasharray="4 3"/>
@@ -133,9 +133,9 @@ bodyClass: "phasenverlauf-page"
   <!-- Detail card -->
   <div class="detail-card" id="detailCard" aria-live="polite"></div>
   <noscript>
-    <div style="padding:20px 24px;background:var(--surface-alt);border-radius:var(--radius-md);margin:20px 0;font-family:'DM Sans',sans-serif">
-      <p style="font-weight:600;margin:0 0 8px">Die interaktive Visualisierung benötigt JavaScript.</p>
-      <p style="margin:0">Die Phasen und ihre Bedeutung finden Sie auch in <a href="/modul/1/" style="color:var(--teal);font-weight:600">Modul 1</a>.</p>
+    <div class="noscript-box">
+      <p>Die interaktive Visualisierung benötigt JavaScript.</p>
+      <p>Die Phasen und ihre Bedeutung finden Sie auch in <a href="/modul/1/">Modul 1</a>.</p>
     </div>
   </noscript>
 
