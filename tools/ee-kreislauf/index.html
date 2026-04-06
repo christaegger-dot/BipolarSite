@@ -35,12 +35,12 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
 .detail-num{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px}
 .detail h2{font-family:'Source Serif 4',Georgia,serif;font-size:1.06rem;font-weight:700;color:#1c2b3a;margin:0 0 10px}
 .detail p{font-size:0.88rem;color:#475569;line-height:1.65;margin:0 0 12px}
-.detail-exit{background:#e6f4f2;border-radius:12px;padding:14px 18px;border-left:3px solid var(--green-phase)}
-.detail-exit .exit-lbl{font-size:0.68rem;font-weight:700;color:var(--green-phase);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px}
+.detail-exit{background:#e6f4f2;border-radius:12px;padding:14px 18px;border-left:3px solid var(--phase-green)}
+.detail-exit .exit-lbl{font-size:0.68rem;font-weight:700;color:var(--phase-green);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px}
 .detail-exit p{font-size:0.85rem;color:#1c2b3a;margin:0;line-height:1.55}
-.break-btn{width:100%;padding:14px;border-radius:14px;border:2px solid var(--green-phase);background:#fff;color:var(--green-phase);font-size:0.88rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background-color 0.3s ease,color 0.3s ease,border-color 0.3s ease;margin-bottom:16px}
+.break-btn{width:100%;padding:14px;border-radius:14px;border:2px solid var(--phase-green);background:#fff;color:var(--phase-green);font-size:0.88rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background-color 0.3s ease,color 0.3s ease,border-color 0.3s ease;margin-bottom:16px}
 .break-btn:hover{background:#e6f4f2}
-.break-btn.active{background:var(--green-phase);color:#fff}
+.break-btn.active{background:var(--phase-green);color:#fff}
 .tf{text-align:center;font-size:0.68rem;color:#8DD4D9;margin-top:28px;line-height:1.5}
 *:focus-visible{outline:2px solid #1E656D;outline-offset:2px;border-radius:4px}
 @media(prefers-reduced-motion:reduce){*{transition-duration:0.01ms!important;animation-duration:0.01ms!important}}
@@ -86,7 +86,7 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
   <div class="detail" id="detail" aria-live="polite"></div>
   <button class="break-btn" id="breakBtn">Kreislauf unterbrechen</button>
 </main>
-<footer class="tf">Basierend auf: Butzlaff & Hooley (1998); Miklowitz et al. (2003)<br>Psychiatrische Universitätsklinik Zürich · Fachstelle Angehörigenarbeit · <a href="/impressum/" style="color:inherit">Impressum</a> · <a href="/notfall/" style="color:var(--rose)">Notfall</a></footer>
+<footer class="tf">Basierend auf: Butzlaff & Hooley (1998); Miklowitz et al. (2003)<br>Psychiatrische Universitätsklinik Zürich · Fachstelle Angehörigenarbeit · <a href="/impressum/" style="color:inherit">Impressum</a> · <a href="/notfall/" style="color:var(--alert)">Notfall</a></footer>
 <script>
 const stations=[
   {n:"Schuld",c:"#B45309",desc:"Sie fühlen sich schuldig — «Ich mache nicht genug.» «Wenn ich nur aufmerksamer wäre.» Schuld ist in dieser Lage häufig und entsteht oft aus Liebe, Verantwortung und Hilflosigkeit zugleich.",mech:"Diese Schuld treibt oft dazu, noch mehr zu übernehmen, noch stärker zu kontrollieren und noch weniger loszulassen. So beginnt der Kreislauf.",exit:"Eine kleine Unterbrechung kann sein, Schuld zu benennen, ohne ihr sofort zu folgen: «Ich fühle mich schuldig, aber ich muss nicht alles allein auffangen.»"},

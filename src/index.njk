@@ -121,7 +121,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .home-hero h1 {
     font-family: 'DM Serif Display', serif;
     font-size: var(--text-3xl);
-    font-weight: 700;
+    font-weight: 400;
     line-height: 1.13;
     letter-spacing: -0.03em;
     color: var(--navy);
@@ -187,14 +187,14 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .entry-paths-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--grid-gap-tight);
-    max-width: 680px;
+    gap: var(--grid-gap-standard);
+    max-width: 740px;
   }
   .entry-path {
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    padding: 16px 14px;
+    gap: 10px;
+    padding: var(--card-padding);
     border-radius: var(--radius-md);
     text-decoration: none;
     border: 1px solid var(--border-warm);
@@ -207,27 +207,28 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     transform: translateY(-2px);
   }
   .entry-path-icon {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     line-height: 1;
   }
   .entry-path-title {
-    font-size: 0.82rem;
+    font-size: 0.95rem;
     font-weight: 700;
     color: var(--navy);
-    line-height: 1.3;
+    line-height: 1.35;
   }
   .entry-path-desc {
-    font-size: 0.72rem;
+    font-size: 0.82rem;
     color: var(--text-soft);
-    line-height: 1.45;
+    line-height: 1.55;
     margin: 0;
   }
+  /* Crisis path: same card language, only border-left for accent (not full background) */
   .entry-path--crisis {
-    border-color: var(--alert-red-border);
-    background: rgba(199,84,80,0.04);
+    border-left: 3px solid var(--alert-red);
   }
   .entry-path--crisis:hover {
     border-color: var(--alert-red);
+    border-left-width: 3px;
   }
   .entry-path--crisis .entry-path-title {
     color: var(--alert-red);
@@ -340,8 +341,8 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   }
 
   .footer-col h4 {
-    color: rgba(255,255,255,0.4);
-    font-size: 0.7rem;
+    color: var(--white-text-dim);
+    font-size: var(--text-xs);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.12em;
@@ -350,7 +351,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 
   .footer-col a {
     display: block;
-    color: rgba(255,255,255,0.6);
+    color: var(--white-text-secondary);
     text-decoration: none;
     font-size: 0.85rem;
     padding: 4px 0;
@@ -363,22 +364,22 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     max-width: var(--wide-width);
     margin: 40px auto 0;
     padding-top: 24px;
-    border-top: 1px solid rgba(255,255,255,0.08);
+    border-top: 1px solid var(--white-overlay-xs);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 0.75rem;
-    color: rgba(255,255,255,0.3);
+    font-size: var(--text-xs);
+    color: var(--white-text-ghost);
   }
 
   .footer-bottom a {
-    color: rgba(255,255,255,0.4);
+    color: var(--white-text-dim);
     text-decoration: none;
     margin-left: 20px;
     transition: color 0.2s ease;
   }
 
-  .footer-bottom a:hover { color: rgba(255,255,255,0.7); }
+  .footer-bottom a:hover { color: var(--white-text-secondary); }
 
   /* ══════════ SCROLL REVEAL ══════════ */
   .reveal {
@@ -417,7 +418,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     .home-hero-badge { font-size: 0.65rem; margin-bottom: 1rem; }
     .entry-paths-section { padding: var(--section-tight) 1.2rem; }
     .entry-paths-grid { gap: var(--grid-gap-tight); }
-    .entry-path { padding: 14px 12px; flex-direction: row; align-items: center; gap: 12px; }
+    .entry-path { padding: 18px 16px; flex-direction: row; align-items: center; gap: 12px; }
     .entry-path-icon { font-size: 1.1rem; flex-shrink: 0; }
     .entry-path-desc { display: none; }
     .urgent-note { padding: 20px 18px; }
@@ -426,35 +427,39 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   }
 
   /* ══════════ QUICK TRIAGE ══════════ */
-  .quick-triage{background:var(--rose-soft);border:2px solid rgba(154,52,18,0.18);border-radius:var(--radius-md);padding:var(--card-padding);margin-bottom:24px;box-shadow:var(--card-shadow)}
-  .quick-triage-label{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--rose);margin-bottom:12px}
+  .quick-triage{background:var(--card);border:1px solid var(--border-warm-md);border-radius:var(--radius-md);padding:var(--card-padding);margin-bottom:24px}
+  .quick-triage-label{font-size:var(--text-xs);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-soft);margin-bottom:12px}
   .quick-triage h3{font-family:'DM Sans',sans-serif;font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:8px}
   .quick-triage p{font-size:0.88rem;color:var(--slate);margin-bottom:16px;line-height:1.6}
   .triage-question{margin-bottom:16px}
   .triage-question[hidden]{display:none}
   .triage-q-text{font-size:0.95rem;font-weight:600;color:var(--navy);margin-bottom:12px;line-height:1.45}
-  .triage-btns{display:flex;gap:10px}
+  .triage-btns{display:flex;gap:10px;flex-wrap:wrap}
   .triage-btn{padding:10px 24px;border-radius:var(--radius-sm);font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:600;cursor:pointer;transition:background 0.2s,color 0.2s;border:none;min-height:44px}
-  .triage-btn--yes{background:var(--rose);color:#fff}
-  .triage-btn--yes:hover{background:#7f1d1d}
-  .triage-btn--no{background:var(--border-warm);color:var(--slate)}
+  .triage-btn--yes{background:var(--navy);color:#fff}
+  .triage-btn--yes:hover{background:var(--teal)}
+  .triage-btn--no{background:var(--surface-alt);color:var(--slate);border:1px solid var(--border-warm)}
   .triage-btn--no:hover{background:var(--border-warm-xl)}
   .triage-result{padding:16px 20px;border-radius:var(--radius-sm);margin-top:12px}
   .triage-result[hidden]{display:none}
-  .triage-result a{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:0.9rem;text-decoration:none;color:#fff;background:var(--rose);padding:10px 20px;border-radius:var(--radius-round)}
-  .triage-result--safe{background:var(--green-bg);border:1px solid rgba(13,122,95,0.15);padding:14px 20px;border-radius:var(--radius-sm)}
-  .triage-result--safe p{font-size:0.88rem;color:var(--green-phase);margin:0}
+  .triage-result a{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:0.9rem;text-decoration:none;color:#fff;background:var(--navy);padding:10px 20px;border-radius:var(--radius-round)}
+  .triage-result a:hover{background:var(--teal)}
+  .triage-result--urgent{background:var(--alert-soft);border:1px solid var(--alert-subtle)}
+  .triage-result--urgent a{background:var(--alert)}
+  .triage-result--urgent a:hover{background:var(--emergency-dark)}
+  .triage-result--safe{background:var(--success-soft);border:1px solid rgba(13,122,95,0.15);padding:14px 20px;border-radius:var(--radius-sm)}
+  .triage-result--safe p{font-size:0.88rem;color:var(--phase-green);margin:0}
   .triage-result--safe a{background:none;padding:0;color:var(--teal);text-decoration:underline;font-size:inherit;border-radius:0;display:inline}
 
   /* ══════════ TOOLS HIGHLIGHT ══════════ */
   .tools-highlight{padding:var(--section-standard) 2rem;max-width:var(--wide-width);margin:0 auto}
   .tools-highlight-label{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--navy-mid);margin-bottom:12px}
-  .tools-highlight h2{font-family:'DM Serif Display',serif;font-size:1.4rem;font-weight:600;color:var(--navy);margin-bottom:8px}
+  .tools-highlight h2{font-family:'DM Serif Display',serif;font-size:1.4rem;font-weight:400;color:var(--navy);margin-bottom:8px}
   .tools-highlight > p{font-size:0.88rem;color:var(--slate);margin-bottom:20px;max-width:48ch}
   .tools-highlight-grid{display:grid;grid-template-columns:repeat(4, 1fr);gap:var(--grid-gap-tight)}
-  .tool-highlight-card{background:#f0fafa;border:1px solid rgba(30,101,109,0.12);border-radius:var(--card-radius);padding:20px;text-decoration:none;color:var(--navy);transition:box-shadow 0.2s,transform 0.2s}
+  .tool-highlight-card{background:var(--card);border:1px solid var(--border-warm);border-radius:var(--card-radius);padding:20px;text-decoration:none;color:var(--navy);transition:box-shadow 0.2s,transform 0.2s}
   .tool-highlight-card:hover{box-shadow:var(--shadow-card);transform:translateY(-2px)}
-  .tool-highlight-icon{width:40px;height:40px;border-radius:var(--radius-sm);background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;margin-bottom:12px;font-size:1rem}
+  .tool-highlight-icon{width:40px;height:40px;border-radius:var(--radius-sm);background:var(--teal-faint);color:var(--teal);display:flex;align-items:center;justify-content:center;margin-bottom:12px;font-size:1.1rem;border:1px solid var(--teal-subtle)}
   .tool-highlight-card h3{font-size:0.88rem;font-weight:700;margin-bottom:4px}
   .tool-highlight-card p{font-size:0.75rem;color:var(--slate);line-height:1.45;margin:0}
   .tool-highlight-all{text-align:center;margin-top:14px}
@@ -465,7 +470,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 
   /* ══════════ ERFAHRUNGSBERICHT ══════════ */
   .story-section {
-    background: var(--surface-warm);
+    background: var(--surface-alt);
     padding: var(--section-standard) 2rem;
   }
   .story-inner {
@@ -942,7 +947,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     if (!result) return;
 
     var responses = {
-      'q1-yes': { html: '<a href="/notfall/">Zum Notfallweg &rarr;</a>', cls: '' },
+      'q1-yes': { html: '<a href="/notfall/">Zum Notfallweg &rarr;</a>', cls: 'triage-result--urgent' },
       'q1b-yes': { html: '<a href="/modul/1/#neu">Erste Orientierung: Diagnose neu &rarr;</a>', cls: 'triage-result--safe' },
       'q2-yes': { html: '<a href="/modul/4/">Modul 4: Wenn die Kraft nachlässt &rarr;</a>', cls: '' },
       'q3-yes': { html: '<a href="/modul/1/">Modul 1: Die bipolare Störung verstehen &rarr;</a>', cls: '' },

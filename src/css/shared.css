@@ -93,14 +93,14 @@ body {
   color: var(--teal);
 }
 .nav-sos {
-  background: var(--rose-soft) !important;
-  color: var(--rose) !important;
+  background: var(--alert-soft) !important;
+  color: var(--alert) !important;
   font-weight: 600 !important;
   border: 1px solid rgba(154,52,18,0.25) !important;
 }
 .nav-sos:hover {
   background: rgba(154,52,18,0.12) !important;
-  color: var(--rose) !important;
+  color: var(--alert) !important;
 }
 
 .nav-toggle {
@@ -158,7 +158,18 @@ footer {
   color: var(--white-text-secondary);
   padding: var(--space-3xl) 2rem var(--space-xl);
   margin-top: var(--section-wide);
-  border-top: 2px solid var(--teal);
+  border-top: none;
+  position: relative;
+}
+/* Subtle top accent: thin teal line for quiet separation */
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 10%, var(--teal-light) 50%, transparent 90%);
 }
 .footer-inner {
   max-width: var(--content-width);
@@ -171,7 +182,7 @@ footer {
 .footer-links {
   margin-top: var(--space-lg);
   padding-top: var(--space-lg);
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid var(--white-overlay-xs);
   font-size: var(--text-xs);
 }
 .footer-links a { margin: 0 12px; }
@@ -366,7 +377,7 @@ footer *:focus-visible,
 .section-title {
   font-family: 'DM Serif Display', serif;
   font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: -0.025em;
   line-height: 1.2;
   color: var(--navy);
@@ -412,13 +423,13 @@ footer *:focus-visible,
 .module-card[data-accent="blue"]   { border-left-color: var(--blue-phase); }
 .module-card[data-accent="amber"]  { border-left-color: var(--amber-phase); }
 .module-card[data-accent="purple"] { border-left-color: var(--purple-phase); }
-.module-card[data-accent="green"]  { border-left-color: var(--green-phase); }
+.module-card[data-accent="green"]  { border-left-color: var(--phase-green); }
 .module-card[data-accent="teal"]   { border-left-color: var(--teal); }
 
 .module-card[data-accent="blue"]:hover   { border-color: var(--blue-phase);   border-left-width: 4px; }
 .module-card[data-accent="amber"]:hover  { border-color: var(--amber-phase);  border-left-width: 4px; }
 .module-card[data-accent="purple"]:hover { border-color: var(--purple-phase); border-left-width: 4px; }
-.module-card[data-accent="green"]:hover  { border-color: var(--green-phase);  border-left-width: 4px; }
+.module-card[data-accent="green"]:hover  { border-color: var(--phase-green);  border-left-width: 4px; }
 .module-card[data-accent="teal"]:hover   { border-color: var(--teal);         border-left-width: 4px; }
 
 .module-number {
@@ -430,7 +441,7 @@ footer *:focus-visible,
 .module-card[data-accent="blue"]   .module-number { color: var(--blue-phase); }
 .module-card[data-accent="amber"]  .module-number { color: var(--amber-phase); }
 .module-card[data-accent="purple"] .module-number { color: var(--purple-phase); }
-.module-card[data-accent="green"]  .module-number { color: var(--green-phase); }
+.module-card[data-accent="green"]  .module-number { color: var(--phase-green); }
 .module-card[data-accent="teal"]   .module-number { color: var(--teal); }
 
 .module-card h3 {
@@ -463,19 +474,21 @@ footer *:focus-visible,
   gap: 5px;
 }
 .module-arrow {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  background: var(--green-bg);
+  background: none;
+  border: 1.5px solid var(--border-warm-xl);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--teal);
-  font-size: 0.85rem;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  color: var(--text-soft);
+  font-size: 0.8rem;
+  transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
 }
 .module-card:hover .module-arrow {
   background: var(--teal);
+  border-color: var(--teal);
   color: white;
 }
 
@@ -523,10 +536,11 @@ footer *:focus-visible,
 
 /* ── Module card visited state ── */
 .module-card.visited {
-  background: var(--surface-alt);
+  border-left-color: var(--teal) !important;
 }
 .module-card.visited .module-arrow {
   background: var(--teal);
+  border-color: var(--teal);
   color: #fff;
 }
 

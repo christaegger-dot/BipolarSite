@@ -22,8 +22,8 @@
   --amber:       #B45309;
   --amber-light: #FBBF24;
   --amber-dark:  #92400e;
-  --rose:        #9A3412;
-  --rose-soft:   #FEF2F2;
+  --alert:       #B91C1C;
+  --alert-soft:  #FEF2F2;
 
   /* ── Neutral / Slate ── */
   --slate:       #475569;
@@ -41,8 +41,7 @@
   --border:      #e2e8f0;
 
   /* ── Semantic: Status/Feedback ── */
-  --green:       #0d7a5f;
-  --green-bg:    #e6f4f2;
+  --success-soft: #e6f4f2;
   --red-bg:      #FEF2F2;
   --amber-bg:    #fef3e2;
 
@@ -96,8 +95,8 @@
      ───────────────────────────────────────────── */
 
   /* Sage → Teal/Navy (var() refs to avoid value duplication) */
-  --sage-50:  var(--green-bg);
-  --sage-100: var(--green-bg);
+  --sage-50:  var(--success-soft);
+  --sage-100: var(--success-soft);
   --sage-200: var(--teal-border);
   --sage-300: var(--teal-light);
   --sage-400: var(--teal);
@@ -127,8 +126,8 @@
   --text-muted:     var(--text-soft);
 
   /* Alert (remap to rose) */
-  --alert-red:        var(--rose);
-  --alert-red-bg:     var(--rose-soft);
+  --alert-red:        var(--alert);
+  --alert-red-bg:     var(--alert-soft);
   --alert-red-border: #fca5a5;
 
   /* Phase colors (content-semantic) */
@@ -136,8 +135,8 @@
   --blue-phase-light: #eef3f8;
   --amber-phase:      #B45309;
   --amber-phase-light:#fef3e2;
-  --green-phase:      #0d7a5f;
-  --green-phase-light:#e6f4f2;
+  --phase-green:      #0d7a5f;
+  --phase-green-light:#e6f4f2;
   /* Phase-specific bg/border values (used in phasenverlauf + selbsttest JS) */
   --mania-phase-bg:          #fff3e0;
   --mania-phase-border:      #f0c070;
@@ -230,7 +229,7 @@ body {
 
 /* Badges with hardcoded #eaede4 bg / #3d4a30 text */
 .badge {
-  background: var(--green-bg) !important;
+  background: var(--success-soft) !important;
   color: var(--teal) !important;
 }
 
@@ -428,9 +427,9 @@ nav.scrolled {
 }
 
 .nav-sos:hover {
-  background: var(--rose) !important;
+  background: var(--alert) !important;
   color: white !important;
-  border-color: var(--rose) !important;
+  border-color: var(--alert) !important;
 }
 
 /* ── Mobile toggle ── */
@@ -605,7 +604,7 @@ header.hero[style*="linear-gradient"] {
 }
 
 .module-card-arrow {
-  background: var(--green-bg) !important;
+  background: var(--success-soft) !important;
   color: var(--teal) !important;
   border-radius: 50% !important;
 }
@@ -632,14 +631,14 @@ header.hero[style*="linear-gradient"] {
 }
 
 .quick-card-icon {
-  background: var(--green-bg) !important;
+  background: var(--success-soft) !important;
   color: var(--teal) !important;
   border-radius: var(--radius-sm) !important;
 }
 
 .quick-card.alert .quick-card-icon {
   background: rgba(154,52,18,0.12) !important;
-  color: var(--rose) !important;
+  color: var(--alert) !important;
 }
 
 /* ── Situation / number cards (notfall + modules) ── */
@@ -654,14 +653,14 @@ header.hero[style*="linear-gradient"] {
 }
 
 .sit-badge {
-  background: var(--green-bg) !important;
+  background: var(--success-soft) !important;
   color: var(--teal) !important;
   border-radius: var(--radius-sm) !important;
 }
 
 .sit-card.urgent .sit-badge {
   background: rgba(154,52,18,0.12) !important;
-  color: var(--rose) !important;
+  color: var(--alert) !important;
 }
 
 .number-card {
@@ -677,14 +676,14 @@ header.hero[style*="linear-gradient"] {
 }
 
 .guide-badge {
-  background: var(--green-bg) !important;
+  background: var(--success-soft) !important;
   color: var(--teal) !important;
   border-radius: var(--radius-sm) !important;
 }
 
 .guide-badge.red {
   background: var(--red-bg) !important;
-  color: var(--rose) !important;
+  color: var(--alert) !important;
 }
 
 .guide-badge.amber {
@@ -702,7 +701,7 @@ header.hero[style*="linear-gradient"] {
 }
 
 .guide-chevron {
-  background: var(--green-bg) !important;
+  background: var(--success-soft) !important;
   color: var(--teal) !important;
   border-radius: 50% !important;
 }
@@ -728,7 +727,7 @@ header.hero[style*="linear-gradient"] {
 }
 
 .next-module .next-arrow {
-  background: var(--green-bg) !important;
+  background: var(--success-soft) !important;
   color: var(--teal) !important;
 }
 
@@ -774,7 +773,7 @@ header.hero[style*="linear-gradient"] {
 }
 
 .pdf-preview-close:hover {
-  background: var(--green-bg) !important;
+  background: var(--success-soft) !important;
   color: var(--teal) !important;
 }
 
@@ -813,7 +812,7 @@ header.hero[style*="linear-gradient"] {
 
 /* ── Bar charts (modul/2) ── */
 .bar-track {
-  background: var(--green-bg) !important;
+  background: var(--success-soft) !important;
 }
 
 .bar-fill,
@@ -892,9 +891,9 @@ table tbody tr:nth-child(even),
 }
 
 .phase-tab.active-stable {
-  color: var(--green-phase) !important;
-  border-bottom-color: var(--green-phase) !important;
-  background: var(--green-phase-light) !important;
+  color: var(--phase-green) !important;
+  border-bottom-color: var(--phase-green) !important;
+  background: var(--phase-green-light) !important;
 }
 
 .phase-tab.active-depression {
@@ -931,7 +930,7 @@ table tbody tr:nth-child(even),
 }
 
 .eisberg-top {
-  background: linear-gradient(180deg, white, var(--green-bg)) !important;
+  background: linear-gradient(180deg, white, var(--success-soft)) !important;
 }
 
 .eisberg-tag {
@@ -957,7 +956,7 @@ table tbody tr:nth-child(even),
 /* Tool progress (hardcoded gradient) */
 .prog {
   border-radius: var(--radius-md) !important;
-  background: var(--green-bg) !important;
+  background: var(--success-soft) !important;
 }
 
 .prog div,
@@ -1005,7 +1004,7 @@ table tbody tr:nth-child(even),
 /* ── Reflection / highlight boxes ── */
 .reflection-block,
 .refl {
-  background: linear-gradient(135deg, var(--green-bg), var(--warm-100)) !important;
+  background: linear-gradient(135deg, var(--success-soft), var(--warm-100)) !important;
   border-radius: var(--radius-lg) !important;
 }
 
@@ -1058,12 +1057,12 @@ table tbody tr:nth-child(even),
 
 .alert-icon {
   background: rgba(154,52,18,0.12) !important;
-  color: var(--rose) !important;
+  color: var(--alert) !important;
   border-radius: var(--radius-sm) !important;
 }
 
 .alert-box strong {
-  color: var(--rose) !important;
+  color: var(--alert) !important;
 }
 
 /* ── Note boxes ── */
@@ -1080,7 +1079,7 @@ table tbody tr:nth-child(even),
 }
 
 .fu-alert h3 {
-  color: var(--rose) !important;
+  color: var(--alert) !important;
 }
 
 /* ── Grauzone (notfall page) ── */
@@ -1094,7 +1093,7 @@ table tbody tr:nth-child(even),
 
 /* ── Guide Do/Don't/SOS boxes ── */
 .guide-do {
-  background: var(--green-bg) !important;
+  background: var(--success-soft) !important;
   border: 1px solid var(--teal-border) !important;
   border-radius: var(--radius-md) !important;
 }
@@ -1231,7 +1230,7 @@ section,
 .btn-back:hover {
   border-color: var(--teal) !important;
   color: var(--teal) !important;
-  background: var(--green-bg) !important;
+  background: var(--success-soft) !important;
 }
 
 /* ── Option buttons in tools (hardcoded 14px radius) ── */
@@ -1247,14 +1246,14 @@ section,
 .opt-btn:hover {
   border-color: var(--teal) !important;
   color: var(--teal) !important;
-  background: var(--green-bg) !important;
+  background: var(--success-soft) !important;
 }
 
 .opt.sel,
 .opt.selected,
 .opt-btn.sel {
   border-color: var(--teal) !important;
-  background: var(--green-bg) !important;
+  background: var(--success-soft) !important;
   color: var(--teal) !important;
 }
 
@@ -1262,15 +1261,15 @@ section,
 .btn-correct,
 .opt.correct {
   border-color: var(--teal) !important;
-  background: var(--green-bg) !important;
+  background: var(--success-soft) !important;
   color: var(--teal) !important;
 }
 
 .btn-wrong,
 .opt.wrong {
-  border-color: var(--rose) !important;
+  border-color: var(--alert) !important;
   background: var(--red-bg) !important;
-  color: var(--rose) !important;
+  color: var(--alert) !important;
 }
 
 /* ── Submit button in tools (hardcoded #d5dbc9 bg) ── */
@@ -1360,7 +1359,7 @@ footer {
 /* Tool nav and tool-back/brand moved to COVERAGE-AUDIT FIXES section */
 
 /* ── Tool footer (.tf) link contrast fix ── */
-/* --rose (#9A3412) on navy (#1C2B3A) = ~1.65:1 — WCAG fail.
+/* --alert (#B91C1C) on navy (#1C2B3A) = ~1.65:1 — WCAG fail.
    Light red (#fca5a5) on navy = ~5.8:1 — passes AA. */
 footer.tf a[href="/notfall/"] {
   color: #fca5a5 !important;
@@ -1459,7 +1458,7 @@ footer.tf a[href="/notfall/"] {
 .btn-print:hover {
   border-color: var(--teal) !important;
   color: var(--teal) !important;
-  background: var(--green-bg) !important;
+  background: var(--success-soft) !important;
 }
 
 /* btn-reset: expand to cover background + border (was color-only) */
@@ -1473,20 +1472,20 @@ footer.tf a[href="/notfall/"] {
 .btn-reset:hover {
   border-color: var(--teal) !important;
   color: var(--teal-dark) !important;
-  background: var(--green-bg) !important;
+  background: var(--success-soft) !important;
 }
 
 /* opt-btn.correct: class name mismatch fix (komm-trainer uses .opt-btn.correct) */
 .opt-btn.correct {
   border-color: var(--teal) !important;
-  background: var(--green-bg) !important;
+  background: var(--success-soft) !important;
   color: var(--teal) !important;
 }
 
 .opt-btn.wrong {
-  border-color: var(--rose) !important;
+  border-color: var(--alert) !important;
   background: var(--red-bg) !important;
-  color: var(--rose) !important;
+  color: var(--alert) !important;
 }
 
 /* ep-btn (solidaritaets-chart) */
@@ -1532,7 +1531,7 @@ footer.tf a[href="/notfall/"] {
 
 /* pdf-preview-link (notfall, modules) */
 .pdf-preview-link {
-  background: var(--green-bg) !important;
+  background: var(--success-soft) !important;
   color: var(--teal) !important;
   border-radius: var(--radius-md) !important;
 }
@@ -1828,7 +1827,7 @@ header.hero .hero-content {
 }
 
 .module-card[data-accent="green"] {
-  border-left: 3px solid var(--green) !important;
+  border-left: 3px solid var(--phase-green) !important;
 }
 
 .module-card[data-accent="purple"] {
@@ -1844,7 +1843,7 @@ header.hero .hero-content {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: var(--green-bg) !important;
+  background: var(--success-soft) !important;
   color: var(--teal) !important;
   font-size: 0.85rem;
   transition: background-color 0.2s ease, color 0.2s ease;
@@ -1883,7 +1882,7 @@ header.hero .hero-content {
 .tool-chip:hover {
   border-color: var(--teal);
   color: var(--teal);
-  background: var(--green-bg);
+  background: var(--success-soft);
   transform: translateY(-1px);
   box-shadow: 0 2px 10px rgba(30,101,109,0.12);
 }
