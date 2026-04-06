@@ -11,32 +11,32 @@ useToolCSS: true
 ---
 {% block headCSS %}
 <style>
-body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-height:100vh;display:flex;flex-direction:column;align-items:center;-webkit-font-smoothing:antialiased}
+body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min-height:100vh;display:flex;flex-direction:column;align-items:center;-webkit-font-smoothing:antialiased}
 .tool-nav{width:100%;background:rgba(254,252,248,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border-warm);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
 .wrap{width:100%;max-width:680px;padding:32px 20px 48px;flex:1}
-.hdr{text-align:center;margin-bottom:24px;background:linear-gradient(180deg,rgba(255,255,255,0.94),rgba(247,250,251,0.88));border:1px solid var(--border-warm-md);border-radius:26px;padding:26px 24px 24px;box-shadow:0 16px 40px rgba(28,43,58,0.08);position:relative;overflow:hidden}
+.hdr{text-align:center;margin-bottom:24px;background:linear-gradient(180deg,rgba(255,255,255,0.94),rgba(247,250,251,0.88));border:1px solid var(--border-warm-md);border-radius:26px;padding:26px 24px 24px;box-shadow:var(--shadow-elevated);position:relative;overflow:hidden}
 .legend{display:flex;gap:16px;justify-content:center;margin-bottom:16px;flex-wrap:wrap}
-.legend-item{display:flex;align-items:center;gap:6px;font-size:0.72rem;color:#475569;cursor:pointer;padding:4px 8px;border-radius:6px;transition:background 0.2s}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:0.72rem;color:var(--slate);cursor:pointer;padding:4px 8px;border-radius:6px;transition:background 0.2s}
 .legend-item:hover{background:var(--border-warm)}
 .legend-line{width:20px;height:3px;border-radius:2px}
-.chart-wrap{width:100%;background:linear-gradient(180deg,#fff 0%,#fbfcfd 100%);border-radius:22px;border:1px solid var(--border-warm);box-shadow:0 12px 34px rgba(28,43,58,0.08);padding:20px;margin-bottom:16px;overflow-x:auto}
+.chart-wrap{width:100%;background:linear-gradient(180deg,#fff 0%,#fbfcfd 100%);border-radius:22px;border:1px solid var(--border-warm);box-shadow:var(--shadow-card);padding:20px;margin-bottom:16px;overflow-x:auto}
 .chart-wrap svg{width:100%;height:auto;display:block}
 .chart-wrap [role="button"]:focus{filter:drop-shadow(0 0 0.35rem rgba(116,138,90,0.45))}
 .episodes{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;justify-content:center}
 .ep-btn{padding:8px 16px;border-radius:10px;border:1px solid var(--border-warm-md);background:#fff;font-size:0.78rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background-color 0.2s ease,color 0.2s ease,border-color 0.2s ease;-webkit-appearance:none}
 .ep-btn.active{color:#fff}
-.detail{background:linear-gradient(180deg,#fff 0%,#fbfcfd 100%);border-radius:22px;border:1px solid var(--border-warm);box-shadow:0 12px 34px rgba(28,43,58,0.08);padding:24px;margin-bottom:16px;display:none}
+.detail{background:linear-gradient(180deg,#fff 0%,#fbfcfd 100%);border-radius:22px;border:1px solid var(--border-warm);box-shadow:var(--shadow-card);padding:24px;margin-bottom:16px;display:none}
 .detail.vis{display:block}
-.detail h2{font-family:'DM Serif Display',Georgia,serif;font-size:1rem;font-weight:700;color:#1c2b3a;margin:0 0 12px}
+.detail h2{font-family:'DM Serif Display',Georgia,serif;font-size:1rem;font-weight:700;color:var(--navy);margin:0 0 12px}
 .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .detail-col{padding:12px;border-radius:10px;font-size:0.82rem;line-height:1.5}
 .detail-col h4{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px}
 .toggle-wrap{text-align:center;margin-bottom:16px}
 .toggle-btn{padding:10px 20px;border-radius:10px;border:2px solid var(--green-phase);background:#fff;color:var(--green-phase);font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background-color 0.2s ease,color 0.2s ease,border-color 0.2s ease}
 .toggle-btn.on{background:var(--green-phase);color:#fff}
-.disc{text-align:center;font-size:0.72rem;color:#475569;background:#FAFAF7;border-radius:10px;padding:12px 16px;margin-bottom:16px;line-height:1.5}
-.mobile-chart-note{display:none;background:#FAFAF7;border:1px solid var(--border-warm-md);border-radius:14px;padding:12px 14px;margin-bottom:14px;font-size:0.76rem;line-height:1.55;color:#475569;text-align:center}
-.tf{text-align:center;font-size:0.68rem;color:#8DD4D9;margin-top:20px;line-height:1.5}
+.disc{text-align:center;font-size:0.72rem;color:var(--slate);background:var(--bg);border-radius:10px;padding:12px 16px;margin-bottom:16px;line-height:1.5}
+.mobile-chart-note{display:none;background:var(--bg);border:1px solid var(--border-warm-md);border-radius:14px;padding:12px 14px;margin-bottom:14px;font-size:0.76rem;line-height:1.55;color:var(--slate);text-align:center}
+.tf{text-align:center;font-size:0.68rem;color:var(--teal-light);margin-top:20px;line-height:1.5}
 @media(max-width:600px){.chart-wrap{display:none}.mobile-chart-note{display:block}.detail-grid{grid-template-columns:1fr}}
 </style>
 {% endblock %}
@@ -130,7 +130,7 @@ function rn(){
     const e=eps[activeEp];
     elDetail.className='detail vis';
     elDetail.innerHTML=`<h2>${e.name} <span style="font-size:0.72rem;font-weight:600;color:${e.col};background:${e.bg};padding:2px 8px;border-radius:6px;margin-left:8px">Belastung: ${e.impact}</span></h2>
-    <div class="detail-grid"><div class="detail-col" style="background:var(--amber-phase-light)"><h4 style="color:var(--amber-phase)">Belastungsreserve</h4><p style="color:#475569">${e.bel}</p></div><div class="detail-col" style="background:var(--blue-phase-light)"><h4 style="color:var(--blue-phase)">Stimmung</h4><p style="color:#475569">${e.stim}</p></div></div>`;
+    <div class="detail-grid"><div class="detail-col" style="background:var(--amber-phase-light)"><h4 style="color:var(--amber-phase)">Belastungsreserve</h4><p style="color:var(--slate)">${e.bel}</p></div><div class="detail-col" style="background:var(--blue-phase-light)"><h4 style="color:var(--blue-phase)">Stimmung</h4><p style="color:var(--slate)">${e.stim}</p></div></div>`;
   }else{elDetail.className='detail'}
 }
 [0,1,2].forEach(i=>{const el=document.getElementById('ep'+i);el.addEventListener('click',()=>selEp(i));});

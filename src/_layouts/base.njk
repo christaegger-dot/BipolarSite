@@ -178,7 +178,7 @@
   });
 </script>
 {% block scripts %}{% endblock %}
-<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js').catch(function(){})}</script>
+<script>if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(regs){regs.forEach(function(r){r.unregister()})})}</script>
 {% if not noStorageBanner %}
 <div id="storageBanner" class="storage-banner" hidden role="status">
   <span>Fortschritt lokal speichern? Keine Daten werden gesendet.</span>
