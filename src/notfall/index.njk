@@ -58,7 +58,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   /* SITUATION SELECTOR */
   .situations{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 40px}
   .sit-card{display:flex;align-items:center;gap:14px;padding:16px 20px;border-radius:var(--radius-lg);text-decoration:none;color:var(--text);border:1px solid var(--border-warm);transition:border-color 0.2s ease,box-shadow 0.2s ease,transform 0.2s ease;background:linear-gradient(180deg,#fff 0%,#fcf8f7 100%)}
-  .sit-card:hover{box-shadow:0 12px 28px rgba(28,43,58,0.1);transform:translateY(-2px)}
+  .sit-card:hover{box-shadow:var(--shadow-card);transform:translateY(-2px)}
   .sit-card.urgent{border-color:var(--alert-red-border);background:var(--alert-red-bg)}
   .sit-card.urgent:hover{border-color:var(--alert-red)}
   .sit-badge{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:800;flex-shrink:0}
@@ -71,7 +71,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   /* NUMBERS */
   .numbers-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:24px 0}
   .number-card{background:linear-gradient(180deg,#fff 0%,#fcf8f7 100%);border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:16px 20px;display:flex;align-items:center;gap:14px;transition:box-shadow 0.2s ease,transform 0.2s ease;border-top:3px solid transparent;text-decoration:none;color:inherit}
-  .number-card:hover{box-shadow:0 12px 28px rgba(28,43,58,0.1);transform:translateY(-2px)}
+  .number-card:hover{box-shadow:var(--shadow-card);transform:translateY(-2px)}
   .numbers-grid .number-card:nth-child(-n+2){background:linear-gradient(180deg,#FFF8F7 0%,#FFFFFF 100%);border-color:rgba(199,84,80,0.18);border-top-color:var(--alert-red)}
   .number-card strong{display:block;font-family:'DM Serif Display',serif;font-size:1.15rem;font-weight:700;color:var(--alert-red)}
   .number-label{font-size:0.82rem;color:var(--slate);line-height:1.3}

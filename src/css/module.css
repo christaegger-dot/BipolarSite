@@ -174,8 +174,8 @@
 }
 .quote-block::before {
   content: '«'; font-family: 'DM Serif Display', serif;
-  font-size: 4rem; color: var(--sand); position: absolute;
-  top: 12px; left: 20px; line-height: 1; opacity: 0.5;
+  font-size: 4rem; color: var(--teal); position: absolute;
+  top: 12px; left: 20px; line-height: 1; opacity: 0.18;
 }
 .quote-block blockquote {
   font-family: 'DM Serif Display', serif;

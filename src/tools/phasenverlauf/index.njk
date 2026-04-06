@@ -15,12 +15,12 @@ useToolCSS: true
 body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min-height:100vh;display:flex;flex-direction:column;align-items:center;-webkit-font-smoothing:antialiased}
 .tool-nav{width:100%;background:rgba(254,252,248,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border-warm);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
 .wrap{width:100%;max-width:680px;padding:32px 20px 56px;flex:1}
-.hdr{text-align:center;margin-bottom:28px;background:linear-gradient(180deg,rgba(255,255,255,0.94),rgba(247,250,251,0.88));border:1px solid var(--border-warm-md);border-radius:26px;padding:26px 24px 24px;box-shadow:0 16px 40px rgba(28,43,58,0.08);position:relative;overflow:hidden}
+.hdr{text-align:center;margin-bottom:28px;background:linear-gradient(180deg,rgba(255,255,255,0.94),rgba(247,250,251,0.88));border:1px solid var(--border-warm-md);border-radius:26px;padding:26px 24px 24px;box-shadow:var(--shadow-elevated);position:relative;overflow:hidden}
 .hdr::before{content:'';position:absolute;top:-36px;right:-28px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle, rgba(141,212,217,0.3) 0%, transparent 68%)}
 .hdr h1{font-family:'DM Serif Display',serif;font-size:clamp(1.35rem,3.5vw,1.75rem);font-weight:700;color:var(--navy);margin:0 0 8px;letter-spacing:-0.02em;line-height:1.2}
 
 /* ── Chart wrapper ── */
-.chart-wrap{width:100%;border-radius:22px;overflow:hidden;background:linear-gradient(180deg,#ffffff 0%,#fbfcfd 100%);border:1px solid var(--border-warm-md);box-shadow:0 12px 34px rgba(28,43,58,0.08);margin-bottom:18px}
+.chart-wrap{width:100%;border-radius:22px;overflow:hidden;background:linear-gradient(180deg,#ffffff 0%,#fbfcfd 100%);border:1px solid var(--border-warm-md);box-shadow:var(--shadow-card);margin-bottom:18px}
 .chart-top{padding:16px 18px 10px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
 .chart-heading{font-size:0.72rem;font-weight:700;color:var(--slate);text-transform:uppercase;letter-spacing:0.08em}
 .chart-legend{display:flex;gap:12px;flex-wrap:wrap}
@@ -53,7 +53,7 @@ body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min
 .pbtn.active{color:#fff;transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.18)}
 
 /* ── Detail card ── */
-.detail-card{background:linear-gradient(180deg,#ffffff 0%,#fbfcfd 100%);border-radius:22px;border:1px solid var(--border-warm-md);box-shadow:0 12px 34px rgba(28,43,58,0.08);padding:24px 24px 20px;border-left:4px solid var(--border);transition:border-color 0.3s,opacity 0.3s,transform 0.3s;opacity:0;transform:translateY(8px);pointer-events:none}
+.detail-card{background:linear-gradient(180deg,#ffffff 0%,#fbfcfd 100%);border-radius:22px;border:1px solid var(--border-warm-md);box-shadow:var(--shadow-card);padding:24px 24px 20px;border-left:4px solid var(--border);transition:border-color 0.3s,opacity 0.3s,transform 0.3s;opacity:0;transform:translateY(8px);pointer-events:none}
 .detail-card.vis{opacity:1;transform:translateY(0);pointer-events:auto}
 .det-top{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px}
 .det-icon{width:48px;height:48px;min-width:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.35rem}

@@ -14,7 +14,7 @@ useToolCSS: true
 body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min-height:100vh;display:flex;flex-direction:column;align-items:center;-webkit-font-smoothing:antialiased}
 .tool-nav{width:100%;background:rgba(254,252,248,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border-warm);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
 .wrap{width:100%;max-width:560px;padding:32px 20px 48px;flex:1}
-.hdr{text-align:center;margin-bottom:28px;background:linear-gradient(180deg,rgba(255,255,255,0.94),rgba(248,250,251,0.88));border:1px solid var(--border-warm-md);border-radius:26px;padding:26px 24px 24px;box-shadow:0 16px 40px rgba(28,43,58,0.08);position:relative;overflow:hidden}
+.hdr{text-align:center;margin-bottom:28px;background:linear-gradient(180deg,rgba(255,255,255,0.94),rgba(248,250,251,0.88));border:1px solid var(--border-warm-md);border-radius:26px;padding:26px 24px 24px;box-shadow:var(--shadow-elevated);position:relative;overflow:hidden}
 .hdr::before{content:'';position:absolute;top:-34px;left:-24px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle, rgba(141,212,217,0.3) 0%, transparent 68%)}
 .hdr p{font-size:0.88rem;color:var(--slate);line-height:1.65;max-width:44ch;margin:0 auto}
 .svg-wrap{width:100%;max-width:380px;margin:0 auto 24px;position:relative}
@@ -25,7 +25,7 @@ body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min
 .svg-wrap .arrow{transition:opacity 0.5s}
 .interrupted .arrow{opacity:0.2;stroke-dasharray:8 6}
 .center-text{font-family:'DM Serif Display',Georgia,serif;transition:fill 0.3s}
-.detail{background:linear-gradient(180deg,#ffffff 0%,#fbfcfd 100%);border-radius:22px;border:1px solid var(--border-warm);box-shadow:0 12px 32px rgba(28,43,58,0.08);padding:24px 28px;margin-bottom:16px;display:none}
+.detail{background:linear-gradient(180deg,#ffffff 0%,#fbfcfd 100%);border-radius:22px;border:1px solid var(--border-warm);box-shadow:var(--shadow-card);padding:24px 28px;margin-bottom:16px;display:none}
 .detail.vis{display:block}
 .detail-num{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px}
 .detail h2{font-family:'DM Serif Display',Georgia,serif;font-size:1.06rem;font-weight:700;color:var(--navy);margin:0 0 10px}
