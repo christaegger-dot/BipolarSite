@@ -2426,3 +2426,48 @@ table tbody tr:nth-child(even),
   line-height: 1.75;
   margin: 0;
 }
+
+/* ── Inline-Style Migration (P2.5) ── */
+
+/* Alert-box variant: success/info (modul/7) */
+.alert-box.alert-box--info{border-color:var(--teal);background:var(--success-soft)}
+.alert-box--info .alert-box-icon,.alert-box--info .alert-icon{color:var(--teal)}
+
+/* Hint-note spacing variants */
+.hint-note--spaced{margin-bottom:20px}
+.hint-note--tight{margin-top:4px}
+
+/* Content list in reveal blocks */
+.content-list-styled{margin:var(--space-base) 0 var(--space-md) 20px;line-height:1.9;color:var(--slate);font-size:var(--text-base)}
+
+/* Treatment grid single-column variant */
+.treatment-grid--single{grid-template-columns:1fr}
+
+/* Download/CTA label */
+.download-label{margin-top:var(--space-md);font-size:var(--text-xs);color:var(--teal);font-weight:600}
+
+/* Scenario/quote attribution (modul/5) */
+.scenario-note{font-size:var(--text-xs);margin-bottom:14px;font-style:italic}
+.scenario-note--navy{color:var(--navy)}
+.scenario-note--slate{color:var(--slate)}
+
+/* Barrier grid spacing */
+.barrier-grid{margin-top:20px}
+
+/* Bright moment emphasis */
+.bright-moment{font-weight:500}
+
+/* Stelle text styling in dark sections (modul/8 takeaways) */
+.takeaways h3{color:white;margin-bottom:0.25rem}
+.takeaways > .takeaways-inner > p{color:rgba(255,255,255,0.65);font-size:var(--text-xs);margin-bottom:1rem}
+
+/* Context note (modul/3 Hinweis zur Sprache) */
+.context-note{font-size:var(--text-base);color:var(--teal-dark);background:var(--success-soft);border-radius:var(--radius-sm);padding:var(--space-base) var(--space-md)}
+
+/* Ampel card link (modul/6) */
+a.ampel-card{text-decoration:none;display:block}
+
+/* Progress notification (module overview) */
+#progressNext{background:var(--success-soft);border:1px solid rgba(13,122,95,0.15);border-radius:var(--radius-sm);padding:14px 18px}
+.progress-label{font-size:var(--text-xs);color:var(--phase-green);font-weight:600}
+.progress-link{font-size:var(--text-base);font-weight:700;color:var(--teal);text-decoration:none}

@@ -524,3 +524,22 @@ body.solidaritaets-chart-page .tf{color:var(--teal-light);margin-top:20px}
   body.solidaritaets-chart-page .mobile-chart-note{display:block}
   .detail-grid{grid-template-columns:1fr}
 }
+/* ── Noscript Fallback ── */
+.noscript-box{padding:20px 24px;background:var(--surface-alt);border-radius:var(--radius-md);margin:20px 0;font-family:'DM Sans',sans-serif}
+.noscript-box p:first-child{font-weight:600;margin:0 0 8px}
+.noscript-box p:last-child{margin:0}
+.noscript-box a{color:var(--teal);font-weight:600}
+/* ── Phase Legend Dots ── */
+.leg-dot--mania{background:var(--amber)}
+.leg-dot--hypo{background:var(--hypo-phase)}
+.leg-dot--stable{background:var(--phase-green)}
+.leg-dot--dep-mild{background:var(--blue-phase)}
+.leg-dot--dep-severe{background:var(--slate)}
+/* ── Chart Legend Lines ── */
+.legend-line--amber{background:var(--amber)}
+.legend-line--blue{background:var(--blue-phase)}
+.legend-line--green{background:var(--phase-green);border-style:dashed}
+/* ── SVG Cursor Pointer ── */
+body.solidaritaets-chart-page .chart-wrap rect[id^="ep"]{cursor:pointer}
+/* ── SVG Fill ── */
+#zone-severe{fill:var(--severe-dep-phase-bg)}
