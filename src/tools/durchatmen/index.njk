@@ -12,27 +12,28 @@ bodyClass: "dark-tool"
 ---
 {% block headCSS %}
 <style>
-body{font-family:'DM Sans',sans-serif;color:rgba(255,255,255,0.88);background:#1a2332;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;-webkit-font-smoothing:antialiased;overflow:hidden}
-.tool-nav{background:rgba(26,35,50,0.9);border-bottom:1px solid rgba(255,255,255,0.06)}
-.tool-back{color:rgba(255,255,255,0.5)}.tool-brand{color:rgba(255,255,255,0.6)}
+body{font-family:'DM Sans',sans-serif;color:var(--white-text);background:var(--dark-bg);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;-webkit-font-smoothing:antialiased;overflow:hidden}
+.tool-nav{background:var(--dark-nav-bg);border-bottom:1px solid var(--dark-border)}
+.tool-back{color:var(--white-text-faint)}.tool-brand{color:var(--white-text-muted)}
+.tool-breadcrumb a{color:rgba(141,212,217,0.7)}.tool-breadcrumb{color:var(--white-text-dim)}.tool-breadcrumb .sep{opacity:0.4}
 .breathe-wrap{width:100%;max-width:480px;text-align:center;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.breathe-title{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.4rem,3.5vw,1.8rem);font-weight:600;color:#fff;margin-bottom:8px}
-.breathe-sub{font-size:0.88rem;color:rgba(255,255,255,0.5);margin-bottom:40px;line-height:1.55}
+.breathe-title{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.4rem,3.5vw,1.8rem);font-weight:600;color:white;margin-bottom:8px}
+.breathe-sub{font-size:0.88rem;color:var(--white-text-faint);margin-bottom:40px;line-height:1.55}
 .breathe-circle{width:160px;height:160px;border-radius:50%;border:3px solid rgba(141,212,217,0.3);display:flex;align-items:center;justify-content:center;margin:0 auto 32px;animation:breathe 14s ease-in-out infinite}
-.breathe-label{font-size:1.1rem;font-weight:600;color:var(--teal-light,#8dd4d9)}
+.breathe-label{font-size:1.1rem;font-weight:600;color:var(--teal-accent-light)}
 @keyframes breathe{0%,100%{transform:scale(1);border-color:rgba(141,212,217,0.3)}28.6%{transform:scale(1.25);border-color:rgba(141,212,217,0.6)}57.1%{transform:scale(1.25);border-color:rgba(141,212,217,0.4)}100%{transform:scale(1);border-color:rgba(141,212,217,0.3)}}
-.breathe-steps{display:flex;gap:20px;justify-content:center;margin-bottom:48px;font-size:0.78rem;color:rgba(255,255,255,0.6)}
+.breathe-steps{display:flex;gap:20px;justify-content:center;margin-bottom:48px;font-size:0.78rem;color:var(--white-text-muted)}
 .breathe-step{text-align:center}
-.breathe-step span{display:block;font-size:1.1rem;font-weight:700;color:rgba(255,255,255,0.7);margin-bottom:2px}
+.breathe-step span{display:block;font-size:1.1rem;font-weight:700;color:var(--white-text-secondary);margin-bottom:2px}
 .breathe-transition{margin:0 auto 24px;text-align:center}
-.breathe-transition-text{font-size:0.82rem;color:rgba(255,255,255,0.6);letter-spacing:0.02em}
-.breathe-q{font-family:'DM Serif Display',Georgia,serif;font-size:1.05rem;font-weight:600;color:rgba(255,255,255,0.8);margin-bottom:20px}
+.breathe-transition-text{font-size:0.82rem;color:var(--white-text-muted);letter-spacing:0.02em}
+.breathe-q{font-family:'DM Serif Display',Georgia,serif;font-size:1.05rem;font-weight:600;color:var(--white-text);margin-bottom:20px}
 .breathe-actions{display:flex;flex-direction:column;gap:10px;width:100%;max-width:320px}
 .breathe-action{display:block;padding:14px 20px;border-radius:var(--radius-md);text-decoration:none;text-align:center;font-size:0.88rem;font-weight:600;transition:transform 0.15s ease,box-shadow 0.15s ease}
 .breathe-action:hover{transform:translateY(-1px)}
-.breathe-action--emergency{background:linear-gradient(135deg,#991b1b,#b91c1c);color:#fff}
-.breathe-action--krisenplan{background:rgba(30,101,109,0.2);color:var(--teal-light,#8dd4d9);border:1px solid rgba(141,212,217,0.2)}
-.breathe-action--weiter{background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.1)}
+.breathe-action--emergency{background:linear-gradient(135deg,var(--emergency-mid),var(--emergency-bright));color:white}
+.breathe-action--krisenplan{background:var(--teal-muted);color:var(--teal-accent-light);border:1px solid rgba(141,212,217,0.2)}
+.breathe-action--weiter{background:var(--white-overlay-xs);color:var(--white-text-muted);border:1px solid var(--white-overlay-sm)}
 @media(prefers-reduced-motion:reduce){.breathe-circle{animation:none}}
 </style>
 {% endblock %}
@@ -41,6 +42,7 @@ body{font-family:'DM Sans',sans-serif;color:rgba(255,255,255,0.88);background:#1
 {% endblock %}
 {% block content %}
 <main class="breathe-wrap" id="main-content">
+  <div class="tool-breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><a href="/werkzeuge/">Werkzeuge</a><span class="sep" aria-hidden="true">›</span><span>Durchatmen</span></div>
   <h1 class="breathe-title">Einen Moment.</h1>
   <p class="breathe-sub">Sie müssen gerade nichts entscheiden. Atmen Sie erst.</p>
 

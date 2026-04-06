@@ -22,7 +22,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .ampel-card.green{background:var(--green-bg);border-top-color:var(--green-phase)}
   .ampel-card.amber{background:var(--amber-phase-light);border-top-color:var(--amber-phase)}
   .ampel-card.red{background:var(--alert-red-bg);border-top-color:var(--alert-red)}
-  .ampel-card.slate{background:#f1f5f9;border-top-color:var(--slate)}
+  .ampel-card.slate{background:var(--surface-alt);border-top-color:var(--slate)}
   .ampel-card.slate .ampel-label{color:var(--slate)}
   .ampel-label{font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px}
   .ampel-card.green .ampel-label{color:var(--green-phase)}
@@ -31,8 +31,8 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .ampel-card h4{font-size:0.92rem;font-weight:700;color:var(--text);margin-bottom:8px}
   .ampel-card p{font-size:0.84rem;line-height:1.55;margin:0}
   .ampel-card.green p{color:var(--navy)}
-  .ampel-card.amber p{color:#B45309}
-  .ampel-card.red p{color:#9A3412}
+  .ampel-card.amber p{color:var(--amber)}
+  .ampel-card.red p{color:var(--rose)}
 
   /* SECTION CARD (content container, distinct from .tool-card in werkzeuge) */
   .section-card{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:32px;margin:32px 0;box-shadow:var(--shadow-soft)}
@@ -72,7 +72,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .do-col h4,.dont-col h4{font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px}
   .do-col h4{color:var(--teal-dark)}.dont-col h4{color:var(--alert-red)}
   .do-col ul,.dont-col ul{list-style:none}.do-col li,.dont-col li{font-size:0.86rem;padding:5px 0 5px 18px;position:relative;line-height:1.5}
-  .do-col li{color:var(--navy)}.dont-col li{color:#9A3412}
+  .do-col li{color:var(--navy)}.dont-col li{color:var(--rose)}
   .do-col li::before{content:'✓';position:absolute;left:0;color:var(--teal);font-weight:700}
   .dont-col li::before{content:'✗';position:absolute;left:0;color:var(--alert-red);font-weight:700}
 
@@ -113,7 +113,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .grenz-formel-parts{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden}
   .grenz-part{padding:12px 14px;display:flex;flex-direction:column;gap:5px}
   .grenz-part:not(:last-child){border-right:1px solid var(--border)}
-  .grenz-part--ich{background:#e6f4f2}
+  .grenz-part--ich{background:var(--green-bg)}
   .grenz-part--konsequenz{background:var(--amber-bg)}
   .grenz-part--rueckkehr{background:white}
   .grenz-part-tag{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em}

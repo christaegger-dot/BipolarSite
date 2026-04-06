@@ -14,9 +14,10 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .hero{padding:56px 24px 40px;text-align:center;border-bottom:1px solid var(--border-warm)}
   .hero-badge{display:inline-flex;background:var(--green-bg);color:var(--navy);padding:5px 16px;border-radius:var(--radius-pill);font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px}
   .hero h1{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.5rem,4vw,2rem);font-weight:700;color:var(--navy);letter-spacing:-0.02em;margin:0}
-  .breadcrumb{text-align:center;margin-top:12px}
-  .breadcrumb a{color:var(--text-soft);font-size:0.82rem;text-decoration:none}
-  .breadcrumb a:hover{color:var(--teal-dark)}
+  .breadcrumb{text-align:center;margin-top:12px;display:flex;align-items:center;justify-content:center;gap:8px}
+  .breadcrumb a{color:var(--teal);font-size:0.82rem;text-decoration:none}
+  .breadcrumb a:hover{text-decoration:underline}
+  .breadcrumb span{font-size:0.82rem;color:var(--text-soft)}
   .content{max-width:var(--content-width);margin:0 auto;padding:40px 24px 64px}
   .section{margin-bottom:40px}
   .section h2{font-family:'DM Serif Display',Georgia,serif;font-size:1.2rem;font-weight:700;color:var(--navy);margin:0 0 12px;padding-bottom:8px;border-bottom:2px solid var(--green-bg);scroll-margin-top:84px}
@@ -34,7 +35,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 <header class="hero">
   <div class="hero-badge">Rechtliches</div>
   <h1>Impressum & Datenschutz</h1>
-  <div class="breadcrumb"><a href="/">← Zurück zur Startseite</a></div>
+  <div class="breadcrumb"><a href="/">Startseite</a><span>›</span><span>Impressum</span></div>
 </header>
 
 <main class="content" id="main-content">

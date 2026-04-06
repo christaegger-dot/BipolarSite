@@ -22,12 +22,17 @@
 
   /* ── Neutral / Slate ── */
   --slate:       #475569;
+  --brown:       #2a211b;
+  --brown-mid:   #3d3128;
+  --brown-warm:  #5c4a38;
 
   /* ── Semantic: Background ── */
   --bg:          #FAF8F5;
   --card:        #ffffff;
+  --card-end:    #fcf8f4;
   --surface-alt: #F4F1EC;
   --surface-warm:#f7f2ea;
+  --surface-warm-deep: #f1eeea;
 
   /* ── Semantic: Text ── */
   --text:        #3D3530;
@@ -79,6 +84,11 @@
   --alert-red:        var(--rose);
   --alert-red-bg:     var(--rose-soft);
   --alert-red-border: #fca5a5;
+  --alert-red-light:  #fecaca;
+  --alert-red-coral:  #f87171;
+  --emergency-dark:   #7f1d1d;
+  --emergency-mid:    #991b1b;
+  --emergency-bright: #b91c1c;
 
   /* Phase colors (content-semantic) */
   --blue-phase:       #4a6f95;
@@ -95,6 +105,7 @@
   --amber-phase-border:      #e8c68a;
 
   /* Helle Varianten für Verwendung auf dunklem Navy-Hintergrund (WCAG AA) */
+  --navy-deep:       #294051;
   --blue-phase-on-dark:  #93b4d4; /* 6.7:1 auf Navy */
   --amber-phase-on-dark: #f59e4a; /* 6.8:1 auf Navy */
   --sand-on-dark:        #c9a97a; /* 6.5:1 auf Navy */
@@ -117,6 +128,32 @@
   --border-warm-md: rgba(45,40,35,0.08);
   --border-warm-xl: rgba(45,40,35,0.12);
 
+  /* ── Rose Opacity Scale ── */
+  --rose-faint:  rgba(154,52,18,0.06);
+  --rose-subtle: rgba(154,52,18,0.12);
+  --rose-muted:  rgba(154,52,18,0.25);
+
+  /* ── Teal Opacity Scale ── */
+  --teal-faint:  rgba(30,101,109,0.04);
+  --teal-subtle: rgba(30,101,109,0.1);
+  --teal-muted:  rgba(30,101,109,0.2);
+  --teal-accent-light: #8dd4d9;
+
+  /* ── Dark Tool Theme (Durchatmen) ── */
+  --dark-bg:       #1a2332;
+  --dark-nav-bg:   rgba(26,35,50,0.9);
+  --dark-border:   rgba(255,255,255,0.06);
+
+  /* ── Sand Opacity Scale ── */
+  --sand-faint:  rgba(221,210,191,0.18);
+  --sand-subtle: rgba(221,210,191,0.34);
+  --sand-muted:  rgba(221,210,191,0.7);
+  --sand-border: rgba(181,138,82,0.14);
+
+  /* ── Overlay / Backdrop ── */
+  --overlay-dark:   rgba(0,0,0,0.4);
+  --overlay-light:  rgba(0,0,0,0.2);
+
   /* ── Type Scale ── */
   --text-2xs:  0.7rem;   /* 11.2px — decorative (::before, check marks) */
   --text-xs:   0.75rem;  /* 12px   — badges, labels, small UI */
@@ -133,6 +170,14 @@
   --white-text-secondary: rgba(255,255,255,0.75);
   --white-text-muted:    rgba(255,255,255,0.6);
   --white-text-faint:    rgba(255,255,255,0.5);
+  --white-text-dim:      rgba(255,255,255,0.4);
+  --white-text-ghost:    rgba(255,255,255,0.3);
+
+  /* ── White Overlay Scale (for glass effects on dark bg) ── */
+  --white-overlay-xs:    rgba(255,255,255,0.06);
+  --white-overlay-sm:    rgba(255,255,255,0.10);
+  --white-overlay-md:    rgba(255,255,255,0.15);
+  --white-overlay-lg:    rgba(255,255,255,0.22);
 
   /* ── Z-Index Scale ── */
   --z-tool-nav:  50;

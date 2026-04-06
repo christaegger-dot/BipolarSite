@@ -12,12 +12,12 @@ useToolCSS: true
 {% block headCSS %}
 <style>
 body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min-height:100vh;-webkit-font-smoothing:antialiased}
-.tool-nav{width:100%;background:rgba(254,252,248,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border-warm);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
+.tool-nav{width:100%;background:rgba(254,252,248,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border-warm);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:var(--z-tool-nav)}
 .tool-actions{display:flex;gap:8px}
 .tool-actions button{padding:8px 16px;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:600;cursor:pointer;transition:background-color 0.2s ease,color 0.2s ease}
-.btn-save{border:none;background:var(--teal);color:#fff}.btn-save:hover{background:var(--slate)}
-.btn-print{border:1px solid var(--border-warm-xl);background:#fff;color:var(--slate)}.btn-print:hover{background:var(--bg)}
-.btn-reset{border:1px solid #fca5a5;background:#fff;color:var(--rose);font-size:0.72rem}.btn-reset:hover{background:var(--rose-soft)}
+.btn-save{border:none;background:var(--teal);color:var(--card)}.btn-save:hover{background:var(--slate)}
+.btn-print{border:1px solid var(--border-warm-xl);background:var(--card);color:var(--slate)}.btn-print:hover{background:var(--bg)}
+.btn-reset{border:1px solid var(--alert-red-border);background:var(--card);color:var(--rose);font-size:0.72rem}.btn-reset:hover{background:var(--rose-soft)}
 .wrap{max-width:700px;margin:0 auto;padding:24px 20px 60px}
 .hdr{text-align:center;margin-bottom:24px;background:linear-gradient(180deg,rgba(255,255,255,0.94),rgba(247,250,251,0.88));border:1px solid var(--border-warm-md);border-radius:26px;padding:26px 24px 24px;box-shadow:var(--shadow-elevated);position:relative;overflow:hidden}
 .prog-wrap{margin-bottom:24px}.prog-bar{height:6px;border-radius:3px;background:var(--green-bg);overflow:hidden}.prog-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--teal));transition:width 0.4s;border-radius:3px}
@@ -28,25 +28,25 @@ body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min
 .section .sdesc{font-size:0.78rem;color:var(--slate);margin-bottom:16px;line-height:1.4}
 .field{margin-bottom:12px}
 .field label{display:block;font-size:0.78rem;font-weight:600;color:var(--slate);margin-bottom:6px}
-.field textarea,.field input{width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--border-warm-xl);font-family:'DM Sans',sans-serif;font-size:0.85rem;color:var(--navy);background:#fff;resize:vertical;transition:border-color 0.2s}
-.field textarea:focus,.field input:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(116,138,90,0.1)}
+.field textarea,.field input{width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--border-warm-xl);font-family:'DM Sans',sans-serif;font-size:0.85rem;color:var(--navy);background:var(--card);resize:vertical;transition:border-color 0.2s}
+.field textarea:focus,.field input:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px var(--teal-subtle)}
 .field textarea{min-height:80px}
-.s1{background:#fef3e2;border-color:#B45309}.s1 h2{color:#B45309}
+.s1{background:var(--amber-bg);border-color:var(--amber)}.s1 h2{color:var(--amber)}
 .s2{background:var(--green-bg);border-color:var(--green-phase)}.s2 h2{color:var(--green-phase)}
 .s3{background:var(--rose-soft);border-color:var(--rose)}.s3 h2{color:var(--rose)}
 .s4{background:#eef3f8;border-color:var(--blue-phase)}.s4 h2{color:var(--blue-phase)}
-.s5{background:#f1eeea;border-color:#5c4a38}.s5 h2{color:#5c4a38}
+.s5{background:var(--surface-warm-deep);border-color:var(--brown-warm)}.s5 h2{color:var(--brown-warm)}
 .s6{background:var(--bg);border-color:var(--slate)}.s6 h2{color:var(--slate)}
-.saved-msg{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--teal);color:#fff;padding:10px 24px;border-radius:10px;font-size:0.82rem;font-weight:600;box-shadow:0 4px 20px rgba(0,0,0,0.15);opacity:0;transition:opacity 0.3s;pointer-events:none;z-index:100}
+.saved-msg{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--teal);color:var(--card);padding:10px 24px;border-radius:10px;font-size:0.82rem;font-weight:600;box-shadow:0 4px 20px rgba(0,0,0,0.15);opacity:0;transition:opacity 0.3s;pointer-events:none;z-index:100}
 .saved-msg.vis{opacity:1}
 .confirm{border:none;padding:0;background:transparent;max-width:100vw;max-height:100vh}
-.confirm::backdrop{background:rgba(0,0,0,0.4)}
-.confirm-box{background:#fff;border-radius:18px;padding:32px;max-width:360px;text-align:center;box-shadow:0 8px 40px rgba(0,0,0,0.2)}
+.confirm::backdrop{background:var(--overlay-dark)}
+.confirm-box{background:var(--card);border-radius:18px;padding:32px;max-width:360px;text-align:center;box-shadow:0 8px 40px var(--overlay-light)}
 .confirm-box h2{font-family:'DM Serif Display',Georgia,serif;font-size:1.1rem;font-weight:700;margin:0 0 12px}
 .confirm-box p{font-size:0.85rem;color:var(--slate);line-height:1.5;margin:0 0 20px}
 .confirm-btns{display:flex;gap:10px}.confirm-btns button{flex:1;padding:12px;border-radius:12px;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:600;cursor:pointer}
-.confirm-cancel{border:1px solid var(--border-warm-md);background:#fff;color:var(--slate)}
-.confirm-delete{border:none;background:#9A3412;color:#fff}
+.confirm-cancel{border:1px solid var(--border-warm-md);background:var(--card);color:var(--slate)}
+.confirm-delete{border:none;background:var(--rose);color:var(--card)}
 .print-hdr{display:none}
 @media print{
   .tool-nav,.prog-wrap,.btn-save,.btn-print,.btn-reset,.tf,.confirm{display:none!important}
@@ -54,7 +54,7 @@ body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min
   .print-hdr .print-title{font-family:'DM Serif Display',Georgia,serif;font-size:1.4rem;font-weight:700;margin:0 0 4px}
   .print-hdr p{font-size:0.8rem;color:var(--slate)}
   .section{break-inside:avoid;border-radius:0;box-shadow:none}
-  body{background:#fff}
+  body{background:var(--card)}
 }
 @media(max-width:600px){.section{padding:18px 16px}.wrap{padding:16px 14px 40px}.tool-nav{flex-wrap:wrap;padding:10px 14px;gap:8px}.tool-back{font-size:0.75rem}.tool-actions{width:100%;justify-content:stretch}.tool-actions button{flex:1;padding:6px 8px;font-size:0.7rem}}
 </style>
@@ -84,7 +84,7 @@ body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min
 <main id="main-content" class="wrap">
   <div class="print-hdr"><div class="print-title">Unser Krisenplan</div><p>Erstellt am: <span id="printDate"></span> · Psychiatrische Universitätsklinik Zürich</p></div>
   <div class="hdr">
-<div class="tool-breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><a href="{{ toolBackHref }}">{{ toolBackLabel | replace("Zurück zu ", "") }}</a><span class="sep" aria-hidden="true">›</span><span>Krisenplan-Werkzeug</span></div>
+<div class="tool-breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><a href="/werkzeuge/">Werkzeuge</a><span class="sep" aria-hidden="true">›</span><span>Krisenplan-Werkzeug</span></div>
 <div class="tool-glyph" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="7" width="20" height="26" rx="4" fill="#A8E4E8"/><path d="M15 14H25" stroke="#1E656D" stroke-width="2.4" stroke-linecap="round"/><path d="M15 20H25" stroke="#1E656D" stroke-width="2.4" stroke-linecap="round"/><path d="M15 26H21" stroke="#1E656D" stroke-width="2.4" stroke-linecap="round"/></svg></div><div class="badge">Modul 6 — Werkzeug</div><h1>Krisenplan-Werkzeug</h1><p>Füllen Sie diesen Plan gemeinsam in einer stabilen Phase aus. Er soll in belastenden Situationen Entscheidungslast reduzieren. Ihre Daten bleiben lokal auf diesem Gerät.</p></div>
   <div class="prog-wrap"><div class="prog-bar"><div class="prog-fill" id="progFill"></div></div><div class="prog-label" id="progLabel"></div></div>
   <form id="form" autocomplete="off">
@@ -159,7 +159,7 @@ function save(){
     savedMsg.classList.add('vis');
   }catch(e){
     savedMsg.textContent='Speichern nicht möglich — privater Modus?';
-    savedMsg.style.background='#9A3412';
+    savedMsg.style.background='var(--rose)';
     savedMsg.classList.add('vis');
   }
   setTimeout(()=>{savedMsg.classList.remove('vis');savedMsg.style.background='';},2500);
