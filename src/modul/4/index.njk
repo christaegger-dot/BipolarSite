@@ -14,14 +14,14 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   /* Module-specific styles only — shared styles in module.css */
 
   /* SELFTEST */
-  .selftest{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:36px;margin:40px 0;box-shadow:var(--shadow-soft)}
-  .selftest .selftest-heading{font-family:'DM Serif Display',serif;font-size:1.15rem;font-weight:600;color:var(--navy-mid);margin-bottom:8px}
+  .selftest{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:36px;margin:var(--temp-dense-margin) 0;box-shadow:var(--shadow-soft)}
+  .selftest .selftest-heading{font-family:'DM Sans',sans-serif;font-size:1.15rem;font-weight:700;color:var(--navy-mid);margin-bottom:8px}
   .selftest>p{font-size:0.85rem;color:var(--text-soft);margin-bottom:24px}
   .selftest-item{padding:16px 0;border-top:1px solid var(--border-warm);font-size:0.92rem;color:var(--slate);line-height:1.55}
   .selftest-item:first-of-type{border-top:none}
 
   /* GLASWAND */
-  .glaswand{background:var(--blue-phase-light);border-radius:var(--radius-md);padding:36px;margin:40px 0;text-align:center}
+  .glaswand{background:var(--blue-phase-light);border-radius:var(--radius-md);padding:36px;margin:var(--temp-dense-margin) 0;text-align:center}
   .glaswand-visual{display:flex;align-items:center;justify-content:center;gap:8px;margin:24px 0;font-size:0.92rem;color:var(--blue-phase)}
   .glaswand-wall{width:3px;height:80px;background:var(--blue-phase);opacity:0.4;border-radius:2px;margin:0 20px}
   .glaswand-side{text-align:center}
@@ -30,13 +30,13 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .glaswand-quote{font-family:'DM Serif Display',serif;font-size:1rem;font-style:italic;color:var(--slate);margin-top:20px;line-height:1.6}
 
   /* LOSS CARDS */
-  .loss-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0}
+  .loss-cards{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gap-tight);margin:var(--temp-dense-margin) 0}
   .loss-card{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:22px;border-left:4px solid var(--blue-phase)}
   .loss-card h4{font-size:0.88rem;font-weight:700;color:var(--blue-phase);margin-bottom:6px}
   .loss-card p{font-size:0.84rem;color:var(--slate);line-height:1.55;margin:0}
 
   /* PHASE CARDS */
-  .phase-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:28px 0}
+  .phase-cards{display:grid;grid-template-columns:repeat(3, 1fr);gap:var(--grid-gap-tight);margin:var(--temp-dense-margin) 0}
   .phase-card{padding:24px;border-radius:var(--radius-md);border-top:4px solid transparent}
   .phase-card.p1{background:var(--amber-phase-light);border-top-color:var(--amber-phase)}
   .phase-card.p2{background:var(--alert-red-bg);border-top-color:var(--alert-red)}
@@ -52,14 +52,14 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .phase-card.p3 p{color:var(--slate)}
 
   /* EROSION CHART */
-  .chart-section{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:36px;margin:40px 0;box-shadow:var(--shadow-soft)}
-  .chart-section h3{font-family:'DM Serif Display',serif;font-size:1.15rem;font-weight:600;margin-bottom:8px;color:var(--navy-mid)}
+  .chart-section{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:36px;margin:var(--temp-dense-margin) 0;box-shadow:var(--shadow-soft)}
+  .chart-section h3{font-family:'DM Sans',sans-serif;font-size:1.15rem;font-weight:700;margin-bottom:8px;color:var(--navy-mid)}
   .chart-section>p{font-size:0.88rem;color:var(--text-soft);margin-bottom:24px}
   .chart-wrap svg{width:100%;height:auto;display:block}
   .chart-caption{font-size:0.78rem;color:var(--text-soft);line-height:1.6;margin-top:16px}
 
   /* MECHANISM CARDS */
-  .mech-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0}
+  .mech-cards{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gap-tight);margin:var(--temp-dense-margin) 0}
   .mech-card{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:24px}
   .mech-card h4{font-size:0.92rem;font-weight:700;color:var(--text);margin-bottom:8px}
   .mech-card p{font-size:0.88rem;color:var(--slate);line-height:1.6;margin:0 0 10px}
@@ -71,7 +71,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .identity-signs li::before{content:'—';position:absolute;left:0;color:var(--teal-light);font-weight:700}
 
   /* KIDS SECTION */
-  .kids-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0}
+  .kids-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gap-tight);margin:var(--temp-dense-margin) 0}
   .kids-col{padding:24px;border-radius:var(--radius-md)}
   .kids-col.perceive{background:var(--alert-red-bg);border:1px solid var(--alert-red-border)}
   .kids-col.need{background:var(--green-bg);border:1px solid var(--teal-border)}
@@ -88,7 +88,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   /* RESPONSIVE */
   @media(max-width:768px){.phase-cards{grid-template-columns:1fr}.mech-cards{grid-template-columns:1fr}.loss-cards{grid-template-columns:1fr}.kids-grid{grid-template-columns:1fr}}
 
-  .age-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:16px 0 24px}
+  .age-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--grid-gap-tight);margin:16px 0 24px}
   .age-card{background:var(--card);border:1px solid var(--border-warm-md);border-radius:var(--radius-md);padding:20px 18px}
   .age-card h4{font-size:0.9rem;font-weight:700;color:var(--navy);margin:8px 0 8px}
   .age-card p{font-size:0.83rem;line-height:1.6;color:var(--slate);margin:0 0 8px}.age-card p:last-child{margin:0}
@@ -490,7 +490,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   </div>
 
   <!-- ERFAHRUNGSBERICHT -->
-  <div class="reflection reveal" style="margin-top:48px">
+  <div class="reflection reveal" style="margin-top:var(--group-gap)">
     <div class="reflection-label">Aus Gesprächen mit Angehörigen</div>
     <h3>«Am Anfang dachte ich, ich muss nur stark genug sein»</h3>
     <p class="reflection-body">Die erste Manie kam drei Monate nach unserer Hochzeit. Marc schlief nicht mehr, kündigte seinen Job und kaufte ein Auto, das wir uns nicht leisten konnten. Ich dachte: Das ist Stress. Das geht vorbei. Ich muss einfach stark sein.</p>

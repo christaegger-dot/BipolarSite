@@ -16,11 +16,11 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   /* ══════════ PHASE TABS ══════════ */
   .phase-explorer {
     background: white; border: 1px solid var(--border-warm);
-    border-radius: var(--radius-md); padding: 0; margin: 40px 0 48px;
+    border-radius: var(--radius-md); padding: 0; margin: var(--temp-dense-margin) 0;
     box-shadow: var(--shadow-card); overflow: hidden;
   }
   .phase-tabs {
-    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    display: grid; grid-template-columns: repeat(3, 1fr);
     border-bottom: 1px solid var(--border-warm);
   }
   .phase-tab {
@@ -41,7 +41,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
   .phase-header {
-    font-family: 'DM Serif Display', serif; font-size: 1.2rem; font-weight: 600;
+    font-family: 'DM Sans', sans-serif; font-size: 1.2rem; font-weight: 700;
     margin-bottom: 6px;
   }
   .phase-subtitle { font-size: 0.88rem; color: var(--text-soft); margin-bottom: 24px; }
@@ -71,11 +71,11 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   /* ══════════ WAVE CHART ══════════ */
   .wave-chart-section {
     background: white; border: 1px solid var(--border-warm);
-    border-radius: var(--radius-md); padding: 36px; margin: 48px 0;
+    border-radius: var(--radius-md); padding: 36px; margin: var(--temp-dense-margin) 0;
     box-shadow: var(--shadow-soft);
   }
   .wave-chart-section h3 {
-    font-family: 'DM Serif Display', serif; font-size: 1.15rem; font-weight: 600;
+    font-family: 'DM Sans', sans-serif; font-size: 1.15rem; font-weight: 700;
     margin-bottom: 8px; color: var(--navy-mid);
   }
   .wave-chart-section > p { font-size: 0.88rem; color: var(--text-soft); margin-bottom: 24px; }
@@ -87,11 +87,11 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 
   /* ══════════ TREATMENT GRID ══════════ */
   .treatment-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 28px 0 40px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: var(--grid-gap-tight); margin: var(--temp-dense-margin) 0;
   }
   .treatment-card {
     background: white; border: 1px solid var(--border-warm);
-    border-radius: var(--radius-md); padding: 26px;
+    border-radius: var(--radius-md); padding: var(--temp-dense-padding);
     transition: box-shadow 0.3s ease, transform 0.3s ease;
   }
   .treatment-card:hover { box-shadow: var(--shadow-soft); transform: translateY(-2px); }
@@ -116,8 +116,8 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 
   /* ── Diagnoseschock-Einstieg (#neu) ── */
   .neu-block {
-    background: linear-gradient(180deg, var(--teal-bg, #D6EFEC) 0%, transparent 100%);
-    border-radius: var(--radius-lg);
+    background: var(--teal-bg, #D6EFEC);
+    border-radius: var(--card-radius);
     padding: var(--space-2xl) var(--space-xl) var(--space-lg);
     margin-bottom: var(--space-2xl);
     border: 1px solid rgba(30, 101, 109, 0.15);
@@ -127,7 +127,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     letter-spacing: 0.1em; color: var(--teal); margin-bottom: var(--space-md);
   }
   .neu-title {
-    font-family: 'DM Serif Display', serif; font-size: 1.55rem; font-weight: 600;
+    font-family: 'DM Sans', sans-serif; font-size: 1.55rem; font-weight: 700;
     color: var(--navy); margin-bottom: var(--space-sm, 14px); line-height: 1.25;
   }
   .neu-intro {
@@ -135,7 +135,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   }
   .neu-grid {
     display: grid; grid-template-columns: 1fr 1fr;
-    gap: var(--space-sm, 14px); margin-bottom: var(--space-lg);
+    gap: var(--grid-gap-tight); margin-bottom: var(--space-lg);
   }
   .neu-col-bad {
     background: rgba(217, 113, 90, 0.08); border: 1px solid rgba(217, 113, 90, 0.2);
