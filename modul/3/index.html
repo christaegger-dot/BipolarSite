@@ -624,10 +624,10 @@
     document.addEventListener('click', (event) => { if (!nav.contains(event.target)) closeNav(); });
     window.addEventListener('resize', () => { if (window.innerWidth > 900) closeNav(); });
   }
-  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
+  if (nav) window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
 
   const progressBar = document.getElementById('readingProgress');
-  window.addEventListener('scroll', () => {
+  if (progressBar) window.addEventListener('scroll', () => {
     const h = document.documentElement.scrollHeight - window.innerHeight;
     progressBar.style.width = h > 0 ? (window.scrollY / h * 100) + '%' : '0%';
   });
