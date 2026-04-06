@@ -387,7 +387,7 @@ h1, h2, h3, h4 {
 }
 
 .module-hero .module-meta {
-  color: rgba(255,255,255,0.6) !important;
+  color: rgba(255,255,255,0.8) !important;
 }
 
 .module-hero .module-meta svg {
@@ -395,7 +395,7 @@ h1, h2, h3, h4 {
 }
 
 .breadcrumb a {
-  color: var(--white-text-muted) !important;
+  color: rgba(255,255,255,0.75) !important;
 }
 
 .breadcrumb a:hover {
@@ -1810,7 +1810,7 @@ header.hero .hero-content {
 }
 
 .quote-block {
-  background: linear-gradient(180deg, var(--surface-warm) 0%, rgba(243,229,225,0.5) 100%) !important;
+  background: #fff !important;
 }
 
 .reflection,
