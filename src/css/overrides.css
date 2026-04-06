@@ -585,13 +585,13 @@ table tbody tr:nth-child(even),
 .phase-tab.active-mania {
   color: var(--amber);
   border-bottom-color: var(--amber);
-  background: var(--amber-phase-light);
+  background: var(--amber-bg);
 }
 
 .phase-tab.active-stable {
   color: var(--phase-green);
   border-bottom-color: var(--phase-green);
-  background: var(--phase-green-light);
+  background: var(--success-soft);
 }
 
 .phase-tab.active-depression {
@@ -678,7 +678,7 @@ table tbody tr:nth-child(even),
 /* ── Guide Do/Don't/SOS boxes ── */
 .guide-do {
   background: var(--success-soft);
-  border: 1px solid var(--teal-border);
+  border: 1px solid var(--teal-light);
   border-radius: var(--radius-md);
 }
 
