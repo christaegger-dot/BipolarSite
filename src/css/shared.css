@@ -158,22 +158,24 @@ footer {
   color: var(--white-text-secondary);
   padding: var(--space-3xl) 2rem var(--space-xl);
   margin-top: 80px;
+  border-top: 2px solid;
+  border-image: linear-gradient(to right, var(--teal), var(--sand-deep)) 1;
 }
 .footer-inner {
   max-width: var(--content-width);
   margin: 0 auto;
   text-align: center;
 }
-.footer-inner p { font-size: var(--text-sm); line-height: 1.7; margin-bottom: 4px; }
+.footer-inner p { font-size: var(--text-sm); line-height: 1.7; margin-bottom: 8px; }
 .footer-inner a { color: var(--white-text-link); text-decoration: none; }
 .footer-inner a:hover { color: white; }
 .footer-links {
-  margin-top: var(--space-md);
-  padding-top: var(--space-md);
+  margin-top: var(--space-lg);
+  padding-top: var(--space-lg);
   border-top: 1px solid rgba(255,255,255,0.08);
   font-size: var(--text-xs);
 }
-.footer-links a { margin: 0 10px; }
+.footer-links a { margin: 0 12px; }
 
 /* ── Global Transitions (polished interactive feel) ── */
 a, button, input, select, textarea,
@@ -186,6 +188,15 @@ a, button, input, select, textarea,
   outline: 2px solid var(--teal);
   outline-offset: 3px;
   border-radius: var(--radius-sm);
+}
+/* Focus outline on dark backgrounds: use lighter variant for visibility (WCAG 2.4.7) */
+.hero *:focus-visible,
+.home-hero *:focus-visible,
+.module-hero *:focus-visible,
+.takeaways *:focus-visible,
+footer *:focus-visible,
+.storage-banner *:focus-visible {
+  outline-color: var(--teal-light);
 }
 
 /* ── Storage Consent Banner ── */
@@ -350,7 +361,7 @@ a, button, input, select, textarea,
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--teal);
+  color: var(--navy-mid);
   margin-bottom: 12px;
 }
 .section-title {
@@ -385,7 +396,7 @@ a, button, input, select, textarea,
   border: 1px solid var(--border-warm);
   border-radius: var(--radius-lg);
   padding: var(--space-lg);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, border-left-width 0.2s ease;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -404,11 +415,11 @@ a, button, input, select, textarea,
 .module-card[data-accent="green"]  { border-left-color: var(--green-phase); }
 .module-card[data-accent="teal"]   { border-left-color: var(--teal); }
 
-.module-card[data-accent="blue"]:hover   { border-color: var(--blue-phase); }
-.module-card[data-accent="amber"]:hover  { border-color: var(--amber-phase); }
-.module-card[data-accent="purple"]:hover { border-color: var(--purple-phase); }
-.module-card[data-accent="green"]:hover  { border-color: var(--green-phase); }
-.module-card[data-accent="teal"]:hover   { border-color: var(--teal); }
+.module-card[data-accent="blue"]:hover   { border-color: var(--blue-phase);   border-left-width: 4px; }
+.module-card[data-accent="amber"]:hover  { border-color: var(--amber-phase);  border-left-width: 4px; }
+.module-card[data-accent="purple"]:hover { border-color: var(--purple-phase); border-left-width: 4px; }
+.module-card[data-accent="green"]:hover  { border-color: var(--green-phase);  border-left-width: 4px; }
+.module-card[data-accent="teal"]:hover   { border-color: var(--teal);         border-left-width: 4px; }
 
 .module-number {
   font-size: 0.7rem;
@@ -488,7 +499,7 @@ a, button, input, select, textarea,
   font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   color: var(--navy-mid);
 }
 .progress-bar-count {
