@@ -34,7 +34,7 @@
   --text-soft:   #56514d;
 
   /* ── Semantic: Border ── */
-  --border:      #e2e8f0;
+  --border:      #c8cfd8;
 
   /* ── Semantic: Status/Feedback ── */
   --green:       #0d7a5f;
@@ -78,7 +78,7 @@
   /* ── Alert Colors ── */
   --alert-red:        var(--rose);
   --alert-red-bg:     var(--rose-soft);
-  --alert-red-border: #fca5a5;
+  --alert-red-border: #e88a8a;
 
   /* Phase colors (content-semantic) */
   --blue-phase:       #4a6f95;

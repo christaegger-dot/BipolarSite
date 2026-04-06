@@ -74,7 +74,7 @@
 }
 .toc li a::before {
   content: counter(toc-counter); font-size: var(--text-2xs); font-weight: 700;
-  color: var(--sand-deep); position: absolute; left: 0; top: 10px;
+  color: var(--sand-ink); position: absolute; left: 0; top: 10px;
 }
 .toc li a:hover { color: var(--teal-dark); }
 .toc-desc {
@@ -305,7 +305,7 @@
 }
 .sources li::before {
   content: '·'; position: absolute; left: 0;
-  font-weight: 700; color: var(--sand-deep);
+  font-weight: 700; color: var(--sand-ink);
 }
 .sources-toggle {
   display: flex; align-items: center; justify-content: space-between;
@@ -451,7 +451,7 @@
 }
 .module-summary li::before {
   content: '→'; position: absolute; left: 0;
-  color: var(--sand-deep); font-weight: 700;
+  color: var(--sand-ink); font-weight: 700;
 }
 
 /* ── Expandable Sections ── */
