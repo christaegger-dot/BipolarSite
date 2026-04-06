@@ -11,7 +11,7 @@ useToolCSS: true
 ---
 {% block headCSS %}
 <style>
-body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-height:100vh;-webkit-font-smoothing:antialiased}
+body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min-height:100vh;-webkit-font-smoothing:antialiased}
 .tool-nav{width:100%;background:rgba(254,252,248,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border-warm);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
 .tool-actions{display:flex;gap:8px}
 .tool-actions button{padding:8px 16px;border-radius:var(--radius-sm);font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:600;cursor:pointer;transition:background-color 0.2s ease,color 0.2s ease}
@@ -33,7 +33,7 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
 .field textarea{min-height:80px}
 .s1{background:#fef3e2;border-color:#B45309}.s1 h2{color:#B45309}
 .s2{background:var(--green-bg);border-color:var(--green-phase)}.s2 h2{color:var(--green-phase)}
-.s3{background:#FEF2F2;border-color:#9A3412}.s3 h2{color:#9A3412}
+.s3{background:var(--rose-soft);border-color:var(--rose)}.s3 h2{color:var(--rose)}
 .s4{background:#eef3f8;border-color:var(--blue-phase)}.s4 h2{color:var(--blue-phase)}
 .s5{background:#f1eeea;border-color:#5c4a38}.s5 h2{color:#5c4a38}
 .s6{background:#FAFAF7;border-color:#475569}.s6 h2{color:#475569}
@@ -50,9 +50,9 @@ body{font-family:'DM Sans',sans-serif;color:#1c2b3a;background:#FAFAF7;min-heigh
 .print-hdr{display:none}
 @media print{
   .tool-nav,.prog-wrap,.btn-save,.btn-print,.btn-reset,.tf,.confirm{display:none!important}
-  .print-hdr{display:block;text-align:center;margin-bottom:24px;padding-bottom:16px;border-bottom:2px solid #1c2b3a}
+  .print-hdr{display:block;text-align:center;margin-bottom:24px;padding-bottom:16px;border-bottom:2px solid var(--navy)}
   .print-hdr .print-title{font-family:'DM Serif Display',Georgia,serif;font-size:1.4rem;font-weight:700;margin:0 0 4px}
-  .print-hdr p{font-size:0.8rem;color:#475569}
+  .print-hdr p{font-size:0.8rem;color:var(--slate)}
   .section{break-inside:avoid;border-radius:0;box-shadow:none}
   body{background:#fff}
 }

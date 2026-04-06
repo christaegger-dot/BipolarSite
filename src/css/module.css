@@ -150,7 +150,7 @@
 .content h2 {
   scroll-margin-top: 96px;
   font-family: 'DM Serif Display', serif;
-  font-size: var(--text-2xl); font-weight: 700; line-height: 1.25;
+  font-size: var(--text-2xl); font-weight: 700; line-height: 1.2;
   letter-spacing: -0.02em; color: var(--navy);
   margin: 76px 0 22px; padding-top: 20px;
   border-top: 1px solid var(--border-warm);
@@ -174,8 +174,8 @@
 }
 .quote-block::before {
   content: '«'; font-family: 'DM Serif Display', serif;
-  font-size: 4rem; color: var(--sand); position: absolute;
-  top: 12px; left: 20px; line-height: 1; opacity: 0.5;
+  font-size: 4rem; color: var(--teal); position: absolute;
+  top: 12px; left: 20px; line-height: 1; opacity: 0.18;
 }
 .quote-block blockquote {
   font-family: 'DM Serif Display', serif;

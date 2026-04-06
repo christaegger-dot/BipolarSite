@@ -181,6 +181,12 @@ a, button, input, .module-card {
   transition: all 0.2s ease;
 }
 
+/* ── Global Transitions (polished interactive feel) ── */
+a, button, input, select, textarea,
+.module-card, .quick-card, .tool-chip, .handout-card, .action-card {
+  transition: all 0.2s ease;
+}
+
 /* ── Accessibility ── */
 *:focus-visible {
   outline: 2px solid var(--teal);
@@ -382,7 +388,7 @@ footer *:focus-visible,
 .modules-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+  gap: var(--space-lg);
 }
 
 /* ── Module cards ── */

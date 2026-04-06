@@ -125,8 +125,8 @@
   --white-text:          rgba(255,255,255,0.88);
   --white-text-link:     rgba(255,255,255,0.85);
   --white-text-secondary: rgba(255,255,255,0.75);
-  --white-text-muted:    rgba(255,255,255,0.5);
-  --white-text-faint:    rgba(255,255,255,0.35);
+  --white-text-muted:    rgba(255,255,255,0.6);
+  --white-text-faint:    rgba(255,255,255,0.5);
 
   /* ── Z-Index Scale ── */
   --z-tool-nav:  50;
