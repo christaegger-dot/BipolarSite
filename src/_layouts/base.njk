@@ -43,23 +43,69 @@
       "@type": "Organization",
       "name": "Psychiatrische Universitätsklinik Zürich",
       "alternateName": "PUK Zürich",
-      "url": "{{ site.url }}"
+      "url": "{{ site.url }}",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Lenggstrasse 31",
+        "postalCode": "8032",
+        "addressLocality": "Zürich",
+        "addressCountry": "CH"
+      },
+      "telephone": "+41583843800",
+      "department": {
+        "@type": "Organization",
+        "name": "Fachstelle Angehörigenarbeit"
+      }
     },
     {
       "@type": "WebSite",
       "name": "Bipolare Störung — Psychoedukation für Angehörige",
       "url": "{{ site.url }}",
       "publisher": { "@type": "Organization", "name": "PUK Zürich" },
-      "inLanguage": "de"
-    }{% if useModuleCSS %},
+      "inLanguage": "de-CH"
+    }{% if useModuleCSS or useToolCSS %},
     {
       "@type": "MedicalWebPage",
       "name": "{{ title }}",
       "description": "{{ description }}",
       "url": "{{ site.url }}{{ page.url }}",
-      "inLanguage": "de",
-      "medicalAudience": { "@type": "MedicalAudience", "audienceType": "Caregiver" },
-      "publisher": { "@type": "Organization", "name": "PUK Zürich" }
+      "inLanguage": "de-CH",
+      "lastReviewed": "2026-04-06",
+      "medicalAudience": {
+        "@type": "MedicalAudience",
+        "audienceType": "Caregiver",
+        "healthCondition": {
+          "@type": "MedicalCondition",
+          "name": "Bipolare Störung",
+          "alternateName": "Bipolar Disorder",
+          "code": { "@type": "MedicalCode", "codeValue": "F31", "codingSystem": "ICD-10" }
+        }
+      },
+      "specialty": {
+        "@type": "MedicalSpecialty",
+        "name": "Psychiatry"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "PUK Zürich"
+      }
+    }{% endif %}{% if breadcrumbs %},
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Startseite",
+          "item": "{{ site.url }}/"
+        }{% for crumb in breadcrumbs %},
+        {
+          "@type": "ListItem",
+          "position": {{ loop.index + 1 }},
+          "name": "{{ crumb.name }}",
+          "item": "{{ site.url }}{{ crumb.url }}"
+        }{% endfor %}
+      ]
     }{% endif %}
   ]
 }
