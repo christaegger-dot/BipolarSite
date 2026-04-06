@@ -1095,3 +1095,891 @@ footer *:focus-visible,
   .urgent-note { padding: 20px 18px; }
   section { padding: 50px 1.2rem; }
 }
+
+/* ── [from overrides.css] SKIP LINK ── */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  position: fixed;
+  top: 14px;
+  left: 16px;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  z-index: 10000;
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  background: var(--navy);
+  color: white;
+  text-decoration: none;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  outline: 2px solid var(--teal-light);
+  outline-offset: 2px;
+}
+
+/* ── [from overrides.css] GLOBAL SURFACE, TEXT & FONT ── */
+body:not(.dark-tool) {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+}
+body {
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── [from overrides.css] TYPOGRAPHY ── */
+html { font-size: 16px; }
+
+h1, h2 {
+  font-family: 'DM Serif Display', serif;
+}
+
+h3, h4 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+}
+
+/* Non-heading elements that keep serif (quotes, stat numerals) */
+.quote-block blockquote,
+.glaswand-quote,
+.closing-emphasis,
+.stat-num {
+  font-family: 'DM Serif Display', serif;
+}
+
+/* Nav brand — DM Sans bold for precision */
+.nav-brand-text {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+}
+
+/* Normalize h3 size across all modules */
+.content h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: var(--text-lg);
+  font-weight: 700;
+}
+
+/* ── [from overrides.css] NAVIGATION ── */
+
+/* ── Nav bar (fixed/sticky top bar) ── */
+#navbar {
+  background: var(--bg);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: 1px solid var(--border);
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+#navbar.scrolled {
+  box-shadow: var(--shadow-nav);
+  background: rgba(250, 248, 245, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.nav-inner {
+  max-width: var(--wide-width);
+}
+
+/* ── Logo ── */
+.nav-logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.nav-logo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ── Brand text ── */
+.nav-brand {
+  color: var(--text);
+}
+
+.nav-brand-text {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.nav-brand-sub {
+  color: var(--text-soft);
+}
+
+/* ── Links ── */
+.nav-links a {
+  color: var(--text-soft);
+  border-radius: var(--radius-sm);
+}
+
+.nav-links a:hover {
+  background: var(--surface-alt);
+  color: var(--text);
+}
+
+.nav-links a.active {
+  color: var(--teal);
+}
+
+/* ── SOS button (light background) ── */
+.nav-sos {
+  background: var(--alert-soft);
+  border: 1px solid var(--alert-muted);
+  color: var(--alert);
+}
+
+.nav-sos:hover {
+  background: var(--alert-subtle);
+  color: var(--alert);
+}
+
+/* ── Mobile toggle ── */
+.nav-toggle {
+  color: var(--text);
+  background: transparent;
+}
+
+.nav-toggle svg {
+  color: var(--text);
+  stroke: var(--text);
+}
+
+/* ── Mobile dropdown (nav-open) ── */
+.nav-links.nav-open {
+  background: rgba(254,252,248,1);
+  border-color: var(--border-warm-md);
+  box-shadow: 0 12px 30px rgba(45,40,35,0.14);
+  border-radius: var(--radius-lg);
+}
+
+.nav-links.nav-open a {
+  color: var(--text-soft);
+}
+
+.nav-links.nav-open a:hover {
+  background: var(--surface-alt);
+  color: var(--text);
+}
+
+/* ── [from overrides.css] HERO / MODULE-HERO ── */
+
+/* ── Main hero (index.html) ── */
+.hero {
+  background: var(--navy) !important;
+  color: white !important;
+}
+
+/* Hero gradient pseudo-elements removed — pure navy background */
+.hero::before,
+.hero::after {
+  display: none !important;
+}
+
+.hero-content {
+  max-width: var(--content-width);
+}
+
+.hero-badge {
+  background: var(--teal) !important;
+  color: white !important;
+  border-radius: var(--radius-round) !important;
+}
+
+.hero-badge::before {
+  background: var(--teal-light) !important;
+}
+
+.hero h1 {
+  color: white !important;
+}
+
+.hero h1 em {
+  color: var(--teal-light) !important;
+}
+
+.hero-subtitle {
+  color: var(--white-text-secondary) !important;
+}
+
+/* ── Module hero (modul pages) ── */
+.module-hero {
+  background: var(--navy) !important;
+  color: white !important;
+}
+
+.module-hero-inner {
+  max-width: var(--content-width) !important;
+}
+
+.module-hero h1 {
+  color: white !important;
+}
+
+.module-badge {
+  border-radius: var(--radius-round) !important;
+  /* background + color now set per-module via [data-module-accent] in module.css */
+}
+
+.module-hero .module-meta {
+  color: var(--white-text) !important;
+}
+
+.module-hero .module-meta svg {
+  color: var(--teal-light) !important;
+}
+
+.breadcrumb a {
+  color: var(--white-text-secondary) !important;
+}
+
+.breadcrumb a:hover {
+  color: var(--teal-light) !important;
+}
+
+/* ── Notfall hero (notfall/index.html) ──
+   Keep emergency red, but integrate with new system */
+.hero.notfall-hero,
+header.hero[style*="linear-gradient"] {
+  background: var(--emergency-dark) !important;
+}
+
+/* ── Reading progress bar (sits below nav) ── */
+.reading-progress-fill,
+#reading-progress {
+  background: var(--teal) !important;
+}
+
+/* ── [from overrides.css] BADGES ── */
+.badge,
+.tool-badge,
+.module-badge,
+.overview-badge,
+.hero-badge,
+.home-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  border-radius: var(--radius-round);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+
+/* Quiet variant (meta labels): no background, no padding, muted color */
+.home-hero-badge,
+.section-label,
+.story-label,
+.about-label,
+.tools-highlight-label,
+.quick-triage-label {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  color: var(--text-soft);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Accent variant (status/category): subtle bg, pill, accent color */
+.tool-badge,
+.module-badge,
+.overview-badge,
+.hero-badge {
+  background: var(--success-soft);
+  color: var(--teal);
+}
+
+/* ── [from overrides.css] CTAs ── */
+.cta-primary,
+.home-hero-link,
+.btn-c,
+.btn-cont,
+.btn-next,
+.btn-save,
+.submit.ready {
+  background: var(--cta-primary-bg);
+  color: var(--cta-primary-text);
+  border: none;
+  border-radius: var(--cta-radius);
+  min-height: var(--cta-min-height);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta-primary:hover,
+.home-hero-link:hover,
+.btn-c:hover,
+.btn-cont:hover,
+.btn-next:hover,
+.btn-save:hover,
+.submit.ready:hover {
+  background: var(--cta-primary-hover);
+}
+
+.cta-secondary,
+.btn-r,
+.btn-back,
+.btn-print,
+.btn-reset {
+  background: var(--cta-secondary-bg);
+  color: var(--cta-secondary-text);
+  border: 1px solid var(--cta-secondary-border);
+  border-radius: var(--cta-radius);
+  min-height: var(--cta-min-height);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta-secondary:hover,
+.btn-r:hover,
+.btn-back:hover,
+.btn-print:hover,
+.btn-reset:hover {
+  border-color: var(--cta-secondary-hover-border);
+  color: var(--cta-secondary-hover-text);
+  background: var(--cta-secondary-hover-bg);
+}
+
+/* ── Tertiary CTA (text links as actions) ── */
+.cta-tertiary {
+  color: var(--cta-tertiary-text);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.cta-tertiary:hover {
+  color: var(--cta-tertiary-hover);
+  text-decoration: underline;
+}
+
+/* ── [from overrides.css] SPACING ── */
+
+/* ── Section padding (standardised rhythm: tight/standard/wide) ── */
+.modules-section,
+.quick-section,
+section,
+.section {
+  padding-top: var(--section-standard);
+  padding-bottom: var(--section-standard);
+}
+
+/* ── Full-bleed sections (background color) reset max-width ── */
+.story-section,
+.invitation-section,
+.about-section {
+  max-width: none;
+}
+
+/* ── Content width ── */
+.content {
+  max-width: var(--content-width);
+}
+
+/* ── Hero inner containers ── */
+.hero-content,
+.module-hero-inner {
+  max-width: var(--content-width);
+}
+
+/* ── Wide containers (grids) ── */
+.nav-inner,
+.footer-inner {
+  max-width: var(--wide-width);
+}
+
+/* ── Footer links bar ── */
+.footer-links {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+  font-size: var(--text-xs);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+}
+.footer-links a {
+  margin: 0;
+  color: var(--white-text-secondary);
+  text-decoration: none;
+}
+.footer-links a:hover {
+  color: white;
+}
+
+/* ── Module grid ── */
+.modules-grid {
+  max-width: var(--wide-width);
+}
+
+.guide-body-inner {
+  padding: var(--space-lg);
+}
+
+.cta-inner {
+  max-width: 600px;
+}
+
+/* ── [from overrides.css] FOOTER ── */
+footer {
+  background: var(--navy);
+  color: var(--white-text-secondary);
+  padding: var(--space-xl) var(--space-lg) var(--space-2xl);
+  border-top: none;
+}
+
+.footer-brand h3 {
+  color: white;
+}
+
+.footer-brand p {
+  color: var(--white-text-muted);
+}
+
+.footer-col h4 {
+  color: var(--white-text-muted);
+}
+
+.footer-col a {
+  color: var(--white-text-secondary);
+}
+
+.footer-col a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  border-top-color: var(--white-overlay-sm);
+  color: var(--white-text-dim);
+}
+
+.footer-bottom a {
+  color: var(--white-text-dim);
+}
+
+.footer-bottom a:hover {
+  color: var(--white-text-secondary);
+}
+
+.footer-inner--editorial {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(240px, 1fr);
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.footer-meta p,
+.footer-note p {
+  margin: 0 0 8px;
+  font-size: var(--text-xs);
+  line-height: 1.75;
+  color: var(--white-text-secondary);
+}
+
+.footer-org {
+  font-weight: 700;
+  color: white !important;
+}
+
+.footer-note {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-note p {
+  max-width: 34ch;
+}
+
+.footer-invitation {
+  color: var(--white-text) !important;
+  font-weight: 600;
+  font-size: var(--text-base) !important;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.footer-disclaimer {
+  font-size: var(--text-xs) !important;
+  color: var(--white-text-muted) !important;
+}
+
+.footer-link-alert {
+  color: var(--alert-red-border) !important;
+  font-weight: 700;
+}
+
+.footer-link-alert:hover {
+  color: var(--alert-red-light) !important;
+}
+
+.footer-contact a {
+  transition: color 0.15s ease;
+}
+
+p.footer-address {
+  color: var(--white-text-muted);
+  font-size: var(--text-xs);
+}
+
+p.footer-attribution {
+  color: var(--white-text-muted);
+  font-size: var(--text-xs);
+  margin-top: 4px;
+}
+
+@media (max-width: 900px) {
+  .footer-inner--editorial {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .footer-note p {
+    max-width: none;
+  }
+  p.footer-address {
+    display: none;
+  }
+}
+
+/* ── [from overrides.css] ACCESSIBILITY & VISITED LINKS ── */
+*:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* ── Visited link styling ── */
+a:visited {
+  color: var(--slate);
+}
+.nav-links a:visited,
+.nav-sos:visited,
+.tool-back:visited,
+.cta-btn:visited,
+.btn-c:visited,
+.module-card:visited,
+.tool-chip:visited,
+footer a:visited {
+  color: inherit;
+}
+
+/* ── [from overrides.css] IMPRESSUM ── */
+.impressum-content h1,
+.impressum-content h2 {
+  color: var(--navy);
+}
+
+.impressum-content a {
+  color: var(--teal);
+}
+
+.impressum-content a:hover {
+  color: var(--teal-dark);
+}
+
+/* ── [from overrides.css] 404 PAGE ── */
+.error-page h1 {
+  color: var(--navy);
+}
+
+.error-page a {
+  color: var(--teal);
+}
+
+/* ── [from overrides.css] TOOL NAV LIGHT VARIANT ── */
+.tool-nav {
+  width: 100%;
+  background: rgba(250,250,247,0.95);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+body:not(.dark-tool) .tool-nav .tool-back {
+  color: var(--slate);
+}
+
+body:not(.dark-tool) .tool-nav .tool-back:hover {
+  color: var(--teal);
+}
+
+body:not(.dark-tool) .tool-nav .tool-brand {
+  color: var(--navy);
+}
+
+/* ── [from overrides.css] TOOL NAV TEXT (non-dark) ── */
+body:not(.dark-tool) .tool-back,
+body:not(.dark-tool) .tool-brand {
+  color: var(--navy);
+}
+
+/* ── [from overrides.css] RESPONSIVE ── */
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+  .nav-toggle {
+    display: flex;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: var(--section-wide) 1.2rem var(--section-tight);
+    min-height: auto;
+  }
+  .hero h1 {
+    font-size: 28px;
+  }
+  .module-hero {
+    padding: var(--section-wide) 1.2rem var(--section-tight);
+    min-height: auto;
+  }
+  section,
+  .section {
+    padding: var(--section-tight) 1.2rem;
+  }
+}
+
+/* ── [from overrides.css] MOBILE TYPOGRAPHY & TOUCH-TARGET IMPROVEMENTS ── */
+@media (max-width: 600px) {
+  :root {
+    --text-xs:   0.82rem;      /* 13.1 px (was 0.75 rem / 12 px) */
+  }
+
+  /* Hardcoded small text → minimum 0.82 rem on mobile */
+  .overview-badge,
+  .section-label,
+  .module-time {
+    font-size: var(--text-xs);
+  }
+  .module-number {
+    font-size: var(--text-xs);        /* was 0.7 rem / 11.2 px */
+  }
+  .progress-bar-label {
+    font-size: var(--text-xs);        /* was 0.72 rem / 11.5 px */
+  }
+}
+
+/* ── [from overrides.css] HERO SPLIT LAYOUT ── */
+header.hero .hero-content {
+  max-width: var(--wide-width);
+}
+
+.hero-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4.5rem;
+  align-items: center;
+}
+
+.hero-text {
+  max-width: 520px;
+}
+
+.hero-text .hero-subtitle {
+  max-width: none;
+}
+
+.hero-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white-overlay-sm);
+  border: 1px solid var(--white-overlay-md);
+  color: var(--white-text);
+  text-decoration: none;
+  font-size: var(--text-base);
+  font-weight: 500;
+  padding: 10px 22px;
+  border-radius: var(--radius-round);
+  transition: all 0.2s ease;
+  margin-top: 1.5rem;
+}
+
+.hero-link:hover {
+  background: rgba(255,255,255,0.17);
+  border-color: var(--white-overlay-md);
+  color: white;
+}
+
+/* Glass-style quick cards in hero right column */
+.hero-cards .quick-actions {
+  grid-template-columns: 1fr 1fr;
+  max-width: none;
+  gap: var(--grid-gap-tight);
+}
+
+.hero-cards .quick-card {
+  background: rgba(255,255,255,0.07);
+  border-color: var(--white-overlay-sm);
+  color: white;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.hero-cards .quick-card:hover {
+  background: rgba(255,255,255,0.13);
+  border-color: var(--white-overlay-md);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.22);
+}
+
+.hero-cards .quick-card::before {
+  background: var(--teal-light);
+}
+
+.hero-cards .quick-card-title {
+  color: white;
+}
+
+.hero-cards .quick-card-desc {
+  color: var(--white-text-muted);
+}
+
+.hero-cards .quick-card-icon {
+  background: var(--white-overlay-sm);
+  color: var(--white-text);
+}
+
+.hero-cards .quick-card.alert {
+  background: var(--alert-muted);
+  border-color: rgba(239,100,80,0.35);
+}
+
+.hero-cards .quick-card.alert::before {
+  background: var(--alert-red-coral);
+}
+
+.hero-cards .quick-card.alert .quick-card-icon {
+  background: rgba(239,100,80,0.22);
+}
+
+.hero-cards .quick-card.alert .quick-card-title {
+  color: var(--alert-red-border);
+}
+
+.hero-cards .quick-card.alert .quick-card-desc {
+  color: rgba(252,165,165,0.75);
+}
+
+@media (max-width: 900px) {
+  .hero-body {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .hero-text {
+    max-width: none;
+  }
+}
+
+/* ── [from overrides.css] MODULE CARD COLOR ACCENTS ── */
+.module-card[data-accent="red"] {
+  border-left: 3px solid var(--alert);
+}
+
+.module-card[data-accent="blue"] {
+  border-left: 3px solid var(--blue-phase);
+}
+
+.module-card[data-accent="amber"] {
+  border-left: 3px solid var(--amber);
+}
+
+.module-card[data-accent="teal"] {
+  border-left: 3px solid var(--teal);
+}
+
+.module-card[data-accent="green"] {
+  border-left: 3px solid var(--phase-green);
+}
+
+.module-card[data-accent="purple"] {
+  border-left: 3px solid var(--sand-deep);
+}
+
+/* Fix inconsistency: theme targets .module-card-arrow but HTML uses .module-arrow */
+.module-card-arrow,
+.module-arrow {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1.5px solid var(--border-warm-xl);
+  color: var(--text-soft);
+  font-size: var(--text-xs);
+  transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+}
+
+.module-card:hover .module-card-arrow,
+.module-card:hover .module-arrow {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: white;
+}
+
+/* ── [from overrides.css] TOOL CHIPS ── */
+.tools-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--grid-gap-tight);
+}
+
+.tool-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  min-height: 44px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-round);
+  text-decoration: none;
+  color: var(--navy);
+  font-size: var(--text-base);
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.tool-chip:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+  background: var(--success-soft);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 10px rgba(30,101,109,0.12);
+}
+
+.tool-chip-icon {
+  font-size: var(--text-lg);
+  line-height: 1;
+  flex-shrink: 0;
+}

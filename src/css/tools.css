@@ -462,6 +462,20 @@ body.selbsttest-page .btns button{flex:1;padding:12px;border-radius:var(--radius
 .btn-reset{border:1px solid var(--border-warm-md);background:var(--card);color:var(--slate)}
 .btn-cont{border:none;background:var(--cta-primary-bg);color:var(--cta-primary-text)}
 body.selbsttest-page .tf{color:var(--teal-light);margin-top:20px}
+
+/* ── [from overrides.css] TOOL FOOTER CONTRAST FIX ── */
+/* --alert (#B91C1C) on navy (#1C2B3A) = ~1.65:1 — WCAG fail.
+   Light red (#fca5a5) on navy = ~5.8:1 — passes AA. */
+footer.tf a[href="/notfall/"] {
+  color: var(--alert-red-border);
+  font-weight: 600;
+}
+
+/* ── [from overrides.css] TOOL-BACK/TOOL-BRAND RULES ── */
+body:not(.dark-tool) .tool-back,
+body:not(.dark-tool) .tool-brand {
+  color: var(--navy);
+}
 @media(max-width:600px){body.selbsttest-page .card{padding:24px 20px}}
 /* Result state colours */
 body.selbsttest-page .card.result--green .res-score{background:var(--success-soft);border:2px solid var(--teal-light)}

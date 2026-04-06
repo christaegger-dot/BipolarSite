@@ -8,7 +8,6 @@ const PRECACHE_URLS = [
   '/css/shared.css',
   '/css/tools.css',
   '/css/tokens.css',
-  '/css/overrides.css',
   '/fonts/fonts.css',
   '/fonts/dm-sans-variable.woff2',
   '/fonts/dm-serif-display-400.woff2',

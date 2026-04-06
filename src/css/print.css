@@ -107,3 +107,61 @@
     margin: 2cm;
   }
 }
+
+/* ── [from overrides.css] PRINT OVERRIDES ── */
+
+@media print {
+  /* Hide non-content elements */
+  nav, .nav-toggle, #navbar, .tool-nav,
+  footer, .reading-progress, .storage-banner,
+  .toc-sidebar, .skip-link {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  /* Remove decorative backgrounds */
+  .hero, .module-hero {
+    background: var(--navy) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    padding: 24pt 0 !important;
+  }
+
+  .key-takeaways, .takeaways {
+    background: var(--navy) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Remove shadows and unnecessary borders */
+  .card, .guide, .quote-block, .reflection-block,
+  .module-card, .quick-card, .tool-chip,
+  .toc, .alert-box, .action-card {
+    box-shadow: none !important;
+    page-break-inside: avoid;
+  }
+
+  /* Show link URLs after link text */
+  .content a[href^="http"]::after,
+  .content a[href^="tel:"]::after {
+    content: " (" attr(href) ")";
+    font-size: var(--text-xs);
+    color: #666;
+    font-weight: normal;
+  }
+
+  /* Avoid page breaks inside key elements */
+  .reflection, .takeaways, .alert-box,
+  .community-block, .module-summary {
+    page-break-inside: avoid;
+  }
+
+  /* Ensure images don't overflow */
+  img { max-width: 100% !important; }
+}
