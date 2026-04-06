@@ -212,16 +212,13 @@ h1, h2, h3, h4 {
 /* ── Nav bar (fixed/sticky top bar) ── */
 #navbar {
   background: var(--bg);
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
   border-bottom: 1px solid var(--border);
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 #navbar.scrolled {
   box-shadow: var(--shadow-nav);
-  background: rgba(250, 248, 245, 0.95);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(250, 248, 245, 0.97);
 }
 
 .nav-inner {
