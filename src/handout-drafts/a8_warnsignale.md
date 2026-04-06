@@ -26,7 +26,7 @@ emergency_contacts:
   - label: "Akute Unsicherheit"
     number: "Notfallseite"
     note: "Wenn die Situation nicht mehr nur nach Beobachtung aussieht"
-  - label: "Psychiatrischer Notfalldienst Zürich"
+  - label: "Ärztefon – Notfalldienst Zürich"
     number: "0800 33 66 55"
     note: "Wenn Sie fachliche Einschätzung brauchen"
 ---

@@ -102,6 +102,6 @@ Auch wenn die Person Hilfe ablehnt, dürfen Sie selbst Unterstützung holen. Wen
 
 Weiterführend:
 
-- Psychiatrischer Notfalldienst Zürich: 0800 33 66 55
+- Ärztefon – Notfalldienst Zürich: 0800 33 66 55
 - [Notfallseite](/notfall/)
 - [Modul 6: Kommunikation, Grenzen, Krisenplan](/modul/6/)
