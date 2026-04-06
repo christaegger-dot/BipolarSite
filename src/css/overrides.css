@@ -13,7 +13,7 @@
   left: 16px;
   z-index: 1200;
   padding: 10px 14px;
-  border-radius: var(--radius-sm);
+  border-radius: 10px;
   background: var(--navy);
   color: #fff;
   text-decoration: none;
@@ -107,7 +107,7 @@ body:not(.dark-tool) .tool-brand,
 /* Badges with hardcoded #eaede4 bg / #3d4a30 text */
 .badge {
   background: var(--green-bg) !important;
-  color: var(--navy-mid) !important;
+  color: var(--teal) !important;
 }
 
 /* Input focus states (hardcoded sage colors) */
@@ -212,13 +212,17 @@ h1, h2, h3, h4 {
 /* ── Nav bar (fixed/sticky top bar) ── */
 #navbar {
   background: var(--bg);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   border-bottom: 1px solid var(--border);
   transition: box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 #navbar.scrolled {
   box-shadow: var(--shadow-nav);
-  background: rgba(250, 248, 245, 0.97);
+  background: rgba(250, 248, 245, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .nav-inner {
@@ -296,7 +300,7 @@ h1, h2, h3, h4 {
   background: rgba(254,252,248,1);
   border-color: var(--border-warm-md);
   box-shadow: 0 12px 30px rgba(45,40,35,0.14);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
 }
 
 .nav-links.nav-open a {
@@ -336,7 +340,7 @@ h1, h2, h3, h4 {
 .hero-badge {
   background: var(--teal) !important;
   color: white !important;
-  border-radius: var(--radius-lg) !important;
+  border-radius: var(--radius-pill) !important;
 }
 
 .hero-badge::before {
@@ -379,7 +383,7 @@ h1, h2, h3, h4 {
 }
 
 .module-badge {
-  border-radius: var(--radius-lg) !important;
+  border-radius: var(--radius-pill) !important;
   /* background + color now set per-module via [data-module-accent] in module.css */
 }
 
@@ -420,7 +424,7 @@ header.hero[style*="linear-gradient"] {
 
 /* ── Module cards (index.html grid) ── */
 .module-card {
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-soft);
   padding: var(--space-lg);
@@ -457,7 +461,7 @@ header.hero[style*="linear-gradient"] {
 
 /* ── Quick action cards (index.html) ── */
 .quick-card {
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-soft);
 }
@@ -484,7 +488,7 @@ header.hero[style*="linear-gradient"] {
 
 /* ── Situation / number cards (notfall + modules) ── */
 .sit-card {
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   border: 1px solid var(--border);
 }
 
@@ -505,13 +509,13 @@ header.hero[style*="linear-gradient"] {
 }
 
 .number-card {
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   border: 1px solid var(--border);
 }
 
 /* ── Guide / Accordion cards ── */
 .guide {
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-soft);
 }
@@ -554,7 +558,7 @@ header.hero[style*="linear-gradient"] {
 
 /* ── Next module card ── */
 .next-module {
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   border: 1px solid var(--border);
 }
 
@@ -572,10 +576,10 @@ header.hero[style*="linear-gradient"] {
   color: var(--teal);
 }
 
-/* ── Tool page cards ── */
+/* ── Tool page cards (hardcoded border-radius:22px) ── */
 .card,
 .wrap .card {
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-soft);
 }
@@ -583,7 +587,7 @@ header.hero[style*="linear-gradient"] {
 /* ── Treatment / handout cards ── */
 .treatment-card,
 .handout-card {
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   border: 1px solid var(--border);
 }
 
@@ -595,7 +599,7 @@ header.hero[style*="linear-gradient"] {
 
 /* ── Detail cards (tool results) ── */
 .detail {
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   border: 1px solid var(--border);
 }
 
@@ -606,7 +610,7 @@ header.hero[style*="linear-gradient"] {
 
 /* ── PDF preview dialog ── */
 .pdf-preview-dialog {
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
 }
 
 .pdf-preview-title {
@@ -620,7 +624,7 @@ header.hero[style*="linear-gradient"] {
 
 /* ── Table of contents card ── */
 .toc {
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-soft);
 }
@@ -637,9 +641,9 @@ header.hero[style*="linear-gradient"] {
   background: var(--teal);
 }
 
-/* ── Res cards in tools ── */
+/* ── Res cards in tools (hardcoded border-radius:22px) ── */
 .res-card {
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   border: 1px solid var(--border);
 }
 
@@ -681,7 +685,7 @@ article table {
   border-collapse: collapse;
   border: 1px solid var(--border);
   background: var(--card);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   overflow: hidden;
 }
 
@@ -711,13 +715,13 @@ table tbody tr:nth-child(even),
 
 /* ── Phase explorer / tabs (modul/1) ── */
 .phase-explorer {
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-soft);
 }
 
 .phase-tab {
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
 }
 
 .phase-tab:hover {
@@ -745,7 +749,7 @@ table tbody tr:nth-child(even),
 
 /* Symptom cards within phases */
 .symptom-card {
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   border: 1px solid var(--border);
 }
 
@@ -767,7 +771,7 @@ table tbody tr:nth-child(even),
 /* ── Eisberg tool sections ── */
 .eisberg-section,
 .iceberg {
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
 }
 
 .eisberg-top {
@@ -775,7 +779,7 @@ table tbody tr:nth-child(even),
 }
 
 .eisberg-tag {
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
 }
 
 .eisberg-tag.active {
@@ -786,14 +790,14 @@ table tbody tr:nth-child(even),
 
 /* Tool progress (hardcoded gradient) */
 .prog {
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   background: var(--green-bg);
 }
 
 .prog div,
 .prog-fill {
   background: linear-gradient(90deg, var(--teal), var(--teal-light));
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
 }
 
 /* ── Stat numbers ── */
@@ -815,7 +819,7 @@ table tbody tr:nth-child(even),
 /* ── Quote blocks ── */
 .quote-block {
   background: var(--surface-warm);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   border-left: 4px solid var(--sand-deep);
 }
 
@@ -836,7 +840,7 @@ table tbody tr:nth-child(even),
 .reflection-block,
 .refl {
   background: linear-gradient(135deg, var(--green-bg), var(--surface-warm));
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
 }
 
 .reflection-block::after,
@@ -859,7 +863,7 @@ table tbody tr:nth-child(even),
 /* ── Key takeaways (dark section) ── */
 .key-takeaways {
   background: var(--navy);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
 }
 
 .key-takeaways::before {
@@ -883,7 +887,7 @@ table tbody tr:nth-child(even),
 .alert-box {
   background: var(--red-bg);
   border: 2px solid var(--alert-red-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
 }
 
 .alert-icon {
@@ -900,12 +904,12 @@ table tbody tr:nth-child(even),
 .note-box {
   background: var(--amber-bg);
   border: 1px solid var(--amber-border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
 }
 
 /* ── Notfall-specific: fu-alert ── */
 .fu-alert {
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   border: 1px solid var(--alert-red-border);
 }
 
@@ -915,7 +919,7 @@ table tbody tr:nth-child(even),
 
 /* ── Grauzone (notfall page) ── */
 .grauzone {
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
 }
 
 .grauzone h3 {
@@ -926,19 +930,19 @@ table tbody tr:nth-child(even),
 .guide-do {
   background: var(--green-bg);
   border: 1px solid var(--teal-border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
 }
 
 .guide-dont {
   background: var(--red-bg);
   border: 1px solid var(--alert-red-border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
 }
 
 .guide-sos {
   background: var(--alert-red-bg);
   border: 1px solid var(--alert-red-border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   color: var(--alert-red);
 }
 
@@ -1037,7 +1041,7 @@ section,
 .btn-save {
   background: var(--teal);
   color: white;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-pill);
   border: none;
   box-shadow: 0 4px 16px rgba(0,0,0,0.15);
   min-height: 44px;
@@ -1058,7 +1062,7 @@ section,
   background: white;
   border: 1px solid var(--border);
   color: var(--slate);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   min-height: 44px;
 }
 
@@ -1073,7 +1077,7 @@ section,
 .opt,
 .opt-btn {
   border: 1.5px solid var(--border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   background: white;
   color: var(--navy);
   min-height: 44px;
@@ -1113,7 +1117,7 @@ section,
 .submit {
   background: var(--teal);
   color: white;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
 }
 
 .submit:hover {
@@ -1272,7 +1276,7 @@ footer.tf a[href="/notfall/"] {
 /* ── Accessibility ── */
 *:focus-visible {
   outline: 2px solid var(--teal);
-  outline-offset: 2px;
+  outline-offset: 3px;
   border-radius: var(--radius-sm);
 }
 
@@ -1354,7 +1358,7 @@ footer a:visited {
   background: white;
   border: 1px solid var(--border);
   color: var(--slate);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
 }
 
 .btn-print:hover {
@@ -1368,7 +1372,7 @@ footer a:visited {
   background: white;
   border: 1px solid var(--border);
   color: var(--teal);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
 }
 
 .btn-reset:hover {
@@ -1393,7 +1397,7 @@ footer a:visited {
 /* ep-btn (solidaritaets-chart) */
 .ep-btn {
   border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   color: var(--navy);
 }
 
@@ -1406,14 +1410,14 @@ footer a:visited {
 .chart-wrap {
   border: 1px solid var(--border);
   box-shadow: var(--shadow-soft);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
 }
 
 /* pc cards (saeulen-check) */
 .pc {
   border: 1px solid var(--border);
   box-shadow: var(--shadow-soft);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
 }
 
 /* tool-header h1 (eisberg) */
@@ -1428,14 +1432,14 @@ footer a:visited {
 .info-box {
   background: var(--bg);
   border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
 }
 
 /* pdf-preview-link (notfall, modules) */
 .pdf-preview-link {
   background: var(--green-bg);
   color: var(--teal);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
 }
 
 .pdf-preview-link:hover {
@@ -1511,7 +1515,7 @@ body:not(.dark-tool) .tool-nav .tool-brand {
 .dcl,
 .handout-preview,
 .treatment-preview {
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
 }
 
 /* ── Remaining warm-rgba borders on uncovered tool components ── */
@@ -1647,7 +1651,7 @@ header.hero .hero-content {
   font-size: var(--text-base);
   font-weight: 500;
   padding: 10px 22px;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-round);
   transition: all 0.2s ease;
   margin-top: 1.5rem;
 }
@@ -1790,7 +1794,7 @@ header.hero .hero-content {
   min-height: 44px;
   background: white;
   border: 1px solid var(--border);
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-round);
   text-decoration: none;
   color: var(--navy);
   font-size: var(--text-base);
@@ -1893,7 +1897,7 @@ header.hero .hero-content {
 /* ── M1 Behandlungs-Akkordeon ── */
 .treatment-details {
   border: 1px solid var(--line-color, rgba(28,43,58,0.12));
-  border-radius: var(--radius-sm, 8px);
+  border-radius: var(--radius-md, 12px);
   padding: 0;
   margin: 1.5rem 0;
 }
