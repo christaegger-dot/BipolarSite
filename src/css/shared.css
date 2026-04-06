@@ -31,7 +31,7 @@ body {
 }
 
 .nav-inner {
-  max-width: 1200px;
+  max-width: var(--wide-width);
   margin: 0 auto;
   padding: 0 2rem;
   display: flex;
@@ -61,7 +61,7 @@ body {
   display: block;
 }
 .nav-brand-text {
-  font-family: 'DM Serif Display', serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 1rem;
   font-weight: 600;
 }
@@ -157,9 +157,8 @@ footer {
   background: var(--navy);
   color: var(--white-text-secondary);
   padding: var(--space-3xl) 2rem var(--space-xl);
-  margin-top: 80px;
-  border-top: 2px solid;
-  border-image: linear-gradient(to right, var(--teal), var(--sand-deep)) 1;
+  margin-top: var(--section-wide);
+  border-top: 2px solid var(--teal);
 }
 .footer-inner {
   max-width: var(--content-width);
@@ -240,7 +239,7 @@ footer *:focus-visible,
 
 /* ── Overview Pages (shared by /werkzeuge/ and /module/) ── */
 .overview-hero {
-  padding: 120px 2rem 48px;
+  padding: 120px 2rem var(--section-tight);
   position: relative;
   overflow: hidden;
 }
@@ -285,7 +284,7 @@ footer *:focus-visible,
 }
 .overview-hero h1 {
   font-family: 'DM Serif Display', serif;
-  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-size: var(--text-3xl);
   line-height: 1.08;
   letter-spacing: -0.035em;
   color: var(--navy);
@@ -301,14 +300,14 @@ footer *:focus-visible,
 }
 .overview-intro {
   display: grid;
-  gap: 22px;
+  gap: var(--grid-gap-standard);
   margin: 12px auto 0;
 }
 .overview-note {
   border: 1px solid var(--border-warm-md);
-  border-radius: 24px;
-  box-shadow: var(--shadow-soft);
-  padding: 24px 26px;
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  padding: var(--card-padding);
 }
 .overview-note h2 {
   margin: 0 0 10px;
@@ -323,11 +322,11 @@ footer *:focus-visible,
   color: var(--slate);
 }
 .overview-content {
-  padding: 0 2rem 80px;
+  padding: 0 2rem var(--section-wide);
 }
 .overview-footer-note {
   max-width: 760px;
-  margin-top: 32px;
+  margin-top: var(--space-xl);
   font-size: 0.92rem;
   line-height: 1.7;
   color: var(--text-soft);
@@ -343,7 +342,7 @@ footer *:focus-visible,
     padding: 104px 1.2rem 28px;
   }
   .overview-content {
-    padding: 0 1.2rem 64px;
+    padding: 0 1.2rem var(--section-standard);
   }
   .overview-note {
     padding: 20px 18px;
@@ -378,14 +377,14 @@ footer *:focus-visible,
   color: var(--slate);
   max-width: 540px;
   line-height: 1.65;
-  margin-bottom: 3rem;
+  margin-bottom: var(--section-tight);
 }
 
 /* ── Module grid ── */
 .modules-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: var(--space-lg);
+  gap: var(--grid-gap-standard);
 }
 
 /* ── Module cards ── */
@@ -394,13 +393,14 @@ footer *:focus-visible,
   color: var(--text);
   background: white;
   border: 1px solid var(--border-warm);
-  border-radius: var(--radius-lg);
-  padding: var(--space-lg);
+  border-radius: var(--card-radius);
+  padding: var(--card-padding);
+  box-shadow: var(--card-shadow);
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, border-left-width 0.2s ease;
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: var(--grid-gap-tight);
 }
 .module-card:hover {
   box-shadow: var(--shadow-card);
@@ -434,9 +434,9 @@ footer *:focus-visible,
 .module-card[data-accent="teal"]   .module-number { color: var(--teal); }
 
 .module-card h3 {
-  font-family: 'DM Serif Display', serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 1.2rem;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.35;
   letter-spacing: -0.015em;
   color: var(--navy-mid);
@@ -482,10 +482,10 @@ footer *:focus-visible,
 /* ── Progress bar ── */
 .progress-bar {
   max-width: 860px;
-  margin: 0 auto 32px;
+  margin: 0 auto var(--space-xl);
   padding: 18px 22px;
   border-radius: var(--radius-md);
-  background: linear-gradient(180deg, #fff 0%, #fcf8f4 100%);
+  background: var(--card);
   border: 1px solid var(--border-warm);
 }
 .progress-bar[hidden] { display: none; }
@@ -523,7 +523,7 @@ footer *:focus-visible,
 
 /* ── Module card visited state ── */
 .module-card.visited {
-  background: linear-gradient(180deg, #f6faf9 0%, #fff 100%);
+  background: var(--surface-alt);
 }
 .module-card.visited .module-arrow {
   background: var(--teal);

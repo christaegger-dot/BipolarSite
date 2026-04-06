@@ -36,15 +36,15 @@ body.tool-page {
 }
 .tool-back svg { width: 16px; height: 16px; }
 .tool-brand {
-  font-family: 'DM Serif Display', serif;
-  font-size: var(--text-sm); font-weight: 600; color: var(--navy);
+  font-family: 'DM Sans', sans-serif;
+  font-size: var(--text-sm); font-weight: 700; color: var(--navy);
 }
 
 /* ── Tool Glyph Icon ── */
 .tool-glyph {
   width: 58px; height: 58px; margin: 0 auto 14px;
-  border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, var(--navy), var(--teal));
+  border-radius: var(--card-radius);
+  background: var(--navy);
   display: flex; align-items: center; justify-content: center;
   box-shadow: var(--shadow-card);
 }
@@ -63,16 +63,16 @@ body.tool-page {
 /* ── Header Section (shared pattern) ── */
 .hdr, .tool-header {
   text-align: center; margin-bottom: 28px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(247,250,251,0.88));
+  background: var(--bg);
   border: 1px solid var(--border-warm-md);
-  border-radius: var(--radius-lg); padding: 26px 24px 24px;
-  box-shadow: var(--shadow-card);
+  border-radius: var(--card-radius); padding: var(--card-padding);
+  box-shadow: var(--card-shadow);
   position: relative; overflow: hidden;
 }
 .hdr::before, .tool-header::before {
   content: ''; position: absolute; top: -36px; right: -20px;
   width: 152px; height: 152px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(141,212,217,0.3) 0%, transparent 68%);
+  display: none;
 }
 .hdr h1, .tool-header h1 {
   font-family: 'DM Serif Display', Georgia, serif;

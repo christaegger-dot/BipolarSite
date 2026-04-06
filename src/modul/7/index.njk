@@ -14,7 +14,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   /* Module-specific styles only — shared styles in module.css */
 
   /* SELFCARE GRID */
-  .selfcare-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:28px 0}
+  .selfcare-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:var(--grid-gap-tight);margin:var(--temp-dense-margin) 0}
   .selfcare-card{padding:24px;border-radius:var(--radius-md);border-top:4px solid}
   .selfcare-card.body{background:var(--blue-phase-light);border-top-color:var(--blue-phase)}
   .selfcare-card.soul{background:var(--amber-phase-light);border-top-color:var(--amber-phase)}
@@ -25,14 +25,14 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .selfcare-card.body li{color:var(--slate)}.selfcare-card.soul li{color:var(--amber)}.selfcare-card.relation li{color:var(--navy)}
 
   /* COPING */
-  .coping-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:24px 0}
+  .coping-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gap-tight);margin:var(--temp-dense-margin) 0}
   .coping-card{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:22px}
   .coping-card h4{font-size:0.88rem;font-weight:700;color:var(--text);margin-bottom:10px}
   .coping-card ul{list-style:none}.coping-card li{font-size:0.86rem;color:var(--slate);padding:3px 0 3px 16px;position:relative;line-height:1.5}
   .coping-card li::before{content:'·';position:absolute;left:0;color:var(--teal-light);font-weight:700}
 
   /* PILLAR CARDS */
-  .pillar-cards{display:grid;grid-template-columns:1fr;gap:12px;margin:28px 0}
+  .pillar-cards{display:grid;grid-template-columns:1fr;gap:var(--grid-gap-tight);margin:var(--temp-dense-margin) 0}
   .pillar-card{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:22px 26px;display:flex;gap:18px;align-items:flex-start;transition:border-color 0.2s ease,box-shadow 0.2s ease}
   .pillar-card:hover{box-shadow:var(--shadow-soft)}
   .pillar-num{width:36px;height:36px;border-radius:var(--radius-sm);background:var(--green-bg);color:var(--teal-dark);display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:800;flex-shrink:0}
@@ -40,13 +40,13 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .pillar-card p{font-size:0.86rem;color:var(--slate);line-height:1.55;margin:0}
 
   /* WISH CARDS */
-  .wish-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0}
+  .wish-cards{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gap-tight);margin:var(--temp-dense-margin) 0}
   .wish-card{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:22px;border-left:4px solid var(--sand)}
   .wish-card h4{font-size:0.88rem;font-weight:700;color:var(--navy-mid);margin-bottom:6px}
   .wish-card p{font-size:0.84rem;color:var(--slate);line-height:1.55;margin:0;font-style:italic}
 
   /* TRIALOG */
-  .trialog-visual{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:28px 0}
+  .trialog-visual{display:grid;grid-template-columns:repeat(3, 1fr);gap:var(--grid-gap-tight);margin:var(--temp-dense-margin) 0}
   .trialog-card{text-align:center;padding:24px;border-radius:var(--radius-md);background:white;border:1px solid var(--border-warm)}
   .trialog-card .trialog-icon{font-size:1.6rem;margin-bottom:10px}
   .trialog-card h4{font-size:0.85rem;font-weight:700;color:var(--text);margin-bottom:6px}
@@ -58,24 +58,24 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .nachkrise-items li::before{content:'—';position:absolute;left:0;color:var(--amber-phase);font-weight:700}
 
   /* CHART */
-  .chart-section{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:36px;margin:40px 0;box-shadow:var(--shadow-soft)}
-  .chart-section h3{font-family:'DM Serif Display',serif;font-size:1.1rem;font-weight:600;margin-bottom:8px;color:var(--navy-mid)}
+  .chart-section{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:36px;margin:var(--temp-dense-margin) 0;box-shadow:var(--shadow-soft)}
+  .chart-section h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:8px;color:var(--navy-mid)}
   .chart-section>p{font-size:0.88rem;color:var(--text-soft);margin-bottom:20px}
   .chart-wrap svg{width:100%;height:auto;display:block}
   .chart-caption{font-size:0.78rem;color:var(--text-soft);line-height:1.6;margin-top:14px}
 
   /* PTG */
-  .ptg-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0}
+  .ptg-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gap-tight);margin:var(--temp-dense-margin) 0}
   .ptg-card{background:var(--green-bg);border-radius:var(--radius-sm);padding:18px;text-align:center}
   .ptg-card .ptg-icon{font-size:1.3rem;margin-bottom:6px}
   .ptg-card p{font-size:0.84rem;color:var(--navy);line-height:1.5;margin:0}
 
-  .resource-box{background:var(--green-bg);border:1px solid var(--teal-border,rgba(30,101,109,0.18));border-radius:var(--radius-md);padding:28px 28px 24px;margin:28px 0}
+  .resource-box{background:var(--green-bg);border:1px solid var(--teal-border,rgba(30,101,109,0.18));border-radius:var(--radius-md);padding:28px 28px 24px;margin:var(--temp-dense-margin) 0}
 
   .example-block{background:var(--bg);border-radius:var(--radius-md);padding:20px 24px;margin:20px 0}
   .example-label{font-size:0.68rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:14px}
-  .example-items{display:flex;flex-direction:column;gap:10px}
-  .example-item{display:flex;align-items:flex-start;gap:12px}
+  .example-items{display:flex;flex-direction:column;gap:var(--grid-gap-tight)}
+  .example-item{display:flex;align-items:flex-start;gap:var(--grid-gap-tight)}
   .example-item p{margin:0;font-size:0.88rem;line-height:1.6;color:var(--navy)}
   .example-tag{width:24px;height:24px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px}
   .example-tag.ok{background:var(--green-bg);color:var(--green)}
@@ -93,7 +93,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .etl-dot--mid{background:var(--slate)}
   .etl-dot--low{background:var(--teal-light)}
   .etl-emotions{display:flex;flex-direction:column;align-items:center;gap:4px}
-  .etl-em{font-size:0.78rem;font-weight:500;padding:2px 8px;border-radius:var(--radius-lg);text-align:center;white-space:nowrap}
+  .etl-em{font-size:0.78rem;font-weight:500;padding:2px 8px;border-radius:var(--radius-sm);text-align:center;white-space:nowrap}
   .etl-em--high{background:var(--amber-bg);color:#92400e}
   .etl-em--mid{background:rgba(71,85,105,0.08);color:var(--slate)}
   .etl-em--low{background:var(--green-bg);color:var(--teal)}
@@ -106,11 +106,11 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   }
   /* M7-3: Fünf-Säulen System-Diagramm */
   .saeulen-pentagon{background:var(--surface-warm);border-radius:var(--radius-md);padding:20px 24px 16px;margin:20px 0 8px;display:flex;flex-direction:column;align-items:center}
-  .saeulen-legend{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;width:100%;max-width:440px;margin-top:14px}
+  .saeulen-legend{display:grid;grid-template-columns:repeat(5, 1fr);gap:6px;width:100%;max-width:440px;margin-top:14px}
   .saeulen-legend-item{display:flex;align-items:center;gap:6px;font-size:0.74rem;color:var(--slate);line-height:1.3}
   .saeulen-legend-dot{width:16px;height:16px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:white;font-size:0.6rem;font-weight:700}
   @media(max-width:500px){.saeulen-legend{grid-template-columns:1fr 1fr}}
-  .coping-nav{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0 8px}
+  .coping-nav{display:grid;grid-template-columns:repeat(3, 1fr);gap:var(--grid-gap-tight);margin:16px 0 8px}
   .coping-nav-item{border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px 16px;display:flex;flex-direction:column;gap:4px;background:white}
   .coping-nav-item--problem{border-top:3px solid var(--teal)}
   .coping-nav-item--emotion{border-top:3px solid var(--amber)}

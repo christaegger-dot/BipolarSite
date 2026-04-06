@@ -7,7 +7,9 @@
 
 :root {
 
-  /* ── Brand Colors ── */
+  /* ── Brand Colors (5 active families) ──
+     Navy = leadership · Teal = accent/CTA · Sand = warm neutral
+     Rose = emergency only · Phase colors (amber/blue/green) = semantic */
   --navy:        #1c2b3a;
   --navy-mid:    #4A443F;
   --teal:        #1E656D;
@@ -20,19 +22,18 @@
   --sand-deep:   #b58a52;
   --sand-ink:    #7a5630;
 
-  /* ── Neutral / Slate ── */
+  /* ── Neutral (consolidated — brown family merged into navy/slate) ── */
   --slate:       #475569;
-  --brown:       #2a211b;
-  --brown-mid:   #3d3128;
-  --brown-warm:  #5c4a38;
+  --brown-mid:   #4A443F; /* = navy-mid */
+  --brown-warm:  #475569; /* = slate */
 
-  /* ── Semantic: Background ── */
+  /* ── Semantic: Background (3 values only) ── */
   --bg:          #FAF8F5;
   --card:        #ffffff;
-  --card-end:    #fcf8f4;
+  --card-end:    #ffffff; /* consolidated → card */
   --surface-alt: #F4F1EC;
-  --surface-warm:#f7f2ea;
-  --surface-warm-deep: #f1eeea;
+  --surface-warm: #F4F1EC; /* consolidated → surface-alt */
+  --surface-warm-deep: #F4F1EC; /* consolidated → surface-alt */
 
   /* ── Semantic: Text ── */
   --text:        #3D3530;
@@ -47,6 +48,15 @@
   --red-bg:      #FEF2F2;
   --amber-bg:    #fef3e2;
 
+  /* ── Badge Base (unified) ── */
+  --badge-radius:  var(--radius-round);  /* pill shape */
+  --badge-padding: 5px 14px;
+  --badge-font:    var(--text-xs);
+
+  /* ── CTA Base (two variants only) ── */
+  --cta-radius:    var(--radius-md);     /* 12px */
+  --cta-min-height: 44px;
+
   /* ── Radius Scale ──
      4 semantic steps — use these in all new code.
      sm → small UI (badges, icons, buttons, inputs)
@@ -57,6 +67,12 @@
   --radius-md:   12px;
   --radius-lg:   20px;
   --radius-round:100px;
+
+  /* ── Card Base (unified card module) ── */
+  --card-radius:  var(--radius-md);    /* 12px — all cards */
+  --card-border:  1px solid var(--border-warm);
+  --card-padding: var(--space-lg);     /* 24px */
+  --card-shadow:  var(--shadow-soft);
 
   /* ── Shadow Scale ── */
   --shadow-soft:     0 4px 18px rgba(28,43,58,0.05);
@@ -74,8 +90,35 @@
   --space-2xl: 40px;
   --space-3xl: 52px;
 
+  /* ── Section Rhythm (3 fixed vertical values) ── */
+  --section-tight:    40px;  /* related blocks, tight grouping */
+  --section-standard: 64px;  /* default section spacing */
+  --section-wide:     96px;  /* thematic breaks, hero spacing */
+
+  /* ── Content Temperature (vertical rhythm for content blocks) ──
+     Dense  = compact info (grids, tables, accordions) — tight coupling
+     Standard = normal reading flow (prose, lists, CTAs)
+     Pause  = deliberate deceleration (quotes, reflections, takeaways) */
+  --temp-dense-margin:    28px;
+  --temp-dense-padding:   20px;
+  --temp-standard-margin: 40px;  /* = section-tight */
+  --temp-standard-padding: var(--card-padding);  /* 24px */
+  --temp-pause-margin:    56px;
+  --temp-pause-padding:   32px;
+
+  /* ── Grid System (3 variants, 2 gap sizes) ──
+     tight  = dense info grids (cards, tables, compact layouts)
+     standard = default card grids, content layouts
+     Columns: 2-col (1fr 1fr), 3-col (repeat(3,1fr)), auto (repeat(auto-fill,minmax(280px,1fr))) */
+  --grid-gap-tight:    16px;
+  --grid-gap-standard: 24px;
+
+  /* ── Content Gaps (within sections) ── */
+  --content-gap:      24px;  /* between sibling elements */
+  --group-gap:        40px;  /* between content groups */
+
   /* ── Content Widths ── */
-  --content-width:      720px;
+  --content-width:      640px;
   --content-width-wide: 900px;
   --wide-width:         1140px;
 
@@ -161,7 +204,8 @@
   --text-md:   1.02rem;  /* 16.3px — emphasis, accordion titles */
   --text-lg:   1.1rem;   /* 17.6px — subheadings (h3 small) */
   --text-xl:   1.3rem;   /* 20.8px — headings (h3 large) */
-  --text-2xl:  1.8rem;   /* 28.8px — section headings (h2) */
+  --text-2xl:  2rem;     /* 32px   — section headings (h2) */
+  --text-3xl:  clamp(2.4rem, 5vw, 3.2rem); /* 38–51px — display / h1 */
 
   /* ── White-on-Dark Text Scale ── */
   --white-text:          rgba(255,255,255,0.88);

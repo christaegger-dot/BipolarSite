@@ -13,17 +13,17 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   /* ── Page-specific: decorative blobs + colors ── */
   .overview-hero::before {
     top: -24%; right: -10%; width: 640px; height: 640px;
-    background: radial-gradient(circle, rgba(217,236,236,0.7) 0%, transparent 72%);
+    background: none; display: none;
     opacity: 0.82;
   }
   .overview-hero::after {
     bottom: -16%; left: -5%; width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(221,210,191,0.72) 0%, transparent 72%);
+    background: none; display: none;
     opacity: 0.76;
   }
   .overview-badge { background: rgba(217,236,236,0.42); color: var(--navy-mid); }
   .overview-intro { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .overview-note { background: linear-gradient(180deg, #fff 0%, #f8fbfb 100%); }
+  .overview-note { background: #fff; }
 
   /* ── Situativer Guide ── */
   .tool-guide { margin: 0 auto 48px; }
@@ -35,18 +35,18 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .tool-guide-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+    gap: var(--grid-gap-tight);
   }
   .tool-guide-item {
     display: flex; flex-direction: column; gap: 4px;
-    padding: 16px 18px; border-radius: var(--radius-sm);
+    padding: 16px 18px; border-radius: var(--card-radius);
     background: white; border: 1px solid var(--border-warm);
     text-decoration: none; color: var(--text);
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
   }
   .tool-guide-item:hover {
     border-color: var(--teal-border);
-    box-shadow: var(--shadow-soft);
+    box-shadow: var(--card-shadow);
   }
   .tool-guide-item strong {
     font-size: var(--text-base); font-weight: 600; color: var(--navy);
@@ -67,15 +67,15 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .tool-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
+    gap: var(--grid-gap-tight);
   }
   .tool-card {
     display: block;
-    background: linear-gradient(180deg, #fff 0%, #f8fbfb 100%);
+    background: #fff;
     border: 1px solid var(--border-warm-md);
-    border-radius:var(--radius-lg);
-    box-shadow: var(--shadow-soft);
-    padding: 24px 26px;
+    border-radius:var(--card-radius);
+    box-shadow: var(--card-shadow);
+    padding: var(--card-padding);
     text-decoration: none;
     color: inherit;
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
@@ -90,8 +90,8 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     text-transform: uppercase; color: var(--navy-mid); margin-bottom: 10px; display: block;
   }
   .tool-card h3 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.25rem; line-height: 1.25; color: var(--navy); margin: 0 0 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.25rem; line-height: 1.25; color: var(--navy); margin: 0 0 10px; font-weight: 700;
   }
   .tool-card p { margin: 0; font-size: 0.95rem; line-height: 1.7; color: var(--slate); }
   .tool-card-footer {
@@ -106,8 +106,8 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .tool-details { margin: 12px 0 0; }
   .tool-details-summary {
     display: flex; align-items: center; gap: 8px; cursor: pointer;
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.15rem; font-weight: 400; color: var(--navy);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.15rem; font-weight: 700; color: var(--navy);
     padding: 14px 0; list-style: none;
   }
   .tool-details-summary::-webkit-details-marker { display: none; }
