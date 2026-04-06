@@ -1,5 +1,5 @@
 // BipolarSite Service Worker — Offline-Cache for emergency + crisis plan
-const CACHE_NAME = 'bipolarsite-v3';
+const CACHE_NAME = 'bipolarsite-v4';
 const PRECACHE_URLS = [
   '/notfall/',
   '/tools/krisenplan/',
