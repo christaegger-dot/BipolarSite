@@ -297,7 +297,7 @@ h1, h2, h3, h4 {
 
 /* ── Mobile dropdown (nav-open) ── */
 .nav-links.nav-open {
-  background: rgba(254,252,248,0.98);
+  background: rgba(254,252,248,1);
   border-color: var(--border-warm-md);
   box-shadow: 0 12px 30px rgba(45,40,35,0.14);
   border-radius: var(--radius-lg);
