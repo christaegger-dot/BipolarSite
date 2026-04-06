@@ -10,11 +10,11 @@ permalink: /404.html
 {% block headCSS %}
 <style>
   body{min-height:100vh;display:flex;flex-direction:column}
-  .card{max-width:640px;width:100%;margin:auto;padding:40px 32px;background:var(--card);border:1px solid var(--border);border-radius:24px;box-shadow:0 12px 40px rgba(28,43,58,.08)}
+  .card{max-width:640px;width:100%;margin:auto;padding:40px 32px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:0 12px 40px rgba(28,43,58,.08)}
   h1{margin:0 0 12px;font-size:2rem;font-family:'DM Serif Display',serif}
   p{margin:0 0 14px;line-height:1.6;color:var(--slate)}
   .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
-  a{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:700}
+  a{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:var(--radius-pill);text-decoration:none;font-weight:700}
   .primary{background:var(--teal);color:#fff}
   .secondary{border:1px solid var(--border);color:var(--text);background:#fff}
 </style>

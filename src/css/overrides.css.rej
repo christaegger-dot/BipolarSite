@@ -1,0 +1,38 @@
+diff a/src/css/overrides.css b/src/css/overrides.css	(rejected hunks)
+@@ -212,16 +212,13 @@ h1, h2, h3, h4 {
+ /* ── Nav bar (fixed/sticky top bar) ── */
+ #navbar {
+   background: var(--bg);
+-  backdrop-filter: none;
+-  -webkit-backdrop-filter: none;
+   border-bottom: 1px solid var(--border);
++  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+ }
+ 
+ #navbar.scrolled {
+   box-shadow: var(--shadow-nav);
+-  background: rgba(250, 248, 245, 0.95);
+-  backdrop-filter: blur(8px);
+-  -webkit-backdrop-filter: blur(8px);
++  background: rgba(250, 248, 245, 0.97);
+ }
+ 
+ .nav-inner {
+@@ -299,7 +296,7 @@ h1, h2, h3, h4 {
+   background: rgba(254,252,248,0.98);
+   border-color: var(--border-warm-md);
+   box-shadow: 0 12px 30px rgba(45,40,35,0.14);
+-  border-radius: var(--radius-lg);
++  border-radius: var(--radius-md);
+ }
+ 
+ .nav-links.nav-open a {
+@@ -1273,7 +1270,7 @@ footer.tf a[href="/notfall/"] {
+ *:focus-visible {
+   outline: 2px solid var(--teal);
+   outline-offset: 2px;
+-  border-radius: var(--radius-xs);
++  border-radius: var(--radius-sm);
+ }
+ 
+ .skip-link {

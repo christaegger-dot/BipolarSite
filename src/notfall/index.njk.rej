@@ -1,0 +1,52 @@
+diff a/src/notfall/index.njk b/src/notfall/index.njk	(rejected hunks)
+@@ -57,11 +57,11 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
+ 
+   /* SITUATION SELECTOR */
+   .situations{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 40px}
+-  .sit-card{display:flex;align-items:center;gap:14px;padding:16px 20px;border-radius:var(--radius-lg);text-decoration:none;color:var(--text);border:1px solid var(--border-warm);transition:border-color 0.2s ease,box-shadow 0.2s ease,transform 0.2s ease;background:linear-gradient(180deg,#fff 0%,#fcf8f7 100%)}
++  .sit-card{display:flex;align-items:center;gap:14px;padding:16px 20px;border-radius:var(--radius-md);text-decoration:none;color:var(--text);border:1px solid var(--border-warm);transition:border-color 0.2s ease,box-shadow 0.2s ease,transform 0.2s ease;background:linear-gradient(180deg,#fff 0%,#fcf8f7 100%)}
+   .sit-card:hover{box-shadow:0 12px 28px rgba(28,43,58,0.1);transform:translateY(-2px)}
+   .sit-card.urgent{border-color:var(--alert-red-border);background:var(--alert-red-bg)}
+   .sit-card.urgent:hover{border-color:var(--alert-red)}
+-  .sit-badge{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:800;flex-shrink:0}
++  .sit-badge{width:36px;height:36px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:800;flex-shrink:0}
+   .sit-card.urgent .sit-badge{background:rgba(199,84,80,0.15);color:var(--alert-red)}
+   .sit-card:not(.urgent) .sit-badge{background:var(--green-bg);color:var(--teal-dark)}
+   .sit-text{font-size:0.85rem;line-height:1.4}
+@@ -70,7 +70,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
+ 
+   /* NUMBERS */
+   .numbers-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:24px 0}
+-  .number-card{background:linear-gradient(180deg,#fff 0%,#fcf8f7 100%);border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:16px 20px;display:flex;align-items:center;gap:14px;transition:box-shadow 0.2s ease,transform 0.2s ease;border-top:3px solid transparent;text-decoration:none;color:inherit}
++  .number-card{background:linear-gradient(180deg,#fff 0%,#fcf8f7 100%);border:1px solid var(--border-warm);border-radius:var(--radius-sm);padding:16px 20px;display:flex;align-items:center;gap:14px;transition:box-shadow 0.2s ease,transform 0.2s ease;border-top:3px solid transparent;text-decoration:none;color:inherit}
+   .number-card:hover{box-shadow:0 12px 28px rgba(28,43,58,0.1);transform:translateY(-2px)}
+   .numbers-grid .number-card:nth-child(-n+2){background:linear-gradient(180deg,#FFF8F7 0%,#FFFFFF 100%);border-color:rgba(199,84,80,0.18);border-top-color:var(--alert-red)}
+   .number-card strong{display:block;font-family:'DM Serif Display',serif;font-size:1.15rem;font-weight:700;color:var(--alert-red)}
+@@ -114,20 +114,20 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
+   .guide-body-inner ul{list-style:none;margin:0 0 16px}
+   .guide-body-inner li{font-size:0.9rem;color:var(--slate);padding:6px 0 6px 20px;position:relative;line-height:1.6}
+   .guide-body-inner li::before{content:'→';position:absolute;left:0;color:var(--teal);font-weight:700;font-size:0.8rem}
+-  .guide-do{background:var(--green-bg);border-radius:var(--radius-md);padding:14px 18px;margin:12px 0;font-size:0.86rem;color:var(--navy)}
+-  .guide-dont{background:var(--alert-red-bg);border-radius:var(--radius-md);padding:14px 18px;margin:12px 0;font-size:0.86rem;color:#9A3412}
+-  .guide-sos{background:var(--alert-red-bg);border:1px solid var(--alert-red-border);border-radius:var(--radius-md);padding:14px 18px;margin:12px 0;font-size:0.88rem;color:var(--alert-red);font-weight:600}
++  .guide-do{background:var(--green-bg);border-radius:var(--radius-sm);padding:14px 18px;margin:12px 0;font-size:0.86rem;color:var(--navy)}
++  .guide-dont{background:var(--alert-red-bg);border-radius:var(--radius-sm);padding:14px 18px;margin:12px 0;font-size:0.86rem;color:#9A3412}
++  .guide-sos{background:var(--alert-red-bg);border:1px solid var(--alert-red-border);border-radius:var(--radius-sm);padding:14px 18px;margin:12px 0;font-size:0.88rem;color:var(--alert-red);font-weight:600}
+   .guide-sos a{color:var(--alert-red);font-weight:700}
+-  .guide-sos a[href^="tel:"]{display:inline-block;padding:6px 10px;margin:-6px -6px;border-radius:8px;background:rgba(154,52,18,0.06);min-height:44px;line-height:32px;text-decoration:underline}
++  .guide-sos a[href^="tel:"]{display:inline-block;padding:6px 10px;margin:-6px -6px;border-radius:var(--radius-sm);background:rgba(154,52,18,0.06);min-height:44px;line-height:32px;text-decoration:underline}
+   .guide-link{display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;color:var(--teal);text-decoration:none;font-weight:600;margin-top:8px}
+   .guide-context-hint{font-size:0.85rem;color:var(--text-soft);margin-top:16px;padding-top:12px;border-top:1px solid var(--border-warm)}
+ 
+   /* GRAUZONE */
+-  .grauzone{background:linear-gradient(180deg,#FFF2EF 0%, #F7EEE8 100%);border-radius:var(--radius-xl);padding:32px;margin:40px 0;border:1px solid rgba(199,84,80,0.12)}
++  .grauzone{background:linear-gradient(180deg,#FFF2EF 0%, #F7EEE8 100%);border-radius:var(--radius-md);padding:32px;margin:40px 0;border:1px solid rgba(199,84,80,0.12)}
+   .grauzone-h2{margin:0 0 16px;padding:0;border:none;font-size:1.3rem}
+-  .grauzone-rule{background:white;border-radius:var(--radius-md);padding:18px 22px;margin:20px 0;font-size:0.92rem;color:var(--navy);font-weight:600;line-height:1.5}
++  .grauzone-rule{background:white;border-radius:var(--radius-sm);padding:18px 22px;margin:20px 0;font-size:0.92rem;color:var(--navy);font-weight:600;line-height:1.5}
+   .grauzone-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 16px}
+-  .grauzone-card{background:white;border-radius:var(--radius-md);overflow:hidden;display:flex;flex-direction:column}
++  .grauzone-card{background:white;border-radius:var(--radius-sm);overflow:hidden;display:flex;flex-direction:column}
+   .grauzone-card-top{padding:16px 18px 12px;flex:1}
+   .grauzone-scenario{font-family:'DM Serif Display',serif;font-size:0.98rem;font-weight:600;color:var(--navy-mid);margin:0 0 8px;line-height:1.4}
+   .grauzone-card-top p{font-size:0.87rem;color:var(--slate);line-height:1.55;margin:0}

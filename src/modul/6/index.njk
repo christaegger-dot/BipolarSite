@@ -18,7 +18,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 
   /* AMPEL */
   .ampel{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px;margin:28px 0}
-  .ampel-card{padding:24px;border-radius:var(--radius-lg);border-top:5px solid}
+  .ampel-card{padding:24px;border-radius:var(--radius-md);border-top:5px solid}
   .ampel-card.green{background:var(--green-bg);border-top-color:var(--green-phase)}
   .ampel-card.amber{background:var(--amber-phase-light);border-top-color:var(--amber-phase)}
   .ampel-card.red{background:var(--alert-red-bg);border-top-color:var(--alert-red)}
@@ -35,39 +35,39 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .ampel-card.red p{color:#9A3412}
 
   /* SECTION CARD (content container, distinct from .tool-card in werkzeuge) */
-  .section-card{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-xl);padding:32px;margin:32px 0;box-shadow:var(--shadow-soft)}
+  .section-card{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:32px;margin:32px 0;box-shadow:var(--shadow-soft)}
   .section-card h3{font-family:'DM Serif Display',serif;font-size:1.1rem;font-weight:600;margin-bottom:12px;color:var(--navy-mid)}
   .section-card p{font-size:0.92rem;color:var(--slate);line-height:1.7}
-  .decision-visual{margin:24px 0 32px;background:linear-gradient(180deg,#fff 0%,#fcf8f4 100%);border:1px solid var(--border-warm);border-radius:24px;padding:20px;box-shadow:var(--shadow-soft)}
-  .decision-visual img{display:block;width:100%;height:auto;border-radius:18px}
+  .decision-visual{margin:24px 0 32px;background:linear-gradient(180deg,#fff 0%,#fcf8f4 100%);border:1px solid var(--border-warm);border-radius:var(--radius-lg);padding:20px;box-shadow:var(--shadow-soft)}
+  .decision-visual img{display:block;width:100%;height:auto;border-radius:var(--radius-lg)}
   .decision-visual p{font-size:0.87rem;color:var(--slate);line-height:1.6;margin:12px 4px 0}
 
   /* STEPS */
   .step-list{list-style:none;counter-reset:step-counter;margin:20px 0}
   .step-list li{counter-increment:step-counter;padding:14px 0 14px 48px;position:relative;font-size:0.92rem;color:var(--slate);line-height:1.65;border-bottom:1px solid var(--border-warm)}
-  .step-list li::before{content:counter(step-counter);position:absolute;left:0;top:14px;width:32px;height:32px;border-radius:8px;background:var(--green-bg);color:var(--teal-dark);display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:800}
+  .step-list li::before{content:counter(step-counter);position:absolute;left:0;top:14px;width:32px;height:32px;border-radius:var(--radius-sm);background:var(--green-bg);color:var(--teal-dark);display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:800}
 
   /* COMM RULES */
-  .comm-rule{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-lg);padding:22px 26px;margin-bottom:14px;border-left:4px solid var(--teal-light)}
+  .comm-rule{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:22px 26px;margin-bottom:14px;border-left:4px solid var(--teal-light)}
   .comm-rule h4{font-size:0.92rem;font-weight:700;color:var(--text);margin-bottom:6px}
   .comm-rule p{font-size:0.86rem;color:var(--slate);line-height:1.55;margin:0 0 8px}
   .comm-rule .avoid{font-size:0.82rem;color:var(--alert-red);font-weight:500}
 
   /* SITUATION CARDS */
-  .situation-card{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-lg);padding:24px;margin-bottom:16px}
+  .situation-card{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:24px;margin-bottom:16px}
   .situation-card h4{font-size:0.92rem;font-weight:700;color:var(--text);margin-bottom:10px}
-  .situation-card .response{font-size:0.88rem;color:var(--navy);background:var(--green-bg);padding:12px 16px;border-radius:var(--radius-md);margin-bottom:8px;line-height:1.55}
+  .situation-card .response{font-size:0.88rem;color:var(--navy);background:var(--green-bg);padding:12px 16px;border-radius:var(--radius-sm);margin-bottom:8px;line-height:1.55}
   .situation-card .avoid{font-size:0.82rem;color:var(--alert-red);font-weight:500}
 
   /* GRENZEN EXAMPLES */
-  .grenz-example{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-lg);padding:24px;margin-bottom:14px}
+  .grenz-example{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:24px;margin-bottom:14px}
   .grenz-bad{font-size:0.88rem;color:var(--alert-red);margin-bottom:8px;padding:10px 14px;background:var(--alert-red-bg);border-radius:var(--radius-sm)}
   .grenz-good{font-size:0.88rem;color:var(--navy);padding:10px 14px;background:var(--green-bg);border-radius:var(--radius-sm);margin-bottom:8px}
   .grenz-why{font-size:0.82rem;color:var(--text-soft);line-height:1.55}
 
   /* DO DONT */
   .do-dont{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
-  .do-col,.dont-col{border-radius:var(--radius-lg);padding:22px}
+  .do-col,.dont-col{border-radius:var(--radius-md);padding:22px}
   .do-col{background:var(--green-bg);border:1px solid var(--teal-border)}.dont-col{background:var(--alert-red-bg);border:1px solid var(--alert-red-border)}
   .do-col h4,.dont-col h4{font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px}
   .do-col h4{color:var(--teal-dark)}.dont-col h4{color:var(--alert-red)}
@@ -77,7 +77,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .dont-col li::before{content:'✗';position:absolute;left:0;color:var(--alert-red);font-weight:700}
 
   /* M6-2: Einsicht comparison table */
-  .einsicht-compare{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;margin:24px 0}
+  .einsicht-compare{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;margin:24px 0}
   .einsicht-col{display:flex;flex-direction:column}
   .einsicht-col:first-child{border-right:1px solid var(--border)}
   .einsicht-col-header{padding:16px 20px;display:flex;flex-direction:column;gap:4px}
@@ -96,7 +96,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .einsicht-row--dont{background:rgba(0,0,0,0.015)}
 
   /* M6-1: Stabile-Phase Prioritäts-Raster */
-  .stabil-prio{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;margin:16px 0 24px}
+  .stabil-prio{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;margin:16px 0 24px}
   .stabil-prio-col{display:flex;flex-direction:column}
   .stabil-prio-col:not(:last-child){border-right:1px solid var(--border)}
   .stabil-prio-header{padding:10px 16px;background:var(--surface-warm);border-bottom:1px solid var(--border);font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-soft);display:flex;align-items:center;gap:8px}
@@ -108,9 +108,9 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .stabil-prio-item span{font-size:0.78rem;color:var(--text-soft);line-height:1.4}
 
   /* M6-3: Grenz-Formel */
-  .grenz-formel{background:var(--surface-warm);border-radius:var(--radius-lg);padding:18px 22px;margin:0 0 20px}
+  .grenz-formel{background:var(--surface-warm);border-radius:var(--radius-md);padding:18px 22px;margin:0 0 20px}
   .grenz-formel-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-soft);margin-bottom:10px}
-  .grenz-formel-parts{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+  .grenz-formel-parts{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden}
   .grenz-part{padding:12px 14px;display:flex;flex-direction:column;gap:5px}
   .grenz-part:not(:last-child){border-right:1px solid var(--border)}
   .grenz-part--ich{background:#e6f4f2}

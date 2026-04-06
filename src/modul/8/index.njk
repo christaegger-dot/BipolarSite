@@ -17,12 +17,12 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .module-hero::before{content:'';position:absolute;top:-30%;right:-15%;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(221,210,191,0.7) 0%,transparent 70%);opacity:0.75}
   .module-hero-inner{max-width:1120px;margin:0 auto;position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,0.96fr) minmax(320px,0.84fr);gap:28px;align-items:start}
   .module-hero-copy{min-width:0}
-  .module-hero-visual{background:#ffffff;border:1px solid rgba(181,138,82,0.16);border-radius:26px;padding:18px;box-shadow:var(--shadow-card)}
-  .module-hero-visual img{display:block;width:100%;height:auto;border-radius:18px}
+  .module-hero-visual{background:#ffffff;border:1px solid rgba(181,138,82,0.16);border-radius:var(--radius-lg);padding:18px;box-shadow:var(--shadow-card)}
+  .module-hero-visual img{display:block;width:100%;height:auto;border-radius:var(--radius-lg)}
   .hero-icon{width:40px;height:40px;color:var(--sand);opacity:1;margin-bottom:12px;display:block}
-  .module-badge{display:inline-flex;background:rgba(91,186,196,0.15);color:var(--teal-on-dark);padding:6px 16px;border-radius:100px;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px}
+  .module-badge{display:inline-flex;background:rgba(91,186,196,0.15);color:var(--teal-on-dark);padding:6px 16px;border-radius:var(--radius-pill);font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px}
   .module-meta{display:flex;align-items:center;gap:20px;font-size:0.85rem;color:var(--text-soft);margin-bottom:28px;flex-wrap:wrap}
-  .module-hero-note{background:var(--surface-warm);border:1px solid var(--border-warm-xl);border-radius:18px;padding:18px 20px}
+  .module-hero-note{background:var(--surface-warm);border:1px solid var(--border-warm-xl);border-radius:var(--radius-lg);padding:18px 20px}
   .module-hero-note p{font-size:0.92rem;line-height:1.7;color:var(--slate);margin:0}
   .module-hero-note p + p{margin-top:8px}
   .module-hero-note strong{color:var(--navy)}
@@ -36,7 +36,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .insight-grid{display:block;margin:24px 0 34px;border-top:1px solid var(--border-warm-md)}
   .insight-card{background:transparent;border:none;border-bottom:1px solid var(--border-warm-md);border-radius:0;padding:18px 0;display:flex;gap:18px;align-items:flex-start;transition:none;box-shadow:none}
   .insight-card:hover{box-shadow:none}
-  .insight-num{width:34px;height:34px;border-radius:10px;background:rgba(221,210,191,0.28);color:var(--sand-ink);display:flex;align-items:center;justify-content:center;font-size:0.76rem;font-weight:800;flex-shrink:0}
+  .insight-num{width:34px;height:34px;border-radius:var(--radius-sm);background:rgba(221,210,191,0.28);color:var(--sand-ink);display:flex;align-items:center;justify-content:center;font-size:0.76rem;font-weight:800;flex-shrink:0}
   .insight-card h4{font-size:0.92rem;font-weight:700;color:var(--text);margin-bottom:4px}
   .insight-card p{font-size:0.86rem;color:var(--slate);line-height:1.55;margin:0}
 
@@ -47,23 +47,23 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 
   /* ACTION CARDS (Module 8 overrides) */
   .action-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:28px 0}
-  .action-card{background:#fff;border:1px solid var(--border-warm);border-radius:var(--radius-lg);padding:24px;display:flex;gap:20px;align-items:flex-start;transition:border-color 0.2s ease,box-shadow 0.2s ease;box-shadow:none}.action-card:hover{box-shadow:var(--shadow-soft)}
+  .action-card{background:#fff;border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:24px;display:flex;gap:20px;align-items:flex-start;transition:border-color 0.2s ease,box-shadow 0.2s ease;box-shadow:none}.action-card:hover{box-shadow:var(--shadow-soft)}
   .action-icon{width:42px;height:42px;border-radius:11px;background:rgba(221,210,191,0.4);color:var(--sand-deep);display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:800;flex-shrink:0}
   .action-card h4{font-weight:700;font-size:0.92rem;margin-bottom:6px;color:var(--text)}.action-card p{font-size:0.85rem;color:var(--text-soft);line-height:1.6;margin:0}
   .action-grid--steps{display:block;margin:24px 0 34px;border-top:1px solid var(--border-warm-md)}
   .action-grid--steps .action-card{background:transparent;border:none;border-bottom:1px solid var(--border-warm-md);border-radius:0;padding:18px 0;box-shadow:none}
   .action-grid--steps .action-card:hover{box-shadow:none}
-  .action-grid--steps .action-icon{width:36px;height:36px;border-radius:10px;background:rgba(221,210,191,0.28);font-size:0.78rem}
+  .action-grid--steps .action-icon{width:36px;height:36px;border-radius:var(--radius-sm);background:rgba(221,210,191,0.28);font-size:0.78rem}
   .action-grid--steps .action-card p{max-width:58ch}
   .action-grid--roles .action-card{background:linear-gradient(180deg,#fff 0%,#fcf8f4 100%);border-color:rgba(181,138,82,0.14)}
   .action-grid--roles .action-card:hover{box-shadow:var(--shadow-soft)}
 
   /* ANLAUFSTELLEN */
-  .stelle-card{background:#fff;border:1px solid var(--border-warm);border-radius:var(--radius-lg);padding:24px;margin-bottom:14px;transition:border-color 0.2s ease,box-shadow 0.2s ease;box-shadow:none}
+  .stelle-card{background:#fff;border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:24px;margin-bottom:14px;transition:border-color 0.2s ease,box-shadow 0.2s ease;box-shadow:none}
   .stelle-card:hover{box-shadow:var(--shadow-soft)}
   .stelle-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
   .stelle-card h4{font-size:0.95rem;font-weight:700;color:var(--text);margin:0}
-  .stelle-badge{font-size:0.7rem;font-weight:700;padding:3px 10px;border-radius:6px}
+  .stelle-badge{font-size:0.7rem;font-weight:700;padding:3px 10px;border-radius:var(--radius-sm)}
   .stelle-badge.beratung{background:rgba(221,210,191,0.34);color:var(--sand-deep)}
   .stelle-badge.selbsthilfe{background:var(--amber-phase-light);color:var(--amber-phase)}
   .stelle-card p{font-size:0.86rem;color:var(--slate);line-height:1.55;margin:0 0 10px}
@@ -71,14 +71,14 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .stelle-contact a{color:var(--teal);text-decoration:none}
 
   /* DOWNLOAD MODULES */
-  .dl-module{background:linear-gradient(180deg,#fff 0%,#fbf7f0 100%);border:1px solid var(--border-warm);border-radius:var(--radius-lg);padding:24px 28px;margin-bottom:14px;display:flex;gap:20px;align-items:flex-start;transition:border-color 0.2s ease,box-shadow 0.2s ease}
+  .dl-module{background:linear-gradient(180deg,#fff 0%,#fbf7f0 100%);border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:24px 28px;margin-bottom:14px;display:flex;gap:20px;align-items:flex-start;transition:border-color 0.2s ease,box-shadow 0.2s ease}
   .dl-module:hover{box-shadow:var(--shadow-soft)}
   .dl-module-sos{border-left:4px solid var(--alert-red)}
-  .dl-icon{width:50px;height:34px;border-radius:10px;background:rgba(221,210,191,0.3);color:var(--sand-ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;font-size:0.68rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase}
+  .dl-icon{width:50px;height:34px;border-radius:var(--radius-sm);background:rgba(221,210,191,0.3);color:var(--sand-ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;font-size:0.68rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase}
   .dl-module-sos .dl-icon{background:rgba(199,84,80,0.12);color:var(--alert-red)}
   .dl-body h4{font-size:0.95rem;font-weight:700;color:var(--text);margin:0 0 8px}
   .dl-body p{font-size:0.85rem;color:var(--slate);line-height:1.55;margin:0 0 14px}
-  .dl-btn{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:white;text-decoration:none;font-size:0.82rem;font-weight:600;padding:10px 18px;border-radius:10px;transition:background-color 0.2s ease,box-shadow 0.2s ease}
+  .dl-btn{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:white;text-decoration:none;font-size:0.82rem;font-weight:600;padding:10px 18px;border-radius:var(--radius-sm);transition:background-color 0.2s ease,box-shadow 0.2s ease}
   .dl-btn:hover{background:var(--teal-dark)}
   .dl-btn-sos{background:var(--alert-red)}.dl-btn-sos:hover{background:#a33d3a}
   .dl-meta{font-size:0.7rem;font-weight:400;opacity:0.75}
@@ -91,29 +91,29 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .handout-chip .hc-title{font-weight:600;line-height:1.3}
   .handout-chip .hc-size{font-size:0.65rem;color:var(--text-soft);font-weight:400}
 
-  .wide-visual{margin:28px 0 36px;background:linear-gradient(180deg,#fff 0%,#fcf8f4 100%);border:1px solid var(--border-warm);border-radius:24px;padding:20px;box-shadow:var(--shadow-soft)}
-  .wide-visual img{display:block;width:100%;height:auto;border-radius:18px}
+  .wide-visual{margin:28px 0 36px;background:linear-gradient(180deg,#fff 0%,#fcf8f4 100%);border:1px solid var(--border-warm);border-radius:var(--radius-lg);padding:20px;box-shadow:var(--shadow-soft)}
+  .wide-visual img{display:block;width:100%;height:auto;border-radius:var(--radius-lg)}
   .wide-visual p{font-size:0.86rem;color:var(--slate);margin:12px 4px 0}
-  .material-finder{margin:24px 0 32px;padding:24px 26px;border-radius:24px;background:linear-gradient(180deg,#fff 0%,#fcf8f4 100%);border:1px solid var(--border-warm);box-shadow:var(--shadow-soft)}
+  .material-finder{margin:24px 0 32px;padding:24px 26px;border-radius:var(--radius-lg);background:linear-gradient(180deg,#fff 0%,#fcf8f4 100%);border:1px solid var(--border-warm);box-shadow:var(--shadow-soft)}
   .material-finder-kicker{font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
   .material-finder h3{font-size:1.15rem;margin:0 0 8px}
   .material-finder p{font-size:0.9rem;color:var(--slate);line-height:1.6;margin:0 0 18px}
   .material-finder-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-  .material-finder-option{display:flex;align-items:flex-start;gap:12px;width:100%;padding:14px 16px;border-radius:16px;border:1px solid var(--border-warm-md);background:#fff;color:var(--text);text-align:left;font-family:'DM Sans',sans-serif;cursor:pointer;transition:border-color 0.2s ease,box-shadow 0.2s ease,transform 0.2s ease}
+  .material-finder-option{display:flex;align-items:flex-start;gap:12px;width:100%;padding:14px 16px;border-radius:var(--radius-md);border:1px solid var(--border-warm-md);background:#fff;color:var(--text);text-align:left;font-family:'DM Sans',sans-serif;cursor:pointer;transition:border-color 0.2s ease,box-shadow 0.2s ease,transform 0.2s ease}
   .material-finder-option:hover{border-color:var(--teal-border);box-shadow:var(--shadow-soft);transform:translateY(-1px)}
   .material-finder-option.is-active{border-color:var(--teal);background:var(--green-bg)}
-  .material-finder-icon{min-width:78px;height:34px;padding:0 10px;border-radius:10px;background:rgba(221,210,191,0.3);color:var(--sand-ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.72rem;font-weight:800;letter-spacing:0.04em;text-transform:none}
+  .material-finder-icon{min-width:78px;height:34px;padding:0 10px;border-radius:var(--radius-sm);background:rgba(221,210,191,0.3);color:var(--sand-ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.72rem;font-weight:800;letter-spacing:0.04em;text-transform:none}
   .material-finder-option.is-active .material-finder-icon{background:var(--teal);color:#fff}
   .material-finder-label{display:block;font-size:0.88rem;font-weight:700;margin-bottom:3px}
   .material-finder-sub{display:block;font-size:0.8rem;color:var(--text-soft);line-height:1.45}
   .material-finder-results{margin-top:16px;display:grid;gap:12px}
   .material-finder-results[hidden]{display:none}
-  .finder-card{background:linear-gradient(180deg,var(--surface-warm) 0%,rgba(217,236,236,0.34) 100%);border:1px solid var(--border-warm);border-radius:18px;padding:16px 18px}
+  .finder-card{background:linear-gradient(180deg,var(--surface-warm) 0%,rgba(217,236,236,0.34) 100%);border:1px solid var(--border-warm);border-radius:var(--radius-lg);padding:16px 18px}
   .finder-card-kicker{font-size:0.66rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--slate);margin-bottom:6px}
   .finder-card h4{font-size:0.96rem;font-weight:700;color:var(--navy);margin:0 0 6px}
   .finder-card p{font-size:0.84rem;color:var(--slate);margin:0 0 10px}
-  .finder-card a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#fff;background:linear-gradient(135deg,var(--navy),var(--teal));padding:9px 14px;border-radius:999px;font-size:0.8rem;font-weight:700}
-  .hub-details{margin:22px 0 32px;border:1px solid var(--border-warm-md);border-radius:24px;background:linear-gradient(180deg,#fff 0%,#fcf8f4 100%);box-shadow:var(--shadow-soft);overflow:hidden}
+  .finder-card a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#fff;background:linear-gradient(135deg,var(--navy),var(--teal));padding:9px 14px;border-radius:var(--radius-pill);font-size:0.8rem;font-weight:700}
+  .hub-details{margin:22px 0 32px;border:1px solid var(--border-warm-md);border-radius:var(--radius-lg);background:linear-gradient(180deg,#fff 0%,#fcf8f4 100%);box-shadow:var(--shadow-soft);overflow:hidden}
   .hub-details summary{list-style:none;cursor:pointer;padding:20px 22px;display:grid;gap:6px;position:relative}
   .hub-details summary::-webkit-details-marker{display:none}
   .hub-details summary::after{content:'+';position:absolute;top:18px;right:20px;width:28px;height:28px;border-radius:50%;border:1px solid var(--border-warm-md);display:flex;align-items:center;justify-content:center;color:var(--teal-dark);font-size:1rem;font-weight:700;transition:transform 0.2s ease,background-color 0.2s ease,color 0.2s ease}
@@ -124,7 +124,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .hub-details-body{padding:0 22px 22px}
   .hub-details-body>p:first-child{margin-top:0}
   .hub-details--quiet{background:linear-gradient(180deg,var(--surface-warm) 0%,rgba(217,236,236,0.28) 100%)}
-  .mini-plan{margin:26px 0 34px;padding:24px 26px;border-radius:24px;background:linear-gradient(180deg,#fff 0%,#fcf8f4 100%);border:1px solid var(--border-warm);box-shadow:var(--shadow-soft)}
+  .mini-plan{margin:26px 0 34px;padding:24px 26px;border-radius:var(--radius-lg);background:linear-gradient(180deg,#fff 0%,#fcf8f4 100%);border:1px solid var(--border-warm);box-shadow:var(--shadow-soft)}
   .mini-plan-kicker{font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
   .mini-plan h3{font-size:1.15rem;margin:0 0 8px}
   .mini-plan p{font-size:0.9rem;color:var(--slate);line-height:1.6;margin:0 0 18px}
@@ -132,14 +132,14 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   .mini-plan-field{display:flex;flex-direction:column;gap:6px}
   .mini-plan-field.full{grid-column:1 / -1}
   .mini-plan label{font-size:0.76rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--slate)}
-  .mini-plan input,.mini-plan textarea,.mini-plan select{width:100%;padding:12px 14px;border-radius:14px;border:1px solid var(--border-warm-xl);background:#fff;color:var(--text);font:inherit}
+  .mini-plan input,.mini-plan textarea,.mini-plan select{width:100%;padding:12px 14px;border-radius:var(--radius-md);border:1px solid var(--border-warm-xl);background:#fff;color:var(--text);font:inherit}
   .mini-plan textarea{min-height:92px;resize:vertical}
   .mini-plan-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-  .mini-plan-save,.mini-plan-clear{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 16px;border-radius:999px;font-size:0.82rem;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
+  .mini-plan-save,.mini-plan-clear{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 16px;border-radius:var(--radius-pill);font-size:0.82rem;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
   .mini-plan-save{border:none;background:linear-gradient(135deg,var(--navy),var(--teal));color:#fff}
   .mini-plan-clear{border:1px solid var(--border-warm-xl);background:#fff;color:var(--slate)}
   .mini-plan-status{font-size:0.8rem;color:var(--text-soft);margin-top:12px;min-height:1.2em}
-  .mini-plan-summary{margin-top:18px;padding:16px 18px;border-radius:18px;background:linear-gradient(180deg,var(--surface-warm) 0%,rgba(217,236,236,0.28) 100%);border:1px solid var(--border-warm)}
+  .mini-plan-summary{margin-top:18px;padding:16px 18px;border-radius:var(--radius-lg);background:linear-gradient(180deg,var(--surface-warm) 0%,rgba(217,236,236,0.28) 100%);border:1px solid var(--border-warm)}
   .mini-plan-summary[hidden]{display:none}
   .mini-plan-summary h4{font-size:0.96rem;font-weight:700;color:var(--navy);margin:0 0 10px}
   .mini-plan-summary p{font-size:0.84rem;color:var(--slate);margin:0 0 8px}

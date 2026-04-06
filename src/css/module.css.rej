@@ -1,0 +1,87 @@
+diff a/src/css/module.css b/src/css/module.css	(rejected hunks)
+@@ -33,9 +33,9 @@
+ .module-badge {
+   display: inline-flex; align-items: center; gap: 8px;
+   background: var(--green-bg); color: var(--navy);
+-  padding: 6px 16px; border-radius: var(--radius-round);
++  padding: 6px 16px; border-radius: var(--radius-pill);
+   font-size: var(--text-xs); font-weight: 700;
+-  letter-spacing: 0.08em; text-transform: uppercase;
++  letter-spacing: 0.06em; text-transform: uppercase;
+   margin-bottom: 16px;
+ }
+ .module-hero h1 {
+@@ -55,12 +55,12 @@
+ /* ── Table of Contents ── */
+ .toc {
+   background: white; border: 1px solid var(--border-warm);
+-  border-radius: var(--radius-lg); padding: 28px 32px;
++  border-radius: var(--radius-md); padding: 28px 32px;
+   margin-bottom: 48px; box-shadow: var(--shadow-soft);
+ }
+ .toc-title {
+   font-size: var(--text-xs); font-weight: 700; text-transform: uppercase;
+-  letter-spacing: 0.12em; color: var(--teal); margin-bottom: 14px;
++  letter-spacing: 0.06em; color: var(--navy-mid); margin-bottom: 14px;
+ }
+ .toc ol {
+   list-style: none; counter-reset: toc-counter;
+@@ -138,21 +138,21 @@
+   .toc-sidebar a.active {
+     color: var(--navy);
+     font-weight: 700;
+-    border-left-color: var(--teal);
++    border-left-color: var(--navy-mid);
+   }
+   .toc-sidebar a.active::before {
+-    color: var(--teal);
++    color: var(--navy-mid);
+   }
+ }
+ 
+ /* ── Prose ── */
+ .content { max-width: var(--content-width); margin: 0 auto; padding: 0 2rem; }
+ .content h2 {
+-  scroll-margin-top: 84px;
++  scroll-margin-top: 96px;
+   font-family: 'DM Serif Display', serif;
+   font-size: var(--text-2xl); font-weight: 700; line-height: 1.25;
+   letter-spacing: -0.02em; color: var(--navy);
+-  margin: 64px 0 20px; padding-top: 20px;
++  margin: 76px 0 22px; padding-top: 20px;
+   border-top: 1px solid var(--border-warm);
+ }
+ .content h2:first-of-type { border-top: none; margin-top: 0; }
+@@ -216,7 +216,7 @@
+ }
+ .reflection-label {
+   font-size: var(--text-xs); font-weight: 700; text-transform: uppercase;
+-  letter-spacing: 0.1em; color: var(--teal); margin-bottom: 12px;
++  letter-spacing: 0.06em; color: var(--navy-mid); margin-bottom: 12px;
+ }
+ .reflection h3 {
+   font-family: 'DM Serif Display', serif; font-size: var(--text-lg); font-weight: 600;
+@@ -285,12 +285,12 @@
+ .community-list li a { color: var(--teal); font-weight: 600; }
+ 
+ .sources {
+-  background: var(--green-bg); border-radius: var(--radius-lg);
++  background: var(--green-bg); border-radius: var(--radius-md);
+   padding: 28px 32px; margin: 48px 0;
+ }
+ .sources-title {
+   font-size: var(--text-xs); font-weight: 700; text-transform: uppercase;
+-  letter-spacing: 0.1em; color: var(--teal); margin-bottom: 14px;
++  letter-spacing: 0.06em; color: var(--navy-mid); margin-bottom: 14px;
+ }
+ .sources ul {
+   list-style: none; max-height: 0; overflow: hidden;
+@@ -355,7 +355,7 @@
+ }
+ .next-module-label {
+   font-size: var(--text-xs); font-weight: 700; text-transform: uppercase;
+-  letter-spacing: 0.1em; color: var(--teal); margin-bottom: 8px;
++  letter-spacing: 0.06em; color: var(--navy-mid); margin-bottom: 8px;
+ }
+ .next-module-title {
+   font-family: 'DM Serif Display', serif; font-size: var(--text-xl); font-weight: 600;
