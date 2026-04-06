@@ -15,16 +15,22 @@
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
     Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; frame-src 'self'; object-src 'none'; base-uri 'self'"
 
-# Long-lived cache for versioned assets (CSS, fonts)
+# Cache for static assets (CSS, fonts) — revalidate on each visit so deploys take effect
 [[headers]]
   for = "/css/*"
   [headers.values]
-    Cache-Control = "public, max-age=2592000, immutable"
+    Cache-Control = "public, max-age=86400, must-revalidate"
 
 [[headers]]
   for = "/fonts/*"
   [headers.values]
-    Cache-Control = "public, max-age=2592000, immutable"
+    Cache-Control = "public, max-age=604800, must-revalidate"
+
+# Service worker must never be cached — browser needs to fetch the latest on every check
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"
 
 # Short-lived cache for HTML pages (re-check after 5 minutes)
 [[headers]]
