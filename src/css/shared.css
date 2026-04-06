@@ -93,14 +93,14 @@ body {
   color: var(--teal);
 }
 .nav-sos {
-  background: var(--alert-soft) !important;
-  color: var(--alert) !important;
-  font-weight: 600 !important;
-  border: 1px solid rgba(154,52,18,0.25) !important;
+  background: var(--rose-soft);
+  color: var(--rose-text);
+  font-weight: 600;
+  border: 1px solid var(--rose-border);
 }
 .nav-sos:hover {
-  background: rgba(154,52,18,0.12) !important;
-  color: var(--alert) !important;
+  background: var(--rose-badge);
+  color: var(--rose-text);
 }
 
 .nav-toggle {
@@ -1237,16 +1237,16 @@ h3, h4 {
   color: var(--teal);
 }
 
-/* ── SOS button (light background) ── */
+/* ── SOS button (rosé accent — soft, not alarming in nav) ── */
 .nav-sos {
-  background: var(--alert-soft);
-  border: 1px solid var(--alert-muted);
-  color: var(--alert);
+  background: var(--rose-soft);
+  border: 1px solid var(--rose-border);
+  color: var(--rose-text);
 }
 
 .nav-sos:hover {
-  background: var(--alert-subtle);
-  color: var(--alert);
+  background: var(--rose-badge);
+  color: var(--rose-text);
 }
 
 /* ── Mobile toggle ── */
