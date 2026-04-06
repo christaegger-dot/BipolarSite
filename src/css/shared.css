@@ -1127,10 +1127,10 @@ a, button, input, select, textarea,
   outline-offset: 2px;
 }
 
-/* ── [from overrides.css] GLOBAL SURFACE, TEXT & FONT ── */
+/* ── GLOBAL SURFACE, TEXT & FONT ── */
 body:not(.dark-tool) {
-  background: var(--bg) !important;
-  color: var(--text) !important;
+  background: var(--bg);
+  color: var(--text);
 }
 body {
   font-family: 'DM Sans', sans-serif;
@@ -1277,18 +1277,17 @@ h3, h4 {
   color: var(--text);
 }
 
-/* ── [from overrides.css] HERO / MODULE-HERO ── */
+/* ── HERO / MODULE-HERO (L2: light, warm — no heavy color blocks) ── */
 
 /* ── Main hero (index.html) ── */
 .hero {
-  background: var(--teal) !important;
-  color: white !important;
+  background: var(--surface-alt);
+  color: var(--text);
 }
 
-/* Hero gradient pseudo-elements removed — pure navy background */
 .hero::before,
 .hero::after {
-  display: none !important;
+  display: none;
 }
 
 .hero-content {
@@ -1296,73 +1295,73 @@ h3, h4 {
 }
 
 .hero-badge {
-  background: var(--teal) !important;
-  color: white !important;
-  border-radius: var(--radius-round) !important;
+  background: var(--teal-subtle);
+  color: var(--teal-solid);
+  border-radius: var(--radius-round);
 }
 
 .hero-badge::before {
-  background: var(--teal-light) !important;
+  background: var(--teal-light);
 }
 
 .hero h1 {
-  color: white !important;
+  color: var(--navy);
 }
 
 .hero h1 em {
-  color: var(--teal-light) !important;
+  color: var(--teal-solid);
 }
 
 .hero-subtitle {
-  color: var(--white-text-secondary) !important;
+  color: var(--slate);
 }
 
 /* ── Module hero (modul pages) ── */
 .module-hero {
-  background: var(--teal) !important;
-  color: white !important;
+  background: var(--surface-alt);
+  color: var(--text);
 }
 
 .module-hero-inner {
-  max-width: var(--content-width) !important;
+  max-width: var(--content-width);
 }
 
 .module-hero h1 {
-  color: white !important;
+  color: var(--navy);
 }
 
 .module-badge {
-  border-radius: var(--radius-round) !important;
-  /* background + color now set per-module via [data-module-accent] in module.css */
+  border-radius: var(--radius-round);
 }
 
 .module-hero .module-meta {
-  color: var(--white-text) !important;
+  color: var(--slate);
 }
 
 .module-hero .module-meta svg {
-  color: var(--teal-light) !important;
+  color: var(--teal-solid);
 }
 
 .breadcrumb a {
-  color: var(--white-text-secondary) !important;
+  color: var(--slate);
 }
 
 .breadcrumb a:hover {
-  color: var(--teal-light) !important;
+  color: var(--teal-solid);
 }
 
 /* ── Notfall hero (notfall/index.html) ──
-   Keep emergency red, but integrate with new system */
+   Emergency stays strong — the ONE place heavy color is justified */
 .hero.notfall-hero,
 header.hero[style*="linear-gradient"] {
   background: var(--emergency-dark) !important;
+  color: white !important;
 }
 
 /* ── Reading progress bar (sits below nav) ── */
 .reading-progress-fill,
 #reading-progress {
-  background: var(--teal) !important;
+  background: var(--teal);
 }
 
 /* ── [from overrides.css] BADGES ── */
@@ -1606,7 +1605,7 @@ footer {
 
 .footer-org {
   font-weight: 700;
-  color: var(--navy) !important;
+  color: var(--navy);
 }
 
 .footer-note {
@@ -1620,24 +1619,24 @@ footer {
 }
 
 .footer-invitation {
-  color: var(--navy) !important;
+  color: var(--navy);
   font-weight: 600;
-  font-size: var(--text-base) !important;
+  font-size: var(--text-base);
   font-family: 'DM Sans', sans-serif;
 }
 
 .footer-disclaimer {
-  font-size: var(--text-xs) !important;
-  color: var(--slate) !important;
+  font-size: var(--text-xs);
+  color: var(--slate);
 }
 
 .footer-link-alert {
-  color: var(--alert-red-border) !important;
+  color: var(--rose-text);
   font-weight: 700;
 }
 
 .footer-link-alert:hover {
-  color: var(--alert-red-light) !important;
+  color: var(--rose);
 }
 
 .footer-contact a {
