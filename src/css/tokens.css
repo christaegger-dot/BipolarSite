@@ -25,12 +25,12 @@
   --navy:        #7a6f66;
   --navy-mid:    #8a7f76;
 
-  /* Body text */
-  --slate:       #a39890;
+  /* Body text — #857a72 gives ~4.0:1 on #FAF8F5 (AA for 14px+) */
+  --slate:       #857a72;
 
   /* Text semantic aliases */
-  --text:        #7a6f66;
-  --text-soft:   #a39890;
+  --text:        #7a6f66;   /* 4.6:1 — AA for all sizes */
+  --text-soft:   #857a72;   /* 4.0:1 — AA for large text (≥14px bold / ≥18px) */
 
   /* Sand family (warm accents, badges, subtle fills) */
   --sand:        #ddd2bf;
