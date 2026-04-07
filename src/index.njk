@@ -278,29 +278,37 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
       if (!btn) return;
       var action = btn.dataset.triage;
 
+      function showNext(hideId, showId) {
+        document.getElementById(hideId).hidden = true;
+        var next = document.getElementById(showId);
+        next.hidden = false;
+        var qText = next.querySelector('.triage-q-text');
+        if (qText) { qText.setAttribute('tabindex', '-1'); qText.focus(); }
+      }
       if (action === 'q1-no') {
-        document.getElementById('triageQ1').hidden = true;
-        document.getElementById('triageQ1b').hidden = false;
+        showNext('triageQ1', 'triageQ1b');
       } else if (action === 'q1b-no') {
-        document.getElementById('triageQ1b').hidden = true;
-        document.getElementById('triageQ2').hidden = false;
+        showNext('triageQ1b', 'triageQ2');
       } else if (action === 'q2-no') {
-        document.getElementById('triageQ2').hidden = true;
-        document.getElementById('triageQ3').hidden = false;
+        showNext('triageQ2', 'triageQ3');
       } else if (action === 'q3-no') {
-        document.getElementById('triageQ3').hidden = true;
-        document.getElementById('triageQ4').hidden = false;
+        showNext('triageQ3', 'triageQ4');
       } else if (responses[action]) {
         var r = responses[action];
         result.className = 'triage-result' + (r.cls ? ' ' + r.cls : '');
         result.innerHTML = r.html + '<button type="button" class="triage-restart" data-triage="restart">Nochmal beantworten</button>';
         result.hidden = false;
+        result.setAttribute('tabindex', '-1');
+        result.focus();
         // hide all questions
         document.querySelectorAll('.triage-question').forEach(function(q) { q.hidden = true; });
       } else if (action === 'restart') {
         result.hidden = true;
         result.className = 'triage-result';
-        document.getElementById('triageQ1').hidden = false;
+        var q1 = document.getElementById('triageQ1');
+        q1.hidden = false;
+        var qText = q1.querySelector('.triage-q-text');
+        if (qText) { qText.setAttribute('tabindex', '-1'); qText.focus(); }
       }
     });
   })();

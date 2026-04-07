@@ -777,7 +777,7 @@ a, button, input, select, textarea,
 .triage-question[hidden]{display:none}
 .triage-q-text{font-size:var(--text-base);font-weight:600;color:var(--navy);margin-bottom:12px;line-height:1.5}
 .triage-btns{display:flex;gap:10px;flex-wrap:wrap}
-.triage-btn{padding:10px 20px;border-radius:var(--radius-sm);font-family:'DM Sans',sans-serif;font-size:var(--text-sm);font-weight:600;cursor:pointer;transition:color 0.2s,border-color 0.2s;min-height:44px;background:none;border:1px solid var(--border-warm-md);color:var(--navy)}
+.triage-btn{padding:10px 20px;border-radius:var(--radius-sm);font-family:'DM Sans',sans-serif;font-size:var(--text-sm);font-weight:600;cursor:pointer;transition:color 0.2s,border-color 0.2s;min-height:44px;background:none;border:1px solid var(--border-warm-xl);color:var(--navy)}
 .triage-btn:hover{border-color:var(--teal-solid);color:var(--teal-cta)}
 .triage-btn--yes{border-color:var(--teal-muted);color:var(--teal-cta)}
 .triage-btn--yes:hover{border-color:var(--teal-solid);background:var(--teal-faint)}
