@@ -654,11 +654,13 @@ a, button, input, select, textarea,
   max-width: none;
 }
 
-/* Vertical rhythm — consistent spacing scale */
-.entry-paths-section { padding-top: var(--section-tight); padding-bottom: var(--section-tight); }
+/* Vertical rhythm — two-tier spacing:
+   Content sections: --space-lg (24px) top/bottom → 48px between sections
+   Full-bleed sections (with bg color): --section-tight (40px) → 80px gap, justified by visual break */
+.entry-paths-section { padding-top: var(--section-tight); padding-bottom: var(--space-lg); }
 #orientierung { padding-top: var(--space-lg); padding-bottom: var(--space-lg); }
-#module { padding-top: var(--section-tight); padding-bottom: var(--space-lg); }
-.tools-highlight { padding-top: var(--space-lg); padding-bottom: var(--section-tight); }
+#module { padding-top: var(--space-lg); padding-bottom: var(--space-lg); }
+.tools-highlight { padding-top: var(--space-lg); padding-bottom: var(--space-lg); }
 .story-section { padding-top: var(--section-tight); padding-bottom: var(--section-tight); }
 .invitation-section { padding-top: var(--section-tight); padding-bottom: var(--section-tight); }
 
