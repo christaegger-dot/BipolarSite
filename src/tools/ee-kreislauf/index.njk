@@ -25,44 +25,44 @@ breadcrumbs:
 <div class="tool-breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><a href="/werkzeuge/">Werkzeuge</a><span class="sep" aria-hidden="true">›</span><span>Überlastungskreislauf</span></div>
     <div class="tool-glyph" aria-hidden="true">
       <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="20" cy="8" r="4" fill="#FBBF24"/>
-        <circle cx="32" cy="20" r="4" fill="#9A3412"/>
-        <circle cx="20" cy="32" r="4" fill="#5B7FA5"/>
-        <circle cx="8" cy="20" r="4" fill="#0D7A5F"/>
-        <path d="M20 8C28 8 32 12 32 20C32 28 28 32 20 32C12 32 8 28 8 20C8 12 12 8 20 8Z" stroke="#A8E4E8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="20" cy="8" r="4" fill="var(--amber-light)"/>
+        <circle cx="32" cy="20" r="4" fill="var(--amber-dark-text)"/>
+        <circle cx="20" cy="32" r="4" fill="var(--blue-phase)"/>
+        <circle cx="8" cy="20" r="4" fill="var(--phase-green)"/>
+        <path d="M20 8C28 8 32 12 32 20C32 28 28 32 20 32C12 32 8 28 8 20C8 12 12 8 20 8Z" stroke="var(--teal-light)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </div>
-    <div class="badge">Modul 5 — Interaktiv</div><h1>Wie Überlastung zum Kreislauf wird</h1><p>Der EE-Kreislauf aus Schuld, Überengagement, Erschöpfung und Kritik. Klicken Sie auf eine Station, um zu sehen, wie sich Überforderung zuspitzt — und wo der Kreislauf unterbrochen werden kann.</p>
+    <h1>Wie Überlastung zum Kreislauf wird</h1><p>Der EE-Kreislauf aus Schuld, Überengagement, Erschöpfung und Kritik. Klicken Sie auf eine Station, um zu sehen, wie sich Überforderung zuspitzt — und wo der Kreislauf unterbrochen werden kann.</p>
   </div>
   <div class="svg-wrap" id="svgWrap">
     <svg viewBox="0 0 400 400" role="group" aria-label="EE-Kreislauf: Schuld, Überengagement, Erschöpfung und Kritik als Teufelskreis">
       <!-- Arrows -->
-      <path class="arrow" d="M200 60 A140 140 0 0 1 340 200" fill="none" stroke="#a7d9d5" stroke-width="2.5" stroke-linecap="round"/>
-      <path class="arrow" d="M340 200 A140 140 0 0 1 200 340" fill="none" stroke="#a7d9d5" stroke-width="2.5" stroke-linecap="round"/>
-      <path class="arrow" d="M200 340 A140 140 0 0 1 60 200" fill="none" stroke="#a7d9d5" stroke-width="2.5" stroke-linecap="round"/>
-      <path class="arrow" d="M60 200 A140 140 0 0 1 200 60" fill="none" stroke="#a7d9d5" stroke-width="2.5" stroke-linecap="round"/>
+      <path class="arrow" d="M200 60 A140 140 0 0 1 340 200" fill="none" stroke="var(--teal-light)" stroke-width="2.5" stroke-linecap="round"/>
+      <path class="arrow" d="M340 200 A140 140 0 0 1 200 340" fill="none" stroke="var(--teal-light)" stroke-width="2.5" stroke-linecap="round"/>
+      <path class="arrow" d="M200 340 A140 140 0 0 1 60 200" fill="none" stroke="var(--teal-light)" stroke-width="2.5" stroke-linecap="round"/>
+      <path class="arrow" d="M60 200 A140 140 0 0 1 200 60" fill="none" stroke="var(--teal-light)" stroke-width="2.5" stroke-linecap="round"/>
       <!-- Arrowheads -->
-      <polygon class="arrow" points="330,190 340,200 330,210" fill="#a7d9d5"/>
-      <polygon class="arrow" points="210,330 200,340 190,330" fill="#a7d9d5"/>
-      <polygon class="arrow" points="70,210 60,200 70,190" fill="#a7d9d5"/>
-      <polygon class="arrow" points="190,70 200,60 210,70" fill="#a7d9d5"/>
+      <polygon class="arrow" points="330,190 340,200 330,210" fill="var(--teal-light)"/>
+      <polygon class="arrow" points="210,330 200,340 190,330" fill="var(--teal-light)"/>
+      <polygon class="arrow" points="70,210 60,200 70,190" fill="var(--teal-light)"/>
+      <polygon class="arrow" points="190,70 200,60 210,70" fill="var(--teal-light)"/>
       <!-- Center -->
-      <text x="200" y="194" text-anchor="middle" class="center-text" font-size="14" font-weight="600" fill="#7a6f66" id="centerText1">Chronische</text>
-      <text x="200" y="212" text-anchor="middle" class="center-text" font-size="14" font-weight="600" fill="#7a6f66" id="centerText2">Anspannung</text>
+      <text x="200" y="194" text-anchor="middle" class="center-text" font-size="14" font-weight="600" fill="var(--navy)" id="centerText1">Chronische</text>
+      <text x="200" y="212" text-anchor="middle" class="center-text" font-size="14" font-weight="600" fill="var(--navy)" id="centerText2">Anspannung</text>
       <!-- Nodes -->
-      <circle id="station0" cx="200" cy="52" r="42" fill="#fef3e2" stroke="#B45309" stroke-width="2" role="button" tabindex="0" aria-label="Station 1: Schuld" aria-pressed="false"/>
-      <text x="200" y="46" text-anchor="middle" font-family="DM Sans" font-size="9" font-weight="700" fill="#B45309">1</text>
-      <text x="200" y="62" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="600" fill="#B45309">Schuld</text>
-      <circle id="station1" cx="348" cy="200" r="42" fill="#fef2f0" stroke="#9A3412" stroke-width="2" role="button" tabindex="0" aria-label="Station 2: Überengagement" aria-pressed="false"/>
-      <text x="348" y="193" text-anchor="middle" font-family="DM Sans" font-size="9" font-weight="700" fill="#9A3412">2</text>
-      <text x="348" y="210" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="600" fill="#9A3412">Über-</text>
-      <text x="348" y="222" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="600" fill="#9A3412">engagement</text>
-      <circle id="station2" cx="200" cy="348" r="42" fill="#eef3f8" stroke="#5b7fa5" stroke-width="2" role="button" tabindex="0" aria-label="Station 3: Erschöpfung" aria-pressed="false"/>
-      <text x="200" y="342" text-anchor="middle" font-family="DM Sans" font-size="9" font-weight="700" fill="#5b7fa5">3</text>
-      <text x="200" y="358" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="600" fill="#475569">Erschöpfung</text>
-      <circle id="station3" cx="52" cy="200" r="42" fill="#FAFAF7" stroke="#0d7a5f" stroke-width="2" role="button" tabindex="0" aria-label="Station 4: Kritik" aria-pressed="false"/>
-      <text x="52" y="194" text-anchor="middle" font-family="DM Sans" font-size="9" font-weight="700" fill="#0d7a5f">4</text>
-      <text x="52" y="210" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="600" fill="#7a6f66">Kritik</text>
+      <circle id="station0" cx="200" cy="52" r="42" fill="var(--amber-bg)" stroke="var(--amber)" stroke-width="2" role="button" tabindex="0" aria-label="Station 1: Schuld" aria-pressed="false"/>
+      <text x="200" y="46" text-anchor="middle" font-family="DM Sans" font-size="9" font-weight="700" fill="var(--amber)">1</text>
+      <text x="200" y="62" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="600" fill="var(--amber)">Schuld</text>
+      <circle id="station1" cx="348" cy="200" r="42" fill="var(--rose-bg)" stroke="var(--amber-dark-text)" stroke-width="2" role="button" tabindex="0" aria-label="Station 2: Überengagement" aria-pressed="false"/>
+      <text x="348" y="193" text-anchor="middle" font-family="DM Sans" font-size="9" font-weight="700" fill="var(--amber-dark-text)">2</text>
+      <text x="348" y="210" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="600" fill="var(--amber-dark-text)">Über-</text>
+      <text x="348" y="222" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="600" fill="var(--amber-dark-text)">engagement</text>
+      <circle id="station2" cx="200" cy="348" r="42" fill="var(--blue-phase-light)" stroke="var(--blue-phase)" stroke-width="2" role="button" tabindex="0" aria-label="Station 3: Erschöpfung" aria-pressed="false"/>
+      <text x="200" y="342" text-anchor="middle" font-family="DM Sans" font-size="9" font-weight="700" fill="var(--blue-phase)">3</text>
+      <text x="200" y="358" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="600" fill="var(--slate)">Erschöpfung</text>
+      <circle id="station3" cx="52" cy="200" r="42" fill="var(--bg)" stroke="var(--phase-green)" stroke-width="2" role="button" tabindex="0" aria-label="Station 4: Kritik" aria-pressed="false"/>
+      <text x="52" y="194" text-anchor="middle" font-family="DM Sans" font-size="9" font-weight="700" fill="var(--phase-green)">4</text>
+      <text x="52" y="210" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="600" fill="var(--navy)">Kritik</text>
     </svg>
   </div>
   <div class="station-picker" role="group" aria-label="Station direkt auswählen">
@@ -87,14 +87,14 @@ breadcrumbs:
 {% block scripts %}
 <script>
 const stations=[
-  {n:"Schuld",c:"#B45309",desc:"Sie fühlen sich schuldig — «Ich mache nicht genug.» «Wenn ich nur aufmerksamer wäre.» Schuld ist in dieser Lage häufig und entsteht oft aus Liebe, Verantwortung und Hilflosigkeit zugleich.",mech:"Diese Schuld treibt oft dazu, noch mehr zu übernehmen, noch stärker zu kontrollieren und noch weniger loszulassen. So beginnt der Kreislauf.",exit:"Eine kleine Unterbrechung kann sein, Schuld zu benennen, ohne ihr sofort zu folgen: «Ich fühle mich schuldig, aber ich muss nicht alles allein auffangen.»"},
-  {n:"Überengagement",c:"#9A3412",desc:"Sie übernehmen immer mehr — Medikamente, Termine, Finanzen, Stimmungskontrolle. Die Beziehung droht zur Daueraufgabe zu werden.",mech:"Überengagement soll schützen, kann aber auch signalisieren: «Du kannst das nicht selbst.» Das schwächt Eigenverantwortung und verstärkt auf Dauer die Überlastung beider Seiten.",exit:"Geben Sie eine kleine Aufgabe bewusst zurück. Nicht als Strafe, sondern als Schritt aus der Dauerübernahme."},
-  {n:"Erschöpfung",c:"#5b7fa5",desc:"Die dauernde Überlastung führt zu Erschöpfung — körperlich, emotional, kognitiv. Viele funktionieren weiter, merken aber erst spät, wie dünn sie innerlich geworden sind.",mech:"Erschöpfung senkt die Toleranzschwelle. Was sonst gerade noch ging, wird schneller zu viel. Gereiztheit, Abstumpfung oder Härte nehmen zu.",exit:"Unterbrechen heisst hier oft nicht viel, sondern etwas Kleines und Konkretes: eine Pause, ein Anruf, ein Abend ohne Zuständigkeit."},
-  {n:"Kritik",c:"#0d7a5f",desc:"Aus der Erschöpfung heraus wird der Ton schärfer. Kritik ist oft nicht bloss Härte, sondern Überforderungssprache.",mech:"Kritik erzeugt beim Partner eher Scham, Abwehr oder Rückzug — und bei Ihnen danach oft neue Schuld. So schliesst sich der Kreislauf erneut.",exit:"Eine realistische Unterbrechung ist Beobachtung statt Bewertung: «Ich sehe, dass du heute nicht aufgestanden bist» statt «Du liegst schon wieder im Bett.»"}
+  {n:"Schuld",c:"var(--amber)",desc:"Sie fühlen sich schuldig — «Ich mache nicht genug.» «Wenn ich nur aufmerksamer wäre.» Schuld ist in dieser Lage häufig und entsteht oft aus Liebe, Verantwortung und Hilflosigkeit zugleich.",mech:"Diese Schuld treibt oft dazu, noch mehr zu übernehmen, noch stärker zu kontrollieren und noch weniger loszulassen. So beginnt der Kreislauf.",exit:"Eine kleine Unterbrechung kann sein, Schuld zu benennen, ohne ihr sofort zu folgen: «Ich fühle mich schuldig, aber ich muss nicht alles allein auffangen.»"},
+  {n:"Überengagement",c:"var(--amber-dark-text)",desc:"Sie übernehmen immer mehr — Medikamente, Termine, Finanzen, Stimmungskontrolle. Die Beziehung droht zur Daueraufgabe zu werden.",mech:"Überengagement soll schützen, kann aber auch signalisieren: «Du kannst das nicht selbst.» Das schwächt Eigenverantwortung und verstärkt auf Dauer die Überlastung beider Seiten.",exit:"Geben Sie eine kleine Aufgabe bewusst zurück. Nicht als Strafe, sondern als Schritt aus der Dauerübernahme."},
+  {n:"Erschöpfung",c:"var(--blue-phase)",desc:"Die dauernde Überlastung führt zu Erschöpfung — körperlich, emotional, kognitiv. Viele funktionieren weiter, merken aber erst spät, wie dünn sie innerlich geworden sind.",mech:"Erschöpfung senkt die Toleranzschwelle. Was sonst gerade noch ging, wird schneller zu viel. Gereiztheit, Abstumpfung oder Härte nehmen zu.",exit:"Unterbrechen heisst hier oft nicht viel, sondern etwas Kleines und Konkretes: eine Pause, ein Anruf, ein Abend ohne Zuständigkeit."},
+  {n:"Kritik",c:"var(--phase-green)",desc:"Aus der Erschöpfung heraus wird der Ton schärfer. Kritik ist oft nicht bloss Härte, sondern Überforderungssprache.",mech:"Kritik erzeugt beim Partner eher Scham, Abwehr oder Rückzug — und bei Ihnen danach oft neue Schuld. So schliesst sich der Kreislauf erneut.",exit:"Eine realistische Unterbrechung ist Beobachtung statt Bewertung: «Ich sehe, dass du heute nicht aufgestanden bist» statt «Du liegst schon wieder im Bett.»"}
 ];
 let active=null,broken=false;
 function sel(i){active=active===i?null:i;rn()}
-function doBreak(){broken=!broken;const breakBtn=document.getElementById('breakBtn');document.getElementById('svgWrap').classList.toggle('interrupted',broken);breakBtn.classList.toggle('active',broken);breakBtn.setAttribute('aria-pressed',broken?'true':'false');breakBtn.textContent=broken?'Kreislauf ist unterbrochen':'Kreislauf unterbrechen';document.getElementById('centerText1').textContent=broken?'✓':'Chronische';document.getElementById('centerText2').textContent=broken?'Unterbrochen':'Anspannung';if(broken){document.getElementById('centerText1').setAttribute('fill','#3a9aa3');document.getElementById('centerText2').setAttribute('fill','#3a9aa3')}else{document.getElementById('centerText1').setAttribute('fill','#7a6f66');document.getElementById('centerText2').setAttribute('fill','#7a6f66')}}
+function doBreak(){broken=!broken;const breakBtn=document.getElementById('breakBtn');document.getElementById('svgWrap').classList.toggle('interrupted',broken);breakBtn.classList.toggle('active',broken);breakBtn.setAttribute('aria-pressed',broken?'true':'false');breakBtn.textContent=broken?'Kreislauf ist unterbrochen':'Kreislauf unterbrechen';document.getElementById('centerText1').textContent=broken?'✓':'Chronische';document.getElementById('centerText2').textContent=broken?'Unterbrochen':'Anspannung';if(broken){document.getElementById('centerText1').setAttribute('fill','var(--teal-cta)');document.getElementById('centerText2').setAttribute('fill','var(--teal-cta)')}else{document.getElementById('centerText1').setAttribute('fill','var(--navy)');document.getElementById('centerText2').setAttribute('fill','var(--navy)')}}
 function rn(){
   [0,1,2,3].forEach(i=>document.getElementById('station'+i).setAttribute('aria-pressed',active===i?'true':'false'));
   document.querySelectorAll('[data-station-btn]').forEach(btn=>{
