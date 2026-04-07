@@ -374,7 +374,7 @@ a, button, input, select, textarea,
   gap: var(--grid-gap-tight);
 }
 .module-card:hover {
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--card-shadow-hover);
 }
 
 /* Accent: consistent teal left border (calmer than 5 different colors) */
@@ -435,9 +435,8 @@ a, button, input, select, textarea,
   transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
 }
 .module-card:hover .module-arrow {
-  background: var(--teal-cta);
-  border-color: var(--teal-cta);
-  color: var(--cta-primary-text);
+  border-color: var(--teal-solid);
+  color: var(--teal-solid);
 }
 
 @media (max-width: 600px) {
@@ -625,26 +624,24 @@ a, button, input, select, textarea,
    Hero+paths (surface-alt) → Triage (subtle bg) → Modules (white) →
    Tools (subtle bg) → Story (rosé) → Invitation (surface-alt) */
 /* Consistent section rhythm: --section-standard (64px) for all major sections.
-   Was mixed 40px/64px — unified for calmer vertical flow. */
+   Sections separated by subtle top-borders, not by enclosing boxes.
+   Editorial approach: content breathes in shared background. */
 #orientierung {
   margin-top: var(--section-standard);
   padding-top: var(--section-standard);
   padding-bottom: var(--section-standard);
-  background: var(--sand-faint);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border-warm);
+  border-top: 1px solid var(--border-warm);
 }
 #module {
   padding-top: var(--section-standard);
   padding-bottom: var(--section-standard);
+  border-top: 1px solid var(--border-warm);
 }
 .tools-highlight {
   margin-top: var(--section-standard);
   padding-top: var(--section-standard);
   padding-bottom: var(--section-standard);
-  background: var(--teal-faint);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border-warm);
+  border-top: 1px solid var(--border-warm);
 }
 .story-section { padding-top: var(--section-standard); padding-bottom: var(--section-standard); }
 .invitation-section { padding-top: var(--section-standard); padding-bottom: var(--section-standard); }
@@ -708,7 +705,7 @@ a, button, input, select, textarea,
 /* ── Homepage Footer Extensions ── */
 .footer-brand h3 {
   font-family: 'DM Sans', sans-serif;
-  font-size: var(--text-lg);
+  font-size: var(--text-base);
   color: var(--navy);
   font-weight: 700;
   margin-bottom: 6px;
@@ -779,7 +776,7 @@ a, button, input, select, textarea,
 .triage-question[hidden]{display:none}
 .triage-q-text{font-size:var(--text-base);font-weight:600;color:var(--navy);margin-bottom:12px;line-height:1.5}
 .triage-btns{display:flex;gap:10px;flex-wrap:wrap}
-.triage-btn{padding:10px 20px;border-radius:var(--radius-sm);font-family:'DM Sans',sans-serif;font-size:var(--text-sm);font-weight:600;cursor:pointer;transition:color 0.2s,border-color 0.2s;min-height:44px;background:none;border:1px solid var(--border-warm-xl);color:var(--navy)}
+.triage-btn{padding:10px 20px;border-radius:var(--radius-md);font-family:'DM Sans',sans-serif;font-size:var(--text-sm);font-weight:600;cursor:pointer;transition:color 0.2s,border-color 0.2s,background-color 0.2s;min-height:44px;background:none;border:1px solid var(--border-warm-md);color:var(--navy)}
 .triage-btn:hover{border-color:var(--teal-solid);color:var(--teal-cta)}
 .triage-btn--yes{border-color:var(--teal-muted);color:var(--teal-cta)}
 .triage-btn--yes:hover{border-color:var(--teal-solid);background:var(--teal-faint)}
@@ -813,7 +810,7 @@ a, button, input, select, textarea,
 /* ── Erfahrungsbericht ── */
 .story-section {
   background: var(--rose-bg);
-  border-top: 2px solid var(--rose-border);
+  border-top: 1px solid var(--border-warm);
   padding-left: 2rem;
   padding-right: 2rem;
 }
@@ -1733,30 +1730,9 @@ header.hero .hero-content {
   }
 }
 
-/* ── [from overrides.css] MODULE CARD COLOR ACCENTS ── */
-.module-card[data-accent="red"] {
-  border-left: 3px solid var(--alert);
-}
-
-.module-card[data-accent="blue"] {
-  border-left: 3px solid var(--blue-phase);
-}
-
-.module-card[data-accent="amber"] {
-  border-left: 3px solid var(--amber);
-}
-
-.module-card[data-accent="teal"] {
-  border-left: 3px solid var(--teal);
-}
-
-.module-card[data-accent="green"] {
-  border-left: 3px solid var(--phase-green);
-}
-
-.module-card[data-accent="purple"] {
-  border-left: 3px solid var(--sand-deep);
-}
+/* Module card accents: unified to single teal-light (line 381).
+   Per-module color accents removed for calmer, editorial grid.
+   data-accent attributes remain in HTML for future use if needed. */
 
 /* Fix inconsistency: theme targets .module-card-arrow but HTML uses .module-arrow */
 .module-card-arrow,
@@ -1776,9 +1752,8 @@ header.hero .hero-content {
 
 .module-card:hover .module-card-arrow,
 .module-card:hover .module-arrow {
-  background: var(--teal-cta);
-  border-color: var(--teal-cta);
-  color: var(--cta-primary-text);
+  border-color: var(--teal-solid);
+  color: var(--teal-solid);
 }
 
 /* ── [from overrides.css] TOOL CHIPS ── */
