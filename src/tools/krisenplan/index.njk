@@ -149,8 +149,21 @@ function doReset(){
   hideConfirm();updateProg();
 }
 
+// Next-step hint after explicit save — shown once per session
+let hintShown=false;
+function showNextStepHint(){
+  if(hintShown)return;
+  let filled=0;
+  fields.forEach(f=>{if(f.value.trim().length>0)filled++});
+  if(filled<3)return;
+  hintShown=true;
+  savedMsg.textContent='Gespeichert \u2713 — Drucken Sie den Plan und besprechen Sie ihn mit Ihrer Fachperson.';
+  savedMsg.classList.add('vis');
+  setTimeout(()=>savedMsg.classList.remove('vis'),5000);
+}
+
 // Button event wiring — unobtrusive, no inline handlers
-document.getElementById('btnSave').addEventListener('click', save);
+document.getElementById('btnSave').addEventListener('click',()=>{save();setTimeout(showNextStepHint,2600)});
 document.getElementById('btnPrint').addEventListener('click', () => window.print());
 document.getElementById('btnReset').addEventListener('click', showConfirm);
 document.getElementById('btnConfirmCancel').addEventListener('click', hideConfirm);

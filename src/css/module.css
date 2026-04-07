@@ -820,6 +820,26 @@ body.pdf-preview-open { overflow: hidden; }
   .module-nav a { padding: var(--space-sm); }
 }
 
+/* ── Early "continue" shortcut after takeaways ── */
+.continue-shortcut {
+  max-width: var(--content-width);
+  margin: var(--space-base) auto var(--space-lg);
+  padding: 0 2rem;
+  text-align: center;
+}
+.continue-shortcut a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--teal-cta);
+  text-decoration: none;
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+.continue-shortcut a:hover {
+  text-decoration: underline;
+}
+
 /* ── Module escape link ── */
 .next-module-escape {
   max-width: var(--content-width);
