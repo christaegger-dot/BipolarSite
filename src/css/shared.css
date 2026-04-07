@@ -368,7 +368,7 @@ a, button, input, select, textarea,
 }
 .section-title {
   font-family: 'DM Serif Display', serif;
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-size: var(--text-section-title);
   font-weight: 400;
   letter-spacing: -0.025em;
   line-height: 1.15;
@@ -605,7 +605,7 @@ a, button, input, select, textarea,
 }
 .home-hero h1 {
   font-family: 'DM Serif Display', serif;
-  font-size: clamp(3.2rem, 6vw, 4.2rem);
+  font-size: var(--text-hero);
   font-weight: 400;
   line-height: 1.1;
   letter-spacing: -0.03em;
@@ -1178,7 +1178,7 @@ body {
 }
 
 /* ── [from overrides.css] TYPOGRAPHY ── */
-html { font-size: 16px; }
+/* html font-size: 16px already set at line 6 (reset) */
 
 h1, h2 {
   font-family: 'DM Serif Display', serif;
@@ -1798,7 +1798,7 @@ body:not(.dark-tool) .tool-brand {
     min-height: auto;
   }
   .hero h1 {
-    font-size: 28px;
+    font-size: var(--text-tool-title);
   }
   .module-hero {
     padding: var(--section-wide) 1.2rem var(--section-tight);
