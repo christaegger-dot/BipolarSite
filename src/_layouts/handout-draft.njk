@@ -7,6 +7,22 @@
   <title>{{ title }} – Handout-Draft</title>
   <link rel="stylesheet" href="{{ '/fonts/fonts.css' | previewRelativeUrl }}">
   <style>
+    /*
+     * Standalone token set for the print/PDF handout layout.
+     * This layout loads NO shared CSS (tokens.css, shared.css, etc.)
+     * so it must declare its own :root variables.
+     *
+     * Intentional differences from tokens.css:
+     *   --teal      → #3a9aa3 (opaque) vs rgba(58,154,163,0.75) — print needs solid color
+     *   --alert     → #9a3412 (burnt orange) vs #B91C1C — warmer tone for handout context
+     *   --text      → #2d2823 (darker) vs #7a6f66 — higher contrast for print readability
+     *   --text-2xl  → 1.9rem vs 2.2rem — tighter heading scale to fit A4 page
+     *   --muted, --line, --warm, --paper, --teal-soft, --shadow — print-specific tokens
+     *       not present or differently defined in tokens.css
+     *
+     * Matching values (same as tokens.css):
+     *   --navy, --sand, --text-xs, --text-sm, --text-base, --text-lg, --text-xl
+     */
     :root{
       --navy:#7a6f66;
       --teal:#3a9aa3;

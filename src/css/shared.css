@@ -130,8 +130,8 @@ body {
     padding: 12px;
     background: var(--card);
     border: 1px solid var(--border-warm-md);
-    border-radius: 16px;
-    box-shadow: 0 12px 30px rgba(45,40,35,0.14);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-elevated);
     z-index: 60;
   }
   .nav-links.nav-open a { display: block; padding: 10px 12px; }
@@ -218,7 +218,7 @@ a, button, input, select, textarea,
 .overview-hero::after {
   content: '';
   position: absolute;
-  border-radius: 50%;
+  border-radius: var(--radius-round);
 }
 .overview-hero-inner,
 .overview-content {
@@ -348,7 +348,7 @@ a, button, input, select, textarea,
   color: var(--slate);
   max-width: 540px;
   line-height: 1.75;
-  margin-bottom: var(--section-tight);
+  margin-bottom: var(--space-lg);
 }
 
 /* ── Module grid ── */
@@ -423,7 +423,7 @@ a, button, input, select, textarea,
 .module-arrow {
   width: 28px;
   height: 28px;
-  border-radius: 50%;
+  border-radius: var(--radius-round);
   background: none;
   border: 1.5px solid var(--border-warm-xl);
   display: flex;
@@ -562,14 +562,8 @@ a, button, input, select, textarea,
 }
 
 /* ── Entry Paths ── */
-.entry-paths-section {
-  padding: var(--section-tight) 2rem var(--section-standard);
-  max-width: var(--wide-width);
-  margin: 0 auto;
-}
 .entry-paths-inner {
-  max-width: var(--wide-width);
-  margin: 0 auto;
+  /* no extra wrapper needed — section already constrained by global container */
 }
 .entry-paths-lead {
   font-size: var(--text-base);
@@ -642,14 +636,10 @@ a, button, input, select, textarea,
   border-color: var(--sand-border);
 }
 
-/* ── Homepage Container System ──
-   ONE container rule for all homepage content sections.
-   Full-bleed sections (story, invitation) override with max-width:none. */
-.home-hero ~ section {
-  max-width: var(--wide-width);
-  margin: 0 auto;
-  padding: var(--section-standard) 2rem;
-}
+/* ── Global Container System ──
+   ONE rule for all homepage content sections.
+   Every section shares the same max-width, padding, and horizontal axis. */
+.entry-paths-section,
 #main-content > section,
 #main-content > aside {
   max-width: var(--wide-width);
@@ -658,32 +648,31 @@ a, button, input, select, textarea,
   padding-left: 2rem;
   padding-right: 2rem;
 }
+/* Full-bleed overrides */
 #main-content > .story-section,
 #main-content > .invitation-section {
   max-width: none;
-  padding-left: 2rem;
-  padding-right: 2rem;
 }
 
-/* Consistent section spacing — no wild outliers */
-.entry-paths-section { padding-top: var(--section-tight); padding-bottom: var(--section-standard); }
-#orientierung { padding-top: 0; padding-bottom: var(--space-lg); }
-#module { padding-top: var(--section-tight); padding-bottom: var(--section-tight); }
-.tools-highlight { padding-top: var(--section-tight); padding-bottom: var(--section-tight); }
-.story-section { padding-top: var(--section-standard); padding-bottom: var(--section-standard); }
-.invitation-section { padding-top: var(--section-standard); padding-bottom: var(--section-standard); }
+/* Vertical rhythm — consistent spacing scale */
+.entry-paths-section { padding-top: var(--section-tight); padding-bottom: var(--section-tight); }
+#orientierung { padding-top: var(--space-lg); padding-bottom: var(--space-lg); }
+#module { padding-top: var(--section-tight); padding-bottom: var(--space-lg); }
+.tools-highlight { padding-top: var(--space-lg); padding-bottom: var(--section-tight); }
+.story-section { padding-top: var(--section-tight); padding-bottom: var(--section-tight); }
+.invitation-section { padding-top: var(--section-tight); padding-bottom: var(--section-tight); }
 
 .urgent-note-standalone {
-  margin: 12px 0 0;
+  margin: var(--space-sm) 0 0;
 }
 .urgent-note {
   background: var(--alert-soft);
   border-left: 3px solid var(--alert);
   border-radius: var(--radius-sm);
-  padding: 14px 18px;
+  padding: 10px 16px;
   display: flex;
   align-items: baseline;
-  gap: 6px;
+  gap: 4px;
   flex-wrap: wrap;
 }
 .urgent-note-kicker {
@@ -796,11 +785,11 @@ a, button, input, select, textarea,
 .no-js .reveal { opacity: 1; transform: none; }
 
 /* ── Quick Triage ── */
-.quick-triage{background:var(--card);border:1px solid var(--border-warm-md);border-radius:var(--radius-md);padding:var(--card-padding);margin-bottom:0}
-.quick-triage-label{font-size:var(--text-xs);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-soft);margin-bottom:12px}
-.quick-triage h2{font-family:'DM Sans',sans-serif;font-size:var(--text-lg);font-weight:700;color:var(--navy);margin-bottom:8px}
-.quick-triage p{font-size:var(--text-base);color:var(--slate);margin-bottom:16px;line-height:1.5}
-.triage-question{margin-bottom:16px}
+.quick-triage{background:var(--card);border:1px solid var(--border-warm-md);border-radius:var(--radius-md);padding:var(--space-md) var(--space-lg);margin-bottom:0}
+.quick-triage-label{font-size:var(--text-xs);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-soft);margin-bottom:var(--space-sm)}
+.quick-triage h2{font-family:'DM Sans',sans-serif;font-size:var(--text-lg);font-weight:700;color:var(--navy);margin-bottom:4px}
+.quick-triage p{font-size:var(--text-base);color:var(--slate);margin-bottom:var(--space-base);line-height:1.5}
+.triage-question{margin-bottom:var(--space-base)}
 .triage-question[hidden]{display:none}
 .triage-q-text{font-size:var(--text-base);font-weight:600;color:var(--navy);margin-bottom:12px;line-height:1.5}
 .triage-btns{display:flex;gap:10px;flex-wrap:wrap}
@@ -842,7 +831,8 @@ a, button, input, select, textarea,
 .story-section {
   background: var(--rose-bg);
   border-top: 2px solid var(--rose-border);
-  padding: var(--section-standard) 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 .story-inner {
   max-width: 680px;
@@ -912,7 +902,8 @@ a, button, input, select, textarea,
 .invitation-section {
   background: var(--surface-alt);
   border-top: 1px solid var(--border-warm);
-  padding: var(--section-standard) 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 .invitation-inner {
   max-width: 560px;
@@ -1054,7 +1045,7 @@ a, button, input, select, textarea,
   text-decoration: none;
   font-size: var(--text-xs);
   font-weight: 700;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  box-shadow: var(--shadow-elevated);
   outline: 2px solid var(--teal-light);
   outline-offset: 2px;
 }
@@ -1196,7 +1187,7 @@ h3, h4 {
 .nav-links.nav-open {
   background: var(--card);
   border-color: var(--border-warm-md);
-  box-shadow: 0 12px 30px rgba(45,40,35,0.14);
+  box-shadow: var(--shadow-elevated);
   border-radius: var(--radius-lg);
 }
 
@@ -1717,7 +1708,7 @@ header.hero .hero-content {
 .hero-cards .quick-card:hover {
   background: rgba(255,255,255,0.13);
   border-color: var(--white-overlay-md);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.22);
+  box-shadow: var(--shadow-elevated);
 }
 
 .hero-cards .quick-card::before {
@@ -1798,7 +1789,7 @@ header.hero .hero-content {
 .module-arrow {
   width: 28px;
   height: 28px;
-  border-radius: 50%;
+  border-radius: var(--radius-round);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1844,7 +1835,7 @@ header.hero .hero-content {
   color: var(--teal);
   background: var(--success-soft);
   transform: translateY(-1px);
-  box-shadow: 0 2px 10px rgba(30,101,109,0.12);
+  box-shadow: var(--shadow-soft);
 }
 
 .tool-chip-icon {
