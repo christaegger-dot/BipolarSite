@@ -309,14 +309,15 @@
   --group-gap:         40px;
   --content-width-narrow: 560px;  /* tool wraps, constrained single-column layouts */
   --content-width:        780px;  /* was 720px — 54% at 1440px (was 50%), ~68 chars/line */
-  --content-width-wide:   960px;  /* was 900px — grids and hero sections breathe */
-  --wide-width:           1140px;
+  --content-width-wide:  1040px;  /* was 960px — hero + wide prose at 72% of 1440px */
+  --wide-width:          1200px;  /* was 1140px — module/tool grids at 83% of 1440px */
 
   /* Breakpoints (reference only — can't use var() in @media)
      --bp-mobile:  480px
      --bp-tablet:  600px
      --bp-desktop: 768px
      --bp-wide:    900px
+     --bp-xl:     1600px   (large desktop scale-up)
   */
 
 
@@ -379,4 +380,18 @@
      ══════════════════════════════════════════ */
 
   --z-tool-nav: 50;
+}
+
+/* ══════════════════════════════════════════
+   LARGE DESKTOP SCALE-UP (≥1600px)
+   ──────────────────────────────────────────
+   On 27" iMacs, ultrawides, and large externals
+   the base tokens leave too much dead margin.
+   This bumps grid containers + hero width.
+   ══════════════════════════════════════════ */
+@media (min-width: 1600px) {
+  :root {
+    --wide-width:         1400px;  /* 81% at 1728px (was 69%) */
+    --content-width-wide: 1140px;  /* 66% at 1728px (was 56%) */
+  }
 }
