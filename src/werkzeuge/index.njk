@@ -4,6 +4,7 @@ title: "Werkzeuge im Überblick | PUK Zürich"
 description: "Alle interaktiven Werkzeuge für Angehörige von Menschen mit bipolarer Störung im Überblick: von Selbsttest bis Krisenplan."
 permalink: "/werkzeuge/"
 navCurrent: "tools-overview"
+bodyClass: "werkzeuge-page"
 useSharedCSS: true
 useNavJS: true
 footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
@@ -11,124 +12,7 @@ breadcrumbs:
   - name: "Werkzeuge"
     url: "/werkzeuge/"
 ---
-{% block headCSS %}
-<style>
-  /* ── Page-specific: decorative blobs + colors ── */
-  .overview-hero::before {
-    top: -24%; right: -10%; width: 640px; height: 640px;
-    background: none; display: none;
-    opacity: 0.82;
-  }
-  .overview-hero::after {
-    bottom: -16%; left: -5%; width: 500px; height: 500px;
-    background: none; display: none;
-    opacity: 0.76;
-  }
-  .overview-badge { background: rgba(217,236,236,0.42); color: var(--navy-mid); }
-  .overview-intro { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .overview-note { background: #fff; }
-
-  /* ── Situativer Guide ── */
-  .tool-guide { margin: 0 auto 48px; }
-  .tool-guide h2 {
-    font-family: 'DM Serif Display', serif;
-    font-size: var(--text-lg); font-weight: 400;
-    color: var(--navy); margin: 0 0 16px;
-  }
-  .tool-guide-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--grid-gap-tight);
-  }
-  .tool-guide-item {
-    display: flex; flex-direction: column; gap: 4px;
-    padding: 16px 18px; border-radius: var(--card-radius);
-    background: white; border: 1px solid var(--border-warm);
-    text-decoration: none; color: var(--text);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  }
-  .tool-guide-item:hover {
-    border-color: var(--teal-light);
-    box-shadow: var(--card-shadow);
-  }
-  .tool-guide-item strong {
-    font-size: var(--text-base); font-weight: 600; color: var(--navy);
-  }
-  .tool-guide-item span {
-    font-size: var(--text-xs); color: var(--navy-mid); font-weight: 600;
-  }
-  .tool-guide-item--alert {
-    border-color: var(--alert-red-border);
-    background: var(--alert-soft);
-  }
-  .tool-guide-item--alert strong { color: var(--alert); }
-  .tool-guide-item--alert span { color: var(--alert); }
-  @media (max-width: 900px) { .tool-guide-grid { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 480px) { .tool-guide-grid { grid-template-columns: 1fr; } }
-
-  /* ── Tool grid + cards ── */
-  .tool-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--grid-gap-tight);
-  }
-  .tool-card {
-    display: block;
-    background: #fff;
-    border: 1px solid var(--border-warm-md);
-    border-radius:var(--card-radius);
-    box-shadow: var(--card-shadow);
-    padding: var(--card-padding);
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-  }
-  .tool-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-card);
-    border-color: rgba(30,101,109,0.2);
-  }
-  .tool-card-kicker {
-    font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--navy-mid); margin-bottom: 10px; display: block;
-  }
-  .tool-card h3 {
-    font-family: 'DM Sans', sans-serif;
-    font-size: var(--text-lg); line-height: 1.15; color: var(--navy); margin: 0 0 10px; font-weight: 700;
-  }
-  .tool-card p { margin: 0; font-size: var(--text-base); line-height: 1.75; color: var(--slate); }
-  .tool-card-footer {
-    display: flex; align-items: center; justify-content: space-between; gap: 16px;
-    margin-top: 18px; padding-top: 14px;
-    border-top: 1px solid var(--border-warm-md);
-    color: var(--text-soft); font-size: var(--text-xs); font-weight: 600;
-  }
-  .tool-card-arrow { color: var(--teal); font-size: var(--text-base); }
-
-  /* ── Collapsible tool grid ── */
-  .tool-details { margin: 12px 0 0; }
-  .tool-details-summary {
-    display: flex; align-items: center; gap: 8px; cursor: pointer;
-    font-family: 'DM Sans', sans-serif;
-    font-size: var(--text-lg); font-weight: 700; color: var(--navy);
-    padding: 14px 0; list-style: none;
-  }
-  .tool-details-summary::-webkit-details-marker { display: none; }
-  .tool-details-summary::after {
-    content: '▸'; margin-left: 8px;
-    transition: transform 0.2s ease; font-size: var(--text-xs); color: var(--teal);
-  }
-  .tool-details[open] .tool-details-summary::after { transform: rotate(90deg); }
-  .tool-details .tool-grid { margin-top: 16px; }
-
-  @media (max-width: 900px) {
-    .tool-grid { grid-template-columns: 1fr; }
-  }
-  @media (max-width: 600px) {
-    .tool-card { padding: 20px 18px; }
-  }
-</style>
-{% endblock %}
+{% block headCSS %}<!-- Werkzeuge styles migrated to shared.css -->{% endblock %}
 
 {% block nav %}
 {% include "nav-full.njk" %}
