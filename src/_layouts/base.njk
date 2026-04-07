@@ -118,21 +118,6 @@
 {% block footer %}{% endblock %}
 {% if useNavJS %}<script src="/js/nav.js"></script>{% endif %}
 <script>
-  try {
-    if (localStorage.getItem('puk_storage_consent') === 'true') {
-      const modulePath = window.location.pathname.match(/^\/modul\/\d+\/?$/);
-      if (modulePath) {
-        const key = 'puk_visited_modules';
-        const normalized = modulePath[0].endsWith('/') ? modulePath[0] : `${modulePath[0]}/`;
-        const visited = JSON.parse(localStorage.getItem(key) || '[]');
-        if (Array.isArray(visited) && !visited.includes(normalized)) {
-          visited.push(normalized);
-          localStorage.setItem(key, JSON.stringify(visited));
-        }
-      }
-    }
-  } catch (error) { console.warn('Storage unavailable:', error.message); }
-
   document.querySelectorAll('[data-sources-toggle]').forEach((button, index) => {
     const section = button.closest('.sources');
     const list = section ? section.querySelector('ul') : null;
@@ -225,32 +210,5 @@
 </script>
 {% block scripts %}{% endblock %}
 <script>if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(regs){regs.forEach(function(r){r.unregister()})})}</script>
-{% if not noStorageBanner %}
-<div id="storageBanner" class="storage-banner" hidden role="status">
-  <span>Fortschritt lokal speichern? Alles bleibt auf Ihrem Gerät — nichts wird gesendet.</span>
-  <div class="storage-banner-btns">
-    <button type="button" id="storageAccept" class="storage-btn-accept">Ja</button>
-    <button type="button" id="storageDecline" class="storage-btn-decline">Nein</button>
-  </div>
-</div>
-<script>
-(function(){
-  try {
-    var consent = localStorage.getItem('puk_storage_consent');
-    if (consent === 'true' || consent === 'false') return;
-    var b = document.getElementById('storageBanner');
-    if (b) b.hidden = false;
-    document.getElementById('storageAccept').addEventListener('click', function(){
-      try { localStorage.setItem('puk_storage_consent', 'true'); } catch(e){}
-      b.hidden = true;
-    });
-    document.getElementById('storageDecline').addEventListener('click', function(){
-      try { localStorage.setItem('puk_storage_consent', 'false'); } catch(e){}
-      b.hidden = true;
-    });
-  } catch(e){}
-})();
-</script>
-{% endif %}
 </body>
 </html>

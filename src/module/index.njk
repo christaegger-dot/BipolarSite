@@ -64,16 +64,6 @@ breadcrumbs:
     <h2 class="section-title">Alle Module als eigener Überblick</h2>
     <p class="section-desc">Jedes Modul steht für einen klaren Schwerpunkt. Wenn Sie nicht linear lesen möchten, wählen Sie zuerst den Bereich, der Ihre aktuelle Lage am besten trifft.</p>
 
-    <div class="progress-bar" id="overviewProgressBar" hidden>
-      <div class="progress-bar-header">
-        <span class="progress-bar-label">Ihr Fortschritt</span>
-        <span class="progress-bar-count" id="overviewProgressCount"></span>
-      </div>
-      <div class="progress-bar-track">
-        <div class="progress-bar-fill" id="overviewProgressFill"></div>
-      </div>
-    </div>
-
     <div class="modules-grid">
       <a href="/modul/1/" class="module-card" data-accent="blue">
         <span class="module-number">Modul 1</span>
@@ -157,64 +147,9 @@ breadcrumbs:
     </div>
   </section>
 
-  <!-- Progress Dashboard — next step suggestion -->
-  <div class="progress-dashboard" id="progressDashboard" hidden>
-    <div id="progressNext" hidden>
-      <span class="progress-label">Nächster empfohlener Schritt: </span>
-      <a id="progressNextLink" href="/modul/1/" class="progress-link"></a>
-    </div>
-  </div>
-
   <p class="overview-footer-note">Wenn Sie lieber interaktive Hilfen nutzen möchten, finden Sie auf der separaten Übersicht <a href="/werkzeuge/">alle Werkzeuge im Überblick</a>.</p>
 </main>
 
-<script>
-(function() {
-  var TITLES = {1:'Die bipolare Störung verstehen',2:'Was das mit Ihnen macht',3:'Wie Beziehungen unter Druck geraten',4:'Wenn die Kraft nachlässt',5:'Loyalitätskonflikte',6:'Was Sie konkret tun können',7:'Langfristige Tragfähigkeit',8:'Unterstützung und Ressourcen'};
-  try {
-    if (localStorage.getItem('puk_storage_consent') !== 'true') return;
-    var visited = JSON.parse(localStorage.getItem('puk_visited_modules') || '[]');
-    var visitedNums = visited.map(function(p) { var m = p.match(/\d+/); return m ? parseInt(m[0]) : 0; }).filter(Boolean);
-    if (!visitedNums.length) return;
-
-    // Progress bar
-    var bar = document.getElementById('overviewProgressBar');
-    var fill = document.getElementById('overviewProgressFill');
-    var count = document.getElementById('overviewProgressCount');
-    if (bar && fill && count) {
-      bar.hidden = false;
-      var pct = Math.round((visitedNums.length / 8) * 100);
-      count.textContent = visitedNums.length + ' von 8 Modulen';
-      fill.style.width = pct + '%';
-    }
-
-    // Mark visited cards
-    document.querySelectorAll('a.module-card[href]').forEach(function(card) {
-      var href = card.getAttribute('href');
-      var m = href.match(/\/modul\/(\d+)/);
-      if (m && visitedNums.indexOf(parseInt(m[1])) !== -1) {
-        card.classList.add('visited');
-        var arrow = card.querySelector('.module-arrow');
-        if (arrow && arrow.textContent.trim() === '\u2192') arrow.textContent = '\u2713';
-      }
-    });
-
-    // Next step
-    var next = [1,2,3,4,5,6,7,8].filter(function(n) { return visitedNums.indexOf(n) === -1; })[0];
-    if (next) {
-      var dashboard = document.getElementById('progressDashboard');
-      var el = document.getElementById('progressNext');
-      var link = document.getElementById('progressNextLink');
-      if (dashboard && el && link) {
-        dashboard.hidden = false;
-        el.hidden = false;
-        link.href = '/modul/' + next + '/';
-        link.textContent = 'Modul ' + next + ': ' + TITLES[next] + ' \u2192';
-      }
-    }
-  } catch(e) { console.warn('Progress:', e.message); }
-})();
-</script>
 {% endblock %}
 
 {% block footer %}
