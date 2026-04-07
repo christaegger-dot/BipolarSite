@@ -622,7 +622,7 @@ a, button, input, select, textarea,
 }
 .home-hero h1 {
   font-family: 'DM Serif Display', serif;
-  font-size: var(--text-3xl);
+  font-size: clamp(3.2rem, 6vw, 4.2rem);
   font-weight: 400;
   line-height: 1.1;
   letter-spacing: -0.03em;
@@ -737,6 +737,15 @@ a, button, input, select, textarea,
   max-width: var(--wide-width);
   margin: 0 auto;
 }
+
+/* Editorial rhythm — varied spacing between homepage sections */
+.entry-paths-section { padding-top: var(--section-tight); padding-bottom: var(--section-wide); }
+#orientierung { padding-top: 0; padding-bottom: var(--section-tight); }
+#module { padding-top: var(--section-tight); padding-bottom: var(--section-wide); }
+.tools-highlight { padding-top: var(--section-standard); padding-bottom: var(--section-standard); }
+.story-section { padding-top: var(--section-wide); padding-bottom: var(--section-wide); }
+.invitation-section { padding-top: var(--section-wide); padding-bottom: var(--section-wide); }
+.about-section { padding-top: var(--section-standard); padding-bottom: var(--section-standard); }
 .urgent-note-standalone {
   margin: 34px 0 26px;
 }
@@ -910,7 +919,8 @@ a, button, input, select, textarea,
 
 /* ── Erfahrungsbericht ── */
 .story-section {
-  background: var(--surface-alt);
+  background: var(--rose-bg);
+  border-top: 2px solid var(--rose-border);
   padding: var(--section-standard) 2rem;
 }
 .story-inner {
@@ -931,12 +941,25 @@ a, button, input, select, textarea,
 }
 .story-section h2 {
   font-family: 'DM Serif Display', serif;
-  font-size: var(--text-xl);
+  font-size: var(--text-2xl);
   font-weight: 400;
-  font-style: italic;
-  line-height: 1.5;
+  font-style: normal;
+  line-height: 1.35;
   color: var(--navy);
   margin-bottom: var(--space-lg);
+  position: relative;
+  padding-left: 0.15em;
+}
+.story-section h2::before {
+  content: '«';
+  position: absolute;
+  top: -0.25em;
+  left: -0.45em;
+  font-size: 4rem;
+  font-family: 'DM Serif Display', serif;
+  color: var(--rose);
+  line-height: 1;
+  pointer-events: none;
 }
 .story-body p {
   font-size: var(--text-base);
