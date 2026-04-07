@@ -544,13 +544,14 @@ a, button, input, select, textarea,
   align-items: center;
   gap: 10px;
   min-height: var(--cta-min-height);
-  padding: 0 24px;
+  padding: 0 28px;
   border-radius: var(--cta-radius);
-  background: var(--cta-primary-bg);
-  color: var(--cta-primary-text);
+  background: var(--teal-cta-dark);
+  color: #ffffff;
   text-decoration: none;
   font-size: var(--text-base);
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 0.01em;
   box-shadow: var(--card-shadow);
   transition: background 0.2s ease, transform 0.15s ease;
 }
