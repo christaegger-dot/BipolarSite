@@ -1274,11 +1274,11 @@ body.pdf-preview-open{overflow:hidden}
 
 /* ── Module 1: Diagnoseschock ── */
 .neu-block {
-  background: var(--teal-bg, #D6EFEC);
+  background: var(--bg);
   border-radius: var(--card-radius);
   padding: var(--space-2xl) var(--space-xl) var(--space-lg);
   margin-bottom: var(--space-2xl);
-  border: 1px solid var(--teal-accent-border);
+  border: 1px solid var(--border-warm-md);
 }
 .neu-kicker {
   font-size: var(--text-xs); font-weight: 700; text-transform: uppercase;
@@ -1291,19 +1291,19 @@ body.pdf-preview-open{overflow:hidden}
 .neu-intro { color: var(--text); line-height: 1.7; margin-bottom: var(--space-lg); }
 .neu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--grid-gap-tight); margin-bottom: var(--space-lg); }
 .neu-col-bad {
-  background: var(--alert-warm-bg); border: 1px solid var(--alert-warm-border);
+  background: var(--card); border: 1px solid var(--border-warm-md);
   border-radius: var(--radius-md); padding: var(--space-md) 18px;
 }
 .neu-col-good {
-  background: var(--teal-accent-bg-subtle); border: 1px solid var(--teal-accent-border-md);
+  background: var(--card); border: 1px solid var(--border-warm-md);
   border-radius: var(--radius-md); padding: var(--space-md) 18px;
 }
 .neu-col-label {
   font-size: var(--text-xs); font-weight: 700; text-transform: uppercase;
   letter-spacing: 0.06em; margin-bottom: var(--space-sm);
 }
-.neu-col-bad .neu-col-label { color: var(--alert); }
-.neu-col-good .neu-col-label { color: var(--teal); }
+.neu-col-bad .neu-col-label { color: var(--rose-text); }
+.neu-col-good .neu-col-label { color: var(--teal-cta); }
 .neu-col-list { font-size: var(--text-base); color: var(--text); line-height: 1.5; padding-left: var(--space-md); margin: 0; }
 .neu-col-list li { margin-bottom: var(--space-xs, 5px); }
 .neu-col-list li:last-child { margin-bottom: 0; }
@@ -1332,7 +1332,7 @@ body.pdf-preview-open{overflow:hidden}
 .neu-cta-text { font-size: var(--text-base); color: var(--cta-primary-text); font-weight: 600; }
 .neu-cta-sub { font-size: var(--text-xs); color: var(--white-text-secondary); margin-top: 2px; }
 .neu-footer { text-align: center; font-size: var(--text-xs); color: var(--slate); }
-@media (max-width: 640px) { .neu-grid { grid-template-columns: 1fr; } }
+@media (max-width: 768px) { .neu-grid { grid-template-columns: 1fr; } }
 
 /* ── Module 2: Bar Chart ── */
 .bar-chart { margin: var(--space-xl) 0 20px; }
