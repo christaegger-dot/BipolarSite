@@ -29,7 +29,7 @@
   --slate:       #746a62;
 
   /* Text semantic aliases */
-  --text:        #7a6f66;   /* 4.6:1 — AA for all sizes */
+  --text:        #776c63;   /* 4.91:1 on --bg, 4.54:1 on --surface-alt — AA everywhere (was #7a6f66, 4.34:1 on surface-alt) */
   --text-soft:   #6f655d;   /* 5.2:1 on #FAF8F5 — AA for all sizes incl. 12px (was #7a7068, 4.37:1) */
   --text-secondary: var(--text-soft);  /* reduced-emphasis alias (captions, meta) */
   --slate-light: #8b8580;   /* lighter warm-neutral for subtle UI */
