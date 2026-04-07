@@ -47,8 +47,8 @@ breadcrumbs:
       <polygon class="arrow" points="70,210 60,200 70,190" fill="#a7d9d5"/>
       <polygon class="arrow" points="190,70 200,60 210,70" fill="#a7d9d5"/>
       <!-- Center -->
-      <text x="200" y="194" text-anchor="middle" class="center-text" font-size="14" font-weight="600" fill="#1c2b3a" id="centerText1">Chronische</text>
-      <text x="200" y="212" text-anchor="middle" class="center-text" font-size="14" font-weight="600" fill="#1c2b3a" id="centerText2">Anspannung</text>
+      <text x="200" y="194" text-anchor="middle" class="center-text" font-size="14" font-weight="600" fill="#7a6f66" id="centerText1">Chronische</text>
+      <text x="200" y="212" text-anchor="middle" class="center-text" font-size="14" font-weight="600" fill="#7a6f66" id="centerText2">Anspannung</text>
       <!-- Nodes -->
       <circle id="station0" cx="200" cy="52" r="42" fill="#fef3e2" stroke="#B45309" stroke-width="2" role="button" tabindex="0" aria-label="Station 1: Schuld" aria-pressed="false"/>
       <text x="200" y="46" text-anchor="middle" font-family="DM Sans" font-size="9" font-weight="700" fill="#B45309">1</text>
@@ -62,7 +62,7 @@ breadcrumbs:
       <text x="200" y="358" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="600" fill="#475569">Erschöpfung</text>
       <circle id="station3" cx="52" cy="200" r="42" fill="#FAFAF7" stroke="#0d7a5f" stroke-width="2" role="button" tabindex="0" aria-label="Station 4: Kritik" aria-pressed="false"/>
       <text x="52" y="194" text-anchor="middle" font-family="DM Sans" font-size="9" font-weight="700" fill="#0d7a5f">4</text>
-      <text x="52" y="210" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="600" fill="#1c2b3a">Kritik</text>
+      <text x="52" y="210" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="600" fill="#7a6f66">Kritik</text>
     </svg>
   </div>
   <div class="station-picker" role="group" aria-label="Station direkt auswählen">
@@ -94,7 +94,7 @@ const stations=[
 ];
 let active=null,broken=false;
 function sel(i){active=active===i?null:i;rn()}
-function doBreak(){broken=!broken;const breakBtn=document.getElementById('breakBtn');document.getElementById('svgWrap').classList.toggle('interrupted',broken);breakBtn.classList.toggle('active',broken);breakBtn.setAttribute('aria-pressed',broken?'true':'false');breakBtn.textContent=broken?'Kreislauf ist unterbrochen':'Kreislauf unterbrechen';document.getElementById('centerText1').textContent=broken?'✓':'Chronische';document.getElementById('centerText2').textContent=broken?'Unterbrochen':'Anspannung';if(broken){document.getElementById('centerText1').setAttribute('fill','#1e656d');document.getElementById('centerText2').setAttribute('fill','#1e656d')}else{document.getElementById('centerText1').setAttribute('fill','#1c2b3a');document.getElementById('centerText2').setAttribute('fill','#1c2b3a')}}
+function doBreak(){broken=!broken;const breakBtn=document.getElementById('breakBtn');document.getElementById('svgWrap').classList.toggle('interrupted',broken);breakBtn.classList.toggle('active',broken);breakBtn.setAttribute('aria-pressed',broken?'true':'false');breakBtn.textContent=broken?'Kreislauf ist unterbrochen':'Kreislauf unterbrechen';document.getElementById('centerText1').textContent=broken?'✓':'Chronische';document.getElementById('centerText2').textContent=broken?'Unterbrochen':'Anspannung';if(broken){document.getElementById('centerText1').setAttribute('fill','#3a9aa3');document.getElementById('centerText2').setAttribute('fill','#3a9aa3')}else{document.getElementById('centerText1').setAttribute('fill','#7a6f66');document.getElementById('centerText2').setAttribute('fill','#7a6f66')}}
 function rn(){
   [0,1,2,3].forEach(i=>document.getElementById('station'+i).setAttribute('aria-pressed',active===i?'true':'false'));
   document.querySelectorAll('[data-station-btn]').forEach(btn=>{
