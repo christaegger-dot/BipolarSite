@@ -883,7 +883,7 @@ a, button, input, select, textarea,
 /* ── Quick Triage ── */
 .quick-triage{background:var(--card);border:1px solid var(--border-warm-md);border-radius:var(--radius-md);padding:var(--card-padding);margin-bottom:24px}
 .quick-triage-label{font-size:var(--text-xs);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-soft);margin-bottom:12px}
-.quick-triage h3{font-family:'DM Sans',sans-serif;font-size:var(--text-lg);font-weight:700;color:var(--navy);margin-bottom:8px}
+.quick-triage h2{font-family:'DM Sans',sans-serif;font-size:var(--text-lg);font-weight:700;color:var(--navy);margin-bottom:8px}
 .quick-triage p{font-size:var(--text-base);color:var(--slate);margin-bottom:16px;line-height:1.5}
 .triage-question{margin-bottom:16px}
 .triage-question[hidden]{display:none}
