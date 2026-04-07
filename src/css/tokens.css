@@ -23,14 +23,14 @@
 
   /* Heading / emphasis — warmest dark tone */
   --navy:        #7a6f66;
-  --navy-mid:    #8a7f76;
+  --navy-mid:    #766b62;   /* 4.89:1 on #FAF8F5 — AA for all sizes (was #8a7f76, 3.6:1) */
 
-  /* Body text — #857a72 gives ~4.0:1 on #FAF8F5 (AA for 14px+) */
-  --slate:       #857a72;
+  /* Body text */
+  --slate:       #7a7068;
 
   /* Text semantic aliases */
   --text:        #7a6f66;   /* 4.6:1 — AA for all sizes */
-  --text-soft:   #857a72;   /* 4.0:1 — AA for large text (≥14px bold / ≥18px) */
+  --text-soft:   #7a7068;   /* 4.56:1 on #FAF8F5 — AA for all sizes (was #857a72, 4.0:1) */
 
   /* Sand family (warm accents, badges, subtle fills) */
   --sand:        #ddd2bf;
@@ -325,7 +325,7 @@
   --white-text:           rgba(255,255,255,0.88);
   --white-text-secondary: rgba(255,255,255,0.70);
   --white-text-muted:     rgba(255,255,255,0.50);
-  --white-text-dim:       rgba(255,255,255,0.30);
+  --white-text-dim:       rgba(255,255,255,0.40);   /* 3.71:1 on #1a2332 — AA for non-text UI (was 0.30, 2.69:1) */
   --white-overlay-sm:     rgba(255,255,255,0.08);
   --white-overlay-md:     rgba(255,255,255,0.15);
 

@@ -3,7 +3,7 @@ layout: "base"
 title: "Bipolare Störung – Psychoedukation für Angehörige | PUK Zürich"
 description: "Als Angehörige*r bei bipolarer Störung: 8 fundierte Module für Orientierung, Entlastung und konkrete Schritte. Notfallhilfe und interaktive Tools. PUK Zürich."
 permalink: "/"
-noJs: true
+noJs: true          # Adds class="no-js" to <html>; inline script removes it immediately — hides JS-only UI (triage, accordion) until JS confirms it's available
 navCurrent: "home"
 navShowSub: true
 useSharedCSS: true
@@ -359,10 +359,14 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
       } else if (responses[action]) {
         var r = responses[action];
         result.className = 'triage-result' + (r.cls ? ' ' + r.cls : '');
-        result.innerHTML = r.html;
+        result.innerHTML = r.html + '<button type="button" class="triage-restart" data-triage="restart">Nochmal beantworten</button>';
         result.hidden = false;
         // hide all questions
         document.querySelectorAll('.triage-question').forEach(function(q) { q.hidden = true; });
+      } else if (action === 'restart') {
+        result.hidden = true;
+        result.className = 'triage-result';
+        document.getElementById('triageQ1').hidden = false;
       }
     });
   })();

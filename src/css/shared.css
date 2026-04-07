@@ -209,7 +209,7 @@ a, button, input, select, textarea,
 
 /* ── Storage Consent Banner ── */
 .storage-banner {
-  position: fixed; bottom: var(--space-md); right: var(--space-md);
+  position: fixed; top: 72px; right: var(--space-md);
   z-index: 1100; max-width: 340px;
   background: var(--card); color: var(--navy);
   padding: 10px 16px; font-size: var(--text-xs); line-height: 1.5;
@@ -234,7 +234,7 @@ a, button, input, select, textarea,
 .storage-btn-decline:hover { color: var(--navy); border-color: var(--border-warm-lg); }
 
 @media (max-width: 600px) {
-  .storage-banner { right: var(--space-sm); bottom: var(--space-sm); left: var(--space-sm); max-width: none; }
+  .storage-banner { right: var(--space-sm); top: 72px; left: var(--space-sm); max-width: none; }
 }
 
 /* ── No-JS fallback: show nav links when hamburger can't work ── */
@@ -896,6 +896,8 @@ a, button, input, select, textarea,
 .triage-result--safe{background:var(--success-soft);border:1px solid var(--green-border);padding:14px 20px;border-radius:var(--radius-sm)}
 .triage-result--safe p{font-size:var(--text-base);color:var(--phase-green);margin:0}
 .triage-result--safe a{background:none;padding:0;color:var(--teal);text-decoration:underline;font-size:inherit;border-radius:0;display:inline}
+.triage-restart{display:block;margin-top:12px;background:none;border:1px solid var(--border-warm-md);padding:8px 16px;border-radius:var(--radius-sm);font-size:var(--text-xs);color:var(--text-soft);cursor:pointer;transition:border-color 0.2s,color 0.2s}
+.triage-restart:hover{border-color:var(--teal-solid);color:var(--teal-solid)}
 
 /* ── Tools Highlight ── */
 .tools-highlight{padding:var(--section-standard) 2rem;max-width:var(--wide-width);margin:0 auto}
@@ -960,8 +962,11 @@ a, button, input, select, textarea,
   color: var(--text-soft);
 }
 .story-note {
+  display: block;
   font-size: var(--text-xs);
-  color: var(--slate);
+  font-style: italic;
+  color: var(--navy-mid);
+  margin-top: 4px;
 }
 @media (max-width: 600px) {
   .story-section { padding: 48px 1.4rem 56px; }
@@ -1094,6 +1099,16 @@ a, button, input, select, textarea,
   .entry-path-desc { display: none; }
   .urgent-note { padding: 20px 18px; }
   section { padding: 50px 1.2rem; }
+}
+
+/* ── Extra-narrow edge-case (≤420px, iPhone SE / small Android) ── */
+@media (max-width: 420px) {
+  .home-hero { padding: 88px 1rem 40px; }
+  .home-hero h1 { font-size: clamp(1.3rem, 6vw, var(--text-2xl)); }
+  section { padding: 40px 1rem; }
+  .entry-path { padding: 14px 12px; gap: 10px; }
+  .overview-hero { padding: 100px 1rem var(--section-tight); }
+  .triage-btn { padding: 10px 16px; }
 }
 
 /* ── [from overrides.css] SKIP LINK ── */

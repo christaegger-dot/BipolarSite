@@ -418,7 +418,7 @@
   font: inherit; font-size: var(--text-xs); font-weight: 600;
   color: var(--teal); padding: 8px 0; text-align: left;
 }
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .toc-mobile-toggle { display: block; }
   .toc ol[hidden] { display: none !important; }
 }
@@ -577,7 +577,7 @@ body.pdf-preview-open { overflow: hidden; }
 .accordion-body-inner p { margin-bottom: var(--space-base); }
 
 /* ── Shared Responsive ── */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .toc ol { grid-template-columns: 1fr; }
   .handouts-grid { grid-template-columns: 1fr; }
 }
