@@ -820,21 +820,43 @@ body.pdf-preview-open { overflow: hidden; }
   .module-nav a { padding: var(--space-sm); }
 }
 
-/* ── Module escape link ── */
+/* ── Centered CTA links (shortcut + escape) ── */
+.continue-shortcut,
 .next-module-escape {
   max-width: var(--content-width);
-  margin: 12px auto 0;
   padding: 0 2rem;
   text-align: center;
+}
+.continue-shortcut a,
+.next-module-escape a {
+  text-decoration: none;
+}
+.continue-shortcut a:hover,
+.next-module-escape a:hover {
+  text-decoration: underline;
+}
+
+.continue-shortcut {
+  margin: var(--space-base) auto var(--space-lg);
+}
+.continue-shortcut a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--teal-cta);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.next-module-escape {
+  margin: 12px auto 0;
   font-size: var(--text-xs);
 }
 .next-module-escape a {
   color: var(--text-soft);
-  text-decoration: none;
 }
 .next-module-escape a:hover {
   color: var(--text);
-  text-decoration: underline;
 }
 
 /* ── Tool Links Block ── */

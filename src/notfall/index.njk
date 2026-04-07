@@ -87,11 +87,11 @@ breadcrumbs:
 
   <!-- SUIZID -->
   <div class="guide" id="guide-suizid">
-    <button type="button" class="guide-header" aria-expanded="false" aria-controls="guide-panel-suizid">
+    <button type="button" class="guide-header" aria-expanded="true" aria-controls="guide-panel-suizid">
       <div class="guide-header-left"><div class="guide-badge red">SOS</div><div><div class="guide-title">Suizidgedanken</div><div class="guide-subtitle">Die Person spricht davon, sich etwas anzutun</div></div></div>
       <div class="guide-chevron">▼</div>
     </button>
-    <div class="guide-body" id="guide-panel-suizid" hidden><div class="guide-body-inner">
+    <div class="guide-body" id="guide-panel-suizid"><div class="guide-body-inner">
       <ul>
         <li>Nehmen Sie jede Äusserung ernst — auch indirekte: «Es wäre besser, wenn ich nicht mehr da wäre.»</li>
         <li><strong>Fragen Sie direkt:</strong> «Denkst du daran, dir etwas anzutun?» Diese Frage löst Suizidgedanken <em>nicht</em> aus (Dazzi et al., 2014).</li>
@@ -350,7 +350,8 @@ breadcrumbs:
   };
   guides.forEach(guide=>{
     const button=guide.querySelector('.guide-header');
-    setGuideState(guide,false);
+    const isOpen=button.getAttribute('aria-expanded')==='true';
+    setGuideState(guide,isOpen);
     button.addEventListener('click',()=>openGuide(guide));
   });
   if(window.location.hash){
