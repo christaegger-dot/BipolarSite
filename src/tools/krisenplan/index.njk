@@ -126,12 +126,13 @@ function save(){
 fields.forEach(f=>f.addEventListener('input',()=>{updateProg();clearTimeout(saveTimer);saveTimer=setTimeout(save,1500)}));
 
 // Progress — iterate NodeList directly; use cached DOM references
+let lastFilled=0;
 function updateProg(){
-  let filled=0;
-  fields.forEach(f=>{if(f.value.trim().length>0)filled++});
-  const pct=Math.round((filled/totalFields)*100);
+  lastFilled=0;
+  fields.forEach(f=>{if(f.value.trim().length>0)lastFilled++});
+  const pct=Math.round((lastFilled/totalFields)*100);
   progFill.style.width=pct+'%';
-  progLabel.textContent=filled+' von '+totalFields+' Feldern ausgefüllt ('+pct+'%)';
+  progLabel.textContent=lastFilled+' von '+totalFields+' Feldern ausgefüllt ('+pct+'%)';
 }
 
 // Reset — native <dialog> handles focus trap, Escape, and backdrop
@@ -152,10 +153,7 @@ function doReset(){
 // Next-step hint after explicit save — shown once per session
 let hintShown=false;
 function showNextStepHint(){
-  if(hintShown)return;
-  let filled=0;
-  fields.forEach(f=>{if(f.value.trim().length>0)filled++});
-  if(filled<3)return;
+  if(hintShown||lastFilled<3)return;
   hintShown=true;
   savedMsg.textContent='Gespeichert \u2713 — Drucken Sie den Plan und besprechen Sie ihn mit Ihrer Fachperson.';
   savedMsg.classList.add('vis');

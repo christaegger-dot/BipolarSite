@@ -350,7 +350,8 @@ breadcrumbs:
   };
   guides.forEach(guide=>{
     const button=guide.querySelector('.guide-header');
-    setGuideState(guide,false);
+    const isOpen=button.getAttribute('aria-expanded')==='true';
+    setGuideState(guide,isOpen);
     button.addEventListener('click',()=>openGuide(guide));
   });
   if(window.location.hash){
