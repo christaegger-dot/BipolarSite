@@ -106,7 +106,7 @@ function rn(){
     const e=eps[activeEp];
     elDetail.className='detail vis';
     elDetail.innerHTML=`<h2>${e.name} <span style="font-size:var(--text-xs);font-weight:600;color:${e.col};background:${e.bg};padding:2px 8px;border-radius:var(--radius-sm);margin-left:8px">Belastung: ${e.impact}</span></h2>
-    <div class="detail-grid"><div class="detail-col" style="background:var(--amber-bg)"><h3 style="color:var(--amber)">Belastungsreserve</h3><p style="color:var(--slate)">${e.bel}</p></div><div class="detail-col" style="background:var(--blue-phase-light)"><h3 style="color:var(--blue-phase)">Stimmung</h3><p style="color:var(--slate)">${e.stim}</p></div></div>`;
+    <div class="detail-grid"><div class="detail-col" style="background:var(--amber-bg)"><h4 style="color:var(--amber)">Belastungsreserve</h4><p style="color:var(--slate)">${e.bel}</p></div><div class="detail-col" style="background:var(--blue-phase-light)"><h4 style="color:var(--blue-phase)">Stimmung</h4><p style="color:var(--slate)">${e.stim}</p></div></div>`;
   }else{elDetail.className='detail'}
 }
 [0,1,2].forEach(i=>{const el=document.getElementById('ep'+i);el.addEventListener('click',()=>selEp(i));});
