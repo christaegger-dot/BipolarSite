@@ -124,6 +124,7 @@ body {
   }
   .tool-actions button {
     flex: 1;
+    min-height: 44px;
     padding: 6px 8px;
     font-size: var(--text-xs);
   }
