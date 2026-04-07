@@ -983,18 +983,13 @@ body.pdf-preview-open { overflow: hidden; }
 }
 .completion-steps a:hover { text-decoration: underline; }
 
-/* ── Print Styles (Issue #14) ── */
+/* ── Print Styles (module-specific additions) ── */
 @media print {
-  #navbar, .reading-progress, footer, .next-module, .tool-cta,
-  .sources-toggle, .pdf-preview-overlay, .module-nav,
+  .next-module, .tool-cta, .sources-toggle,
+  .pdf-preview-overlay, .module-nav,
   .next-module-escape, .completion-block { display: none !important; }
-  body { background: white !important; color: black !important; }
-  .module-hero { padding-top: 20px; background: none !important; }
-  .module-hero::before { display: none; }
-  .takeaways { background: #333 !important; }
-  h2 { page-break-after: avoid; }
-  .section, .quote-block, .reflection, .takeaways { page-break-inside: avoid; }
-  @page { margin: 2cm; }
+  .module-hero { padding-top: 20px; }
+  .section, .quote-block, .reflection { page-break-inside: avoid; }
 }
 
 /* ═══════════════════════════════════════════════════════════

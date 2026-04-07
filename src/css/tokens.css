@@ -30,7 +30,7 @@
 
   /* Text semantic aliases */
   --text:        #7a6f66;   /* 4.6:1 — AA for all sizes */
-  --text-soft:   #7a7068;   /* 4.56:1 on #FAF8F5 — AA for all sizes (was #857a72, 4.0:1) */
+  --text-soft:   #6f655d;   /* 5.2:1 on #FAF8F5 — AA for all sizes incl. 12px (was #7a7068, 4.37:1) */
 
   /* Sand family (warm accents, badges, subtle fills) */
   --sand:        #ddd2bf;
@@ -53,6 +53,9 @@
 
   /* Accessible CTA teal — opaque, 4.69:1 on white (WCAG AA) */
   --teal-cta:    #287f87;
+
+  /* Darker teal for full-bleed dark backgrounds (5.2:1 with white — AAA large text) */
+  --teal-cta-dark: #1a6b72;
 
   /* Teal opacity scale */
   --teal-faint:  rgba(58,154,163,0.04);
@@ -311,11 +314,17 @@
      ══════════════════════════════════════════ */
 
   --text-xs:   0.75rem;   /* 12px */
+  --text-sm:   0.875rem;  /* 14px */
   --text-base: 1rem;      /* 16px */
   --text-lg:   1.25rem;   /* 20px */
   --text-xl:   1.6rem;    /* 25.6px */
   --text-2xl:  2.2rem;    /* 35.2px */
   --text-3xl:  clamp(2.8rem, 5vw, 3.6rem);
+
+  /* Responsive semantic aliases */
+  --text-tool-title: clamp(1.35rem, 3.5vw, 1.75rem);
+  --text-section-title: clamp(1.8rem, 3.5vw, 2.6rem);
+  --text-hero:  clamp(3.2rem, 6vw, 4.2rem);
 
 
   /* ══════════════════════════════════════════

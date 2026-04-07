@@ -106,11 +106,11 @@ breadcrumbs:
           stroke="var(--teal)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
 
         <!-- Interactive wave points -->
-        <circle class="wpt" cx="160" cy="28"  r="9" fill="var(--amber)" stroke="var(--card)" stroke-width="2.5" data-phase="mania"      id="pt-mania" aria-hidden="true" focusable="false"/>
-        <circle class="wpt" cx="300" cy="252" r="9" fill="var(--slate)" stroke="var(--card)" stroke-width="2.5" data-phase="severe-dep" id="pt-severe" aria-hidden="true" focusable="false"/>
-        <circle class="wpt" cx="370" cy="140" r="9" fill="var(--phase-green)" stroke="var(--card)" stroke-width="2.5" data-phase="stable"     id="pt-stable" aria-hidden="true" focusable="false"/>
-        <circle class="wpt" cx="430" cy="84"  r="9" fill="var(--hypo-phase)" stroke="var(--card)" stroke-width="2.5" data-phase="hypomania"  id="pt-hypo" aria-hidden="true" focusable="false"/>
-        <circle class="wpt" cx="520" cy="196" r="9" fill="var(--blue-phase)" stroke="var(--card)" stroke-width="2.5" data-phase="mild-dep"   id="pt-mild" aria-hidden="true" focusable="false"/>
+        <circle class="wpt" cx="160" cy="28"  r="9" fill="var(--amber)" stroke="var(--card)" stroke-width="2.5" data-phase="mania"      id="pt-mania" tabindex="0" role="button" aria-label="Manie auswählen"/>
+        <circle class="wpt" cx="300" cy="252" r="9" fill="var(--slate)" stroke="var(--card)" stroke-width="2.5" data-phase="severe-dep" id="pt-severe" tabindex="0" role="button" aria-label="Schwere Depression auswählen"/>
+        <circle class="wpt" cx="370" cy="140" r="9" fill="var(--phase-green)" stroke="var(--card)" stroke-width="2.5" data-phase="stable"     id="pt-stable" tabindex="0" role="button" aria-label="Stabile Phase auswählen"/>
+        <circle class="wpt" cx="430" cy="84"  r="9" fill="var(--hypo-phase)" stroke="var(--card)" stroke-width="2.5" data-phase="hypomania"  id="pt-hypo" tabindex="0" role="button" aria-label="Hypomanie auswählen"/>
+        <circle class="wpt" cx="520" cy="196" r="9" fill="var(--blue-phase)" stroke="var(--card)" stroke-width="2.5" data-phase="mild-dep"   id="pt-mild" tabindex="0" role="button" aria-label="Leichte Depression auswählen"/>
 
         <!-- Pulse rings (animated) -->
         <circle cx="160" cy="28"  r="15" fill="none" stroke="var(--amber)" stroke-width="1.5" opacity="0" class="pulse" id="pulse-mania"/>
@@ -386,6 +386,12 @@ function showPulseHints() {
 // Make zone hit areas and wave points interactive
 document.querySelectorAll('.zone-hit, .wpt').forEach(el => {
   el.addEventListener('click', () => selectPhase(el.dataset.phase));
+});
+// Keyboard support for wave points (Enter/Space)
+document.querySelectorAll('.wpt').forEach(el => {
+  el.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectPhase(el.dataset.phase); }
+  });
 });
 
 // Phase selector buttons — event delegation, no inline handlers
