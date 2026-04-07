@@ -675,36 +675,31 @@ a, button, input, select, textarea,
   margin-top: var(--section-tight);
 }
 .urgent-note-standalone {
-  margin: 34px 0 26px;
+  margin: var(--space-lg) 0;
 }
 .urgent-note {
   background: var(--alert-soft);
-  border: 1px solid var(--alert-red-border);
-  border-radius: var(--radius-md);
-  padding: var(--card-padding);
+  border-left: 3px solid var(--alert);
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
   display: flex;
-  flex-direction: column;
-  gap: var(--grid-gap-tight);
-  box-shadow: var(--card-shadow);
+  align-items: baseline;
+  gap: 6px;
+  flex-wrap: wrap;
 }
 .urgent-note-kicker {
   font-size: var(--text-xs);
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
   color: var(--alert);
 }
 .urgent-note p {
   margin: 0;
-  font-size: var(--text-base);
-  line-height: 1.75;
+  font-size: var(--text-xs);
+  line-height: 1.5;
   color: var(--slate);
 }
 .urgent-note-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  width: fit-content;
+  display: inline;
   text-decoration: none;
   color: var(--alert);
   font-size: var(--text-xs);
