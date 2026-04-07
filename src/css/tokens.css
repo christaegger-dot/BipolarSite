@@ -25,8 +25,8 @@
   --navy:        #7a6f66;
   --navy-mid:    #766b62;   /* 4.89:1 on #FAF8F5 — AA for all sizes (was #8a7f76, 3.6:1) */
 
-  /* Body text */
-  --slate:       #7a7068;
+  /* Body text — 5.0:1 on #FAF8F5, 4.7:1 on surface-alt/rose-bg/teal-faint (was #7a7068, 4.3:1 on tints) */
+  --slate:       #746a62;
 
   /* Text semantic aliases */
   --text:        #7a6f66;   /* 4.6:1 — AA for all sizes */
