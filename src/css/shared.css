@@ -646,6 +646,12 @@ a, button, input, select, textarea,
   max-width: var(--wide-width);
   margin: 0 auto;
 }
+.home-hero ~ main {
+  max-width: var(--wide-width);
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
 
 /* Editorial rhythm — varied spacing between homepage sections */
 .entry-paths-section { padding-top: var(--section-tight); padding-bottom: var(--section-wide); }
