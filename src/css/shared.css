@@ -356,6 +356,7 @@ a, button, input, select, textarea,
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: var(--grid-gap-standard);
+  max-width: var(--wide-width);
 }
 
 /* ── Module cards ── */
@@ -1362,11 +1363,11 @@ header.hero[style*="linear-gradient"] {
 
 /* ── [from overrides.css] SPACING ── */
 
-/* ── Section padding (standardised rhythm: tight/standard/wide) ── */
+/* ── Section padding (standardised rhythm: tight/standard/wide) ──
+   NOTE: Homepage sections have specific overrides in the Global Container System above.
+   This rule only applies to non-homepage sections (module pages, tool pages, etc.) */
 .modules-section,
-.quick-section,
-section,
-.section {
+.quick-section {
   padding-top: var(--section-standard);
   padding-bottom: var(--section-standard);
 }
@@ -1583,7 +1584,6 @@ body:not(.dark-tool) .tool-brand {
     padding: var(--section-wide) 1.2rem var(--section-tight);
     min-height: auto;
   }
-  section,
   .section {
     padding: var(--section-tight) 1.2rem;
   }
