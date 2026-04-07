@@ -156,7 +156,7 @@ body {
 footer {
   background: var(--surface-alt);
   color: var(--slate);
-  padding: var(--space-3xl) 2rem var(--space-xl);
+  padding: var(--section-wide) 2rem var(--section-standard);
   margin-top: var(--section-wide);
   border-top: none;
   position: relative;
@@ -434,12 +434,16 @@ a, button, input, select, textarea,
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: var(--radius-round);
 }
-.module-card[data-accent="blue"]   .module-number { color: var(--blue-phase); }
-.module-card[data-accent="amber"]  .module-number { color: var(--amber); }
-.module-card[data-accent="purple"] .module-number { color: var(--purple-phase); }
-.module-card[data-accent="green"]  .module-number { color: var(--phase-green); }
-.module-card[data-accent="teal"]   .module-number { color: var(--teal); }
+.module-card[data-accent="blue"]   .module-number { color: var(--blue-phase); background: var(--blue-phase-light); }
+.module-card[data-accent="amber"]  .module-number { color: var(--amber); background: var(--amber-faint); }
+.module-card[data-accent="purple"] .module-number { color: var(--purple-phase); background: var(--purple-light); }
+.module-card[data-accent="green"]  .module-number { color: var(--phase-green); background: var(--green-faint); }
+.module-card[data-accent="teal"]   .module-number { color: var(--teal); background: var(--teal-faint); }
 
 .module-card h3 {
   font-family: 'DM Sans', sans-serif;
@@ -562,6 +566,7 @@ a, button, input, select, textarea,
   padding: 140px 2rem 80px;
   position: relative;
   overflow: hidden;
+  background: var(--surface-alt);
 }
 .home-hero::before {
   content: '';
@@ -622,7 +627,7 @@ a, button, input, select, textarea,
 }
 .home-hero h1 {
   font-family: 'DM Serif Display', serif;
-  font-size: var(--text-3xl);
+  font-size: clamp(3.2rem, 6vw, 4.2rem);
   font-weight: 400;
   line-height: 1.1;
   letter-spacing: -0.03em;
@@ -722,6 +727,7 @@ a, button, input, select, textarea,
 }
 .entry-path--crisis {
   border-left: 3px solid var(--alert);
+  background: var(--alert-faint);
 }
 .entry-path--crisis:hover {
   border-color: var(--alert);
@@ -730,12 +736,46 @@ a, button, input, select, textarea,
 .entry-path--crisis .entry-path-title {
   color: var(--alert);
 }
+.entry-path--learn {
+  background: var(--teal-faint);
+}
+.entry-path--learn:hover {
+  border-color: var(--teal-light);
+}
+.entry-path--tools {
+  background: var(--sand-faint);
+}
+.entry-path--tools:hover {
+  border-color: var(--sand-border);
+}
 
 /* ── Homepage Section Generic ── */
 .home-hero ~ section {
   padding: var(--section-standard) 2rem;
   max-width: var(--wide-width);
   margin: 0 auto;
+}
+
+/* Editorial rhythm — varied spacing between homepage sections */
+.entry-paths-section { padding-top: var(--section-tight); padding-bottom: var(--section-wide); }
+#orientierung { padding-top: 0; padding-bottom: var(--section-tight); }
+#module { padding-top: var(--section-tight); padding-bottom: var(--section-wide); }
+.tools-highlight { padding-top: var(--section-standard); padding-bottom: var(--section-standard); }
+.story-section { padding-top: var(--section-wide); padding-bottom: var(--section-wide); }
+.invitation-section { padding-top: var(--section-wide); padding-bottom: var(--section-wide); }
+.about-section { padding-top: var(--section-standard); padding-bottom: var(--section-standard); }
+
+/* Thin rules between homepage sections — book-like chapter dividers */
+.entry-paths-section::after,
+#module::after,
+.tools-highlight::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 1px;
+  background: var(--border-warm-xl);
+  margin: 0 auto;
+  margin-top: var(--section-tight);
 }
 .urgent-note-standalone {
   margin: 34px 0 26px;
@@ -910,7 +950,8 @@ a, button, input, select, textarea,
 
 /* ── Erfahrungsbericht ── */
 .story-section {
-  background: var(--surface-alt);
+  background: var(--rose-bg);
+  border-top: 2px solid var(--rose-border);
   padding: var(--section-standard) 2rem;
 }
 .story-inner {
@@ -931,12 +972,25 @@ a, button, input, select, textarea,
 }
 .story-section h2 {
   font-family: 'DM Serif Display', serif;
-  font-size: var(--text-xl);
+  font-size: var(--text-2xl);
   font-weight: 400;
-  font-style: italic;
-  line-height: 1.5;
+  font-style: normal;
+  line-height: 1.35;
   color: var(--navy);
   margin-bottom: var(--space-lg);
+  position: relative;
+  padding-left: 0.15em;
+}
+.story-section h2::before {
+  content: '«';
+  position: absolute;
+  top: -0.25em;
+  left: -0.45em;
+  font-size: 4rem;
+  font-family: 'DM Serif Display', serif;
+  color: var(--rose);
+  line-height: 1;
+  pointer-events: none;
 }
 .story-body p {
   font-size: var(--text-base);
@@ -1629,9 +1683,17 @@ footer {
 
 .footer-invitation {
   color: var(--navy);
+  font-weight: 400;
+  font-size: var(--text-lg);
+  font-family: 'DM Serif Display', serif;
+  line-height: 1.5;
+}
+.footer-contact a {
+  color: var(--teal-cta);
+  text-decoration: underline;
+  text-decoration-color: var(--teal-muted);
+  text-underline-offset: 3px;
   font-weight: 600;
-  font-size: var(--text-base);
-  font-family: 'DM Sans', sans-serif;
 }
 
 .footer-disclaimer {
@@ -1646,10 +1708,6 @@ footer {
 
 .footer-link-alert:hover {
   color: var(--rose);
-}
-
-.footer-contact a {
-  transition: color 0.15s ease;
 }
 
 p.footer-address {
