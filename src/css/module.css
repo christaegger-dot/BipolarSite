@@ -1021,7 +1021,7 @@ body.pdf-preview-open { overflow: hidden; }
   .emergency-call-label{font-size:var(--text-xs)}
   .hero-visual{display:none}
 }
-.hero-visual{background:rgba(255,255,255,0.95);border:1px solid var(--alert-muted);border-radius:var(--card-radius);padding:18px;box-shadow:var(--shadow-elevated);min-width:0;overflow:hidden}
+.hero-visual{background:rgba(255,255,255,0.95);border:1px solid var(--alert-muted);border-radius:var(--card-radius);padding:18px;box-shadow:var(--shadow-card);min-width:0;overflow:hidden}
 .hero-visual img{display:block;width:100%;height:auto;border-radius:var(--card-radius)}
 
 /* ── Notfall Content ── */
@@ -1157,7 +1157,7 @@ body.pdf-preview-open { overflow: hidden; }
 body.pdf-preview-open{overflow:hidden}
 .pdf-preview-overlay{position:fixed;inset:0;z-index:1000;background:var(--overlay-warm);padding:var(--space-lg);display:flex;align-items:center;justify-content:center}
 .pdf-preview-overlay[hidden]{display:none}
-.pdf-preview-dialog{width:min(920px,100%);max-height:calc(100vh - 48px);background:var(--bg);border:1px solid var(--border-warm-md);border-radius:var(--card-radius);box-shadow:var(--shadow-elevated);display:flex;flex-direction:column;overflow:hidden}
+.pdf-preview-dialog{width:min(920px,100%);max-height:calc(100vh - 48px);background:var(--bg);border:1px solid var(--border-warm-md);border-radius:var(--card-radius);box-shadow:var(--shadow-card);display:flex;flex-direction:column;overflow:hidden}
 .pdf-preview-header{padding:20px 24px 16px;border-bottom:1px solid var(--border-warm-md);display:flex;gap:16px;justify-content:space-between;align-items:flex-start}
 .pdf-preview-title{font-family:'DM Sans',sans-serif;font-size:var(--text-lg);font-weight:700;color:var(--navy)}
 .pdf-preview-sub{margin-top:6px;font-size:var(--text-xs);color:var(--text-soft);max-width:44ch;line-height:1.5}
@@ -1405,7 +1405,7 @@ body.pdf-preview-open{overflow:hidden}
 /* ── Module 3: Timeline ── */
 .timeline-section { background: var(--card); border: 1px solid var(--border-warm); border-radius: var(--radius-md); padding: var(--space-xl); margin: var(--temp-dense-margin) 0; box-shadow: var(--shadow-soft); }
 .timeline { position: relative; padding-left: var(--space-xl); margin: var(--space-lg) 0; }
-.timeline::before { content: ''; position: absolute; left: 12px; top: 0; bottom: 0; width: 2px; background: var(--teal-light); border-radius: var(--radius-sm); }
+.timeline::before { content: ''; position: absolute; left: 12px; top: 0; bottom: 0; width: 2px; background: var(--teal-light); border-radius: 1px; }
 .timeline-item { position: relative; padding-bottom: var(--space-lg); }
 .timeline-item:last-child { padding-bottom: 0; }
 .timeline-dot { position: absolute; left: -27px; top: 4px; width: 14px; height: 14px; border-radius: var(--radius-round); border: 2.5px solid var(--teal); background: var(--card); }
@@ -1464,7 +1464,7 @@ body.pdf-preview-open{overflow:hidden}
 .selftest-item:first-of-type{border-top:none}
 .glaswand{background:var(--blue-phase-light);border-radius:var(--radius-md);padding:var(--space-xl);margin:var(--temp-dense-margin) 0;text-align:center}
 .glaswand-visual{display:flex;align-items:center;justify-content:center;gap:8px;margin:24px 0;font-size:var(--text-base);color:var(--blue-phase)}
-.glaswand-wall{width:3px;height:80px;background:var(--blue-phase);opacity:0.4;border-radius:var(--radius-sm);margin:0 20px}
+.glaswand-wall{width:3px;height:80px;background:var(--blue-phase);opacity:0.4;border-radius:1.5px;margin:0 20px}
 .glaswand-side{text-align:center}
 .glaswand-side strong{display:block;font-size:var(--text-xs);color:var(--blue-phase);margin-bottom:4px}
 .glaswand-side span{font-size:var(--text-xs);color:var(--slate)}
