@@ -197,7 +197,7 @@ body.ee-kreislauf-page .wrap{max-width:560px;padding:32px 20px 48px;flex:1}
 .break-btn{width:100%;padding:14px;border-radius:var(--radius-md);border:2px solid var(--phase-green);background:var(--card);color:var(--phase-green);font-size:var(--text-base);font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background-color 0.3s ease,color 0.3s ease,border-color 0.3s ease,box-shadow 0.3s ease;margin-bottom:16px;box-shadow:0 8px 18px rgba(13,122,95,0.08)}
 .break-btn:hover{background:var(--success-soft)}
 .break-btn.active{background:var(--phase-green);color:var(--card)}
-@media(max-width:600px){.station-picker{grid-template-columns:1fr}}
+@media(max-width:600px){.station-picker{grid-template-columns:1fr}body.ee-kreislauf-page .svg-wrap{display:none}body.ee-kreislauf-page .mobile-chart-note{display:block}}
 
 
 /* ── eisberg ── */
@@ -334,7 +334,7 @@ body.krisenplan-page .wrap{max-width:700px;margin:0 auto;padding:24px 20px 60px}
   .section{break-inside:avoid;border-radius:0;box-shadow:none}
   body{background:var(--card)}
 }
-@media(max-width:600px){.section{padding:18px 16px}.tool-nav{flex-wrap:wrap;padding:10px 14px;gap:8px}.tool-back{font-size:var(--text-xs)}.tool-actions{width:100%;justify-content:stretch}.tool-actions button{flex:1;padding:6px 8px;font-size:var(--text-xs)}}
+@media(max-width:600px){.section{padding:18px 16px}.tool-nav{flex-wrap:wrap;padding:10px 14px;gap:8px}.tool-back{font-size:var(--text-xs)}.tool-actions{width:100%;justify-content:stretch}.tool-actions button{flex:1;padding:6px 8px;font-size:var(--text-xs);min-height:44px}.field textarea{min-height:60px}}
 
 
 /* ── phasenverlauf ── */
@@ -428,6 +428,7 @@ body.saeulen-check-page .btns button{flex:1;padding:12px;border-radius:var(--rad
 body.saeulen-check-page .btn-r{border:1px solid var(--border-warm-md);background:var(--card);color:var(--slate)}
 body.saeulen-check-page .btn-c{border:none;background:var(--cta-primary-bg);color:var(--cta-primary-text)}
 body.saeulen-check-page .disc{font-size:var(--text-xs);color:var(--teal-light);margin-top:16px;line-height:1.5;text-align:center}
+@media(max-width:480px){.sc{flex-wrap:wrap}.sc button{flex:1 1 calc(33% - 4px);min-height:44px}.pc{padding:18px 16px}.res-card{padding:24px 16px}.pillars{gap:6px;padding:0}}
 
 
 /* ── selbsttest ── */
@@ -486,7 +487,7 @@ body:not(.dark-tool) .tool-back,
 body:not(.dark-tool) .tool-brand {
   color: var(--navy);
 }
-@media(max-width:600px){body.selbsttest-page .card{padding:24px 20px}}
+@media(max-width:600px){body.selbsttest-page .card{padding:24px 20px;min-height:auto}.bar-labels{font-size:0.65rem}.bar-labels span:nth-child(2),.bar-labels span:nth-child(4){display:none}}
 /* Result state colours */
 body.selbsttest-page .card.result--green .res-score{background:var(--success-soft);border:2px solid var(--teal-light)}
 body.selbsttest-page .card.result--green .res-score span,body.selbsttest-page .card.result--green .res-level{color:var(--phase-green)}
