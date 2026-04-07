@@ -248,7 +248,7 @@
   display: none;
 }
 .takeaways-inner { position: relative; z-index: 2; }
-.takeaways h3 {
+.takeaways h2, .takeaways h3 {
   color: var(--cta-primary-text); font-family: 'DM Sans', sans-serif;
   font-size: var(--text-xl); font-weight: 600; margin-bottom: 24px;
 }
@@ -895,7 +895,7 @@ body.pdf-preview-open { overflow: hidden; }
   border-radius: var(--card-radius);
   border-left: 4px solid var(--sand-deep);
 }
-.tool-links h3 {
+.tool-links h2 {
   font-family: 'DM Sans', sans-serif;
   font-weight: 700;
   font-size: var(--text-lg);
@@ -949,7 +949,7 @@ body.pdf-preview-open { overflow: hidden; }
   border: 1px solid var(--green-border);
   text-align: center;
 }
-.completion-block h3 {
+.completion-block h2 {
   font-family: 'DM Sans', sans-serif;
   font-weight: 700;
   font-size: var(--text-lg);
@@ -2485,7 +2485,7 @@ table tbody tr:nth-child(even),
 .bright-moment{font-weight:500}
 
 /* Stelle text styling in dark sections (modul/8 takeaways) */
-.takeaways h3{color:var(--cta-primary-text);margin-bottom:0.25rem}
+.takeaways h2, .takeaways h3{color:var(--cta-primary-text);margin-bottom:0.25rem}
 .takeaways > .takeaways-inner > p{color:var(--white-text-secondary);font-size:var(--text-xs);margin-bottom:1rem}
 
 /* Context note (modul/3 Hinweis zur Sprache) */
