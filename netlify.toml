@@ -5,6 +5,12 @@
 [build.environment]
   NODE_VERSION = "18"
 
+# Redirect /tools/ overview to /werkzeuge/ (fix broken entry-path link, keep incoming links working)
+[[redirects]]
+  from = "/tools/"
+  to = "/werkzeuge/"
+  status = 301
+
 # Security headers applied to all pages
 [[headers]]
   for = "/*"

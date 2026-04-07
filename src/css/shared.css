@@ -219,7 +219,7 @@ a, button, input, select, textarea,
 }
 .storage-banner-btns { display: flex; gap: 6px; flex-shrink: 0; }
 .storage-btn-accept {
-  background: var(--teal); color: var(--cta-primary-text); border: none;
+  background: var(--teal-cta); color: var(--cta-primary-text); border: none;
   padding: 8px 14px; border-radius: 6px; font-size: var(--text-xs);
   font-weight: 600; cursor: pointer; white-space: nowrap;
   min-height: 44px; min-width: 44px;
@@ -484,8 +484,8 @@ a, button, input, select, textarea,
   transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
 }
 .module-card:hover .module-arrow {
-  background: var(--teal);
-  border-color: var(--teal);
+  background: var(--teal-cta);
+  border-color: var(--teal-cta);
   color: var(--cta-primary-text);
 }
 
@@ -536,8 +536,8 @@ a, button, input, select, textarea,
   border-left-color: var(--teal) !important;
 }
 .module-card.visited .module-arrow {
-  background: var(--teal);
-  border-color: var(--teal);
+  background: var(--teal-cta);
+  border-color: var(--teal-cta);
   color: var(--cta-primary-text);
 }
 
@@ -969,7 +969,7 @@ a, button, input, select, textarea,
 
 /* ── Einladung ── */
 .invitation-section {
-  background: var(--teal);
+  background: var(--teal-cta);
   padding: var(--section-standard) 2rem;
 }
 .invitation-inner {
@@ -1110,6 +1110,7 @@ a, button, input, select, textarea,
 .skip-link:focus-visible {
   position: fixed;
   top: 14px;
+  /* AUDIT FIX K-01: skip-link uses white text on teal */
   left: 16px;
   width: auto;
   height: auto;
@@ -1117,7 +1118,7 @@ a, button, input, select, textarea,
   z-index: 10000;
   padding: 12px 20px;
   border-radius: var(--radius-sm);
-  background: var(--teal);
+  background: var(--teal-cta);
   color: var(--cta-primary-text);
   text-decoration: none;
   font-size: var(--text-xs);
@@ -1941,8 +1942,8 @@ header.hero .hero-content {
 
 .module-card:hover .module-card-arrow,
 .module-card:hover .module-arrow {
-  background: var(--teal);
-  border-color: var(--teal);
+  background: var(--teal-cta);
+  border-color: var(--teal-cta);
   color: var(--cta-primary-text);
 }
 

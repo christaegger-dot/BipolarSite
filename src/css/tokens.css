@@ -51,6 +51,9 @@
   --teal-light:  rgba(168,213,203,0.3);
   --teal-dark:   rgba(58,154,163,0.9);
 
+  /* Accessible CTA teal — opaque, 4.69:1 on white (WCAG AA) */
+  --teal-cta:    #287f87;
+
   /* Teal opacity scale */
   --teal-faint:  rgba(58,154,163,0.04);
   --teal-subtle: rgba(58,154,163,0.1);
@@ -69,7 +72,7 @@
      ══════════════════════════════════════════ */
 
   --rose:        rgba(175,115,110,0.55);
-  --rose-text:   rgba(175,115,110,0.75);
+  --rose-text:   #8A504B;             /* opaque, 5.95:1 on #FAF8F5 (WCAG AA) — was rgba(175,115,110,0.75) */
   --rose-border: rgba(175,115,110,0.3);
   --rose-bg:     rgba(175,115,110,0.04);
   --rose-soft:   rgba(175,115,110,0.08);
@@ -209,8 +212,8 @@
      CTA HIERARCHY
      ══════════════════════════════════════════ */
 
-  --cta-primary-bg:     var(--teal);
-  --cta-primary-hover:  rgba(58,154,163,0.85);
+  --cta-primary-bg:     var(--teal-cta);
+  --cta-primary-hover:  #247880;
   --cta-primary-text:   #ffffff;
   --cta-secondary-bg:   var(--card);
   --cta-secondary-border: var(--border);
