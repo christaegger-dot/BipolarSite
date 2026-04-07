@@ -458,7 +458,7 @@ a, button, input, select, textarea,
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 140px 2rem 80px;
+  padding: 140px 2rem 64px;
   position: relative;
   overflow: hidden;
   background: var(--surface-alt);
@@ -562,18 +562,18 @@ a, button, input, select, textarea,
   transform: translateY(-1px);
 }
 
-/* ── Entry Paths (editorial inline links, not cards) ── */
-.entry-paths-inner {}
-.entry-paths-lead {
-  font-size: var(--text-base);
-  line-height: 1.75;
-  color: var(--text-soft);
+/* ── Entry Paths (inside hero, editorial inline links) ── */
+.home-hero-paths {
+  margin-top: var(--space-3xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--border-warm-md);
   max-width: 540px;
-  margin: 0 0 var(--space-lg);
 }
-.entry-paths-lead strong {
-  color: var(--slate);
-  font-weight: 600;
+.home-hero-paths-lead {
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  color: var(--text-soft);
+  margin: 0 0 var(--space-md);
 }
 .entry-paths-list {
   display: flex;
@@ -583,10 +583,10 @@ a, button, input, select, textarea,
 }
 .entry-path-link {
   display: block;
-  padding: 14px 0;
+  padding: 12px 0;
   border-bottom: 1px solid var(--border-warm);
   text-decoration: none;
-  font-size: var(--text-base);
+  font-size: var(--text-sm);
   font-weight: 600;
   color: var(--navy);
   line-height: 1.5;
@@ -608,7 +608,6 @@ a, button, input, select, textarea,
 /* ── Global Container System ──
    ONE rule for all homepage content sections.
    Every section shares the same max-width, padding, and horizontal axis. */
-.entry-paths-section,
 #main-content > section,
 #main-content > aside {
   max-width: var(--wide-width);
@@ -617,19 +616,35 @@ a, button, input, select, textarea,
   padding-left: 2rem;
   padding-right: 2rem;
 }
-/* Full-bleed overrides */
+/* Full-bleed overrides — sections with background color span full width */
 #main-content > .story-section,
 #main-content > .invitation-section {
   max-width: none;
 }
 
-/* Vertical rhythm — two-tier spacing:
-   Content sections: --space-lg (24px) top/bottom → 48px between sections
-   Full-bleed sections (with bg color): --section-tight (40px) → 80px gap, justified by visual break */
-.entry-paths-section { padding-top: var(--section-tight); padding-bottom: var(--space-lg); }
-#orientierung { padding-top: var(--space-lg); padding-bottom: var(--space-lg); }
-#module { padding-top: var(--space-lg); padding-bottom: var(--space-lg); }
-.tools-highlight { padding-top: var(--space-lg); padding-bottom: var(--space-lg); }
+/* Vertical rhythm — visual flow through alternating treatments:
+   Hero+paths (surface-alt) → Triage (subtle bg) → Modules (white) →
+   Tools (subtle bg) → Story (rosé) → Invitation (surface-alt) */
+#orientierung {
+  margin-top: var(--section-tight);
+  padding-top: var(--section-tight);
+  padding-bottom: var(--section-tight);
+  background: var(--sand-faint);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-warm);
+}
+#module {
+  padding-top: var(--section-standard);
+  padding-bottom: var(--section-tight);
+}
+.tools-highlight {
+  margin-top: var(--space-lg);
+  padding-top: var(--section-tight);
+  padding-bottom: var(--section-tight);
+  background: var(--teal-faint);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-warm);
+}
 .story-section { padding-top: var(--section-tight); padding-bottom: var(--section-tight); }
 .invitation-section { padding-top: var(--section-tight); padding-bottom: var(--section-tight); }
 
@@ -755,7 +770,7 @@ a, button, input, select, textarea,
 }
 .no-js .reveal { opacity: 1; transform: none; }
 
-/* ── Quick Triage (editorial guidance, not widget) ── */
+/* ── Quick Triage (editorial guidance, subtle background section) ── */
 .quick-triage{background:none;border:none;border-radius:0;padding:0;margin-bottom:0}
 .quick-triage h2{font-family:'DM Serif Display',serif;font-size:var(--text-xl);font-weight:400;color:var(--navy);margin-bottom:4px}
 .quick-triage p{font-size:var(--text-base);color:var(--slate);margin-bottom:var(--space-lg);line-height:1.75;max-width:48ch}
@@ -782,7 +797,7 @@ a, button, input, select, textarea,
 .triage-restart{display:block;margin-top:12px;background:none;border:1px solid var(--border-warm-md);padding:8px 16px;border-radius:var(--radius-sm);font-size:var(--text-xs);color:var(--text-soft);cursor:pointer;transition:border-color 0.2s,color 0.2s}
 .triage-restart:hover{border-color:var(--teal-solid);color:var(--teal-solid)}
 
-/* ── Tools Highlight (editorial list, not card grid) ── */
+/* ── Tools Highlight (editorial list, subtle background section) ── */
 .tools-highlight h2{font-family:'DM Serif Display',serif;font-size:var(--text-xl);font-weight:400;color:var(--navy);margin-bottom:8px}
 .tools-highlight > p{font-size:var(--text-base);color:var(--slate);margin-bottom:var(--space-lg);max-width:48ch}
 .tools-list{display:flex;flex-direction:column;gap:0;max-width:540px}
@@ -965,16 +980,16 @@ a, button, input, select, textarea,
   .home-hero h1 { font-size: var(--text-2xl); margin-bottom: 1rem; }
   .home-hero-subtitle { font-size: var(--text-base); margin-bottom: 1.5rem; }
   .home-hero-badge { font-size: var(--text-xs); margin-bottom: 1rem; }
-  .entry-paths-section { padding: var(--space-lg) 1.2rem; }
+  .home-hero-paths { margin-top: var(--space-xl); }
   .urgent-note { padding: 10px 14px; }
-  section { padding: 50px 1.2rem; }
+  #main-content > section { padding-left: 1.2rem; padding-right: 1.2rem; }
 }
 
 /* ── Extra-narrow edge-case (≤420px, iPhone SE / small Android) ── */
 @media (max-width: 420px) {
   .home-hero { padding: 96px 1rem 44px; }
   .home-hero h1 { font-size: clamp(1.3rem, 6vw, var(--text-2xl)); }
-  section { padding: 40px 1rem; }
+  #main-content > section { padding-left: 1rem; padding-right: 1rem; }
   .overview-hero { padding: 100px 1rem var(--section-tight); }
   .triage-btn { padding: 10px 16px; }
 }
