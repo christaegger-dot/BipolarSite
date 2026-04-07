@@ -421,7 +421,7 @@ a, button, input, select, textarea,
   padding: 3px 10px;
   border-radius: var(--radius-round);
 }
-.module-number { color: var(--teal-cta); background: var(--teal-faint); }
+.module-number { color: var(--navy); background: var(--teal-subtle); }
 
 .module-card h3 {
   font-family: 'DM Sans', sans-serif;
@@ -996,7 +996,7 @@ a, button, input, select, textarea,
 
 /* ── Einladung ── */
 .invitation-section {
-  background: var(--teal-cta);
+  background: var(--teal-cta-dark);
   padding: var(--section-standard) 2rem;
 }
 .invitation-inner {
