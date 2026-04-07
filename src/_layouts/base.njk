@@ -150,7 +150,9 @@
       btn.className = 'toc-mobile-toggle';
       btn.setAttribute('aria-expanded', 'false');
       btn.textContent = 'Inhaltsverzeichnis anzeigen ▾';
-      toc.querySelector('.toc-title').after(btn);
+      const tocTitle = toc.querySelector('.toc-title');
+      if (!tocTitle) return;
+      tocTitle.after(btn);
       btn.addEventListener('click', () => {
         const open = ol.hidden;
         ol.hidden = !open;
@@ -173,7 +175,7 @@
         const li = document.createElement('li');
         const link = document.createElement('a');
         link.href = a.getAttribute('href');
-        link.textContent = a.childNodes[0].textContent.trim();
+        link.textContent = (a.childNodes[0]?.textContent ?? a.textContent).trim();
         li.appendChild(link);
         ol.appendChild(li);
       });
