@@ -916,7 +916,8 @@ a, button, input, select, textarea,
 
 /* ── Einladung ── */
 .invitation-section {
-  background: var(--teal-cta-dark);
+  background: var(--surface-alt);
+  border-top: 1px solid var(--border-warm);
   padding: var(--section-standard) 2rem;
 }
 .invitation-inner {
@@ -930,12 +931,12 @@ a, button, input, select, textarea,
   font-size: var(--text-xl);
   font-weight: 400;
   line-height: 1.5;
-  color: var(--white-text);
+  color: var(--navy);
   margin-bottom: 12px;
 }
 .invitation-inner > p {
   font-size: var(--text-base);
-  color: var(--white-text-secondary);
+  color: var(--slate);
   line-height: 1.7;
   max-width: 440px;
   margin: 0 auto 32px;
@@ -967,15 +968,15 @@ a, button, input, select, textarea,
   min-height: 46px;
   padding: 0 24px;
   border-radius: var(--radius-md);
-  border: 1px solid rgba(255,255,255,0.3);
-  background: transparent;
-  color: var(--white-text);
+  border: 1px solid var(--border-warm-xl);
+  background: var(--card);
+  color: var(--navy);
   text-decoration: none;
   font-size: var(--text-base);
   font-weight: 600;
   transition: border-color 0.2s ease, color 0.2s ease;
 }
-.invitation-email:hover { border-color: white; color: var(--white-text); }
+.invitation-email:hover { border-color: var(--teal-solid); color: var(--teal-cta); }
 @media (max-width: 600px) {
   .invitation-section { padding: var(--section-tight) 1.4rem; }
   .invitation-contacts { flex-direction: column; align-items: center; }
