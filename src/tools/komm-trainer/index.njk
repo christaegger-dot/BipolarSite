@@ -23,7 +23,7 @@ breadcrumbs:
 <main class="wrap" id="main-content">
   <div class="hdr">
 <div class="tool-breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><a href="/werkzeuge/">Werkzeuge</a><span class="sep" aria-hidden="true">›</span><span>Kommunikations-Trainer</span></div>
-<div class="tool-glyph" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 12H25C28.3 12 31 14.7 31 18V19C31 22.3 28.3 25 25 25H18L13 30V25H9C5.7 25 3 22.3 3 19V18C3 14.7 5.7 12 9 12Z" fill="#A8E4E8"/><path d="M21 8H31C34.3 8 37 10.7 37 14V15C37 18.3 34.3 21 31 21H29V25L24 21H21C17.7 21 15 18.3 15 15V14C15 10.7 17.7 8 21 8Z" fill="#3a9aa3"/></svg></div><div class="badge">Modul 6 — Übung</div><h1>Kommunikations-Trainer</h1><p>Acht Situationen aus Manie, Depression, Frühwarnung und der Zeit nach einer Krise. Nicht die perfekte Antwort zählt, sondern ein klareres Gefühl dafür, was in welcher Lage eher hilft.</p></div>
+<div class="tool-glyph" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 12H25C28.3 12 31 14.7 31 18V19C31 22.3 28.3 25 25 25H18L13 30V25H9C5.7 25 3 22.3 3 19V18C3 14.7 5.7 12 9 12Z" fill="var(--teal-light)"/><path d="M21 8H31C34.3 8 37 10.7 37 14V15C37 18.3 34.3 21 31 21H29V25L24 21H21C17.7 21 15 18.3 15 15V14C15 10.7 17.7 8 21 8Z" fill="var(--teal-solid)"/></svg></div><div class="badge">Modul 6 — Übung</div><h1>Kommunikations-Trainer</h1><p>Acht Situationen aus Manie, Depression, Frühwarnung und der Zeit nach einer Krise. Nicht die perfekte Antwort zählt, sondern ein klareres Gefühl dafür, was in welcher Lage eher hilft.</p></div>
   <div class="prog" id="prog"></div>
   <div class="card" id="card" aria-live="polite" aria-atomic="true"></div>
   <noscript>
@@ -86,8 +86,8 @@ function rn(){
     </div>`;
   }else{
     const pct=Math.round((score.ok/S.length)*100);
-    const col=pct>=80?'#0d7a5f':pct>=50?'#B45309':'#9A3412';
-    const bg=pct>=80?'#e6f4f2':pct>=50?'#fef3e2':'#FEF2F2';
+    const col=pct>=80?'var(--phase-green)':pct>=50?'var(--amber)':'var(--amber-dark-text)';
+    const bg=pct>=80?'var(--success-soft)':pct>=50?'var(--amber-bg)':'var(--alert-soft)';
     elCd.innerHTML=`<div class="res"><div class="res-circle" style="background:${bg};border-color:${col}"><span style="color:${col}">${score.ok}/${S.length}</span></div>
     <h2>${pct>=80?'Sie haben ein gutes Gespür für die Unterschiede.':pct>=50?'Eine brauchbare Basis ist da — mit Übung wird es klarer.':'Kommunikation unter Druck ist schwer — genau dafür ist diese Übung da.'}</h2>
     <p>${pct>=80?'Sie erkennen recht gut, warum Manie und Depression unterschiedliche Sprache brauchen.':'Die Situationen sind absichtlich schwer — im echten Leben bleibt oft kaum Zeit. Entscheidend sind nicht perfekte Sätze, sondern die Grundrichtung.'}</p>
