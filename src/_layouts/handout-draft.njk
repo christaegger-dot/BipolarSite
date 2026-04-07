@@ -399,6 +399,7 @@
     }
 
     @media print{
+      @page{size:A4;margin:12mm 14mm}
       html,body{background:#fff}
       .draft-shell{width:auto;margin:0}
       .draft-toolbar{display:none}
@@ -409,17 +410,67 @@
         box-shadow:none;
         border:none;
       }
+      /* Compress padding for max content area */
+      .draft-header{padding:8mm 0 6mm}
+      .draft-content{padding:6mm 0 8mm}
+      .draft-footer{padding:4mm 0 0}
       .draft-header,.draft-content,.draft-footer{
-        padding-left:14mm;
-        padding-right:14mm;
+        padding-left:0;
+        padding-right:0;
       }
-      .draft-header{padding-top:14mm}
-      .draft-content{padding-top:10mm;padding-bottom:12mm}
-      .draft-footer{padding-top:8mm;padding-bottom:10mm}
       a{color:inherit;text-decoration:none}
-      .draft-alert-panel{break-inside:avoid}
-      .draft-step{break-inside:avoid}
       .draft-footer-status{display:none}
+      /* Compact title & badges */
+      .draft-kicker{margin-bottom:4px;gap:6px}
+      .draft-badge{padding:2px 7px;font-size:0.65rem}
+      .draft-title{font-size:1.4rem;margin:0 0 4px;line-height:1.15}
+      .draft-subtitle{font-size:0.9rem;margin:0 0 6px;line-height:1.35}
+      /* Compact meta row */
+      .draft-meta{margin-top:6px;padding-top:6px;gap:0}
+      .draft-meta-label{font-size:0.6rem;margin-bottom:1px}
+      .draft-meta-value{font-size:0.85rem}
+      /* Compact alert panel */
+      .draft-alert-panel{
+        margin-top:8px;
+        padding:10px;
+        gap:8px;
+        break-inside:avoid;
+      }
+      .draft-alert-eyebrow{font-size:0.6rem;margin-bottom:3px}
+      .draft-alert-line{font-size:0.85rem;margin:0 0 4px}
+      .draft-alert-copy{font-size:0.8rem;line-height:1.4}
+      .draft-step{
+        padding:6px 8px;
+        gap:8px;
+        grid-template-columns:24px minmax(0,1fr);
+        break-inside:avoid;
+      }
+      .draft-step-index{width:24px;height:24px;font-size:0.7rem}
+      .draft-step-text{font-size:0.8rem}
+      /* Compact emergency contacts */
+      .draft-number-bar{margin:0.5rem 0;gap:6px;grid-template-columns:repeat(3,1fr)}
+      .draft-number-card{padding:6px 8px}
+      .draft-number-label{font-size:0.6rem;margin-bottom:1px}
+      .draft-number-value{font-size:0.85rem}
+      .draft-number-note{font-size:0.6rem;margin-top:2px}
+      /* Compact content headings & text */
+      .draft-content h2{
+        font-size:1.05rem;
+        margin:0.7rem 0 0.3rem;
+        padding-bottom:0.15rem;
+        break-after:avoid;
+      }
+      .draft-content h3{
+        font-size:0.9rem;
+        margin:0.5rem 0 0.25rem;
+      }
+      .draft-content p{margin:0.25rem 0;font-size:0.85rem;line-height:1.45}
+      .draft-content > p:first-of-type{font-size:0.85rem;line-height:1.5;margin-bottom:0.5rem}
+      .draft-content ul{margin:0.25rem 0 0.4rem 1rem}
+      .draft-content li{margin:0.1rem 0;font-size:0.85rem;line-height:1.4}
+      .draft-content strong{color:#000}
+      /* Compact footer */
+      .draft-footer{font-size:0.6rem;border-top:1px solid #ccc}
     }
   </style>
 </head>
