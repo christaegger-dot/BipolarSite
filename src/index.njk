@@ -17,7 +17,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 {% include "nav-full.njk" %}
 {% endblock %}
 {% block content %}
-<!-- ══════════ HERO ══════════ -->
+<!-- ══════════ HERO + ENTRY PATHS ══════════ -->
 <header class="home-hero">
   <div class="home-hero-content">
     <div class="home-hero-body">
@@ -27,21 +27,17 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
         <p class="home-hero-subtitle">Sie müssen hier nicht alles auf einmal verstehen. Diese Website hilft Ihnen, Ihre Lage einzuordnen und den Einstieg zu wählen, der im Moment am ehesten passt.</p>
         <a href="/modul/1/" class="home-hero-link">Jetzt starten: Modul 1 lesen →</a>
       </div>
+      <div class="home-hero-paths">
+        <p class="home-hero-paths-lead">Für Partner*innen, Eltern, Geschwister und erwachsene Kinder — Sie dürfen hier von Ihrer eigenen Lage ausgehen.</p>
+        <nav class="entry-paths-list" aria-label="Einstiegspfade">
+          <a href="/notfall/" class="entry-path-link entry-path-link--crisis">Ich bin gerade in einer Krise → Sofort-Hilfe</a>
+          <a href="/modul/1/" class="entry-path-link">Ich möchte die Krankheit verstehen → Modul 1</a>
+          <a href="/werkzeuge/" class="entry-path-link">Ich suche praktische Werkzeuge → Alle Werkzeuge</a>
+        </nav>
+      </div>
     </div>
   </div>
 </header>
-
-<!-- ══════════ ENTRY PATHS (separated from hero) ══════════ -->
-<section class="entry-paths-section">
-  <div class="entry-paths-inner">
-    <p class="entry-paths-lead"><strong>Für Partner*innen, Eltern, Geschwister und erwachsene Kinder.</strong> Sie dürfen hier von Ihrer eigenen Lage ausgehen, nicht nur von der erkrankten Person.</p>
-    <nav class="entry-paths-list" aria-label="Einstiegspfade">
-      <a href="/notfall/" class="entry-path-link entry-path-link--crisis">Ich bin gerade in einer Krise → Sofort-Hilfe</a>
-      <a href="/modul/1/" class="entry-path-link">Ich möchte die Krankheit verstehen → Modul 1</a>
-      <a href="/werkzeuge/" class="entry-path-link">Ich suche praktische Werkzeuge → Alle Werkzeuge</a>
-    </nav>
-  </div>
-</section>
 
 <main id="main-content">
 
@@ -97,7 +93,6 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 
 <!-- ══════════ MODULES ══════════ -->
 <section id="module">
-  <div class="section-label reveal">Inhalt</div>
   <h2 class="section-title reveal">Die 8 Module im Überblick</h2>
   <p class="section-desc reveal">Wählen Sie das Modul, das Ihrer Lage am nächsten kommt. Sie müssen nicht bei Modul 1 anfangen.</p>
 
