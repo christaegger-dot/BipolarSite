@@ -365,7 +365,7 @@ body.phasenverlauf-page .chart-wrap{width:100%;border-radius:var(--card-radius);
 .det-col-lbl{font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:8px}
 .det-col ul{list-style:none;display:flex;flex-direction:column;gap:5px}
 .det-col li{font-size:var(--text-xs);line-height:1.5;padding-left:14px;position:relative;color:var(--slate)}
-.det-col li::before{content:'–';position:absolute;left:0;color:#c5bdb5}
+.det-col li::before{content:'–';position:absolute;left:0;color:var(--slate-warm)}
 .det-note{border-radius:var(--radius-md);padding:12px 15px;font-size:var(--text-xs);line-height:1.5;color:var(--slate)}
 .det-note strong{color:var(--navy)}
 .hint{text-align:center;font-size:var(--text-xs);color:var(--text-soft);margin:0 0 18px;line-height:1.5}

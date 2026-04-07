@@ -141,6 +141,59 @@
   --severe-dep-phase-bg:     #e4eaf2;
   --severe-dep-phase-border: #8899aa;
 
+  /* Blue phase opacity scale (Module 1 accent) */
+  --blue-phase-subtle: rgba(91,127,165,0.15);
+  --blue-phase-border: rgba(91,127,165,0.3);
+
+  /* Amber opacity scale (Module 2,4,5 accent) */
+  --amber-faint:         rgba(245,158,74,0.12);
+  --amber-border-accent: rgba(180,83,9,0.25);
+  --amber-border-faint:  rgba(180,83,9,0.12);
+  --amber-dark:          #92400e;
+  --amber-dark-text:     #9A3412;
+
+  /* Sand border scale (Module 3 accent) */
+  --sand-border-accent: rgba(181,138,82,0.25);
+  --sand-border-light:  rgba(181,138,82,0.2);
+
+  /* Green phase opacity scale (Module 6,7 accent) */
+  --green-faint:    rgba(13,122,95,0.08);
+  --green-subtle:   rgba(13,122,95,0.12);
+  --green-border:   rgba(13,122,95,0.15);
+  --green-border-accent: rgba(13,122,95,0.25);
+  --green-light-bg: #f0faf5;
+
+  /* Teal accent scale — darker teal #1e656d (Module 8 accent) */
+  --teal-accent-border:       rgba(30,101,109,0.15);
+  --teal-accent-border-md:    rgba(30,101,109,0.18);
+  --teal-accent-border-accent: rgba(30,101,109,0.25);
+  --teal-accent-border-faint: rgba(30,101,109,0.12);
+  --teal-accent-bg-faint:     rgba(30,101,109,0.04);
+  --teal-accent-bg-subtle:    rgba(30,101,109,0.07);
+
+  /* Purple phase scale (Stigma cognitive) */
+  --purple-light:  #f8f5ff;
+  --purple-mid:    #8b6fc0;
+  --purple-dark:   #5a4580;
+
+  /* Alert/red opacity scale */
+  --alert-coral:       rgba(199,84,80,0.12);
+  --alert-coral-border: rgba(199,84,80,0.3);
+  --alert-warm-bg:     rgba(217,113,90,0.08);
+  --alert-warm-border: rgba(217,113,90,0.2);
+  --alert-dark-hover:  #a33d3a;
+
+  /* Warm pink backgrounds */
+  --warm-pink-bg:      #FFF8F7;
+  --warm-pink-deep:    #FFF2EF;
+  --warm-pink-soft:    #fef8f7;
+  --warm-pink-rose:    #fef2f0;
+
+  /* Misc accent */
+  --old-blue-accent:   #2D5F8A;
+  --slate-cool:        #475569;
+  --slate-warm:        #c5bdb5;
+
   /* Phase colors on dark bg (Durchatmen, Phasenverlauf) */
   --navy-deep:       #294051;
   --blue-phase-on-dark:  #93b4d4;
@@ -285,6 +338,8 @@
 
   --overlay-dark:  rgba(0,0,0,0.3);
   --overlay-light: rgba(0,0,0,0.15);
+  --overlay-warm:  rgba(42,33,27,0.38);
+  --overlay-barely: rgba(0,0,0,0.015);
 
 
   /* ══════════════════════════════════════════
