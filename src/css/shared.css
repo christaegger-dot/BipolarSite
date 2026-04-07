@@ -271,6 +271,7 @@ a, button, input, select, textarea,
 }
 .overview-intro {
   display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
   gap: var(--grid-gap-standard);
   margin: 12px auto 0;
 }
@@ -292,7 +293,7 @@ a, button, input, select, textarea,
   color: var(--slate);
 }
 .overview-content {
-  padding: 0 2rem var(--section-wide);
+  padding: 0 2rem var(--section-tight);
 }
 .overview-footer-note {
   max-width: 760px;
@@ -312,7 +313,7 @@ a, button, input, select, textarea,
     padding: 104px 1.2rem 28px;
   }
   .overview-content {
-    padding: 0 1.2rem var(--section-standard);
+    padding: 0 1.2rem var(--section-tight);
   }
   .overview-note {
     padding: 20px 18px;
