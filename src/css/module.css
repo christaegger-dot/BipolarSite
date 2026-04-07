@@ -374,8 +374,7 @@
   transition: box-shadow 0.4s ease, transform 0.4s ease, border-color 0.4s ease;
 }
 .next-module-card:hover {
-  box-shadow: var(--shadow-soft); transform: translateY(-3px);
-  border-color: var(--teal-light);
+  box-shadow: var(--shadow-soft);
 }
 .next-module-label {
   font-size: var(--text-xs); font-weight: 700; text-transform: uppercase;
@@ -1039,8 +1038,8 @@ body.pdf-preview-open { overflow: hidden; }
 
 /* ── Situation Selector ── */
 .situations{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gap-tight);margin:0 0 40px}
-.sit-card{display:flex;align-items:center;gap:var(--grid-gap-tight);padding:16px 20px;min-height:44px;border-radius:var(--card-radius);text-decoration:none;color:var(--text);border:1px solid var(--border-warm);transition:border-color 0.2s ease,box-shadow 0.2s ease,transform 0.2s ease;background:var(--card)}
-.sit-card:hover{box-shadow:var(--shadow-card);transform:translateY(-2px)}
+.sit-card{display:flex;align-items:center;gap:var(--grid-gap-tight);padding:16px 20px;min-height:44px;border-radius:var(--card-radius);text-decoration:none;color:var(--text);border:1px solid var(--border-warm);transition:box-shadow 0.2s ease;background:var(--card)}
+.sit-card:hover{box-shadow:var(--shadow-soft)}
 .sit-card.urgent{border-color:var(--alert-red-border);background:var(--alert-soft)}
 .sit-card.urgent:hover{border-color:var(--alert)}
 .sit-badge{width:36px;height:36px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:var(--text-xs);font-weight:800;flex-shrink:0}
@@ -1052,8 +1051,8 @@ body.pdf-preview-open { overflow: hidden; }
 
 /* ── Numbers Grid ── */
 .numbers-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gap-tight);margin:24px 0}
-.number-card{background:var(--card);border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:16px 20px;display:flex;align-items:center;gap:var(--grid-gap-tight);transition:box-shadow 0.2s ease,transform 0.2s ease;border-top:3px solid transparent;text-decoration:none;color:inherit}
-.number-card:hover{box-shadow:var(--shadow-card);transform:translateY(-2px)}
+.number-card{background:var(--card);border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:16px 20px;display:flex;align-items:center;gap:var(--grid-gap-tight);transition:box-shadow 0.2s ease;border-top:3px solid transparent;text-decoration:none;color:inherit}
+.number-card:hover{box-shadow:var(--shadow-soft)}
 .numbers-grid .number-card:nth-child(-n+2){background:var(--warm-pink-bg);border-color:var(--alert-subtle);border-top-color:var(--alert)}
 .number-card strong{display:block;font-family:'DM Sans',sans-serif;font-size:var(--text-lg);font-weight:700;color:var(--alert)}
 .number-label{font-size:var(--text-xs);color:var(--slate);line-height:1.5}
@@ -1076,7 +1075,7 @@ body.pdf-preview-open { overflow: hidden; }
 @media(max-width:600px){.fu-steps{grid-template-columns:1fr 1fr}.fu-step:nth-child(2){border-right:none}.fu-step:nth-child(n+3){border-top:1px solid var(--alert-red-border)}}
 
 /* ── Mini Guides ── */
-.guide{background:var(--card);border:1px solid var(--border-warm);border-radius:var(--card-radius);margin:20px 0;overflow:hidden;transition:box-shadow 0.2s ease,transform 0.2s ease;border-left:4px solid transparent}.guide:hover{box-shadow:0 16px 34px rgba(28,43,58,0.08);transform:translateY(-2px)}
+.guide{background:var(--card);border:1px solid var(--border-warm);border-radius:var(--card-radius);margin:20px 0;overflow:hidden;transition:box-shadow 0.2s ease;border-left:4px solid transparent}.guide:hover{box-shadow:var(--shadow-soft)}
 #guide-suizid,#guide-manie,#guide-psychose,#guide-gewalt{border-left-color:var(--alert)}
 #guide-depression{border-left-color:var(--blue-phase)}
 #guide-finanzen{border-left-color:var(--amber)}
@@ -1266,9 +1265,9 @@ body.pdf-preview-open{overflow:hidden}
 .treatment-card {
   background: var(--card); border: 1px solid var(--border-warm);
   border-radius: var(--radius-md); padding: var(--temp-dense-padding);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  transition: box-shadow 0.2s ease;
 }
-.treatment-card:hover { box-shadow: var(--shadow-soft); transform: translateY(-2px); }
+.treatment-card:hover { box-shadow: var(--shadow-soft); }
 .treatment-card-icon {
   width: 42px; height: 42px; border-radius: 11px;
   background: var(--success-soft); color: var(--teal-dark);
@@ -1958,8 +1957,6 @@ select:focus {
 
 .module-card:hover {
   box-shadow: var(--shadow-soft);
-  border-color: var(--teal);
-  transform: translateY(-2px);
 }
 
 .module-card::before {

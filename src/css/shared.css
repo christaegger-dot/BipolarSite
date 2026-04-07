@@ -158,17 +158,11 @@ footer {
   color: var(--slate);
   padding: var(--section-wide) 2rem var(--section-standard);
   margin-top: var(--section-wide);
-  border-top: none;
+  border-top: 1px solid var(--border-warm);
   position: relative;
 }
 footer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent 10%, var(--teal-light) 50%, transparent 90%);
+  display: none;
 }
 .footer-inner {
   max-width: var(--content-width);
@@ -404,7 +398,7 @@ a, button, input, select, textarea,
   border: 1px solid var(--border-warm);
   border-radius: var(--card-radius);
   padding: var(--card-padding);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, border-left-width 0.2s ease;
+  transition: box-shadow 0.2s ease;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -412,22 +406,10 @@ a, button, input, select, textarea,
 }
 .module-card:hover {
   box-shadow: var(--shadow-soft);
-  transform: translateY(-2px);
 }
 
-/* Accent: left border + hover border + number color */
-.module-card { border-left: 3px solid transparent; }
-.module-card[data-accent="blue"]   { border-left-color: var(--blue-phase); }
-.module-card[data-accent="amber"]  { border-left-color: var(--amber); }
-.module-card[data-accent="purple"] { border-left-color: var(--purple-phase); }
-.module-card[data-accent="green"]  { border-left-color: var(--phase-green); }
-.module-card[data-accent="teal"]   { border-left-color: var(--teal); }
-
-.module-card[data-accent="blue"]:hover   { border-color: var(--blue-phase);   border-left-width: 4px; }
-.module-card[data-accent="amber"]:hover  { border-color: var(--amber);  border-left-width: 4px; }
-.module-card[data-accent="purple"]:hover { border-color: var(--purple-phase); border-left-width: 4px; }
-.module-card[data-accent="green"]:hover  { border-color: var(--phase-green);  border-left-width: 4px; }
-.module-card[data-accent="teal"]:hover   { border-color: var(--teal);         border-left-width: 4px; }
+/* Accent: consistent teal left border (calmer than 5 different colors) */
+.module-card { border-left: 3px solid var(--teal-light); }
 
 .module-number {
   font-size: var(--text-xs);
@@ -439,11 +421,7 @@ a, button, input, select, textarea,
   padding: 3px 10px;
   border-radius: var(--radius-round);
 }
-.module-card[data-accent="blue"]   .module-number { color: var(--blue-phase); background: var(--blue-phase-light); }
-.module-card[data-accent="amber"]  .module-number { color: var(--amber); background: var(--amber-faint); }
-.module-card[data-accent="purple"] .module-number { color: var(--purple-phase); background: var(--purple-light); }
-.module-card[data-accent="green"]  .module-number { color: var(--phase-green); background: var(--green-faint); }
-.module-card[data-accent="teal"]   .module-number { color: var(--teal); background: var(--teal-faint); }
+.module-number { color: var(--teal-cta); background: var(--teal-faint); }
 
 .module-card h3 {
   font-family: 'DM Sans', sans-serif;
@@ -702,12 +680,10 @@ a, button, input, select, textarea,
   text-decoration: none;
   border: 1px solid var(--border-warm);
   background: rgba(255,255,255,0.7);
-  transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  transition: box-shadow 0.2s ease;
 }
 .entry-path:hover {
-  box-shadow: var(--shadow-card);
-  border-color: var(--teal-light);
-  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
 }
 .entry-path-icon {
   font-size: var(--text-xl);
@@ -938,7 +914,7 @@ a, button, input, select, textarea,
 .tools-highlight > p{font-size:var(--text-base);color:var(--slate);margin-bottom:20px;max-width:48ch}
 .tools-highlight-grid{display:grid;grid-template-columns:repeat(4, 1fr);gap:var(--grid-gap-tight)}
 .tool-highlight-card{background:var(--card);border:1px solid var(--border-warm);border-radius:var(--card-radius);padding:20px;text-decoration:none;color:var(--navy);transition:box-shadow 0.2s,transform 0.2s}
-.tool-highlight-card:hover{box-shadow:var(--shadow-card);transform:translateY(-2px)}
+.tool-highlight-card:hover{box-shadow:var(--shadow-soft)}
 .tool-highlight-icon{width:40px;height:40px;border-radius:var(--radius-sm);background:var(--teal-faint);color:var(--teal);display:flex;align-items:center;justify-content:center;margin-bottom:12px;font-size:var(--text-lg);border:1px solid var(--teal-subtle)}
 .tool-highlight-card h3{font-size:var(--text-base);font-weight:700;margin-bottom:4px}
 .tool-highlight-card p{font-size:var(--text-xs);color:var(--slate);line-height:1.5;margin:0}
