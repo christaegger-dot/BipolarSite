@@ -156,8 +156,8 @@ body {
 footer {
   background: var(--surface-alt);
   color: var(--slate);
-  padding: var(--section-wide) 2rem var(--section-standard);
-  margin-top: var(--section-wide);
+  padding: var(--section-tight) 2rem;
+  margin-top: 0;
   border-top: 1px solid var(--border-warm);
   position: relative;
 }
@@ -660,7 +660,6 @@ a, button, input, select, textarea,
 .tools-highlight { padding-top: var(--section-standard); padding-bottom: var(--section-standard); }
 .story-section { padding-top: var(--section-wide); padding-bottom: var(--section-wide); }
 .invitation-section { padding-top: var(--section-wide); padding-bottom: var(--section-wide); }
-.about-section { padding-top: var(--section-standard); padding-bottom: var(--section-standard); }
 
 /* Thin rules between homepage sections — book-like chapter dividers */
 .entry-paths-section::after,
@@ -983,44 +982,22 @@ a, button, input, select, textarea,
   .invitation-phone, .invitation-email { width: 100%; justify-content: center; }
 }
 
-/* ── Wer steht dahinter ── */
-.about-section {
-  background: var(--surface-alt);
-  padding: var(--section-standard) 2rem;
-}
-.about-inner {
+/* ── Wer steht dahinter (compact aside) ── */
+.about-aside {
   max-width: 620px;
   margin: 0 auto;
-  padding: 0;
-  background: none;
-  border: none;
-  border-radius: 0;
+  padding: var(--section-tight) 2rem var(--section-standard);
+  text-align: center;
 }
-.about-label {
-  font-size: var(--text-xs);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--text-soft);
-  margin-bottom: 10px;
-}
-.about-section h2 {
-  font-family: 'DM Serif Display', serif;
-  font-size: var(--text-lg);
-  font-weight: 400;
-  color: var(--navy);
-  margin-bottom: 14px;
-}
-.about-inner p {
+.about-aside p {
   font-size: var(--text-xs);
   line-height: 1.75;
-  color: var(--slate);
-  margin: 0 0 8px;
+  color: var(--text-soft);
+  margin: 0;
 }
-.about-inner p:last-child { margin-bottom: 0; }
-.about-inner a { color: var(--teal); }
+.about-aside a { color: var(--teal-cta); }
 @media (max-width: 600px) {
-  .about-section { padding: 40px 1.4rem 48px; }
+  .about-aside { padding: var(--space-xl) 1.4rem var(--section-tight); }
 }
 
 /* ── Homepage Responsive ── */
@@ -1347,7 +1324,6 @@ header.hero[style*="linear-gradient"] {
 .home-hero-badge,
 .section-label,
 .story-label,
-.about-label,
 .tools-highlight-label,
 .quick-triage-label {
   background: none;
@@ -1453,8 +1429,7 @@ section,
 
 /* ── Full-bleed sections (background color) reset max-width ── */
 .story-section,
-.invitation-section,
-.about-section {
+.invitation-section {
   max-width: none;
 }
 
@@ -1548,55 +1523,27 @@ footer {
   color: var(--navy);
 }
 
-.footer-inner--editorial {
-  display: grid;
-  grid-template-columns: minmax(220px, 1fr) minmax(240px, 1fr);
-  gap: var(--space-xl);
-  align-items: start;
-}
-
-.footer-meta p,
-.footer-note p {
-  margin: 0 0 8px;
-  font-size: var(--text-xs);
-  line-height: 1.75;
-  color: var(--slate);
-}
-
-.footer-org {
-  font-weight: 700;
-  color: var(--navy);
-}
-
-.footer-note {
+/* ── Compact footer layout ── */
+.footer-inner--compact {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 12px;
+  text-align: center;
 }
 
-.footer-note p {
-  max-width: 34ch;
-}
-
-.footer-invitation {
-  color: var(--navy);
-  font-weight: 400;
-  font-size: var(--text-lg);
-  font-family: 'DM Serif Display', serif;
-  line-height: 1.5;
-}
-.footer-contact a {
-  color: var(--teal-cta);
-  text-decoration: underline;
-  text-decoration-color: var(--teal-muted);
-  text-underline-offset: 3px;
-  font-weight: 600;
+.footer-credit {
+  font-size: var(--text-xs);
+  color: var(--text-soft);
+  margin: 0;
 }
 
 .footer-disclaimer {
   font-size: var(--text-xs);
   color: var(--slate);
+  margin: 0;
 }
+.footer-disclaimer a { color: var(--rose-text); font-weight: 600; }
 
 .footer-link-alert {
   color: var(--rose-text);
@@ -1605,30 +1552,6 @@ footer {
 
 .footer-link-alert:hover {
   color: var(--rose);
-}
-
-p.footer-address {
-  color: var(--slate);
-  font-size: var(--text-xs);
-}
-
-p.footer-attribution {
-  color: var(--slate);
-  font-size: var(--text-xs);
-  margin-top: 4px;
-}
-
-@media (max-width: 900px) {
-  .footer-inner--editorial {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-  .footer-note p {
-    max-width: none;
-  }
-  p.footer-address {
-    display: none;
-  }
 }
 
 /* ── [from overrides.css] ACCESSIBILITY & VISITED LINKS ── */
