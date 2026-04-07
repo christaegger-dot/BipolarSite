@@ -795,17 +795,20 @@ a, button, input, select, textarea,
 .triage-restart{display:block;margin-top:12px;background:none;border:1px solid var(--border-warm-md);padding:12px 16px;border-radius:var(--radius-sm);font-size:var(--text-sm);color:var(--text-soft);cursor:pointer;transition:border-color 0.2s,color 0.2s;min-height:44px}
 .triage-restart:hover{border-color:var(--teal-solid);color:var(--teal-cta)}
 
-/* ── Tools Highlight (editorial list, subtle background section) ── */
+/* ── Tools Highlight (card grid, same axis as modules) ── */
 .tools-highlight h2{font-family:'DM Serif Display',serif;font-size:var(--text-xl);font-weight:400;color:var(--navy);margin-bottom:8px}
 .tools-highlight > p{font-size:var(--text-base);color:var(--slate);margin-bottom:var(--space-lg);max-width:48ch}
-.tools-list{display:flex;flex-direction:column;gap:0;max-width:var(--content-width)}
-.tools-list-item{display:block;padding:14px 0;border-bottom:1px solid var(--border-warm);text-decoration:none;font-size:var(--text-base);line-height:1.6;color:var(--slate);transition:color 0.2s ease}
-.tools-list-item:first-child{border-top:1px solid var(--border-warm)}
-.tools-list-item strong{color:var(--navy);font-weight:600}
-.tools-list-item span{color:var(--text-soft)}
-.tools-list-item:hover{color:var(--teal-cta)}
-.tools-list-item:hover strong{color:var(--teal-cta)}
-.tools-list-item--all{font-weight:600;color:var(--teal-cta)}
+.tools-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--grid-gap-standard);max-width:var(--wide-width)}
+.tool-card{text-decoration:none;color:var(--text);background:var(--card);border:1px solid var(--border-warm);border-left:3px solid var(--teal-light);border-radius:var(--card-radius);padding:var(--card-padding);transition:box-shadow 0.2s ease;display:flex;flex-direction:column;gap:var(--grid-gap-tight);position:relative}
+.tool-card:hover{box-shadow:var(--card-shadow-hover)}
+.tool-badge{font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.06em;display:inline-flex;align-items:center;padding:3px 10px;border-radius:var(--radius-round);color:var(--navy);background:var(--teal-subtle);width:fit-content}
+.tool-card h3{font-family:'DM Sans',sans-serif;font-size:var(--text-lg);font-weight:700;line-height:1.15;letter-spacing:-0.015em;color:var(--navy-mid)}
+.tool-card p{font-size:var(--text-base);color:var(--slate);line-height:1.5;flex:1}
+.tool-arrow{color:var(--sand);font-size:var(--text-lg);text-align:right;transition:color 0.2s ease}
+.tool-card:hover .tool-arrow{color:var(--teal-cta)}
+.tools-all-link{display:inline-block;margin-top:var(--space-lg);font-weight:600;color:var(--teal-cta);text-decoration:none;font-size:var(--text-base)}
+.tools-all-link:hover{text-decoration:underline}
+@media(max-width:900px){.tools-grid{grid-template-columns:1fr}}
 
 /* ── Erfahrungsbericht ── */
 .story-section {
@@ -1757,11 +1760,7 @@ header.hero .hero-content {
 }
 
 /* ── [from overrides.css] TOOL CHIPS ── */
-.tools-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--grid-gap-tight);
-}
+/* .tools-grid override removed — now a CSS Grid (see line ~801) */
 
 .tool-chip {
   display: inline-flex;
