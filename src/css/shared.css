@@ -130,8 +130,8 @@ body {
     padding: 12px;
     background: var(--card);
     border: 1px solid var(--border-warm-md);
-    border-radius: 16px;
-    box-shadow: 0 12px 30px rgba(45,40,35,0.14);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-elevated);
     z-index: 60;
   }
   .nav-links.nav-open a { display: block; padding: 10px 12px; }
@@ -218,7 +218,7 @@ a, button, input, select, textarea,
 .overview-hero::after {
   content: '';
   position: absolute;
-  border-radius: 50%;
+  border-radius: var(--radius-round);
 }
 .overview-hero-inner,
 .overview-content {
@@ -423,7 +423,7 @@ a, button, input, select, textarea,
 .module-arrow {
   width: 28px;
   height: 28px;
-  border-radius: 50%;
+  border-radius: var(--radius-round);
   background: none;
   border: 1.5px solid var(--border-warm-xl);
   display: flex;
@@ -1054,7 +1054,7 @@ a, button, input, select, textarea,
   text-decoration: none;
   font-size: var(--text-xs);
   font-weight: 700;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  box-shadow: var(--shadow-elevated);
   outline: 2px solid var(--teal-light);
   outline-offset: 2px;
 }
@@ -1196,7 +1196,7 @@ h3, h4 {
 .nav-links.nav-open {
   background: var(--card);
   border-color: var(--border-warm-md);
-  box-shadow: 0 12px 30px rgba(45,40,35,0.14);
+  box-shadow: var(--shadow-elevated);
   border-radius: var(--radius-lg);
 }
 
@@ -1717,7 +1717,7 @@ header.hero .hero-content {
 .hero-cards .quick-card:hover {
   background: rgba(255,255,255,0.13);
   border-color: var(--white-overlay-md);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.22);
+  box-shadow: var(--shadow-elevated);
 }
 
 .hero-cards .quick-card::before {
@@ -1798,7 +1798,7 @@ header.hero .hero-content {
 .module-arrow {
   width: 28px;
   height: 28px;
-  border-radius: 50%;
+  border-radius: var(--radius-round);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1844,7 +1844,7 @@ header.hero .hero-content {
   color: var(--teal);
   background: var(--success-soft);
   transform: translateY(-1px);
-  box-shadow: 0 2px 10px rgba(30,101,109,0.12);
+  box-shadow: var(--shadow-soft);
 }
 
 .tool-chip-icon {
