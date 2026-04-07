@@ -2494,7 +2494,3 @@ table tbody tr:nth-child(even),
 /* Ampel card link (modul/6) */
 a.ampel-card{text-decoration:none;display:block}
 
-/* Progress notification (module overview) */
-#progressNext{background:var(--success-soft);border:1px solid var(--green-border);border-radius:var(--radius-sm);padding:14px 18px}
-.progress-label{font-size:var(--text-xs);color:var(--phase-green);font-weight:600}
-.progress-link{font-size:var(--text-base);font-weight:700;color:var(--teal);text-decoration:none}
