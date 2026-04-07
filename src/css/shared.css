@@ -579,7 +579,6 @@ a, button, input, select, textarea,
   display: flex;
   flex-direction: column;
   gap: 0;
-  max-width: 540px;
 }
 .entry-path-link {
   display: block;
@@ -638,7 +637,7 @@ a, button, input, select, textarea,
   padding-bottom: var(--section-tight);
 }
 .tools-highlight {
-  margin-top: var(--space-lg);
+  margin-top: var(--section-tight);
   padding-top: var(--section-tight);
   padding-bottom: var(--section-tight);
   background: var(--teal-faint);
