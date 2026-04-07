@@ -99,10 +99,10 @@
      ══════════════════════════════════════════ */
 
   --border:      rgba(45,40,35,0.08);
-  --border-warm-sm: rgba(45,40,35,0.03);  /* lightest warm border (footer dividers) */
-  --border-warm:    rgba(45,40,35,0.05);
-  --border-warm-md: rgba(45,40,35,0.07);
-  --border-warm-xl: rgba(45,40,35,0.1);
+  --border-warm-sm: rgba(45,40,35,0.04);  /* subtle: dividers, card edges, footer lines */
+  --border-warm:    rgba(45,40,35,0.04);  /* default warm border — unified with sm */
+  --border-warm-md: rgba(45,40,35,0.08);  /* visible: section separators, active states */
+  --border-warm-xl: rgba(45,40,35,0.08);  /* same as md — was 0.1, too many steps */
 
 
   /* ══════════════════════════════════════════
@@ -258,7 +258,8 @@
   --card-radius:  var(--radius-md);
   --card-border:  1px solid var(--border-warm);
   --card-padding: var(--space-lg);
-  --card-shadow:  none;
+  --card-shadow:  none;  /* shadows only on hover — editorial, not app */
+  --card-shadow-hover: 0 8px 24px rgba(122,111,102,0.07);
 
 
   /* ══════════════════════════════════════════
@@ -306,8 +307,8 @@
   --grid-gap-standard: 24px;
   --content-gap:       24px;
   --group-gap:         40px;
-  --content-width:      640px;
-  --content-width-wide: 900px;
+  --content-width:      720px;   /* was 640px — more desktop presence, better line length */
+  --content-width-wide: 960px;   /* was 900px — grids and hero sections breathe */
   --wide-width:         1140px;
 
 

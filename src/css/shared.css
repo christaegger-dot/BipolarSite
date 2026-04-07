@@ -260,10 +260,10 @@ a, button, input, select, textarea,
   letter-spacing: -0.035em;
   color: var(--navy);
   margin: 0 0 16px;
-  max-width: 760px;
+  max-width: var(--content-width-wide);
 }
 .overview-lead {
-  max-width: 760px;
+  max-width: var(--content-width-wide);
   font-size: var(--text-base);
   line-height: 1.75;
   color: var(--slate);
@@ -296,7 +296,7 @@ a, button, input, select, textarea,
   padding: 0 2rem var(--section-tight);
 }
 .overview-footer-note {
-  max-width: 760px;
+  max-width: var(--content-width-wide);
   margin-top: var(--space-xl);
   font-size: var(--text-base);
   line-height: 1.75;
@@ -346,7 +346,7 @@ a, button, input, select, textarea,
 .section-desc {
   font-size: var(--text-base);
   color: var(--slate);
-  max-width: 540px;
+  max-width: 60ch;
   line-height: 1.75;
   margin-bottom: var(--space-lg);
 }
@@ -495,7 +495,7 @@ a, button, input, select, textarea,
   z-index: 2;
 }
 .home-hero-text {
-  max-width: 660px;
+  max-width: var(--content-width);
   position: relative;
   z-index: 3;
 }
@@ -527,7 +527,7 @@ a, button, input, select, textarea,
   line-height: 1.1;
   letter-spacing: -0.03em;
   color: var(--navy);
-  max-width: 660px;
+  max-width: var(--content-width);
   margin-bottom: var(--space-lg);
 }
 .home-hero h1 em {
@@ -537,7 +537,7 @@ a, button, input, select, textarea,
 .home-hero-subtitle {
   font-size: var(--text-lg);
   color: var(--slate);
-  max-width: 540px;
+  max-width: 60ch;
   line-height: 1.7;
   margin-bottom: var(--space-2xl);
 }
@@ -567,7 +567,7 @@ a, button, input, select, textarea,
   margin-top: var(--space-3xl);
   padding-top: var(--space-lg);
   border-top: 1px solid var(--border-warm-md);
-  max-width: 540px;
+  max-width: var(--content-width);
 }
 .home-hero-paths-lead {
   font-size: var(--text-sm);
@@ -624,28 +624,30 @@ a, button, input, select, textarea,
 /* Vertical rhythm — visual flow through alternating treatments:
    Hero+paths (surface-alt) → Triage (subtle bg) → Modules (white) →
    Tools (subtle bg) → Story (rosé) → Invitation (surface-alt) */
+/* Consistent section rhythm: --section-standard (64px) for all major sections.
+   Was mixed 40px/64px — unified for calmer vertical flow. */
 #orientierung {
-  margin-top: var(--section-tight);
-  padding-top: var(--section-tight);
-  padding-bottom: var(--section-tight);
+  margin-top: var(--section-standard);
+  padding-top: var(--section-standard);
+  padding-bottom: var(--section-standard);
   background: var(--sand-faint);
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-warm);
 }
 #module {
   padding-top: var(--section-standard);
-  padding-bottom: var(--section-tight);
+  padding-bottom: var(--section-standard);
 }
 .tools-highlight {
-  margin-top: var(--section-tight);
-  padding-top: var(--section-tight);
-  padding-bottom: var(--section-tight);
+  margin-top: var(--section-standard);
+  padding-top: var(--section-standard);
+  padding-bottom: var(--section-standard);
   background: var(--teal-faint);
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-warm);
 }
-.story-section { padding-top: var(--section-tight); padding-bottom: var(--section-tight); }
-.invitation-section { padding-top: var(--section-tight); padding-bottom: var(--section-tight); }
+.story-section { padding-top: var(--section-standard); padding-bottom: var(--section-standard); }
+.invitation-section { padding-top: var(--section-standard); padding-bottom: var(--section-standard); }
 
 .urgent-note-standalone {
   margin: var(--space-sm) 0 0;
@@ -799,7 +801,7 @@ a, button, input, select, textarea,
 /* ── Tools Highlight (editorial list, subtle background section) ── */
 .tools-highlight h2{font-family:'DM Serif Display',serif;font-size:var(--text-xl);font-weight:400;color:var(--navy);margin-bottom:8px}
 .tools-highlight > p{font-size:var(--text-base);color:var(--slate);margin-bottom:var(--space-lg);max-width:48ch}
-.tools-list{display:flex;flex-direction:column;gap:0;max-width:540px}
+.tools-list{display:flex;flex-direction:column;gap:0;max-width:var(--content-width)}
 .tools-list-item{display:block;padding:14px 0;border-bottom:1px solid var(--border-warm);text-decoration:none;font-size:var(--text-base);line-height:1.6;color:var(--slate);transition:color 0.2s ease}
 .tools-list-item:first-child{border-top:1px solid var(--border-warm)}
 .tools-list-item strong{color:var(--navy);font-weight:600}
@@ -816,7 +818,7 @@ a, button, input, select, textarea,
   padding-right: 2rem;
 }
 .story-inner {
-  max-width: 680px;
+  max-width: var(--content-width);
   margin: 0 auto;
   background: none;
   border: none;
@@ -887,7 +889,7 @@ a, button, input, select, textarea,
   padding-right: 2rem;
 }
 .invitation-inner {
-  max-width: 560px;
+  max-width: var(--content-width);
   margin: 0 auto;
   text-align: center;
   padding: 0;
@@ -951,7 +953,7 @@ a, button, input, select, textarea,
 
 /* ── Wer steht dahinter (compact aside) ── */
 #main-content > .about-aside {
-  max-width: 620px;
+  max-width: var(--content-width);
   padding-top: var(--space-xl);
   padding-bottom: var(--section-tight);
   text-align: center;
@@ -1429,7 +1431,7 @@ header.hero[style*="linear-gradient"] {
 }
 
 .cta-inner {
-  max-width: 600px;
+  max-width: var(--content-width);
 }
 
 /* ── [from overrides.css] FOOTER ── */
@@ -1633,7 +1635,7 @@ header.hero .hero-content {
 }
 
 .hero-text {
-  max-width: 520px;
+  max-width: 60ch;
 }
 
 .hero-text .hero-subtitle {
