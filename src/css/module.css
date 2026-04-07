@@ -960,7 +960,7 @@ body.pdf-preview-open { overflow: hidden; }
   font-size: var(--text-base);
   color: var(--text-soft);
   line-height: 1.75;
-  max-width: 540px;
+  max-width: 60ch;
   margin: 0 auto 20px;
 }
 .completion-steps {
@@ -1003,7 +1003,7 @@ body.pdf-preview-open { overflow: hidden; }
 .hero-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--grid-gap-standard);align-items:center;position:relative;z-index:2}
 .hero-copy{text-align:left}
 .notfall-hero h1{font-family:'DM Serif Display',serif;font-size:var(--text-3xl);font-weight:400;color:#ffffff;margin-bottom:12px}
-.notfall-hero p{font-size:var(--text-base);color:var(--white-text);max-width:560px;margin:0 0 20px}
+.notfall-hero p{font-size:var(--text-base);color:var(--white-text);max-width:60ch;margin:0 0 20px}
 
 /* ── Emergency Strip (Hero) ── */
 .emergency-strip-hero{display:flex;gap:var(--grid-gap-tight);margin-bottom:24px;flex-wrap:wrap}
@@ -1848,7 +1848,7 @@ body.pdf-preview-open{overflow:hidden}
 .mini-plan-summary strong{color:var(--navy)}
 .closing{text-align:center;padding:48px 40px}
 .closing h2{font-family:'DM Serif Display',serif;font-size:var(--text-xl);font-weight:400;margin-bottom:20px;line-height:1.15}
-.closing p{font-size:var(--text-base);line-height:1.75;color:var(--white-text);margin-bottom:12px;max-width:560px;margin-left:auto;margin-right:auto}
+.closing p{font-size:var(--text-base);line-height:1.75;color:var(--white-text);margin-bottom:12px;max-width:60ch;margin-left:auto;margin-right:auto}
 .closing .closing-emphasis{font-family:'DM Serif Display',serif;font-size:var(--text-lg);font-style:italic;color:var(--white-text);margin-top:24px}
 
 /* ── Module-Specific Responsive ── */
