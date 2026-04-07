@@ -150,19 +150,19 @@ breadcrumbs:
 
   <div class="phase-explorer reveal content-wide">
     <div class="phase-tabs" role="tablist" aria-label="Erkrankungsphasen">
-      <button class="phase-tab active-mania" role="tab" aria-selected="true" aria-controls="phase-mania" data-phase="mania">
+      <button class="phase-tab active-mania" role="tab" aria-selected="true" aria-controls="phase-mania" id="tab-mania" data-phase="mania">
         <span class="phase-tab-icon">↑</span> Manie / Hypomanie
       </button>
-      <button class="phase-tab" role="tab" aria-selected="false" aria-controls="phase-stable" data-phase="stable">
+      <button class="phase-tab" role="tab" aria-selected="false" aria-controls="phase-stable" id="tab-stable" data-phase="stable">
         <span class="phase-tab-icon">→</span> Stabile Phase
       </button>
-      <button class="phase-tab" role="tab" aria-selected="false" aria-controls="phase-depression" data-phase="depression">
+      <button class="phase-tab" role="tab" aria-selected="false" aria-controls="phase-depression" id="tab-depression" data-phase="depression">
         <span class="phase-tab-icon">↓</span> Depression
       </button>
     </div>
 
     <!-- Mania -->
-    <div class="phase-content visible" id="phase-mania" role="tabpanel">
+    <div class="phase-content visible" id="phase-mania" role="tabpanel" aria-labelledby="tab-mania">
       <div class="phase-header phase-header--mania">Manie / Hypomanie</div>
       <div class="phase-subtitle">Nicht nur «zu gute Laune», sondern oft Gereiztheit, Enthemmung und fehlende Einsicht</div>
 
@@ -191,7 +191,7 @@ breadcrumbs:
     </div>
 
     <!-- Stable -->
-    <div class="phase-content" id="phase-stable" role="tabpanel">
+    <div class="phase-content" id="phase-stable" role="tabpanel" aria-labelledby="tab-stable">
       <div class="phase-header phase-header--stable">Stabile Phase (Euthymie)</div>
       <div class="phase-subtitle">Wichtige Zeitfenster — aber nicht immer echte innere Entwarnung</div>
 
@@ -215,7 +215,7 @@ breadcrumbs:
     </div>
 
     <!-- Depression -->
-    <div class="phase-content" id="phase-depression" role="tabpanel">
+    <div class="phase-content" id="phase-depression" role="tabpanel" aria-labelledby="tab-depression">
       <div class="phase-header phase-header--depression">Depression</div>
       <div class="phase-subtitle">Nicht nur Traurigkeit, sondern Leere, Verlangsamung und oft lange Hilflosigkeit auf beiden Seiten</div>
 
