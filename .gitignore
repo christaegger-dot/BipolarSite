@@ -1,2 +1,12 @@
 node_modules/
 _site/
+
+# Eleventy builds to _site/ — don't commit build output at root
+404.html
+index.html
+modul/
+module/
+tools/
+notfall/
+impressum/
+werkzeuge/
