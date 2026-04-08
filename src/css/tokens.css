@@ -49,7 +49,8 @@
   --teal-light:  rgba(168,213,203,0.3);
   --teal-dark:   rgba(58,154,163,0.9);
 
-  /* Accessible CTA teal — opaque, 4.69:1 on white (WCAG AA) */
+  /* Accessible teal for text — opaque, 4.69:1 on white (WCAG AA) */
+  --teal-text:   #287f87;
   --teal-cta:    #287f87;
 
   /* Darker teal for full-bleed dark backgrounds (5.2:1 with white — AAA large text) */
