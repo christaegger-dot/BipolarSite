@@ -95,11 +95,9 @@
      BORDERS
      ══════════════════════════════════════════ */
 
-  --border:      rgba(45,40,35,0.08);
-  --border-warm-sm: rgba(45,40,35,0.04);  /* subtle: dividers, card edges, footer lines */
-  --border-warm:    rgba(45,40,35,0.04);  /* default warm border — unified with sm */
+  --border:         rgba(45,40,35,0.08);
+  --border-warm:    rgba(45,40,35,0.04);  /* subtle: dividers, card edges, footer lines */
   --border-warm-md: rgba(45,40,35,0.08);  /* visible: section separators, active states */
-  --border-warm-xl: rgba(45,40,35,0.08);  /* same as md — was 0.1, too many steps */
 
 
   /* ══════════════════════════════════════════
