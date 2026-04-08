@@ -1581,7 +1581,7 @@ body.pdf-preview-open{overflow:hidden}
 .stabil-prio-col{display:flex;flex-direction:column}
 .stabil-prio-col:not(:last-child){border-right:1px solid var(--border)}
 .stabil-prio-header{padding:10px 16px;background:var(--surface-alt);border-bottom:1px solid var(--border);font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-soft);display:flex;align-items:center;gap:var(--space-sm)}
-.stabil-prio-num{width:18px;height:18px;border-radius:var(--radius-round);background:var(--teal);color:var(--cta-primary-text);font-size:var(--text-xs);font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.stabil-prio-num{width:18px;height:18px;border-radius:var(--radius-round);background:var(--teal-cta);color:var(--cta-primary-text);font-size:var(--text-xs);font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .stabil-prio-num--2{background:var(--amber)}
 .stabil-prio-num--3{background:var(--slate)}
 .stabil-prio-items{padding:var(--space-base) var(--space-md);display:flex;flex-direction:column;gap:10px}
@@ -1754,7 +1754,7 @@ body.pdf-preview-open{overflow:hidden}
 .material-finder-option:hover{border-color:var(--teal-light);box-shadow:var(--shadow-soft);transform:translateY(-1px)}
 .material-finder-option.is-active{border-color:var(--teal-solid);background:var(--success-soft)}
 .material-finder-icon{min-width:78px;height:34px;padding:0 10px;border-radius:var(--radius-sm);background:rgba(221,210,191,0.3);color:var(--sand-ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:var(--text-xs);font-weight:800;letter-spacing:0.04em;text-transform:none}
-.material-finder-option.is-active .material-finder-icon{background:var(--teal);color:var(--cta-primary-text)}
+.material-finder-option.is-active .material-finder-icon{background:var(--teal-cta);color:var(--cta-primary-text)}
 .material-finder-label{display:block;font-size:var(--text-base);font-weight:700;margin-bottom:3px}
 .material-finder-sub{display:block;font-size:var(--text-xs);color:var(--text-soft);line-height:1.45}
 .material-finder-results{margin-top:var(--space-md);display:grid;gap:var(--space-base)}
@@ -2082,7 +2082,7 @@ article table {
 table thead th,
 table th,
 .content table th {
-  background: var(--teal);
+  background: var(--teal-cta);
   color: var(--cta-primary-text);
   border: 1px solid var(--border);
   font-weight: 700;
