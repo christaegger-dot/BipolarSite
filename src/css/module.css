@@ -263,22 +263,7 @@
 .takeaway-item p { font-size: var(--text-base); line-height: 1.75; color: var(--white-text); margin: 0; }
 .takeaway-item strong { color: var(--cta-primary-text); }
 
-/* ── Community Block (end of each module) ── [temp: standard] */
-.community-block {
-  background: var(--surface-alt);
-  border-left: 4px solid var(--teal-light);
-  border-radius: var(--card-radius);
-  padding: var(--temp-standard-padding);
-  margin: var(--temp-standard-margin) 0;
-}
-.community-block h3 {
-  font-size: var(--text-lg); font-weight: 400;
-  color: var(--navy); margin: 0 0 var(--heading-gap-h4);
-}
-.community-block > p {
-  font-size: var(--text-base); color: var(--slate);
-  line-height: 1.75; margin: 0 0 12px;
-}
+/* .community-block: canonical definition at line ~751 */
 .community-list {
   list-style: none; padding: 0; margin: 0;
 }
@@ -673,8 +658,9 @@ body.pdf-preview-open { overflow: hidden; }
 .reflection-cite { display: block; margin-top: 14px; font-size: var(--text-xs); color: var(--text-soft); font-style: italic; }
 
 /* Hint note spacing variants */
-.hint-note--spaced { margin-bottom: var(--space-xl); }
+.hint-note--spaced { margin-bottom: var(--space-md); }
 .hint-note--spaced-lg { margin-bottom: var(--section-tight); }
+.hint-note--tight { margin-top: var(--space-sm); }
 
 /* Bright moment (positive break) */
 .bright-moment {
@@ -756,14 +742,14 @@ body.pdf-preview-open { overflow: hidden; }
 }
 .community-block h3 {
   font-family: 'DM Sans', sans-serif; font-size: var(--text-lg); font-weight: 600;
-  color: var(--navy); margin-bottom: 10px;
+  color: var(--navy); margin-bottom: var(--heading-gap-h4);
 }
 .community-block > p {
   font-size: var(--text-base); color: var(--slate); line-height: 1.5; margin-bottom: var(--space-md);
 }
 .community-block ul { list-style: none; margin: 0; padding: 0; }
 .community-block li {
-  font-size: var(--text-base); color: var(--slate); padding: 8px 0;
+  font-size: var(--text-base); color: var(--slate); padding: var(--space-sm) 0;
   border-top: 1px solid var(--border-warm); line-height: 1.5;
 }
 .community-block li:first-child { border-top: none; }
@@ -772,7 +758,7 @@ body.pdf-preview-open { overflow: hidden; }
 
 /* Compact community-block (without h3, links only) */
 .community-block:not(:has(h3)) {
-  padding: 18px 24px;
+  padding: var(--space-md) var(--space-lg);
   margin: var(--group-gap) 0;
 }
 .community-block:not(:has(h3)) > p {
@@ -785,7 +771,7 @@ body.pdf-preview-open { overflow: hidden; }
   font-size: var(--text-base);
   color: var(--text-soft);
   border-left: 3px solid var(--teal-border, var(--teal-accent-border-accent));
-  padding: 10px 0 10px 14px;
+  padding: var(--space-base) 0 var(--space-base) var(--space-md);
 }
 .hint-note a { color: var(--teal); }
 .hint-note--alert {
@@ -2384,9 +2370,7 @@ table tbody tr:nth-child(even),
 .alert-box.alert-box--info{border-color:var(--teal-solid);background:var(--success-soft)}
 .alert-box--info .alert-box-icon,.alert-box--info .alert-icon{color:var(--teal-cta)}
 
-/* Hint-note spacing variants */
-.hint-note--spaced{margin-bottom:20px}
-.hint-note--tight{margin-top:4px}
+/* Hint-note spacing variants consolidated to line ~675 */
 
 /* Content list in reveal blocks */
 .content-list-styled{margin:var(--space-base) 0 var(--space-md) 20px;line-height:1.9;color:var(--slate);font-size:var(--text-base)}
