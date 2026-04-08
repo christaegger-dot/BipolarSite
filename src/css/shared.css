@@ -22,6 +22,9 @@ body {
   z-index: 100;
   background: var(--bg);
   border-bottom: 1px solid var(--border);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
 }
 #navbar.scrolled {
   box-shadow: var(--shadow-nav);
@@ -63,7 +66,8 @@ body {
 .nav-brand-text {
   font-family: 'DM Sans', sans-serif;
   font-size: var(--text-base);
-  font-weight: 600;
+  font-weight: 700;
+  color: var(--text);
 }
 .nav-brand-sub {
   font-size: var(--text-xs);
@@ -155,17 +159,17 @@ body {
 /* ── Footer (light, warm — L2 palette) ── */
 footer {
   background: var(--surface-alt);
-  color: var(--slate);
-  padding: var(--section-tight) 2rem;
+  color: var(--navy);
+  padding: var(--space-xl) var(--space-lg) var(--space-2xl);
   margin-top: 0;
-  border-top: 1px solid var(--border-warm);
+  border-top: none;
   position: relative;
 }
 footer::before {
   display: none;
 }
 .footer-inner {
-  max-width: var(--content-width);
+  max-width: var(--wide-width);
   margin: 0 auto;
   text-align: center;
 }
@@ -173,12 +177,16 @@ footer::before {
 .footer-inner a { color: var(--navy); text-decoration: none; }
 .footer-inner a:hover { color:var(--teal-cta); }
 .footer-links {
-  margin-top: var(--space-lg);
-  padding-top: var(--space-lg);
-  border-top: 1px solid var(--border-warm);
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
   font-size: var(--text-xs);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
 }
-.footer-links a { margin: 0 12px; }
+.footer-links a { margin: 0; color: var(--slate); text-decoration: none; }
+.footer-links a:hover { color: var(--navy); }
 
 /* ── Global Transitions (polished interactive feel) ── */
 a, button, input, select, textarea,
@@ -1027,16 +1035,7 @@ a, button, input, select, textarea,
   outline-offset: 2px;
 }
 
-/* ── GLOBAL SURFACE, TEXT & FONT ── */
-body:not(.dark-tool) {
-  background: var(--bg);
-  color: var(--text);
-}
-body {
-  font-family: 'DM Sans', sans-serif;
-  line-height: 1.75;
-  -webkit-font-smoothing: antialiased;
-}
+/* body base consolidated to line ~9; dark-tool override in tools.css */
 
 /* ── [from overrides.css] TYPOGRAPHY ── */
 /* html font-size: 16px already set at line 6 (reset) */
@@ -1071,78 +1070,7 @@ h3, h4 {
   font-weight: 700;
 }
 
-/* ── [from overrides.css] NAVIGATION ── */
-
-/* ── Nav bar (fixed/sticky top bar) ── */
-#navbar {
-  background: var(--bg);
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  border-bottom: 1px solid var(--border);
-  transition: box-shadow 0.3s ease, background-color 0.3s ease;
-}
-
-#navbar.scrolled {
-  box-shadow: var(--shadow-nav);
-  background: var(--bg);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-.nav-inner {
-  max-width: var(--wide-width);
-}
-
-/* ── Logo ── */
-.nav-logo {
-  width: 34px;
-  height: 34px;
-  border-radius: 0;
-  overflow: hidden;
-}
-
-.nav-logo img {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-/* ── Brand text ── */
-.nav-brand {
-  color: var(--text);
-}
-
-.nav-brand-text {
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 700;
-  color: var(--text);
-}
-
-.nav-brand-sub {
-  color: var(--text-soft);
-}
-
-/* ── Links ── */
-.nav-links a {
-  color: var(--text-soft);
-  border-radius: var(--radius-sm);
-}
-
-.nav-links a:hover {
-  background: var(--surface-alt);
-  color: var(--text);
-}
-
-.nav-links a.active {
-  color: var(--teal);
-}
-
-/* ── SOS button (rosé accent — soft, not alarming in nav) ── */
-.nav-sos {
-  background: var(--rose-soft);
-  border: 1px solid var(--rose-border);
-  color: var(--rose-text);
-}
+/* Nav overrides consolidated to lines ~19–102 */
 
 .nav-sos:hover {
   background: var(--rose-badge);
@@ -1401,30 +1329,10 @@ header.hero[style*="linear-gradient"] {
 }
 
 /* ── Wide containers (grids) ── */
-.nav-inner,
-.footer-inner {
+.nav-inner {
   max-width: var(--wide-width);
 }
-
-/* ── Footer links bar ── */
-.footer-links {
-  margin-top: 0;
-  padding-top: 0;
-  border-top: none;
-  font-size: var(--text-xs);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 14px;
-}
-.footer-links a {
-  margin: 0;
-  color: var(--slate);
-  text-decoration: none;
-}
-.footer-links a:hover {
-  color: var(--navy);
-}
-
+/* .footer-inner max-width consolidated to line ~167 */
 
 .guide-body-inner {
   padding: var(--space-lg);
@@ -1434,46 +1342,8 @@ header.hero[style*="linear-gradient"] {
   max-width: var(--content-width);
 }
 
-/* ── [from overrides.css] FOOTER ── */
-footer {
-  background: var(--surface-alt);
-  color: var(--navy);
-  padding: var(--space-xl) var(--space-lg) var(--space-2xl);
-  border-top: none;
-}
-
-.footer-brand h3 {
-  color: var(--navy);
-}
-
-.footer-brand p {
-  color: var(--slate);
-}
-
-.footer-col h4 {
-  color: var(--navy);
-}
-
-.footer-col a {
-  color: var(--slate);
-}
-
-.footer-col a:hover {
-  color: var(--navy);
-}
-
-.footer-bottom {
-  border-top-color: var(--border-warm-sm);
-  color: var(--slate);
-}
-
-.footer-bottom a {
-  color: var(--slate);
-}
-
-.footer-bottom a:hover {
-  color: var(--navy);
-}
+/* Dead CSS removed: .footer-brand, .footer-col, .footer-bottom
+   (old multi-column footer replaced by footer-medium.njk / .footer-inner--compact) */
 
 /* ── Compact footer layout ── */
 .footer-inner--compact {
@@ -1517,13 +1387,24 @@ footer {
 a:visited {
   color: var(--slate);
 }
+/* Exception list: components whose color must NOT change on :visited */
 .nav-links a:visited,
 .nav-sos:visited,
 .tool-back:visited,
-.cta-btn:visited,
 .btn-c:visited,
 .module-card:visited,
 .tool-chip:visited,
+.tool-card:visited,
+.entry-path-link:visited,
+.entry-path-link--crisis:visited,
+.home-hero-link:visited,
+.tools-all-link:visited,
+.invitation-phone:visited,
+.invitation-email:visited,
+.urgent-note-link:visited,
+.footer-link-alert:visited,
+.footer-disclaimer a:visited,
+.about-aside a:visited,
 footer a:visited {
   color: inherit;
 }
