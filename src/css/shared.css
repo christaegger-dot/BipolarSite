@@ -880,9 +880,9 @@ a, button, input, select, textarea,
 }
 @media (max-width: 600px) {
   .home-hero { padding: 110px 1.2rem 56px; }
-  .home-hero h1 { font-size: var(--text-2xl); margin-bottom: 1rem; }
-  .home-hero-subtitle { font-size: var(--text-base); margin-bottom: 1.5rem; }
-  .home-hero-badge { font-size: var(--text-xs); margin-bottom: 1rem; }
+  .home-hero h1 { font-size: var(--text-2xl); margin-bottom: var(--space-lg); }
+  .home-hero-subtitle { font-size: var(--text-base); margin-bottom: var(--space-lg); }
+  .home-hero-badge { font-size: var(--text-xs); margin-bottom: var(--space-base); }
   .home-hero-paths { margin-top: var(--space-xl); }
   .urgent-note { padding: 10px 14px; }
   #main-content > section { padding-left: 1.2rem; padding-right: 1.2rem; }
