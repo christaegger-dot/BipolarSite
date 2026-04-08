@@ -50,7 +50,7 @@ const O=[{v:0,l:"Trifft nicht zu",e:"○"},{v:1,l:"Trifft selten zu",e:"◔"},{v
 function gr(s){
   if(s<=6)return{lv:"niedrig",cls:"result--green",ti:"Belastung im grünen Bereich",tx:"Ihre Antworten deuten darauf hin, dass Sie aktuell gut zurechtkommen. Das bedeutet nicht, dass alles einfach ist — aber Sie scheinen Strategien zu haben, die funktionieren.",rc:["Lesen Sie <a href=\"/modul/7/\">Modul 7</a> zur langen Strecke und Tragfähigkeit — um tragende Routinen weiter zu stärken.","Bleiben Sie in Kontakt mit Ihrem sozialen Netz."]};
   if(s<=12)return{lv:"mittel",cls:"result--amber",ti:"Erhöhte Belastung — achten Sie auf sich",tx:"Ihre Antworten zeigen: Die Belastung ist spürbar. Das ist bei Angehörigen häufig — und kein Zeichen von Schwäche. Jetzt ist ein guter Zeitpunkt, aktiv gegenzusteuern.",rc:["Abschnitt 3 dieses Moduls (Schonhaltung & Identitätsverlust) könnte besonders relevant sein.","<a href=\"/modul/6/\">Modul 6</a> bietet konkrete Werkzeuge — insbesondere Grenzsetzung.","Sprechen Sie mit einer Vertrauensperson über Ihre Situation."]};
-  return{lv:"hoch",cls:"result--red",ti:"Deutliche Überlastung — Sie verdienen Unterstützung",tx:"Ihre Antworten deuten auf eine erhebliche Belastung hin. Das ist ernst zu nehmen. Sie tragen gerade sehr viel. Es wäre wichtig, dass Sie sich jetzt Hilfe holen.",rc:["<a href=\"tel:+41583843800\">Fachstelle Angehörigenarbeit PUK Zürich: 058 384 38 00</a> — kostenlos, vertraulich.","Hausarzt einbeziehen: Chronische Belastung hat körperliche Folgen.","<a href=\"tel:+41442404868\">VASK Zürich (044 240 48 68)</a> bietet Selbsthilfegruppen.","Lesen Sie <a href=\"/modul/4/#handlungsschritte\">Abschnitt 6 dieses Moduls</a> — konkrete Handlungsschritte."]};
+  return{lv:"hoch",cls:"result--red",ti:"Deutliche Überlastung — Sie verdienen Unterstützung",tx:"Ihre Antworten deuten auf eine erhebliche Belastung hin. Das ist ernst zu nehmen. Sie tragen gerade sehr viel. Es wäre wichtig, dass Sie sich jetzt Hilfe holen.",rc:["<a href=\"{{ site.tel.fachstelle.href }}\">Fachstelle Angehörigenarbeit PUK Zürich: {{ site.tel.fachstelle.display }}</a> — kostenlos, vertraulich.","Hausarzt einbeziehen: Chronische Belastung hat körperliche Folgen.","<a href=\"{{ site.tel.vask.href }}\">VASK Zürich ({{ site.tel.vask.display }})</a> bietet Selbsthilfegruppen.","Lesen Sie <a href=\"/modul/4/#handlungsschritte\">Abschnitt 6 dieses Moduls</a> — konkrete Handlungsschritte."]};
 }
 let ans={},cq=0,sr=false;
 function rn(){
@@ -73,7 +73,7 @@ function rn(){
     <div class="bar-wrap"><div class="bar-labels"><span>0</span><span>niedrig</span><span>mittel</span><span>hoch</span><span>20</span></div><div class="bar"><div class="bar-dot" style="left:${(sc/20)*100}%"></div></div></div>
     <p class="res-txt">${r.tx}</p>
     <div class="rec"><div class="rec-title">Empfehlungen</div>${r.rc.map(x=>`<div class="rec-item">${x}</div>`).join('')}</div>
-    <div class="disc"><strong>Wichtig:</strong> Dieser Selbsttest ist keine Diagnose. Er gibt Orientierung. Fachstelle PUK: <a href="tel:+41583843800">058 384 38 00</a>.</div>
+    <div class="disc"><strong>Wichtig:</strong> Dieser Selbsttest ist keine Diagnose. Er gibt Orientierung. Fachstelle PUK: <a href="{{ site.tel.fachstelle.href }}">{{ site.tel.fachstelle.display }}</a>.</div>
     <div class="btns"><button class="btn-reset" data-action="rs">Erneut einschätzen</button><button class="btn-cont" data-action="nav" data-href="/modul/4/">Zurück zu Modul 4 →</button></div>`;
   }
 }
