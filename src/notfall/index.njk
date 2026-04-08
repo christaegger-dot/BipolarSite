@@ -29,7 +29,7 @@ breadcrumbs:
 
     <div class="emergency-strip-hero">
       <a href="tel:144" class="emergency-call emergency-call--red"><span class="emergency-call-num">144</span><span class="emergency-call-label">Rettung / Sanität</span></a>
-      <a href="tel:+41800336655" class="emergency-call emergency-call--red"><span class="emergency-call-num">0800 33 66 55</span><span class="emergency-call-label">Ärztefon – Notfalldienst ZH</span></a>
+      <a href="{{ site.tel.aerztefon.href }}" class="emergency-call emergency-call--red"><span class="emergency-call-num">{{ site.tel.aerztefon.display }}</span><span class="emergency-call-label">{{ site.tel.aerztefon.label }}</span></a>
       <a href="tel:117" class="emergency-call emergency-call--outline"><span class="emergency-call-num">117</span><span class="emergency-call-label">Polizei</span></a>
     </div>
 
@@ -68,14 +68,14 @@ breadcrumbs:
   <h2>Alle Notfallnummern</h2>
   <p>Primär für den Kanton Zürich; die Grundlogik gilt breiter. Die obersten Nummern sind für die akute Lage, weitere Stellen ergänzend.</p>
   <div class="numbers-grid">
-    <a class="number-card" href="tel:+41800336655"><div><strong>0800 33 66 55</strong><div class="number-label">Ärztefon – Notfalldienst ZH</div><div class="number-sub">24/7, kostenlos</div></div></a>
+    <a class="number-card" href="{{ site.tel.aerztefon.href }}"><div><strong>{{ site.tel.aerztefon.display }}</strong><div class="number-label">{{ site.tel.aerztefon.label }}</div><div class="number-sub">24/7, kostenlos</div></div></a>
     <a class="number-card" href="tel:144"><div><strong>144</strong><div class="number-label">Sanität / Rettungsdienst</div><div class="number-sub">Akute Gefahr für Leib und Leben</div></div></a>
     <a class="number-card" href="tel:117"><div><strong>117</strong><div class="number-label">Polizei</div><div class="number-sub">Gewalt oder unmittelbare Bedrohung</div></div></a>
     <a class="number-card" href="tel:143"><div><strong>143</strong><div class="number-label">Dargebotene Hand</div><div class="number-sub">24/7 — auch für Angehörige</div></div></a>
-    <a class="number-card" href="tel:+41583842000"><div><strong>058 384 20 00</strong><div class="number-label">PUK Zürich — Notfall Erwachsene</div><div class="number-sub">Ab 18 Jahre, 24/7</div></div></a>
-    <a class="number-card" href="tel:+41583846666"><div><strong>058 384 66 66</strong><div class="number-label">PUK Zürich — Kinder/Jugendliche</div><div class="number-sub">24/7</div></div></a>
-    <a class="number-card" href="tel:+41583843800"><div><strong>058 384 38 00</strong><div class="number-label">Fachstelle Angehörigenarbeit PUK</div><div class="number-sub">Beratung — kostenlos, vertraulich</div></div></a>
-    <a class="number-card" href="tel:+41848800858"><div><strong>0848 800 858</strong><div class="number-label">Pro Mente Sana</div><div class="number-sub">Rechtsberatung, FU, Vorsorge</div></div></a>
+    <a class="number-card" href="{{ site.tel.pukNotfall.href }}"><div><strong>{{ site.tel.pukNotfall.display }}</strong><div class="number-label">{{ site.tel.pukNotfall.label }}</div><div class="number-sub">Ab 18 Jahre, 24/7</div></div></a>
+    <a class="number-card" href="{{ site.tel.pukKinder.href }}"><div><strong>{{ site.tel.pukKinder.display }}</strong><div class="number-label">{{ site.tel.pukKinder.label }}</div><div class="number-sub">24/7</div></div></a>
+    <a class="number-card" href="{{ site.tel.fachstelle.href }}"><div><strong>{{ site.tel.fachstelle.display }}</strong><div class="number-label">{{ site.tel.fachstelle.label }}</div><div class="number-sub">Beratung — kostenlos, vertraulich</div></div></a>
+    <a class="number-card" href="{{ site.tel.proMenteSana.href }}"><div><strong>{{ site.tel.proMenteSana.display }}</strong><div class="number-label">{{ site.tel.proMenteSana.label }}</div><div class="number-sub">Rechtsberatung, FU, Vorsorge</div></div></a>
   </div>
 
   <!-- MINI GUIDES -->
@@ -140,7 +140,7 @@ breadcrumbs:
       </ul>
       <div class="guide-do">✓ Da sein. Geduld. Alltag aufrechterhalten. Eigene Grenzen wahren.</div>
       <div class="guide-dont">✗ «Reiss dich zusammen.» Vergleiche. Ratschläge. Schuldgefühle machen.</div>
-      <div class="guide-sos">Wenn Suizidgedanken, Verabschiedungen oder konkrete Hinweise dazukommen: direkt fragen und <a href="tel:+41800336655">0800 33 66 55</a> anrufen.</div>
+      <div class="guide-sos">Wenn Suizidgedanken, Verabschiedungen oder konkrete Hinweise dazukommen: direkt fragen und <a href="{{ site.tel.aerztefon.href }}">{{ site.tel.aerztefon.display }}</a> anrufen.</div>
       <a href="/handouts/c5_depression.pdf" target="_blank" rel="noopener" class="guide-link">↓ PDF: Umgang mit Depression</a> · <a href="/modul/6/#depression-komm" class="guide-link">→ Modul 6: Kommunikation in der Depression</a>
     </div></div>
   </div>
@@ -179,7 +179,7 @@ breadcrumbs:
         <li>Rufen Sie <a href="tel:117" class="link-alert">117</a> (Polizei) an. Das ist kein Verrat — es ist Schutz.</li>
         <li>Gehen Sie zu Nachbarn, Freunden oder einem öffentlichen Ort.</li>
         <li>Dokumentieren Sie Verletzungen (Fotos, Datum, Uhrzeit).</li>
-        <li>Opferhilfe Zürich: <a href="tel:+41442994050" class="link-alert-mid">044 299 40 50</a> — kostenlos, vertraulich.</li>
+        <li>Opferhilfe Zürich: <a href="{{ site.tel.opferhilfe.href }}" class="link-alert-mid">{{ site.tel.opferhilfe.display }}</a> — kostenlos, vertraulich.</li>
       </ul>
       <div class="guide-do">✓ Raum verlassen. Kinder mitnehmen. 117 anrufen. Dokumentieren.</div>
       <div class="guide-dont">✗ Sich verteidigen, wenn es eskaliert. Allein bleiben. Vorfall verschweigen.</div>
@@ -199,7 +199,7 @@ breadcrumbs:
         <li>Käufe können in der Schweiz unter Umständen angefochten werden, wenn eine Geschäftsunfähigkeit nachgewiesen werden kann (Art. 18 ZGB).</li>
         <li><strong>KESB kontaktieren</strong> (Kindes- und Erwachsenenschutzbehörde), wenn rasch Schutzmassnahmen geprüft werden müssen. Zuständigkeiten laufen je nach Wohnort über die örtliche Behörde.</li>
         <li>Alles dokumentieren: Kontoauszüge, Verträge, Kommunikation — mit Datum und Uhrzeit.</li>
-        <li>Rechtsberatung: <a href="tel:+41848800858" class="link-teal">Pro Mente Sana (0848 800 858)</a> — kostenlos.</li>
+        <li>Rechtsberatung: <a href="{{ site.tel.proMenteSana.href }}" class="link-teal">{{ site.tel.proMenteSana.label }} ({{ site.tel.proMenteSana.display }})</a> — kostenlos.</li>
       </ul>
       <div class="guide-do">✓ Bank anrufen. Dokumentieren. KESB oder Rechtsberatung kontaktieren.</div>
       <div class="guide-dont">✗ Käufe selbst rückgängig machen wollen. Konfrontieren in der Manie. Abwarten.</div>
@@ -244,7 +244,7 @@ breadcrumbs:
         </div>
       </details>
 
-        <p class="fu-contact"><a href="tel:+41848800858">Pro Mente Sana (0848 800 858)</a> — kostenlose Rechtsberatung zu FU, Vorsorge und Beschwerdewegen. Die <a href="tel:+41583843800">Fachstelle Angehörigenarbeit PUK</a> unterstützt Sie bei dieser Entscheidung.</p>
+        <p class="fu-contact"><a href="{{ site.tel.proMenteSana.href }}">{{ site.tel.proMenteSana.label }} ({{ site.tel.proMenteSana.display }})</a> — kostenlose Rechtsberatung zu FU, Vorsorge und Beschwerdewegen. Die <a href="{{ site.tel.fachstelle.href }}">{{ site.tel.fachstelle.label }}</a> unterstützt Sie bei dieser Entscheidung.</p>
       </div>
     </div>
   </details>
@@ -294,7 +294,7 @@ breadcrumbs:
       <div class="after-step-num">2</div>
       <div class="after-step-body">
         <strong>Nicht allein bleiben</strong>
-        <span>Fachstelle (<a href="tel:+41583843800">058 384 38 00</a>), Vertrauensperson oder <a href="/tools/krisenplan/">Krisenplan ergänzen</a>. Die Akutlage ist vorbei, aber auch Sie brauchen jetzt Unterstützung.</span>
+        <span>Fachstelle (<a href="{{ site.tel.fachstelle.href }}">{{ site.tel.fachstelle.display }}</a>), Vertrauensperson oder <a href="/tools/krisenplan/">Krisenplan ergänzen</a>. Die Akutlage ist vorbei, aber auch Sie brauchen jetzt Unterstützung.</span>
       </div>
     </div>
   </div>
