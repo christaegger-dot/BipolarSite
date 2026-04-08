@@ -541,7 +541,7 @@ a, button, input, select, textarea,
   line-height: 1.7;
   margin-bottom: var(--space-2xl);
 }
-.home-hero-link {
+.home-hero .home-hero-link {
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -557,7 +557,7 @@ a, button, input, select, textarea,
   box-shadow: var(--card-shadow);
   transition: background 0.2s ease, transform 0.15s ease;
 }
-.home-hero-link:hover {
+.home-hero .home-hero-link:hover {
   background: var(--cta-primary-hover);
   transform: translateY(-1px);
 }
