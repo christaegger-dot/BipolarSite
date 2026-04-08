@@ -1298,7 +1298,7 @@ body.pdf-preview-open{overflow:hidden}
 .neu-col-bad .neu-col-label { color: var(--rose-text); }
 .neu-col-good .neu-col-label { color: var(--teal-cta); }
 .neu-col-list { font-size: var(--text-base); color: var(--text-soft); line-height: 1.7; padding-left: var(--space-md); margin: 0; }
-.neu-col-list li { margin-bottom: var(--space-xs, 5px); }
+.neu-col-list li { margin-bottom: 5px; }
 .neu-col-list li:last-child { margin-bottom: 0; }
 .neu-fragen {
   background: var(--card); border: 1px solid var(--border-warm-md);
