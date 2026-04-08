@@ -236,7 +236,7 @@
 
 /* ── Key Takeaways ── [temp: pause] */
 .takeaways {
-  background: var(--teal-cta); color: var(--cta-primary-text);
+  background: var(--teal-cta-dark); color: var(--cta-primary-text);
   border-radius: var(--card-radius); padding: var(--temp-pause-padding); margin: var(--temp-pause-margin) 0;
   position: relative; overflow: hidden;
 }
@@ -254,6 +254,9 @@
   padding: var(--space-base) 0; border-top: 1px solid rgba(255,255,255,0.1);
 }
 .takeaway-item:first-of-type { border-top: none; }
+/* Decorative bullet indicator — WCAG 1.4.3 "pure decoration" exception.
+   Contrast 4.49:1 on --teal-cta-dark (0.01 below 4.5:1 threshold for text),
+   but ✓ functions as a list marker, not semantic text content. */
 .takeaway-check {
   width: 24px; height: 24px; border-radius: var(--radius-sm); flex-shrink: 0;
   background: rgba(255,255,255,0.15);
@@ -2258,14 +2261,6 @@ table tbody tr:nth-child(even),
   opacity: 0.75;
 }
 
-.takeaways {
-  background: var(--teal);
-}
-
-.takeaways::before {
-  display: none;
-}
-
 .hdr,
 .tool-header {
   background: var(--bg);
@@ -2367,7 +2362,7 @@ table tbody tr:nth-child(even),
 
 /* Stelle text styling in dark sections (modul/8 takeaways) */
 .takeaways h2, .takeaways h3{color:var(--cta-primary-text);margin-bottom:0.25rem}
-.takeaways > .takeaways-inner > p{color:var(--white-text-secondary);font-size:var(--text-xs);margin-bottom:1rem}
+.takeaways > .takeaways-inner > p{color:var(--white-text);font-size:var(--text-xs);margin-bottom:1rem}
 
 /* Context note (modul/3 Hinweis zur Sprache) */
 .context-note{font-size:var(--text-base);color:var(--teal-dark);background:var(--success-soft);border-radius:var(--radius-sm);padding:var(--space-base) var(--space-md)}
