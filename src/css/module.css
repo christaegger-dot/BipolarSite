@@ -962,7 +962,7 @@ p.bright-moment {
 .hero-visual img{display:block;width:100%;height:auto;border-radius:var(--card-radius)}
 
 /* ── Notfall Content ── */
-.notfall-hero ~ .content h2{font-size:var(--text-xl);margin:var(--section-standard) 0 var(--heading-gap-h2);padding-top:var(--space-md);border-top:1px solid var(--border-warm)}
+.notfall-hero ~ .content h2{font-size:var(--text-xl);margin:var(--section-tight) 0 var(--heading-gap-h2);padding-top:var(--space-md);border-top:1px solid var(--border-warm)}
 .notfall-hero ~ .content h2:first-of-type{border-top:none;margin-top:0}
 .notfall-hero ~ .content h3{font-size:var(--text-lg);margin:var(--space-lg) 0 var(--heading-gap-h3)}
 .notfall-hero ~ .content p{font-size:var(--text-base);color:var(--slate);margin-bottom:var(--space-md);line-height:1.7}
