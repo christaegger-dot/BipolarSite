@@ -137,7 +137,7 @@ body {
 
 /* ── durchatmen ── */
 body.dark-tool{color:var(--white-text);background:var(--dark-bg);justify-content:center;padding:var(--space-lg);overflow-x:hidden;overflow-y:auto}
-body.dark-tool .tool-nav{background:#1a2332;background:var(--dark-nav-bg);border-bottom:1px solid rgba(255,255,255,0.06);border-bottom:1px solid var(--dark-border)}
+body.dark-tool .tool-nav{background:var(--dark-nav-bg);border-bottom:1px solid var(--dark-border)}
 body.dark-tool .tool-back{color:var(--white-text-secondary)}
 body.dark-tool .tool-brand{color:var(--white-text-secondary)}
 body.dark-tool .breadcrumb a{color:var(--teal-accent-light)}
@@ -199,7 +199,7 @@ body.ee-kreislauf-page .wrap{max-width:var(--content-width-narrow);padding:32px 
 .tool-header h1{font-family:'DM Serif Display',Georgia,serif;font-size:var(--text-tool-title);font-weight:400;color:var(--navy);margin:0 0 8px;letter-spacing:-0.02em}
 .tool-header p{font-size:var(--text-base);color:var(--slate);line-height:1.75;max-width:42ch;margin:0 auto}
 .iceberg{width:100%;border-radius:var(--card-radius);overflow:hidden;box-shadow:var(--card-shadow);border:1px solid var(--border-warm-md)}
-.ice-above{background:var(--bg);padding:24px 20px 32px}
+.ice-above{background:var(--bg);padding:var(--space-lg) 20px var(--space-xl)}
 .ice-lbl{font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.12em;text-align:center;margin-bottom:var(--space-md)}
 .ice-lbl-a{color:var(--blue-phase)}.ice-lbl-b{color:var(--white-text-muted)}
 .ice-tags{display:flex;flex-wrap:wrap;gap:var(--space-sm);justify-content:center}
