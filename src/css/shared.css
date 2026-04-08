@@ -271,7 +271,7 @@ a, button, input, select, textarea,
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  margin-bottom: 16px;
+  margin-bottom: var(--space-md);
 }
 .overview-hero h1 {
   font-family: 'DM Serif Display', serif;
@@ -350,7 +350,7 @@ a, button, input, select, textarea,
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--navy-mid);
-  margin-bottom: 12px;
+  margin-bottom: var(--space-base);
 }
 .section-title {
   font-size: var(--text-section-title);
@@ -777,22 +777,22 @@ a, button, input, select, textarea,
 .no-js .reveal { opacity: 1; transform: none; }
 
 /* ── Quick Triage (editorial guidance, subtle background section) ── */
-.quick-triage{background:none;border:none;border-radius:0;padding:0;margin-bottom:0}
-.quick-triage h2{font-size:var(--text-xl);margin-bottom:4px}
+.quick-triage{background:var(--card);border:1px solid var(--border-warm);border-radius:var(--card-radius);padding:var(--space-xl) var(--space-lg);box-shadow:var(--card-shadow)}
+.quick-triage h2{font-size:var(--text-xl);margin-bottom:var(--heading-gap-h4)}
 .quick-triage p{font-size:var(--text-base);color:var(--slate);margin-bottom:var(--space-lg);line-height:1.75;max-width:48ch}
 .triage-question{margin-bottom:var(--space-base)}
 .triage-question[hidden]{display:none}
-.triage-q-text{font-size:var(--text-base);font-weight:600;color:var(--navy);margin-bottom:12px;line-height:1.5}
-.triage-btns{display:flex;gap:10px;flex-wrap:wrap}
+.triage-q-text{font-size:var(--text-base);font-weight:600;color:var(--navy);margin-bottom:var(--space-base);line-height:1.5}
+.triage-btns{display:flex;gap:var(--space-base);flex-wrap:wrap}
 /* triage-btn base + modifiers now in unified BUTTON SYSTEM above */
-.triage-result{padding:16px 20px;border-radius:var(--radius-sm);margin-top:12px}
+.triage-result{padding:var(--space-md) var(--space-lg);border-radius:var(--radius-sm);margin-top:var(--space-base)}
 .triage-result[hidden]{display:none}
-.triage-result a{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:var(--text-base);text-decoration:none;color:var(--cta-primary-text);background:var(--cta-primary-bg);padding:10px 20px;border-radius:var(--radius-round)}
+.triage-result a{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:var(--text-base);text-decoration:none;color:var(--cta-primary-text);background:var(--cta-primary-bg);padding:var(--space-base) var(--space-lg);border-radius:var(--radius-round)}
 .triage-result a:hover{background:var(--cta-primary-hover)}
 .triage-result--urgent{background:var(--alert-soft);border:1px solid var(--alert-subtle)}
 .triage-result--urgent a{background:var(--alert)}
 .triage-result--urgent a:hover{background:var(--emergency-dark)}
-.triage-result--safe{background:var(--success-soft);border:1px solid var(--green-border);padding:14px 20px;border-radius:var(--radius-sm)}
+.triage-result--safe{background:var(--success-soft);border:1px solid var(--green-border);padding:var(--space-md) var(--space-lg);border-radius:var(--radius-sm)}
 .triage-result--safe p{font-size:var(--text-base);color:var(--phase-green);margin:0}
 .triage-result--safe a{background:none;padding:0;color:var(--teal-cta);text-decoration:underline;font-size:inherit;border-radius:0;display:inline}
 /* triage-restart now in unified BUTTON SYSTEM */
@@ -834,7 +834,7 @@ a, button, input, select, textarea,
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--navy-mid);
-  margin-bottom: 12px;
+  margin-bottom: var(--space-base);
 }
 .story-section h2 {
   font-size: var(--text-2xl);
@@ -1307,6 +1307,32 @@ header.hero[style*="linear-gradient"] {
   padding: var(--cta-padding-sm);
   font-size: var(--text-xs);
 }
+
+/* ── FORM FIELDS ──
+   Shared base for all text inputs, textareas, and selects.
+   Tools (krisenplan) and module (mini-plan) inherit this base. */
+input[type="text"], input[type="email"], input[type="tel"],
+textarea, select,
+.field input, .field textarea,
+.mini-plan input, .mini-plan textarea, .mini-plan select {
+  width: 100%;
+  padding: var(--space-base) 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-warm-xl);
+  background: var(--card);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: var(--text-base);
+  transition: border-color 0.2s ease;
+}
+input:focus, textarea:focus, select:focus,
+.field input:focus, .field textarea:focus,
+.mini-plan input:focus, .mini-plan textarea:focus, .mini-plan select:focus {
+  outline: none;
+  border-color: var(--teal-solid);
+  box-shadow: 0 0 0 3px var(--teal-subtle);
+}
+textarea { min-height: 80px; resize: vertical; }
 
 /* ── [from overrides.css] SPACING ── */
 
