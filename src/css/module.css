@@ -263,7 +263,6 @@
 .takeaway-item p { font-size: var(--text-base); line-height: 1.75; color: var(--white-text); margin: 0; }
 .takeaway-item strong { color: var(--cta-primary-text); }
 
-/* .community-block: canonical definition at line ~751 */
 .community-list {
   list-style: none; padding: 0; margin: 0;
 }
@@ -732,39 +731,6 @@ body.pdf-preview-open { overflow: hidden; }
 [data-module-accent="8"] .module-badge { background: var(--teal-subtle); color:var(--teal-cta); }
 [data-module-accent="8"] .toc { border-left: 3px solid var(--teal-accent-border-accent); }
 [data-module-accent="8"] .content h2 { border-top: 1px solid var(--teal-accent-border-faint); }
-
-/* ── Community Block (end of each module) ── [temp: standard] */
-.community-block {
-  background: var(--surface-alt);
-  border-left: 4px solid var(--teal);
-  border-radius: 0 var(--card-radius) var(--card-radius) 0;
-  padding: var(--temp-standard-padding); margin: var(--temp-standard-margin) 0;
-}
-.community-block h3 {
-  font-family: 'DM Sans', sans-serif; font-size: var(--text-lg); font-weight: 600;
-  color: var(--navy); margin-bottom: var(--heading-gap-h4);
-}
-.community-block > p {
-  font-size: var(--text-base); color: var(--slate); line-height: 1.5; margin-bottom: var(--space-md);
-}
-.community-block ul { list-style: none; margin: 0; padding: 0; }
-.community-block li {
-  font-size: var(--text-base); color: var(--slate); padding: var(--space-sm) 0;
-  border-top: 1px solid var(--border-warm); line-height: 1.5;
-}
-.community-block li:first-child { border-top: none; }
-.community-block a { color: var(--teal-text); font-weight: 600; text-decoration: none; }
-.community-block a:hover { text-decoration: underline; }
-
-/* Compact community-block (without h3, links only) */
-.community-block:not(:has(h3)) {
-  padding: var(--space-md) var(--space-lg);
-  margin: var(--group-gap) 0;
-}
-.community-block:not(:has(h3)) > p {
-  margin: 0;
-  font-size: var(--text-base);
-}
 
 /* ── Hint Note (teal left-border callout) ── */
 .hint-note {
