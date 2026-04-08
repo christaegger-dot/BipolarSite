@@ -116,6 +116,7 @@
 {% block nav %}{% endblock %}
 {% block content %}{{ content | safe }}{% endblock %}
 {% block footer %}{% endblock %}
+<button type="button" class="back-to-top" aria-label="Zurück nach oben" id="backToTop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg></button>
 {% if useNavJS %}<script src="/js/nav.js"></script>{% endif %}
 <script>
   document.querySelectorAll('[data-sources-toggle]').forEach((button, index) => {
@@ -158,6 +159,10 @@
         ol.hidden = !open;
         btn.setAttribute('aria-expanded', open ? 'true' : 'false');
         btn.textContent = open ? 'Inhaltsverzeichnis ausblenden ▴' : 'Inhaltsverzeichnis anzeigen ▾';
+        if (open) {
+          const firstLink = ol.querySelector('a');
+          if (firstLink) firstLink.focus();
+        }
       });
     });
   }
@@ -197,6 +202,25 @@
       }
     }
   }
+
+  // Back-to-top button
+  (function() {
+    const btn = document.getElementById('backToTop');
+    if (!btn) return;
+    let ticking = false;
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        window.requestAnimationFrame(function() {
+          btn.classList.toggle('visible', window.scrollY > window.innerHeight);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
 
   // Expandable sections
   document.querySelectorAll('.expandable-toggle').forEach(btn => {

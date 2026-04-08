@@ -1753,3 +1753,74 @@ header.hero .hero-content {
 
 @media (max-width: 900px) { .tool-grid { grid-template-columns: 1fr; } }
 @media (max-width: 600px) { .tool-card { padding: 20px 18px; } }
+
+/* ── Back-to-Top Button ── */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 90;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--slate);
+  box-shadow: var(--shadow-nav);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease, background 0.15s ease;
+}
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.back-to-top:hover,
+.back-to-top:focus-visible {
+  background: var(--teal);
+  color: #fff;
+  border-color: var(--teal);
+}
+.back-to-top svg {
+  width: 20px;
+  height: 20px;
+}
+@media (min-width: 1100px) {
+  /* Hide on desktop when TOC sidebar is visible */
+  body[data-module-accent] .back-to-top { display: none; }
+}
+
+/* ── Tool Nav: Main-Nav links row ── */
+.tool-nav-main {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 0 2rem;
+  height: 36px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  font-size: var(--text-xs);
+}
+.tool-nav-main a {
+  color: var(--slate);
+  text-decoration: none;
+  font-family: 'DM Sans', sans-serif;
+  white-space: nowrap;
+}
+.tool-nav-main a:hover {
+  color: var(--teal);
+}
+.tool-nav-main .nav-sos {
+  color: var(--alert);
+  font-weight: 600;
+  margin-left: auto;
+}
+.tool-nav-main .nav-sos:hover {
+  opacity: 0.85;
+}
