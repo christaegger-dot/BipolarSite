@@ -235,8 +235,17 @@
   --cta-secondary-hover-bg:     var(--success-soft);
   --cta-tertiary-text:  rgba(58,154,163,0.8);
   --cta-tertiary-hover: rgba(58,154,163,0.95);
+  --cta-danger-bg:      var(--card);
+  --cta-danger-border:  var(--alert-red-border);
+  --cta-danger-text:    var(--alert);
+  --cta-danger-hover-bg: var(--alert-soft);
+  --cta-danger-hover-border: var(--alert);
   --cta-radius:    var(--radius-md);
   --cta-min-height: 44px;
+  --cta-padding:   12px 20px;
+  --cta-padding-sm: 8px 16px;
+  --cta-font-size: var(--text-sm);
+  --cta-font-weight: 600;
 
 
   /* ══════════════════════════════════════════
