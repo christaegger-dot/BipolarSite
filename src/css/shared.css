@@ -15,6 +15,16 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* ── Global Link Styling ── */
+a {
+  color: var(--teal);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--teal-dark, var(--navy));
+  text-decoration: underline;
+}
+
 /* ── Navigation (scoped to full nav, not tool-nav) ── */
 #navbar {
   position: fixed;
@@ -235,7 +245,8 @@ a, button, input, select, textarea,
   position: relative;
   z-index: 1;
 }
-.overview-breadcrumb {
+/* ── Unified Breadcrumb ── */
+.breadcrumb {
   font-size: var(--text-xs);
   color: var(--text-soft);
   margin-bottom: 18px;
@@ -243,13 +254,14 @@ a, button, input, select, textarea,
   align-items: center;
   gap: 8px;
 }
-.overview-breadcrumb a {
+.breadcrumb a {
   color: var(--teal);
   text-decoration: none;
 }
-.overview-breadcrumb a:hover {
+.breadcrumb a:hover {
   text-decoration: underline;
 }
+.breadcrumb .sep { opacity: 0.4; }
 .overview-badge {
   display: inline-flex;
   align-items: center;
@@ -1170,13 +1182,7 @@ h3, h4 {
   color:var(--teal-cta);
 }
 
-.breadcrumb a {
-  color: var(--slate);
-}
-
-.breadcrumb a:hover {
-  color:var(--teal-cta);
-}
+/* .breadcrumb a overrides moved to unified block above */
 
 /* ── Notfall hero (notfall/index.html) ──
    Emergency stays strong — the ONE place heavy color is justified */
@@ -1385,7 +1391,7 @@ header.hero[style*="linear-gradient"] {
 
 /* ── Visited link styling ── */
 a:visited {
-  color: var(--slate);
+  color: var(--teal);
 }
 /* Exception list: components whose color must NOT change on :visited */
 .nav-links a:visited,

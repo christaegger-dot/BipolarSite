@@ -89,18 +89,12 @@ body {
   line-height: 1.75; max-width: 48ch; margin: 0 auto;
 }
 
-/* ── Tool Breadcrumb ── */
-.tool-breadcrumb {
-  font-size: var(--text-xs); color: var(--text-soft);
-  margin-bottom: 14px; display: flex; align-items: center; gap: 6px;
+/* ── Tool Breadcrumb (uses unified .breadcrumb from shared.css) ── */
+.tool-hero .breadcrumb {
   justify-content: center;
+  margin-bottom: 14px;
+  gap: 6px;
 }
-.tool-breadcrumb a {
-  color: var(--teal); text-decoration: none;
-  transition: color 0.2s;
-}
-.tool-breadcrumb a:hover { text-decoration: underline; }
-.tool-breadcrumb .sep { opacity: 0.4; }
 
 /* ── Footer Tag ── */
 .tf {
@@ -146,8 +140,8 @@ body.dark-tool{color:var(--white-text);background:var(--dark-bg);justify-content
 body.dark-tool .tool-nav{background:#1a2332;background:var(--dark-nav-bg);border-bottom:1px solid rgba(255,255,255,0.06);border-bottom:1px solid var(--dark-border)}
 body.dark-tool .tool-back{color:var(--white-text-secondary)}
 body.dark-tool .tool-brand{color:var(--white-text-secondary)}
-body.dark-tool .tool-breadcrumb a{color:var(--teal-accent-light)}
-body.dark-tool .tool-breadcrumb{color:var(--white-text-muted)}
+body.dark-tool .breadcrumb a{color:var(--teal-accent-light)}
+body.dark-tool .breadcrumb{color:var(--white-text-muted)}
 .breathe-wrap{width:100%;max-width:480px;text-align:center;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .breathe-title{font-family:'DM Serif Display',Georgia,serif;font-size:var(--text-tool-title);font-weight:400;color:var(--white-text);margin-bottom:var(--space-sm)}
 .breathe-sub{font-size:var(--text-base);color:var(--white-text-muted);margin-bottom:var(--section-tight);line-height:1.5}
