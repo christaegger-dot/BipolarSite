@@ -356,6 +356,11 @@
   --text-section-title: clamp(1.8rem, 3.5vw, 2.6rem);
   --text-hero:  clamp(3.2rem, 6vw, 4.2rem);
 
+  /* Heading spacing (consistent margin-bottom per level) */
+  --heading-gap-h2: var(--space-md);   /* 16px — space below h2 before prose */
+  --heading-gap-h3: var(--space-base); /* 12px — space below h3 before prose */
+  --heading-gap-h4: var(--space-sm);   /* 8px  — space below h4 before prose */
+
 
   /* ══════════════════════════════════════════
      WHITE-ON-DARK  (Durchatmen dark theme)
