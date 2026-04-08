@@ -796,12 +796,7 @@ a, button, input, select, textarea,
 .triage-question[hidden]{display:none}
 .triage-q-text{font-size:var(--text-base);font-weight:600;color:var(--navy);margin-bottom:12px;line-height:1.5}
 .triage-btns{display:flex;gap:10px;flex-wrap:wrap}
-.triage-btn{padding:10px 20px;border-radius:var(--radius-md);font-family:'DM Sans',sans-serif;font-size:var(--text-sm);font-weight:600;cursor:pointer;transition:color 0.2s,border-color 0.2s,background-color 0.2s;min-height:44px;background:none;border:1px solid var(--border-warm-md);color:var(--navy)}
-.triage-btn:hover{border-color:var(--teal-solid);color:var(--teal-cta)}
-.triage-btn--yes{border-color:var(--teal-muted);color:var(--teal-cta)}
-.triage-btn--yes:hover{border-color:var(--teal-solid);background:var(--teal-faint)}
-.triage-btn--no{color:var(--slate)}
-.triage-btn--no:hover{color:var(--teal-cta)}
+/* triage-btn base + modifiers now in unified BUTTON SYSTEM above */
 .triage-result{padding:16px 20px;border-radius:var(--radius-sm);margin-top:12px}
 .triage-result[hidden]{display:none}
 .triage-result a{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:var(--text-base);text-decoration:none;color:var(--cta-primary-text);background:var(--cta-primary-bg);padding:10px 20px;border-radius:var(--radius-round)}
@@ -812,8 +807,8 @@ a, button, input, select, textarea,
 .triage-result--safe{background:var(--success-soft);border:1px solid var(--green-border);padding:14px 20px;border-radius:var(--radius-sm)}
 .triage-result--safe p{font-size:var(--text-base);color:var(--phase-green);margin:0}
 .triage-result--safe a{background:none;padding:0;color:var(--teal-cta);text-decoration:underline;font-size:inherit;border-radius:0;display:inline}
-.triage-restart{display:block;margin-top:12px;background:none;border:1px solid var(--border-warm-md);padding:12px 16px;border-radius:var(--radius-sm);font-size:var(--text-sm);color:var(--text-soft);cursor:pointer;transition:border-color 0.2s,color 0.2s;min-height:44px}
-.triage-restart:hover{border-color:var(--teal-solid);color:var(--teal-cta)}
+/* triage-restart now in unified BUTTON SYSTEM */
+.triage-restart { display: block; margin-top: 12px; }
 
 /* ── Tools Highlight (card grid, same axis as modules) ── */
 .tools-highlight h2{font-family:'DM Serif Display',serif;font-size:var(--text-xl);font-weight:400;color:var(--navy);margin-bottom:8px}
@@ -994,7 +989,7 @@ a, button, input, select, textarea,
   .home-hero h1 { font-size: clamp(1.3rem, 6vw, var(--text-2xl)); }
   #main-content > section { padding-left: 1rem; padding-right: 1rem; }
   .overview-hero { padding: 100px 1rem var(--section-tight); }
-  .triage-btn { padding: 10px 16px; }
+  .triage-btn { padding: var(--cta-padding-sm); }
 }
 
 /* ── [from overrides.css] SKIP LINK ── */
@@ -1222,75 +1217,106 @@ header.hero[style*="linear-gradient"] {
   color: var(--teal);
 }
 
-/* ── [from overrides.css] CTAs ── */
+/* ── BUTTON SYSTEM ──────────────────────────────────────────────────
+   Four semantic tiers: primary, secondary, danger, tertiary (text).
+   Shared base properties ensure consistent sizing, font, spacing.
+   Tool-specific buttons (quiz, rating, toggle) remain in tools.css
+   but inherit font-family + transition from global a/button rule.
+   ──────────────────────────────────────────────────────────────── */
+
+/* Shared base for all CTA buttons */
+.cta-primary, .cta-secondary, .cta-danger,
+.home-hero-link,
+.btn-c, .btn-cont, .btn-next, .btn-save, .submit.ready,
+.btn-r, .btn-back, .btn-print, .btn-reset,
+.triage-btn, .triage-restart {
+  font-family: 'DM Sans', sans-serif;
+  font-size: var(--cta-font-size);
+  font-weight: var(--cta-font-weight);
+  padding: var(--cta-padding);
+  border-radius: var(--cta-radius);
+  min-height: var(--cta-min-height);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  -webkit-appearance: none;
+  line-height: 1.4;
+}
+
+/* ── Primary (teal bg, white text) ── */
 .cta-primary,
 .home-hero-link,
-.btn-c,
-.btn-cont,
-.btn-next,
-.btn-save,
+.btn-c, .btn-cont, .btn-next, .btn-save,
 .submit.ready {
   background: var(--cta-primary-bg);
   color: var(--cta-primary-text);
   border: none;
-  border-radius: var(--cta-radius);
-  min-height: var(--cta-min-height);
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
 }
-
-.cta-primary:hover,
-.home-hero-link:hover,
-.btn-c:hover,
-.btn-cont:hover,
-.btn-next:hover,
-.btn-save:hover,
+.cta-primary:hover, .home-hero-link:hover,
+.btn-c:hover, .btn-cont:hover, .btn-next:hover, .btn-save:hover,
 .submit.ready:hover {
   background: var(--cta-primary-hover);
 }
 
+/* ── Secondary (white bg, border) ── */
 .cta-secondary,
-.btn-r,
-.btn-back,
-.btn-print,
-.btn-reset {
+.btn-r, .btn-back, .btn-print,
+.triage-btn, .triage-restart {
   background: var(--cta-secondary-bg);
   color: var(--cta-secondary-text);
   border: 1px solid var(--cta-secondary-border);
-  border-radius: var(--cta-radius);
-  min-height: var(--cta-min-height);
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
 }
-
-.cta-secondary:hover,
-.btn-r:hover,
-.btn-back:hover,
-.btn-print:hover,
-.btn-reset:hover {
+.cta-secondary:hover, .btn-r:hover, .btn-back:hover, .btn-print:hover,
+.triage-btn:hover, .triage-restart:hover {
   border-color: var(--cta-secondary-hover-border);
   color: var(--cta-secondary-hover-text);
   background: var(--cta-secondary-hover-bg);
 }
 
-/* ── Tertiary CTA (text links as actions) ── */
+/* Triage modifiers (on top of secondary base) */
+.triage-btn--yes {
+  border-color: var(--teal-muted);
+  color: var(--teal-cta);
+}
+.triage-btn--yes:hover {
+  border-color: var(--teal-solid);
+  background: var(--teal-faint);
+}
+.triage-btn--no { color: var(--slate); }
+.triage-btn--no:hover { color: var(--teal-cta); }
+
+/* ── Danger (red border, red text → red bg on hover) ── */
+.cta-danger,
+.btn-reset {
+  background: var(--cta-danger-bg);
+  color: var(--cta-danger-text);
+  border: 1px solid var(--cta-danger-border);
+}
+.cta-danger:hover,
+.btn-reset:hover {
+  background: var(--cta-danger-hover-bg);
+  border-color: var(--cta-danger-hover-border);
+}
+
+/* ── Tertiary (text links as actions) ── */
 .cta-tertiary {
   color: var(--cta-tertiary-text);
-  font-weight: 600;
+  font-weight: var(--cta-font-weight);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 .cta-tertiary:hover {
   color: var(--cta-tertiary-hover);
   text-decoration: underline;
+}
+
+/* ── Small button variant ── */
+.btn-save, .btn-print, .btn-reset {
+  padding: var(--cta-padding-sm);
+  font-size: var(--text-xs);
 }
 
 /* ── [from overrides.css] SPACING ── */
