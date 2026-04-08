@@ -31,9 +31,6 @@
   /* Text semantic aliases */
   --text:        #776c63;   /* 4.91:1 on --bg, 4.54:1 on --surface-alt — AA everywhere (was #7a6f66, 4.34:1 on surface-alt) */
   --text-soft:   #6f655d;   /* 5.2:1 on #FAF8F5 — AA for all sizes incl. 12px (was #7a7068, 4.37:1) */
-  --text-secondary: var(--text-soft);  /* reduced-emphasis alias (captions, meta) */
-  --slate-light: #8b8580;   /* lighter warm-neutral for subtle UI */
-
   /* Sand family (warm accents, badges, subtle fills) */
   --sand:        #ddd2bf;
   --sand-deep:   #b58a52;
@@ -110,7 +107,6 @@
      ══════════════════════════════════════════ */
 
   --success-soft: rgba(168,213,203,0.15);
-  --warm-100:    #F7F5F2;   /* very light warm bg for subtle sections */
   --amber-bg:    #fef3e2;
   --amber:       #B45309;
   --amber-light: #FBBF24;
@@ -122,10 +118,7 @@
      ══════════════════════════════════════════ */
 
   --alert:       #B91C1C;
-  --alert-red:   var(--alert);       /* semantic alias for alert text/icons */
   --alert-soft:  #FEF2F2;
-  --alert-red-bg: var(--alert-soft);  /* semantic alias for alert backgrounds */
-  --red-bg:       var(--alert-soft);  /* generic red background alias */
   --alert-red-border: #fca5a5;
   --alert-red-light:  #fecaca;
   --alert-red-coral:  #f87171;
@@ -146,7 +139,6 @@
   --blue-phase-light: #eef3f8;
   --purple-phase:     #7c3aed;
   --phase-green:      #0d7a5f;
-  --amber-phase:      var(--amber);        /* mania phase in mood charts */
   --hypo-phase:       var(--amber-light);  /* hypomania phase in mood charts */
 
   --mania-phase-bg:          #fff3e0;
@@ -256,8 +248,7 @@
   --radius-sm:    8px;
   --radius-md:   12px;
   --radius-lg:   20px;
-  --radius-pill:  100px;  /* pill-shaped buttons, tags, progress bars */
-  --radius-round: 100px;
+  --radius-round: 100px;  /* pill-shaped buttons, tags, progress bars */
 
 
   /* ══════════════════════════════════════════
@@ -328,15 +319,6 @@
      --bp-wide:    900px
      --bp-xl:     1600px   (large desktop scale-up)
   */
-
-
-  /* ══════════════════════════════════════════
-     BADGE BASE
-     ══════════════════════════════════════════ */
-
-  --badge-radius:  var(--radius-round);
-  --badge-padding: 5px 14px;
-  --badge-font:    var(--text-xs);
 
 
   /* ══════════════════════════════════════════
