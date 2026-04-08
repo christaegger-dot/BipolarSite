@@ -11,9 +11,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/favicon.svg");
   eleventyConfig.addPassthroughCopy("src/favicon.png");
   eleventyConfig.addPassthroughCopy("src/apple-touch-icon.png");
+  eleventyConfig.addPassthroughCopy("src/site.webmanifest");
   eleventyConfig.addPassthroughCopy("src/og-image.png");
-
-  eleventyConfig.addPassthroughCopy("src/sw.js");
 
   // Layouts directory alias
   eleventyConfig.addLayoutAlias("base", "base.njk");
