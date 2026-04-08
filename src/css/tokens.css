@@ -49,8 +49,11 @@
   --teal-light:  rgba(168,213,203,0.3);
   --teal-dark:   rgba(58,154,163,0.9);
 
-  /* Accessible teal for text — opaque, 4.69:1 on white (WCAG AA) */
-  --teal-text:   #287f87;
+  /* Accessible teal for text — deliberately darker than brand-teal
+     to guarantee AA on tinted backgrounds (success-soft, surface-alt).
+     Do NOT lighten: #1a6b72 is the minimum value that passes 4.5:1
+     on the lightest tinted bg (--success-soft on --surface-alt = 4.71:1). */
+  --teal-text:   #1a6b72;
   --teal-cta:    #287f87;
 
   /* Darker teal for full-bleed dark backgrounds (5.2:1 with white — AAA large text) */
