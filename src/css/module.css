@@ -14,13 +14,13 @@
   position: relative; z-index: 2;
 }
 
-/* ── Breadcrumb (on dark hero background) ── */
-.breadcrumb {
+/* ── Breadcrumb on dark notfall hero – overrides shared.css default ── */
+.hero.notfall-hero .breadcrumb {
   font-size: var(--text-xs); color: var(--white-text);
   margin-bottom: 20px; display: flex; align-items: center; gap: 8px;
 }
-.breadcrumb a { color: var(--white-text-secondary); text-decoration: none; }
-.breadcrumb a:hover { text-decoration: underline; color: var(--cta-primary-text); }
+.hero.notfall-hero .breadcrumb a { color: var(--white-text-secondary); text-decoration: none; }
+.hero.notfall-hero .breadcrumb a:hover { text-decoration: underline; color: var(--cta-primary-text); }
 
 /* ── Hero Icon & Badge ── */
 .hero-icon {
@@ -186,7 +186,7 @@
 }
 .quote-block blockquote {
   font-family: 'DM Serif Display', serif;
-  font-size: var(--text-lg); color: var(--navy);
+  font-size: var(--text-lg); color: var(--text); /* #776c63 auf --surface-alt #F4F1EC = 4.54:1, WCAG AA */
   line-height: 1.75; padding-left: var(--space-lg);
 }
 .quote-block cite {
@@ -2197,7 +2197,7 @@ table tbody tr:nth-child(even),
 }
 
 .quote-block blockquote {
-  color: var(--navy);
+  color: var(--text); /* #776c63 auf --surface-alt #F4F1EC = 4.54:1, WCAG AA */
   font-size: var(--text-lg);
 }
 
