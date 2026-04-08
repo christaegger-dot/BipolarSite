@@ -170,20 +170,17 @@ a:hover {
 footer {
   background: var(--surface-alt);
   color: var(--navy);
-  padding: var(--space-xl) var(--space-lg) var(--space-2xl);
+  padding: var(--space-2xl) var(--space-lg);
   margin-top: 0;
-  border-top: none;
+  border-top: 1px solid var(--border-warm);
   position: relative;
-}
-footer::before {
-  display: none;
 }
 .footer-inner {
   max-width: var(--wide-width);
   margin: 0 auto;
   text-align: center;
 }
-.footer-inner p { font-size: var(--text-xs); line-height: 1.75; margin-bottom: 8px; }
+.footer-inner p { font-size: var(--text-xs); line-height: 1.75; margin-bottom: var(--space-sm); }
 .footer-inner a { color: var(--navy); text-decoration: none; }
 .footer-inner a:hover { color:var(--teal-cta); }
 .footer-links {
@@ -193,7 +190,8 @@ footer::before {
   font-size: var(--text-xs);
   display: flex;
   flex-wrap: wrap;
-  gap: 10px 14px;
+  gap: var(--space-base) var(--space-md);
+  justify-content: center;
 }
 .footer-links a { margin: 0; color: var(--slate); text-decoration: none; }
 .footer-links a:hover { color: var(--navy); }
@@ -1379,7 +1377,7 @@ textarea { min-height: 80px; resize: vertical; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: var(--space-base);
   text-align: center;
 }
 
@@ -1741,7 +1739,7 @@ header.hero .hero-content {
 .tool-card:hover { box-shadow: var(--card-shadow-hover); border-color: var(--teal-light); }
 .tool-card-kicker {
   font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--navy-mid); margin-bottom: 10px; display: block;
+  text-transform: uppercase; color: var(--navy-mid); margin-bottom: var(--space-base); display: block;
 }
 .tool-card h3 {
   font-size: var(--text-lg); line-height: 1.15; color: var(--navy); margin: 0 0 var(--heading-gap-h3);
@@ -1749,7 +1747,7 @@ header.hero .hero-content {
 .tool-card p { margin: 0; font-size: var(--text-base); line-height: 1.75; color: var(--slate); }
 .tool-card-footer {
   display: flex; align-items: center; justify-content: space-between; gap: var(--space-md);
-  margin-top: var(--space-md); padding-top: 14px;
+  margin-top: var(--space-md); padding-top: var(--space-md);
   border-top: 1px solid var(--border-warm);
   color: var(--text-soft); font-size: var(--text-xs); font-weight: 600;
 }
