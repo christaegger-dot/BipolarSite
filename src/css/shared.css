@@ -3,7 +3,7 @@
 
 /* ── Reset ── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 80px; font-size: 16px; }
+html { scroll-behavior: smooth; font-size: 16px; scroll-padding-top: 80px; }
 
 /* ── Body ── */
 body {
@@ -178,6 +178,12 @@ footer {
 
 /* ── Global Transitions for Interactive Elements ── */
 a, button, input, .module-card {
+  transition: all 0.2s ease;
+}
+
+/* ── Global Transitions (polished interactive feel) ── */
+a, button, input, select, textarea,
+.module-card, .quick-card, .tool-chip, .handout-card, .action-card {
   transition: all 0.2s ease;
 }
 
@@ -398,7 +404,7 @@ footer *:focus-visible,
   background: white;
   border: 1px solid var(--border-warm);
   border-radius: var(--radius-md);
-  padding: 32px 28px;
+  padding: var(--space-lg);
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, border-left-width 0.2s ease;
   position: relative;
   display: flex;
