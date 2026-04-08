@@ -37,7 +37,6 @@
   --sand-ink:    #7a5630;
   --sand-faint:  rgba(221,210,191,0.18);
   --sand-subtle: rgba(221,210,191,0.34);
-  --sand-muted:  rgba(221,210,191,0.7);
   --sand-border: rgba(181,138,82,0.14);
 
 
@@ -135,7 +134,6 @@
 
   --blue-phase:       #4a6f95;
   --blue-phase-light: #eef3f8;
-  --purple-phase:     #7c3aed;
   --phase-green:      #0d7a5f;
   --hypo-phase:       var(--amber-light);  /* hypomania phase in mood charts */
 
@@ -174,7 +172,6 @@
   --teal-accent-border-accent: rgba(30,101,109,0.25);
   --teal-accent-border-faint: rgba(30,101,109,0.12);
   --teal-accent-bg-faint:     rgba(30,101,109,0.04);
-  --teal-accent-bg-subtle:    rgba(30,101,109,0.07);
 
   /* Purple phase scale (Stigma cognitive) */
   --purple-light:  #f8f5ff;
@@ -184,8 +181,6 @@
   /* Alert/red opacity scale */
   --alert-coral:       rgba(199,84,80,0.12);
   --alert-coral-border: rgba(199,84,80,0.3);
-  --alert-warm-bg:     rgba(217,113,90,0.08);
-  --alert-warm-border: rgba(217,113,90,0.2);
   --alert-dark-hover:  #a33d3a;
 
   /* Warm pink backgrounds */
@@ -199,15 +194,8 @@
   --slate-cool:        #475569;
   --slate-warm:        #c5bdb5;
 
-  /* Phase colors on dark bg (Durchatmen, Phasenverlauf) */
-  --navy-deep:       #294051;
-  --blue-phase-on-dark:  #93b4d4;
-  --amber-phase-on-dark: #f59e4a;
-  --sand-on-dark:        #c9a97a;
-  --green-on-dark:       #34d399;
-  --teal-on-dark:        #5bbac4;
+  /* Dark bg helpers (Durchatmen, Phasenverlauf) */
   --ice-deep:            #1e3044;
-  --ice-deeper:          #152535;
 
 
   /* ══════════════════════════════════════════
@@ -242,7 +230,6 @@
      RADIUS SCALE
      ══════════════════════════════════════════ */
 
-  --radius-xs:    4px;
   --radius-sm:    8px;
   --radius-md:   12px;
   --radius-lg:   20px;
@@ -254,7 +241,6 @@
      ══════════════════════════════════════════ */
 
   --card-radius:  var(--radius-md);
-  --card-border:  1px solid var(--border-warm);
   --card-padding: var(--space-lg);
   --card-shadow:  none;  /* shadows only on hover — editorial, not app */
   --card-shadow-hover: 0 8px 24px rgba(122,111,102,0.07);
@@ -274,7 +260,6 @@
      SPACING SCALE
      ══════════════════════════════════════════ */
 
-  --space-xs:   4px;
   --space-sm:   8px;
   --space-base: 12px;
   --space-md:   16px;
@@ -364,7 +349,6 @@
      ══════════════════════════════════════════ */
 
   --overlay-dark:  rgba(0,0,0,0.3);
-  --overlay-light: rgba(0,0,0,0.15);
   --overlay-warm:  rgba(42,33,27,0.38);
   --overlay-barely: rgba(0,0,0,0.015);
 

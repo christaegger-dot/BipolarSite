@@ -1140,7 +1140,6 @@ p.bright-moment {
 .after-step-body{display:flex;flex-direction:column;gap:4px}
 .after-step-body strong{font-size:var(--text-base);color:var(--navy-mid);display:block}
 .after-step-body span{font-size:var(--text-xs);color:var(--slate);line-height:1.5}
-.after-step-why{font-size:var(--text-xs);color:var(--text-soft);font-style:italic;margin-top:4px}
 @media(max-width:600px){.after-steps{grid-template-columns:1fr}}
 
 /* ── Notfall Responsive ── */
@@ -1454,8 +1453,6 @@ body.pdf-preview-open{overflow:hidden}
 .selftest{background:var(--card);border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:var(--space-xl);margin:var(--temp-dense-margin) 0;box-shadow:var(--card-shadow)}
 .selftest .selftest-heading{font-size:var(--text-lg);margin-bottom:var(--heading-gap-h4)}
 .selftest>p{font-size:var(--text-xs);color:var(--text-soft);margin-bottom:var(--space-lg)}
-.selftest-item{padding:16px 0;border-top:1px solid var(--border-warm);font-size:var(--text-base);color:var(--slate);line-height:1.5}
-.selftest-item:first-of-type{border-top:none}
 .glaswand{background:var(--blue-phase-light);border-radius:var(--radius-md);padding:var(--space-xl);margin:var(--temp-dense-margin) 0;text-align:center}
 .glaswand-visual{display:flex;align-items:center;justify-content:center;gap:var(--space-sm);margin:24px 0;font-size:var(--text-base);color:var(--blue-phase)}
 .glaswand-wall{width:3px;height:80px;background:var(--blue-phase);opacity:0.4;border-radius:1.5px;margin:0 20px}
@@ -1593,10 +1590,6 @@ body.pdf-preview-open{overflow:hidden}
 .step-list{list-style:none;counter-reset:step-counter;margin:20px 0}
 .step-list li{counter-increment:step-counter;padding:14px 0 14px 48px;position:relative;font-size:var(--text-base);color:var(--slate);line-height:1.75;border-bottom:1px solid var(--border-warm)}
 .step-list li::before{content:counter(step-counter);position:absolute;left:0;top:14px;width:32px;height:32px;border-radius:var(--radius-sm);background:var(--success-soft);color:var(--teal-dark);display:flex;align-items:center;justify-content:center;font-size:var(--text-xs);font-weight:800}
-.comm-rule{background:var(--card);border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:22px 26px;margin-bottom:14px;border-left:4px solid var(--teal-light)}
-.comm-rule h4{font-size:var(--text-base);color:var(--text);margin-bottom:var(--heading-gap-h4)}
-.comm-rule p{font-size:var(--text-base);color:var(--slate);line-height:1.5;margin:0 0 8px}
-.comm-rule .avoid{font-size:var(--text-xs);color:var(--alert);font-weight:500}
 .situation-card{background:var(--card);border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:var(--space-lg);margin-bottom:var(--space-md)}
 .situation-card h4{font-size:var(--text-base);font-weight:700;color:var(--text);margin-bottom:10px}
 .situation-card .response{font-size:var(--text-base);color:var(--navy);background:var(--success-soft);padding:var(--space-base) var(--space-md);border-radius:var(--radius-sm);margin-bottom:var(--space-sm);line-height:1.5}
@@ -1910,7 +1903,6 @@ body.pdf-preview-open{overflow:hidden}
 
 /* ── [from overrides.css] BORDER OVERRIDES ── */
 .module-card,
-.quick-card,
 .guide,
 .sit-card,
 .number-card,
@@ -1918,7 +1910,6 @@ body.pdf-preview-open{overflow:hidden}
 .toc,
 .quote-block,
 .alert-box,
-.reflection-block,
 .refl {
   border-color: var(--border);
 }
@@ -1954,43 +1945,6 @@ body.pdf-preview-open{overflow:hidden}
 
 .module-card h3 {
   color: var(--navy);
-}
-
-.module-card-arrow {
-  background: var(--success-soft);
-  color: var(--teal);
-  border-radius: var(--radius-round);
-}
-
-.module-card:hover .module-card-arrow {
-  background: var(--teal);
-  color: var(--cta-primary-text);
-}
-
-/* ── Quick action cards (index.html) ── */
-.quick-card {
-  border-radius: var(--card-radius);
-  border: 1px solid var(--border);
-}
-
-.quick-card::before {
-  background: var(--teal);
-}
-
-.quick-card:hover {
-  border-color: var(--teal);
-  box-shadow: var(--shadow-soft);
-}
-
-.quick-card-icon {
-  background: var(--success-soft);
-  color: var(--teal);
-  border-radius: var(--radius-sm);
-}
-
-.quick-card.alert .quick-card-icon {
-  background: var(--alert-subtle);
-  color: var(--alert);
 }
 
 /* ── Situation / number cards (notfall + modules) ── */
@@ -2265,13 +2219,6 @@ table tbody tr:nth-child(even),
   color: var(--alert);
 }
 
-/* ── Note boxes ── */
-.note-box {
-  background: var(--amber-bg);
-  border: 1px solid var(--amber-border);
-  border-radius: var(--radius-md);
-}
-
 /* ── Notfall-specific: fu-alert ── */
 .fu-alert {
   border-radius: var(--radius-md);
@@ -2311,11 +2258,6 @@ table tbody tr:nth-child(even),
   color: var(--alert);
 }
 
-/* ── Section labels & titles ── */
-.section-label {
-  color: var(--teal);
-}
-
 .section-title {
   color: var(--navy);
 }
@@ -2346,12 +2288,6 @@ table tbody tr:nth-child(even),
   color: var(--navy);
 }
 
-/* ── Shared border-radius (module page elements) ── */
-.handout-preview,
-.treatment-preview {
-  border-radius: var(--card-radius);
-}
-
 /* ── PALETTE INTEGRATION (L2 — no more !important overrides) ── */
 .module-hero::before,
 .module-hero::after {
@@ -2363,13 +2299,11 @@ table tbody tr:nth-child(even),
   opacity: 0.75;
 }
 
-.takeaways,
-.key-takeaways {
+.takeaways {
   background: var(--teal);
 }
 
-.takeaways::before,
-.key-takeaways::before {
+.takeaways::before {
   display: none;
 }
 
