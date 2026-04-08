@@ -1585,9 +1585,9 @@ header.hero .hero-content {
 }
 .back-to-top:hover,
 .back-to-top:focus-visible {
-  background: var(--teal);
+  background: var(--teal-cta-dark);
   color: #fff;
-  border-color: var(--teal);
+  border-color: var(--teal-cta-dark);
 }
 .back-to-top svg {
   width: 20px;

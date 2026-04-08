@@ -1974,7 +1974,7 @@ body.pdf-preview-open{overflow:hidden}
 }
 
 .guide.open .guide-chevron {
-  background: var(--teal);
+  background: var(--teal-cta-dark);
   color: var(--cta-primary-text);
 }
 
@@ -2241,7 +2241,7 @@ table tbody tr:nth-child(even),
 }
 
 .pdf-preview-link:hover {
-  background: var(--teal);
+  background: var(--teal-cta-dark);
   color: var(--cta-primary-text);
 }
 
