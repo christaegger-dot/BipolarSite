@@ -263,16 +263,6 @@
 .takeaway-item p { font-size: var(--text-base); line-height: 1.75; color: var(--white-text); margin: 0; }
 .takeaway-item strong { color: var(--cta-primary-text); }
 
-.community-list {
-  list-style: none; padding: 0; margin: 0;
-}
-.community-list li {
-  font-size: var(--text-base); color: var(--text);
-  padding: 6px 0; line-height: 1.5;
-}
-.community-list li strong { color: var(--navy); }
-.community-list li a { color: var(--teal-text); font-weight: 600; }
-
 .sources {
   background: var(--success-soft); border-radius: var(--card-radius);
   padding: var(--space-lg) var(--space-xl); margin: var(--temp-standard-margin) 0;
