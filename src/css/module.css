@@ -807,7 +807,8 @@ body.pdf-preview-open { overflow: hidden; }
   border-radius: 0 var(--card-radius) var(--card-radius) 0;
   padding: var(--temp-pause-padding); margin: var(--temp-pause-margin) 0;
 }
-.bright-moment p {
+.bright-moment p,
+p.bright-moment {
   font-family: 'DM Sans', sans-serif;
   font-size: var(--text-base); font-style: italic; color: var(--slate);
   line-height: 1.75; margin: 0;
