@@ -971,24 +971,6 @@ a, button, input, select, textarea,
   .invitation-phone, .invitation-email { width: 100%; justify-content: center; }
 }
 
-/* ── Wer steht dahinter (compact aside) ── */
-#main-content > .about-aside {
-  max-width: var(--content-width);
-  padding-top: var(--space-xl);
-  padding-bottom: var(--section-tight);
-  text-align: center;
-}
-.about-aside p {
-  font-size: var(--text-xs);
-  line-height: 1.75;
-  color: var(--text-soft);
-  margin: 0;
-}
-.about-aside a { color: var(--teal-cta); }
-@media (max-width: 600px) {
-  #main-content > .about-aside { padding-left: 1.4rem; padding-right: 1.4rem; }
-}
-
 /* ── Homepage Responsive ── */
 @media (max-width: 768px) {
   .home-hero-text { padding: 0; max-width: 100%; }
@@ -1410,7 +1392,6 @@ a:visited {
 .urgent-note-link:visited,
 .footer-link-alert:visited,
 .footer-disclaimer a:visited,
-.about-aside a:visited,
 footer a:visited {
   color: inherit;
 }
