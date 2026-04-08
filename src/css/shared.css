@@ -587,7 +587,7 @@ a, button, input, select, textarea,
   text-decoration: none;
   font-size: var(--text-sm);
   font-weight: 600;
-  color: var(--navy);
+  color: var(--text); /* #776c63 auf --surface-alt #F4F1EC = 4.54:1, WCAG AA */
   line-height: 1.5;
   transition: color 0.2s ease;
 }
