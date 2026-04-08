@@ -31,16 +31,12 @@
   /* Text semantic aliases */
   --text:        #776c63;   /* 4.91:1 on --bg, 4.54:1 on --surface-alt — AA everywhere (was #7a6f66, 4.34:1 on surface-alt) */
   --text-soft:   #6f655d;   /* 5.2:1 on #FAF8F5 — AA for all sizes incl. 12px (was #7a7068, 4.37:1) */
-  --text-secondary: var(--text-soft);  /* reduced-emphasis alias (captions, meta) */
-  --slate-light: #8b8580;   /* lighter warm-neutral for subtle UI */
-
   /* Sand family (warm accents, badges, subtle fills) */
   --sand:        #ddd2bf;
   --sand-deep:   #b58a52;
   --sand-ink:    #7a5630;
   --sand-faint:  rgba(221,210,191,0.18);
   --sand-subtle: rgba(221,210,191,0.34);
-  --sand-muted:  rgba(221,210,191,0.7);
   --sand-border: rgba(181,138,82,0.14);
 
 
@@ -98,11 +94,9 @@
      BORDERS
      ══════════════════════════════════════════ */
 
-  --border:      rgba(45,40,35,0.08);
-  --border-warm-sm: rgba(45,40,35,0.04);  /* subtle: dividers, card edges, footer lines */
-  --border-warm:    rgba(45,40,35,0.04);  /* default warm border — unified with sm */
+  --border:         rgba(45,40,35,0.08);
+  --border-warm:    rgba(45,40,35,0.04);  /* subtle: dividers, card edges, footer lines */
   --border-warm-md: rgba(45,40,35,0.08);  /* visible: section separators, active states */
-  --border-warm-xl: rgba(45,40,35,0.08);  /* same as md — was 0.1, too many steps */
 
 
   /* ══════════════════════════════════════════
@@ -110,7 +104,6 @@
      ══════════════════════════════════════════ */
 
   --success-soft: rgba(168,213,203,0.15);
-  --warm-100:    #F7F5F2;   /* very light warm bg for subtle sections */
   --amber-bg:    #fef3e2;
   --amber:       #B45309;
   --amber-light: #FBBF24;
@@ -122,10 +115,7 @@
      ══════════════════════════════════════════ */
 
   --alert:       #B91C1C;
-  --alert-red:   var(--alert);       /* semantic alias for alert text/icons */
   --alert-soft:  #FEF2F2;
-  --alert-red-bg: var(--alert-soft);  /* semantic alias for alert backgrounds */
-  --red-bg:       var(--alert-soft);  /* generic red background alias */
   --alert-red-border: #fca5a5;
   --alert-red-light:  #fecaca;
   --alert-red-coral:  #f87171;
@@ -144,9 +134,7 @@
 
   --blue-phase:       #4a6f95;
   --blue-phase-light: #eef3f8;
-  --purple-phase:     #7c3aed;
   --phase-green:      #0d7a5f;
-  --amber-phase:      var(--amber);        /* mania phase in mood charts */
   --hypo-phase:       var(--amber-light);  /* hypomania phase in mood charts */
 
   --mania-phase-bg:          #fff3e0;
@@ -184,7 +172,6 @@
   --teal-accent-border-accent: rgba(30,101,109,0.25);
   --teal-accent-border-faint: rgba(30,101,109,0.12);
   --teal-accent-bg-faint:     rgba(30,101,109,0.04);
-  --teal-accent-bg-subtle:    rgba(30,101,109,0.07);
 
   /* Purple phase scale (Stigma cognitive) */
   --purple-light:  #f8f5ff;
@@ -194,8 +181,6 @@
   /* Alert/red opacity scale */
   --alert-coral:       rgba(199,84,80,0.12);
   --alert-coral-border: rgba(199,84,80,0.3);
-  --alert-warm-bg:     rgba(217,113,90,0.08);
-  --alert-warm-border: rgba(217,113,90,0.2);
   --alert-dark-hover:  #a33d3a;
 
   /* Warm pink backgrounds */
@@ -209,15 +194,8 @@
   --slate-cool:        #475569;
   --slate-warm:        #c5bdb5;
 
-  /* Phase colors on dark bg (Durchatmen, Phasenverlauf) */
-  --navy-deep:       #294051;
-  --blue-phase-on-dark:  #93b4d4;
-  --amber-phase-on-dark: #f59e4a;
-  --sand-on-dark:        #c9a97a;
-  --green-on-dark:       #34d399;
-  --teal-on-dark:        #5bbac4;
+  /* Dark bg helpers (Durchatmen, Phasenverlauf) */
   --ice-deep:            #1e3044;
-  --ice-deeper:          #152535;
 
 
   /* ══════════════════════════════════════════
@@ -252,12 +230,10 @@
      RADIUS SCALE
      ══════════════════════════════════════════ */
 
-  --radius-xs:    4px;
   --radius-sm:    8px;
   --radius-md:   12px;
   --radius-lg:   20px;
-  --radius-pill:  100px;  /* pill-shaped buttons, tags, progress bars */
-  --radius-round: 100px;
+  --radius-round: 100px;  /* pill-shaped buttons, tags, progress bars */
 
 
   /* ══════════════════════════════════════════
@@ -265,7 +241,6 @@
      ══════════════════════════════════════════ */
 
   --card-radius:  var(--radius-md);
-  --card-border:  1px solid var(--border-warm);
   --card-padding: var(--space-lg);
   --card-shadow:  none;  /* shadows only on hover — editorial, not app */
   --card-shadow-hover: 0 8px 24px rgba(122,111,102,0.07);
@@ -285,7 +260,6 @@
      SPACING SCALE
      ══════════════════════════════════════════ */
 
-  --space-xs:   4px;
   --space-sm:   8px;
   --space-base: 12px;
   --space-md:   16px;
@@ -328,15 +302,6 @@
      --bp-wide:    900px
      --bp-xl:     1600px   (large desktop scale-up)
   */
-
-
-  /* ══════════════════════════════════════════
-     BADGE BASE
-     ══════════════════════════════════════════ */
-
-  --badge-radius:  var(--radius-round);
-  --badge-padding: 5px 14px;
-  --badge-font:    var(--text-xs);
 
 
   /* ══════════════════════════════════════════
@@ -384,7 +349,6 @@
      ══════════════════════════════════════════ */
 
   --overlay-dark:  rgba(0,0,0,0.3);
-  --overlay-light: rgba(0,0,0,0.15);
   --overlay-warm:  rgba(42,33,27,0.38);
   --overlay-barely: rgba(0,0,0,0.015);
 
