@@ -104,7 +104,7 @@ document.addEventListener('click',function(e){
   const a=e.target.closest('[data-action]');if(!a||a.disabled)return;
   if(a.dataset.action==='nx')nx();
   else if(a.dataset.action==='rs')rs();
-  else if(a.dataset.action==='nav')location.href=a.dataset.href;
+  else if(a.dataset.action==='nav')window.location.assign(a.dataset.href);
 });
 </script>
 {% endblock %}

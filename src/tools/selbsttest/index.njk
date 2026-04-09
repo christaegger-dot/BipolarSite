@@ -90,7 +90,7 @@ document.addEventListener('click',function(e){
   else if(a.dataset.action==='nx')nx();
   else if(a.dataset.action==='sh')sh();
   else if(a.dataset.action==='rs')rs();
-  else if(a.dataset.action==='nav')location.href=a.dataset.href;
+  else if(a.dataset.action==='nav')window.location.assign(a.dataset.href);
 });
 </script>
 {% endblock %}
