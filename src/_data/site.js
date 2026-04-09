@@ -7,7 +7,6 @@ module.exports = {
   org: "Psychiatrische Universitätsklinik Zürich",
   department: "Fachstelle Angehörigenarbeit",
   address: "Lenggstrasse 31, Postfach, 8032 Zürich",
-  phone: "+41 58 384 38 00",
   email: "angehoerigenarbeit@pukzh.ch",
   noIndexDeploy: deployContext !== "production",
 
