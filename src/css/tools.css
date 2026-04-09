@@ -492,6 +492,9 @@ body.selbsttest-page .card.result--red .res-score span,body.selbsttest-page .car
 body.selbsttest-page .card.result--red .bar-dot{border-color:var(--alert)}
 body.selbsttest-page .card.result--red .rec{background:var(--alert-soft);border-color:var(--alert)}
 body.selbsttest-page .card.result--red .rec-title,body.selbsttest-page .card.result--red .rec-item::before{color:var(--alert)}
+.rec-cta{display:block;background:var(--teal-cta);color:var(--white-text);text-align:center;padding:14px 20px;border-radius:var(--radius-md);text-decoration:none;font-weight:700;font-size:var(--text-base);line-height:1.4;transition:background 0.2s}
+.rec-cta:hover{background:var(--teal-cta-dark)}
+.rec-cta span{display:block;font-weight:400;font-size:var(--text-sm);opacity:0.85;margin-top:2px}
 
 
 /* ── solidaritaets-chart ── */

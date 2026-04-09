@@ -117,6 +117,10 @@ a:hover {
   color: var(--rose-text);
 }
 
+.nav-sos-mobile {
+  display: none;
+}
+
 .nav-toggle {
   display: none;
   background: none;
@@ -132,6 +136,26 @@ a:hover {
   .nav-links { display: none; }
   .nav-toggle { display: flex; }
   .nav-inner { padding: 0 20px; position: relative; }
+
+  .nav-sos-mobile {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 8px;
+    padding: 5px 12px;
+    background: var(--rose-soft);
+    color: var(--rose-text);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    border: 1px solid var(--rose-border);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    letter-spacing: 0.03em;
+  }
+  .nav-sos-mobile:hover {
+    background: var(--rose-badge);
+  }
+  .nav-links.nav-open .nav-sos { display: none; }
 
   .nav-links.nav-open {
     display: flex;
