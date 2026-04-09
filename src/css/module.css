@@ -942,7 +942,7 @@ p.bright-moment {
 .notfall-hero::before{content:'';position:absolute;inset:0;background:rgba(255,245,242,0.1)}
 .hero-inner{max-width:var(--wide-width);margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--grid-gap-standard);align-items:center;position:relative;z-index:2}
 .hero-copy{text-align:left}
-.notfall-hero h1{font-family:'DM Serif Display',serif;font-size:var(--text-3xl);font-weight:400;color:var(--cta-primary-text);margin-bottom:var(--space-base)}
+.notfall-hero h1{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem, 3.2vw, 2.5rem);line-height:1.2;font-weight:400;color:var(--cta-primary-text);margin-bottom:var(--space-base)}
 .notfall-hero p{font-size:var(--text-base);color:var(--white-text);max-width:60ch;margin:0 0 var(--space-md)}
 
 /* ── Emergency Strip (Hero) ── */
