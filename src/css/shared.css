@@ -212,9 +212,7 @@ a, button, input, select, textarea,
 .hero *:focus-visible,
 .home-hero *:focus-visible,
 .module-hero *:focus-visible,
-.takeaways *:focus-visible {
-  outline-color: var(--teal-light);
-}
+.takeaways *:focus-visible,
 
 /* ── No-JS fallback: show nav links when hamburger can't work ── */
 .no-js .nav-links {
