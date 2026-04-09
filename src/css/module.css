@@ -1719,7 +1719,7 @@ body.pdf-preview-open{overflow:hidden}
 .stelle-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
 .stelle-card h4{font-size:var(--text-base);color:var(--text);margin:0}
 .stelle-badge{font-size:var(--text-xs);font-weight:700;padding:3px 10px;border-radius:var(--radius-sm)}
-.stelle-badge.beratung{background:var(--sand-subtle);color:var(--sand-deep)}
+.stelle-badge.beratung{background:var(--sand-subtle);color:var(--sand-ink)}
 .stelle-badge.selbsthilfe{background:var(--amber-bg);color:var(--amber)}
 .stelle-card p{font-size:var(--text-base);color:var(--slate);line-height:1.5;margin:0 0 10px}
 .stelle-contact{font-size:var(--text-base);font-weight:600}
@@ -2276,7 +2276,6 @@ table tbody tr:nth-child(even),
   background: var(--teal);
 }
 
-.stelle-badge.beratung,
 .action-icon {
   color: var(--sand-ink);
 }
