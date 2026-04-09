@@ -336,6 +336,10 @@
      ══════════════════════════════════════════ */
 
   --white-text:           rgba(255,255,255,0.88);
+  /* ⚠ --white-text-secondary fails AA (< 4.5:1) on mid-tone backgrounds
+     like --teal-cta (#287f87, 3.01:1) or --teal-cta-dark (#1a6b72, 3.94:1).
+     Only use on dark backgrounds (--navy-dark, --emergency-dark, etc.)
+     where 70 % white still passes. See PR #158 audit. */
   --white-text-secondary: rgba(255,255,255,0.70);
   --white-text-muted:     rgba(255,255,255,0.50);
   --white-text-dim:       rgba(255,255,255,0.40);   /* 3.71:1 on #1a2332 — AA for non-text UI (was 0.30, 2.69:1) */
