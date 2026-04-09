@@ -18,7 +18,7 @@
     <rect x="278" y="166" width="164" height="162" rx="24" fill="#FFFFFF" stroke="#D7E7E3" stroke-width="2"/>
     <circle cx="360" cy="206" r="18" fill="#3a9aa3"/>
     <path d="M360 196C364 200 368 204 368 210C368 216 364 220 360 224C356 220 352 216 352 210C352 204 356 200 360 196Z" fill="#E6F4F2"/>
-    <text x="317" y="246" fill="#7a6f66" font-family="DM Serif Display, Georgia, serif" font-size="25" font-weight="700">0800 33 66 55</text>
+    <text x="298" y="246" fill="#7a6f66" font-family="DM Serif Display, Georgia, serif" font-size="22" font-weight="700">0800 33 66 55</text>
     <text x="312" y="276" fill="#475569" font-family="DM Sans, Arial, sans-serif" font-size="16">Psychiatrische Krise,</text>
     <text x="312" y="298" fill="#475569" font-family="DM Sans, Arial, sans-serif" font-size="16">noch ansprechbar,</text>
     <text x="312" y="320" fill="#475569" font-family="DM Sans, Arial, sans-serif" font-size="16">Einschätzung nötig</text>
