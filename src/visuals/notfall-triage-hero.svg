@@ -8,21 +8,21 @@
     <rect x="82" y="166" width="164" height="180" rx="24" fill="#FFF4F3" stroke="#F1B4AF" stroke-width="2"/>
     <circle cx="164" cy="206" r="18" fill="#9A3412"/>
     <path d="M164 194L171 208H157L164 194Z" fill="#FFF4F3"/>
-    <text x="118" y="246" fill="#9A3412" font-family="DM Serif Display, Georgia, serif" font-size="28" font-weight="700">144 / 117</text>
-    <text x="117" y="272" fill="#475569" font-family="DM Sans, Arial, sans-serif" font-size="14">Unmittelbare Gefahr,</text>
-    <text x="117" y="292" fill="#475569" font-family="DM Sans, Arial, sans-serif" font-size="14">Gewalt, Suizidplan,</text>
-    <text x="117" y="312" fill="#475569" font-family="DM Sans, Arial, sans-serif" font-size="14">bedrohliche</text>
-    <text x="117" y="330" fill="#475569" font-family="DM Sans, Arial, sans-serif" font-size="14">Entgleisung</text>
+    <text x="108" y="246" fill="#9A3412" font-family="DM Serif Display, Georgia, serif" font-size="28" font-weight="700">144 / 117</text>
+    <text x="92" y="272" fill="#475569" font-family="DM Sans, Arial, sans-serif" font-size="13">Unmittelbare Gefahr,</text>
+    <text x="92" y="290" fill="#475569" font-family="DM Sans, Arial, sans-serif" font-size="13">Gewalt, Suizidplan,</text>
+    <text x="92" y="308" fill="#475569" font-family="DM Sans, Arial, sans-serif" font-size="13">bedrohliche</text>
+    <text x="92" y="326" fill="#475569" font-family="DM Sans, Arial, sans-serif" font-size="13">Entgleisung</text>
   </g>
 
   <g>
     <rect x="278" y="166" width="164" height="180" rx="24" fill="#FFFFFF" stroke="#D7E7E3" stroke-width="2"/>
     <circle cx="360" cy="206" r="18" fill="#3a9aa3"/>
     <path d="M360 196C364 200 368 204 368 210C368 216 364 220 360 224C356 220 352 216 352 210C352 204 356 200 360 196Z" fill="#E6F4F2"/>
-    <text x="290" y="246" fill="#7a6f66" font-family="DM Serif Display, Georgia, serif" font-size="20" font-weight="700">0800 33 66 55</text>
-    <text x="312" y="276" fill="#475569" font-family="DM Sans, Arial, sans-serif" font-size="16">Psychiatrische Krise,</text>
-    <text x="312" y="298" fill="#475569" font-family="DM Sans, Arial, sans-serif" font-size="16">noch ansprechbar,</text>
-    <text x="312" y="320" fill="#475569" font-family="DM Sans, Arial, sans-serif" font-size="16">Einschätzung nötig</text>
+    <text x="286" y="246" fill="#7a6f66" font-family="DM Serif Display, Georgia, serif" font-size="18" font-weight="700">0800 33 66 55</text>
+    <text x="288" y="272" fill="#475569" font-family="DM Sans, Arial, sans-serif" font-size="13">Psychiatrische Krise,</text>
+    <text x="288" y="290" fill="#475569" font-family="DM Sans, Arial, sans-serif" font-size="13">noch ansprechbar,</text>
+    <text x="288" y="308" fill="#475569" font-family="DM Sans, Arial, sans-serif" font-size="13">Einschätzung nötig</text>
   </g>
 
   <g>
@@ -30,10 +30,10 @@
     <circle cx="556" cy="206" r="18" fill="#5B7FA5"/>
     <path d="M547 206H565" stroke="#EEF4F8" stroke-width="3" stroke-linecap="round"/>
     <path d="M556 197V215" stroke="#EEF4F8" stroke-width="3" stroke-linecap="round"/>
-    <text x="517" y="246" fill="#334155" font-family="DM Serif Display, Georgia, serif" font-size="25" font-weight="700">Heute handeln</text>
-    <text x="514" y="272" fill="#475569" font-family="DM Sans, Arial, sans-serif" font-size="14">Warnzeichen,</text>
-    <text x="514" y="292" fill="#475569" font-family="DM Sans, Arial, sans-serif" font-size="14">Kontrollverlust,</text>
-    <text x="514" y="312" fill="#475569" font-family="DM Sans, Arial, sans-serif" font-size="14">Folgeschäden</text>
-    <text x="514" y="330" fill="#475569" font-family="DM Sans, Arial, sans-serif" font-size="14">vermeiden</text>
+    <text x="492" y="246" fill="#334155" font-family="DM Serif Display, Georgia, serif" font-size="22" font-weight="700">Heute handeln</text>
+    <text x="486" y="272" fill="#475569" font-family="DM Sans, Arial, sans-serif" font-size="13">Warnzeichen,</text>
+    <text x="486" y="290" fill="#475569" font-family="DM Sans, Arial, sans-serif" font-size="13">Kontrollverlust,</text>
+    <text x="486" y="308" fill="#475569" font-family="DM Sans, Arial, sans-serif" font-size="13">Folgeschäden</text>
+    <text x="486" y="326" fill="#475569" font-family="DM Sans, Arial, sans-serif" font-size="13">vermeiden</text>
   </g>
 </svg>
