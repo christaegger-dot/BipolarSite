@@ -35,12 +35,12 @@ BipolarSite/
 │   │   └── fonts.css             # Font-Face-Deklarationen
 │   ├── js/
 │   │   └── nav.js                # Navigationslogik (Hamburger-Menü etc.)
-│   ├── modul/                    # Psychoedukations-Module 1–8
+│   ├── modul/                    # Einzelne Psychoedukations-Module (1–8)
 │   │   ├── 1/index.njk
 │   │   ├── 2/index.njk
 │   │   └── …
-│   ├── module/                   # Modulübersicht (/module/)
-│   ├── tools/                    # Interaktive Tools
+│   ├── module/                   # Übersichtsseite aller Module (/module/)
+│   ├── tools/                    # Einzelne interaktive Tools
 │   │   ├── eisberg/
 │   │   ├── phasenverlauf/
 │   │   ├── krisenplan/
@@ -50,7 +50,7 @@ BipolarSite/
 │   │   ├── solidaritaets-chart/
 │   │   ├── ee-kreislauf/
 │   │   └── durchatmen/
-│   ├── werkzeuge/                # Tool-Übersicht (/werkzeuge/)
+│   ├── werkzeuge/                # Übersichtsseite aller Tools (/werkzeuge/)
 │   ├── notfall/                  # Notfallhilfe-Seite
 │   ├── impressum/                # Impressum
 │   ├── handouts/                 # Herunterladbare PDFs
@@ -63,6 +63,12 @@ BipolarSite/
 ├── netlify.toml                  # Netlify-Konfiguration (Deployment, Header, Caching)
 └── package.json
 ```
+
+> **Hinweis zur Namenskonvention:** Die ähnlich klingenden Verzeichnisnamen sind bewusst getrennt:
+> - `src/modul/` enthält die **8 Einzelmodule** (je ein Unterordner `1/` – `8/`), `src/module/` ist ausschließlich die **Übersichtsseite** (`/module/`).
+> - `src/tools/` enthält die **8 einzelnen interaktiven Tools** (je ein Unterordner), `src/werkzeuge/` ist ausschließlich die **Übersichtsseite** (`/werkzeuge/`).
+>
+> Neue Inhalte (Module oder Tools) gehören also immer in `modul/` bzw. `tools/`, nicht in die Übersichtsordner.
 
 ## Lokale Entwicklung
 
