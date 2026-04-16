@@ -50,8 +50,6 @@
   --radius-xl:   20px;  /* hero sections, tool wrappers, large panels */
   --radius-pill: 20px;  /* legacy alias → xl */
   --radius-2xl:  20px;  /* legacy alias → xl */
-  --radius-3xl:  20px;  /* legacy alias → xl */
-  --radius-hero: 20px;  /* legacy alias → xl */
   --radius-round: 100px; /* pill buttons, full-round badges */
 
   /* ── Shadow Scale ── */
@@ -63,7 +61,6 @@
   /* ── Spacing Scale ── */
   --space-xs:  4px;
   --space-sm:  8px;
-  --space-base: 12px;
   --space-md:  16px;
   --space-lg:  24px;
   --space-xl:  32px;
@@ -132,7 +129,6 @@
   --white-text-link:     rgba(255,255,255,0.85);
   --white-text-secondary: rgba(255,255,255,0.75);
   --white-text-muted:    rgba(255,255,255,0.6);
-  --white-text-faint:    rgba(255,255,255,0.5);
 
   /* ── Z-Index Scale ── */
   --z-tool-nav:  50;
