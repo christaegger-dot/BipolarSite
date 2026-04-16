@@ -8,93 +8,13 @@ useNavJS: true
 useModuleCSS: true
 moduleAccent: "4"
 footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
+breadcrumbs:
+  - name: "Module"
+    url: "/module/"
+  - name: "Modul 4: Wenn die Kraft nachlässt"
+    url: "/modul/4/"
 ---
-{% block headCSS %}
-<style>
-  /* Module-specific styles only — shared styles in module.css */
-
-  /* SELFTEST */
-  .selftest{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-xl);padding:36px;margin:40px 0;box-shadow:var(--shadow-soft)}
-  .selftest .selftest-heading{font-family:'DM Serif Display',serif;font-size:1.15rem;font-weight:600;color:var(--navy-mid);margin-bottom:8px}
-  .selftest>p{font-size:0.85rem;color:var(--text-soft);margin-bottom:24px}
-  .selftest-item{padding:16px 0;border-top:1px solid var(--border-warm);font-size:0.92rem;color:var(--slate);line-height:1.55}
-  .selftest-item:first-of-type{border-top:none}
-
-  /* GLASWAND */
-  .glaswand{background:var(--blue-phase-light);border-radius:var(--radius-xl);padding:36px;margin:40px 0;text-align:center}
-  .glaswand-visual{display:flex;align-items:center;justify-content:center;gap:8px;margin:24px 0;font-size:0.92rem;color:var(--blue-phase)}
-  .glaswand-wall{width:3px;height:80px;background:var(--blue-phase);opacity:0.4;border-radius:2px;margin:0 20px}
-  .glaswand-side{text-align:center}
-  .glaswand-side strong{display:block;font-size:0.82rem;color:var(--blue-phase);margin-bottom:4px}
-  .glaswand-side span{font-size:0.78rem;color:#475569}
-  .glaswand-quote{font-family:'DM Serif Display',serif;font-size:1rem;font-style:italic;color:var(--slate);margin-top:20px;line-height:1.6}
-
-  /* LOSS CARDS */
-  .loss-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0}
-  .loss-card{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-lg);padding:22px;border-left:4px solid var(--blue-phase)}
-  .loss-card h4{font-size:0.88rem;font-weight:700;color:var(--blue-phase);margin-bottom:6px}
-  .loss-card p{font-size:0.84rem;color:var(--slate);line-height:1.55;margin:0}
-
-  /* PHASE CARDS */
-  .phase-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:28px 0}
-  .phase-card{padding:24px;border-radius:var(--radius-lg);border-top:4px solid transparent}
-  .phase-card.p1{background:var(--amber-phase-light);border-top-color:var(--amber-phase)}
-  .phase-card.p2{background:var(--alert-red-bg);border-top-color:var(--alert-red)}
-  .phase-card.p3{background:var(--blue-phase-light);border-top-color:var(--blue-phase)}
-  .phase-card-label{font-size:0.68rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px}
-  .phase-card.p1 .phase-card-label{color:var(--amber-phase)}
-  .phase-card.p2 .phase-card-label{color:var(--alert-red)}
-  .phase-card.p3 .phase-card-label{color:var(--blue-phase)}
-  .phase-card h4{font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:8px}
-  .phase-card p{font-size:0.84rem;line-height:1.55;margin:0}
-  .phase-card.p1 p{color:#B45309}
-  .phase-card.p2 p{color:#9A3412}
-  .phase-card.p3 p{color:#475569}
-
-  /* EROSION CHART */
-  .chart-section{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-xl);padding:36px;margin:40px 0;box-shadow:var(--shadow-soft)}
-  .chart-section h3{font-family:'DM Serif Display',serif;font-size:1.15rem;font-weight:600;margin-bottom:8px;color:var(--navy-mid)}
-  .chart-section>p{font-size:0.88rem;color:var(--text-soft);margin-bottom:24px}
-  .chart-wrap svg{width:100%;height:auto;display:block}
-  .chart-caption{font-size:0.78rem;color:var(--text-soft);line-height:1.6;margin-top:16px}
-
-  /* MECHANISM CARDS */
-  .mech-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0}
-  .mech-card{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-lg);padding:24px}
-  .mech-card h4{font-size:0.92rem;font-weight:700;color:var(--text);margin-bottom:8px}
-  .mech-card p{font-size:0.88rem;color:var(--slate);line-height:1.6;margin:0 0 10px}
-  .mech-card .mech-result{font-size:0.82rem;color:var(--alert-red);font-weight:600}
-
-  /* IDENTITY BLOCK (from Modul 3) */
-  .identity-signs{list-style:none;margin:20px 0}
-  .identity-signs li{font-size:0.92rem;color:var(--slate);padding:10px 0 10px 24px;position:relative;border-bottom:1px solid var(--border-warm)}
-  .identity-signs li::before{content:'—';position:absolute;left:0;color:var(--teal-light);font-weight:700}
-
-  /* KIDS SECTION */
-  .kids-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0}
-  .kids-col{padding:24px;border-radius:var(--radius-lg)}
-  .kids-col.perceive{background:var(--alert-red-bg);border:1px solid var(--alert-red-border)}
-  .kids-col.need{background:var(--green-bg);border:1px solid var(--teal-border)}
-  .kids-col h4{font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:14px}
-  .kids-col.perceive h4{color:var(--alert-red)}
-  .kids-col.need h4{color:var(--teal-dark)}
-  .kids-col ul{list-style:none}
-  .kids-col li{font-size:0.88rem;padding:5px 0 5px 18px;position:relative;line-height:1.55}
-  .kids-col.perceive li{color:#9A3412}
-  .kids-col.need li{color:var(--navy)}
-  .kids-col.perceive li::before{content:'•';position:absolute;left:0;color:var(--alert-red)}
-  .kids-col.need li::before{content:'✓';position:absolute;left:0;color:var(--teal);font-weight:700}
-
-  /* RESPONSIVE */
-  @media(max-width:768px){.phase-cards{grid-template-columns:1fr}.mech-cards{grid-template-columns:1fr}.loss-cards{grid-template-columns:1fr}.kids-grid{grid-template-columns:1fr}}
-
-  .age-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:16px 0 24px}
-  .age-card{background:#fff;border:1px solid var(--border-warm-md);border-radius:14px;padding:20px 18px}
-  .age-card h4{font-size:0.9rem;font-weight:700;color:#1c2b3a;margin:8px 0 8px}
-  .age-card p{font-size:0.83rem;line-height:1.6;color:#475569;margin:0 0 8px}.age-card p:last-child{margin:0}
-  .age-label{display:inline-flex;background:#e6f4f2;color:#1E656D;padding:3px 10px;border-radius:100px;font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
-</style>
-{% endblock %}
+{% block headCSS %}<!-- Module 4 styles migrated to module.css (P2.3) -->{% endblock %}
 {% block nav %}
 {% include "nav-full.njk" %}
 {% endblock %}
@@ -102,7 +22,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 <div class="reading-progress"><div class="reading-progress-fill" id="readingProgress"></div></div>
 
 <header class="module-hero"><div class="module-hero-inner">
-  <div class="breadcrumb"><a href="/">Startseite</a><span>›</span><a href="/module/">Module</a><span>›</span><span>Wenn die Kraft nachlässt</span></div>
+  <div class="breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><a href="/module/">Module</a><span class="sep" aria-hidden="true">›</span><span>Wenn die Kraft nachlässt</span></div>
     <svg class="hero-icon" aria-hidden="true" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="10" width="24" height="20" rx="3" stroke="currentColor" stroke-width="2"/><rect x="30" y="16" width="4" height="8" rx="1" fill="currentColor" opacity="0.3"/><rect x="9" y="22" width="6" height="5" rx="1" fill="currentColor" opacity="0.35"/></svg>
   <div class="module-badge">Modul 4 / 8</div>
   <h1>Wenn die Kraft nachlässt</h1>
@@ -330,9 +250,21 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     <p>Gibt es Träume, Pläne oder Lebensphasen, die Sie aufgeschoben haben? Nicht als Vorwurf — sondern als ehrliche Bestandsaufnahme: Was gehört Ihnen, das Sie noch nicht gelebt haben?</p>
   </div>
 
+  <h3 id="beruf" class="reveal">Was es beruflich kostet</h3>
+  <p class="reveal">Die beruflichen Auswirkungen für Angehörige werden fast nie thematisiert — obwohl sie konkret und messbar sind. Krisen fallen nicht in den Terminkalender: Notaufnahme um 3 Uhr nachts, Klinikbesuche unter der Woche, Telefonate mit dem Behandlungsteam während der Arbeitszeit. Viele Angehörige berichten von Arbeitsausfällen, die sie mit «eigenen gesundheitlichen Gründen» erklären — weil die Wahrheit zu komplex oder zu stigmatisiert ist.</p>
+  <p class="reveal">Längerfristig zeigen sich die Kosten in Form von abgelehnten Beförderungen, reduzierten Pensen, Karrierewechseln aus Überlastung oder dem Verlust beruflicher Netzwerke. Für manche wird die finanzielle Abhängigkeit zu einem eigenen Stressfaktor — besonders wenn gleichzeitig manische Geldausgaben die Ersparnisse belasten.</p>
+  <div class="reveal">
+    <p>Was helfen kann:</p>
+    <ul class="step-list">
+      <li><strong>Mit dem Arbeitgeber eine Minimalversion der Wahrheit klären</strong> — «Ich begleite einen Angehörigen mit einer schweren Erkrankung» reicht oft, ohne Details preiszugeben. Viele Arbeitgeber haben Sozialberatungen, die vertraulich unterstützen.</li>
+      <li><strong>Betreuungspflichten als Grund für flexible Arbeitszeiten nutzen</strong> — in der Schweiz gibt es seit 2021 einen gesetzlichen Anspruch auf kurzzeitige Abwesenheit für die Betreuung kranker Angehöriger (max. 3 Tage pro Ereignis, Art. 329h OR).</li>
+      <li><strong>Die eigene berufliche Identität bewusst schützen</strong> — Arbeit kann Stabilisator sein, nicht nur Belastung. Wenn Sie merken, dass Sie Ihre berufliche Rolle nur noch als Störung erleben, ist das ein Warnsignal für Überlastung.</li>
+    </ul>
+  </div>
+
   <!-- ══════════ 5. KINDER (zusammengeführt) ══════════ -->
   <h2 id="kinder" class="reveal">Wenn Kinder mittragen</h2>
-  <p class="hint-note reveal" style="margin-bottom:20px">Relevant, wenn Kinder im Haushalt mitbetroffen sind. Sonst direkt zu <a href="#handeln">Warnsignale und Gegensteuerung</a>.</p>
+  <p class="hint-note hint-note--spaced reveal">Relevant, wenn Kinder im Haushalt mitbetroffen sind. Sonst direkt zu <a href="#handeln">Warnsignale und Gegensteuerung</a>.</p>
   <p class="reveal">Kinder erleben die Erkrankung eines Elternteils nicht nur mit. Sie tragen oft auch die Anspannung im Familiensystem mit: Stimmungen, Unsicherheit, Rückzug, Überforderung des gesunden Elternteils. Gerade deshalb brauchen sie Klarheit und Entlastung.</p>
 
   <div class="kids-grid reveal content-wide">
@@ -390,7 +322,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 
   <h3 class="reveal">Wenn Parentifizierung bereits passiert ist</h3>
   <p class="reveal">Wenn Sie merken, dass Ihr Kind bereits zu viel trägt — emotionale Verantwortung übernimmt, das Haus «im Blick hält» oder seine eigenen Bedürfnisse systematisch hintenanstellt — ist das ein Signal zum Handeln, nicht zur Schuld.</p>
-  <ul class="reveal" style="margin:12px 0 16px 20px;line-height:1.9;color:var(--text-secondary,#475569);font-size:0.9rem">
+  <ul class="reveal content-list-styled">
     <li>Sprechen Sie das Kind direkt und klar an: «Das ist nicht deine Aufgabe. Du darfst Kind sein.»</li>
     <li>Verringern Sie sichtbar die Verantwortung des Kindes — konkret und wiederholt.</li>
     <li>Sprechen Sie mit der Schule: Lehrpersonen und Schulsozialarbeit können früh entlasten.</li>
@@ -417,6 +349,13 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
         <p><strong>Bei Sorgen:</strong> Sprechen Sie das Behandlungsteam an. Für Familien in der Schweiz hilft <a href="https://www.kinderseele.ch" target="_blank" rel="noopener" class="link-teal">kinderseele.ch</a>. Ergänzend kann <a href="https://www.kidkit.de" target="_blank" rel="noopener" class="link-teal">kidkit.de</a> als deutschsprachige Online-Ressource für Kinder hilfreich sein.</p>
       </div>
     </div>
+  </div>
+
+  <div class="reveal">
+    <h3 id="eltern-langzeit">Wenn Sie als Elternteil über Jahre mittragen</h3>
+    <p>Die Langzeitbelastung von Eltern erwachsener Kinder mit bipolarer Störung unterscheidet sich qualitativ von der in Partnerschaften: Sie können nicht «gehen» — nicht emotional und oft auch nicht praktisch. Der Schutzimpuls bleibt, auch wenn das Kind 35 ist. Gleichzeitig haben Sie formal keinen Einfluss auf Behandlung, Lebensführung oder Entscheidungen.</p>
+    <p>Was dieses Muster über Jahre macht: Viele Eltern beschreiben eine schleichende Verengung des eigenen Lebens — Reisen werden abgesagt, weil «etwas passieren könnte», Freundschaften dünnen aus, weil die Situation zu komplex zum Erklären ist, die eigene Gesundheit rutscht nach hinten. Die Erschöpfung von Eltern wird gesellschaftlich oft weniger gesehen als die von Partnern — und selten klar benannt.</p>
+    <p class="text-soft-sm">Ein konkreter Schritt: Wenn Sie als Elternteil seit Jahren mittragen, ist Angehörigenberatung keine Schwäche, sondern der Ort, an dem jemand versteht, warum Loslassen so viel schwerer ist, als es klingt.</p>
   </div>
 
   <!-- ══════════ 6. HANDLUNGSSCHRITTE ══════════ -->
@@ -465,6 +404,8 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     </div>
   </div>
 
+  <div class="continue-shortcut reveal"><a href="/modul/5/">Weiter zu Modul 5 →</a></div>
+
   <!-- SOURCES -->
   <div class="sources reveal">
     <button type="button" class="sources-toggle" aria-expanded="false" data-sources-toggle><span class="sources-title">Wissenschaftliche Quellen</span></button>
@@ -476,6 +417,9 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
       <li><strong>Reinares, M. et al. (2016).</strong> Family interventions in bipolar disorder. <em>Clinical Psychology Review, 43</em>, 47–57.</li>
       <li><strong>Hooper, L. M. et al. (2011).</strong> Parentification, self-esteem, and psychological distress. <em>Journal of Family Issues, 33</em>(6), 755–776.</li>
       <li><strong>Craddock, N. & Sklar, P. (2013).</strong> Genetics of bipolar disorder. <em>The Lancet, 381</em>, 1654–1662.</li>
+      <li><strong>Liu, Y. et al. (2025).</strong> The relationship between psychological resilience and caregiver burden among caregivers of patients with bipolar disorder. <em>BMC Nursing, 24</em>(1), 1035.</li>
+      <li><strong>Tozoğlu, E. Ö. & Gürbüzer, N. (2024).</strong> Internalized stigma, family self-stigma, and family burden: a comparative, longitudinal study. <em>Frontiers in Psychiatry, 15</em>, 1469448.</li>
+      <li><strong>Handebo, F. et al. (2025).</strong> Affiliate stigma among primary caregivers of adult patients with severe mental illness. <em>BMC Psychiatry, 25</em>(1), 607.</li>
     </ul>
   </div>
 
@@ -490,7 +434,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   </div>
 
   <!-- ERFAHRUNGSBERICHT -->
-  <div class="reflection reveal" style="margin-top:48px">
+  <div class="reflection reveal" style="margin-top:var(--group-gap)">
     <div class="reflection-label">Aus Gesprächen mit Angehörigen</div>
     <h3>«Am Anfang dachte ich, ich muss nur stark genug sein»</h3>
     <p class="reflection-body">Die erste Manie kam drei Monate nach unserer Hochzeit. Marc schlief nicht mehr, kündigte seinen Job und kaufte ein Auto, das wir uns nicht leisten konnten. Ich dachte: Das ist Stress. Das geht vorbei. Ich muss einfach stark sein.</p>

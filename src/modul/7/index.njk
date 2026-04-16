@@ -8,121 +8,13 @@ useNavJS: true
 useModuleCSS: true
 moduleAccent: "7"
 footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
+breadcrumbs:
+  - name: "Module"
+    url: "/module/"
+  - name: "Modul 7: Langfristige Tragfähigkeit"
+    url: "/modul/7/"
 ---
-{% block headCSS %}
-<style>
-  /* Module-specific styles only — shared styles in module.css */
-
-  /* SELFCARE GRID */
-  .selfcare-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:28px 0}
-  .selfcare-card{padding:24px;border-radius:var(--radius-lg);border-top:4px solid}
-  .selfcare-card.body{background:var(--blue-phase-light);border-top-color:var(--blue-phase)}
-  .selfcare-card.soul{background:var(--amber-phase-light);border-top-color:var(--amber-phase)}
-  .selfcare-card.relation{background:var(--green-bg);border-top-color:var(--green-phase)}
-  .selfcare-card h4{font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px}
-  .selfcare-card.body h4{color:var(--blue-phase)}.selfcare-card.soul h4{color:var(--amber-phase)}.selfcare-card.relation h4{color:var(--green-phase)}
-  .selfcare-card ul{list-style:none}.selfcare-card li{font-size:0.86rem;padding:4px 0;line-height:1.5}
-  .selfcare-card.body li{color:#475569}.selfcare-card.soul li{color:#B45309}.selfcare-card.relation li{color:var(--navy)}
-
-  /* COPING */
-  .coping-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:24px 0}
-  .coping-card{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-lg);padding:22px}
-  .coping-card h4{font-size:0.88rem;font-weight:700;color:var(--text);margin-bottom:10px}
-  .coping-card ul{list-style:none}.coping-card li{font-size:0.86rem;color:var(--slate);padding:3px 0 3px 16px;position:relative;line-height:1.5}
-  .coping-card li::before{content:'·';position:absolute;left:0;color:var(--teal-light);font-weight:700}
-
-  /* PILLAR CARDS */
-  .pillar-cards{display:grid;grid-template-columns:1fr;gap:12px;margin:28px 0}
-  .pillar-card{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-lg);padding:22px 26px;display:flex;gap:18px;align-items:flex-start;transition:border-color 0.2s ease,box-shadow 0.2s ease}
-  .pillar-card:hover{box-shadow:var(--shadow-soft)}
-  .pillar-num{width:36px;height:36px;border-radius:10px;background:var(--green-bg);color:var(--teal-dark);display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:800;flex-shrink:0}
-  .pillar-card h4{font-size:0.92rem;font-weight:700;color:var(--text);margin-bottom:4px}
-  .pillar-card p{font-size:0.86rem;color:var(--slate);line-height:1.55;margin:0}
-
-  /* WISH CARDS */
-  .wish-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0}
-  .wish-card{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-lg);padding:22px;border-left:4px solid var(--sand)}
-  .wish-card h4{font-size:0.88rem;font-weight:700;color:var(--navy-mid);margin-bottom:6px}
-  .wish-card p{font-size:0.84rem;color:var(--slate);line-height:1.55;margin:0;font-style:italic}
-
-  /* TRIALOG */
-  .trialog-visual{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:28px 0}
-  .trialog-card{text-align:center;padding:24px;border-radius:var(--radius-lg);background:white;border:1px solid var(--border-warm)}
-  .trialog-card .trialog-icon{font-size:1.6rem;margin-bottom:10px}
-  .trialog-card h4{font-size:0.85rem;font-weight:700;color:var(--text);margin-bottom:6px}
-  .trialog-card p{font-size:0.82rem;color:var(--text-soft);line-height:1.5;margin:0}
-
-  /* NACHKRISE */
-  .nachkrise-items{list-style:none;margin:20px 0}
-  .nachkrise-items li{font-size:0.92rem;color:var(--slate);padding:8px 0 8px 24px;position:relative;line-height:1.6;border-bottom:1px solid var(--border-warm)}
-  .nachkrise-items li::before{content:'—';position:absolute;left:0;color:var(--amber-phase);font-weight:700}
-
-  /* CHART */
-  .chart-section{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-xl);padding:36px;margin:40px 0;box-shadow:var(--shadow-soft)}
-  .chart-section h3{font-family:'DM Serif Display',serif;font-size:1.1rem;font-weight:600;margin-bottom:8px;color:var(--navy-mid)}
-  .chart-section>p{font-size:0.88rem;color:var(--text-soft);margin-bottom:20px}
-  .chart-wrap svg{width:100%;height:auto;display:block}
-  .chart-caption{font-size:0.78rem;color:var(--text-soft);line-height:1.6;margin-top:14px}
-
-  /* PTG */
-  .ptg-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0}
-  .ptg-card{background:var(--green-bg);border-radius:var(--radius-md);padding:18px;text-align:center}
-  .ptg-card .ptg-icon{font-size:1.3rem;margin-bottom:6px}
-  .ptg-card p{font-size:0.84rem;color:var(--navy);line-height:1.5;margin:0}
-
-  .resource-box{background:var(--green-bg);border:1px solid var(--teal-border,rgba(30,101,109,0.18));border-radius:var(--radius-lg);padding:28px 28px 24px;margin:28px 0}
-
-  .example-block{background:#FAFAF7;border-radius:14px;padding:20px 24px;margin:20px 0}
-  .example-label{font-size:0.68rem;font-weight:700;color:#1E656D;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:14px}
-  .example-items{display:flex;flex-direction:column;gap:10px}
-  .example-item{display:flex;align-items:flex-start;gap:12px}
-  .example-item p{margin:0;font-size:0.88rem;line-height:1.6;color:#1c2b3a}
-  .example-tag{width:24px;height:24px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px}
-  .example-tag.ok{background:#e6f4f2;color:#0d7a5f}
-  .example-tag.no{background:#FEF2F2;color:#9A3412}
-
-  /* M7-1: Emotionszeitlinie */
-  .emotion-timeline{background:var(--surface-warm);border-radius:var(--radius-lg);padding:24px 28px;margin:24px 0}
-  .etl-header{font-size:0.78rem;font-weight:600;color:var(--text-soft);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:20px}
-  .etl-track{display:flex;align-items:flex-start;gap:0;position:relative}
-  .etl-phase{display:flex;flex-direction:column;align-items:center;flex:1;gap:8px}
-  .etl-connector{flex:1;height:2px;background:var(--border);margin-top:13px;min-width:12px}
-  .etl-time{font-size:0.74rem;font-weight:700;color:var(--text-soft);text-align:center;white-space:nowrap}
-  .etl-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0;border:2px solid white;box-shadow:0 0 0 1px var(--border)}
-  .etl-dot--high{background:#B45309}
-  .etl-dot--mid{background:var(--slate)}
-  .etl-dot--low{background:var(--teal-light)}
-  .etl-emotions{display:flex;flex-direction:column;align-items:center;gap:4px}
-  .etl-em{font-size:0.78rem;font-weight:500;padding:2px 8px;border-radius:20px;text-align:center;white-space:nowrap}
-  .etl-em--high{background:#fef3e2;color:#92400e}
-  .etl-em--mid{background:rgba(71,85,105,0.08);color:var(--slate)}
-  .etl-em--low{background:#e6f4f2;color:var(--teal)}
-  .etl-note{font-size:0.78rem;color:var(--text-soft);font-style:italic;margin-top:16px;padding-top:14px;border-top:1px solid var(--border)}
-  @media(max-width:600px){
-    .etl-track{flex-direction:column;align-items:flex-start;gap:0}
-    .etl-connector{width:2px;height:16px;min-width:unset;margin:0 0 0 19px}
-    .etl-phase{flex-direction:row;align-items:center;gap:12px;width:100%}
-    .etl-emotions{flex-direction:row;flex-wrap:wrap;justify-content:flex-start}
-  }
-  /* M7-3: Fünf-Säulen System-Diagramm */
-  .saeulen-pentagon{background:var(--surface-warm);border-radius:var(--radius-lg);padding:20px 24px 16px;margin:20px 0 8px;display:flex;flex-direction:column;align-items:center}
-  .saeulen-legend{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;width:100%;max-width:440px;margin-top:14px}
-  .saeulen-legend-item{display:flex;align-items:center;gap:6px;font-size:0.74rem;color:var(--slate);line-height:1.3}
-  .saeulen-legend-dot{width:16px;height:16px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:white;font-size:0.6rem;font-weight:700}
-  @media(max-width:500px){.saeulen-legend{grid-template-columns:1fr 1fr}}
-  .coping-nav{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0 8px}
-  .coping-nav-item{border:1px solid var(--border);border-radius:var(--radius-md);padding:14px 16px;display:flex;flex-direction:column;gap:4px;background:white}
-  .coping-nav-item--problem{border-top:3px solid var(--teal)}
-  .coping-nav-item--emotion{border-top:3px solid var(--amber)}
-  .coping-nav-item--bedeutung{border-top:3px solid var(--slate)}
-  .coping-nav-need{font-size:0.8rem;font-style:italic;color:var(--text-soft);line-height:1.4}
-  .coping-nav-arrow{font-size:0.72rem;color:var(--text-soft);margin-top:2px}
-  .coping-nav-label{font-size:0.9rem;font-weight:700;color:var(--navy-mid)}
-
-  @media(max-width:768px){.selfcare-grid{grid-template-columns:1fr}.wish-cards{grid-template-columns:1fr}.trialog-visual{grid-template-columns:1fr}.ptg-grid{grid-template-columns:1fr}.coping-grid{grid-template-columns:1fr}}
-  @media(max-width:600px){.coping-nav{grid-template-columns:1fr}}
-</style>
-{% endblock %}
+{% block headCSS %}<!-- Module 7 styles migrated to module.css (P2.3) -->{% endblock %}
 {% block nav %}
 {% include "nav-full.njk" %}
 {% endblock %}
@@ -130,7 +22,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 <div class="reading-progress"><div class="reading-progress-fill" id="readingProgress"></div></div>
 
 <header class="module-hero"><div class="module-hero-inner">
-  <div class="breadcrumb"><a href="/">Startseite</a><span>›</span><a href="/module/">Module</a><span>›</span><span>Langfristige Tragfähigkeit</span></div>
+  <div class="breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><a href="/module/">Module</a><span class="sep" aria-hidden="true">›</span><span>Langfristige Tragfähigkeit</span></div>
     <svg class="hero-icon" aria-hidden="true" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 36V20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M20 20c0-6-6-12-12-12 0 6 6 12 12 12z" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="1.5"/><path d="M20 24c0-5 5-10 10-10-0 5-5 10-10 10z" fill="currentColor" opacity="0.1" stroke="currentColor" stroke-width="1.5"/></svg>
   <div class="module-badge">Modul 7 / 8</div>
   <h1>Langfristige Tragfähigkeit</h1>
@@ -151,7 +43,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   <div class="toc">
     <div class="toc-title">In diesem Modul</div>
     <ol>
-      <li><a href="#langstrecke">Wie die lange Strecke tragfähiger werden kann<span class="toc-desc">Worum es nach Krisenplan und Akuthilfe geht</span></a></li>
+      <li><a href="#langstrecke">Wie die lange Strecke tragfähiger werden kann<span class="toc-desc">Worum es nach Notfallvorbereitung und Akuthilfe geht</span></a></li>
       <li><a href="#danach">Der Tag danach und die Wochen danach<span class="toc-desc">Emotionen, Gesprächsführung und Bilanz nach der Episode</span></a></li>
       <li><a href="#selbstfuersorge">Selbstfürsorge als Belastungsmanagement<span class="toc-desc">Nicht Kür, sondern Schutz vor Auszehrung</span></a></li>
       <li><a href="#saeulen">Was langfristig trägt<span class="toc-desc">Fünf Säulen und tragende Routinen</span></a></li>
@@ -166,7 +58,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 <main class="content" id="main-content">
 
   <h2 id="langstrecke" class="reveal">Wie die lange Strecke tragfähiger werden kann</h2>
-  <p class="reveal">Nach Krisenplan, Kommunikation, Grenzen und Notfalllogik stellt sich oft eine andere Frage: <strong>Wie lebt man mit der Wiederkehr, ohne selbst ganz darin aufzugehen?</strong> Dieses Modul verschiebt den Fokus deshalb weg von der Akutbewältigung und hin zur langen Strecke: Was gibt über Monate und Jahre etwas Boden?</p>
+  <p class="reveal">Nach Notfallvorbereitung, Kommunikation, Grenzen und Akuthilfe stellt sich oft eine andere Frage: <strong>Wie lebt man mit der Wiederkehr, ohne selbst ganz darin aufzugehen?</strong> Dieses Modul verschiebt den Fokus deshalb weg von der Akutbewältigung und hin zur langen Strecke: Was gibt über Monate und Jahre etwas Boden?</p>
   <p class="reveal">Tragfähigkeit heisst hier nicht Harmonie oder Krisenfreiheit. Gemeint ist eher: Der Alltag wird über Zeit etwas haltbarer und leichter zu tragen. Etwas weniger allein, etwas weniger unvorbereitet, etwas mehr Routine, Entlastung und eigene Person.</p>
 
   <!-- ══════════ 1. NACHKRISE ══════════ -->
@@ -241,7 +133,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     </div>
   </div>
 
-  <p class="reveal">Das Gespräch danach muss keine vollständige Aufarbeitung sein. Manchmal reicht ein Satz wie: Ich war dabei. Es hat mich berührt. Ich bin noch da. Ein gutes Gespräch muss den Widerspruch — krankheitsbedingt und trotzdem verletzend — nicht auflösen, sondern erst einmal aushalten können.</p>
+  <p class="reveal">Das Gespräch danach muss keine vollständige Aufarbeitung sein. Manchmal reicht ein Satz wie: Ich war dabei. Es hat mich berührt. Ich bin noch da. Ein gutes Gespräch muss die <a href="/modul/3/#nachwirkungen">Doppelwahrheit aus Modul 3</a> — krankheitsbedingt und trotzdem verletzend — nicht auflösen, sondern erst einmal aushalten können.</p>
 
   <div class="quote-block reveal">
     <blockquote>Es ist nicht gut. Das sage ich ehrlich. Er hat immer noch Episoden. Aber es ist besser als vor drei Jahren. Damals konnte ich nicht mehr schlafen, nicht mehr arbeiten, nicht mehr fühlen. Heute schlafe ich meistens durch. Ich habe gelernt, dass «besser» reicht. Nicht als Ziel — sondern als etwas, worauf ich stolz sein darf.</blockquote>
@@ -253,10 +145,10 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   <p class="reveal">Selbstfürsorge klingt schnell nach Kür. In Angehörigenrealitäten ist sie oft eher Schadensbegrenzung. Wenn Sie dauerhaft zu viel tragen, zu wenig schlafen, sich sozial zurückziehen und nur noch reagieren, ist sie nicht Optimierung, sondern Schutz vor weiterer Auszehrung.</p>
   <p class="reveal"><strong>Ihre Gesundheit hat einen Eigenwert.</strong> Nicht erst, wenn Sie zusammenbrechen. Und nicht nur, damit Sie weiter funktionieren können.</p>
 
-  <div class="alert-box reveal" style="border-color:var(--teal);background:var(--green-bg);">
-    <div class="alert-box-icon" style="color:var(--teal)">📊</div>
+  <div class="alert-box alert-box--info reveal">
+    <div class="alert-box-icon">📊</div>
     <div>
-      <p><strong>Das ist kein subjektives Gefühl — es ist gut belegt:</strong> In der STEP-BD-Studie mit 500 Angehörigen von Menschen mit bipolarer Störung entwickelten bis zu 46% eigene depressive oder Angstsymptome (Perlick et al., 2016). Dabei gilt: Die Belastung durch die Pflege verursacht die Symptome — nicht umgekehrt. Entlastung ist deshalb <em>Prävention</em>, nicht Selbstsucht.</p>
+      <p><strong>Das ist kein subjektives Gefühl — es ist gut belegt:</strong> Wie in <a href="/modul/2/">Modul 2</a> beschrieben, entwickeln Angehörige von Menschen mit bipolarer Störung überproportional häufig eigene depressive oder Angstsymptome. Die Belastung durch die Pflege verursacht die Symptome — nicht umgekehrt. Entlastung ist deshalb <em>Prävention</em>, nicht Selbstsucht.</p>
     </div>
   </div>
 
@@ -292,7 +184,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
       <h4>Beziehung</h4>
       <ul>
         <li>Gemeinsame Rituale schaffen</li>
-        <li>Krisenplan in stabilen Phasen</li>
+        <li>Notfallabsprachen in stabilen Phasen</li>
         <li>Paartherapie als Prävention</li>
         <li>Momente ohne Erkrankungsthema</li>
       </ul>
@@ -326,7 +218,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
       <h4>Problemfokussiert</h4>
       <ul>
         <li>Psychoedukation (wie diese Website)</li>
-        <li>Krisenplan erstellen</li>
+        <li>Vorsorgeplan für Krisen anlegen</li>
         <li>Behandlungsteam kontaktieren</li>
         <li>Finanzielle Absicherung</li>
       </ul>
@@ -376,11 +268,11 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
       <!-- pentagon -->
       <polygon points="170,43 275,119 235,242 105,242 65,119" fill="rgba(30,101,109,0.07)" stroke="#cbd5e1" stroke-width="1.5" stroke-linejoin="round"/>
       <!-- center -->
-      <circle cx="170" cy="153" r="30" fill="white" stroke="#1E656D" stroke-width="1.5"/>
-      <text x="170" y="149" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="9.5" font-weight="700" fill="#1E656D">Lang-</text>
-      <text x="170" y="162" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="9.5" font-weight="700" fill="#1E656D">fristig</text>
+      <circle cx="170" cy="153" r="30" fill="white" stroke="#3a9aa3" stroke-width="1.5"/>
+      <text x="170" y="149" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="9.5" font-weight="700" fill="#3a9aa3">Lang-</text>
+      <text x="170" y="162" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="9.5" font-weight="700" fill="#3a9aa3">fristig</text>
       <!-- vertex 1 – top: Krankheitsverständnis -->
-      <circle cx="170" cy="43" r="22" fill="#1E656D"/>
+      <circle cx="170" cy="43" r="22" fill="#3a9aa3"/>
       <text x="170" y="48" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="13" font-weight="700" fill="white">1</text>
       <!-- vertex 2 – upper right: Inseln -->
       <circle cx="275" cy="119" r="22" fill="#B45309"/>
@@ -389,7 +281,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
       <circle cx="235" cy="242" r="22" fill="#475569"/>
       <text x="235" y="247" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="13" font-weight="700" fill="white">3</text>
       <!-- vertex 4 – lower left: Krisenplan -->
-      <circle cx="105" cy="242" r="22" fill="#1C2B3A"/>
+      <circle cx="105" cy="242" r="22" fill="#7a6f66"/>
       <text x="105" y="247" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="13" font-weight="700" fill="white">4</text>
       <!-- vertex 5 – upper left: Entlastung -->
       <circle cx="65" cy="119" r="22" fill="#2D5F8A"/>
@@ -457,7 +349,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
       <div class="example-item"><div class="example-tag ok">→</div><p><strong>Beobachtungen:</strong> Was haben Sie in den letzten Wochen wahrgenommen? Schlaf, Stimmung, Verhalten — konkret und zeitgebunden.</p></div>
       <div class="example-item"><div class="example-tag ok">→</div><p><strong>Ihre eigene Belastung:</strong> Wie geht es Ihnen? Was erschöpft Sie am meisten? Behandlungsteams schätzen diese Information — sie verändert oft die Behandlungsplanung.</p></div>
       <div class="example-item"><div class="example-tag ok">→</div><p><strong>Ihre Frage:</strong> Was ist die eine Frage, die Sie am meisten beschäftigt? «Was tue ich, wenn er die Medikamente wieder absetzt?» «Wie erkenne ich frühzeitig eine Manie?»</p></div>
-      <div class="example-item"><div class="example-tag ok">→</div><p><strong>Krisenplan:</strong> Liegt einer vor? Wissen Fachpersonen, wer im Notfall erreichbar ist und was funktioniert hat?</p></div>
+      <div class="example-item"><div class="example-tag ok">→</div><p><strong>Notfallplan:</strong> Liegt einer vor? Wissen Fachpersonen, wer im Notfall erreichbar ist und was funktioniert hat?</p></div>
     </div>
   </div>
 
@@ -483,6 +375,23 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     <blockquote>Wachstum klingt so gross. Bei mir war es eher: Ich habe gelernt, dass ich mehr aushalte, als ich dachte — und dass ich trotzdem Hilfe brauche. Beides gleichzeitig. Ich bin stolz darauf, wie wir es geschafft haben. Und ich bin manchmal wütend, dass wir es überhaupt schaffen mussten. Das ist kein Widerspruch.</blockquote>
     <cite>— Leila, 53 Jahre, Partnerin (anonymisiert)</cite>
   </div>
+
+  <h3 id="rueckfall-nach-stabilitaet" class="reveal">Wenn es nach Jahren wieder passiert</h3>
+  <p class="reveal">Der Rückfall nach einer langen stabilen Phase gehört zu den schmerzhaftesten Erfahrungen für Angehörige — qualitativ anders als die ersten Episoden oder chronisches Cycling. Denn diesmal hatten Sie angefangen zu glauben, dass es vorbei sein könnte. Pläne, Vertrauen, Normalität — all das bricht nicht zum ersten Mal zusammen, aber <strong>es bricht aus einer Höhe, die Sie sich erst mühsam erarbeitet hatten.</strong></p>
+
+  <div class="reveal">
+    <p>Was diesen Rückfall von früheren unterscheidet:</p>
+    <ul class="step-list">
+      <li><strong>Trauer um das «Danach»:</strong> Sie haben nicht nur die stabile Phase verloren, sondern auch die Hoffnung, dass Stabilität von Dauer sein kann. Das ist ein eigenständiger Verlust.</li>
+      <li><strong>Erschöpfung auf einem anderen Niveau:</strong> Beim ersten Mal hatten Sie Reserven. Jetzt wissen Sie, was kommt — und genau dieses Wissen macht es schwerer, nicht leichter.</li>
+      <li><strong>Die Schuldfrage dreht sich:</strong> Statt «Was habe ich übersehen?» kommt jetzt oft: «Hätte ich es verhindern können, wenn ich besser aufgepasst hätte?» Die Antwort: Nein. Bipolare Störung hat Rückfälle in ihrer Natur — auch bei guter Behandlung und stabiler Umgebung.</li>
+      <li><strong>Identitätskrise:</strong> Wenn «gesund» zum neuen Selbstverständnis geworden war, stellt der Rückfall alles infrage — auch Ihre Rolle, die sich in der stabilen Phase vielleicht normalisiert hatte.</li>
+    </ul>
+  </div>
+
+  <p class="reveal">Was jetzt hilft: Erstens, sich erlauben, dass dieser Rückfall sich anders anfühlt — und dass das berechtigt ist. Zweitens, den Krisenplan aktivieren, der in der stabilen Phase geschrieben wurde — genau dafür ist er da. Drittens, nicht den Fehler machen, die stabilen Jahre rückwirkend zu entwerten. Sie waren real. Stabilität ist keine Illusion, nur weil sie nicht permanent ist.</p>
+
+  <p class="reveal bright-moment">Zur Einordnung: Rückfälle sind bei bipolarer Störung häufig — aber mit jeder Episode, die gut begleitet wird, wächst das gemeinsame Wissen darüber, was hilft. Viele Familien berichten, dass spätere Episoden — bei aller Schwere — weniger chaotisch verlaufen, weil Pläne und Erfahrung da sind.</p>
 
   <!-- ══════════ 7. HANDLUNGSSCHRITTE ══════════ -->
   <h2 id="handeln" class="reveal">Was Sie jetzt für die lange Strecke tun können</h2>
@@ -511,11 +420,13 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
       <h3>Worauf es ankommt</h3>
       <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Die Nachkrise ist ein eigener Zustand</strong> — Erschöpfung, Leere, Wut oder Erleichterung danach sind keine Nebensachen, sondern Teil der Belastung.</p></div>
       <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Selbstfürsorge ist hier eher Schutz als Luxus</strong> — sie verhindert nicht alles, kann aber helfen, dass chronische Belastung nicht alles verschlingt.</p></div>
-      <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Langfristige Tragfähigkeit entsteht meist aus Strukturen</strong> — gemeinsames Verständnis, krankheitsfreie Inseln, Grenzen, Krisenplan und eigene Entlastung.</p></div>
+      <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Langfristige Tragfähigkeit entsteht meist aus Strukturen</strong> — gemeinsames Verständnis, krankheitsfreie Inseln, Grenzen, die vereinbarten Schritte und eigene Entlastung.</p></div>
       <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Rückschläge sagen wenig über die Richtung</strong> — Fortschritt bleibt oft ungleichmässig und wird eher über Monate sichtbar als im einzelnen Tag.</p></div>
       <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Wachstum darf sein, muss aber nicht</strong> — es ist möglich, gleichzeitig stolz, erschöpft und wütend auf das Erlebte zu sein.</p></div>
     </div>
   </div>
+
+  <div class="continue-shortcut reveal"><a href="/modul/8/">Weiter zu Modul 8 →</a></div>
 
   <!-- SOURCES -->
   <div class="sources reveal">
@@ -530,6 +441,9 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
       <li><strong>Perlick, D. A. et al. (2007).</strong> Caregiver burden. <em>Bipolar Disorders, 9</em>(3), 262–273.</li>
       <li><strong>Perlick, D. A. et al. (2016).</strong> Caregiver burden as a predictor of depression among caregivers of bipolar disorder. <em>Bipolar Disorders, 18</em>(2), 183–191.</li>
       <li><strong>Chiba, R. et al. (2025).</strong> Benefit Finding bei Angehörigen. <em>Psychiatric Services, 76</em>(1), 45–53.</li>
+      <li><strong>Liu, Y. et al. (2025).</strong> Psychological resilience and caregiver burden: the mediating role of coping styles. <em>BMC Nursing, 24</em>(1), 1035.</li>
+      <li><strong>Stokholm, J. R. et al. (2024).</strong> Group-based psychoeducation for relatives of patients with bipolar disorder — the R-bipolar RCT. <em>Trials, 25</em>(1), 342.</li>
+      <li><strong>Obegu, P. et al. (2025).</strong> Care coordination for people living with serious mental illness: the caregiver's perspective. <em>Frontiers in Health Services, 4</em>, 1473235.</li>
     </ul>
   </div>
 

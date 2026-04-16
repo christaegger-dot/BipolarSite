@@ -8,159 +8,13 @@ useNavJS: true
 useModuleCSS: true
 moduleAccent: "8"
 footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
+breadcrumbs:
+  - name: "Module"
+    url: "/module/"
+  - name: "Modul 8: Unterstützung"
+    url: "/modul/8/"
 ---
-{% block headCSS %}
-<style>
-  /* Module-specific styles only — shared styles in module.css */
-
-  /* Module 8 hero overrides (grid hero with image) */
-  .module-hero::before{content:'';position:absolute;top:-30%;right:-15%;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(221,210,191,0.7) 0%,transparent 70%);opacity:0.75}
-  .module-hero-inner{max-width:1120px;margin:0 auto;position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,0.96fr) minmax(320px,0.84fr);gap:28px;align-items:start}
-  .module-hero-copy{min-width:0}
-  .module-hero-visual{background:#ffffff;border:1px solid rgba(181,138,82,0.16);border-radius:26px;padding:18px;box-shadow:var(--shadow-card)}
-  .module-hero-visual img{display:block;width:100%;height:auto;border-radius:18px}
-  .hero-icon{width:40px;height:40px;color:var(--sand);opacity:1;margin-bottom:12px;display:block}
-  .module-badge{display:inline-flex;background:rgba(91,186,196,0.15);color:var(--teal-on-dark);padding:6px 16px;border-radius:100px;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px}
-  .module-meta{display:flex;align-items:center;gap:20px;font-size:0.85rem;color:var(--text-soft);margin-bottom:28px;flex-wrap:wrap}
-  .module-hero-note{background:var(--surface-warm);border:1px solid var(--border-warm-xl);border-radius:18px;padding:18px 20px}
-  .module-hero-note p{font-size:0.92rem;line-height:1.7;color:var(--slate);margin:0}
-  .module-hero-note p + p{margin-top:8px}
-  .module-hero-note strong{color:var(--navy)}
-
-  .toc{grid-column:1 / -1}
-  .toc-note{font-size:0.8rem;color:var(--text-soft);line-height:1.55;margin-top:14px}
-
-  .quote-block{background:#ffffff}
-
-  /* INSIGHT CARDS */
-  .insight-grid{display:block;margin:24px 0 34px;border-top:1px solid var(--border-warm-md)}
-  .insight-card{background:transparent;border:none;border-bottom:1px solid var(--border-warm-md);border-radius:0;padding:18px 0;display:flex;gap:18px;align-items:flex-start;transition:none;box-shadow:none}
-  .insight-card:hover{box-shadow:none}
-  .insight-num{width:34px;height:34px;border-radius:10px;background:rgba(221,210,191,0.28);color:var(--sand-ink);display:flex;align-items:center;justify-content:center;font-size:0.76rem;font-weight:800;flex-shrink:0}
-  .insight-card h4{font-size:0.92rem;font-weight:700;color:var(--text);margin-bottom:4px}
-  .insight-card p{font-size:0.86rem;color:var(--slate);line-height:1.55;margin:0}
-
-  /* SYSTEM WUT */
-  .system-items{list-style:none;margin:20px 0}
-  .system-items li{font-size:0.92rem;color:var(--slate);padding:10px 0 10px 24px;position:relative;line-height:1.6;border-bottom:1px solid var(--border-warm)}
-  .system-items li::before{content:'—';position:absolute;left:0;color:var(--alert-red);font-weight:700}
-
-  /* ACTION CARDS (Module 8 overrides) */
-  .action-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:28px 0}
-  .action-card{background:#fff;border:1px solid var(--border-warm);border-radius:var(--radius-lg);padding:24px;display:flex;gap:20px;align-items:flex-start;transition:border-color 0.2s ease,box-shadow 0.2s ease;box-shadow:none}.action-card:hover{box-shadow:var(--shadow-soft)}
-  .action-icon{width:42px;height:42px;border-radius:11px;background:rgba(221,210,191,0.4);color:var(--sand-deep);display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:800;flex-shrink:0}
-  .action-card h4{font-weight:700;font-size:0.92rem;margin-bottom:6px;color:var(--text)}.action-card p{font-size:0.85rem;color:var(--text-soft);line-height:1.6;margin:0}
-  .action-grid--steps{display:block;margin:24px 0 34px;border-top:1px solid var(--border-warm-md)}
-  .action-grid--steps .action-card{background:transparent;border:none;border-bottom:1px solid var(--border-warm-md);border-radius:0;padding:18px 0;box-shadow:none}
-  .action-grid--steps .action-card:hover{box-shadow:none}
-  .action-grid--steps .action-icon{width:36px;height:36px;border-radius:10px;background:rgba(221,210,191,0.28);font-size:0.78rem}
-  .action-grid--steps .action-card p{max-width:58ch}
-  .action-grid--roles .action-card{background:linear-gradient(180deg,#fff 0%,#fcf8f4 100%);border-color:rgba(181,138,82,0.14)}
-  .action-grid--roles .action-card:hover{box-shadow:var(--shadow-soft)}
-
-  /* ANLAUFSTELLEN */
-  .stelle-card{background:#fff;border:1px solid var(--border-warm);border-radius:var(--radius-lg);padding:24px;margin-bottom:14px;transition:border-color 0.2s ease,box-shadow 0.2s ease;box-shadow:none}
-  .stelle-card:hover{box-shadow:var(--shadow-soft)}
-  .stelle-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-  .stelle-card h4{font-size:0.95rem;font-weight:700;color:var(--text);margin:0}
-  .stelle-badge{font-size:0.7rem;font-weight:700;padding:3px 10px;border-radius:6px}
-  .stelle-badge.beratung{background:rgba(221,210,191,0.34);color:var(--sand-deep)}
-  .stelle-badge.selbsthilfe{background:var(--amber-phase-light);color:var(--amber-phase)}
-  .stelle-card p{font-size:0.86rem;color:var(--slate);line-height:1.55;margin:0 0 10px}
-  .stelle-contact{font-size:0.88rem;font-weight:600}
-  .stelle-contact a{color:var(--teal);text-decoration:none}
-
-  /* DOWNLOAD MODULES */
-  .dl-module{background:linear-gradient(180deg,#fff 0%,#fbf7f0 100%);border:1px solid var(--border-warm);border-radius:var(--radius-lg);padding:24px 28px;margin-bottom:14px;display:flex;gap:20px;align-items:flex-start;transition:border-color 0.2s ease,box-shadow 0.2s ease}
-  .dl-module:hover{box-shadow:var(--shadow-soft)}
-  .dl-module-sos{border-left:4px solid var(--alert-red)}
-  .dl-icon{width:50px;height:34px;border-radius:10px;background:rgba(221,210,191,0.3);color:var(--sand-ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;font-size:0.68rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase}
-  .dl-module-sos .dl-icon{background:rgba(199,84,80,0.12);color:var(--alert-red)}
-  .dl-body h4{font-size:0.95rem;font-weight:700;color:var(--text);margin:0 0 8px}
-  .dl-body p{font-size:0.85rem;color:var(--slate);line-height:1.55;margin:0 0 14px}
-  .dl-btn{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:white;text-decoration:none;font-size:0.82rem;font-weight:600;padding:10px 18px;border-radius:10px;transition:background-color 0.2s ease,box-shadow 0.2s ease}
-  .dl-btn:hover{background:var(--teal-dark)}
-  .dl-btn-sos{background:var(--alert-red)}.dl-btn-sos:hover{background:#a33d3a}
-  .dl-meta{font-size:0.7rem;font-weight:400;opacity:0.75}
-
-  .handout-list{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:24px 0}
-  .handout-chip{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-sm);padding:12px 14px;text-decoration:none;color:var(--text);font-size:0.8rem;display:flex;align-items:center;gap:10px;transition:box-shadow 0.2s ease,border-color 0.2s ease}
-  .handout-chip:hover{border-color:var(--teal-border);box-shadow:var(--shadow-soft)}
-  .handout-chip .hc-badge{font-size:0.65rem;font-weight:700;color:var(--teal);min-width:24px;flex-shrink:0}
-  .handout-chip .hc-body{display:flex;flex-direction:column;gap:1px}
-  .handout-chip .hc-title{font-weight:600;line-height:1.3}
-  .handout-chip .hc-size{font-size:0.65rem;color:var(--text-soft);font-weight:400}
-
-  .wide-visual{margin:28px 0 36px;background:linear-gradient(180deg,#fff 0%,#fcf8f4 100%);border:1px solid var(--border-warm);border-radius:24px;padding:20px;box-shadow:var(--shadow-soft)}
-  .wide-visual img{display:block;width:100%;height:auto;border-radius:18px}
-  .wide-visual p{font-size:0.86rem;color:var(--slate);margin:12px 4px 0}
-  .material-finder{margin:24px 0 32px;padding:24px 26px;border-radius:24px;background:linear-gradient(180deg,#fff 0%,#fcf8f4 100%);border:1px solid var(--border-warm);box-shadow:var(--shadow-soft)}
-  .material-finder-kicker{font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
-  .material-finder h3{font-size:1.15rem;margin:0 0 8px}
-  .material-finder p{font-size:0.9rem;color:var(--slate);line-height:1.6;margin:0 0 18px}
-  .material-finder-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-  .material-finder-option{display:flex;align-items:flex-start;gap:12px;width:100%;padding:14px 16px;border-radius:16px;border:1px solid var(--border-warm-md);background:#fff;color:var(--text);text-align:left;font-family:'DM Sans',sans-serif;cursor:pointer;transition:border-color 0.2s ease,box-shadow 0.2s ease,transform 0.2s ease}
-  .material-finder-option:hover{border-color:var(--teal-border);box-shadow:var(--shadow-soft);transform:translateY(-1px)}
-  .material-finder-option.is-active{border-color:var(--teal);background:var(--green-bg)}
-  .material-finder-icon{min-width:78px;height:34px;padding:0 10px;border-radius:10px;background:rgba(221,210,191,0.3);color:var(--sand-ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.72rem;font-weight:800;letter-spacing:0.04em;text-transform:none}
-  .material-finder-option.is-active .material-finder-icon{background:var(--teal);color:#fff}
-  .material-finder-label{display:block;font-size:0.88rem;font-weight:700;margin-bottom:3px}
-  .material-finder-sub{display:block;font-size:0.8rem;color:var(--text-soft);line-height:1.45}
-  .material-finder-results{margin-top:16px;display:grid;gap:12px}
-  .material-finder-results[hidden]{display:none}
-  .finder-card{background:linear-gradient(180deg,var(--surface-warm) 0%,rgba(217,236,236,0.34) 100%);border:1px solid var(--border-warm);border-radius:18px;padding:16px 18px}
-  .finder-card-kicker{font-size:0.66rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--slate);margin-bottom:6px}
-  .finder-card h4{font-size:0.96rem;font-weight:700;color:var(--navy);margin:0 0 6px}
-  .finder-card p{font-size:0.84rem;color:var(--slate);margin:0 0 10px}
-  .finder-card a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#fff;background:linear-gradient(135deg,var(--navy),var(--teal));padding:9px 14px;border-radius:999px;font-size:0.8rem;font-weight:700}
-  .hub-details{margin:22px 0 32px;border:1px solid var(--border-warm-md);border-radius:24px;background:linear-gradient(180deg,#fff 0%,#fcf8f4 100%);box-shadow:var(--shadow-soft);overflow:hidden}
-  .hub-details summary{list-style:none;cursor:pointer;padding:20px 22px;display:grid;gap:6px;position:relative}
-  .hub-details summary::-webkit-details-marker{display:none}
-  .hub-details summary::after{content:'+';position:absolute;top:18px;right:20px;width:28px;height:28px;border-radius:50%;border:1px solid var(--border-warm-md);display:flex;align-items:center;justify-content:center;color:var(--teal-dark);font-size:1rem;font-weight:700;transition:transform 0.2s ease,background-color 0.2s ease,color 0.2s ease}
-  .hub-details[open] summary::after{transform:rotate(45deg);background:var(--teal);color:#fff}
-  .hub-details-kicker{font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal)}
-  .hub-details-title{font-family:'DM Serif Display',serif;font-size:1.1rem;font-weight:600;line-height:1.35;color:var(--navy);padding-right:44px}
-  .hub-details-intro{font-size:0.86rem;color:var(--text-soft);line-height:1.55;padding-right:44px}
-  .hub-details-body{padding:0 22px 22px}
-  .hub-details-body>p:first-child{margin-top:0}
-  .hub-details--quiet{background:linear-gradient(180deg,var(--surface-warm) 0%,rgba(217,236,236,0.28) 100%)}
-  .mini-plan{margin:26px 0 34px;padding:24px 26px;border-radius:24px;background:linear-gradient(180deg,#fff 0%,#fcf8f4 100%);border:1px solid var(--border-warm);box-shadow:var(--shadow-soft)}
-  .mini-plan-kicker{font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
-  .mini-plan h3{font-size:1.15rem;margin:0 0 8px}
-  .mini-plan p{font-size:0.9rem;color:var(--slate);line-height:1.6;margin:0 0 18px}
-  .mini-plan-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  .mini-plan-field{display:flex;flex-direction:column;gap:6px}
-  .mini-plan-field.full{grid-column:1 / -1}
-  .mini-plan label{font-size:0.76rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--slate)}
-  .mini-plan input,.mini-plan textarea,.mini-plan select{width:100%;padding:12px 14px;border-radius:14px;border:1px solid var(--border-warm-xl);background:#fff;color:var(--text);font:inherit}
-  .mini-plan textarea{min-height:92px;resize:vertical}
-  .mini-plan-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-  .mini-plan-save,.mini-plan-clear{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 16px;border-radius:999px;font-size:0.82rem;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer}
-  .mini-plan-save{border:none;background:linear-gradient(135deg,var(--navy),var(--teal));color:#fff}
-  .mini-plan-clear{border:1px solid var(--border-warm-xl);background:#fff;color:var(--slate)}
-  .mini-plan-status{font-size:0.8rem;color:var(--text-soft);margin-top:12px;min-height:1.2em}
-  .mini-plan-summary{margin-top:18px;padding:16px 18px;border-radius:18px;background:linear-gradient(180deg,var(--surface-warm) 0%,rgba(217,236,236,0.28) 100%);border:1px solid var(--border-warm)}
-  .mini-plan-summary[hidden]{display:none}
-  .mini-plan-summary h4{font-size:0.96rem;font-weight:700;color:var(--navy);margin:0 0 10px}
-  .mini-plan-summary p{font-size:0.84rem;color:var(--slate);margin:0 0 8px}
-  .mini-plan-summary strong{color:var(--navy)}
-
-  .takeaways{background:linear-gradient(135deg,var(--navy),#294051);color:white}
-  .takeaways::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 80%,rgba(221,210,191,0.18) 0%,transparent 60%)}
-  .reflection{background:linear-gradient(135deg,var(--surface-warm),rgba(217,236,236,0.72))}
-  .reflection::before{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;border-radius:50%;background:rgba(221,210,191,0.18)}
-
-  /* CLOSING — inherits .takeaways base (navy bg, radius, gradient overlay) */
-  .closing{text-align:center;padding:48px 40px}
-  .closing h2{font-family:'DM Serif Display',serif;font-size:1.5rem;font-weight:700;margin-bottom:20px;line-height:1.3}
-  .closing p{font-size:1rem;line-height:1.75;color:rgba(255,255,255,0.8);margin-bottom:12px;max-width:560px;margin-left:auto;margin-right:auto}
-  .closing .closing-emphasis{font-family:'DM Serif Display',serif;font-size:1.1rem;font-style:italic;color:rgba(255,255,255,0.95);margin-top:24px}
-
-  @media(max-width:768px){.handout-list{grid-template-columns:1fr 1fr}.insight-grid,.action-grid{grid-template-columns:1fr}.material-finder-options{grid-template-columns:1fr}.mini-plan-grid{grid-template-columns:1fr}}
-  @media(max-width:900px){.module-hero-inner{grid-template-columns:1fr}}
-  @media(max-width:600px){.module-hero{padding:100px 1.2rem 32px}.module-hero .quote-block,.module-hero-visual{display:none}.toc{padding:18px 20px;margin-bottom:26px}.toc-desc{display:none}.content{padding:0 1.2rem}.action-card,.stelle-card,.dl-module,.material-finder,.mini-plan,.hub-details summary,.hub-details-body{padding-left:18px;padding-right:18px}.closing{padding:36px 24px}.handout-list{grid-template-columns:1fr}}
-</style>
-{% endblock %}
+{% block headCSS %}<!-- Module 8 styles migrated to module.css (P2.3) -->{% endblock %}
 {% block nav %}
 {% include "nav-full.njk" %}
 {% endblock %}
@@ -169,7 +23,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 
 <header class="module-hero"><div class="module-hero-inner">
   <div class="module-hero-copy">
-    <div class="breadcrumb"><a href="/">Startseite</a><span>›</span><a href="/module/">Module</a><span>›</span><span>Unterstützung und Ressourcen</span></div>
+    <div class="breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><a href="/module/">Module</a><span class="sep" aria-hidden="true">›</span><span>Unterstützung und Ressourcen</span></div>
       <svg class="hero-icon" aria-hidden="true" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="2"/><polygon points="20,8 23,18 20,16 17,18" fill="currentColor" opacity="0.4"/><polygon points="20,32 17,22 20,24 23,22" fill="currentColor" opacity="0.2"/><circle cx="20" cy="20" r="2" fill="currentColor" opacity="0.5"/></svg>
     <div class="module-badge">Modul 8 / 8</div>
     <h1>Unterstützung und Ressourcen</h1>
@@ -200,7 +54,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     <ul>
       <li>Angehörigenberatung und Selbsthilfegruppen sind die wichtigsten ersten Anlaufstellen.</li>
       <li>Rechtliche und finanzielle Fragen früh klären, bevor sie zusätzlich belasten.</li>
-      <li>Materialien wie Krisenplan, Notfallkarte und Merkblätter stehen zum Download bereit.</li>
+      <li>Materialien wie Notfallplan, Notfallkarte und Merkblätter stehen zum Download bereit.</li>
     </ul>
   </div>
 </div></header>
@@ -209,15 +63,15 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 
   <!-- ══════════ 1. WEITERGEHEN ══════════ -->
   <h2 id="weitergehen" class="reveal">Wie Sie jetzt sinnvoll weitergehen können</h2>
-  <p class="reveal"><strong>Faustregel:</strong> Modul 8 hilft bei Kontakten, Materialien und rechtlicher Orientierung. Für Gespräche, Grenzen und Krisenplan ist <a href="/modul/6/" class="link-teal">Modul 6</a> der passendere Einstieg.</p>
+  <p class="reveal"><strong>Faustregel:</strong> Modul 8 hilft bei Kontakten, Materialien und rechtlicher Orientierung. Für Gespräche, Grenzen und die strukturierte Notfallvorbereitung ist <a href="/modul/6/" class="link-teal">Modul 6</a> der passendere Einstieg.</p>
   <p class="reveal">Häufig hilfreicher als noch mehr Information ist etwas Kleines und Konkretes: einen Kontakt speichern, ein Merkblatt öffnen, ein erstes Gespräch vereinbaren. <strong>Ein nächster Schritt reicht.</strong></p>
   <p class="reveal info-callout"><strong>Wenn Sie gerade nur eines tun möchten:</strong> Wählen Sie zuerst entweder die Orientierung nach Situation weiter unten, den Material-Finder oder den Mini-Plan. Alles andere ist Vertiefung für später.</p>
 
   <div class="action-grid action-grid--steps reveal content-wide">
     <div class="action-card"><div class="action-icon">1</div><div><h4>Den nächsten Schritt klein genug machen</h4><p>Sie müssen nicht alles sortieren. Oft reicht es, heute eine Nummer zu speichern, eine Fachstelle zu kontaktieren oder ein passendes Dokument zu öffnen.</p></div></div>
     <div class="action-card"><div class="action-icon">2</div><div><h4>Von Ihrer aktuellen Lage ausgehen</h4><p>Suchen Sie nicht gleich nach dem ganzen System, sondern zuerst nach dem, was gerade drängt: Krise, Erschöpfung, Austausch, Recht oder Familie.</p></div></div>
-    <div class="action-card"><div class="action-icon">3</div><div><h4>Die Schwelle zum ersten Kontakt senken</h4><p>Ein erstes Gespräch darf unfertig sein. Sie müssen Ihre Geschichte nicht geordnet erzählen können, damit Unterstützung sinnvoll ist.</p></div></div>
-    <div class="action-card"><div class="action-icon">4</div><div><h4>Hilfsmittel als Entlastung benutzen</h4><p>Merkblätter, Notizen oder ein gemeinsamer Krisenplan müssen nicht perfekt sein. Sie sollen tragen, nicht zusätzlichen Druck erzeugen.</p></div></div>
+    <div class="action-card"><div class="action-icon">3</div><div><h4>Die Schwelle zum ersten Kontakt senken</h4><p>Ein erstes Gespräch darf unfertig sein. Ihre Geschichte muss nicht geordnet sein, damit Unterstützung sinnvoll ist.</p></div></div>
+    <div class="action-card"><div class="action-icon">4</div><div><h4>Hilfsmittel als Entlastung benutzen</h4><p>Merkblätter, Notizen oder eine gemeinsame Notfallabsprache müssen nicht perfekt sein. Sie sollen tragen, nicht zusätzlichen Druck erzeugen.</p></div></div>
   </div>
 
   <!-- ══════════ 2. SITUATIONEN ══════════ -->
@@ -228,10 +82,10 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   <div class="insight-grid reveal content-wide">
     <div class="insight-card"><div class="insight-num">1</div><div><h4>Wenn es akut oder unklar gefährlich ist</h4><p>Gehen Sie nicht zuerst in lange Suchprozesse. Nutzen Sie die <a href="/notfall/" class="link-alert">Notfallseite</a>, speichern Sie Nummern und halten Sie die Notfallkarte griffbereit.</p></div></div>
     <div class="insight-card"><div class="insight-num">2</div><div><h4>Wenn Sie selbst erschöpft sind und reden müssen</h4><p>Beginnen Sie mit einer Angehörigenberatung oder einer Selbsthilfegruppe. Nicht erst dann, wenn Sie zusammenbrechen.</p></div></div>
-    <div class="insight-card"><div class="insight-num">3</div><div><h4>Wenn Sie Austausch mit Menschen in ähnlicher Lage suchen</h4><p>Selbsthilfe entlastet oft dort, wo reine Information nicht mehr reicht. Sie müssen dort nicht mehr alles von Grund auf erklären.</p></div></div>
+    <div class="insight-card"><div class="insight-num">3</div><div><h4>Wenn Sie Austausch mit Menschen in ähnlicher Lage suchen</h4><p>Selbsthilfe entlastet oft dort, wo reine Information nicht mehr reicht — ohne dass alles von Grund auf erklärt werden muss.</p></div></div>
     <div class="insight-card"><div class="insight-num">4</div><div><h4>Wenn rechtliche, finanzielle oder versicherungsbezogene Fragen blockieren</h4><p>Holen Sie sich früh juristische oder Ombuds-Unterstützung. Diese Themen werden selten leichter, wenn man sie lange liegen lässt.</p></div></div>
     <div class="insight-card"><div class="insight-num">5</div><div><h4>Wenn Kinder oder Familie mittragen</h4><p>Suchen Sie nicht nur Hilfe für die erkrankte Person. Auch Kinder, Co-Elternschaft und familiäre Entlastung brauchen eine eigene Spur.</p></div></div>
-    <div class="insight-card"><div class="insight-num">6</div><div><h4>Wenn Sie zuerst Unterlagen und Orientierung wollen</h4><p>Starten Sie mit den kuratierten Materialien unten: Krisenplan, Notfallkarte, Kurzblatt oder thematisch passende Handouts.</p></div></div>
+    <div class="insight-card"><div class="insight-num">6</div><div><h4>Wenn Sie zuerst Unterlagen und Orientierung wollen</h4><p>Starten Sie mit den kuratierten Materialien unten: Vorsorgeplan, Notfallkarte, Kurzblatt oder thematisch passende Handouts.</p></div></div>
   </div>
 
   <h2 id="rollen" class="reveal">Orientierung nach Angehörigenrolle</h2>
@@ -253,13 +107,13 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   <div class="stelle-card reveal">
     <div class="stelle-header"><h4>Fachstelle Angehörigenarbeit PUK Zürich</h4><div class="stelle-badge beratung">Beratung</div></div>
     <p>Persönliche, vertrauliche und kostenlose Beratung — auch wenn Ihr Angehöriger nicht bei der PUK in Behandlung ist. Mo–Fr nach Vereinbarung.</p>
-    <div class="stelle-contact"><a href="tel:+41583843800">058 384 38 00</a> · Lenggstrasse 31, 8032 Zürich</div>
+    <div class="stelle-contact"><a href="{{ site.tel.fachstelle.href }}">{{ site.tel.fachstelle.display }}</a> · Lenggstrasse 31, 8032 Zürich</div>
   </div>
 
   <div class="stelle-card reveal">
     <div class="stelle-header"><h4>Pro Mente Sana</h4><div class="stelle-badge beratung">Beratung + Recht</div></div>
     <p>Schweizweite psychosoziale und juristische Beratung — besonders sinnvoll bei FU, Patientenverfügung, Vorsorgeauftrag oder Konflikten mit Institutionen. Mo–Fr telefonisch, Online 24/7.</p>
-    <div class="stelle-contact"><a href="tel:+41848800858">0848 800 858</a> · <a href="https://www.promentesana.ch">promentesana.ch</a></div>
+    <div class="stelle-contact"><a href="{{ site.tel.proMenteSana.href }}">{{ site.tel.proMenteSana.display }}</a> · <a href="https://www.promentesana.ch">promentesana.ch</a></div>
   </div>
 
   <h3 class="reveal">Recht & Ombudsstellen</h3>
@@ -277,16 +131,16 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   <div class="stelle-card reveal">
     <div class="stelle-header"><h4>VASK Zürich</h4><div class="stelle-badge selbsthilfe">Selbsthilfe</div></div>
     <p>Verband Angehöriger psychisch Kranker. Selbsthilfe-Treffpunkte, Austausch mit Menschen in ähnlicher Situation.</p>
-    <div class="stelle-contact"><a href="tel:+41442404868">044 240 48 68</a> · <a href="https://www.vaskzuerich.ch">vaskzuerich.ch</a></div>
+    <div class="stelle-contact"><a href="{{ site.tel.vask.href }}">{{ site.tel.vask.display }}</a> · <a href="https://www.vaskzuerich.ch">vaskzuerich.ch</a></div>
   </div>
 
   <div class="stelle-card reveal">
     <div class="stelle-header"><h4>Selbsthilfe Zürich</h4><div class="stelle-badge selbsthilfe">Vermittlung</div></div>
     <p>Vermittlung von Selbsthilfegruppen in der Region Zürich, darunter auch eine bipolar-spezifische Angehörigengruppe.</p>
-    <div class="stelle-contact"><a href="tel:+41432888888">043 288 88 88</a> · <a href="https://www.selbsthilfezuerich.ch">selbsthilfezuerich.ch</a></div>
+    <div class="stelle-contact"><a href="{{ site.tel.selbsthilfe.href }}">{{ site.tel.selbsthilfe.display }}</a> · <a href="https://www.selbsthilfezuerich.ch">selbsthilfezuerich.ch</a></div>
   </div>
 
-  <p class="reveal link-teal-bold" style="font-size:0.88rem;margin-top:20px">Notfallnummern (143, 144, 117, Ärztefon – Notfalldienst Zürich) finden Sie auf der <a href="/notfall/" class="link-alert">Notfallseite →</a></p>
+  <p class="reveal link-teal-bold" style="font-size:var(--text-base);margin-top:20px">Notfallnummern (143, 144, 117, Ärztefon – Notfalldienst Zürich) finden Sie auf der <a href="/notfall/" class="link-alert">Notfallseite →</a></p>
 
   <!-- ══════════ 5. SYSTEM ══════════ -->
   <h2 id="system" class="reveal">Wenn das System zusätzlich belastet</h2>
@@ -325,6 +179,22 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
       </div>
     </div>
   </details>
+
+  <!-- ══════════ 5b. KULTURELLE PERSPEKTIVEN ══════════ -->
+  <h2 id="kultur" class="reveal">Wenn kulturelle Prägung die Situation zusätzlich formt</h2>
+  <p class="reveal">Diese Website ist aus einer Schweizer Perspektive geschrieben. Aber Zürich ist vielfältig — und kulturelle Hintergründe beeinflussen, wie Familien mit psychischen Erkrankungen umgehen: wie offen darüber gesprochen wird, wer als zuständig gilt, ob professionelle Hilfe als legitim oder als Eingeständnis von Schwäche betrachtet wird.</p>
+
+  <div class="reveal">
+    <p>Einige Muster, die in der Forschung und in der Praxis sichtbar werden:</p>
+    <ul class="step-list">
+      <li><strong>Stigma-Intensität variiert:</strong> In vielen Kulturen ist psychische Erkrankung stärker stigmatisiert als in der Schweizer Mehrheitsgesellschaft. Die Angst, dass die Familie «Gesicht verliert», kann dazu führen, dass Angehörige noch isolierter sind — und noch später Hilfe suchen.</li>
+      <li><strong>Familienpflicht-Erwartungen:</strong> In Kulturen mit starkem Familismus wird erwartet, dass die Familie «es selbst regelt». Professionelle Hilfe zu holen, kann als Verrat an der Familie empfunden werden. Für Angehörige entsteht ein doppelter Druck: die Last tragen und gleichzeitig nach aussen Normalität wahren.</li>
+      <li><strong>Spirituelle oder religiöse Deutung:</strong> Manche Familien erleben die Erkrankung primär als spirituelle Prüfung, als Strafe oder als Besessenheit. Das schliesst psychiatrische Behandlung nicht aus, kann aber den Zugang erschweren oder verzögern.</li>
+      <li><strong>Sprachbarrieren:</strong> Wenn die erkrankte Person oder die Angehörigen die Landessprache nicht fliessend sprechen, wird die Kommunikation mit dem Behandlungsteam zur zusätzlichen Hürde. Dolmetscherdienste in psychiatrischen Kontexten sind in der Schweiz verfügbar, aber nicht immer selbstverständlich — fragen Sie aktiv danach.</li>
+    </ul>
+  </div>
+
+  <p class="reveal">Wenn Sie sich in einem dieser Muster wiedererkennen: <strong>Ihre kulturelle Prägung ist kein Hindernis — sie ist Teil Ihrer Realität.</strong> Gute Angehörigenberatung berücksichtigt das. Die Fachstelle Angehörigenarbeit PUK Zürich arbeitet interkulturell und mit Dolmetscherdiensten. Zögern Sie nicht, diese Unterstützung einzufordern: <a href="{{ site.tel.fachstelle.href }}">{{ site.tel.fachstelle.display }}</a>.</p>
 
   <!-- ══════════ 6. MATERIALIEN ZUERST ══════════ -->
   <h2 id="materialien" class="reveal">Die wichtigsten Materialien zuerst</h2>
@@ -365,11 +235,11 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
       <div class="mini-plan" aria-labelledby="mini-plan-title">
         <div class="mini-plan-kicker">Mein Mini-Plan</div>
         <h3 id="mini-plan-title">Meine Nummern, mein nächster Schritt, mein Dokument</h3>
-        <p>Wenn Sie etwas festhalten möchten, können Sie hier Ihren persönlichen Mini-Plan lokal im Browser speichern. Nichts wird an ein Konto oder einen Server geschickt. Wenn Ihnen das heute zu viel ist, lassen Sie diesen Bereich einfach aus und nehmen Sie nur eine Nummer oder ein Dokument mit.</p>
+        <p>Wenn Sie etwas festhalten möchten, können Sie hier Ihren persönlichen Mini-Plan lokal im Browser speichern. Alles bleibt auf Ihrem Gerät — nichts wird gesendet. Wenn Ihnen das heute zu viel ist, lassen Sie diesen Bereich einfach aus und nehmen Sie nur eine Nummer oder ein Dokument mit.</p>
         <div class="mini-plan-grid">
           <div class="mini-plan-field">
             <label for="miniPlanNumber">Meine wichtigste Nummer</label>
-            <input id="miniPlanNumber" name="number" type="text" placeholder="z. B. 0800 33 66 55 oder 058 384 38 00">
+            <input id="miniPlanNumber" name="number" type="tel" autocomplete="tel" placeholder="z. B. 0800 33 66 55 oder 058 384 38 00">
           </div>
           <div class="mini-plan-field">
             <label for="miniPlanDocument">Mein ausgewähltes Dokument</label>
@@ -507,11 +377,11 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 
       <div class="takeaways">
         <div class="takeaways-inner">
-          <h3 style="color:white;margin-bottom:0.25rem;">Worauf es ankommt</h3>
-          <p style="color:rgba(255,255,255,0.65);font-size:0.85rem;margin-bottom:1rem;">Was Sie durch diese acht Module mitgenommen haben können</p>
+          <h3>Worauf es ankommt</h3>
+          <p>Was Sie durch diese acht Module mitgenommen haben können</p>
           <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Verstehen entlastet:</strong> Was als Symptom erkennbar ist, muss nicht mehr als persönliche Verletzung getragen werden — auch wenn beides gleichzeitig wahr sein darf.</p></div>
           <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Ihre Belastung ist real und messbar</strong> — nicht Überempfindlichkeit. Früh-akute Erschöpfung und chronisch-kumulative Zermürbung folgen eigenen Mustern und brauchen eigene Antworten.</p></div>
-          <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Grenzen, Krisenplan und Kommunikation sind Handwerk</strong> — keine moralische Frage. Sie können geübt, angepasst und verbessert werden.</p></div>
+          <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Grenzen, Notfallvorbereitung und Kommunikation sind Handwerk</strong> — keine moralische Frage. Sie können geübt, angepasst und verbessert werden.</p></div>
           <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Langfristige Tragfähigkeit entsteht aus Strukturen</strong>, nicht aus Willenskraft. Gemeint ist: Der Alltag wird über Zeit etwas haltbarer. Gemeinsames Verständnis, eigene Entlastung und Unterstützung von aussen sind keine Schwäche, sondern echte Hilfe.</p></div>
           <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Sie sind nicht allein</strong> — auch wenn es sich oft so anfühlt. Anlaufstellen, Gruppen und Fachpersonen stehen bereit. Der nächste Schritt muss kein grosser sein.</p></div>
         </div>
@@ -526,7 +396,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
       <div class="takeaways closing">
         <div class="takeaways-inner closing-inner">
           <h2>Unterstützung darf früh beginnen.</h2>
-          <p>Sie müssen nicht zuerst am Ende Ihrer Kraft sein, bevor Hilfe legitim wird. Ein früher Kontakt, ein klärendes Gespräch oder eine kleine praktische Vorbereitung kann viel entlasten.</p>
+          <p>Es braucht nicht erst den Zusammenbruch, bevor Hilfe legitim wird. Ein früher Kontakt, ein klärendes Gespräch oder eine kleine praktische Vorbereitung kann viel entlasten.</p>
           <p>Wenn Sie von hier aus nur eines mitnehmen: Suchen Sie nicht nach der perfekten Lösung, sondern nach dem nächsten Schritt, der für Sie gerade tragbar ist.</p>
           <div class="closing-emphasis">«Nicht alles sofort. Aber etwas Konkretes als Nächstes.»</div>
         </div>
@@ -536,10 +406,10 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 
   <!-- COMPLETION -->
   <div class="completion-block reveal">
-    <h3>Sie haben den Lernpfad durchgearbeitet</h3>
+    <h2>Sie haben den Lernpfad durchgearbeitet</h2>
     <p>Oder dort eingestiegen, wo es am meisten drängte. Beides ist richtig. Sie müssen nicht alles auf einmal umsetzen — ein einziger Schritt reicht.</p>
     <ul class="completion-steps">
-      <li>📞 <a href="tel:0583843800">Fachstelle Angehörigenarbeit kontaktieren: 058 384 38 00</a></li>
+      <li>📞 <a href="{{ site.tel.fachstelle.href }}">Fachstelle Angehörigenarbeit kontaktieren: {{ site.tel.fachstelle.display }}</a></li>
       <li>🛠 <a href="/tools/krisenplan/">Ein Werkzeug ausprobieren</a></li>
       <li>📚 <a href="/module/">Zur Modulübersicht</a></li>
     </ul>
@@ -547,13 +417,13 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 
   <!-- TOOL LINKS -->
   <div class="tool-links reveal">
-    <h3>Interaktive Werkzeuge</h3>
+    <h2>Interaktive Werkzeuge</h2>
     <div class="tool-links-grid">
       <a href="/tools/krisenplan/" class="tool-link-card">
         <div class="tool-link-icon">📋</div>
         <div>
           <div class="tool-link-title">Krisenplan-Werkzeug</div>
-          <div class="tool-link-desc">Noch keinen Krisenplan? Hier direkt einen anlegen.</div>
+          <div class="tool-link-desc">Noch keinen Notfallplan? Hier direkt einen anlegen.</div>
         </div>
       </a>
       <a href="/tools/selbsttest/" class="tool-link-card">
@@ -570,7 +440,8 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   <div class="handouts reveal">
     <div class="handouts-title">Passende Handouts</div>
     <div class="handouts-grid">
-      <a href="/handout-drafts/brief-an-betroffene/" target="_blank" rel="noopener" class="handout-card"><div class="handout-icon green">Brief</div><div><div class="handout-card-title">Brief an Betroffene</div><div class="handout-card-sub">Was Angehörige durchmachen — zum Weitergeben</div></div></a>
+      <a href="/handouts/brief-an-betroffene.pdf" target="_blank" rel="noopener" class="handout-card"><div class="handout-icon green">PDF</div><div><div class="handout-card-title">Brief an Betroffene</div><div class="handout-card-sub">Was Angehörige durchmachen — zum Weitergeben</div></div></a>
+      <a href="/handout-drafts/brief-an-betroffene/" target="_blank" rel="noopener" class="handout-card"><div class="handout-icon green">Web</div><div><div class="handout-card-title">Brief an Betroffene — Webansicht</div><div class="handout-card-sub">Online lesen ohne Download</div></div></a>
     </div>
   </div>
 
@@ -583,8 +454,43 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
       <li><strong>Grover, S. et al. (2017).</strong> Caregiver burden in bipolar disorder. <em>J Affective Disorders, 223</em>, 225–234.</li>
       <li><strong>Miklowitz, D. J. (2010).</strong> <em>The Bipolar Disorder Survival Guide.</em> Guilford Press.</li>
       <li><strong>BAG (2019).</strong> <em>Gesundheit2030.</em> Bundesamt für Gesundheit.</li>
+      <li><strong>Umer, M. et al. (2025).</strong> Mapping global evidence of caregiver experiences in bipolar disorder: a scoping review. <em>J Affective Disorders, 374</em>, 191–215.</li>
+      <li><strong>Obegu, P. et al. (2025).</strong> Care coordination for people living with serious mental illness: the caregiver's perspective. <em>Frontiers in Health Services, 4</em>, 1473235.</li>
+      <li><strong>Wittenborn, A. K. et al. (2021).</strong> Couple and family interventions for depressive and bipolar disorders: evidence base update. <em>J Marital and Family Therapy, 48</em>(1), 129–153.</li>
     </ul>
   </div>
+
+  <!-- ══════════ ABSCHLUSS ══════════ -->
+  <div class="takeaways reveal">
+    <div class="takeaways-inner">
+      <h2>Sie haben alle acht Module durchlaufen</h2>
+      <div class="takeaway-item"><div class="takeaway-check">✓</div><p>Das allein zeigt, dass Sie bereit sind, sich mit einer schwierigen Situation auseinanderzusetzen — <strong>für sich selbst, nicht nur für die erkrankte Person.</strong></p></div>
+      <div class="takeaway-item"><div class="takeaway-check">✓</div><p>Hilfe holen ist kein Zeichen von Schwäche. Sie dürfen sich Unterstützung suchen — auch wenn Sie noch nicht genau wissen, was Sie brauchen.</p></div>
+      <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Ein nächster Schritt reicht.</strong> Eine Nummer speichern, ein Gespräch vereinbaren, ein Werkzeug ausprobieren.</p></div>
+    </div>
+  </div>
+
+  <div class="next-module reveal">
+    <div class="next-module-grid">
+      <a href="{{ site.tel.fachstelle.href }}" class="next-module-card">
+        <div>
+          <div class="next-module-label">Direkter Kontakt</div>
+          <div class="next-module-title">Fachstelle anrufen: {{ site.tel.fachstelle.display }}</div>
+          <div class="next-module-desc">Kostenlos und vertraulich. Auch wenn Sie noch nicht wissen, was Sie sagen wollen.</div>
+        </div>
+        <div class="next-module-arrow">→</div>
+      </a>
+      <a href="/werkzeuge/" class="next-module-card">
+        <div>
+          <div class="next-module-label">Praktisch weiter</div>
+          <div class="next-module-title">Werkzeuge im Überblick</div>
+          <div class="next-module-desc">Selbsttest, Krisenplan, Kommunikations-Trainer und mehr — direkt ausprobieren.</div>
+        </div>
+        <div class="next-module-arrow">→</div>
+      </a>
+    </div>
+  </div>
+  <div class="next-module-escape reveal"><a href="/module/">Nochmal ein bestimmtes Thema ansehen → Zur Modulübersicht</a></div>
 
   <nav class="module-nav reveal" aria-label="Modul-Navigation">
     <a href="/modul/7/" class="module-nav-prev">Modul 7</a>

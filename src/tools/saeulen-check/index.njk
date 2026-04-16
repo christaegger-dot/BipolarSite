@@ -8,65 +8,27 @@ toolBackLabel: "Zurück zu Modul 7"
 useSharedCSS: true
 useNavJS: false
 useToolCSS: true
+bodyClass: "saeulen-check-page"
+breadcrumbs:
+  - name: "Werkzeuge"
+    url: "/werkzeuge/"
+  - name: "Fünf-Säulen-Check"
+    url: "/tools/saeulen-check/"
 ---
-{% block headCSS %}
-<style>
-body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min-height:100vh;display:flex;flex-direction:column;align-items:center;-webkit-font-smoothing:antialiased}
-.tool-nav{width:100%;background:rgba(254,252,248,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border-warm);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
-.wrap{width:100%;max-width:600px;padding:32px 20px 48px;flex:1}
-.hdr{text-align:center;margin-bottom:28px;background:linear-gradient(180deg,rgba(255,255,255,0.94),rgba(247,250,251,0.88));border:1px solid var(--border-warm-md);border-radius:26px;padding:26px 24px 24px;box-shadow:var(--shadow-elevated);position:relative;overflow:hidden}
-.hdr p{font-size:0.88rem;color:var(--slate);line-height:1.65;max-width:46ch;margin:0 auto}
-.pc{background:#fff;border-radius:18px;border:1px solid var(--border-warm);box-shadow:0 2px 16px var(--border-warm);padding:22px 24px;margin-bottom:14px;border-left:4px solid}
-.pc-hdr{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-.pc-num{width:28px;height:28px;border-radius:8px;color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800;flex-shrink:0}
-.pc h2{font-family:'DM Serif Display',Georgia,serif;font-size:0.93rem;font-weight:600;color:var(--navy);margin:0}
-.pc p{font-size:var(--text-base);color:var(--slate);margin:0 0 14px;line-height:1.5}
-.sc{display:flex;gap:6px}
-.sc button{flex:1;padding:10px 4px;border-radius:10px;border:1px solid var(--border-warm-md);background:#fff;color:var(--slate);font-size:0.68rem;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background-color 0.2s ease,color 0.2s ease,border-color 0.2s ease;display:flex;flex-direction:column;align-items:center;gap:2px;-webkit-appearance:none}
-.sc button.sel{font-weight:700;color:#fff}
-.sc .sv{font-size:0.93rem}
-.sc .sl{font-size:0.68rem;opacity:0.8}
-.submit{width:100%;padding:14px;border-radius:14px;border:none;background:#a7d9d5;color:#fff;font-size:0.88rem;font-weight:700;cursor:default;font-family:'DM Sans',sans-serif;margin-top:8px;transition:background 0.3s}
-.submit.ready{background:var(--teal);cursor:pointer}
-.res-card{background:linear-gradient(180deg,#fff 0%,#fbfcfd 100%);border-radius:24px;border:1px solid var(--border-warm);box-shadow:var(--shadow-card);padding:32px 28px}
-.res-card h2{font-family:'DM Serif Display',Georgia,serif;font-size:1.1rem;font-weight:700;color:var(--navy);margin:0 0 20px;text-align:center}
-.pillars{display:flex;align-items:flex-end;justify-content:center;gap:12px;height:200px;margin-bottom:28px;padding:0 8px}
-.pillar{display:flex;flex-direction:column;align-items:center;flex:1}
-.pillar .pv{font-size:1rem;font-weight:700;margin-bottom:6px}
-.pillar .pb{width:100%;max-width:56px;border-radius:10px 10px 4px 4px;transition:height 0.8s cubic-bezier(0.34,1.56,0.64,1)}
-.pillar .pl{font-size:0.6rem;font-weight:600;margin-top:8px;text-align:center;line-height:1.2}
-.res-score{text-align:center;margin-bottom:24px;padding:12px 0;border-top:1px solid var(--border-warm);border-bottom:1px solid var(--border-warm)}
-.res-score span{font-size:0.8rem;color:var(--slate)}
-.res-score strong{color:var(--navy);font-size:1rem}
-.rbox{border-radius:14px;padding:18px 20px;margin-bottom:14px;border-left:4px solid}
-.rbox-title{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px}
-.rbox p{font-size:0.85rem;line-height:1.6;margin:0}
-.rbox-weak{background:var(--rose-soft)}.rbox-strong{background:var(--green-bg)}
-.all-detail{margin-top:20px}
-.all-title{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--slate);margin-bottom:12px}
-.ad-row{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid var(--border-warm)}
-.ad-num{width:24px;height:24px;border-radius:6px;color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.68rem;font-weight:800;flex-shrink:0;margin-top:2px}
-.ad-name{font-size:0.8rem;font-weight:600;color:var(--navy);margin-bottom:2px}
-.ad-text{font-size:0.72rem;color:var(--slate);line-height:1.5}
-.btns{display:flex;gap:10px;margin-top:24px}.btns button{flex:1;padding:12px;border-radius:12px;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:600;cursor:pointer}
-.btn-r{border:1px solid var(--border-warm-md);background:#fff;color:var(--slate)}
-.btn-c{border:none;background:var(--teal);color:#fff}
-.disc{font-size:0.68rem;color:var(--teal-light);margin-top:16px;line-height:1.5;text-align:center}
-</style>
-{% endblock %}
+{% block headCSS %}<!-- Säulen-Check styles migrated to tools.css (P2.4) -->{% endblock %}
 {% block nav %}
 {% include "nav-tool.njk" %}
 {% endblock %}
 {% block content %}
 <main class="wrap" id="main-content">
   <div class="hdr">
-<div class="tool-breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><a href="{{ toolBackHref }}">{{ toolBackLabel | replace("Zurück zu ", "") }}</a><span class="sep" aria-hidden="true">›</span><span>Fünf-Säulen-Check</span></div>
-<div class="tool-glyph" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="22" width="5" height="12" rx="2.5" fill="#1E656D"/><rect x="14" y="16" width="5" height="18" rx="2.5" fill="#B45309"/><rect x="22" y="10" width="5" height="24" rx="2.5" fill="#9A3412"/><rect x="30" y="6" width="5" height="28" rx="2.5" fill="#5B7FA5"/></svg></div><div class="badge">Modul 7</div><h1>Was trägt Sie gerade auf der langen Strecke?</h1><p>Schätzen Sie die fünf Bereiche ein. Sie sehen, was Sie derzeit trägt — und wo etwas instabil geworden ist.</p></div>
+<div class="breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><a href="/werkzeuge/">Werkzeuge</a><span class="sep" aria-hidden="true">›</span><span>Fünf-Säulen-Check</span></div>
+<div class="tool-glyph" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="22" width="5" height="12" rx="2.5" fill="var(--teal-solid)"/><rect x="14" y="16" width="5" height="18" rx="2.5" fill="var(--amber)"/><rect x="22" y="10" width="5" height="24" rx="2.5" fill="var(--amber-dark-text)"/><rect x="30" y="6" width="5" height="28" rx="2.5" fill="var(--blue-phase)"/></svg></div><h1>Was trägt Sie gerade auf der langen Strecke?</h1><p>Schätzen Sie die fünf Bereiche ein. Sie sehen, was Sie derzeit trägt — und wo etwas instabil geworden ist.</p></div>
   <div id="app" aria-live="polite" aria-atomic="true"></div>
   <noscript>
-    <div style="padding:20px 24px;background:var(--surface-warm);border-radius:12px;margin:20px 0;font-family:'DM Sans',sans-serif">
-      <p style="font-weight:600;margin:0 0 8px">Dieses Werkzeug benötigt JavaScript.</p>
-      <p style="margin:0">Die fünf Säulen werden auch in <a href="/modul/7/" style="color:var(--teal);font-weight:600">Modul 7</a> erklärt.</p>
+    <div class="noscript-box">
+      <p>Dieses Werkzeug benötigt JavaScript.</p>
+      <p>Die fünf Säulen werden auch in <a href="/modul/7/">Modul 7</a> erklärt.</p>
     </div>
   </noscript>
 </main>
@@ -77,11 +39,11 @@ body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min
 {% block scripts %}
 <script>
 const P=[
-  {id:"wissen",n:1,l:"Gemeinsames Krankheitsverständnis",s:"Wissen",c:"#1E656D",q:"Gibt es ein gemeinsames Grundverständnis dafür, was die Erkrankung mit Alltag und Beziehung macht?",lo:"Psychoedukation kann helfen: Modul 1 erklärt die Grundlagen. Manchmal entlastet schon ein gemeinsames Gespräch mit dem Behandlungsteam oder eine ruhigere Nachbesprechung in stabileren Phasen.",hi:"Gemeinsames Wissen trägt oft mehr, als man im Alltag merkt. Nutzen Sie ruhigere Phasen, um Beobachtungen und neue Erkenntnisse nachzuschärfen."},
-  {id:"inseln",n:2,l:"Krankheitsfreie Inseln",s:"Inseln",c:"#B45309",q:"Gibt es regelmässige Momente, in denen nicht alles von der Erkrankung bestimmt wird?",lo:"Beginnen Sie klein: ein Kaffee, ein Spaziergang, ein Abend ohne Krankheitsgespräch. Es muss nicht gross sein, um wieder etwas Beziehung oder Alltag zurückzubringen.",hi:"Diese Inseln sind kein Luxus. Sie helfen, dass Beziehung und Alltag nicht vollständig um Symptome, Krisen und Erholung kreisen."},
-  {id:"grenzen",n:3,l:"Grenzen & faire Lastverteilung",s:"Grenzen",c:"#9A3412",q:"Können Sie Grenzen setzen — und trägt die Last nicht dauerhaft nur eine Person?",lo:"Modul 5 erklärt, warum Grenzen so schwer fallen. Modul 6 zeigt konkrete Formulierungen. Oft hilft es, mit einer kleinen, klaren Grenze zu beginnen statt mit einer grossen Neuordnung.",hi:"Klare Grenzen und eine etwas fairere Lastverteilung machen die lange Strecke meist tragfähiger. Prüfen Sie immer wieder, ob Zuständigkeiten wieder unbemerkt verrutscht sind."},
-  {id:"krisenplan",n:4,l:"Gemeinsamer Krisenplan",s:"Krisenplan",c:"#5b7fa5",q:"Gibt es einen schriftlichen Krisenplan, der in einer stabilen Phase erstellt wurde?",lo:"Ein Krisenplan ist oft das wichtigste Einzelwerkzeug. Modul 6 enthält eine Vorlage und das Krisenplan-Werkzeug. Je unklarer frühere Krisen waren, desto mehr lohnt sich dieser Schritt.",hi:"Ein Krisenplan schafft nicht Kontrolle, aber oft mehr Orientierung. Überprüfen Sie ihn regelmässig — Kontakte, Medikamente und Zuständigkeiten verändern sich."},
-  {id:"entlastung",n:5,l:"Eigene Entlastung & Unterstützung",s:"Entlastung",c:"#8b6fc0",q:"Haben Sie eigene Unterstützung — Vertrauensperson, Fachstelle, Therapie oder Selbsthilfe?",lo:"Lange Belastung wird oft durch Isolation schwerer. Ein erster Schritt reicht: die Fachstelle PUK anrufen, eine Vertrauensperson einweihen oder eine Selbsthilfegruppe prüfen.",hi:"Ein tragfähiges Netz entlastet nicht automatisch, aber es macht es leichter, Belastung nicht nur allein zu tragen. Halten Sie diesen Kontakt aktiv."}
+  {id:"wissen",n:1,l:"Gemeinsames Krankheitsverständnis",s:"Wissen",c:"var(--teal-solid)",q:"Gibt es ein gemeinsames Grundverständnis dafür, was die Erkrankung mit Alltag und Beziehung macht?",lo:"Psychoedukation kann helfen: Modul 1 erklärt die Grundlagen. Manchmal entlastet schon ein gemeinsames Gespräch mit dem Behandlungsteam oder eine ruhigere Nachbesprechung in stabileren Phasen.",hi:"Gemeinsames Wissen trägt oft mehr, als man im Alltag merkt. Nutzen Sie ruhigere Phasen, um Beobachtungen und neue Erkenntnisse nachzuschärfen."},
+  {id:"inseln",n:2,l:"Krankheitsfreie Inseln",s:"Inseln",c:"var(--amber)",q:"Gibt es regelmässige Momente, in denen nicht alles von der Erkrankung bestimmt wird?",lo:"Beginnen Sie klein: ein Kaffee, ein Spaziergang, ein Abend ohne Krankheitsgespräch. Es muss nicht gross sein, um wieder etwas Beziehung oder Alltag zurückzubringen.",hi:"Diese Inseln sind kein Luxus. Sie helfen, dass Beziehung und Alltag nicht vollständig um Symptome, Krisen und Erholung kreisen."},
+  {id:"grenzen",n:3,l:"Grenzen & faire Lastverteilung",s:"Grenzen",c:"var(--amber-dark-text)",q:"Können Sie Grenzen setzen — und trägt die Last nicht dauerhaft nur eine Person?",lo:"Modul 5 erklärt, warum Grenzen so schwer fallen. Modul 6 zeigt konkrete Formulierungen. Oft hilft es, mit einer kleinen, klaren Grenze zu beginnen statt mit einer grossen Neuordnung.",hi:"Klare Grenzen und eine etwas fairere Lastverteilung machen die lange Strecke meist tragfähiger. Prüfen Sie immer wieder, ob Zuständigkeiten wieder unbemerkt verrutscht sind."},
+  {id:"krisenplan",n:4,l:"Gemeinsamer Krisenplan",s:"Krisenplan",c:"var(--blue-phase)",q:"Gibt es einen schriftlichen Krisenplan, der in einer stabilen Phase erstellt wurde?",lo:"Ein Krisenplan ist oft das wichtigste Einzelwerkzeug. Modul 6 enthält eine Vorlage und das Krisenplan-Werkzeug. Je unklarer frühere Krisen waren, desto mehr lohnt sich dieser Schritt.",hi:"Ein Krisenplan schafft nicht Kontrolle, aber oft mehr Orientierung. Überprüfen Sie ihn regelmässig — Kontakte, Medikamente und Zuständigkeiten verändern sich."},
+  {id:"entlastung",n:5,l:"Eigene Entlastung & Unterstützung",s:"Entlastung",c:"var(--purple-mid)",q:"Haben Sie eigene Unterstützung — Vertrauensperson, Fachstelle, Therapie oder Selbsthilfe?",lo:"Lange Belastung wird oft durch Isolation schwerer. Ein erster Schritt reicht: die Fachstelle PUK anrufen, eine Vertrauensperson einweihen oder eine Selbsthilfegruppe prüfen.",hi:"Ein tragfähiges Netz entlastet nicht automatisch, aber es macht es leichter, Belastung nicht nur allein zu tragen. Halten Sie diesen Kontakt aktiv."}
 ];
 const SL=["Kaum","Wenig","Teils","Gut","Stark"];
 let rat={},show=false;
@@ -99,7 +61,7 @@ function rn(){
     <div class="pillars">${P.map(p=>{const v=rat[p.id]||1;const h=(v/5)*160;const isW=p.id===weak.id&&v<4;return`<div class="pillar"><span class="pv" style="color:${p.c}">${v}</span><div class="pb" style="height:${h}px;background:${isW?'repeating-linear-gradient(45deg,'+p.c+'22,'+p.c+'22 4px,'+p.c+'11 4px,'+p.c+'11 8px)':p.c};opacity:${isW?1:0.85};${isW?'border:2px dashed '+p.c:''}"></div><span class="pl" style="color:${p.c}">${p.s}</span></div>`}).join('')}</div>
     <div class="res-score"><span>Gesamt: <strong>${ts}</strong> / ${P.length*5}</span></div>
     ${weak&&rat[weak.id]<4?`<div class="rbox rbox-weak" style="border-color:${weak.c}"><div class="rbox-title" style="color:${weak.c}">Hier fehlt aktuell am meisten Boden: ${weak.l}</div><p style="color:var(--slate)">${weak.lo}</p></div>`:''}
-    ${strong&&rat[strong.id]>=4?`<div class="rbox rbox-strong" style="border-color:var(--green-phase)"><div class="rbox-title" style="color:var(--green-phase)">Was Sie bereits trägt: ${strong.l}</div><p style="color:var(--navy)">${strong.hi}</p></div>`:''}
+    ${strong&&rat[strong.id]>=4?`<div class="rbox rbox-strong" style="border-color:var(--phase-green)"><div class="rbox-title" style="color:var(--phase-green)">Was Sie bereits trägt: ${strong.l}</div><p style="color:var(--navy)">${strong.hi}</p></div>`:''}
     <div class="all-detail"><div class="all-title">Alle fünf Bereiche im Detail</div>${P.map(p=>{const v=rat[p.id]||1;return`<div class="ad-row"><div class="ad-num" style="background:${p.c}">${v}</div><div><div class="ad-name">${p.l}</div><div class="ad-text">${v<3?p.lo:p.hi}</div></div></div>`}).join('')}</div>
     <div class="btns"><button class="btn-r" data-action="rs">Erneut einschätzen</button><button class="btn-c" data-action="nav" data-href="/modul/7/">Zurück zu Modul 7 →</button></div>
     <div class="disc">Standortbestimmung, keine Diagnose. Beginnen Sie dort, wo aktuell am wenigsten trägt oder am meisten Druck entsteht.</div></div>`;
@@ -114,7 +76,7 @@ document.addEventListener('click',function(e){
   const a=e.target.closest('[data-action]');if(!a||a.disabled)return;
   if(a.dataset.action==='doShow')doShow();
   else if(a.dataset.action==='rs')rs();
-  else if(a.dataset.action==='nav')location.href=a.dataset.href;
+  else if(a.dataset.action==='nav')window.location.assign(a.dataset.href);
 });
 </script>
 {% endblock %}

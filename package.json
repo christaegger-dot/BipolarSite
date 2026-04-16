@@ -5,9 +5,19 @@
   "scripts": {
     "build": "eleventy",
     "serve": "eleventy --serve",
-    "clean": "rm -rf _site"
+    "clean": "rm -rf _site",
+    "lint:html": "html-validate \"_site/**/*.html\"",
+    "lint:css": "stylelint \"src/**/*.css\" \"src/fonts/*.css\"",
+    "lint:a11y": "pa11y-ci --config .pa11yci.json",
+    "lint": "npm run lint:html && npm run lint:css"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1"
+    "@11ty/eleventy": "^2.0.1",
+    "html-validate": "^9.0.0",
+    "http-server": "^14.1.1",
+    "pa11y-ci": "^3.1.0",
+    "stylelint": "^16.0.0",
+    "stylelint-config-standard": "^36.0.0",
+    "wait-on": "^8.0.0"
   }
 }

@@ -2,15 +2,15 @@
   <title id="title">Gespräch oder Schutz</title>
   <desc id="desc">Eine Entscheidungsleiter zeigt vier Stufen: vorbereiten, deeskalieren, begrenzen und schützen.</desc>
   <rect width="720" height="420" rx="28" fill="#FAFAF7"/>
-  <path d="M188 68V344" stroke="#1C2B3A" stroke-width="6" stroke-linecap="round"/>
-  <path d="M532 68V344" stroke="#1C2B3A" stroke-width="6" stroke-linecap="round"/>
+  <path d="M188 68V344" stroke="#7a6f66" stroke-width="6" stroke-linecap="round"/>
+  <path d="M532 68V344" stroke="#7a6f66" stroke-width="6" stroke-linecap="round"/>
   <path d="M188 108H532" stroke="#DDD2BF" stroke-width="8" stroke-linecap="round"/>
   <path d="M188 176H532" stroke="#DDBA84" stroke-width="8" stroke-linecap="round"/>
   <path d="M188 244H532" stroke="#E5A390" stroke-width="8" stroke-linecap="round"/>
   <path d="M188 312H532" stroke="#C45B45" stroke-width="8" stroke-linecap="round"/>
 
   <rect x="232" y="78" width="300" height="44" rx="16" fill="#EAF5F5"/>
-  <text x="382" y="106" text-anchor="middle" fill="#1E656D" font-family="DM Sans, sans-serif" font-size="18" font-weight="700">Vorbereiten</text>
+  <text x="382" y="106" text-anchor="middle" fill="#3a9aa3" font-family="DM Sans, sans-serif" font-size="18" font-weight="700">Vorbereiten</text>
   <text x="548" y="106" fill="#475569" font-family="DM Sans, sans-serif" font-size="14">ruhige Phase</text>
 
   <rect x="232" y="146" width="300" height="44" rx="16" fill="#F7F2EA"/>
@@ -25,7 +25,7 @@
   <text x="382" y="310" text-anchor="middle" fill="#9A3412" font-family="DM Sans, sans-serif" font-size="18" font-weight="700">Schützen</text>
   <text x="548" y="310" fill="#475569" font-family="DM Sans, sans-serif" font-size="14">Notfall, Sicherheit, Hilfe</text>
 
-  <text x="88" y="102" fill="#1C2B3A" font-family="DM Serif Display, serif" font-size="22" font-weight="700">Frage</text>
+  <text x="88" y="102" fill="#7a6f66" font-family="DM Serif Display, serif" font-size="22" font-weight="700">Frage</text>
   <text x="88" y="132" fill="#475569" font-family="DM Sans, sans-serif" font-size="15">Geht es noch um</text>
   <text x="88" y="154" fill="#475569" font-family="DM Sans, sans-serif" font-size="15">Gespräch oder schon</text>
   <text x="88" y="176" fill="#475569" font-family="DM Sans, sans-serif" font-size="15">um Schutz?</text>
