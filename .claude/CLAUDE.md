@@ -41,6 +41,11 @@
 - Fonts: DM Sans (body), DM Serif Display (headings) — self-hosted WOFF2 in `src/fonts/`
 - Design tokens in `:root` of `tokens.css` — use `var(--token)` not hardcoded values
 
+## Skills (`.claude/skills/`)
+- `/audit-homepage [focus-area]` — UX/Content/A11y-Audit der Startseite (runs in subagent)
+- `/audit-accessibility [pages]` — WCAG AA Audit (Kontrast, Focus, ARIA, Headings)
+- `/deploy-check [url]` — Build prüfen, Deployment verifizieren
+
 ## Gotchas
 - Do NOT duplicate nav logic in page scripts — `nav.js` handles all nav behavior
 - Tool pages inline their own `<style>` with body layout (flex centering) — shared.css body styles get overridden

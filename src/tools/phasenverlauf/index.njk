@@ -8,97 +8,28 @@ toolBackLabel: "Zurück zu Modul 1"
 useSharedCSS: true
 useNavJS: false
 useToolCSS: true
+bodyClass: "phasenverlauf-page"
+breadcrumbs:
+  - name: "Werkzeuge"
+    url: "/werkzeuge/"
+  - name: "Phasenverlauf"
+    url: "/tools/phasenverlauf/"
 ---
-{% block headCSS %}
-<style>
-:root{--hypo-phase:var(--amber-light)}
-body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min-height:100vh;display:flex;flex-direction:column;align-items:center;-webkit-font-smoothing:antialiased}
-.tool-nav{width:100%;background:rgba(254,252,248,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border-warm);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
-.wrap{width:100%;max-width:680px;padding:32px 20px 56px;flex:1}
-.hdr{text-align:center;margin-bottom:28px;background:linear-gradient(180deg,rgba(255,255,255,0.94),rgba(247,250,251,0.88));border:1px solid var(--border-warm-md);border-radius:26px;padding:26px 24px 24px;box-shadow:var(--shadow-elevated);position:relative;overflow:hidden}
-.hdr::before{content:'';position:absolute;top:-36px;right:-28px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle, rgba(141,212,217,0.3) 0%, transparent 68%)}
-.hdr h1{font-family:'DM Serif Display',serif;font-size:clamp(1.35rem,3.5vw,1.75rem);font-weight:700;color:var(--navy);margin:0 0 8px;letter-spacing:-0.02em;line-height:1.2}
-
-/* ── Chart wrapper ── */
-.chart-wrap{width:100%;border-radius:22px;overflow:hidden;background:linear-gradient(180deg,#ffffff 0%,#fbfcfd 100%);border:1px solid var(--border-warm-md);box-shadow:var(--shadow-card);margin-bottom:18px}
-.chart-top{padding:16px 18px 10px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
-.chart-heading{font-size:0.72rem;font-weight:700;color:var(--slate);text-transform:uppercase;letter-spacing:0.08em}
-.chart-legend{display:flex;gap:12px;flex-wrap:wrap}
-.leg{display:flex;align-items:center;gap:5px;font-size:0.64rem;color:var(--slate);font-weight:500}
-.leg-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
-
-/* SVG chart */
-.chart-svg-wrap{padding:4px 18px 0}
-.chart-svg{width:100%;height:auto;display:block;overflow:visible}
-
-/* Clickable zone overlays */
-.zone-hit{cursor:pointer;fill:transparent}
-.zone-hit:hover{fill:rgba(255,255,255,0.12)}
-
-/* Wave path */
-#wavePath{stroke:var(--teal);stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
-
-/* Wave points */
-.wpt{cursor:pointer;transition:r 0.2s,filter 0.2s}
-.wpt:focus{outline:none}
-.wpt:focus-visible{filter:drop-shadow(0 0 0 3px rgba(116,138,90,0.5))}
-
-.chart-xlab{text-align:center;font-size:0.65rem;color:var(--text-soft);padding:10px 18px 16px;font-style:italic}
-
-/* ── Phase buttons ── */
-.phase-btns{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:18px}
-.pbtn{padding:10px 4px;border-radius:12px;border:2px solid transparent;background:var(--bg);color:var(--slate);font-size:0.66rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background-color 0.2s ease,color 0.2s ease,border-color 0.2s ease;display:flex;flex-direction:column;align-items:center;gap:3px;-webkit-appearance:none;line-height:1.2;text-align:center}
-.pbtn .ico{font-size:1.1rem;display:block}
-.pbtn:hover{transform:translateY(-2px);box-shadow:0 8px 18px var(--border-warm-xl)}
-.pbtn.active{color:#fff;transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.18)}
-
-/* ── Detail card ── */
-.detail-card{background:linear-gradient(180deg,#ffffff 0%,#fbfcfd 100%);border-radius:22px;border:1px solid var(--border-warm-md);box-shadow:var(--shadow-card);padding:24px 24px 20px;border-left:4px solid var(--border);transition:border-color 0.3s,opacity 0.3s,transform 0.3s;opacity:0;transform:translateY(8px);pointer-events:none}
-.detail-card.vis{opacity:1;transform:translateY(0);pointer-events:auto}
-.det-top{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px}
-.det-icon{width:48px;height:48px;min-width:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.35rem}
-.det-phase-name{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px}
-.det-title{font-family:'DM Serif Display',serif;font-size:1rem;font-weight:700;color:var(--navy);line-height:1.3}
-.det-dur{display:inline-flex;align-items:center;gap:6px;font-size:0.72rem;color:var(--slate);background:var(--bg);padding:4px 12px;border-radius:100px;margin-bottom:16px}
-.det-cols{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
-.det-col{border-radius:12px;padding:14px 15px;border-left:3px solid}
-.det-col-lbl{font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:8px}
-.det-col ul{list-style:none;display:flex;flex-direction:column;gap:5px}
-.det-col li{font-size:0.8rem;line-height:1.5;padding-left:14px;position:relative;color:var(--slate)}
-.det-col li::before{content:'–';position:absolute;left:0;color:#c5bdb5}
-.det-note{border-radius:12px;padding:12px 15px;font-size:0.8rem;line-height:1.6;color:var(--slate)}
-.det-note strong{color:var(--navy)}
-
-.hint{text-align:center;font-size:0.78rem;color:var(--text-soft);margin:0 0 18px;line-height:1.5}
-.mobile-chart-note{display:none;background:var(--bg);border:1px solid var(--border-warm-md);border-radius:14px;padding:12px 14px;margin-bottom:14px;font-size:0.76rem;line-height:1.55;color:var(--slate);text-align:center}
-
-.tf{text-align:center;font-size:0.68rem;color:var(--teal-light);margin-top:28px;line-height:1.6}
-
-@media(max-width:600px){
-  .phase-btns{grid-template-columns:repeat(3,1fr)}
-  .det-cols{grid-template-columns:1fr}
-  .chart-legend{display:none}
-  .chart-wrap{display:none}
-  .mobile-chart-note{display:block}
-  .wrap{padding:24px 14px 40px}
-}
-</style>
-{% endblock %}
+{% block headCSS %}<!-- Phasenverlauf styles migrated to tools.css (P2.4) -->{% endblock %}
 {% block nav %}
 {% include "nav-tool.njk" %}
 {% endblock %}
 {% block content %}
 <main class="wrap" id="main-content">
   <div class="hdr">
-<div class="tool-breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><a href="{{ toolBackHref }}">{{ toolBackLabel | replace("Zurück zu ", "") }}</a><span class="sep" aria-hidden="true">›</span><span>Phasenverlauf</span></div>
+<div class="breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><a href="/werkzeuge/">Werkzeuge</a><span class="sep" aria-hidden="true">›</span><span>Phasenverlauf</span></div>
     <div class="tool-glyph" aria-hidden="true">
       <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M5 25C10 25 10 9 16 9C22 9 22 31 28 31C32 31 32 18 35 18" stroke="#A8E4E8" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="16" cy="9" r="3" fill="#FBBF24"/>
-        <circle cx="28" cy="31" r="3" fill="#5B7FA5"/>
+        <path d="M5 25C10 25 10 9 16 9C22 9 22 31 28 31C32 31 32 18 35 18" stroke="var(--teal-light)" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="16" cy="9" r="3" fill="var(--amber-light)"/>
+        <circle cx="28" cy="31" r="3" fill="var(--blue-phase)"/>
       </svg>
     </div>
-    <div class="badge">Modul 1 — Visualisierung</div>
     <h1>Bipolarer Phasenverlauf</h1>
     <p>Wählen Sie eine Phase — entweder im Diagramm oder über die Schaltflächen — um zu erfahren, was sie für Betroffene und Angehörige bedeutet.</p>
   </div>
@@ -109,11 +40,11 @@ body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min
     <div class="chart-top">
       <span class="chart-heading">Stimmungsverlauf über die Zeit</span>
       <div class="chart-legend">
-        <span class="leg"><span class="leg-dot" style="background:var(--amber-phase)"></span>Manie</span>
-        <span class="leg"><span class="leg-dot" style="background:var(--hypo-phase)"></span>Hypomanie</span>
-        <span class="leg"><span class="leg-dot" style="background:var(--green-phase)"></span>Stabil</span>
-        <span class="leg"><span class="leg-dot" style="background:var(--blue-phase)"></span>Leichte Dep.</span>
-        <span class="leg"><span class="leg-dot" style="background:var(--slate)"></span>Schwere Dep.</span>
+        <span class="leg"><span class="leg-dot leg-dot--mania"></span>Manie</span>
+        <span class="leg"><span class="leg-dot leg-dot--hypo"></span>Hypomanie</span>
+        <span class="leg"><span class="leg-dot leg-dot--stable"></span>Stabil</span>
+        <span class="leg"><span class="leg-dot leg-dot--dep-mild"></span>Leichte Dep.</span>
+        <span class="leg"><span class="leg-dot leg-dot--dep-severe"></span>Schwere Dep.</span>
       </div>
     </div>
     <div class="chart-svg-wrap">
@@ -140,25 +71,25 @@ body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min
            role="img" aria-label="Vereinfachter bipolarer Phasenverlauf. Interaktiv — Phasen anklicken für Details.">
 
         <!-- Zone backgrounds -->
-        <rect x="0" y="0"   width="540" height="56"  fill="var(--amber-phase-light)" id="zone-mania"       class="zone-bg" data-phase="mania"/>
-        <rect x="0" y="56"  width="540" height="56"  fill="#fff9f0" id="zone-hypo"        class="zone-bg" data-phase="hypomania"/>
-        <rect x="0" y="112" width="540" height="56"  fill="var(--green-phase-light)" id="zone-stable"      class="zone-bg" data-phase="stable"/>
+        <rect x="0" y="0"   width="540" height="56"  fill="var(--amber-bg)" id="zone-mania"       class="zone-bg" data-phase="mania"/>
+        <rect x="0" y="56"  width="540" height="56"  fill="var(--hypo-phase-bg)" id="zone-hypo"        class="zone-bg" data-phase="hypomania"/>
+        <rect x="0" y="112" width="540" height="56"  fill="var(--success-soft)" id="zone-stable"      class="zone-bg" data-phase="stable"/>
         <rect x="0" y="168" width="540" height="56"  fill="var(--blue-phase-light)" id="zone-mild"        class="zone-bg" data-phase="mild-dep"/>
-        <rect x="0" y="224" width="540" height="56"  style="fill:var(--severe-dep-phase-bg)" id="zone-severe"      class="zone-bg" data-phase="severe-dep"/>
+        <rect x="0" y="224" width="540" height="56"  id="zone-severe"      class="zone-bg" data-phase="severe-dep"/>
 
         <!-- Zone separators -->
-        <line x1="0" y1="56"  x2="540" y2="56"  stroke="#ddd" stroke-width="0.6" stroke-dasharray="4 3"/>
-        <line x1="0" y1="112" x2="540" y2="112" stroke="#ddd" stroke-width="0.6" stroke-dasharray="4 3"/>
-        <line x1="0" y1="168" x2="540" y2="168" stroke="#c0c0c0" stroke-width="1"/>
-        <line x1="0" y1="224" x2="540" y2="224" stroke="#ddd" stroke-width="0.6" stroke-dasharray="4 3"/>
+        <line x1="0" y1="56"  x2="540" y2="56"  stroke="var(--border-warm-md)" stroke-width="0.6" stroke-dasharray="4 3"/>
+        <line x1="0" y1="112" x2="540" y2="112" stroke="var(--border-warm-md)" stroke-width="0.6" stroke-dasharray="4 3"/>
+        <line x1="0" y1="168" x2="540" y2="168" stroke="var(--border-warm-md)" stroke-width="1"/>
+        <line x1="0" y1="224" x2="540" y2="224" stroke="var(--border-warm-md)" stroke-width="0.6" stroke-dasharray="4 3"/>
 
         <!-- Baseline (stable midline) -->
-        <line x1="80" y1="140" x2="540" y2="140" stroke="var(--green-phase)" stroke-width="0.8" stroke-dasharray="6 4" opacity="0.35"/>
+        <line x1="80" y1="140" x2="540" y2="140" stroke="var(--phase-green)" stroke-width="0.8" stroke-dasharray="6 4" opacity="0.35"/>
 
         <!-- Zone labels -->
-        <text x="8" y="32"  font-size="10" fill="var(--amber-phase)" font-weight="700" font-family="DM Sans,sans-serif">Manie</text>
+        <text x="8" y="32"  font-size="10" fill="var(--amber)" font-weight="700" font-family="DM Sans,sans-serif">Manie</text>
         <text x="8" y="88"  font-size="10" fill="var(--hypo-phase)" font-weight="700" font-family="DM Sans,sans-serif">Hypomanie</text>
-        <text x="8" y="144" font-size="10" fill="var(--green-phase)" font-weight="700" font-family="DM Sans,sans-serif">Stabil</text>
+        <text x="8" y="144" font-size="10" fill="var(--phase-green)" font-weight="700" font-family="DM Sans,sans-serif">Stabil</text>
         <text x="8" y="200" font-size="10" fill="var(--blue-phase)" font-weight="700" font-family="DM Sans,sans-serif">Leichte Dep.</text>
         <text x="8" y="256" font-size="10" fill="var(--slate)" font-weight="700" font-family="DM Sans,sans-serif">Schwere Dep.</text>
 
@@ -175,16 +106,16 @@ body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min
           stroke="var(--teal)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
 
         <!-- Interactive wave points -->
-        <circle class="wpt" cx="160" cy="28"  r="9" fill="var(--amber-phase)" stroke="#fff" stroke-width="2.5" data-phase="mania"      id="pt-mania" aria-hidden="true" focusable="false"/>
-        <circle class="wpt" cx="300" cy="252" r="9" fill="var(--slate)" stroke="#fff" stroke-width="2.5" data-phase="severe-dep" id="pt-severe" aria-hidden="true" focusable="false"/>
-        <circle class="wpt" cx="370" cy="140" r="9" fill="var(--green-phase)" stroke="#fff" stroke-width="2.5" data-phase="stable"     id="pt-stable" aria-hidden="true" focusable="false"/>
-        <circle class="wpt" cx="430" cy="84"  r="9" fill="var(--hypo-phase)" stroke="#fff" stroke-width="2.5" data-phase="hypomania"  id="pt-hypo" aria-hidden="true" focusable="false"/>
-        <circle class="wpt" cx="520" cy="196" r="9" fill="var(--blue-phase)" stroke="#fff" stroke-width="2.5" data-phase="mild-dep"   id="pt-mild" aria-hidden="true" focusable="false"/>
+        <circle class="wpt" cx="160" cy="28"  r="9" fill="var(--amber)" stroke="var(--card)" stroke-width="2.5" data-phase="mania"      id="pt-mania" tabindex="0" role="button" aria-label="Manie auswählen"/>
+        <circle class="wpt" cx="300" cy="252" r="9" fill="var(--slate)" stroke="var(--card)" stroke-width="2.5" data-phase="severe-dep" id="pt-severe" tabindex="0" role="button" aria-label="Schwere Depression auswählen"/>
+        <circle class="wpt" cx="370" cy="140" r="9" fill="var(--phase-green)" stroke="var(--card)" stroke-width="2.5" data-phase="stable"     id="pt-stable" tabindex="0" role="button" aria-label="Stabile Phase auswählen"/>
+        <circle class="wpt" cx="430" cy="84"  r="9" fill="var(--hypo-phase)" stroke="var(--card)" stroke-width="2.5" data-phase="hypomania"  id="pt-hypo" tabindex="0" role="button" aria-label="Hypomanie auswählen"/>
+        <circle class="wpt" cx="520" cy="196" r="9" fill="var(--blue-phase)" stroke="var(--card)" stroke-width="2.5" data-phase="mild-dep"   id="pt-mild" tabindex="0" role="button" aria-label="Leichte Depression auswählen"/>
 
         <!-- Pulse rings (animated) -->
-        <circle cx="160" cy="28"  r="15" fill="none" stroke="var(--amber-phase)" stroke-width="1.5" opacity="0" class="pulse" id="pulse-mania"/>
+        <circle cx="160" cy="28"  r="15" fill="none" stroke="var(--amber)" stroke-width="1.5" opacity="0" class="pulse" id="pulse-mania"/>
         <circle cx="300" cy="252" r="15" fill="none" stroke="var(--slate)" stroke-width="1.5" opacity="0" class="pulse" id="pulse-severe"/>
-        <circle cx="370" cy="140" r="15" fill="none" stroke="var(--green-phase)" stroke-width="1.5" opacity="0" class="pulse" id="pulse-stable"/>
+        <circle cx="370" cy="140" r="15" fill="none" stroke="var(--phase-green)" stroke-width="1.5" opacity="0" class="pulse" id="pulse-stable"/>
         <circle cx="430" cy="84"  r="15" fill="none" stroke="var(--hypo-phase)" stroke-width="1.5" opacity="0" class="pulse" id="pulse-hypo"/>
         <circle cx="520" cy="196" r="15" fill="none" stroke="var(--blue-phase)" stroke-width="1.5" opacity="0" class="pulse" id="pulse-mild"/>
       </svg>
@@ -206,9 +137,9 @@ body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min
   <!-- Detail card -->
   <div class="detail-card" id="detailCard" aria-live="polite"></div>
   <noscript>
-    <div style="padding:20px 24px;background:var(--surface-warm);border-radius:12px;margin:20px 0;font-family:'DM Sans',sans-serif">
-      <p style="font-weight:600;margin:0 0 8px">Die interaktive Visualisierung benötigt JavaScript.</p>
-      <p style="margin:0">Die Phasen und ihre Bedeutung finden Sie auch in <a href="/modul/1/" style="color:var(--teal);font-weight:600">Modul 1</a>.</p>
+    <div class="noscript-box">
+      <p>Die interaktive Visualisierung benötigt JavaScript.</p>
+      <p>Die Phasen und ihre Bedeutung finden Sie auch in <a href="/modul/1/">Modul 1</a>.</p>
     </div>
   </noscript>
 
@@ -224,7 +155,7 @@ const PHASES = {
     name: 'Manie',
     subtitle: 'Ausgeprägte Hochphase — oft mit Realitätsverlust',
     duration: 'Typisch: 2–4 Wochen bis mehrere Monate',
-    color: 'var(--amber-phase)',
+    color: 'var(--amber)',
     bg: 'var(--mania-phase-bg)',
     border: 'var(--mania-phase-border)',
     ptId: 'pt-mania',
@@ -274,8 +205,8 @@ const PHASES = {
     name: 'Stabile Phase (Euthymie)',
     subtitle: 'Keine Episode — aber nicht immer innere Entwarnung',
     duration: 'Sehr variabel: Wochen bis Jahre',
-    color: 'var(--green-phase)',
-    bg: 'var(--green-bg)',
+    color: 'var(--phase-green)',
+    bg: 'var(--success-soft)',
     border: 'var(--teal-light)',
     ptId: 'pt-stable',
     pulseId: 'pulse-stable',
@@ -293,7 +224,7 @@ const PHASES = {
       'Wichtiges Zeitfenster für gemeinsamen Krisenplan',
       'Eigene Erholung kommt häufig zu kurz'
     ],
-    note: '<strong>Stabile Phasen sind wertvoll.</strong> Sie sind der richtige Moment für Gespräche, Vereinbarungen und Erholung — auch für Angehörige. Nutzen Sie diese Zeit für gemeinsame Planung, z. B. mit dem <a href="/tools/krisenplan/" style="color:var(--green-phase);font-weight:600">Krisenplan-Werkzeug</a>.'
+    note: '<strong>Stabile Phasen sind wertvoll.</strong> Sie sind der richtige Moment für Gespräche, Vereinbarungen und Erholung — auch für Angehörige. Nutzen Sie diese Zeit für gemeinsame Planung, z. B. mit dem <a href="/tools/krisenplan/" style="color:var(--phase-green);font-weight:600">Krisenplan-Werkzeug</a>.'
   },
   'mild-dep': {
     name: 'Leichte bis mittelschwere Depression',
@@ -362,7 +293,7 @@ function selectPhase(phase) {
     if (isMe) {
       b.style.background = d.color;
       b.style.borderColor = d.color;
-      b.style.color = '#fff';
+      b.style.color = 'var(--cta-primary-text)';
     } else {
       b.style.background = 'var(--bg)';
       b.style.borderColor = 'transparent';
@@ -455,6 +386,12 @@ function showPulseHints() {
 // Make zone hit areas and wave points interactive
 document.querySelectorAll('.zone-hit, .wpt').forEach(el => {
   el.addEventListener('click', () => selectPhase(el.dataset.phase));
+});
+// Keyboard support for wave points (Enter/Space)
+document.querySelectorAll('.wpt').forEach(el => {
+  el.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectPhase(el.dataset.phase); }
+  });
 });
 
 // Phase selector buttons — event delegation, no inline handlers

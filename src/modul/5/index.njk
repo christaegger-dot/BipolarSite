@@ -8,90 +8,13 @@ useNavJS: true
 useModuleCSS: true
 moduleAccent: "5"
 footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
+breadcrumbs:
+  - name: "Module"
+    url: "/module/"
+  - name: "Modul 5: Loyalitätskonflikte"
+    url: "/modul/5/"
 ---
-{% block headCSS %}
-<style>
-  /* Module-specific styles only — shared styles in module.css */
-
-  /* Module 5 override */
-  .content h3{font-family:'DM Serif Display',serif;font-size:1.25rem;font-weight:600;line-height:1.35;color:var(--navy-mid);margin:40px 0 14px}
-
-  /* TENSION FIELD */
-  .tension{display:grid;grid-template-columns:1fr auto 1fr;gap:0;margin:32px 0;align-items:stretch}
-  .tension-col{padding:24px;border-radius:var(--radius-lg)}
-  .tension-left{background:var(--amber-phase-light);border-radius:var(--radius-lg) 0 0 var(--radius-lg)}
-  .tension-right{background:var(--blue-phase-light);border-radius:0 var(--radius-lg) var(--radius-lg) 0}
-  .tension-vs{display:flex;align-items:center;justify-content:center;padding:0 16px;font-weight:800;font-size:0.85rem;color:var(--text-soft);background:var(--bg)}
-  .tension-col h4{font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px}
-  .tension-left h4{color:var(--amber-phase)}
-  .tension-right h4{color:var(--blue-phase)}
-  .tension-col ul{list-style:none}
-  .tension-col li{font-size:0.88rem;padding:5px 0;line-height:1.5}
-  .tension-left li{color:#B45309}
-  .tension-right li{color:#475569}
-
-  /* CYCLE SVG */
-  .cycle-section{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-xl);padding:36px;margin:40px 0;box-shadow:var(--shadow-soft)}
-  .cycle-svg-wrap{max-width:380px;margin:0 auto 24px}
-  .cycle-svg-wrap svg{width:100%;height:auto;display:block}
-  .cycle-steps{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 16px}
-  .cycle-step{padding:18px;border-radius:var(--radius-md)}
-  .cycle-step-num{font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px}
-  .cycle-step p{font-size:0.84rem;line-height:1.55;margin:0}
-  .cycle-step.s1{background:var(--surface-warm)}.cycle-step.s1 .cycle-step-num{color:var(--amber-phase)}.cycle-step.s1 p{color:#B45309}
-  .cycle-step.s2{background:var(--amber-phase-light)}.cycle-step.s2 .cycle-step-num{color:var(--amber-phase)}.cycle-step.s2 p{color:#B45309}
-  .cycle-step.s3{background:var(--alert-red-bg)}.cycle-step.s3 .cycle-step-num{color:var(--alert-red)}.cycle-step.s3 p{color:#9A3412}
-  .cycle-step.s4{background:var(--blue-phase-light)}.cycle-step.s4 .cycle-step-num{color:var(--blue-phase)}.cycle-step.s4 p{color:#475569}
-  .cycle-note{background:var(--green-bg);border-radius:var(--radius-md);padding:16px 20px;font-size:0.88rem;color:var(--navy)}
-
-  /* STIGMA CARDS */
-  .stigma-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:28px 0}
-  .stigma-card{padding:22px;border-radius:var(--radius-lg);border-top:4px solid}
-  .stigma-card.cognitive{background:#f8f5ff;border-top-color:#8b6fc0}
-  .stigma-card.affective{background:#fff5f3;border-top-color:var(--alert-red)}
-  .stigma-card.behavioral{background:var(--blue-phase-light);border-top-color:var(--blue-phase)}
-  .stigma-card h4{font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px}
-  .stigma-card.cognitive h4{color:#8b6fc0}
-  .stigma-card.affective h4{color:var(--alert-red)}
-  .stigma-card.behavioral h4{color:var(--blue-phase)}
-  .stigma-card p{font-size:0.86rem;line-height:1.55;margin:0}
-  .stigma-card.cognitive p{color:#5a4580}
-  .stigma-card.affective p{color:#9A3412}
-  .stigma-card.behavioral p{color:#475569}
-
-  /* BARRIERS */
-  .barrier-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0}
-  .barrier-card{background:white;border:1px solid var(--border-warm-md);border-radius:var(--radius-lg);padding:22px;transition:box-shadow 0.3s}
-  .barrier-card:hover{box-shadow:var(--shadow-soft)}
-  .barrier-label{font-size:0.72rem;font-weight:800;color:var(--amber-phase);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px}
-  .barrier-card h4{font-size:0.92rem;font-weight:700;color:var(--text);margin-bottom:8px}
-  .barrier-card p{font-size:0.86rem;color:var(--slate);line-height:1.55;margin:0}
-
-  /* DECISION PATHS */
-  .decision-paths{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:32px 0}
-  .decision-path{padding:28px;border-radius:var(--radius-xl);position:relative}
-  .decision-path.stay{background:var(--green-bg);border:1px solid var(--teal-border)}
-  .decision-path.leave{background:var(--surface-warm);border:1px solid var(--sand)}
-  .decision-path h4{font-family:'DM Serif Display',serif;font-size:1.05rem;font-weight:600;margin-bottom:14px}
-  .decision-path.stay h4{color:var(--navy)}
-  .decision-path.leave h4{color:var(--slate)}
-  .decision-path ul{list-style:none}
-  .decision-path li{font-size:0.88rem;padding:5px 0 5px 18px;position:relative;line-height:1.55}
-  .decision-path.stay li{color:var(--navy)}
-  .decision-path.leave li{color:var(--slate)}
-  .decision-path.stay li::before{content:'✓';position:absolute;left:0;color:var(--teal);font-weight:700}
-  .decision-path.leave li::before{content:'→';position:absolute;left:0;color:var(--sand);font-weight:700}
-
-  /* STAT */
-  .stat-box{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-lg);padding:24px 28px;margin:28px 0;display:flex;align-items:center;gap:24px;box-shadow:var(--shadow-soft)}
-  .stat-num{font-family:'DM Serif Display',serif;font-size:2.2rem;font-weight:700;color:var(--amber-phase);flex-shrink:0;line-height:1}
-  .stat-text{font-size:0.88rem;color:var(--slate);line-height:1.55}
-
-  @media(max-width:768px){.tension{grid-template-columns:1fr}.tension-vs{padding:12px 0}.tension-left{border-radius:var(--radius-lg) var(--radius-lg) 0 0}.tension-right{border-radius:0 0 var(--radius-lg) var(--radius-lg)}.stigma-cards{grid-template-columns:1fr}.barrier-grid{grid-template-columns:1fr}.decision-paths{grid-template-columns:1fr}.cycle-steps{grid-template-columns:1fr}}
-
-  @media(max-width:600px){.stat-box{flex-direction:column;text-align:center}}
-</style>
-{% endblock %}
+{% block headCSS %}<!-- Module 5 styles migrated to module.css (P2.3) -->{% endblock %}
 {% block nav %}
 {% include "nav-full.njk" %}
 {% endblock %}
@@ -99,7 +22,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 <div class="reading-progress"><div class="reading-progress-fill" id="readingProgress"></div></div>
 
 <header class="module-hero"><div class="module-hero-inner">
-  <div class="breadcrumb"><a href="/">Startseite</a><span>›</span><a href="/module/">Module</a><span>›</span><span>Loyalitätskonflikte</span></div>
+  <div class="breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><a href="/module/">Module</a><span class="sep" aria-hidden="true">›</span><span>Loyalitätskonflikte</span></div>
     <svg class="hero-icon" aria-hidden="true" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="20" y1="6" x2="20" y2="34" stroke="currentColor" stroke-width="2"/><line x1="6" y1="14" x2="34" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M6 14l4 12h0" stroke="currentColor" stroke-width="1.5"/><path d="M34 14l-4 12h0" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="26" r="4" stroke="currentColor" stroke-width="1.5" opacity="0.4"/><circle cx="30" cy="26" r="4" stroke="currentColor" stroke-width="1.5" opacity="0.4"/><circle cx="20" cy="6" r="2" fill="currentColor" opacity="0.5"/></svg>
   <div class="module-badge">Modul 5 / 8</div>
   <h1>Loyalitätskonflikte und schwierige Entscheidungen</h1>
@@ -167,7 +90,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 
   <!-- ══════════ 2. EE-TEUFELSKREIS ══════════ -->
   <h2 id="ee" class="reveal">Wie Überlastung in Beziehungsmuster kippt</h2>
-  <p class="reveal">«Expressed Emotion» (EE) ist ein Fachbegriff für ein angespanntes familiäres Klima mit viel Kritik oder zu viel Einmischung. Für Angehörige wichtig ist vor allem: EE ist selten Bosheit. Meist ist es Überlastung, die in Muster kippt. Was als Fürsorge beginnt, endet dann in Kontrolle, Gereiztheit oder Rückzug.</p>
+  <p class="reveal">«Expressed Emotion» (EE) ist ein Fachbegriff für ein angespanntes familiäres Klima mit viel Kritik oder zu viel Einmischung. Dieses Muster ist verwandt mit dem <a href="/modul/2/#hypervigilanz">Hypervigilanz-Kreislauf aus Modul&nbsp;2</a> — dort auf individueller Ebene, hier in der Beziehungsdynamik. Für Angehörige wichtig ist vor allem: EE ist selten Bosheit. Meist ist es Überlastung, die in Muster kippt. Was als Fürsorge beginnt, endet dann in Kontrolle, Gereiztheit oder Rückzug.</p>
 
   <div class="cycle-section reveal content-wide">
     <div class="cycle-svg-wrap">
@@ -181,8 +104,8 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
         <polygon points="101,280 96,296 111,290" fill="#5b7fa5"/>
         <path d="M 107 210 A 155 155 0 0 1 210 98" fill="none" stroke="#0d7a5f" stroke-width="3" stroke-linecap="round" stroke-dasharray="7 5"/>
         <polygon points="220,94 206,87 208,104" fill="#0d7a5f"/>
-        <text x="250" y="240" text-anchor="middle" font-family="DM Serif Display,serif" font-size="15" font-weight="600" fill="#1c2b3a">Teufels-</text>
-        <text x="250" y="260" text-anchor="middle" font-family="DM Serif Display,serif" font-size="15" font-weight="600" fill="#1c2b3a">kreis</text>
+        <text x="250" y="240" text-anchor="middle" font-family="DM Serif Display,serif" font-size="15" font-weight="400" fill="#7a6f66">Teufels-</text>
+        <text x="250" y="260" text-anchor="middle" font-family="DM Serif Display,serif" font-size="15" font-weight="400" fill="#7a6f66">kreis</text>
         <text x="250" y="282" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10.5" fill="#94a3b8">unterbrechbar</text>
         <circle cx="250" cy="80" r="44" fill="#fef3e2" stroke="#B45309" stroke-width="2"/>
         <text x="250" y="73" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="700" fill="#B45309">1</text>
@@ -220,7 +143,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   <!-- ══════════ 3. GRENZEN — direkt nach EE als Lösung ══════════ -->
   
   <a href="/tools/ee-kreislauf/" class="tool-cta reveal">
-    <div class="tool-cta-icon tool-cta-icon--rose">🔄</div>
+    <div class="tool-cta-icon tool-cta-icon--alert">🔄</div>
     <div class="tool-cta-body">
       <h4>EE-Kreislauf — interaktiv</h4>
       <p>Schuld → Überengagement → Erschöpfung → Kritik: Klicken Sie auf jede Station und entdecken Sie den Ausweg.</p>
@@ -267,6 +190,12 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     <cite>— Susanne, 39 Jahre, Partnerin (anonymisiert)</cite>
   </div>
 
+  <div class="reveal">
+    <h3 id="eltern-loyalitaet">Besondere Loyalitätskonflikte für Eltern und Geschwister</h3>
+    <p>Dieses Modul spricht häufig aus der Perspektive von Partnerschaften — aber Loyalitätskonflikte treffen Eltern und Geschwister genauso, oft in anderer Form. <strong>Eltern</strong> können sich der Verantwortung nicht entziehen, ohne sich als «schlechte Eltern» zu fühlen — selbst wenn das Kind längst erwachsen ist. Der Satz «Ich kann mein eigenes Kind doch nicht im Stich lassen» hält viele Eltern in einer Dauerfürsorge, die sie aufreibt. <strong>Geschwister</strong> stehen häufig in einer Sandwich-Position: Sie spüren Pflichtgefühle gegenüber dem betroffenen Bruder oder der Schwester, gleichzeitig Wut darüber, dass ihre eigenen Bedürfnisse in der Familie untergehen — manchmal seit der Kindheit.</p>
+    <p>Für beide gilt: Die Fragen aus diesem Modul — Wie viel Nähe ist tragbar? Wo endet meine Zuständigkeit? Darf ich mein eigenes Leben leben? — sind ebenso berechtigt wie für Partner. Aber die Antworten sehen oft anders aus, weil Blutsverwandtschaft gesellschaftlich schwerer «aufkündbar» erscheint als eine Partnerschaft.</p>
+  </div>
+
   <!-- ══════════ 5. GEHEN, BLEIBEN ODER VERSCHWINDEN — zusammengeführt ══════════ -->
   <h2 id="gehen-bleiben" class="reveal">Gehen, Bleiben, Abstand, Neuordnung</h2>
   <p class="reveal">Viele Angehörige kennen den Wunsch, einfach weg zu sein. Nicht da zu sein. Nicht mehr zuständig zu sein. Über 60% berichten von Phasen, in denen sie an Trennung oder Rückzug gedacht haben (Perlick et al., 2007). <strong>Dieser Wunsch ist ein Signal — kein Versagen.</strong> Er sagt: «Ich bin am Limit.»</p>
@@ -281,7 +210,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   <div class="decision-paths reveal content-wide">
     <div class="decision-path stay">
       <h4>Bewusst bleiben</h4>
-      <p style="font-size:0.86rem;color:var(--navy);margin-bottom:14px;font-style:italic">«Ich bleibe, aber ich brauche…»</p>
+      <p class="scenario-note scenario-note--navy">«Ich bleibe, aber ich brauche…»</p>
       <ul>
         <li>Regelmässige Paartherapie als gemeinsame Basis</li>
         <li>Klare Absprachen über Verantwortlichkeiten</li>
@@ -291,7 +220,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     </div>
     <div class="decision-path leave">
       <h4>Bewusst gehen</h4>
-      <p style="font-size:0.86rem;color:var(--slate);margin-bottom:14px;font-style:italic">Wenn die eigene Gesundheit massiv leidet</p>
+      <p class="scenario-note scenario-note--slate">Wenn die eigene Gesundheit massiv leidet</p>
       <ul>
         <li>Eine legitime Entscheidung — ein Akt des Selbstschutzes</li>
         <li>Schuldgefühle sind normal — sie beweisen nicht, dass es falsch ist</li>
@@ -301,7 +230,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     </div>
   </div>
 
-  <div class="barrier-grid reveal content-wide" style="margin-top:20px">
+  <div class="barrier-grid reveal content-wide">
     <div class="barrier-card"><div class="barrier-label">Zwischenform</div><h4>Bewusst Abstand</h4><p>Manchmal ist nicht sofort Trennung oder vollständiges Bleiben dran, sondern eine Neuordnung: vorübergehend weniger tragen, getrennt schlafen, Hilfe von aussen aktivieren, Zuständigkeiten klären.</p></div>
     <div class="barrier-card"><div class="barrier-label">Prüffrage</div><h4>Wovon genau brauchen Sie Schutz?</h4><p>Von Gewalt? Von Erschöpfung? Von Dauerverantwortung? Von emotionaler Entwertung? Die Antwort zeigt oft, welche Form von Neuordnung wirklich nötig ist.</p></div>
   </div>
@@ -317,6 +246,25 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     <div class="reflection-label">Reflexion</div>
     <h3>Was brauche ich gerade wirklich?</h3>
     <p>Wenn Sie an Flucht denken: Was genau möchten Sie hinter sich lassen? Die Erschöpfung? Die Hilflosigkeit? Die Einsamkeit? Die Antwort zeigt oft, was Sie brauchen — und was vielleicht noch möglich ist.</p>
+  </div>
+
+  <h3 id="trennung-praktisch" class="reveal">Wenn die Entscheidung fällt: Was Sie praktisch wissen sollten</h3>
+  <p class="reveal">Viele Angehörige bleiben länger als tragbar, weil die praktischen Fragen so überwältigend erscheinen. Ein paar Orientierungspunkte können helfen, die Entscheidung klarer zu machen — oder zumindest die Angst vor dem Unbekannten zu reduzieren.</p>
+
+  <div class="reveal">
+    <h4>Sorgerecht und Co-Parenting</h4>
+    <p>Eine psychische Erkrankung allein ist kein Grund für alleiniges Sorgerecht. Die Gerichte fragen: Kann das Kindeswohl gewährleistet werden? In stabilen Phasen steht dem gemeinsamen Sorgerecht in der Regel nichts entgegen. Für akute Phasen braucht es klare Absprachen: Wer betreut die Kinder, wenn eine Episode beginnt? Ist ein Krisenplan vereinbart, der auch die Kinderbetreuung regelt? <strong>Pro Mente Sana</strong> berät kostenlos zu rechtlichen Fragen rund um psychische Erkrankungen und Sorgerecht.</p>
+    <p>Co-Parenting mit einem bipolaren Elternteil bedeutet: Sie müssen die Erkrankung nicht mehr mittragen wie in einer Partnerschaft, aber Sie bleiben in Kontakt mit ihren Auswirkungen — über die Kinder. Regelmässige, knappe Absprachen funktionieren besser als spontane Verhandlungen. Schriftliche Vereinbarungen schaffen Klarheit, die in Episoden Halt gibt.</p>
+  </div>
+
+  <div class="reveal">
+    <h4>Kindern die Trennung erklären</h4>
+    <p>Kinder brauchen zwei Botschaften gleichzeitig: <em>Papa/Mama hat eine Krankheit, und wir haben uns trotzdem getrennt.</em> Die Trennung nicht mit der Erkrankung zu begründen, schützt das Kind davor, die Krankheit des Elternteils als «Schuld» zu erleben. Gleichzeitig darf die Krankheit benannt werden, wenn das Kind nach dem Warum fragt — ehrlich und altersgerecht. <span class="text-soft-xs">Formulierungshilfen finden Sie in <a href="/modul/4/#kinder">Modul 4</a>.</span></p>
+  </div>
+
+  <div class="reveal">
+    <h4>Rechtliche Schritte während einer Episode</h4>
+    <p>Verträge und Entscheidungen, die während einer manischen Episode getroffen werden, können juristisch anfechtbar sein — aber nur unter bestimmten Bedingungen. Wenn Sie sich trennen, während Ihr Partner/Ihre Partnerin in einer Episode ist: Schützen Sie gemeinsame Finanzen, dokumentieren Sie den Zustand und lassen Sie sich beraten, bevor Sie Fakten schaffen. Die <strong>KESB</strong> kann bei Bedarf eine Beistandschaft einrichten, die auch finanziellen Schutz bietet.</p>
   </div>
 
   <!-- ══════════ 7. HANDLUNGSSCHRITTE ══════════ -->
@@ -342,6 +290,8 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     </div>
   </div>
 
+  <div class="continue-shortcut reveal"><a href="/modul/6/">Weiter zu Modul 6 →</a></div>
+
   <div class="sources reveal">
     <button type="button" class="sources-toggle" aria-expanded="false" data-sources-toggle><span class="sources-title">Wissenschaftliche Quellen</span></button>
     <ul>
@@ -355,6 +305,9 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
       <li><strong>Coyne, J. C. (1976).</strong> Toward an interactional description of depression. <em>Psychiatry, 39</em>, 14–27.</li>
       <li><strong>Joiner, T. E., Alfano, M. S. &amp; Metalsky, G. I. (1992).</strong> When depression breeds contempt. <em>J Abnormal Psychology, 101</em>(1), 165–173.</li>
       <li><strong>Starr, L. R. &amp; Davila, J. (2008).</strong> Excessive reassurance seeking, depression, and interpersonal rejection. <em>J Clinical Psychology, 64</em>(3), 338–359.</li>
+      <li><strong>Verma, M. et al. (2025).</strong> Expressed emotions in families of patients with bipolar disorder. <em>Cureus, 17</em>(4), e82847.</li>
+      <li><strong>Miklowitz, D. J. et al. (2025).</strong> Parental expressed emotion, family conflict, and symptom severity in adolescent offspring of parents with mood disorders. <em>J Affective Disorders, 389</em>, 119620.</li>
+      <li><strong>Hemager, N. et al. (2025).</strong> Family functioning in families with children at familial high risk of bipolar disorder. <em>Psychological Medicine, 55</em>, e62.</li>
     </ul>
   </div>
 

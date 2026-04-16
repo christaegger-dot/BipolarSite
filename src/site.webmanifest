@@ -1,0 +1,37 @@
+{
+  "name": "Bipolare Störung — Psychoedukation für Angehörige",
+  "short_name": "BipolarSite",
+  "description": "Psychoedukation für Angehörige von Menschen mit bipolarer Störung — PUK Zürich",
+  "start_url": "/",
+  "display": "minimal-ui",
+  "background_color": "#FAF8F5",
+  "theme_color": "#7a6f66",
+  "lang": "de-CH",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    },
+    {
+      "src": "/favicon.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "180x180"
+    },
+    {
+      "src": "/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

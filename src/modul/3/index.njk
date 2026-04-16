@@ -8,74 +8,13 @@ useNavJS: true
 useModuleCSS: true
 moduleAccent: "3"
 footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
+breadcrumbs:
+  - name: "Module"
+    url: "/module/"
+  - name: "Modul 3: Beziehungen unter Druck"
+    url: "/modul/3/"
 ---
-{% block headCSS %}
-<style>
-  /* Module-specific styles only — shared styles in module.css */
-
-  /* TIMELINE */
-  .timeline-section { background: white; border: 1px solid var(--border-warm); border-radius: var(--radius-xl); padding: 36px; margin: 40px 0; box-shadow: var(--shadow-soft); }
-  .timeline { position: relative; padding-left: 32px; margin: 24px 0; }
-  .timeline::before { content: ''; position: absolute; left: 12px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--teal-light), var(--amber-phase)); border-radius: 2px; }
-  .timeline-item { position: relative; padding-bottom: 28px; }
-  .timeline-item:last-child { padding-bottom: 0; }
-  .timeline-dot { position: absolute; left: -27px; top: 4px; width: 14px; height: 14px; border-radius: 50%; border: 2.5px solid var(--teal); background: white; }
-  .timeline-item:last-child .timeline-dot { border-color: var(--amber-phase); background: var(--amber-phase-light); }
-  .timeline-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--teal); margin-bottom: 4px; }
-  .timeline-item:last-child .timeline-label { color: var(--amber-phase); }
-  .timeline-text { font-size: 0.9rem; color: var(--slate); line-height: 1.6; }
-
-  /* EROSION CHART */
-  .erosion-section { background: white; border: 1px solid var(--border-warm); border-radius: var(--radius-xl); padding: 36px; margin: 40px 0; box-shadow: var(--shadow-soft); }
-  .erosion-section h3 { font-family: 'DM Serif Display', serif; font-size: 1.15rem; font-weight: 600; margin-bottom: 8px; color: var(--navy-mid); }
-  .erosion-section > p { font-size: 0.88rem; color: var(--text-soft); margin-bottom: 24px; }
-  .erosion-chart { width: 100%; margin-bottom: 20px; }
-  .erosion-chart svg { width: 100%; height: auto; display: block; }
-  .erosion-caption { font-size: 0.78rem; color: var(--text-soft); line-height: 1.6; }
-
-  /* EROSION CARDS */
-  .erosion-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin: 28px 0; }
-  .erosion-card { padding: 22px; border-radius: var(--radius-lg); }
-  .erosion-card h4 { font-size: 0.88rem; font-weight: 700; margin-bottom: 8px; }
-  .erosion-card p { font-size: 0.84rem; line-height: 1.55; margin: 0; }
-  .erosion-card.trust { background: var(--blue-phase-light); }
-  .erosion-card.trust h4 { color: var(--blue-phase); }
-  .erosion-card.trust p { color: #475569; }
-  .erosion-card.intimacy { background: var(--amber-phase-light); }
-  .erosion-card.intimacy h4 { color: var(--amber-phase); }
-  .erosion-card.intimacy p { color: #B45309; }
-  .erosion-card.lightness { background: var(--green-bg); }
-  .erosion-card.lightness h4 { color: var(--teal-dark); }
-  .erosion-card.lightness p { color: var(--navy); }
-
-  /* EMERGENCY STRIP */
-  .emergency-strip { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin: 28px 0; }
-  .emergency-card {
-    display: flex; flex-direction: column; align-items: center; text-align: center;
-    padding: 18px 12px; border-radius: var(--radius-lg); text-decoration: none;
-    background: var(--green-bg); border: 1px solid var(--teal-border);
-    transition: box-shadow 0.25s ease, border-color 0.25s ease; cursor: pointer;
-  }
-  .emergency-card:hover { box-shadow: var(--shadow-card); }
-  .emergency-card.emergency-urgent { background: var(--alert-red-bg); border-color: var(--alert-red-border); }
-  .emergency-card.emergency-urgent .emergency-num { color: var(--alert-red); }
-  .emergency-card.emergency-urgent .emergency-label { color: var(--alert-red); }
-  .emergency-num { font-size: 1.1rem; font-weight: 800; color: var(--navy); letter-spacing: -0.02em; margin-bottom: 4px; }
-  .emergency-label { font-size: 0.78rem; font-weight: 700; color: var(--teal-dark); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px; }
-  .emergency-sub { font-size: 0.72rem; color: var(--text-soft); }
-
-  /* TABOO SECTION */
-  .taboo-item { background: white; border: 1px solid var(--border-warm-md); border-radius: var(--radius-lg); padding: 22px 26px; margin-bottom: 14px; border-left: 4px solid var(--alert-red-border); }
-  .taboo-item h4 { font-size: 0.92rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
-  .taboo-item p { font-size: 0.88rem; color: var(--slate); line-height: 1.6; margin: 0; }
-
-  /* RESPONSIVE */
-  @media (max-width: 768px) {
-    .erosion-cards { grid-template-columns: 1fr; }
-    .emergency-strip { grid-template-columns: 1fr; }
-  }
-</style>
-{% endblock %}
+{% block headCSS %}<!-- Module 3 styles migrated to module.css (P2.3) -->{% endblock %}
 {% block nav %}
 {% include "nav-full.njk" %}
 {% endblock %}
@@ -86,7 +25,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 <header class="module-hero">
   <div class="module-hero-inner">
     <div class="breadcrumb">
-      <a href="/">Startseite</a><span>›</span><a href="/module/">Module</a><span>›</span><span>Beziehungen unter Druck</span>
+      <a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><a href="/module/">Module</a><span class="sep" aria-hidden="true">›</span><span>Beziehungen unter Druck</span>
     </div>
     <svg class="hero-icon" aria-hidden="true" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="13" cy="14" r="4" stroke="currentColor" stroke-width="2"/><circle cx="27" cy="14" r="4" stroke="currentColor" stroke-width="2"/><path d="M8 30c0-5 3-8 5-8M32 30c0-5-3-8-5-8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18" y1="20" x2="22" y2="20" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 2" opacity="0.4"/></svg>
     <div class="module-badge">Modul 3 / 8</div>
@@ -132,7 +71,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   <h2 id="beziehungslogik" class="reveal">Wenn Beziehung zur Funktion wird</h2>
   <p class="reveal">Die bipolare Störung belastet eine Beziehung nicht nur durch einzelne Konflikte. Sie verändert nach und nach die ganze Beziehungslogik: Wer trägt, wer beobachtet, wer reguliert, wer erinnert, wer absichert. Viele Paare sprechen deshalb irgendwann nicht mehr nur als Partner miteinander, sondern als Krisenteam, Notfallsystem oder stilles Versorgungsarrangement.</p>
   <p class="reveal">Das ist keine Kleinigkeit. Es verändert, wie Nähe entsteht, wie Streit erlebt wird, wie Vertrauen wirkt und wie viel Leichtigkeit überhaupt noch möglich ist. Dieses Modul schaut deshalb nicht zuerst auf Ihre Erschöpfung oder auf die Frage «Gehen oder Bleiben», sondern darauf, was mit der Beziehung selbst geschieht.</p>
-  <p class="reveal" style="font-size:0.88rem;color:var(--teal-dark);background:var(--teal-bg);border-radius:var(--radius-md);padding:12px 16px;"><strong>Hinweis zur Sprache:</strong> Dieses Modul spricht vor allem Paare an. Dieselben Dynamiken — Rollenverschiebung, Erosion — entstehen aber auch zwischen Eltern, Geschwistern und in anderen engen Konstellationen.</p>
+  <p class="reveal context-note"><strong>Hinweis zur Sprache:</strong> Dieses Modul spricht vor allem Paare an. Dieselben Dynamiken — Rollenverschiebung, Erosion — entstehen aber auch zwischen Eltern, Geschwistern und in anderen engen Konstellationen.</p>
 
   <!-- ══════════════════════════════════════════════════
        1. ROLLENVERSCHIEBUNG
@@ -273,6 +212,30 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 
   <p class="reveal"><strong>Krankheitsbedingt</strong> und <strong>verletzend</strong> dürfen gleichzeitig wahr sein. Diese Doppelwahrheit auszuhalten ist für viele Angehörige einer der schwierigsten Punkte überhaupt. Gerade deshalb braucht es in stabilen Phasen Räume, in denen über Nachwirkungen gesprochen werden darf — ohne vorschnelle Entlastung und ohne moralische Abrechnung.</p>
 
+  <h3 id="intimitaet" class="reveal">Nähe und Sexualität nach Episoden</h3>
+  <p class="reveal">Intimität ist eines der Themen, über die Angehörige am seltensten sprechen — und unter denen sie am meisten leiden. Die Gründe sind verschränkt: In manischen Phasen kann sexuelle Enthemmung Grenzen überschreiten, die danach nachwirken. In depressiven Phasen verschwindet das Verlangen oft vollständig — bei der erkrankten Person, manchmal auch bei Ihnen. Dazu kommen Medikamenten-Nebenwirkungen (besonders SSRIs und einige Stimmungsstabilisierer), die die Libido dauerhaft dämpfen können.</p>
+  <p class="reveal">Was am Ende oft bleibt, ist weniger ein sexuelles Problem als ein Nähe-Problem: Wenn Sie monatelang in der Rolle der Begleitperson, des Krisenstabs oder der Dauerkontrolle waren, fällt der Wechsel zurück in die Rolle des Partners oder der Partnerin schwer. «Wir sind Mitbewohner geworden» — dieser Satz fällt in Angehörigengruppen häufiger als fast jeder andere.</p>
+
+  <div class="do-dont reveal content-wide">
+    <div class="do-col">
+      <h4>Was helfen kann</h4>
+      <ul>
+        <li>Medikamenten-Nebenwirkungen als Paar mit der Psychiaterin ansprechen — es gibt oft Alternativen oder Dosisanpassungen.</li>
+        <li>Nähe bewusst in kleinen Schritten wieder aufbauen: Berührung ohne sexuelle Erwartung, gemeinsame Zeit ohne Krankheitsthema.</li>
+        <li>Offen benennen, was zwischen Ihnen steht: «Ich merke, dass ich mich zurückziehe. Das hat nichts mit dir zu tun — ich brauche Zeit, um aus der Kontrollrolle herauszukommen.»</li>
+        <li>Paartherapie als Raum nutzen, in dem Intimität ohne Scham und ohne Vorwurf besprochen werden kann.</li>
+      </ul>
+    </div>
+    <div class="dont-col">
+      <h4>Was häufig nicht hilft</h4>
+      <ul>
+        <li>So tun, als wäre nichts verändert — Ihr Körper merkt, was Ihr Kopf noch zu ignorieren versucht.</li>
+        <li>Sexualität als «Beweis» nutzen, dass die Beziehung wieder funktioniert.</li>
+        <li>Sich schuldig fühlen, weil Sie kein Verlangen haben — nach dem, was Sie durchgemacht haben, ist das eine normale Reaktion.</li>
+      </ul>
+    </div>
+  </div>
+
   <!-- ══════════════════════════════════════════════════
        4. TABU — als eigene H2
        ══════════════════════════════════════════════════ -->
@@ -302,13 +265,13 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
       <span class="emergency-label">Polizei</span>
       <span class="emergency-sub">Bei akuter Gewalt</span>
     </a>
-    <a href="tel:+41583843800" class="emergency-card">
-      <span class="emergency-num">058 384 38 00</span>
+    <a href="{{ site.tel.fachstelle.href }}" class="emergency-card">
+      <span class="emergency-num">{{ site.tel.fachstelle.display }}</span>
       <span class="emergency-label">Fachstelle PUK</span>
       <span class="emergency-sub">Kostenlos, vertraulich</span>
     </a>
-    <a href="tel:+41442994050" class="emergency-card">
-      <span class="emergency-num">044 299 40 50</span>
+    <a href="{{ site.tel.opferhilfe.href }}" class="emergency-card">
+      <span class="emergency-num">{{ site.tel.opferhilfe.display }}</span>
       <span class="emergency-label">Opferhilfe ZH</span>
       <span class="emergency-sub">Beratung & Begleitung</span>
     </a>
@@ -385,6 +348,8 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     </div>
   </div>
 
+  <div class="continue-shortcut reveal"><a href="/modul/4/">Weiter zu Modul 4 →</a></div>
+
   <!-- SOURCES -->
   <div class="sources reveal">
     <button type="button" class="sources-toggle" aria-expanded="false" data-sources-toggle><span class="sources-title">Wissenschaftliche Quellen</span></button>
@@ -393,6 +358,9 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
       <li><strong>Miklowitz, D. J. & Johnson, S. L. (2006).</strong> The psychopathology and treatment of bipolar disorder. <em>Annual Review of Clinical Psychology, 2</em>, 199–235.</li>
       <li><strong>Hooley, J. M. (2007).</strong> Expressed emotion and relapse of psychopathology. <em>Annual Review of Clinical Psychology, 3</em>, 329–352.</li>
       <li><strong>Kessler, R. C. et al. (1998).</strong> The effects of co-occurring mental disorders on the course of bipolar disorder. <em>Journal of Affective Disorders, 50</em>(1), 33–45.</li>
+      <li><strong>Miklowitz, D. J. et al. (2025).</strong> Family conflict, perceived criticism, and aggression in symptomatic offspring of parents with mood disorders. <em>JAACAP Open, 3</em>(1), 73–84.</li>
+      <li><strong>Lex, C. et al. (2022).</strong> Perceived criticism and family attitudes as predictors of recurrence in bipolar disorder. <em>Clinical Psychology in Europe, 4</em>(1), e4617.</li>
+      <li><strong>Weintraub, M. J. et al. (2024).</strong> Behavioral skill practice as a predictor of mood and family functioning in adolescents with bipolar and depressive mood disorders. <em>Bipolar Disorders, 26</em>(7), 733–743.</li>
     </ul>
   </div>
 

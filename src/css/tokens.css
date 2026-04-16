@@ -3,137 +3,381 @@
    ───────────────────────────────────────────────────────────────────────
    Single source of truth for all CSS custom properties.
    Loaded FIRST in the cascade — no selectors, no rules, only variables.
+
+   Palette: "Luftig warm-editorial" (L2)
+   ─────────────────────────────────────
+   Three temperature poles:
+     1. Warm-Neutral  → structure, text, orientation
+     2. Teal (transparent) → action, tools, CTAs
+     3. Rosé          → emotion, reflection, gentle attention
+
+   Transparency principle: colors are controlled via opacity,
+   not by creating new hex values. This keeps the palette light.
    ═══════════════════════════════════════════════════════════════════════ */
 
 :root {
 
-  /* ── Brand Colors ── */
-  --navy:        #1c2b3a;
-  --navy-mid:    #4A443F;
-  --teal:        #1E656D;
-  --teal-light:  #A8D5CB;
-  --amber:       #B45309;
-  --amber-light: #FBBF24;
-  --rose:        #9A3412;
-  --rose-soft:   #FEF2F2;
+  /* ══════════════════════════════════════════
+     1. WARM-NEUTRAL  (structure, text)
+     ══════════════════════════════════════════ */
+
+  /* Heading / emphasis — warmest dark tone */
+  --navy:        #7a6f66;
+  --navy-mid:    #766b62;   /* 4.89:1 on #FAF8F5 — AA for all sizes (was #8a7f76, 3.6:1) */
+
+  /* Body text — 5.0:1 on #FAF8F5, 4.7:1 on surface-alt/rose-bg/teal-faint (was #7a7068, 4.3:1 on tints) */
+  --slate:       #746a62;
+
+  /* Text semantic aliases */
+  --text:        #776c63;   /* 4.91:1 on --bg, 4.54:1 on --surface-alt — AA everywhere (was #7a6f66, 4.34:1 on surface-alt) */
+  --text-soft:   #6f655d;   /* 5.2:1 on #FAF8F5 — AA for all sizes incl. 12px (was #7a7068, 4.37:1) */
+  /* Sand family (warm accents, badges, subtle fills) */
   --sand:        #ddd2bf;
   --sand-deep:   #b58a52;
   --sand-ink:    #7a5630;
+  --sand-faint:  rgba(221,210,191,0.18);
+  --sand-subtle: rgba(221,210,191,0.34);
+  --sand-border: rgba(181,138,82,0.14);
 
-  /* ── Neutral / Slate ── */
-  --slate:       #475569;
 
-  /* ── Semantic: Background ── */
+  /* ══════════════════════════════════════════
+     2. TEAL  (action, tools, CTAs)
+     ══════════════════════════════════════════ */
+
+  --teal:        rgba(58,154,163,0.75);
+  --teal-solid:  #3a9aa3;         /* opaque fallback for borders, small UI */
+  --teal-light:  rgba(168,213,203,0.3);
+  --teal-dark:   rgba(58,154,163,0.9);
+
+  /* Accessible teal for text — deliberately darker than brand-teal
+     to guarantee AA on tinted backgrounds (success-soft, surface-alt).
+     Do NOT lighten: #1a6b72 is the minimum value that passes 4.5:1
+     on the lightest tinted bg (--success-soft on --surface-alt = 4.71:1). */
+  --teal-text:   #1a6b72;
+  --teal-cta:    #287f87;
+
+  /* Darker teal for full-bleed dark backgrounds (5.2:1 with white — AAA large text) */
+  --teal-cta-dark: #1a6b72;
+
+  /* Teal opacity scale */
+  --teal-faint:  rgba(58,154,163,0.04);
+  --teal-subtle: rgba(58,154,163,0.1);
+  --teal-muted:  rgba(58,154,163,0.2);
+
+  /* Teal accent (for dark-bg Durchatmen tool) */
+  --teal-accent-light: rgba(141,212,217,0.7);
+  --teal-accent-20:  rgba(141,212,217,0.2);
+  --teal-accent-30:  rgba(141,212,217,0.3);
+  --teal-accent-40:  rgba(141,212,217,0.4);
+  --teal-accent-60:  rgba(141,212,217,0.6);
+
+
+  /* ══════════════════════════════════════════
+     3. ROSÉ  (emotion, reflection, attention)
+     ══════════════════════════════════════════ */
+
+  --rose:        rgba(175,115,110,0.55);
+  --rose-text:   #8A504B;             /* opaque, 5.95:1 on #FAF8F5 (WCAG AA) — was rgba(175,115,110,0.75) */
+  --rose-border: rgba(175,115,110,0.3);
+  --rose-bg:     rgba(175,115,110,0.04);
+  --rose-soft:   rgba(175,115,110,0.08);
+  --rose-badge:  rgba(175,115,110,0.15);
+
+
+  /* ══════════════════════════════════════════
+     BACKGROUNDS
+     ══════════════════════════════════════════ */
+
   --bg:          #FAF8F5;
   --card:        #ffffff;
   --surface-alt: #F4F1EC;
-  --surface-warm:#f7f2ea;
+  --caregiver-col-bg: #f9f6f2;
 
-  /* ── Semantic: Text ── */
-  --text:        #3D3530;
-  --text-soft:   #56514d;
 
-  /* ── Semantic: Border ── */
-  --border:      #e2e8f0;
+  /* ══════════════════════════════════════════
+     BORDERS
+     ══════════════════════════════════════════ */
 
-  /* ── Semantic: Status/Feedback ── */
-  --green:       #0d7a5f;
-  --green-bg:    #e6f4f2;
-  --red-bg:      #FEF2F2;
+  --border:         rgba(45,40,35,0.08);
+  --border-warm:    rgba(45,40,35,0.04);  /* subtle: dividers, card edges, footer lines */
+  --border-warm-md: rgba(45,40,35,0.08);  /* visible: section separators, active states */
+
+
+  /* ══════════════════════════════════════════
+     STATUS / FEEDBACK
+     ══════════════════════════════════════════ */
+
+  --success-soft: rgba(168,213,203,0.15);
   --amber-bg:    #fef3e2;
+  --amber:       #B45309;
+  --amber-light: #FBBF24;
+  --amber-border: #e8c68a;
 
-  /* ── Radius Scale (simplified: 4 core steps + pill) ── */
-  --radius-xs:   6px;   /* legacy alias */
-  --radius-sm:   8px;   /* small UI: badges, icons, buttons */
-  --radius-md:   12px;  /* cards, inputs, accordions */
-  --radius-lg:   12px;  /* alias → same as md (was 12px) */
-  --radius-xl:   20px;  /* hero sections, tool wrappers, large panels */
-  --radius-pill: 20px;  /* legacy alias → xl */
-  --radius-2xl:  20px;  /* legacy alias → xl */
-  --radius-3xl:  20px;  /* legacy alias → xl */
-  --radius-hero: 20px;  /* legacy alias → xl */
-  --radius-round: 100px; /* pill buttons, full-round badges */
 
-  /* ── Shadow Scale ── */
-  --shadow-soft:     0 4px 18px rgba(28,43,58,0.05);
-  --shadow-card:     0 10px 28px rgba(28,43,58,0.08);
-  --shadow-elevated: 0 16px 40px rgba(28,43,58,0.14);
-  --shadow-nav:      0 1px 8px rgba(0,0,0,0.06);
+  /* ══════════════════════════════════════════
+     ALERT / EMERGENCY  (unchanged — stays strong)
+     ══════════════════════════════════════════ */
 
-  /* ── Spacing Scale ── */
-  --space-xs:  4px;
-  --space-sm:  8px;
-  --space-base: 12px;
-  --space-md:  16px;
-  --space-lg:  24px;
-  --space-xl:  32px;
-  --space-2xl: 40px;
-  --space-3xl: 52px;
-
-  /* ── Content Widths ── */
-  --content-width:      720px;
-  --content-width-wide: 900px;
-  --wide-width:         1140px;
-
-  /* ── Alert Colors ── */
-  --alert-red:        var(--rose);
-  --alert-red-bg:     var(--rose-soft);
+  --alert:       #B91C1C;
+  --alert-soft:  #FEF2F2;
   --alert-red-border: #fca5a5;
+  --alert-red-light:  #fecaca;
+  --alert-red-coral:  #f87171;
+  --emergency-dark:   #7f1d1d;
+  --emergency-mid:    #991b1b;
 
-  /* Phase colors (content-semantic) */
+  /* Alert opacity scale */
+  --alert-faint:  rgba(185,28,28,0.06);
+  --alert-subtle: rgba(185,28,28,0.12);
+  --alert-muted:  rgba(185,28,28,0.25);
+
+
+  /* ══════════════════════════════════════════
+     PHASE COLORS  (content-semantic, unchanged)
+     ══════════════════════════════════════════ */
+
   --blue-phase:       #4a6f95;
   --blue-phase-light: #eef3f8;
-  --amber-phase:      #B45309;
-  --amber-phase-light:#fef3e2;
-  --purple-phase:     #7c3aed;
-  --green-phase:      #0d7a5f;
-  --green-phase-light:#e6f4f2;
-  /* Phase-specific bg/border values (used in phasenverlauf + selbsttest JS) */
+  --phase-green:      #0d7a5f;
+  --hypo-phase:       var(--amber-light);  /* hypomania phase in mood charts */
+
   --mania-phase-bg:          #fff3e0;
   --mania-phase-border:      #f0c070;
   --hypo-phase-bg:           #fff9f0;
-  --amber-phase-border:      #e8c68a;
-
-  /* Helle Varianten für Verwendung auf dunklem Navy-Hintergrund (WCAG AA) */
-  --blue-phase-on-dark:  #93b4d4; /* 6.7:1 auf Navy */
-  --amber-phase-on-dark: #f59e4a; /* 6.8:1 auf Navy */
-  --sand-on-dark:        #c9a97a; /* 6.5:1 auf Navy */
-  --green-on-dark:       #34d399; /* 7.5:1 auf Navy */
-  --teal-on-dark:        #5bbac4; /* 6.4:1 auf Navy */
   --mild-dep-phase-border:   #c5d5e8;
   --severe-dep-phase-bg:     #e4eaf2;
   --severe-dep-phase-border: #8899aa;
-  --caregiver-col-bg:        #f9f6f2;
-  --ice-deep:                #1e3044;
-  --ice-deeper:              #152535;
 
-  /* Derived tokens (used for hover-dark states, borders) */
-  --teal-dark:     #195A60;
-  --amber-border:  #e8c68a;
-  --teal-border:   #A8D5CB;
+  /* Blue phase opacity scale (Module 1 accent) */
+  --blue-phase-subtle: rgba(91,127,165,0.15);
+  --blue-phase-border: rgba(91,127,165,0.3);
 
-  /* ── Warm Border Scale (replaces hardcoded rgba(45,40,35,...)) ── */
-  --border-warm:    rgba(45,40,35,0.06);
-  --border-warm-md: rgba(45,40,35,0.08);
-  --border-warm-xl: rgba(45,40,35,0.12);
+  /* Amber opacity scale (Module 2,4,5 accent) */
+  --amber-faint:         rgba(245,158,74,0.12);
+  --amber-border-accent: rgba(180,83,9,0.25);
+  --amber-border-faint:  rgba(180,83,9,0.12);
+  --amber-dark:          #92400e;
+  --amber-dark-text:     #9A3412;
 
-  /* ── Type Scale ── */
-  --text-2xs:  0.7rem;   /* 11.2px — decorative (::before, check marks) */
-  --text-xs:   0.75rem;  /* 12px   — badges, labels, small UI */
-  --text-sm:   0.82rem;  /* 13.1px — citations, nav, secondary */
-  --text-base: 0.95rem;  /* 15.2px — body text, hints, callouts */
-  --text-md:   1.0rem;   /* 16px   — emphasis, accordion titles */
-  --text-lg:   1.1rem;   /* 17.6px — subheadings (h3 small) */
-  --text-xl:   1.3rem;   /* 20.8px — headings (h3 large) */
-  --text-2xl:  1.8rem;   /* 28.8px — section headings (h2) */
+  /* Sand border scale (Module 3 accent) */
+  --sand-border-accent: rgba(181,138,82,0.25);
+  --sand-border-light:  rgba(181,138,82,0.2);
 
-  /* ── White-on-Dark Text Scale ── */
-  --white-text:          rgba(255,255,255,0.88);
-  --white-text-link:     rgba(255,255,255,0.85);
-  --white-text-secondary: rgba(255,255,255,0.75);
-  --white-text-muted:    rgba(255,255,255,0.6);
-  --white-text-faint:    rgba(255,255,255,0.5);
+  /* Green phase opacity scale (Module 6,7 accent) */
+  --green-faint:    rgba(13,122,95,0.08);
+  --green-subtle:   rgba(13,122,95,0.12);
+  --green-border:   rgba(13,122,95,0.15);
+  --green-border-accent: rgba(13,122,95,0.25);
+  --green-light-bg: #f0faf5;
 
-  /* ── Z-Index Scale ── */
-  --z-tool-nav:  50;
+  /* Teal accent scale — darker teal #1e656d (Module 8 accent) */
+  --teal-accent-border:       rgba(30,101,109,0.15);
+  --teal-accent-border-md:    rgba(30,101,109,0.18);
+  --teal-accent-border-accent: rgba(30,101,109,0.25);
+  --teal-accent-border-faint: rgba(30,101,109,0.12);
+  --teal-accent-bg-faint:     rgba(30,101,109,0.04);
+
+  /* Purple phase scale (Stigma cognitive) */
+  --purple-light:  #f8f5ff;
+  --purple-mid:    #8b6fc0;
+  --purple-dark:   #5a4580;
+
+  /* Alert/red opacity scale */
+  --alert-coral:       rgba(199,84,80,0.12);
+  --alert-coral-border: rgba(199,84,80,0.3);
+  --alert-dark-hover:  #a33d3a;
+
+  /* Warm pink backgrounds */
+  --warm-pink-bg:      #FFF8F7;
+  --warm-pink-deep:    #FFF2EF;
+  --warm-pink-soft:    #fef8f7;
+  --warm-pink-rose:    #fef2f0;
+
+  /* Misc accent */
+  --old-blue-accent:   #2D5F8A;
+  --slate-cool:        #475569;
+  --slate-warm:        #c5bdb5;
+
+  /* Dark bg helpers (Durchatmen, Phasenverlauf) */
+  --ice-deep:            #1e3044;
+
+
+  /* ══════════════════════════════════════════
+     CTA HIERARCHY
+     ══════════════════════════════════════════ */
+
+  --cta-primary-bg:     var(--teal-cta);
+  --cta-primary-hover:  #247880;
+  --cta-primary-text:   #ffffff;
+  --cta-secondary-bg:   var(--card);
+  --cta-secondary-border: var(--border);
+  --cta-secondary-text: var(--slate);
+  --cta-secondary-hover-border: var(--teal-solid);
+  --cta-secondary-hover-text:   var(--teal-solid);
+  --cta-secondary-hover-bg:     var(--success-soft);
+  --cta-tertiary-text:  rgba(58,154,163,0.8);
+  --cta-tertiary-hover: rgba(58,154,163,0.95);
+  --cta-danger-bg:      var(--card);
+  --cta-danger-border:  var(--alert-red-border);
+  --cta-danger-text:    var(--alert);
+  --cta-danger-hover-bg: var(--alert-soft);
+  --cta-danger-hover-border: var(--alert);
+  --cta-radius:    var(--radius-md);
+  --cta-min-height: 44px;
+  --cta-padding:   12px 20px;
+  --cta-padding-sm: 8px 16px;
+  --cta-font-size: var(--text-sm);
+  --cta-font-weight: 600;
+
+
+  /* ══════════════════════════════════════════
+     RADIUS SCALE
+     ══════════════════════════════════════════ */
+
+  --radius-sm:    8px;
+  --radius-md:   12px;
+  --radius-lg:   20px;
+  --radius-round: 100px;  /* pill-shaped buttons, tags, progress bars */
+
+
+  /* ══════════════════════════════════════════
+     CARD BASE
+     ══════════════════════════════════════════ */
+
+  --card-radius:  var(--radius-md);
+  --card-padding: var(--space-lg);
+  --card-shadow:  none;  /* shadows only on hover — editorial, not app */
+  --card-shadow-hover: 0 8px 24px rgba(122,111,102,0.07);
+
+
+  /* ══════════════════════════════════════════
+     SHADOW SCALE  (warm-tinted)
+     ══════════════════════════════════════════ */
+
+  --shadow-soft:     0 4px 18px rgba(122,111,102,0.05);
+  --shadow-card:     0 10px 28px rgba(122,111,102,0.06);
+  --shadow-elevated: 0 16px 40px rgba(122,111,102,0.1);
+  --shadow-nav:      0 1px 8px rgba(0,0,0,0.04);
+
+
+  /* ══════════════════════════════════════════
+     SPACING SCALE
+     ══════════════════════════════════════════ */
+
+  --space-sm:   8px;
+  --space-base: 12px;
+  --space-md:   16px;
+  --space-lg:   24px;
+  --space-xl:   32px;
+  --space-2xl:  40px;
+  --space-3xl:  52px;
+
+  /* Section rhythm */
+  --section-tight:    40px;
+  --section-standard: 64px;
+  --section-wide:     96px;
+
+  /* Content temperature */
+  --temp-dense-margin:    var(--space-lg);
+  --temp-dense-padding:   20px;
+  --temp-standard-margin: var(--section-tight);
+  --temp-standard-padding: var(--card-padding);
+  --temp-pause-margin:    var(--section-standard);
+  --temp-pause-padding:   32px;
+
+
+  /* ══════════════════════════════════════════
+     GRID & LAYOUT
+     ══════════════════════════════════════════ */
+
+  --grid-gap-tight:    16px;
+  --grid-gap-standard: 24px;
+  --content-gap:       24px;
+  --group-gap:         40px;
+  --content-width-narrow: 560px;  /* tool wraps, constrained single-column layouts */
+  --content-width:        780px;  /* was 720px — 54% at 1440px (was 50%), ~68 chars/line */
+  --content-width-wide:  1040px;  /* was 960px — hero + wide prose at 72% of 1440px */
+  --wide-width:          1200px;  /* was 1140px — module/tool grids at 83% of 1440px */
+
+  /* Breakpoints (reference only — can't use var() in @media)
+     --bp-mobile:  480px
+     --bp-tablet:  600px
+     --bp-desktop: 768px
+     --bp-wide:    900px
+     --bp-xl:     1600px   (large desktop scale-up)
+  */
+
+
+  /* ══════════════════════════════════════════
+     TYPE SCALE  (6 steps)
+     ══════════════════════════════════════════ */
+
+  --text-xs:   0.75rem;   /* 12px */
+  --text-sm:   0.875rem;  /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-lg:   1.25rem;   /* 20px */
+  --text-xl:   1.6rem;    /* 25.6px */
+  --text-2xl:  2.2rem;    /* 35.2px */
+  --text-3xl:  clamp(2.8rem, 5vw, 3.6rem);
+
+  /* Responsive semantic aliases */
+  --text-tool-title: clamp(1.35rem, 3.5vw, 1.75rem);
+  --text-section-title: clamp(1.8rem, 3.5vw, 2.6rem);
+  --text-hero:  clamp(3.2rem, 6vw, 4.2rem);
+
+  /* Heading spacing (consistent margin-bottom per level) */
+  --heading-gap-h2: var(--space-md);   /* 16px — space below h2 before prose */
+  --heading-gap-h3: var(--space-base); /* 12px — space below h3 before prose */
+  --heading-gap-h4: var(--space-sm);   /* 8px  — space below h4 before prose */
+
+
+  /* ══════════════════════════════════════════
+     WHITE-ON-DARK  (Durchatmen dark theme)
+     ══════════════════════════════════════════ */
+
+  --white-text:           rgba(255,255,255,0.88);
+  /* ⚠ --white-text-secondary fails AA (< 4.5:1) on mid-tone backgrounds
+     like --teal-cta (#287f87, 3.01:1) or --teal-cta-dark (#1a6b72, 3.94:1).
+     Only use on dark backgrounds (--navy-dark, --emergency-dark, etc.)
+     where 70 % white still passes. See PR #158 audit. */
+  --white-text-secondary: rgba(255,255,255,0.70);
+  --white-text-muted:     rgba(255,255,255,0.50);
+  --white-text-dim:       rgba(255,255,255,0.40);   /* 3.71:1 on #1a2332 — AA for non-text UI (was 0.30, 2.69:1) */
+  --white-overlay-sm:     rgba(255,255,255,0.08);
+  --white-overlay-md:     rgba(255,255,255,0.15);
+
+  /* Dark tool backgrounds */
+  --dark-bg:       #1a2332;
+  --dark-nav-bg:   rgba(26,35,50,0.9);
+  --dark-border:   rgba(255,255,255,0.06);
+
+
+  /* ══════════════════════════════════════════
+     OVERLAY / BACKDROP
+     ══════════════════════════════════════════ */
+
+  --overlay-dark:  rgba(0,0,0,0.3);
+  --overlay-warm:  rgba(42,33,27,0.38);
+  --overlay-barely: rgba(0,0,0,0.015);
+
+
+  /* ══════════════════════════════════════════
+     Z-INDEX
+     ══════════════════════════════════════════ */
+
+  --z-tool-nav: 50;
+}
+
+/* ══════════════════════════════════════════
+   LARGE DESKTOP SCALE-UP (≥1600px)
+   ──────────────────────────────────────────
+   On 27" iMacs, ultrawides, and large externals
+   the base tokens leave too much dead margin.
+   This bumps grid containers + hero width.
+   ══════════════════════════════════════════ */
+@media (min-width: 1600px) {
+  :root {
+    --wide-width:         1400px;  /* 81% at 1728px (was 69%) */
+    --content-width-wide: 1140px;  /* 66% at 1728px (was 56%) */
+  }
 }

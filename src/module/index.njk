@@ -7,23 +7,25 @@ navCurrent: "module-overview"
 useSharedCSS: true
 useNavJS: true
 footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
+breadcrumbs:
+  - name: "Module"
+    url: "/module/"
 ---
 {% block headCSS %}
 <style>
   /* ── Page-specific: decorative blobs + colors ── */
   .overview-hero::before {
     top: -24%; right: -10%; width: 640px; height: 640px;
-    background: radial-gradient(circle, rgba(221,210,191,0.75) 0%, transparent 72%);
+    background: none; display: none;
     opacity: 0.82;
   }
   .overview-hero::after {
     bottom: -18%; left: -6%; width: 520px; height: 520px;
-    background: radial-gradient(circle, rgba(217,236,236,0.42) 0%, transparent 72%);
+    background: none; display: none;
     opacity: 0.78;
   }
-  .overview-badge { background: rgba(221,210,191,0.34); color: var(--sand-deep); }
-  .overview-intro { grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr); }
-  .overview-note { background: linear-gradient(180deg, #fff 0%, #fcf8f4 100%); }
+  .overview-badge { background: var(--sand-subtle); color: var(--sand-deep); }
+  .overview-note { background: #fff; }
   .overview-note p + p { margin-top: 10px; }
   .overview-section { padding-top: 8px; }
 </style>
@@ -36,7 +38,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 {% block content %}
 <header class="overview-hero">
   <div class="overview-hero-inner">
-    <div class="overview-breadcrumb"><a href="/">Startseite</a><span>›</span><span>Module</span></div>
+    <div class="breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><span>Module</span></div>
     <div class="overview-badge">Lernpfad</div>
     <h1>Die 8 Module im Überblick</h1>
     <p class="overview-lead">Hier finden Sie den vollständigen Lernpfad in einer eigenen Übersicht. Sie können die Module der Reihe nach lesen oder gezielt dort einsteigen, wo Ihre Lage im Moment am meisten Druck macht.</p>
@@ -57,10 +59,6 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   </div>
 
   <section class="overview-section">
-    <div class="section-label">Lernpfad</div>
-    <h2 class="section-title">Alle Module als eigener Überblick</h2>
-    <p class="section-desc">Jedes Modul steht für einen klaren Schwerpunkt. Wenn Sie nicht linear lesen möchten, wählen Sie zuerst den Bereich, der Ihre aktuelle Lage am besten trifft.</p>
-
     <div class="modules-grid">
       <a href="/modul/1/" class="module-card" data-accent="blue">
         <span class="module-number">Modul 1</span>
@@ -144,67 +142,9 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     </div>
   </section>
 
-  <!-- Progress Dashboard -->
-  <div class="progress-dashboard" id="progressDashboard" hidden>
-    <div style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--teal);margin-bottom:12px">Ihr Fortschritt</div>
-    <div id="progressBadges" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px"></div>
-    <div id="progressNext" hidden style="background:var(--green-bg);border:1px solid rgba(13,122,95,0.15);border-radius:10px;padding:14px 18px">
-      <span style="font-size:0.82rem;color:var(--green-phase);font-weight:600">Nächster empfohlener Schritt: </span>
-      <a id="progressNextLink" href="/modul/1/" style="font-size:0.88rem;font-weight:700;color:var(--teal);text-decoration:none"></a>
-    </div>
-  </div>
-
   <p class="overview-footer-note">Wenn Sie lieber interaktive Hilfen nutzen möchten, finden Sie auf der separaten Übersicht <a href="/werkzeuge/">alle Werkzeuge im Überblick</a>.</p>
 </main>
 
-<script>
-(function() {
-  var TITLES = {1:'Die bipolare Störung verstehen',2:'Was das mit Ihnen macht',3:'Wie Beziehungen unter Druck geraten',4:'Wenn die Kraft nachlässt',5:'Loyalitätskonflikte',6:'Was Sie konkret tun können',7:'Langfristige Tragfähigkeit',8:'Unterstützung und Ressourcen'};
-  try {
-    if (localStorage.getItem('puk_storage_consent') !== 'true') return;
-    var visited = JSON.parse(localStorage.getItem('puk_visited_modules') || '[]');
-    var visitedNums = visited.map(function(p) { var m = p.match(/\d+/); return m ? parseInt(m[0]) : 0; }).filter(Boolean);
-    if (!visitedNums.length) return;
-
-    var dashboard = document.getElementById('progressDashboard');
-    var badges = document.getElementById('progressBadges');
-    if (!dashboard || !badges) return;
-    dashboard.hidden = false;
-
-    for (var i = 1; i <= 8; i++) {
-      var done = visitedNums.indexOf(i) !== -1;
-      var span = document.createElement('span');
-      span.style.cssText = 'width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:700;' + (done ? 'background:var(--teal);color:#fff' : 'background:rgba(45,40,35,0.06);color:var(--text-soft)');
-      span.textContent = i;
-      span.title = (done ? '✓ ' : '') + 'Modul ' + i + ': ' + TITLES[i];
-      badges.appendChild(span);
-    }
-
-    // Mark visited cards
-    document.querySelectorAll('a.module-card[href]').forEach(function(card) {
-      var href = card.getAttribute('href');
-      var m = href.match(/\/modul\/(\d+)/);
-      if (m && visitedNums.indexOf(parseInt(m[1])) !== -1) {
-        card.classList.add('visited');
-        var arrow = card.querySelector('.module-arrow');
-        if (arrow && arrow.textContent.trim() === '→') arrow.textContent = '✓';
-      }
-    });
-
-    // Next step
-    var next = [1,2,3,4,5,6,7,8].filter(function(n) { return visitedNums.indexOf(n) === -1; })[0];
-    if (next) {
-      var el = document.getElementById('progressNext');
-      var link = document.getElementById('progressNextLink');
-      if (el && link) {
-        el.hidden = false;
-        link.href = '/modul/' + next + '/';
-        link.textContent = 'Modul ' + next + ': ' + TITLES[next] + ' →';
-      }
-    }
-  } catch(e) { console.warn('Progress:', e.message); }
-})();
-</script>
 {% endblock %}
 
 {% block footer %}
