@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Bipolare Störung – Psychoedukation für Angehörige">
-  <rect width="1200" height="630" fill="#1c2b3a"/>
-  <rect width="1200" height="6" fill="#9bdce2"/>
-  <rect y="624" width="1200" height="6" fill="#9bdce2"/>
-  <rect x="74" y="82" width="162" height="162" fill="#1c2b3a" stroke="#2f7c84" stroke-width="6"/>
-  <path fill="#9bdce2" fill-rule="evenodd" d="M118 116h66v20h-46v31h46v20h-46v31h46v20h-66V116Zm66 20h20v31h-20v-31Zm0 51h20v31h-20v-31Z" clip-rule="evenodd"/>
-  <text x="282" y="165" fill="#9bdce2" font-family="Helvetica, Arial, sans-serif" font-size="68" font-weight="700" letter-spacing="-1.5">Bipolare Störung</text>
-  <text x="282" y="215" fill="#dbeef0" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="500">Psychoedukation für Angehörige</text>
-  <rect x="102" y="280" width="996" height="168" fill="none" stroke="#2f7c84" stroke-width="4"/>
+  <rect width="1200" height="630" fill="#7a6f66"/>
+  <rect width="1200" height="6" fill="#a8d5cb"/>
+  <rect y="624" width="1200" height="6" fill="#a8d5cb"/>
+  <rect x="74" y="82" width="162" height="162" fill="#7a6f66" stroke="#3a9aa3" stroke-width="6"/>
+  <path fill="#a8d5cb" fill-rule="evenodd" d="M118 116h66v20h-46v31h46v20h-46v31h46v20h-66V116Zm66 20h20v31h-20v-31Zm0 51h20v31h-20v-31Z" clip-rule="evenodd"/>
+  <text x="282" y="165" fill="#a8d5cb" font-family="Helvetica, Arial, sans-serif" font-size="68" font-weight="700" letter-spacing="-1.5">Bipolare Störung</text>
+  <text x="282" y="215" fill="#e8f0ee" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="500">Psychoedukation für Angehörige</text>
+  <rect x="102" y="280" width="996" height="168" fill="none" stroke="#3a9aa3" stroke-width="4"/>
   <text x="136" y="344" fill="#f5fbfb" font-family="Helvetica, Arial, sans-serif" font-size="40" font-weight="700">8 fundierte Module für Orientierung, Entlastung</text>
   <text x="136" y="392" fill="#f5fbfb" font-family="Helvetica, Arial, sans-serif" font-size="40" font-weight="700">und konkrete nächste Schritte.</text>
-  <rect x="350" y="500" width="500" height="39" fill="#86c8d0"/>
-  <text x="374" y="528" fill="#173743" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700">Notfallhilfe, Krisenplan und interaktive Tools</text>
-  <rect x="900" y="592" width="200" height="31" fill="#2f7c84"/>
+  <rect x="350" y="500" width="500" height="39" fill="#3a9aa3"/>
+  <text x="374" y="528" fill="#7a6f66" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700">Notfallhilfe, Krisenplan und interaktive Tools</text>
+  <rect x="900" y="592" width="200" height="31" fill="#3a9aa3"/>
 </svg>
