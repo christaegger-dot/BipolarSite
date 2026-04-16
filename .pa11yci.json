@@ -1,0 +1,25 @@
+{
+  "defaults": {
+    "standard": "WCAG2AA",
+    "timeout": 60000,
+    "wait": 500,
+    "chromeLaunchConfig": {
+      "args": ["--no-sandbox", "--disable-setuid-sandbox"]
+    }
+  },
+  "urls": [
+    "http://localhost:8080/",
+    "http://localhost:8080/modul/1/",
+    "http://localhost:8080/modul/2/",
+    "http://localhost:8080/modul/3/",
+    "http://localhost:8080/modul/4/",
+    "http://localhost:8080/modul/5/",
+    "http://localhost:8080/modul/6/",
+    "http://localhost:8080/modul/7/",
+    "http://localhost:8080/modul/8/",
+    "http://localhost:8080/tools/eisberg/",
+    "http://localhost:8080/tools/krisenplan/",
+    "http://localhost:8080/notfall/",
+    "http://localhost:8080/impressum/"
+  ]
+}
