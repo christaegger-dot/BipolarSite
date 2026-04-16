@@ -13,11 +13,12 @@ BipolarSite/
 ├── css/
 │   ├── tokens.css               # Design tokens (CSS custom properties)
 │   └── overrides.css            # Override-Regeln (Navy/Teal-Farbpalette)
-├── modul/              # Psychoedukations-Module 1–8
+├── modul/              # Einzelne Psychoedukations-Module (1–8)
 │   ├── 1/index.html
 │   ├── 2/index.html
 │   └── …
-├── tools/              # Interaktive Tools
+├── module/             # Übersichtsseite aller Module (/module/)
+├── tools/              # Einzelne interaktive Tools
 │   ├── eisberg/
 │   ├── phasenverlauf/
 │   ├── krisenplan/
@@ -26,11 +27,18 @@ BipolarSite/
 │   ├── selbsttest/
 │   ├── solidaritaets-chart/
 │   └── ee-kreislauf/
+├── werkzeuge/          # Übersichtsseite aller Tools (/werkzeuge/)
 ├── notfall/            # Notfallhilfe-Seite
 ├── impressum/          # Impressum
 ├── handouts/           # Herunterladbare PDFs
 └── downloads/          # Weitere Downloads
 ```
+
+> **Hinweis zur Namenskonvention:** Die ähnlich klingenden Verzeichnisnamen sind bewusst getrennt:
+> - `src/modul/` enthält die **8 Einzelmodule** (je ein Unterordner `1/` – `8/`), `src/module/` ist ausschließlich die **Übersichtsseite** (`/module/`).
+> - `src/tools/` enthält die **8 einzelnen interaktiven Tools** (je ein Unterordner), `src/werkzeuge/` ist ausschließlich die **Übersichtsseite** (`/werkzeuge/`).
+>
+> Neue Inhalte (Module oder Tools) gehören also immer in `modul/` bzw. `tools/`, nicht in die Übersichtsordner.
 
 ## Lokale Entwicklung
 
