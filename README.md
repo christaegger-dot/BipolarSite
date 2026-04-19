@@ -115,6 +115,15 @@ Die Stylesheets werden in dieser Reihenfolge geladen:
 
 `overrides.css` nutzt `!important` nur für Inline-`style=""`-Attribute auf HTML-Elementen. Nicht entfernen.
 
+## QA und manuelle Tests
+
+Die automatischen Prüfungen des Projekts werden durch kurze, reproduzierbare manuelle Browser-Tests ergänzt. Die dafür maßgeblichen Dokumente liegen im `docs/`-Verzeichnis:
+
+- `docs/qa-checklist.md` für den standardisierten Kurztest vor Merge
+- `docs/test-matrix.md` für priorisierte Geräte-, Browser- und Kernpfad-Abdeckung
+
+Bei Änderungen an Layout, Navigation, Modulseiten, Tool-Seiten oder Notfallpfaden soll vor dem Merge zusätzlich ein frischer Browser-Test durchgeführt werden. Ein Merge bei roter GitHub-CI ist ausgeschlossen.
+
 ## Deployment
 
 Die Website wird automatisch über **Netlify** aus dem `main`-Branch deployt. Konfiguration: `netlify.toml`.
