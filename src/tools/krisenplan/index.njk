@@ -21,7 +21,7 @@ breadcrumbs:
 <nav class="tool-nav" aria-label="Werkzeug-Navigation">
   <a href="{{ toolBackHref }}" class="tool-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>{{ toolBackLabel }}</a>
   <div class="tool-actions">
-    <button type="button" id="btnSave" class="btn-save">Speichern</button>
+    <button type="submit" form="form" id="btnSave" class="btn-save">Speichern</button>
     <button type="button" id="btnPrint" class="btn-print">Drucken</button>
     <button type="button" id="btnReset" class="btn-reset">Zurücksetzen</button>
   </div>
@@ -162,7 +162,11 @@ function showNextStepHint(){
 }
 
 // Button event wiring — unobtrusive, no inline handlers
-document.getElementById('btnSave').addEventListener('click',()=>{save();setTimeout(showNextStepHint,2600)});
+document.getElementById('form').addEventListener('submit',e=>{
+  e.preventDefault();
+  save();
+  setTimeout(showNextStepHint,2600);
+});
 document.getElementById('btnPrint').addEventListener('click', () => window.print());
 document.getElementById('btnReset').addEventListener('click', showConfirm);
 document.getElementById('btnConfirmCancel').addEventListener('click', hideConfirm);
