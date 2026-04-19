@@ -524,7 +524,7 @@
           </div>
         </div>
         {% if emergency_callout or quick_steps %}
-          <div class="draft-alert-panel" aria-label="Schnelle Orientierung">
+          <section class="draft-alert-panel" aria-label="Schnelle Orientierung">
             <div>
               {% if emergency_label %}<div class="draft-alert-eyebrow">{{ emergency_label }}</div>{% endif %}
               {% if emergency_callout %}<p class="draft-alert-line">{{ emergency_callout }}</p>{% endif %}
@@ -540,7 +540,7 @@
                 {% endfor %}
               </div>
             {% endif %}
-          </div>
+          </section>
         {% endif %}
       </header>
 
