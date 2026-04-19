@@ -3,7 +3,7 @@ layout: "base"
 title: "Bipolare Störung – Psychoedukation für Angehörige | PUK Zürich"
 description: "Als Angehörige*r bei bipolarer Störung: 8 fundierte Module für Orientierung, Entlastung und konkrete Schritte. Notfallhilfe und interaktive Tools. PUK Zürich."
 permalink: "/"
-noJs: true
+noJs: true          # Adds class="no-js" to <html>; inline script removes it immediately — hides JS-only UI (triage, accordion) until JS confirms it's available
 navCurrent: "home"
 navShowSub: true
 useSharedCSS: true
@@ -11,598 +11,13 @@ useNavJS: true
 footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 ---
 {% block headCSS %}
-<style>
-  /* ══════════ HERO ══════════ */
-  .home-hero {
-    min-height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 120px 2rem 72px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  /* Single subtle backdrop — one soft wash, not two competing gradients */
-  .home-hero::before {
-    content: '';
-    position: absolute;
-    top: -30%;
-    right: -15%;
-    width: 900px;
-    height: 900px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(168, 213, 203, 0.28) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  /* Second gradient — warm amber wash in opposite corner for depth */
-  .home-hero::after {
-    content: '';
-    position: absolute;
-    bottom: -20%;
-    left: -10%;
-    width: 700px;
-    height: 700px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(180, 83, 9, 0.10) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  /* Card panel removed — was creating boxy "app" feel */
-  .home-hero-content::before {
-    display: none;
-  }
-
-  .home-hero-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-    width: 100%;
-  }
-
-  .home-hero-body {
-    display: block;
-    max-width: var(--content-width-wide);
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-  }
-
-  .home-hero-text {
-    max-width: 540px;
-    padding: 0 30px 0 0;
-    position: relative;
-    z-index: 3;
-  }
-  .home-hero-visual-card {
-    position: absolute;
-    right: -6vw;
-    top: 50%;
-    transform: translateY(-50%);
-    width: clamp(280px, 32vw, 440px);
-    z-index: 1;
-    pointer-events: none;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    opacity: 1;
-  }
-  .home-hero-visual {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  @media (max-width: 900px) {
-    .home-hero-visual-card { display: none; }
-  }
-
-  /* Badge — demoted to quiet meta-text, no longer dark bar */
-  .home-hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: none;
-    color: var(--text-soft);
-    padding: 0;
-    border-radius: 0;
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    margin-bottom: 1.25rem;
-  }
-
-  .home-hero-badge::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--teal-light);
-  }
-
-  .home-hero h1 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(2.4rem, 5vw, 3.6rem);
-    font-weight: 700;
-    line-height: 1.13;
-    letter-spacing: -0.03em;
-    color: var(--navy);
-    max-width: 620px;
-    margin-bottom: 1.25rem;
-  }
-
-  .home-hero h1 em {
-    font-style: italic;
-    color: var(--navy-mid);
-  }
-
-  .home-hero-subtitle {
-    font-size: clamp(1.02rem, 1.8vw, 1.12rem);
-    color: var(--slate);
-    max-width: 480px;
-    line-height: 1.7;
-    margin-bottom: 2rem;
-  }
-
-  /* CTA — solid, calm, no gradient or heavy shadow */
-  .home-hero-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    min-height: 44px;
-    padding: 0 20px;
-    border-radius: var(--radius-md);
-    background: var(--navy);
-    color: white;
-    text-decoration: none;
-    font-size: 0.88rem;
-    font-weight: 600;
-    box-shadow: var(--shadow-soft);
-    transition: background 0.2s ease;
-  }
-
-  .home-hero-link:hover {
-    background: var(--teal);
-  }
-
-  .home-hero-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 1.5rem;
-    max-width: 480px;
-  }
-
-  .home-hero-meta p {
-    margin: 0;
-    font-size: 0.84rem;
-    line-height: 1.6;
-    color: var(--text-soft);
-  }
-
-  .home-hero-meta strong {
-    color: var(--slate);
-    font-weight: 600;
-  }
-
-  /* Emergency link — text-level, clearly tertiary */
-  .home-hero-emergency-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    width: fit-content;
-    min-height: 36px;
-    padding: 0;
-    border-radius: 0;
-    text-decoration: none;
-    background: none;
-    color: var(--alert-red);
-    font-size: 0.78rem;
-    font-weight: 600;
-    opacity: 0.85;
-    transition: opacity 0.2s ease;
-  }
-
-  .home-hero-emergency-link:hover {
-    opacity: 1;
-  }
-
-
-  /* ══════════ SECTION GENERIC ══════════ */
-  section {
-    padding: 80px 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  /* section-label, section-title, section-desc → shared.css */
-  /* modules-grid → shared.css */
-
-  .urgent-note-standalone {
-    margin: 34px 0 26px;
-  }
-
-  .urgent-note {
-    display: block;
-    align-items: stretch;
-    max-width: none;
-  }
-
-  .urgent-note {
-    background: linear-gradient(135deg, var(--alert-red-bg), rgba(255,255,255,0.98));
-    border: 1px solid var(--alert-red-border);
-    border-radius: var(--radius-md);
-    padding: 24px 26px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    box-shadow: var(--shadow-soft);
-  }
-
-  .urgent-note-kicker {
-    font-size: 0.72rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--alert-red);
-  }
-
-  .urgent-note p {
-    margin: 0;
-    font-size: 0.9rem;
-    line-height: 1.65;
-    color: var(--slate);
-  }
-
-  .urgent-note-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    width: fit-content;
-    min-height: 40px;
-    padding: 0 14px;
-    border-radius:var(--radius-pill);
-    text-decoration: none;
-    background: rgba(199,84,80,0.12);
-    color: var(--alert-red);
-    font-size: 0.84rem;
-    font-weight: 700;
-  }
-
-  .choice-note {
-    margin-top: 22px;
-    max-width: 860px;
-    padding: 18px 22px;
-    border-radius: var(--radius-md);
-    background: linear-gradient(180deg,#fff 0%,#fbf7f0 100%);
-    border: 1px solid var(--border-warm-md);
-    font-size: 0.9rem;
-    line-height: 1.7;
-    color: var(--slate);
-  }
-
-  .choice-note strong {
-    color: var(--navy);
-  }
-
-  .choice-note a {
-    color: var(--teal-dark);
-    text-decoration: none;
-    font-weight: 700;
-  }
-
-
-
-  /* module-card, module-number, module-card-footer, module-time, module-arrow → shared.css */
-
-  /* ══════════ FOOTER ══════════ */
-  
-
-  
-
-  .footer-brand h3 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.15rem;
-    color: white;
-    font-weight: 600;
-    margin-bottom: 6px;
-  }
-
-  .footer-brand p {
-    font-size: 0.82rem;
-    line-height: 1.7;
-    margin-bottom: 4px;
-  }
-
-  .footer-col h4 {
-    color: rgba(255,255,255,0.4);
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    margin-bottom: 16px;
-  }
-
-  .footer-col a {
-    display: block;
-    color: rgba(255,255,255,0.6);
-    text-decoration: none;
-    font-size: 0.85rem;
-    padding: 4px 0;
-    transition: color 0.2s ease;
-  }
-
-  .footer-col a:hover { color: white; }
-
-  .footer-bottom {
-    max-width: 1200px;
-    margin: 40px auto 0;
-    padding-top: 24px;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.75rem;
-    color: rgba(255,255,255,0.3);
-  }
-
-  .footer-bottom a {
-    color: rgba(255,255,255,0.4);
-    text-decoration: none;
-    margin-left: 20px;
-    transition: color 0.2s ease;
-  }
-
-  .footer-bottom a:hover { color: rgba(255,255,255,0.7); }
-
-  /* ══════════ SCROLL REVEAL ══════════ */
-  .reveal {
-    opacity: 0;
-    transform: translateY(18px);
-    transition: opacity 0.55s ease, transform 0.55s ease;
-  }
-  .reveal.revealed {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none; }
-    .reveal.revealed { opacity: 1; transform: none; }
-  }
-  /* Fallback: show all content if JS is disabled */
-  .no-js .reveal { opacity: 1; transform: none; }
-
-  /* ══════════ MOBILE NAV ══════════ */
-  
-
-  
-
-  /* ══════════ RESPONSIVE ══════════ */
-  @media (max-width: 768px) {
-    .home-hero-text { padding: 0; max-width: 100%; }
-    .home-hero-meta { max-width: 100%; }
-    .footer-inner { grid-template-columns: 1fr; gap: 32px; }
-    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
-  }
-  
-
-
-  @media (max-width: 600px) {
-    .home-hero { padding: 100px 1.2rem 48px; min-height: auto; }
-    .home-hero h1 { font-size: 2rem; margin-bottom: 1rem; }
-    .home-hero-subtitle { margin-bottom: 1.5rem; }
-    .home-hero-badge { font-size: 0.65rem; margin-bottom: 1rem; }
-    .urgent-note { padding: 20px 18px; }
-    section { padding: 50px 1.2rem; }
-    /* .modules-grid responsive → shared.css */
-  }
-
-  /* ══════════ QUICK TRIAGE ══════════ */
-  .quick-triage{background:linear-gradient(135deg,var(--rose-soft),#fff8f6);border:2px solid rgba(154,52,18,0.18);border-radius:var(--radius-md);padding:28px 32px;margin-bottom:24px;box-shadow:0 4px 24px rgba(154,52,18,0.08)}
-  .quick-triage-label{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--rose);margin-bottom:12px}
-  .quick-triage h3{font-family:'DM Serif Display',serif;font-size:1.15rem;font-weight:600;color:var(--navy);margin-bottom:8px}
-  .quick-triage p{font-size:0.88rem;color:var(--slate);margin-bottom:16px;line-height:1.6}
-  .triage-question{margin-bottom:16px}
-  .triage-question[hidden]{display:none}
-  .triage-q-text{font-size:0.95rem;font-weight:600;color:var(--navy);margin-bottom:12px;line-height:1.45}
-  .triage-btns{display:flex;gap:10px}
-  .triage-btn{padding:10px 24px;border-radius:var(--radius-sm);font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:600;cursor:pointer;transition:background 0.2s,color 0.2s;border:none;min-height:44px}
-  .triage-btn--yes{background:var(--rose);color:#fff}
-  .triage-btn--yes:hover{background:#7f1d1d}
-  .triage-btn--no{background:var(--border-warm);color:var(--slate)}
-  .triage-btn--no:hover{background:var(--border-warm-xl)}
-  .triage-result{padding:16px 20px;border-radius:var(--radius-sm);margin-top:12px}
-  .triage-result[hidden]{display:none}
-  .triage-result a{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:0.9rem;text-decoration:none;color:#fff;background:var(--rose);padding:10px 20px;border-radius:var(--radius-pill)}
-  .triage-result--safe{background:var(--green-bg);border:1px solid rgba(13,122,95,0.15);padding:14px 20px;border-radius:var(--radius-sm)}
-  .triage-result--safe p{font-size:0.88rem;color:var(--green-phase);margin:0}
-  .triage-result--safe a{background:none;padding:0;color:var(--teal);text-decoration:underline;font-size:inherit;border-radius:0;display:inline}
-
-  /* ══════════ TOOLS HIGHLIGHT ══════════ */
-  .tools-highlight{margin:48px auto;max-width:var(--content-width-wide);padding:0 2rem}
-  .tools-highlight-label{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--navy-mid);margin-bottom:12px}
-  .tools-highlight h2{font-family:'DM Serif Display',serif;font-size:1.4rem;font-weight:600;color:var(--navy);margin-bottom:8px}
-  .tools-highlight > p{font-size:0.88rem;color:var(--slate);margin-bottom:20px;max-width:48ch}
-  .tools-highlight-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-  .tool-highlight-card{background:linear-gradient(180deg,#f0fafa,#fff);border:1px solid rgba(30,101,109,0.12);border-radius:var(--radius-md);padding:20px;text-decoration:none;color:var(--navy);transition:box-shadow 0.2s,transform 0.2s}
-  .tool-highlight-card:hover{box-shadow:var(--shadow-card);transform:translateY(-2px)}
-  .tool-highlight-icon{width:40px;height:40px;border-radius:var(--radius-sm);background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;margin-bottom:12px;font-size:1rem}
-  .tool-highlight-card h3{font-size:0.88rem;font-weight:700;margin-bottom:4px}
-  .tool-highlight-card p{font-size:0.75rem;color:var(--slate);line-height:1.45;margin:0}
-  .tool-highlight-all{text-align:center;margin-top:14px}
-  .tool-highlight-all a{font-size:0.82rem;font-weight:600;color:var(--teal);text-decoration:none}
-  .tool-highlight-all a:hover{text-decoration:underline}
-  @media(max-width:768px){.tools-highlight-grid{grid-template-columns:1fr 1fr}}
-  @media(max-width:480px){.tools-highlight-grid{grid-template-columns:1fr}}
-
-  /* ══════════ ERFAHRUNGSBERICHT ══════════ */
-  .story-section {
-    background: var(--surface-warm);
-    padding: 72px 2rem 80px;
-  }
-  .story-inner {
-    max-width: 680px;
-    margin: 0 auto;
-    background: none;
-    border: none;
-    border-radius: 0;
-    padding: 0;
-  }
-  .story-label {
-    font-size: 0.72rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--navy-mid);
-    margin-bottom: 12px;
-  }
-  .story-section h2 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(1.3rem, 2.5vw, 1.65rem);
-    font-weight: 400;
-    font-style: italic;
-    line-height: 1.35;
-    color: var(--navy);
-    margin-bottom: 28px;
-  }
-  .story-body p {
-    font-size: var(--text-base);
-    line-height: 1.85;
-    color: var(--text);
-    margin: 0 0 16px;
-  }
-  .story-body p:last-child { margin-bottom: 0; }
-  .story-body em { font-style: italic; }
-  .story-attribution {
-    margin-top: 24px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(45,40,35,0.1);
-    font-size: var(--text-sm);
-    color: var(--text-soft);
-  }
-  .story-note {
-    font-size: var(--text-xs);
-    color: var(--slate);
-  }
-  @media (max-width: 600px) {
-    .story-section { padding: 48px 1.4rem 56px; }
-  }
-
-  /* ══════════ EINLADUNG ══════════ */
-  .invitation-section {
-    background: var(--navy);
-    padding: 72px 2rem;
-  }
-  .invitation-inner {
-    max-width: 560px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 0;
-  }
-  .invitation-section h2 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(1.3rem, 2.5vw, 1.65rem);
-    font-weight: 400;
-    line-height: 1.35;
-    color: white;
-    margin-bottom: 12px;
-  }
-  .invitation-inner > p {
-    font-size: var(--text-base);
-    color: rgba(255,255,255,0.72);
-    line-height: 1.7;
-    max-width: 440px;
-    margin: 0 auto 32px;
-  }
-  .invitation-contacts {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-  .invitation-phone {
-    display: inline-flex;
-    align-items: center;
-    min-height: 46px;
-    padding: 0 24px;
-    border-radius: var(--radius-md);
-    background: var(--teal);
-    color: white;
-    text-decoration: none;
-    font-size: var(--text-base);
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    transition: background 0.2s ease;
-  }
-  .invitation-phone:hover { background: var(--teal-dark); }
-  .invitation-email {
-    display: inline-flex;
-    align-items: center;
-    min-height: 46px;
-    padding: 0 24px;
-    border-radius: var(--radius-md);
-    border: 1px solid rgba(255,255,255,0.3);
-    background: transparent;
-    color: rgba(255,255,255,0.88);
-    text-decoration: none;
-    font-size: var(--text-base);
-    font-weight: 600;
-    transition: border-color 0.2s ease, color 0.2s ease;
-  }
-  .invitation-email:hover { border-color: white; color: white; }
-  @media (max-width: 600px) {
-    .invitation-section { padding: 52px 1.4rem; }
-    .invitation-contacts { flex-direction: column; align-items: center; }
-    .invitation-phone, .invitation-email { width: 100%; justify-content: center; }
-  }
-
-  /* ══════════ WER STEHT DAHINTER ══════════ */
-  .about-section {
-    background: #f1ede8;
-    padding: 56px 2rem 64px;
-  }
-  .about-inner {
-    max-width: 620px;
-    margin: 0 auto;
-    padding: 0;
-    background: none;
-    border: none;
-    border-radius: 0;
-  }
-  .about-label {
-    font-size: 0.72rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--text-soft);
-    margin-bottom: 10px;
-  }
-  .about-section h2 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.15rem;
-    font-weight: 400;
-    color: var(--navy);
-    margin-bottom: 14px;
-  }
-  .about-inner p {
-    font-size: var(--text-sm);
-    line-height: 1.75;
-    color: var(--slate);
-    margin: 0 0 8px;
-  }
-  .about-inner p:last-child { margin-bottom: 0; }
-  .about-inner a { color: var(--teal); }
-  @media (max-width: 600px) {
-    .about-section { padding: 40px 1.4rem 48px; }
-  }
-</style>
+<!-- Homepage styles migrated to shared.css (P2.1) -->
 {% endblock %}
 {% block nav %}
 {% include "nav-full.njk" %}
 {% endblock %}
 {% block content %}
-<!-- ══════════ HERO ══════════ -->
+<!-- ══════════ HERO + ENTRY PATHS ══════════ -->
 <header class="home-hero">
   <div class="home-hero-content">
     <div class="home-hero-body">
@@ -610,27 +25,15 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
         <div class="home-hero-badge">Psychiatrische Universitätsklinik Zürich · Fachstelle Angehörigenarbeit</div>
         <h1>Als Angehörige*r von Menschen mit <em>bipolarer Störung</em></h1>
         <p class="home-hero-subtitle">Sie müssen hier nicht alles auf einmal verstehen. Diese Website hilft Ihnen, Ihre Lage einzuordnen und den Einstieg zu wählen, der im Moment am ehesten passt.</p>
-        <a href="#orientierung" class="home-hero-link">Zur Orientierung ↓</a>
-        <div class="home-hero-meta">
-          <p><strong>Für Partner*innen, Eltern, Geschwister und erwachsene Kinder.</strong> Sie dürfen hier von Ihrer eigenen Lage ausgehen, nicht nur von der erkrankten Person.</p>
-          <a href="/notfall/" class="home-hero-emergency-link">Wenn es akut sein könnte: direkt zum Notfallweg</a>
-        </div>
+        <a href="/modul/1/" class="home-hero-link">Jetzt starten: Modul 1 lesen →</a>
       </div>
-      <div class="home-hero-visual-card">
-        <picture>
-          <source type="image/webp"
-            srcset="/visuals/home-editorial-hero-v4-web.webp 1280w,
-                    /visuals/home-editorial-hero-v4.webp 2000w"
-            sizes="(max-width: 900px) 0px, 44vw">
-          <img src="/visuals/home-editorial-hero-v4-web.jpg"
-            srcset="/visuals/home-editorial-hero-v4-web.jpg 1280w,
-                    /visuals/home-editorial-hero-v4.jpg 2000w"
-            sizes="(max-width: 900px) 0px, 44vw"
-            alt="Eine Angehörige Person — still, präsent, tragend."
-            class="home-hero-visual"
-            width="1280" height="858"
-            loading="eager" decoding="async" fetchpriority="high">
-        </picture>
+      <div class="home-hero-paths">
+        <p class="home-hero-paths-lead">Für Partner*innen, Eltern, Geschwister und erwachsene Kinder — Sie dürfen hier von Ihrer eigenen Lage ausgehen.</p>
+        <nav class="entry-paths-list" aria-label="Einstiegspfade">
+          <a href="/notfall/" class="entry-path-link entry-path-link--crisis">Ich bin gerade in einer Krise → Sofort-Hilfe</a>
+          <a href="/modul/1/" class="entry-path-link">Ich möchte die Krankheit verstehen → Modul 1</a>
+          <a href="/werkzeuge/" class="entry-path-link">Ich suche praktische Werkzeuge → Alle Werkzeuge</a>
+        </nav>
       </div>
     </div>
   </div>
@@ -641,9 +44,8 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 <!-- ══════════ TRIAGE ══════════ -->
 <section id="orientierung">
   <div class="quick-triage reveal" id="quickTriage">
-    <div class="quick-triage-label">Wenn es gerade akut ist</div>
-    <h3>Was passiert gerade?</h3>
-    <p>Drei kurze Fragen — danach wissen Sie, wo Sie anfangen.</p>
+    <h2>Wo anfangen?</h2>
+    <p>Drei kurze Fragen helfen Ihnen, den passenden Einstieg zu finden.</p>
     <div class="triage-question" id="triageQ1">
       <div class="triage-q-text">Besteht gerade Gefahr für Leib und Leben?</div>
       <div class="triage-btns">
@@ -684,15 +86,13 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   </div>
 
   <aside class="urgent-note urgent-note-standalone reveal" aria-label="Akuter Einstieg">
-    <div class="urgent-note-kicker">Bei Suizidgedanken, Manie, Psychose oder Gewalt</div>
-    <p>Der Notfallweg ist wichtiger als jede weitere Sortierung.</p>
-    <a href="/notfall/" class="urgent-note-link">Direkt zum Notfallweg →</a>
+    <span class="urgent-note-kicker">Bei Suizidgedanken, Manie, Psychose oder Gewalt:</span>
+    <p>Der Notfallweg ist wichtiger als jede weitere Sortierung. <a href="/notfall/" class="urgent-note-link">Direkt zum Notfallweg →</a></p>
   </aside>
 </section>
 
 <!-- ══════════ MODULES ══════════ -->
 <section id="module">
-  <div class="section-label reveal">Inhalt</div>
   <h2 class="section-title reveal">Die 8 Module im Überblick</h2>
   <p class="section-desc reveal">Wählen Sie das Modul, das Ihrer Lage am nächsten kommt. Sie müssen nicht bei Modul 1 anfangen.</p>
 
@@ -782,33 +182,31 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 </section>
 
 <!-- ══════════ TOOLS HIGHLIGHT ══════════ -->
-<div class="tools-highlight reveal" id="tools">
-  <div class="tools-highlight-label">Interaktive Werkzeuge</div>
+<section class="tools-highlight reveal" id="tools">
   <h2>Direkt ausprobieren — ohne vorher zu lesen</h2>
   <p>Diese Tools helfen Ihnen, Ihre Lage einzuordnen, Gespräche vorzubereiten und Krisen zu planen.</p>
-  <div class="tools-highlight-grid">
-    <a href="/tools/selbsttest/" class="tool-highlight-card">
-      <div class="tool-highlight-icon" aria-hidden="true">?</div>
+  <nav class="hero-tools-grid" aria-label="Werkzeuge">
+    <a href="/tools/selbsttest/" class="hero-tool-card">
+      <span class="hero-tool-badge">Selbsttest</span>
       <h3>Belastungs-Selbsttest</h3>
       <p>Wo stehen Sie gerade? 5 Fragen zur Orientierung.</p>
+      <span class="hero-tool-arrow" aria-hidden="true">→</span>
     </a>
-    <a href="/tools/krisenplan/" class="tool-highlight-card">
-      <div class="tool-highlight-icon" aria-hidden="true">&#9998;</div>
+    <a href="/tools/krisenplan/" class="hero-tool-card">
+      <span class="hero-tool-badge">Werkzeug</span>
       <h3>Krisenplan-Werkzeug</h3>
       <p>Gemeinsam in stabiler Phase ausfüllen.</p>
+      <span class="hero-tool-arrow" aria-hidden="true">→</span>
     </a>
-    <a href="/tools/phasenverlauf/" class="tool-highlight-card">
-      <div class="tool-highlight-icon" aria-hidden="true">&#8767;</div>
+    <a href="/tools/phasenverlauf/" class="hero-tool-card">
+      <span class="hero-tool-badge">Interaktiv</span>
       <h3>Bipolarer Phasenverlauf</h3>
       <p>Manie, Depression, Stabilität interaktiv erkunden.</p>
+      <span class="hero-tool-arrow" aria-hidden="true">→</span>
     </a>
-    <a href="/werkzeuge/" class="tool-highlight-card">
-      <div class="tool-highlight-icon" aria-hidden="true">&rarr;</div>
-      <h3>Alle Werkzeuge</h3>
-      <p>Eisberg, Kommunikation, Säulen-Check und mehr.</p>
-    </a>
-  </div>
-</div>
+  </nav>
+  <a href="/werkzeuge/" class="hero-tools-all-link">Alle Werkzeuge ansehen →</a>
+</section>
 
 <!-- ══════════ ERFAHRUNGSBERICHT ══════════ -->
 <section class="story-section reveal">
@@ -831,20 +229,9 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     <h2>Sie müssen nicht wissen, was Sie sagen wollen</h2>
     <p>Die Fachstelle Angehörigenarbeit berät auch Sie — nicht nur die erkrankte Person. Auch wenn Sie sich noch nicht sicher sind, ob Sie Hilfe brauchen.</p>
     <div class="invitation-contacts">
-      <a href="tel:+41583843800" class="invitation-phone">058 384 38 00</a>
+      <a href="{{ site.tel.fachstelle.href }}" class="invitation-phone">{{ site.tel.fachstelle.display }}</a>
       <a href="mailto:{{ site.email }}" class="invitation-email">{{ site.email }}</a>
     </div>
-  </div>
-</section>
-
-<!-- ══════════ WER STEHT DAHINTER ══════════ -->
-<section class="about-section reveal">
-  <div class="about-inner">
-    <div class="about-label">Hintergrund</div>
-    <h2>Wer steht dahinter?</h2>
-    <p>Diese Website wurde von der <strong>Fachstelle Angehörigenarbeit</strong> der Psychiatrischen Universitätsklinik Zürich entwickelt. Sie richtet sich an Angehörige von Menschen mit bipolarer Störung und ist als Ergänzung zur persönlichen Beratung gedacht.</p>
-    <p>Inhaltliche Verantwortung: <strong>Christa Egger</strong>, Fachstelle Angehörigenarbeit PUK Zürich.</p>
-    <p>Es handelt sich nicht um eine offizielle Website der PUK Zürich. Alle Inhalte basieren auf aktueller Fachliteratur und klinischer Erfahrung, ersetzen aber keine professionelle Beratung. Mehr dazu im <a href="/impressum/">Impressum</a>.</p>
   </div>
 </section>
 
@@ -879,7 +266,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     if (!result) return;
 
     var responses = {
-      'q1-yes': { html: '<a href="/notfall/">Zum Notfallweg &rarr;</a>', cls: '' },
+      'q1-yes': { html: '<a href="/notfall/">Zum Notfallweg &rarr;</a>', cls: 'triage-result--urgent' },
       'q1b-yes': { html: '<a href="/modul/1/#neu">Erste Orientierung: Diagnose neu &rarr;</a>', cls: 'triage-result--safe' },
       'q2-yes': { html: '<a href="/modul/4/">Modul 4: Wenn die Kraft nachlässt &rarr;</a>', cls: '' },
       'q3-yes': { html: '<a href="/modul/1/">Modul 1: Die bipolare Störung verstehen &rarr;</a>', cls: '' },
@@ -893,28 +280,41 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
       if (!btn) return;
       var action = btn.dataset.triage;
 
+      function showNext(hideId, showId) {
+        document.getElementById(hideId).hidden = true;
+        var next = document.getElementById(showId);
+        next.hidden = false;
+        var qText = next.querySelector('.triage-q-text');
+        if (qText) { qText.setAttribute('tabindex', '-1'); qText.focus(); }
+      }
       if (action === 'q1-no') {
-        document.getElementById('triageQ1').hidden = true;
-        document.getElementById('triageQ1b').hidden = false;
+        showNext('triageQ1', 'triageQ1b');
       } else if (action === 'q1b-no') {
-        document.getElementById('triageQ1b').hidden = true;
-        document.getElementById('triageQ2').hidden = false;
+        showNext('triageQ1b', 'triageQ2');
       } else if (action === 'q2-no') {
-        document.getElementById('triageQ2').hidden = true;
-        document.getElementById('triageQ3').hidden = false;
+        showNext('triageQ2', 'triageQ3');
       } else if (action === 'q3-no') {
-        document.getElementById('triageQ3').hidden = true;
-        document.getElementById('triageQ4').hidden = false;
+        showNext('triageQ3', 'triageQ4');
       } else if (responses[action]) {
         var r = responses[action];
         result.className = 'triage-result' + (r.cls ? ' ' + r.cls : '');
-        result.innerHTML = r.html;
+        result.innerHTML = r.html + '<button type="button" class="triage-restart" data-triage="restart">Nochmal beantworten</button>';
         result.hidden = false;
+        result.setAttribute('tabindex', '-1');
+        result.focus();
         // hide all questions
         document.querySelectorAll('.triage-question').forEach(function(q) { q.hidden = true; });
+      } else if (action === 'restart') {
+        result.hidden = true;
+        result.className = 'triage-result';
+        var q1 = document.getElementById('triageQ1');
+        q1.hidden = false;
+        var qText = q1.querySelector('.triage-q-text');
+        if (qText) { qText.setAttribute('tabindex', '-1'); qText.focus(); }
       }
     });
   })();
+
 
 </script>
 {% endblock %}

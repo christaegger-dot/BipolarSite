@@ -24,7 +24,7 @@ quick_steps:
     text: "Bei Gefahr 144 oder 117"
 emergency_contacts:
   - label: "Notfalldienst Zürich"
-    number: "0800 33 66 55"
+    number: "0800&nbsp;33&nbsp;66&nbsp;55"
     note: "Wenn die Lage kippt, aber noch keine unmittelbare Gefahr besteht"
   - label: "Sanität"
     number: "144"
@@ -97,10 +97,10 @@ Nicht weiter diskutieren, sondern sofort Hilfe einschalten, wenn:
 
 Wenn die Situation noch ansprechbar, aber instabil ist: Hilfe früh einschalten und nicht erst auf die volle Eskalation warten. Wenn Schutz vorgeht: nicht mehr auf das bessere Gespräch hoffen, sondern Notfallhilfe nutzen.
 
-Auch wenn die Person Hilfe ablehnt, dürfen Sie selbst Unterstützung holen — Fachstelle Angehörigenarbeit PUK: 058 384 38 00. Wenn es noch keinen Krisenplan gibt, kann er in einer ruhigeren Phase über Modul 6 vorbereitet werden.
+Auch wenn die Person Hilfe ablehnt, dürfen Sie selbst Unterstützung holen — Fachstelle Angehörigenarbeit PUK: 058&nbsp;384&nbsp;38&nbsp;00. Wenn es noch keinen Krisenplan gibt, kann er in einer ruhigeren Phase über Modul 6 vorbereitet werden.
 
 Weiterführend:
 
-- Ärztefon – Notfalldienst Zürich: 0800 33 66 55
+- Ärztefon – Notfalldienst Zürich: 0800&nbsp;33&nbsp;66&nbsp;55
 - [Notfallseite](/notfall/)
 - [Modul 6: Kommunikation, Grenzen, Krisenplan](/modul/6/)

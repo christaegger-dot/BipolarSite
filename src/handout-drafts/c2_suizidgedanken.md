@@ -28,7 +28,7 @@ emergency_contacts:
     note: "Bei konkretem Plan, vorhandenen Mitteln oder unmittelbarer Gefahr"
     tone: "urgent"
   - label: "Notfalldienst Zürich"
-    number: "0800 33 66 55"
+    number: "0800&nbsp;33&nbsp;66&nbsp;55"
     note: "Wenn die Lage ernst ist, aber keine unmittelbare Lebensgefahr besteht"
   - label: "Dargebotene Hand"
     number: "143"
@@ -102,6 +102,6 @@ Auch wenn die Person Hilfe ablehnt, dürfen Sie selbst Unterstützung holen. Wen
 
 Weiterführend:
 
-- Ärztefon – Notfalldienst Zürich: 0800 33 66 55
+- Ärztefon – Notfalldienst Zürich: 0800&nbsp;33&nbsp;66&nbsp;55
 - [Notfallseite](/notfall/)
 - [Modul 6: Kommunikation, Grenzen, Krisenplan](/modul/6/)

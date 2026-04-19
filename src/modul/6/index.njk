@@ -8,127 +8,13 @@ useNavJS: true
 useModuleCSS: true
 moduleAccent: "6"
 footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
+breadcrumbs:
+  - name: "Module"
+    url: "/module/"
+  - name: "Modul 6: Was Sie tun können"
+    url: "/modul/6/"
 ---
-{% block headCSS %}
-<style>
-  /* Module-specific styles only — shared styles in module.css */
-
-  /* SECTION LABEL */
-  .section-group-label{font-size:0.68rem;font-weight:800;text-transform:uppercase;letter-spacing:0.14em;color:var(--teal);margin:56px 0 -8px;padding-top:16px}
-
-  /* AMPEL */
-  .ampel{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px;margin:28px 0}
-  .ampel-card{padding:24px;border-radius:var(--radius-md);border-top:5px solid}
-  .ampel-card.green{background:var(--green-bg);border-top-color:var(--green-phase)}
-  .ampel-card.amber{background:var(--amber-phase-light);border-top-color:var(--amber-phase)}
-  .ampel-card.red{background:var(--alert-red-bg);border-top-color:var(--alert-red)}
-  .ampel-card.slate{background:#f1f5f9;border-top-color:var(--slate)}
-  .ampel-card.slate .ampel-label{color:var(--slate)}
-  .ampel-label{font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px}
-  .ampel-card.green .ampel-label{color:var(--green-phase)}
-  .ampel-card.amber .ampel-label{color:var(--amber-phase)}
-  .ampel-card.red .ampel-label{color:var(--alert-red)}
-  .ampel-card h4{font-size:0.92rem;font-weight:700;color:var(--text);margin-bottom:8px}
-  .ampel-card p{font-size:0.84rem;line-height:1.55;margin:0}
-  .ampel-card.green p{color:var(--navy)}
-  .ampel-card.amber p{color:#B45309}
-  .ampel-card.red p{color:#9A3412}
-
-  /* SECTION CARD (content container, distinct from .tool-card in werkzeuge) */
-  .section-card{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:32px;margin:32px 0;box-shadow:var(--shadow-soft)}
-  .section-card h3{font-family:'DM Serif Display',serif;font-size:1.1rem;font-weight:600;margin-bottom:12px;color:var(--navy-mid)}
-  .section-card p{font-size:0.92rem;color:var(--slate);line-height:1.7}
-  .decision-visual{margin:24px 0 32px;background:linear-gradient(180deg,#fff 0%,#fcf8f4 100%);border:1px solid var(--border-warm);border-radius:var(--radius-lg);padding:20px;box-shadow:var(--shadow-soft)}
-  .decision-visual img{display:block;width:100%;height:auto;border-radius:var(--radius-lg)}
-  .decision-visual p{font-size:0.87rem;color:var(--slate);line-height:1.6;margin:12px 4px 0}
-
-  /* STEPS */
-  .step-list{list-style:none;counter-reset:step-counter;margin:20px 0}
-  .step-list li{counter-increment:step-counter;padding:14px 0 14px 48px;position:relative;font-size:0.92rem;color:var(--slate);line-height:1.65;border-bottom:1px solid var(--border-warm)}
-  .step-list li::before{content:counter(step-counter);position:absolute;left:0;top:14px;width:32px;height:32px;border-radius:var(--radius-sm);background:var(--green-bg);color:var(--teal-dark);display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:800}
-
-  /* COMM RULES */
-  .comm-rule{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:22px 26px;margin-bottom:14px;border-left:4px solid var(--teal-light)}
-  .comm-rule h4{font-size:0.92rem;font-weight:700;color:var(--text);margin-bottom:6px}
-  .comm-rule p{font-size:0.86rem;color:var(--slate);line-height:1.55;margin:0 0 8px}
-  .comm-rule .avoid{font-size:0.82rem;color:var(--alert-red);font-weight:500}
-
-  /* SITUATION CARDS */
-  .situation-card{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:24px;margin-bottom:16px}
-  .situation-card h4{font-size:0.92rem;font-weight:700;color:var(--text);margin-bottom:10px}
-  .situation-card .response{font-size:0.88rem;color:var(--navy);background:var(--green-bg);padding:12px 16px;border-radius:var(--radius-sm);margin-bottom:8px;line-height:1.55}
-  .situation-card .avoid{font-size:0.82rem;color:var(--alert-red);font-weight:500}
-
-  /* GRENZEN EXAMPLES */
-  .grenz-example{background:white;border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:24px;margin-bottom:14px}
-  .grenz-bad{font-size:0.88rem;color:var(--alert-red);margin-bottom:8px;padding:10px 14px;background:var(--alert-red-bg);border-radius:var(--radius-sm)}
-  .grenz-good{font-size:0.88rem;color:var(--navy);padding:10px 14px;background:var(--green-bg);border-radius:var(--radius-sm);margin-bottom:8px}
-  .grenz-why{font-size:0.82rem;color:var(--text-soft);line-height:1.55}
-
-  /* DO DONT */
-  .do-dont{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
-  .do-col,.dont-col{border-radius:var(--radius-md);padding:22px}
-  .do-col{background:var(--green-bg);border:1px solid var(--teal-border)}.dont-col{background:var(--alert-red-bg);border:1px solid var(--alert-red-border)}
-  .do-col h4,.dont-col h4{font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px}
-  .do-col h4{color:var(--teal-dark)}.dont-col h4{color:var(--alert-red)}
-  .do-col ul,.dont-col ul{list-style:none}.do-col li,.dont-col li{font-size:0.86rem;padding:5px 0 5px 18px;position:relative;line-height:1.5}
-  .do-col li{color:var(--navy)}.dont-col li{color:#9A3412}
-  .do-col li::before{content:'✓';position:absolute;left:0;color:var(--teal);font-weight:700}
-  .dont-col li::before{content:'✗';position:absolute;left:0;color:var(--alert-red);font-weight:700}
-
-  /* M6-2: Einsicht comparison table */
-  .einsicht-compare{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;margin:24px 0}
-  .einsicht-col{display:flex;flex-direction:column}
-  .einsicht-col:first-child{border-right:1px solid var(--border)}
-  .einsicht-col-header{padding:16px 20px;display:flex;flex-direction:column;gap:4px}
-  .einsicht-col-header--red{background:var(--alert-red-bg);border-bottom:1px solid var(--alert-red-border)}
-  .einsicht-col-header--amber{background:var(--amber-bg);border-bottom:1px solid var(--amber-border)}
-  .einsicht-tag{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;opacity:0.8}
-  .einsicht-col-header strong{font-size:0.95rem;color:var(--navy-mid)}
-  .einsicht-col-header span:last-child{font-size:0.8rem;color:var(--text-soft)}
-  .einsicht-row{padding:14px 20px;border-bottom:1px solid var(--border);display:flex;flex-direction:column;gap:6px}
-  .einsicht-row:last-child{border-bottom:none}
-  .einsicht-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-soft)}
-  .einsicht-value{font-size:0.88rem;color:var(--slate);line-height:1.55}
-  .einsicht-value.do-list,.einsicht-value.dont-list{display:flex;flex-direction:column;gap:4px}
-  .einsicht-value.do-list span{color:var(--teal)}
-  .einsicht-value.dont-list span{color:var(--text-soft)}
-  .einsicht-row--dont{background:rgba(0,0,0,0.015)}
-
-  /* M6-1: Stabile-Phase Prioritäts-Raster */
-  .stabil-prio{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;margin:16px 0 24px}
-  .stabil-prio-col{display:flex;flex-direction:column}
-  .stabil-prio-col:not(:last-child){border-right:1px solid var(--border)}
-  .stabil-prio-header{padding:10px 16px;background:var(--surface-warm);border-bottom:1px solid var(--border);font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-soft);display:flex;align-items:center;gap:8px}
-  .stabil-prio-num{width:18px;height:18px;border-radius:50%;background:var(--teal);color:white;font-size:0.65rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-  .stabil-prio-num--2{background:var(--amber)}
-  .stabil-prio-num--3{background:var(--slate)}
-  .stabil-prio-items{padding:12px 16px;display:flex;flex-direction:column;gap:10px}
-  .stabil-prio-item strong{font-size:0.86rem;color:var(--navy-mid);display:block;margin-bottom:2px}
-  .stabil-prio-item span{font-size:0.78rem;color:var(--text-soft);line-height:1.4}
-
-  /* M6-3: Grenz-Formel */
-  .grenz-formel{background:var(--surface-warm);border-radius:var(--radius-md);padding:18px 22px;margin:0 0 20px}
-  .grenz-formel-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-soft);margin-bottom:10px}
-  .grenz-formel-parts{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden}
-  .grenz-part{padding:12px 14px;display:flex;flex-direction:column;gap:5px}
-  .grenz-part:not(:last-child){border-right:1px solid var(--border)}
-  .grenz-part--ich{background:#e6f4f2}
-  .grenz-part--konsequenz{background:var(--amber-bg)}
-  .grenz-part--rueckkehr{background:white}
-  .grenz-part-tag{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em}
-  .grenz-part--ich .grenz-part-tag{color:var(--teal)}
-  .grenz-part--konsequenz .grenz-part-tag{color:#92400e}
-  .grenz-part--rueckkehr .grenz-part-tag{color:var(--slate)}
-  .grenz-part-example{font-size:0.84rem;line-height:1.45;color:var(--navy-mid);font-style:italic}
-  .grenz-part-note{font-size:0.74rem;color:var(--text-soft);line-height:1.4}
-
-  @media(max-width:768px){.ampel{grid-template-columns:1fr}.do-dont{grid-template-columns:1fr}}
-  @media(max-width:600px){.einsicht-compare{grid-template-columns:1fr}.einsicht-col:first-child{border-right:none;border-bottom:1px solid var(--border)}}
-  @media(max-width:600px){.stabil-prio{grid-template-columns:1fr}.stabil-prio-col:not(:last-child){border-right:none;border-bottom:1px solid var(--border)}}
-  @media(max-width:600px){.grenz-formel-parts{grid-template-columns:1fr}.grenz-part:not(:last-child){border-right:none;border-bottom:1px solid var(--border)}}
-</style>
-{% endblock %}
+{% block headCSS %}<!-- Module 6 styles migrated to module.css (P2.3) -->{% endblock %}
 {% block nav %}
 {% include "nav-full.njk" %}
 {% endblock %}
@@ -136,11 +22,11 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 <div class="reading-progress"><div class="reading-progress-fill" id="readingProgress"></div></div>
 
 <header class="module-hero"><div class="module-hero-inner">
-  <div class="breadcrumb"><a href="/">Startseite</a><span>›</span><a href="/module/">Module</a><span>›</span><span>Was Sie konkret tun können</span></div>
+  <div class="breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><a href="/module/">Module</a><span class="sep" aria-hidden="true">›</span><span>Was Sie konkret tun können</span></div>
     <svg class="hero-icon" aria-hidden="true" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M28 8a8 8 0 01-2.5 15.5L14.5 34.5a3 3 0 01-4.2-4.2L21.3 19.2A8 8 0 0128 8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="28" cy="14" r="3" stroke="currentColor" stroke-width="1.5" opacity="0.4"/></svg>
   <div class="module-badge">Modul 6 / 8</div>
   <h1>Was Sie konkret tun können</h1>
-  <div class="module-meta"><span>⏱ ca. 10–12 Minuten</span><span>🛠 Hilfen für den Alltag</span></div>
+  <div class="module-meta"><span>⏱ Kerntext ca. 12 Min · mit Vertiefungen ca. 22 Min</span><span>🛠 Hilfen für den Alltag</span></div>
 
   <div class="quote-block">
     <blockquote>Bei der vierten Manie meines Mannes wusste ich wieder nicht, was ich tun soll. Dann haben wir in einer ruhigen Phase den Krisenplan geschrieben. Beim nächsten Mal habe ich ihn einfach aufgeschlagen. Ich musste nicht mehr denken. Ich musste nur noch handeln.</blockquote>
@@ -160,11 +46,13 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
       <li><a href="#sofort" class="link-alert-mid">Akut? Sofort handeln<span class="toc-desc">Wenn Schutz Vorrang hat → Notfallseite</span></a></li>
       <li><a href="#zuerst">Was zuerst hilft<span class="toc-desc">Lage klären statt alles gleichzeitig lösen</span></a></li>
       <li><a href="#vorbereiten">Vorbereiten, bevor es kippt<span class="toc-desc">Krisenplan, Schweigepflicht, Finanzen</span></a></li>
-      <li><a href="#komorbid">Wenn Sucht oder andere Belastungen mitlaufen<span class="toc-desc">Wenn mehrere Risiken gleichzeitig ineinandergreifen</span></a></li>
+      <li><a href="#komorbid">Wenn Substanzkonsum mitläuft<span class="toc-desc">Warum 40–60 % betroffen sind und was Angehörige tun können</span></a></li>
       <li><a href="#stabil-komm">Kommunikation in stabilen Phasen<span class="toc-desc">Wann das Wichtigste besprochen werden kann</span></a></li>
       <li><a href="#kommunikation">Wenn Kommunikation akut schwierig wird<span class="toc-desc">Manie, Depression, Suizidfrage</span></a></li>
       <li><a href="#einsicht">Wenn Krankheitseinsicht fehlt oder Behandlung scheitert<span class="toc-desc">Was dann noch sinnvoll ist</span></a></li>
+      <li><a href="#medikamente-absetzen">Wenn Medikamente abgesetzt werden<span class="toc-desc">Konkrete Schritte für Angehörige</span></a></li>
       <li><a href="#grenzen">Grenzen, die tragen statt eskalieren<span class="toc-desc">Konkrete Formulierungen und Konsequenzen</span></a></li>
+      <li><a href="#hospitalisierung">Wenn es zur Klinikeinweisung kommt<span class="toc-desc">Aufnahme, Besuch, Dauer, Entlassung</span></a></li>
     </ol>
   </div>
 
@@ -178,22 +66,22 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   <div class="ampel reveal content-wide">
     <div class="ampel-card green">
       <div class="ampel-label">Vorbereiten</div>
-      <h4>Wenn es gerade ruhig genug ist</h4>
+      <h3>Wenn es gerade ruhig genug ist</h3>
       <p>Krisenplan erstellen, Schweigepflicht klären, Finanzen absichern. Dinge, die später Handlungsspielraum schaffen.</p>
     </div>
     <div class="ampel-card amber">
       <div class="ampel-label">Deeskalieren</div>
-      <h4>Wenn Kontakt noch möglich ist</h4>
+      <h3>Wenn Kontakt noch möglich ist</h3>
       <p>Kurz kommunizieren, Reize reduzieren, Grenzen klar halten, Beobachtungen benennen und nicht in Debatten kippen.</p>
     </div>
-    <a href="/notfall/" class="ampel-card red" style="text-decoration:none;display:block">
+    <a href="/notfall/" class="ampel-card red">
       <div class="ampel-label">Sofort handeln</div>
-      <h4>Wenn Schutz vorgeht</h4>
+      <h3>Wenn Schutz vorgeht</h3>
       <p>Bei akuter Selbst- oder Fremdgefährdung, schwerer Psychose, Gewalt oder massiver Eskalation nicht länger diskutieren, sondern handeln. <strong>→ Notfallseite</strong></p>
     </a>
     <div class="ampel-card slate">
       <div class="ampel-label">Verarbeiten</div>
-      <h4>Nach der Episode</h4>
+      <h3>Nach der Episode</h3>
       <p>Erholung, Bilanz, das Nachgespräch. Eigene Erschöpfung anerkennen. Krisenplan ergänzen. Nicht sofort zurück zur Normalität.</p>
     </div>
   </div>
@@ -229,7 +117,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     <div class="ampel-card red">
       <div class="ampel-label">Notfall</div>
       <h4>Sofort anrufen</h4>
-      <p>Selbst-/Fremdgefährdung · Akute Psychose → <strong>0800 33 66 55</strong> (24/7) · 117 · 144</p>
+      <p>Selbst-/Fremdgefährdung · Akute Psychose → <strong>0800&nbsp;33&nbsp;66&nbsp;55</strong> (24/7) · 117 · 144</p>
     </div>
   </div>
 
@@ -239,7 +127,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     <p><strong>Massnahmen:</strong> Termin bei Psychiater*in vorziehen, Reize reduzieren</p>
     <p><strong>Klinikwunsch:</strong> Wenn möglich PUK Zürich</p>
     <p><strong>Kontaktpersonen:</strong> Partner*in (Tel: ...), Geschwister (Tel: ...)</p>
-    <p style="margin-top:16px;font-size:0.85rem;color:var(--teal);font-weight:600;">↓ Download: Krisenplan-Vorlage (PDF) — Füllen Sie diese Vorlage gemeinsam in einer stabilen Phase aus.</p>
+    <p class="download-label">↓ Download: Krisenplan-Vorlage (PDF) — Füllen Sie diese Vorlage gemeinsam in einer stabilen Phase aus.</p>
   </div>
 
   <!-- 2. SCHWEIGEPFLICHT -->
@@ -263,7 +151,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     <li><strong>Auch ohne Entbindung:</strong> Sie können dem Behandlungsteam jederzeit Informationen <em>geben</em> — Sie erhalten nur keine zurück.</li>
   </ol>
 
-  <p class="reveal text-soft-sm"><strong>Beratung:</strong> Pro Mente Sana (<a href="tel:+41848800858" class="link-teal">0848 800 858</a> · <a href="https://www.promentesana.ch" target="_blank" rel="noopener" class="link-teal">promentesana.ch</a>) ist hier eine gute erste Anlaufstelle für Vorsorgeauftrag und Patientenverfügung. Diese Fragen lassen sich fast immer besser in ruhigen Phasen klären als mitten in einer Eskalation.</p>
+  <p class="reveal text-soft-sm"><strong>Beratung:</strong> Pro Mente Sana (<a href="{{ site.tel.proMenteSana.href }}" class="link-teal">{{ site.tel.proMenteSana.display }}</a> · <a href="https://www.promentesana.ch" target="_blank" rel="noopener" class="link-teal">promentesana.ch</a>) ist hier eine gute erste Anlaufstelle für Vorsorgeauftrag und Patientenverfügung. Diese Fragen lassen sich fast immer besser in ruhigen Phasen klären als mitten in einer Eskalation.</p>
 
   <!-- 3. FINANZIELLE PRÄVENTION -->
   <h3 id="finanzen" class="reveal">Finanzen absichern</h3>
@@ -277,31 +165,70 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   </ol>
 
 
-  <h3 id="komorbid" class="reveal">Wenn Sucht oder andere Belastungen mitlaufen</h3>
-  <p class="reveal">Nicht jede Zuspitzung ist allein durch die bipolare Störung erklärbar. Alkohol, Cannabis, andere Substanzen, Traumafolgen, starke Angst oder zusätzliche psychische Belastungen können die Lage verschärfen, Episoden überlagern oder die Krankheitseinsicht weiter erschweren. Für Angehörige fühlt sich das oft an, als würden mehrere Probleme gleichzeitig ineinandergreifen.</p>
+  <h3 id="komorbid" class="reveal">Wenn Substanzkonsum mitläuft — und warum das so häufig ist</h3>
+  <p class="reveal">Substanzkonsum ist bei bipolarer Störung keine Ausnahme, sondern eine der häufigsten Begleiterscheinungen: <strong>40–60 % der Betroffenen entwickeln im Verlauf eine Substanzgebrauchsstörung</strong> — deutlich mehr als in der Allgemeinbevölkerung (Regier et al., 1990; Cerullo &amp; Strakowski, 2007). Wenn Ihr Angehöriger trinkt, kifft oder andere Substanzen konsumiert, stehen Sie also nicht vor einem Einzelfall, sondern vor einem gut dokumentierten Muster, das eigene Strategien braucht.</p>
 
-  <div class="do-dont reveal content-wide">
-    <div class="do-col">
-      <h4>Was dann hilfreich sein kann</h4>
-      <ul>
-        <li>Beobachtungen trennen: Was hat mit Schlaf, Substanzen, Angst, Gereiztheit oder Rückzug zu tun?</li>
-        <li>Dem Behandlungsteam nicht nur die Eskalation, sondern auch mögliche Verstärker konkret mitteilen.</li>
-        <li>In stabilen Phasen gemeinsam klären, welche Stoffe oder Situationen frühere Krisen mit verschärft haben.</li>
-        <li>Eigene Schutzgrenzen ernst nehmen, wenn Konsum, Geld, Lügen oder Aggression dazukommen.</li>
-      </ul>
-    </div>
-    <div class="dont-col">
-      <h4>Was häufig nicht hilft</h4>
-      <ul>
-        <li>Alles nur moralisch als fehlenden Willen oder schlechten Charakter zu deuten.</li>
-        <li>In akuter Lage Beweise zu sammeln oder Grundsatzdiskussionen zu erzwingen.</li>
-        <li>Darauf zu hoffen, dass sich Sucht oder starke Zusatzbelastungen mit der nächsten Stabilisierung von selbst lösen.</li>
-        <li>Die eigene Unsicherheit kleinzureden, wenn mehrere Risiken zusammenkommen.</li>
-      </ul>
-    </div>
-  </div>
+  <p class="reveal text-soft-sm"><strong>Faustregel:</strong> Wenn Substanzkonsum, massive Schlaflosigkeit, Psychose, Suizidalität oder Gewalt zusammen auftreten, behandeln Sie die Situation nicht mehr als Kommunikationsproblem. Dann sind <a href="/notfall/" class="link-alert-mid">Notfalllogik</a> und professionelle Einschätzung wichtiger als die perfekte Einordnung.</p>
 
-  <p class="reveal text-soft-sm"><strong>Faustregel:</strong> Wenn Substanzkonsum, massive Schlaflosigkeit, Psychose, Suizidalität oder Gewalt zusammen auftreten, behandeln Sie die Situation nicht mehr nur als Kommunikationsproblem. Dann sind <a href="/notfall/" class="link-alert-mid">Notfalllogik</a> und professionelle Einschätzung wichtiger als die perfekte Einordnung.</p>
+  <details class="hub-details reveal">
+    <summary>
+      <span class="hub-details-kicker">Vertiefung</span>
+      <span class="hub-details-title">Hintergründe, Leitplanken und Do's &amp; Don'ts</span>
+      <span class="hub-details-intro">Warum Substanzkonsum und bipolare Störung so oft zusammenfallen — und was Sie konkret tun können.</span>
+    </summary>
+    <div class="hub-details-body">
+
+    <h4>Warum Substanzkonsum und bipolare Störung so oft zusammenfallen</h4>
+    <p>Die Gründe sind verschränkt und selten nur «fehlender Wille»:</p>
+    <ul class="step-list">
+      <li><strong>Selbstmedikation:</strong> Alkohol dämpft Unruhe und Schlaflosigkeit in manischen Phasen. Cannabis betäubt depressive Leere. Das funktioniert kurzfristig — und verschlimmert mittelfristig beides.</li>
+      <li><strong>Impulsivität in der Manie:</strong> Enthemmung und Risikobereitschaft gehören zum Krankheitsbild. Substanzkonsum ist dann kein bewusster Entscheid, sondern Symptom.</li>
+      <li><strong>Nebenwirkungs-Flucht:</strong> Manche Betroffene ersetzen die als belastend empfundenen Medikamente durch Substanzen, die schneller wirken — ein gefährlicher Tausch.</li>
+      <li><strong>Gemeinsame Neurobiologie:</strong> Bipolare Störung und Sucht teilen Störungen im Dopamin- und Belohnungssystem. Die Vulnerabilität ist biologisch, nicht charakterlich.</li>
+    </ul>
+    <p>Diese Gründe zu verstehen hilft nicht, den Konsum zu billigen — aber es bewahrt Sie davor, sich in moralischen Kämpfen aufzureiben, die nirgendwohin führen.</p>
+
+    <h4>Was Sie als Angehörige besonders schwer macht</h4>
+    <p>Wenn bipolare Episoden und Substanzkonsum zusammenwirken, wird fast alles unschärfer: Ist die Gereiztheit manisch, alkoholbedingt oder beides? War der Rückzug eine depressive Episode oder ein Kater? Lügt die Person wegen der Erkrankung oder wegen der Sucht? Diese Ununterscheidbarkeit ist kein Zeichen von Inkompetenz Ihrerseits — sie ist das Wesen der Dualdiagnose. Selbst Fachleute brauchen Zeit, um die Anteile zu sortieren.</p>
+    <p>Für Sie als Angehörige bedeutet das: <strong>Ihr Job ist nicht die Diagnose. Ihr Job ist die Beobachtung.</strong> Notieren Sie, was Sie sehen — Schlafveränderungen, Konsummuster, Stimmungswechsel, Geldausgaben — und geben Sie diese Beobachtungen an das Behandlungsteam weiter. Die Zuordnung ist deren Aufgabe.</p>
+
+    <h4>Konkrete Leitplanken für Angehörige</h4>
+    <ol class="step-list">
+      <li><strong>Benennen, was Sie sehen — nicht deuten.</strong> «Ich sehe, dass du seit drei Tagen jeden Abend trinkst» ist hilfreicher als «Du bist wieder süchtig». Beobachtungen lassen sich schwerer abstreiten als Bewertungen.</li>
+      <li><strong>Dualdiagnose-Behandlung einfordern.</strong> Bipolare Störung und Substanzkonsum müssen gleichzeitig behandelt werden — nicht nacheinander. Fragen Sie die Psychiaterin gezielt: «Gibt es bei Ihnen oder woanders ein integriertes Programm?» Anlaufstellen in der Schweiz: die Suchtfachstellen der Kantone und die Integrierten Psychiatrie-Angebote der PUK.</li>
+      <li><strong>Enabling erkennen und begrenzen.</strong> Wenn Sie regelmässig Konsequenzen des Konsums abfedern — Ausreden liefern, Schulden bezahlen, Arbeitgeber beschwichtigen — wird der Konsum kurzfristig erträglicher und langfristig stabiler. Das ist kein Vorwurf: Enabling entsteht aus Liebe und Erschöpfung. Aber es zu erkennen ist der erste Schritt, es zu verändern.</li>
+      <li><strong>Das Behandlungsteam informieren — auch über den Konsum.</strong> Viele Angehörige verschweigen den Substanzkonsum beim Psychiater aus Scham oder Loyalität. Aber ohne diese Information kann die Behandlung nicht richtig eingestellt werden. Sie dürfen Informationen geben, auch ohne Einwilligung der erkrankten Person.</li>
+      <li><strong>Ihre Grenzen klar halten.</strong> «Wenn du getrunken hast, schlafe ich im anderen Zimmer» ist keine Bestrafung, sondern Schutz. Grenzen beim Substanzkonsum müssen besonders klar sein, weil die Substanz das Urteilsvermögen zusätzlich beeinträchtigt. <span class="text-soft-xs">Mehr dazu unter <a href="#grenzen">Grenzen setzen</a>.</span></li>
+      <li><strong>Sich selbst Hilfe holen.</strong> Angehörige von Menschen mit Dualdiagnose tragen eine doppelte Last. Selbsthilfegruppen für Angehörige von Suchtkranken (z. B. Al-Anon) und Angehörigenberatung können parallel zur bipolaren Psychoedukation entlasten.</li>
+    </ol>
+
+    <div class="do-dont content-wide">
+      <div class="do-col">
+        <h4>Was helfen kann</h4>
+        <ul>
+          <li>Beobachtungen trennen: Was hat mit Schlaf, Substanzen, Angst, Gereiztheit oder Rückzug zu tun?</li>
+          <li>Dem Behandlungsteam den Konsum offen benennen, auch wenn es unangenehm ist.</li>
+          <li>In stabilen Phasen gemeinsam klären, welche Substanzen frühere Krisen verschärft haben.</li>
+          <li>Eigene Schutzgrenzen konsequent halten, wenn Konsum, Geld, Lügen oder Aggression dazukommen.</li>
+          <li>Integrierte Dualdiagnose-Behandlung aktiv einfordern statt hoffen, dass ein Angebot genügt.</li>
+        </ul>
+      </div>
+      <div class="dont-col">
+        <h4>Was häufig nicht hilft</h4>
+        <ul>
+          <li>Alles moralisch als fehlenden Willen oder schlechten Charakter deuten.</li>
+          <li>In akuter Lage Beweise sammeln oder Grundsatzdiskussionen erzwingen.</li>
+          <li>Darauf hoffen, dass sich Sucht mit der nächsten Stabilisierung von selbst löst — das tut sie fast nie.</li>
+          <li>Konsequenzen des Konsums systematisch abfedern (Enabling).</li>
+          <li>Den Substanzkonsum vor dem Behandlungsteam verschweigen.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="bright-moment">Zur Einordnung: Eine Dualdiagnose macht den Verlauf komplizierter, aber nicht hoffnungslos. Integrierte Behandlung — also die gleichzeitige Therapie beider Störungen — verbessert nachweislich sowohl die Substanz- als auch die Stimmungsstabilität (Salloum &amp; Thase, 2000). Die richtige Behandlung zu finden ist der wichtigste Hebel.</p>
+
+    </div>
+  </details>
 
   <div class="reflection reveal">
     <div class="reflection-label">Innehalten</div>
@@ -315,7 +242,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   <h2 id="stabil-komm" class="reveal">Kommunikation in der stabilen Phase</h2>
   <p class="reveal">Die stabile Phase ist nicht einfach das Fehlen von Krise — sie ist die Hauptzeit, in der die wichtigsten Gespräche stattfinden können und sollten. Wenn die erkrankte Person klar denken, reflektieren und entscheiden kann, ist das der richtige Moment für Themen, die in der Krise unmöglich sind: gemeinsame Abmachungen, Frühwarnzeichen, Krisenplan, Grenzen und Rollenklärung.</p>
 
-  <h3 class="reveal" style="font-size:1rem;margin-top:32px;margin-bottom:8px">Was sich in stabilen Phasen sinnvoll besprechen lässt</h3>
+  <h3 class="reveal" style="font-size:var(--text-base);margin-top:var(--space-xl);margin-bottom:8px">Was sich in stabilen Phasen sinnvoll besprechen lässt</h3>
   <div class="stabil-prio reveal">
     <div class="stabil-prio-col">
       <div class="stabil-prio-header"><span class="stabil-prio-num">1</span>Als erstes</div>
@@ -381,7 +308,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     </div>
   </div>
 
-  <p class="hint-note reveal" style="margin-top:4px"><strong>Tipp:</strong> Statt «Darf ich das ansprechen?» fragen Sie «Wann wäre ein guter Zeitpunkt, über den Krisenplan zu reden?» — das gibt Kontrolle über den Zeitpunkt zurück.</p>
+  <p class="hint-note hint-note--tight reveal"><strong>Tipp:</strong> Statt «Darf ich das ansprechen?» fragen Sie «Wann wäre ein guter Zeitpunkt, über den Krisenplan zu reden?» — das gibt Kontrolle über den Zeitpunkt zurück.</p>
 
   <!-- ═══════════════════════════════════
        BLOCK B: KOMMUNIKATION
@@ -432,7 +359,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     <div class="avoid">Vermeiden: Immer neue Bestätigungen geben. Wer ständig beruhigt wird, zweifelt stärker — nicht weniger. Der Kreislauf erschöpft beide (Coyne, 1976).</div>
   </div>
 
-  <p class="reveal"><strong>Bei Suizidgedanken gilt:</strong> Fragen Sie direkt: «Denkst du daran, dir etwas anzutun?» Diese Frage löst Suizidgedanken <em>nicht</em> aus. Wenn die Gefahr akut wirkt, wird Kommunikation zweitrangig: <a href="tel:+41800336655" class="link-alert-mid">0800 33 66 55</a> oder direkt die <a href="/notfall/" class="link-alert-mid">Notfallseite</a>.</p>
+  <p class="reveal"><strong>Bei Suizidgedanken gilt:</strong> Fragen Sie direkt: «Denkst du daran, dir etwas anzutun?» Diese Frage löst Suizidgedanken <em>nicht</em> aus. Wenn die Gefahr akut wirkt, wird Kommunikation zweitrangig: <a href="{{ site.tel.aerztefon.href }}" class="link-alert-mid">{{ site.tel.aerztefon.display }}</a> oder direkt die <a href="/notfall/" class="link-alert-mid">Notfallseite</a>.</p>
 
   <div class="quote-block reveal">
     <blockquote>Die Manie war laut und chaotisch, aber wenigstens passierte etwas. Die Depression war Stille. Wochenlang. Ich sass neben ihm und wusste nicht, ob ich stören darf. Irgendwann habe ich aufgehört zu fragen und einfach nur seine Hand gehalten. Das war am Ende das Richtige.</blockquote>
@@ -515,6 +442,50 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   </div>
   <p class="reveal text-soft-xs">Wenn Ablehnung mit akuter Gefährdung zusammenfällt, endet der Gesprächsrahmen. Dann zählt Schutz: <a href="/notfall/" class="link-alert-mid">Notfallseite</a>.</p>
 
+  <!-- 5b. MEDIKAMENTE ABGESETZT -->
+  <h3 id="medikamente-absetzen" class="reveal">«Sie hat die Medikamente abgesetzt» — was Sie tun können</h3>
+  <p class="reveal">Kaum eine Situation löst bei Angehörigen so viel Angst aus wie das Absetzen der Medikamente. Die Sorge ist berechtigt: Ohne Stimmungsstabilisierung steigt das Rückfallrisiko deutlich. Gleichzeitig ist Medikamenten-Adhärenz bei bipolarer Störung eine der grössten Herausforderungen — <strong>bis zu 50 % der Betroffenen setzen die Medikation mindestens einmal eigenmächtig ab</strong> (Colom et al., 2005). Es ist also kein Einzelfall, sondern ein vorhersehbares Szenario, auf das Sie sich vorbereiten können.</p>
+
+  <details class="hub-details reveal">
+    <summary>
+      <span class="hub-details-kicker">Vertiefung</span>
+      <span class="hub-details-title">Hintergründe, 6 Schritte und was Sie vermeiden sollten</span>
+      <span class="hub-details-intro">Warum Menschen absetzen, was Sie konkret tun können — und was nicht hilft.</span>
+    </summary>
+    <div class="hub-details-body">
+
+    <h4>Warum Menschen absetzen — verstehen, nicht billigen</h4>
+    <p>Die Gründe sind oft nachvollziehbar, auch wenn die Konsequenzen gefährlich sind: Nebenwirkungen wie Gewichtszunahme, Tremor oder sexuelle Funktionsstörungen belasten den Alltag. In stabilen Phasen fühlen sich viele «gesund» und sehen keinen Grund mehr für Medikamente. In hypomanen Phasen fühlt sich die Erkrankung nach Kraft an, nicht nach Krankheit. Manchmal spielen auch Scham, Autonomiebedürfnis oder schlechte Erfahrungen mit dem Behandlungsteam eine Rolle. Die Gründe zu verstehen hilft Ihnen, ruhiger zu reagieren — nicht, das Absetzen zu akzeptieren.</p>
+
+    <h4>Was Sie konkret tun können — Schritt für Schritt</h4>
+    <ol class="step-list">
+      <li><strong>Nicht sofort konfrontieren.</strong> Die erste Reaktion ist oft Panik oder Wut. Beides ist verständlich, aber ein Streitgespräch über Medikamente führt fast nie dazu, dass die Person sie wieder nimmt. Atmen Sie durch. Sie haben etwas Zeit.</li>
+      <li><strong>Beobachten und dokumentieren.</strong> Notieren Sie, was Sie sehen: Schlafveränderungen, Reizbarkeit, Energieschübe, Rückzug. Diese Beobachtungen sind später wichtig — für das Behandlungsteam und für Ihr eigenes Urteil, wann Schutz Vorrang bekommt.</li>
+      <li><strong>Das Behandlungsteam informieren.</strong> Rufen Sie die Psychiaterin oder den Hausarzt an — auch wenn die erkrankte Person das nicht möchte. Sie brechen keine Schweigepflicht, wenn Sie <em>Informationen geben</em>. Die Schweigepflicht schützt nur die umgekehrte Richtung: Das Team darf Ihnen ohne Einwilligung nichts mitteilen. <em>Sie dürfen aber jederzeit mitteilen, was Sie beobachten.</em></li>
+      <li><strong>In einem ruhigen Moment das Gespräch suchen.</strong> Nicht im Streit, nicht morgens im Stress. Nutzen Sie Ich-Botschaften: «Ich mache mir Sorgen, weil ich Veränderungen sehe, seit du die Medikamente nicht mehr nimmst.» Fragen Sie nach den Gründen. Vielleicht lassen sich Nebenwirkungen mit der Ärztin besprechen, statt das Medikament ganz abzusetzen.</li>
+      <li><strong>Ihre Grenze benennen — klar, nicht drohend.</strong> «Wenn du ohne Medikamente lebst und eine Episode kommt, kann ich die Verantwortung zu Hause nicht allein tragen. Dann brauchen wir einen Plan B.» Das ist keine Bestrafung, sondern Realität. <span class="text-soft-xs">Mehr dazu in <a href="#grenzen">Grenzen setzen</a> weiter unten.</span></li>
+      <li><strong>Den Krisenplan aktualisieren.</strong> Wenn ein Krisenplan existiert, prüfen Sie: Gelten die Absprachen noch? Wenn keiner existiert, ist jetzt der richtige Moment, einen zu erstellen — gerade weil die Situation angespannter geworden ist. <a href="/tools/krisenplan/">Krisenplan-Werkzeug öffnen →</a></li>
+    </ol>
+
+    <h4>Was Sie vermeiden sollten</h4>
+    <div class="einsicht-row einsicht-row--dont">
+      <div class="einsicht-value dont-list">
+        <span>✗ Heimlich Medikamente ins Essen mischen — das zerstört Vertrauen und ist rechtlich problematisch</span>
+        <span>✗ Tägliche Kontrollfragen («Hast du deine Tabletten genommen?») — sie erzeugen Scham und Widerstand</span>
+        <span>✗ Ultimaten stellen, die Sie nicht einhalten können oder wollen</span>
+        <span>✗ Allein die Verantwortung tragen — holen Sie das Behandlungsteam dazu</span>
+        <span>✗ So tun, als wäre nichts — Schweigen aus Angst vor Konflikt hilft niemandem</span>
+      </div>
+    </div>
+
+    <h4>Vorbereiten, solange es ruhig ist</h4>
+    <p>Die beste Zeit, über Medikamente zu sprechen, ist eine stabile Phase. Viele Paare und Familien vereinbaren dann gemeinsam: Was passiert, wenn die Medikamente abgesetzt werden? Wer wird informiert? Ab welchem Punkt greift der Krisenplan? Solche Absprachen sind kein Misstrauen — sie sind ein Sicherheitsnetz, das beiden Seiten Angst nimmt. Der <a href="/tools/krisenplan/">Krisenplan</a> bietet dafür ein Gerüst.</p>
+
+    <p class="bright-moment">Zur Einordnung: Medikamenten-Adhärenz ist kein reines Willensthema. Die Forschung zeigt, dass psychoedukative Programme — also genau das, was Sie hier gerade tun — die Adhärenz messbar verbessern (Colom et al., 2003). Ihr Wissen und Ihre Haltung machen einen Unterschied.</p>
+
+    </div>
+  </details>
+
   <!-- 6. GRENZEN KONKRET -->
   <h2 id="grenzen" class="reveal">Grenzen, die tragen statt eskalieren</h2>
   <p class="reveal">In <a href="/modul/5/" class="link-teal">Modul 5</a> ging es darum, warum Grenzen emotional so schwer sind. Hier geht es um die Form. Hilfreiche Grenzen drohen nicht nur, sie markieren Verhalten, benennen Konsequenzen und schützen, ohne unnötig zu eskalieren.</p>
@@ -568,6 +539,81 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     <li><strong>Sich danach entlasten:</strong> Akute Situationen kosten oft auch danach viel. Holen Sie Unterstützung nicht erst für die erkrankte Person, sondern auch für sich.</li>
   </ol>
 
+  <!-- 8. HOSPITALISIERUNG -->
+  <h2 id="hospitalisierung" class="reveal">Wenn es zur Klinikeinweisung kommt</h2>
+  <p class="reveal">Für viele Angehörige ist der Klinikaufenthalt ein Einschnitt, der mit Erleichterung, Schuldgefühlen und Unsicherheit gleichzeitig einhergeht. Gleichzeitig ist stationäre Behandlung bei bipolarer Störung keine Seltenheit — viele Betroffene erleben im Lauf der Erkrankung mindestens eine Hospitalisation. <span class="text-soft-xs">Die rechtliche Seite (Fürsorgerische Unterbringung, KESB) finden Sie auf der <a href="/notfall/#fu">Notfallseite</a>.</span></p>
+
+  <details class="hub-details reveal">
+    <summary>
+      <span class="hub-details-kicker">Vertiefung</span>
+      <span class="hub-details-title">Aufnahme, Dauer, Besuch und Entlassung</span>
+      <span class="hub-details-intro">Was Sie erwartet, was Sie mitbringen sollten und wie Sie die Entlassung aktiv vorbereiten.</span>
+    </summary>
+    <div class="hub-details-body">
+
+    <h3>Aufnahme — die ersten Stunden</h3>
+    <p>Die Aufnahme erfolgt entweder freiwillig, über den psychiatrischen Notfalldienst oder als Fürsorgerische Unterbringung (FU). In allen Fällen gibt es ein ärztliches Aufnahmegespräch, eine erste Einschätzung und eine Zuweisung auf eine Station. Als Angehörige werden Sie in der Regel gefragt, ob Sie begleitende Informationen geben können — Vorgeschichte, aktuelle Medikation, Frühwarnzeichen, Krisenplan. <strong>Bringen Sie mit, was Sie haben:</strong> Medikamentenliste, Krisenplan, Kontaktdaten der ambulanten Psychiaterin, Versichertenkarte.</p>
+    <p>Wichtig zu wissen: Bei einer FU dürfen Sie als Angehörige zwar eine Gefährdungsmeldung einreichen, aber Sie haben kein Mitspracherecht bei Behandlungsentscheidungen — das liegt bei der erkrankten Person und dem Behandlungsteam. Das kann sich ohnmächtig anfühlen. Es schützt aber auch vor einer Rollenüberlastung, die Sie ohnehin nicht mehr tragen können.</p>
+
+    <h3>Dauer — womit Sie rechnen können</h3>
+    <p>Die Aufenthaltsdauer variiert je nach Schwere, Ansprechen auf die Behandlung und der Frage, ob es freiwillig oder per FU ist:</p>
+    <ul class="step-list">
+      <li><strong>Akute Manie:</strong> Häufig 2–6 Wochen. Schwere manische Episoden mit Psychose können länger dauern, besonders wenn die Medikation erst eingestellt werden muss.</li>
+      <li><strong>Schwere Depression:</strong> Oft 3–8 Wochen. Antidepressive Wirkung braucht Zeit; Entlassung erfolgt selten vor deutlicher Stabilisierung.</li>
+      <li><strong>Mischzustände oder Rapid Cycling:</strong> Schwerer vorhersehbar. Die Behandlung muss oft mehrfach angepasst werden.</li>
+      <li><strong>FU:</strong> Maximal 6 Wochen ohne richterliche Überprüfung (in der Schweiz). Danach muss das Gericht über Fortführung entscheiden. Viele FU-Aufenthalte enden früher, wenn die akute Gefährdung abklingt.</li>
+    </ul>
+    <p class="text-soft-sm">Die Dauer ist für Angehörige oft schwer auszuhalten — besonders, wenn Sie gleichzeitig den Alltag (Kinder, Arbeit, Haushalt) allein bewältigen müssen. Planen Sie diese Phase aktiv: Wer kann Sie im Alltag entlasten? Was können Sie vorübergehend abgeben?</p>
+
+    <h3>Besuch — Ihre Rolle auf der Station</h3>
+    <p>Jede Klinik hat eigene Besuchsregelungen. In der Regel gibt es feste Besuchszeiten, manchmal Einschränkungen in den ersten Tagen (besonders bei akuter Manie oder Psychose, um Reizreduktion zu gewährleisten). Fragen Sie beim Aufnahmegespräch oder auf der Station direkt nach:</p>
+    <ul class="step-list">
+      <li><strong>Besuchszeiten und -regeln:</strong> Wann, wie oft, wie lange? Sind Kinder willkommen?</li>
+      <li><strong>Kontaktmöglichkeiten:</strong> Darf die Person telefonieren? Gibt es WLAN? Manche Stationen schränken den Handyzugang in akuten Phasen ein.</li>
+      <li><strong>Angehörigengespräche:</strong> Die meisten Kliniken bieten Angehörigengespräche mit dem Behandlungsteam an. <strong>Nutzen Sie dieses Angebot.</strong> Es ist oft die einzige Möglichkeit, Ihre Beobachtungen strukturiert einzubringen und Fragen zur Behandlung zu stellen.</li>
+      <li><strong>Was Sie mitbringen können:</strong> Bequeme Kleidung, Hygieneartikel, ein vertrauter Gegenstand. In manchen Kliniken sind Schnürsenkel, Gürtel und Glasflaschen aus Sicherheitsgründen nicht erlaubt — fragen Sie vorab.</li>
+    </ul>
+    <p>Was oft hilft: kurze, ruhige Besuche. Nicht jedes Mal ein Grundsatzgespräch führen. Manchmal reicht es, da zu sein und ein Stück Normalität mitzubringen. In manischen Phasen können Besuche auch eskalierend wirken — dann ist Abstand kein Verrat, sondern Reizschutz.</p>
+
+    <h3>Während des Aufenthalts — was Angehörige tun können (und was nicht)</h3>
+    <div class="do-dont content-wide">
+      <div class="do-col">
+        <h4>Was Sie tun können</h4>
+        <ul>
+          <li>An Angehörigengesprächen teilnehmen und Ihre Beobachtungen einbringen.</li>
+          <li>Praktisches organisieren: Post, Rechnungen, Arbeitgeber informieren, Kinder versorgen.</li>
+          <li>Eigene Entlastung sichern — Angehörigenberatung, Selbsthilfegruppe, eine Vertrauensperson.</li>
+          <li>Sich über den Behandlungsplan informieren, soweit die erkrankte Person einverstanden ist.</li>
+          <li>Den <a href="/tools/krisenplan/">Krisenplan</a> aktualisieren, sobald sich abzeichnet, was die nächste Phase braucht.</li>
+        </ul>
+      </div>
+      <div class="dont-col">
+        <h4>Was in der Regel nicht hilft</h4>
+        <ul>
+          <li>Tägliche Kontrollanrufe auf der Station — das Team informiert Sie, wenn es nötig ist.</li>
+          <li>Behandlungsentscheidungen infrage stellen, ohne das Gespräch mit dem Team zu suchen.</li>
+          <li>Sich schuldig fühlen für die Einweisung — auch wenn die erkrankte Person Ihnen Vorwürfe macht.</li>
+          <li>Die eigene Erschöpfung ignorieren, «weil es der anderen Person ja schlechter geht».</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Entlassung — der Übergang nach Hause</h3>
+    <p>Die Entlassung ist für Angehörige oft ein Moment geteilter Gefühle: Erleichterung, aber auch Angst vor dem nächsten Rückfall. Die Klinik bietet in der Regel ein Austrittsgespräch an, bei dem Medikation, ambulante Weiterbehandlung und ein Nachsorgeplan besprochen werden. <strong>Bitten Sie darum, an diesem Gespräch teilzunehmen</strong> — viele Informationen gehen sonst verloren.</p>
+    <p>Was bei der Entlassung wichtig ist:</p>
+    <ol class="step-list">
+      <li><strong>Medikationsplan mitnehmen:</strong> Welche Medikamente, welche Dosis, wann die nächste Blutkontrolle?</li>
+      <li><strong>Ambulanten Anschluss klären:</strong> Ist ein Termin bei der Psychiaterin vereinbart? Gibt es eine Tagesklinik oder ambulante Nachsorge?</li>
+      <li><strong>Frühwarnzeichen und Krisenplan besprechen:</strong> Was hat diese Episode ausgelöst? Was haben Sie und das Team gelernt? Was ändern Sie im Krisenplan?</li>
+      <li><strong>Erwartungen anpassen:</strong> Die Entlassung heisst nicht «geheilt». Es heisst «stabil genug für zu Hause». Rechnen Sie mit einer Übergangsphase von Wochen, in der Erschöpfung, Verlangsamung oder Verletzlichkeit normal sind.</li>
+      <li><strong>Eigene Grenzen benennen:</strong> Was können Sie gerade leisten, was nicht? Wenn Sie während des Aufenthalts am Limit waren, ist die Rückkehr nicht automatisch eine Entlastung — sie ist oft eine neue Belastungsprobe.</li>
+    </ol>
+
+    <p class="bright-moment">Zur Einordnung: Ein Klinikaufenthalt ist kein Scheitern. Er ist — richtig genutzt — eine Chance, die Medikation zu stabilisieren, einen Krisenplan zu schärfen und als Angehörige durchzuatmen. Viele Familien berichten, dass die Zeit <em>nach</em> einem gut begleiteten Aufenthalt stabiler war als die Monate davor.</p>
+
+    </div>
+  </details>
+
   <!-- TAKEAWAYS -->
   <div class="takeaways reveal">
     <div class="takeaways-inner">
@@ -578,19 +624,25 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
       <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Fehlende Einsicht verändert die Gesprächslage</strong> — nicht alles scheitert an fehlendem guten Willen. Das macht Ihre Belastung nicht kleiner, aber die Situation klarer.</p></div>
       <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Grenzen schützen eher, als dass sie bestrafen</strong> — wenn sie Verhalten benennen, Konsequenzen klar machen und nicht als Drohung daherkommen.</p></div>
       <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Manche Situationen brauchen keinen besseren Satz</strong> — sondern schnelleres Handeln und den Wechsel auf den Notfallpfad.</p></div>
+      <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Ein Klinikaufenthalt ist kein Scheitern</strong> — sondern eine Chance, die Behandlung zu stabilisieren. Nutzen Sie Angehörigengespräche und bereiten Sie die Entlassung aktiv mit vor.</p></div>
     </div>
   </div>
+
+  <div class="continue-shortcut reveal"><a href="/modul/7/">Weiter zu Modul 7 →</a></div>
 
   <!-- SOURCES -->
   <div class="sources reveal">
     <button type="button" class="sources-toggle" aria-expanded="false" data-sources-toggle><span class="sources-title">Wissenschaftliche Quellen</span></button>
     <ul>
       <li><strong>Miklowitz, D. J. (2010).</strong> <em>The Bipolar Disorder Survival Guide</em> (2. Aufl.). Guilford Press.</li>
-      <li><strong>Colom, F. & Vieta, E. (2006).</strong> <em>Psychoeducation Manual for Bipolar Disorder.</em> Cambridge University Press.</li>
+      <li><strong>Colom, F. &amp; Vieta, E. (2006).</strong> <em>Psychoeducation Manual for Bipolar Disorder.</em> Cambridge University Press.</li>
       <li><strong>Perlick, D. A. et al. (2007).</strong> Caregiver burden and health in bipolar disorder. <em>Bipolar Disorders, 9</em>(3), 262–273.</li>
-      <li><strong>Lazarus, R. S. & Folkman, S. (1984).</strong> <em>Stress, Appraisal, and Coping.</em> Springer.</li>
+      <li><strong>Lazarus, R. S. &amp; Folkman, S. (1984).</strong> <em>Stress, Appraisal, and Coping.</em> Springer.</li>
       <li><strong>Dazzi, T. et al. (2014).</strong> Does asking about suicide induce suicidal ideation? <em>Psychological Medicine, 44</em>(16), 3361–3363.</li>
       <li><strong>Varga, M. et al. (2006).</strong> Insight and bipolar disorder. <em>Bipolar Disorders, 8</em>(5), 564–575.</li>
+      <li><strong>Miklowitz, D. J. &amp; Gitlin, M. J. (2024).</strong> Practical psychosocial management for patients with bipolar disorder. <em>American J of Psychotherapy, 78</em>(2), 81–87.</li>
+      <li><strong>Afonso, C. I. C. et al. (2025).</strong> Application of a telephone program for informal caregivers of patients with bipolar disease. <em>J Clinical Medicine, 14</em>(22).</li>
+      <li><strong>Fidan, Y. S. et al. (2025).</strong> The relationship between sleep quality and prodromal symptoms in euthymic patients with bipolar disorder. <em>Noro Psikiyatri Arsivi, 63</em>, 270–276.</li>
     </ul>
   </div>
 
@@ -604,7 +656,8 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
       <a href="/handouts/c5_depression.pdf" target="_blank" rel="noopener" class="handout-card"><div class="handout-icon green">PDF</div><div><div class="handout-card-title">Umgang mit Depression</div><div class="handout-card-sub">Situationen + Antworten</div></div></a>
       <a href="/handouts/c2_suizidgedanken.pdf" target="_blank" rel="noopener" class="handout-card"><div class="handout-icon red">PDF</div><div><div class="handout-card-title">Umgang mit Suizidgedanken</div><div class="handout-card-sub">Ansprechen rettet Leben</div></div></a>
       <a href="/handouts/rechtliche_orientierung.pdf" target="_blank" rel="noopener" class="handout-card"><div class="handout-icon green">PDF</div><div><div class="handout-card-title">Rechtliche Orientierung</div><div class="handout-card-sub">FU, KESB, Vorsorgeauftrag</div></div></a>
-      <a href="/handout-drafts/brief-an-betroffene/" target="_blank" rel="noopener" class="handout-card"><div class="handout-icon green">Brief</div><div><div class="handout-card-title">Brief an Betroffene</div><div class="handout-card-sub">Was Angehörige durchmachen — zum Weitergeben</div></div></a>
+      <a href="/handouts/brief-an-betroffene.pdf" target="_blank" rel="noopener" class="handout-card"><div class="handout-icon green">PDF</div><div><div class="handout-card-title">Brief an Betroffene</div><div class="handout-card-sub">Was Angehörige durchmachen — zum Weitergeben</div></div></a>
+      <a href="/handout-drafts/brief-an-betroffene/" target="_blank" rel="noopener" class="handout-card"><div class="handout-icon green">Web</div><div><div class="handout-card-title">Brief an Betroffene — Webansicht</div><div class="handout-card-sub">Online lesen ohne Download</div></div></a>
     </div>
   </div>
 

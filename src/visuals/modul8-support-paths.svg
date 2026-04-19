@@ -2,7 +2,7 @@
   <title id="title">Orientierung nach Zweck</title>
   <desc id="desc">Eine zentrale Frage führt zu fünf Wegen: Krise, Erschöpfung, Austausch, Recht und Familie.</desc>
   <rect width="720" height="420" rx="28" fill="#FAFAF7"/>
-  <rect x="250" y="38" width="220" height="92" rx="24" fill="#1C2B3A"/>
+  <rect x="250" y="38" width="220" height="92" rx="24" fill="#7a6f66"/>
   <text x="360" y="76" text-anchor="middle" fill="white" font-family="DM Serif Display, serif" font-size="25" font-weight="700">Was drängt</text>
   <text x="360" y="104" text-anchor="middle" fill="#D8E8EA" font-family="DM Sans, sans-serif" font-size="15">gerade am meisten?</text>
 
@@ -27,7 +27,7 @@
   <text x="284" y="302" text-anchor="middle" fill="#475569" font-family="DM Sans, sans-serif" font-size="13">Beratung, Selbsthilfe,</text>
   <text x="284" y="321" text-anchor="middle" fill="#475569" font-family="DM Sans, sans-serif" font-size="13">eigene Entlastung</text>
 
-  <text x="360" y="278" text-anchor="middle" fill="#1E656D" font-family="DM Sans, sans-serif" font-size="16" font-weight="700">Austausch</text>
+  <text x="360" y="278" text-anchor="middle" fill="#3a9aa3" font-family="DM Sans, sans-serif" font-size="16" font-weight="700">Austausch</text>
   <text x="360" y="302" text-anchor="middle" fill="#475569" font-family="DM Sans, sans-serif" font-size="13">VASK, Gruppen,</text>
   <text x="360" y="321" text-anchor="middle" fill="#475569" font-family="DM Sans, sans-serif" font-size="13">Menschen mit Erfahrung</text>
 

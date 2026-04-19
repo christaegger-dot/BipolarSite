@@ -8,87 +8,13 @@ useNavJS: true
 useModuleCSS: true
 moduleAccent: "2"
 footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
+breadcrumbs:
+  - name: "Module"
+    url: "/module/"
+  - name: "Modul 2: Was das mit Ihnen macht"
+    url: "/modul/2/"
 ---
-{% block headCSS %}
-<style>
-  /* Module-specific styles only — shared styles in module.css */
-
-  /* CHART BAR */
-  .bar-chart { margin: 32px 0 20px; }
-  .bar-item { margin-bottom: 16px; }
-  .bar-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
-  .bar-label { font-size: 0.88rem; color: var(--slate); line-height: 1.35; }
-  .bar-pct { font-size: 0.82rem; font-weight: 700; color: var(--teal-dark); font-variant-numeric: tabular-nums; }
-  .bar-pct.warm-text { color: var(--amber-phase); }
-  .bar-track { width: 100%; height: 12px; background: var(--green-bg); border-radius:var(--radius-pill); overflow: hidden; }
-  .bar-fill { height: 100%; border-radius:var(--radius-pill); transition: width 1.2s cubic-bezier(0.25,0.46,0.45,0.94); width: 0%; }
-  .bar-fill.sage { background: linear-gradient(90deg, var(--teal), var(--teal)); }
-  .bar-fill.warm { background: linear-gradient(90deg, var(--sand), var(--amber-phase)); }
-  .bar-caption { font-size: 0.78rem; color: var(--text-soft); margin-top: 12px; line-height: 1.5; }
-
-  /* EISBERG */
-  .eisberg-section { background: white; border: 1px solid var(--border-warm); border-radius: var(--radius-md); padding: 36px; margin: 40px 0; box-shadow: var(--shadow-soft); }
-  .eisberg-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 24px 0; border-radius: var(--radius-md); overflow: hidden; }
-  .eisberg-top { background: var(--green-bg); padding: 28px; border-bottom: 2px dashed var(--teal-light); }
-  .eisberg-bottom { background: var(--blue-phase-light); padding: 28px; }
-  .eisberg-top, .eisberg-bottom { grid-column: 1 / -1; }
-  .eisberg-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; }
-  .eisberg-top .eisberg-label { color: var(--teal); }
-  .eisberg-bottom .eisberg-label { color: var(--blue-phase); }
-  .eisberg-items { display: flex; flex-wrap: wrap; gap: 8px; }
-  .eisberg-tag { font-size: 0.82rem; padding: 6px 14px; border-radius:var(--radius-pill); font-weight: 500; }
-  .eisberg-top .eisberg-tag { background: var(--teal-border); color: var(--navy); }
-  .eisberg-bottom .eisberg-tag { background: rgba(91,127,165,0.15); color: var(--blue-phase); }
-
-  /* CYCLE DIAGRAM */
-  .cycle-section { background: white; border: 1px solid var(--border-warm); border-radius: var(--radius-md); padding: 36px; margin: 40px 0; box-shadow: var(--shadow-soft); }
-  .cycle-svg-wrap { max-width: 380px; margin: 0 auto 28px; }
-  .cycle-svg-wrap svg { width: 100%; height: auto; display: block; }
-  .cycle-steps { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 0 0 16px; }
-  .cycle-step { padding: 18px; border-radius: var(--radius-sm); }
-  .cycle-step-num { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
-  .cycle-step p { font-size: 0.84rem; line-height: 1.55; margin: 0; }
-  .cycle-step.step-1 { background: var(--amber-phase-light); }
-  .cycle-step.step-1 .cycle-step-num { color: var(--amber-phase); }
-  .cycle-step.step-1 p { color: #B45309; }
-  .cycle-step.step-2 { background: #fef2f0; }
-  .cycle-step.step-2 .cycle-step-num { color: var(--alert-red); }
-  .cycle-step.step-2 p { color: #9A3412; }
-  .cycle-step.step-3 { background: var(--blue-phase-light); }
-  .cycle-step.step-3 .cycle-step-num { color: var(--blue-phase); }
-  .cycle-step.step-3 p { color: #475569; }
-  .cycle-step.step-4 { background: var(--green-bg); }
-  .cycle-step.step-4 .cycle-step-num { color: var(--teal); }
-  .cycle-step.step-4 p { color: var(--navy); }
-  .cycle-note { background: var(--green-bg); border-radius: var(--radius-sm); padding: 16px 20px; margin-top: 16px; font-size: 0.88rem; color: var(--navy); }
-
-  /* DO / DONT */
-  .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 28px 0; }
-  .do-col, .dont-col { border-radius: var(--radius-md); padding: 24px; }
-  .do-col { background: var(--green-bg); border: 1px solid var(--teal-border); }
-  .dont-col { background: #fef8f7; border: 1px solid var(--alert-red-border); }
-  .do-col h4, .dont-col h4 { font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 14px; }
-  .do-col h4 { color: var(--teal-dark); }
-  .dont-col h4 { color: var(--alert-red); }
-  .do-col ul, .dont-col ul { list-style: none; }
-  .do-col li, .dont-col li { font-size: 0.88rem; padding: 6px 0 6px 20px; position: relative; line-height: 1.55; }
-  .do-col li { color: var(--navy); }
-  .dont-col li { color: #9A3412; }
-  .do-col li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
-  .dont-col li::before { content: '✗'; position: absolute; left: 0; color: var(--alert-red); font-weight: 700; }
-
-  /* PAUSE BOX */
-  .pause-box { background: var(--surface-warm); border-radius: var(--radius-md); padding: 24px 28px; margin: 32px 0; text-align: center; }
-  .pause-box p { font-size: 0.92rem; color: var(--slate); margin: 0; }
-
-  /* RESPONSIVE */
-  @media (max-width: 768px) {
-    .do-dont { grid-template-columns: 1fr; }
-    .cycle-steps { grid-template-columns: 1fr; }
-    .eisberg-visual { grid-template-columns: 1fr; }
-  }
-</style>
-{% endblock %}
+{% block headCSS %}<!-- Module 2 styles migrated to module.css (P2.3) -->{% endblock %}
 {% block nav %}
 {% include "nav-full.njk" %}
 {% endblock %}
@@ -99,7 +25,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 <header class="module-hero">
   <div class="module-hero-inner">
     <div class="breadcrumb">
-      <a href="/">Startseite</a><span>›</span><a href="/module/">Module</a><span>›</span><span>Was das mit Ihnen macht</span>
+      <a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><a href="/module/">Module</a><span class="sep" aria-hidden="true">›</span><span>Was das mit Ihnen macht</span>
     </div>
     <svg class="hero-icon" aria-hidden="true" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="2" y1="18" x2="38" y2="18" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.5"/><polygon points="20,4 28,16 12,16" fill="currentColor" opacity="0.3"/><polygon points="14,20 26,20 30,34 10,34" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="1.5"/></svg>
     <div class="module-badge">Modul 2 / 8</div>
@@ -257,8 +183,8 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
         <polygon points="220,94 206,87 208,104" fill="#0d7a5f"/>
 
         <!-- Center label -->
-        <text x="250" y="240" text-anchor="middle" font-family="DM Serif Display, serif" font-size="15" font-weight="600" fill="#1c2b3a">Chronische</text>
-        <text x="250" y="260" text-anchor="middle" font-family="DM Serif Display, serif" font-size="15" font-weight="600" fill="#1c2b3a">Anspannung</text>
+        <text x="250" y="240" text-anchor="middle" font-family="DM Serif Display, serif" font-size="15" font-weight="400" fill="#7a6f66">Chronische</text>
+        <text x="250" y="260" text-anchor="middle" font-family="DM Serif Display, serif" font-size="15" font-weight="400" fill="#7a6f66">Anspannung</text>
         <text x="250" y="282" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10.5" fill="#94a3b8">↻ selbstverstärkend</text>
 
         <!-- Node 1: Beobachten (top) -->
@@ -279,7 +205,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
         <!-- Node 4: Erholung (left) -->
         <circle cx="85" cy="250" r="44" fill="#FAFAF7" stroke="#0d7a5f" stroke-width="2"/>
         <text x="85" y="243" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="700" fill="#0d7a5f">4</text>
-        <text x="85" y="260" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#1c2b3a">Erholung</text>
+        <text x="85" y="260" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#7a6f66">Erholung</text>
       </svg>
     </div>
 
@@ -335,6 +261,13 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     <p>Das Behandlungsteam, der Krisenplan und die erkrankte Person selbst tragen Mitverantwortung. Klären Sie in einer ruhigen Phase gemeinsam: «Welche Veränderungen soll ich ansprechen? Wie soll ich es tun?» Was vereinbart ist, dürfen Sie ansprechen — ohne Schuldgefühle.</p>
   </div>
 
+  <div class="reveal">
+    <h3 id="eltern-perspektive">Wenn Sie Elternteil eines erwachsenen Kindes sind</h3>
+    <p>Die bisherigen Beschreibungen — Hypervigilanz, Eisberg, Daueranspannung — treffen auf alle Angehörigen zu. Für Eltern erwachsener Kinder kommt ein spezifisches Dilemma dazu: <strong>Sie wollen schützen, aber die Person ist erwachsen.</strong> Das bedeutet: Sie haben kein Recht auf Auskunft, keinen Einfluss auf Behandlungsentscheidungen und oft wenig Einblick in den Alltag Ihres Kindes. Gleichzeitig spüren Sie die Verantwortung so stark wie damals, als Ihr Kind noch klein war.</p>
+    <p>Typisch für Eltern ist der Pendelschlag zwischen Überengagement (anrufen, kontrollieren, einspringen) und schmerzlichem Rückzug (weil die eigenen Grenzen oder die des Kindes erreicht sind). Viele Eltern tragen zusätzlich die Schuldfrage mit sich: Habe ich etwas übersehen? Liegt es an der Erziehung? Die Antwort der Forschung ist klar: Bipolare Störung ist eine neurobiologische Erkrankung — sie wird nicht durch Erziehung verursacht. Aber das Wissen nimmt nicht immer das Gefühl.</p>
+    <p class="text-soft-sm">Was Eltern erwachsener Kinder besonders hilft: Angehörigenberatung, die auch die Loslassen-Thematik adressiert, und Austausch mit anderen Eltern in derselben Situation. Die Fachstelle Angehörigenarbeit PUK Zürich ist auch für Eltern da: <a href="{{ site.tel.fachstelle.href }}">{{ site.tel.fachstelle.display }}</a>.</p>
+  </div>
+
   <!-- ══════════════════════════════════════════════════
        3. SUIZIDANGST — emotionaler Höhepunkt, vor Handlungsschritten
        ══════════════════════════════════════════════════ -->
@@ -355,11 +288,11 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
   <div class="alert-box reveal">
     <div class="alert-box-icon">⚠</div>
     <div>
-      <p><strong>Bei akuter Suizidgefahr:</strong> <a href="tel:+41800336655">0800 33 66 55</a> (Ärztefon – Notfalldienst ZH, 24/7, kostenlos). Konkrete Schritte zur Vorbereitung finden Sie in <a href="/modul/6/">Modul 6</a>. Alle Notfallnummern stehen auf der <a href="/notfall/">Notfallseite →</a></p>
+      <p><strong>Bei akuter Suizidgefahr:</strong> <a href="{{ site.tel.aerztefon.href }}">{{ site.tel.aerztefon.display }}</a> (Ärztefon – Notfalldienst ZH, 24/7, kostenlos). Konkrete Schritte zur Vorbereitung finden Sie in <a href="/modul/6/">Modul 6</a>. Alle Notfallnummern stehen auf der <a href="/notfall/">Notfallseite →</a></p>
     </div>
   </div>
 
-  <p class="reveal bright-moment" style="font-weight: 500;">Wichtig zu wissen: Konsequente Behandlung — insbesondere mit Lithium — senkt das Suizidrisiko nachweislich. Die Erkrankung ist behandelbar, und Behandlung kann deutlich entlasten.</p>
+  <p class="reveal bright-moment">Wichtig zu wissen: Konsequente Behandlung — insbesondere mit Lithium — senkt das Suizidrisiko nachweislich. Die Erkrankung ist behandelbar, und Behandlung kann deutlich entlasten.</p>
 
   <div class="pause-box reveal">
     <p><strong>Atmen Sie durch.</strong> Was Sie gerade gelesen haben, ist schwer. Wenn Sie eine Pause brauchen, machen Sie eine. Dieses Modul wartet auf Sie.</p>
@@ -418,6 +351,8 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     </div>
   </div>
 
+  <div class="continue-shortcut reveal"><a href="/modul/3/">Weiter zu Modul 3 →</a></div>
+
   <!-- SOURCES -->
   <div class="sources reveal">
     <button type="button" class="sources-toggle" aria-expanded="false" data-sources-toggle><span class="sources-title">Wissenschaftliche Quellen</span></button>
@@ -425,9 +360,12 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
       <li><strong>Perlick, D. A. et al. (2007).</strong> Caregiver burden and health in bipolar disorder. <em>Bipolar Disorders, 9</em>(3), 262–273.</li>
       <li><strong>Schmid, R. et al. (2005).</strong> Burden of care and needs for support. <em>Psychiatric Praxis, 32</em>(6), 305–312.</li>
       <li><strong>Möller-Leimkühler, A. M. (2005).</strong> Burden of relatives and predictors of burden. <em>European Archives of Psychiatry and Clinical Neuroscience, 255</em>(4), 223–231.</li>
-      <li><strong>Maurin, J. T. & Boyd, C. B. (1990).</strong> Burden of mental illness on the family. <em>Archives of Psychiatric Nursing, 4</em>(2), 99–107.</li>
-      <li><strong>Berk, L. et al. (2017).</strong> The experience of caring for a family member with bipolar disorder. In: Yatham & Maj (Eds.), <em>Bipolar Disorder: Clinical and Neurobiological Foundations.</em></li>
+      <li><strong>Maurin, J. T. &amp; Boyd, C. B. (1990).</strong> Burden of mental illness on the family. <em>Archives of Psychiatric Nursing, 4</em>(2), 99–107.</li>
+      <li><strong>Berk, L. et al. (2017).</strong> The experience of caring for a family member with bipolar disorder. In: Yatham &amp; Maj (Eds.), <em>Bipolar Disorder: Clinical and Neurobiological Foundations.</em></li>
       <li><strong>Perlick, D. A. et al. (2016).</strong> Caregiver burden as a predictor of depression. <em>Bipolar Disorders, 18</em>(2), 183–191.</li>
+      <li><strong>Umer, M. et al. (2025).</strong> Mapping global evidence of caregiver experiences in bipolar disorder: a scoping review. <em>J Affective Disorders, 374</em>, 191–215.</li>
+      <li><strong>Stokholm, J. R. et al. (2025).</strong> Becoming diplomats with boundaries — relatives' experiences with group-based psychoeducation about bipolar disorder. <em>BMC Psychiatry, 25</em>(1), 843.</li>
+      <li><strong>Karimi, N. (2025).</strong> Caregiver psychological distress in psychiatric inpatient settings. <em>Annals of Medicine and Surgery, 88</em>(2), 1318–1323.</li>
     </ul>
   </div>
 

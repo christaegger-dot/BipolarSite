@@ -1,0 +1,168 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   PRINT STYLESHEET — BipolarSite
+   ───────────────────────────────────────────────────────────────────────
+   Loaded via media="print" — only applies when printing.
+   Medical information site: prioritise readable, ink-friendly output.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@media print {
+
+  /* ── Hide non-content chrome ── */
+  #navbar,
+  nav,
+  .nav-toggle,
+  .tool-nav,
+  footer,
+  .skip-link,
+  .scroll-top,
+  .cookie-banner,
+  .hero-badge,
+  .module-badge,
+  .reading-progress,
+  .toc-sidebar,
+  .quick-triage,
+  .triage-question,
+  .triage-btn,
+  .triage-result,
+  .triage-restart {
+    display: none !important;
+  }
+
+  /* ── Base typography ── */
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 11pt;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+  }
+
+  body::before {
+    display: none !important;
+  }
+
+  /* ── Reset backgrounds & shadows ── */
+  main,
+  .content,
+  .module-card,
+  .quick-card,
+  .sit-card,
+  .number-card,
+  .guide,
+  .next-module,
+  .treatment-card,
+  .handout-card,
+  .alert-box,
+  .quote-block,
+  .reflection-block,
+  .toc {
+    background: #fff !important;
+    box-shadow: none !important;
+  }
+
+  /* ── Hero sections — white for ink savings ── */
+  .hero,
+  .module-hero {
+    background: white !important;
+    padding: 24pt 0 !important;
+  }
+
+  .module-hero::before {
+    display: none !important;
+  }
+
+  /* ── Takeaways — light gray background ── */
+  .key-takeaways,
+  .takeaways {
+    background: #f0f0f0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    page-break-inside: avoid;
+  }
+
+  /* ── Typography ── */
+  h1, h2, h3, h4 {
+    color: #000 !important;
+    page-break-after: avoid;
+  }
+
+  p, li, blockquote {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* ── Reveal hidden content ── */
+  .reveal,
+  .no-js .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* ── Cards — border instead of shadow ── */
+  .card,
+  .module-card,
+  .quick-card,
+  .sit-card,
+  .guide,
+  .alert-box,
+  .action-card,
+  .tool-chip {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+    page-break-inside: avoid;
+  }
+
+  /* ── Images & media ── */
+  img, figure, .iceberg, .chart-wrap {
+    page-break-inside: avoid;
+    max-width: 100% !important;
+  }
+
+  /* ── Show link URLs (external only) ── */
+  .content a[href^="http"]::after,
+  main a[href^="http"]::after,
+  .content a[href^="tel:"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    font-weight: normal;
+    color: #555;
+    word-break: break-all;
+  }
+
+  /* Don't annotate internal or anchor links */
+  a[href^="#"]::after,
+  a[href^="/"]::after,
+  .nav-links a::after {
+    content: none !important;
+  }
+
+  /* ── Key content — avoid page breaks ── */
+  .reflection,
+  .takeaways,
+  .alert-box,
+  .module-summary {
+    page-break-inside: avoid;
+  }
+
+  /* ── Form fields (Krisenplan etc.) ── */
+  .field textarea,
+  .field input {
+    border: 1px solid #999 !important;
+    background: white !important;
+    padding: 4pt 6pt;
+    min-height: auto;
+    font-size: 10pt;
+  }
+
+  .field label {
+    font-weight: 700;
+    font-size: 10pt;
+    color: #000 !important;
+  }
+
+  /* ── Page margins ── */
+  @page {
+    margin: 2cm;
+  }
+}

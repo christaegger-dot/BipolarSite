@@ -4,128 +4,15 @@ title: "Werkzeuge im Überblick | PUK Zürich"
 description: "Alle interaktiven Werkzeuge für Angehörige von Menschen mit bipolarer Störung im Überblick: von Selbsttest bis Krisenplan."
 permalink: "/werkzeuge/"
 navCurrent: "tools-overview"
+bodyClass: "werkzeuge-page"
 useSharedCSS: true
 useNavJS: true
 footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
+breadcrumbs:
+  - name: "Werkzeuge"
+    url: "/werkzeuge/"
 ---
-{% block headCSS %}
-<style>
-  /* ── Page-specific: decorative blobs + colors ── */
-  .overview-hero::before {
-    top: -24%; right: -10%; width: 640px; height: 640px;
-    background: radial-gradient(circle, rgba(217,236,236,0.7) 0%, transparent 72%);
-    opacity: 0.82;
-  }
-  .overview-hero::after {
-    bottom: -16%; left: -5%; width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(221,210,191,0.72) 0%, transparent 72%);
-    opacity: 0.76;
-  }
-  .overview-badge { background: rgba(217,236,236,0.42); color: var(--navy-mid); }
-  .overview-intro { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .overview-note { background: linear-gradient(180deg, #fff 0%, #f8fbfb 100%); }
-
-  /* ── Situativer Guide ── */
-  .tool-guide { margin: 0 auto 48px; }
-  .tool-guide h2 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.25rem; font-weight: 400;
-    color: var(--navy); margin: 0 0 16px;
-  }
-  .tool-guide-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-  }
-  .tool-guide-item {
-    display: flex; flex-direction: column; gap: 4px;
-    padding: 16px 18px; border-radius: var(--radius-sm);
-    background: white; border: 1px solid var(--border-warm);
-    text-decoration: none; color: var(--text);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  }
-  .tool-guide-item:hover {
-    border-color: var(--teal-border);
-    box-shadow: var(--shadow-soft);
-  }
-  .tool-guide-item strong {
-    font-size: var(--text-base); font-weight: 600; color: var(--navy);
-  }
-  .tool-guide-item span {
-    font-size: var(--text-sm); color: var(--navy-mid); font-weight: 600;
-  }
-  .tool-guide-item--alert {
-    border-color: var(--alert-red-border);
-    background: var(--alert-red-bg);
-  }
-  .tool-guide-item--alert strong { color: var(--alert-red); }
-  .tool-guide-item--alert span { color: var(--alert-red); }
-  @media (max-width: 900px) { .tool-guide-grid { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 480px) { .tool-guide-grid { grid-template-columns: 1fr; } }
-
-  /* ── Tool grid + cards ── */
-  .tool-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
-  }
-  .tool-card {
-    display: block;
-    background: linear-gradient(180deg, #fff 0%, #f8fbfb 100%);
-    border: 1px solid var(--border-warm-md);
-    border-radius:var(--radius-lg);
-    box-shadow: var(--shadow-soft);
-    padding: 24px 26px;
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-  }
-  .tool-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-card);
-    border-color: rgba(30,101,109,0.2);
-  }
-  .tool-card-kicker {
-    font-size: 0.74rem; font-weight: 700; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--navy-mid); margin-bottom: 10px; display: block;
-  }
-  .tool-card h3 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.25rem; line-height: 1.25; color: var(--navy); margin: 0 0 10px;
-  }
-  .tool-card p { margin: 0; font-size: 0.95rem; line-height: 1.7; color: var(--slate); }
-  .tool-card-footer {
-    display: flex; align-items: center; justify-content: space-between; gap: 16px;
-    margin-top: 18px; padding-top: 14px;
-    border-top: 1px solid var(--border-warm-md);
-    color: var(--text-soft); font-size: 0.82rem; font-weight: 600;
-  }
-  .tool-card-arrow { color: var(--teal); font-size: 1rem; }
-
-  /* ── Collapsible tool grid ── */
-  .tool-details { margin: 12px 0 0; }
-  .tool-details-summary {
-    display: flex; align-items: center; gap: 8px; cursor: pointer;
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.15rem; font-weight: 400; color: var(--navy);
-    padding: 14px 0; list-style: none;
-  }
-  .tool-details-summary::-webkit-details-marker { display: none; }
-  .tool-details-summary::after {
-    content: '▸'; margin-left: 8px;
-    transition: transform 0.2s ease; font-size: 0.8rem; color: var(--teal);
-  }
-  .tool-details[open] .tool-details-summary::after { transform: rotate(90deg); }
-  .tool-details .tool-grid { margin-top: 16px; }
-
-  @media (max-width: 900px) {
-    .tool-grid { grid-template-columns: 1fr; }
-  }
-  @media (max-width: 600px) {
-    .tool-card { padding: 20px 18px; }
-  }
-</style>
-{% endblock %}
+{% block headCSS %}<!-- Werkzeuge styles migrated to shared.css -->{% endblock %}
 
 {% block nav %}
 {% include "nav-full.njk" %}
@@ -134,7 +21,7 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 {% block content %}
 <header class="overview-hero">
   <div class="overview-hero-inner">
-    <div class="overview-breadcrumb"><a href="/">Startseite</a><span>›</span><span>Werkzeuge</span></div>
+    <div class="breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><span>Werkzeuge</span></div>
     <div class="overview-badge">Interaktiv</div>
     <h1>Werkzeuge im Überblick</h1>
     <p class="overview-lead">Hier finden Sie alle interaktiven Hilfen an einem Ort. Die Werkzeuge sind dafür gedacht, Muster sichtbarer zu machen, Gespräche vorzubereiten und konkrete nächste Schritte leichter festzuhalten.</p>
@@ -172,8 +59,8 @@ footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
     </div>
   </div>
 
-  <details class="tool-details">
-    <summary class="tool-details-summary">Alle Werkzeuge im Detail anzeigen</summary>
+  <details class="tool-details" open>
+    <summary class="tool-details-summary">Alle Werkzeuge im Detail</summary>
     <div class="tool-grid">
       <a href="/tools/selbsttest/" class="tool-card">
         <span class="tool-card-kicker">Einordnung</span>

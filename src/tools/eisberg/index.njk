@@ -8,66 +8,21 @@ toolBackLabel: "Zurück zu Modul 2"
 useSharedCSS: true
 useNavJS: false
 useToolCSS: true
+breadcrumbs:
+  - name: "Werkzeuge"
+    url: "/werkzeuge/"
+  - name: "Eisberg-Modell"
+    url: "/tools/eisberg/"
 ---
-{% block headCSS %}
-<style>
-body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min-height:100vh;display:flex;flex-direction:column;align-items:center;-webkit-font-smoothing:antialiased}
-.tool-wrap{width:100%;max-width:560px;padding:32px 20px 48px;flex:1}
-.tool-header{text-align:center;margin-bottom:28px;background:linear-gradient(180deg,rgba(255,255,255,0.94),rgba(247,250,251,0.88));border:1px solid var(--border-warm-md);border-radius:var(--radius-lg);padding:26px 24px 24px;box-shadow:0 16px 40px rgba(28,43,58,0.08);position:relative;overflow:hidden}
-.tool-header::before{content:'';position:absolute;top:-34px;right:-22px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle, rgba(141,212,217,0.3) 0%, transparent 68%)}
-.tool-header h1{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.4rem,3.5vw,1.75rem);font-weight:700;color:#2a211b;margin:0 0 8px;letter-spacing:-0.02em}
-.tool-header p{font-size:0.88rem;color:#475569;line-height:1.65;max-width:42ch;margin:0 auto}
-.iceberg{width:100%;border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 14px 36px rgba(28,43,58,0.08);border:1px solid var(--border-warm-md)}
-.ice-above{background:linear-gradient(180deg,#FAFAF7,#eef3f8);padding:24px 20px 32px}
-.ice-lbl{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;text-align:center;margin-bottom:16px}
-.ice-lbl-a{color:var(--blue-phase)}.ice-lbl-b{color:rgba(255,255,255,0.5)}
-.ice-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
-.ice-wl{height:4px;background:linear-gradient(90deg,transparent,var(--blue-phase) 20%,var(--blue-phase) 80%,transparent);opacity:0.3;position:relative}
-.ice-wl span{position:absolute;left:50%;top:-10px;transform:translateX(-50%);background:#eef3f8;border:1px solid #c5d5e8;border-radius:var(--radius-pill);padding:2px 14px;font-size:0.6rem;font-weight:700;color:var(--blue-phase);letter-spacing:0.06em;white-space:nowrap}
-.ice-below{background:linear-gradient(180deg,var(--ice-deep),var(--ice-deeper));padding:36px 20px 28px}
-.tag{padding:8px 16px;border-radius:var(--radius-sm);font-size:0.8rem;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background-color 0.25s ease,color 0.25s ease,border-color 0.25s ease;-webkit-appearance:none;line-height:1.3}
-.tv{background:#fff;color:#475569;border:1px solid #c5d5e8;font-weight:600;animation:gf 4s ease-in-out infinite}
-.tv.on{background:var(--blue-phase);color:#fff;border:2px solid var(--blue-phase)}
-.ti{font-weight:500;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.65);border:1px solid rgba(255,255,255,0.4)}
-.ti.rev{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);border-color:rgba(255,255,255,0.35)}
-.ti.on{background:rgba(255,255,255,0.2);color:rgba(255,255,255,0.95);border:2px solid rgba(255,255,255,0.7);font-weight:700}
-.ctr{text-align:center;margin-top:20px;font-size:0.75rem;color:rgba(255,255,255,0.65)}
-#dp{width:100%;margin-top:16px;transition:background-color 0.3s ease,opacity 0.3s ease,border-color 0.3s ease}
-#dp.hide{opacity:0;transform:translateY(8px);pointer-events:none;max-height:0;overflow:hidden;margin:0}
-.dc{border-radius:var(--radius-lg);padding:24px 28px}
-.dcl{background:#fff;border:1px solid #c5d5e8;box-shadow:0 4px 20px var(--border-warm-md)}
-.dcd{background:var(--ice-deep);border:1px solid rgba(255,255,255,0.12);box-shadow:0 8px 32px rgba(0,0,0,0.3)}
-.dlbl{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.45);margin-bottom:10px}
-.dc h2{font-family:'DM Serif Display',Georgia,serif;font-size:1.06rem;font-weight:700;margin:0 0 10px}
-.dc p{font-size:0.93rem;line-height:1.7;margin:0}
-.dcl h2{color:var(--navy)}.dcl p{color:var(--slate)}
-.dcd h2{color:rgba(255,255,255,0.9)}.dcd p{color:rgba(255,255,255,0.75)}
-.refl{width:100%;margin-top:20px;background:linear-gradient(135deg,#FAFAF7,#FAFAF7);border-radius:var(--radius-lg);padding:24px 28px;display:none}
-.refl.vis{display:block}
-.refl-lbl{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--teal);margin-bottom:10px}
-.refl h2{font-family:'DM Serif Display',Georgia,serif;font-size:1rem;font-weight:600;color:#3d3128;line-height:1.45;margin:0 0 10px}
-.refl p{font-size:0.85rem;color:var(--slate);line-height:1.65;margin:0}
-.tf{text-align:center;font-size:0.68rem;color:var(--teal-light);margin-top:32px;line-height:1.5}
-@keyframes gf{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
-@media(prefers-reduced-motion:reduce){.tv{animation:none}*{transition-duration:0.01ms!important}}
-@media(max-width:480px){
-  .tool-wrap{padding:20px 14px 36px}
-  .ice-above{padding:16px 14px 24px}
-  .ice-below{padding:24px 14px 20px}
-  .dc{padding:16px}
-  .refl{padding:16px}
-  .tag{padding:6px 12px;font-size:0.75rem}
-}
-</style>
-{% endblock %}
+{% block headCSS %}<!-- Eisberg styles migrated to tools.css (P2.4) -->{% endblock %}
 {% block nav %}
 {% include "nav-tool.njk" %}
 {% endblock %}
 {% block content %}
 <main class="tool-wrap" id="main-content">
   <div class="tool-header">
-<div class="tool-breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><a href="{{ toolBackHref }}">{{ toolBackLabel | replace("Zurück zu ", "") }}</a><span class="sep" aria-hidden="true">›</span><span>Der Eisberg der Angehörigen</span></div>
-<div class="tool-glyph" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 15L20 6L31 15V18H9V15Z" fill="#A8E4E8"/><path d="M11 20H29L24 32H16L11 20Z" fill="#EAF4FB"/><path d="M16 32L20 38L24 32" fill="#1E656D"/></svg></div><div class="tool-badge">Modul 2 — Interaktiv</div><h1>Der Eisberg der Angehörigen</h1><p>Was die Welt sieht — und was darunter liegt. Klicken Sie auf die Begriffe.</p></div>
+<div class="breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><a href="/werkzeuge/">Werkzeuge</a><span class="sep" aria-hidden="true">›</span><span>Der Eisberg der Angehörigen</span></div>
+<div class="tool-glyph" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 15L20 6L31 15V18H9V15Z" fill="var(--teal-light)"/><path d="M11 20H29L24 32H16L11 20Z" fill="var(--sand-faint)"/><path d="M16 32L20 38L24 32" fill="var(--teal-solid)"/></svg></div><h1>Der Eisberg der Angehörigen</h1><p>Was die Welt sieht — und was darunter liegt. Klicken Sie auf die Begriffe.</p></div>
   <div class="iceberg">
     <div class="ice-above"><div class="ice-lbl ice-lbl-a">Was die Welt sieht</div><div class="ice-tags" id="tv"></div></div>
     <div class="ice-wl"><span>~~~~ Wasserlinie ~~~~</span></div>
@@ -76,9 +31,9 @@ body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--bg);min
   <div id="dp" class="hide"><div class="dc" id="dc" aria-live="polite" aria-atomic="true"></div></div>
   <div class="refl" id="refl"><div class="refl-lbl">Reflexion</div><h2>Welcher Eisberg-Punkt hat Sie am meisten berührt?</h2><p>Vielleicht ist das der Punkt, über den es sich lohnt, mit jemandem zu sprechen — einer Vertrauensperson, einer Fachstelle, oder in einer Angehörigengruppe.</p></div>
   <noscript>
-    <div style="padding:20px 24px;background:var(--surface-warm);border-radius:var(--radius-md);margin:20px 0;font-family:'DM Sans',sans-serif">
-      <p style="font-weight:600;margin:0 0 8px">Dieses Werkzeug benötigt JavaScript.</p>
-      <p style="margin:0">Die Inhalte des Eisberg-Modells finden Sie auch in <a href="/modul/2/" style="color:var(--teal);font-weight:600">Modul 2</a>.</p>
+    <div class="noscript-box">
+      <p>Dieses Werkzeug benötigt JavaScript.</p>
+      <p>Die Inhalte des Eisberg-Modells finden Sie auch in <a href="/modul/2/">Modul 2</a>.</p>
     </div>
   </noscript>
 </main>
@@ -95,7 +50,6 @@ const A=[...V,...I];let aid=null;const rev=new Set();
 const AMap=new Map(A.map(i=>[i.id,i]));
 const ISet=new Set(I.map(i=>i.id));
 // Pre-compute animation delays once so they don't re-randomise on every render
-const Vdelays=V.map(()=>(Math.random()*2).toFixed(1));
 // Cache DOM references used on every render
 const elTv=document.getElementById('tv');
 const elTi=document.getElementById('ti');
@@ -105,7 +59,7 @@ const elDc=document.getElementById('dc');
 const elRefl=document.getElementById('refl');
 function ck(id){aid=aid===id?null:id;rev.add(id);rn();}
 function rn(){
-  elTv.innerHTML=V.map((i,idx)=>`<button class="tag tv${aid===i.id?' on':''}" data-id="${i.id}" style="animation-delay:${Vdelays[idx]}s">${i.l}</button>`).join('');
+  elTv.innerHTML=V.map((i,idx)=>`<button class="tag tv${aid===i.id?' on':''}" data-id="${i.id}">${i.l}</button>`).join('');
   elTi.innerHTML=I.map(i=>{let c='tag ti';if(aid===i.id)c+=' on';else if(rev.has(i.id))c+=' rev';return`<button class="${c}" data-id="${i.id}">${i.l}</button>`}).join('');
   const rc=[...rev].filter(id=>ISet.has(id)).length;
   elCtr.textContent=rc>0?`${rc} von ${I.length} aufgedeckt`:'';

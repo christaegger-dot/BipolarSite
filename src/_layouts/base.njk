@@ -7,7 +7,8 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta name="theme-color" content="#1c2b3a">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#7a6f66">
 <meta name="description" content="{{ description }}">
 <title>{{ title }}</title>
 {% if canonical %}<link rel="canonical" href="{{ canonical }}">
@@ -34,7 +35,7 @@
 {% if useModuleCSS %}<link rel="stylesheet" href="/css/module.css?v=7">{% endif %}
 {% if useToolCSS %}<link rel="stylesheet" href="/css/tools.css?v=7">{% endif %}
 {% block headCSS %}{% endblock %}
-<link rel="stylesheet" href="/css/overrides.css?v=7">
+<link rel="stylesheet" href="/css/print.css?v=7" media="print">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -43,23 +44,69 @@
       "@type": "Organization",
       "name": "Psychiatrische Universitätsklinik Zürich",
       "alternateName": "PUK Zürich",
-      "url": "{{ site.url }}"
+      "url": "{{ site.url }}",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Lenggstrasse 31",
+        "postalCode": "8032",
+        "addressLocality": "Zürich",
+        "addressCountry": "CH"
+      },
+      "telephone": "{{ site.tel.fachstelle.href | replace('tel:', '') }}",
+      "department": {
+        "@type": "Organization",
+        "name": "Fachstelle Angehörigenarbeit"
+      }
     },
     {
       "@type": "WebSite",
       "name": "Bipolare Störung — Psychoedukation für Angehörige",
       "url": "{{ site.url }}",
       "publisher": { "@type": "Organization", "name": "PUK Zürich" },
-      "inLanguage": "de"
-    }{% if useModuleCSS %},
+      "inLanguage": "de-CH"
+    }{% if useModuleCSS or useToolCSS %},
     {
       "@type": "MedicalWebPage",
       "name": "{{ title }}",
       "description": "{{ description }}",
       "url": "{{ site.url }}{{ page.url }}",
-      "inLanguage": "de",
-      "medicalAudience": { "@type": "MedicalAudience", "audienceType": "Caregiver" },
-      "publisher": { "@type": "Organization", "name": "PUK Zürich" }
+      "inLanguage": "de-CH",
+      "lastReviewed": "2026-04-06",
+      "medicalAudience": {
+        "@type": "MedicalAudience",
+        "audienceType": "Caregiver",
+        "healthCondition": {
+          "@type": "MedicalCondition",
+          "name": "Bipolare Störung",
+          "alternateName": "Bipolar Disorder",
+          "code": { "@type": "MedicalCode", "codeValue": "F31", "codingSystem": "ICD-10" }
+        }
+      },
+      "specialty": {
+        "@type": "MedicalSpecialty",
+        "name": "Psychiatry"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "PUK Zürich"
+      }
+    }{% endif %}{% if breadcrumbs %},
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Startseite",
+          "item": "{{ site.url }}/"
+        }{% for crumb in breadcrumbs %},
+        {
+          "@type": "ListItem",
+          "position": {{ loop.index + 1 }},
+          "name": "{{ crumb.name }}",
+          "item": "{{ site.url }}{{ crumb.url }}"
+        }{% endfor %}
+      ]
     }{% endif %}
   ]
 }
@@ -70,23 +117,9 @@
 {% block nav %}{% endblock %}
 {% block content %}{{ content | safe }}{% endblock %}
 {% block footer %}{% endblock %}
+<button type="button" class="back-to-top" aria-label="Zurück nach oben" id="backToTop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg></button>
 {% if useNavJS %}<script src="/js/nav.js"></script>{% endif %}
 <script>
-  try {
-    if (localStorage.getItem('puk_storage_consent') === 'true') {
-      const modulePath = window.location.pathname.match(/^\/modul\/\d+\/?$/);
-      if (modulePath) {
-        const key = 'puk_visited_modules';
-        const normalized = modulePath[0].endsWith('/') ? modulePath[0] : `${modulePath[0]}/`;
-        const visited = JSON.parse(localStorage.getItem(key) || '[]');
-        if (Array.isArray(visited) && !visited.includes(normalized)) {
-          visited.push(normalized);
-          localStorage.setItem(key, JSON.stringify(visited));
-        }
-      }
-    }
-  } catch (error) { console.warn('Storage unavailable:', error.message); }
-
   document.querySelectorAll('[data-sources-toggle]').forEach((button, index) => {
     const section = button.closest('.sources');
     const list = section ? section.querySelector('ul') : null;
@@ -119,12 +152,18 @@
       btn.className = 'toc-mobile-toggle';
       btn.setAttribute('aria-expanded', 'false');
       btn.textContent = 'Inhaltsverzeichnis anzeigen ▾';
-      toc.querySelector('.toc-title').after(btn);
+      const tocTitle = toc.querySelector('.toc-title');
+      if (!tocTitle) return;
+      tocTitle.after(btn);
       btn.addEventListener('click', () => {
         const open = ol.hidden;
         ol.hidden = !open;
         btn.setAttribute('aria-expanded', open ? 'true' : 'false');
         btn.textContent = open ? 'Inhaltsverzeichnis ausblenden ▴' : 'Inhaltsverzeichnis anzeigen ▾';
+        if (open) {
+          const firstLink = ol.querySelector('a');
+          if (firstLink) firstLink.focus();
+        }
       });
     });
   }
@@ -142,7 +181,7 @@
         const li = document.createElement('li');
         const link = document.createElement('a');
         link.href = a.getAttribute('href');
-        link.textContent = a.childNodes[0].textContent.trim();
+        link.textContent = (a.childNodes[0]?.textContent ?? a.textContent).trim();
         li.appendChild(link);
         ol.appendChild(li);
       });
@@ -165,6 +204,25 @@
     }
   }
 
+  // Back-to-top button
+  (function() {
+    const btn = document.getElementById('backToTop');
+    if (!btn) return;
+    let ticking = false;
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        window.requestAnimationFrame(function() {
+          btn.classList.toggle('visible', window.scrollY > window.innerHeight);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+
   // Expandable sections
   document.querySelectorAll('.expandable-toggle').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -178,33 +236,5 @@
   });
 </script>
 {% block scripts %}{% endblock %}
-<script>if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(regs){regs.forEach(function(r){r.unregister()})})}</script>
-{% if not noStorageBanner %}
-<div id="storageBanner" class="storage-banner" hidden role="status">
-  <span>Fortschritt lokal speichern? Keine Daten werden gesendet.</span>
-  <div class="storage-banner-btns">
-    <button type="button" id="storageAccept" class="storage-btn-accept">Ja</button>
-    <button type="button" id="storageDecline" class="storage-btn-decline">Nein</button>
-  </div>
-</div>
-<script>
-(function(){
-  try {
-    var consent = localStorage.getItem('puk_storage_consent');
-    if (consent === 'true' || consent === 'false') return;
-    var b = document.getElementById('storageBanner');
-    if (b) b.hidden = false;
-    document.getElementById('storageAccept').addEventListener('click', function(){
-      try { localStorage.setItem('puk_storage_consent', 'true'); } catch(e){}
-      b.hidden = true;
-    });
-    document.getElementById('storageDecline').addEventListener('click', function(){
-      try { localStorage.setItem('puk_storage_consent', 'false'); } catch(e){}
-      b.hidden = true;
-    });
-  } catch(e){}
-})();
-</script>
-{% endif %}
 </body>
 </html>
