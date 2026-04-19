@@ -756,9 +756,9 @@ a, button, input, select, textarea,
 .hero-tool-badge{font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.06em;display:inline-flex;align-items:center;padding:3px 10px;border-radius:var(--radius-round);color:var(--navy);background:var(--teal-subtle);width:fit-content}
 .hero-tool-card h3{font-size:var(--text-lg);line-height:1.15;letter-spacing:-0.015em}
 .hero-tool-card p{font-size:var(--text-base);color:var(--slate);line-height:1.5;flex:1}
-.hero-tool-arrow{color:var(--sand);font-size:var(--text-lg);text-align:right;transition:color 0.2s ease}
+.hero-tool-arrow{color:var(--navy-mid);font-size:var(--text-lg);text-align:right;transition:color 0.2s ease}
 .hero-tool-card:hover .hero-tool-arrow{color:var(--teal-cta)}
-.hero-tools-all-link{display:inline-block;margin-top:var(--space-lg);font-weight:600;color:var(--teal-cta);text-decoration:none;font-size:var(--text-base)}
+.hero-tools-all-link{display:inline-block;margin-top:var(--space-lg);font-weight:600;color:var(--navy-mid);text-decoration:none;font-size:var(--text-base)}
 .hero-tools-all-link:hover{text-decoration:underline}
 @media(max-width:900px){.hero-tools-grid{grid-template-columns:1fr}}
 
