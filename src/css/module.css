@@ -1033,7 +1033,7 @@ p.bright-moment {
 .guide-dont{background:var(--alert-soft);border-radius:var(--radius-md);padding:var(--space-base) var(--space-md);margin:var(--space-base) 0;font-size:var(--text-xs);color:var(--alert)}
 .guide-sos{background:var(--alert-soft);border:1px solid var(--alert-red-border);border-radius:var(--radius-md);padding:var(--space-base) var(--space-md);margin:var(--space-base) 0;font-size:var(--text-base);color:var(--alert);font-weight:600}
 .guide-sos a{color:var(--alert);font-weight:700}
-.guide-sos a[href^="tel:"]{display:inline-block;padding:6px 10px;margin:-6px -6px;border-radius:var(--radius-sm);background:var(--alert-faint);min-height:44px;line-height:32px;text-decoration:underline}
+.guide-sos a[href^="tel:"]{display:inline-block;padding:6px 10px;margin:-6px;border-radius:var(--radius-sm);background:var(--alert-faint);min-height:44px;line-height:32px;text-decoration:underline}
 .guide-link{display:inline-flex;align-items:center;gap:6px;font-size:var(--text-xs);color:var(--alert);text-decoration:none;font-weight:600;margin-top:8px}
 .guide-context-hint{font-size:var(--text-xs);color:var(--text-soft);margin-top:16px;padding-top:12px;border-top:1px solid var(--border-warm)}
 
@@ -1142,7 +1142,7 @@ body.pdf-preview-open{overflow:hidden}
 
 /* ═══════════════════════════════════════════════════════════
    MODULE-SPECIFIC STYLES
-   Migrated from modul/*/index.njk inline <style> (P2.3)
+   Migrated from module templates inline style blocks (P2.3)
    ═══════════════════════════════════════════════════════════ */
 
 /* ── Module 1: Phase Explorer ── */
