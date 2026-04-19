@@ -16,6 +16,12 @@
     "declaration-empty-line-before": null,
     "rule-empty-line-before": null,
     "at-rule-empty-line-before": null,
-    "import-notation": null
+    "import-notation": null,
+    "no-duplicate-selectors": null,
+    "declaration-block-no-redundant-longhand-properties": null,
+    "color-hex-length": null,
+    "value-keyword-case": null,
+    "selector-id-pattern": null,
+    "keyframe-block-no-duplicate-selectors": null
   }
 }
