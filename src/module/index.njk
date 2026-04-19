@@ -6,30 +6,12 @@ permalink: "/module/"
 navCurrent: "module-overview"
 useSharedCSS: true
 useNavJS: true
+bodyClass: "module-overview-page"
 footerAttribution: "Inhaltliche Verantwortung: Ch. Egger · Stand: April 2026"
 breadcrumbs:
   - name: "Module"
     url: "/module/"
 ---
-{% block headCSS %}
-<style>
-  /* ── Page-specific: decorative blobs + colors ── */
-  .overview-hero::before {
-    top: -24%; right: -10%; width: 640px; height: 640px;
-    background: none; display: none;
-    opacity: 0.82;
-  }
-  .overview-hero::after {
-    bottom: -18%; left: -6%; width: 520px; height: 520px;
-    background: none; display: none;
-    opacity: 0.78;
-  }
-  .overview-badge { background: var(--sand-subtle); color: var(--sand-deep); }
-  .overview-note { background: #fff; }
-  .overview-note p + p { margin-top: 10px; }
-  .overview-section { padding-top: 8px; }
-</style>
-{% endblock %}
 
 {% block nav %}
 {% include "nav-full.njk" %}
