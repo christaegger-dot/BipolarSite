@@ -7,6 +7,7 @@
     "require-sri": "off",
     "long-title": "off",
     "prefer-native-element": "off",
-    "svg-focusable": "off"
+    "svg-focusable": "off",
+    "tel-non-breaking": "off"
   }
 }
