@@ -107,10 +107,22 @@ body {
   .tool-nav {
     flex-wrap: wrap;
     padding: 10px 14px;
-    gap: 8px;
+    gap: 10px;
+  }
+  .tool-nav-links {
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
   }
   .tool-back {
+    min-height: 44px;
     font-size: var(--text-xs);
+    padding: 6px 0;
+  }
+  .tool-brand {
+    width: 100%;
+    order: 3;
+    color: var(--text-soft);
   }
   .tool-actions {
     width: 100%;
@@ -118,9 +130,8 @@ body {
   }
   .tool-actions button {
     flex: 1;
-    min-height: 44px;
     padding: 6px 8px;
-    font-size: var(--text-sm);
+    font-size: var(--text-xs);
   }
   .wrap {
     padding: 16px 14px;
@@ -322,7 +333,7 @@ body.krisenplan-page .wrap{max-width:var(--content-width);margin:0 auto;padding:
   .section{break-inside:avoid;border-radius:0;box-shadow:none}
   body{background:var(--card)}
 }
-@media(max-width:600px){.section{padding:18px 16px}.tool-nav{flex-wrap:wrap;padding:10px 14px;gap:var(--space-sm)}.tool-back{font-size:var(--text-xs)}.tool-actions{width:100%;justify-content:stretch}.tool-actions button{flex:1;padding:6px 8px;font-size:var(--text-xs);min-height:44px}.field textarea{min-height:60px}}
+@media(max-width:600px){.section{padding:18px 16px}.tool-nav{flex-wrap:wrap;padding:10px 14px;gap:10px}.tool-nav-links{width:100%;justify-content:space-between;gap:10px}.tool-back{min-height:44px;font-size:var(--text-xs);padding:6px 0}.tool-brand{width:100%;order:3;color:var(--text-soft)}.tool-actions{width:100%;justify-content:stretch}.tool-actions button{flex:1;padding:6px 8px;font-size:var(--text-xs);min-height:44px}.field textarea{min-height:60px}}
 
 
 /* ── phasenverlauf ── */

@@ -592,9 +592,61 @@ body.pdf-preview-open { overflow: hidden; }
 }
 @media (max-width: 600px) {
   .module-hero { padding: var(--section-wide) 1.2rem var(--section-tight); }
+  .module-hero .breadcrumb {
+    display: none;
+  }
+  .module-hero-inner {
+    max-width: 100%;
+  }
+  .module-meta {
+    gap: 8px;
+  }
   .content { padding: 0 1.2rem; }
+  .content-wide {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .toc,
+  .module-summary,
+  .quote-block,
+  .alert-box,
+  .takeaways,
+  .content-note,
+  .bright-moment,
+  .mini-plan {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .toc {
+    padding: 18px;
+  }
+  .phase-tab {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    text-align: left;
+  }
+  .phase-tab-icon {
+    margin-bottom: 0;
+  }
   .next-module-card { flex-direction: column; text-align: center; }
   .takeaways { padding: var(--space-lg) var(--temp-standard-padding); }
+  .action-card,
+  .treatment-card,
+  .loss-card,
+  .mech-card,
+  .wish-card,
+  .coping-card,
+  .barrier-card,
+  .pillar-card,
+  .age-card,
+  .decision-path,
+  .tool-link-card {
+    padding: 18px;
+  }
   /* Reduce pause temperature on small screens */
   .quote-block, .reflection, .takeaways, .bright-moment {
     margin-top: var(--temp-standard-margin);
