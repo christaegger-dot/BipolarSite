@@ -1,0 +1,28 @@
+Modul-2-Spotcheck (lokaler Build, Welle 7)
+
+- Modul 2 laedt erfolgreich im lokalen Build.
+- Die drei regenerierten Welle-7-Handouts sind im Seitenkontext sichtbar eingebunden.
+- Reihenfolge im UI: 18 Belastungen, Stigma der Angehörigen, Depression bei Angehörigen.
+- Metazeilen sind sichtbar und verwenden die regenerierte Kennzeichnung mit Asset-ID und web_v02/2026-04-20.
+- Nächster Check: direkte PDF-Vorschau und Archivkontext in Modul 8.
+
+Direkte PDF-Vorschau b1_18_belastungen
+
+- Die PDF laedt erfolgreich im Browser-Viewer.
+- Der Viewer zeigt 3 Seiten und rendert die erste Seite sauber.
+- Titel, Notfallkasten, Quick-Steps und Fliesstext sind visuell vorhanden und lesbar.
+- Nächster Check: Modul 8 als Archivkontext.
+
+Archivkontext Modul 8
+
+- Modul 8 laedt erfolgreich im lokalen Build.
+- Im vollständigen Handout-Archiv ist b1_18_belastungen mit M2 sowie regenerierter Metazeile sichtbar.
+- a5_affiliate_stigma erscheint im Archiv mit regenerierter Metazeile.
+- b9_depression_partner erscheint ebenfalls als regeneriertes Asset; im Archiv ist es aktuell mit Badge M7 statt M2 geführt.
+- Damit ist der technische Einbau sichtbar, aber die Badge-Zuordnung von b9_depression_partner sollte vor dem Abschluss geprüft und korrigiert werden.
+
+Nachkorrektur Modul 8
+
+- Nach Rebuild und erneuter Browser-Prüfung erscheint b9_depression_partner im Archivkontext nun mit Badge M2.
+- Die regenerierte Metazeile bleibt sichtbar und korrekt.
+- Der Browser-GATE ist damit auf dem Endstand von Welle 7 bestanden.
