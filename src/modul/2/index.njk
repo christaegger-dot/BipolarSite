@@ -18,6 +18,7 @@ breadcrumbs:
 {% block nav %}
 {% include "nav-full.njk" %}
 {% endblock %}
+{% from "pdf-macros.njk" import handoutCard %}
 {% block content %}
 <div class="reading-progress"><div class="reading-progress-fill" id="readingProgress"></div></div>
 
@@ -373,27 +374,9 @@ breadcrumbs:
   <div class="handouts reveal">
     <div class="handouts-title">Passende Handouts</div>
     <div class="handouts-grid">
-      <a href="/handouts/b1_18_belastungen.pdf" target="_blank" rel="noopener" class="handout-card">
-        <div class="handout-icon green">PDF</div>
-        <div>
-          <div class="handout-card-title">18 Belastungen von Angehörigen</div>
-          <div class="handout-card-sub">Übersicht und Selbsteinschätzung</div>
-        </div>
-      </a>
-      <a href="/handouts/a5_affiliate_stigma.pdf" target="_blank" rel="noopener" class="handout-card">
-        <div class="handout-icon green">PDF</div>
-        <div>
-          <div class="handout-card-title">Stigma der Angehörigen</div>
-          <div class="handout-card-sub">Affiliate Stigma verstehen</div>
-        </div>
-      </a>
-      <a href="/handouts/b9_depression_partner.pdf" target="_blank" rel="noopener" class="handout-card">
-        <div class="handout-icon red">PDF</div>
-        <div>
-          <div class="handout-card-title">Wenn die Belastung auf die Psyche schlägt</div>
-          <div class="handout-card-sub">Depression bei Partner*innen</div>
-        </div>
-      </a>
+      {% for asset in pdfs.groups.modul2 %}
+      {{ handoutCard(asset) }}
+      {% endfor %}
     </div>
   </div>
 

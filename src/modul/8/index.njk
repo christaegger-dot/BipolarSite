@@ -18,6 +18,7 @@ breadcrumbs:
 {% block nav %}
 {% include "nav-full.njk" %}
 {% endblock %}
+{% from "pdf-macros.njk" import directDownloadButton, archiveChip, handoutCard %}
 {% block content %}
 <div class="reading-progress"><div class="reading-progress-fill" id="readingProgress"></div></div>
 
@@ -277,45 +278,45 @@ breadcrumbs:
   <div class="dl-module dl-module-sos reveal">
     <div class="dl-icon">SOS</div>
     <div class="dl-body">
-      <h4>Notfallkarte Kanton Zürich</h4>
+      <h4>{{ pdfs.downloads.notfallkarte.title }}</h4>
       <p>Für akute oder unklare Krisen. Alle wichtigen Nummern mit kurzer Einordnung, wann welche Stelle sinnvoll ist. Gut zum Ausdrucken und griffbereit Halten.</p>
-      <a class="dl-btn dl-btn-sos" href="/downloads/notfallkarte-kanton-zuerich-puk.pdf" download>Notfallkarte herunterladen <span class="dl-meta">PDF · 1 Seite A4</span></a>
+      {{ directDownloadButton(pdfs.downloads.notfallkarte, 'Notfallkarte direkt herunterladen', 'dl-btn dl-btn-sos') }}
     </div>
   </div>
 
   <div class="dl-module reveal">
     <div class="dl-icon">Plan</div>
     <div class="dl-body">
-      <h4>Krisenplan-Vorlage</h4>
+      <h4>{{ pdfs.downloads.krisenplanVorlage.title }}</h4>
       <p>Für stabile oder halbwegs ruhige Phasen. Hilft, Frühwarnzeichen, Kontakte, Medikamente und Klinikwünsche vor einer nächsten Eskalation zu ordnen.</p>
-      <a class="dl-btn" href="/downloads/krisenplan-vorlage-bipolare-stoerung-puk-zuerich.pdf" download>Krisenplan herunterladen <span class="dl-meta">PDF · 1 Seite A4 · ausfüllbar</span></a>
+      {{ directDownloadButton(pdfs.downloads.krisenplanVorlage, 'Krisenplan direkt herunterladen') }}
     </div>
   </div>
 
   <div class="dl-module reveal">
     <div class="dl-icon">Kurz</div>
     <div class="dl-body">
-      <h4>Was stabilisiert — was schadet</h4>
+      <h4>{{ pdfs.downloads.kurzblattStabilisiert.title }}</h4>
       <p>Für den Alltag zwischen den Krisen. Ein kompaktes Blatt zu Kommunikation, Selbstfürsorge, Grenzsetzung und Frühwarnzeichen.</p>
-      <a class="dl-btn" href="/downloads/kurzblatt-was-stabilisiert-was-schadet-puk-zuerich.pdf" download>Kurzblatt herunterladen <span class="dl-meta">PDF · 1 Seite A4</span></a>
+      {{ directDownloadButton(pdfs.downloads.kurzblattStabilisiert, 'Kurzblatt direkt herunterladen') }}
     </div>
   </div>
 
   <div class="dl-module reveal">
     <div class="dl-icon">PDF</div>
     <div class="dl-body">
-      <h4>Grenzsetzung</h4>
+      <h4>{{ pdfs.handouts.grenzsetzung.title }}</h4>
       <p>Wenn Sie merken, dass Sie zu viel tragen oder sich in Gesprächen verlieren. Dieses Blatt stammt aus dem älteren Handout-Archiv und ist inhaltlich nützlich, technisch aber noch nicht auf dem Niveau der drei Downloads oben.</p>
-      <a class="dl-btn" href="/handouts/grenzsetzung.pdf" target="_blank" rel="noopener">Handout öffnen <span class="dl-meta">PDF-Handout · ältere Fassung</span></a>
+      <a class="dl-btn" href="{{ pdfs.handouts.grenzsetzung.url }}" target="_blank" rel="noopener">Handout-Vorschau öffnen <span class="dl-meta">{{ pdfs.handouts.grenzsetzung.pages }} · öffnen oder herunterladen</span><span class="dl-meta dl-meta-secondary">{{ pdfs.handouts.grenzsetzung.metaLine }}</span></a>
     </div>
   </div>
 
   <div class="dl-module reveal">
     <div class="dl-icon">PDF</div>
     <div class="dl-body">
-      <h4>Trauer ohne klaren Abschied</h4>
+      <h4>{{ pdfs.handouts.a4_ambiguous_loss.title }}</h4>
       <p>Wenn die Belastung weniger akut als zermürbend ist. Auch dieses Blatt gehört noch zum älteren Handout-Archiv. Für den schnellsten Einstieg bleiben die drei Downloads oben die bessere erste Wahl.</p>
-      <a class="dl-btn" href="/handouts/a4_ambiguous_loss.pdf" target="_blank" rel="noopener">Handout öffnen <span class="dl-meta">PDF-Handout · ältere Fassung</span></a>
+      <a class="dl-btn" href="{{ pdfs.handouts.a4_ambiguous_loss.url }}" target="_blank" rel="noopener">Handout-Vorschau öffnen <span class="dl-meta">{{ pdfs.handouts.a4_ambiguous_loss.pages }} · öffnen oder herunterladen</span><span class="dl-meta dl-meta-secondary">{{ pdfs.handouts.a4_ambiguous_loss.metaLine }}</span></a>
     </div>
   </div>
 
@@ -334,30 +335,9 @@ breadcrumbs:
       <p class="text-soft-xs" style="margin-bottom:20px">Jedes Blatt fasst ein Kernthema auf 1–2 Seiten zusammen. Gut zum Nachlesen, Ausdrucken oder Weitergeben innerhalb der Familie.</p>
 
       <div class="handout-list">
-        <a href="/handouts/a8_warnsignale.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M1</span><span class="hc-body"><span class="hc-title">Warnsignale</span><span class="hc-size">Archiv-Handout · ältere Fassung</span></span></a>
-        <a href="/handouts/b1_18_belastungen.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M2</span><span class="hc-body"><span class="hc-title">18 Belastungen</span><span class="hc-size">Archiv-Handout · ältere Fassung</span></span></a>
-        <a href="/handouts/c4_manie.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Umgang mit Manie</span><span class="hc-size">Archiv-Handout · ältere Fassung</span></span></a>
-        <a href="/handouts/c5_depression.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Umgang mit Depression</span><span class="hc-size">Archiv-Handout · ältere Fassung</span></span></a>
-        <a href="/handouts/b10_trennung_scheidung.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M3</span><span class="hc-body"><span class="hc-title">Beziehung an Grenzen</span><span class="hc-size">Archiv-Handout · ältere Fassung</span></span></a>
-        <a href="/handouts/a4_ambiguous_loss.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M4</span><span class="hc-body"><span class="hc-title">Trauer ohne klaren Abschied</span><span class="hc-size">Archiv-Handout · ältere Fassung</span></span></a>
-        <a href="/handouts/b2_erosion_solidaritaet.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M4</span><span class="hc-body"><span class="hc-title">Beziehung unter Druck</span><span class="hc-size">Archiv-Handout · ältere Fassung</span></span></a>
-        <a href="/handouts/b4_mechanismen_erosion.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M4</span><span class="hc-body"><span class="hc-title">Schonhaltung und Co-Isolation</span><span class="hc-size">Archiv-Handout · ältere Fassung</span></span></a>
-        <a href="/handouts/b3_kritische_zeitpunkte.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M4</span><span class="hc-body"><span class="hc-title">Kritische Zeitpunkte</span><span class="hc-size">Archiv-Handout · ältere Fassung</span></span></a>
-        <a href="/handouts/expressed_emotions.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M5</span><span class="hc-body"><span class="hc-title">Kritik, Überforderung, Teufelskreis</span><span class="hc-size">Archiv-Handout · ältere Fassung</span></span></a>
-        <a href="/handouts/b5_loyalitaetskonflikte.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M5</span><span class="hc-body"><span class="hc-title">Loyalitätskonflikte</span><span class="hc-size">Archiv-Handout · ältere Fassung</span></span></a>
-        <a href="/handouts/a3_ambivalente_loyalitaet.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M5</span><span class="hc-body"><span class="hc-title">Ambivalente Loyalität</span><span class="hc-size">Archiv-Handout · ältere Fassung</span></span></a>
-        <a href="/handouts/a5_affiliate_stigma.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M5</span><span class="hc-body"><span class="hc-title">Stigma der Angehörigen</span><span class="hc-size">Archiv-Handout · ältere Fassung</span></span></a>
-        <a href="/handouts/c1_krisenplan.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Krisenplan erstellen</span><span class="hc-size">Archiv-Handout · ältere Fassung</span></span></a>
-        <a href="/handouts/grenzsetzung.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Grenzsetzung</span><span class="hc-size">Archiv-Handout · ältere Fassung</span></span></a>
-        <a href="/handouts/c2_suizidgedanken.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Suizidgedanken</span><span class="hc-size">Archiv-Handout · ältere Fassung</span></span></a>
-        <a href="/handouts/c3_psychose_wahn.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Psychose / Wahn</span><span class="hc-size">Archiv-Handout · ältere Fassung</span></span></a>
-        <a href="/handouts/b7_behandlung_ambivalenz.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M6</span><span class="hc-body"><span class="hc-title">Behandlung &amp; Ambivalenz</span><span class="hc-size">Archiv-Handout · ältere Fassung</span></span></a>
-        <a href="/handouts/c6_selbstfuersorge.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M7</span><span class="hc-body"><span class="hc-title">Selbstfürsorge-Plan</span><span class="hc-size">Archiv-Handout · ältere Fassung</span></span></a>
-        <a href="/handouts/d4_solidaritaet_wellen.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M7</span><span class="hc-body"><span class="hc-title">Belastung in Wellen</span><span class="hc-size">Archiv-Handout · ältere Fassung</span></span></a>
-        <a href="/handouts/transformationsreise.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M7</span><span class="hc-body"><span class="hc-title">Veränderung über Zeit</span><span class="hc-size">Archiv-Handout · ältere Fassung</span></span></a>
-        <a href="/handouts/trialog.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M7</span><span class="hc-body"><span class="hc-title">Trialog</span><span class="hc-size">Archiv-Handout · ältere Fassung</span></span></a>
-        <a href="/handouts/b6_geschlechtsspezifisch.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M7</span><span class="hc-body"><span class="hc-title">Geschlechtsspez. Nuancen</span><span class="hc-size">Archiv-Handout · ältere Fassung</span></span></a>
-        <a href="/handouts/b9_depression_partner.pdf" target="_blank" rel="noopener" class="handout-chip"><span class="hc-badge">M7</span><span class="hc-body"><span class="hc-title">Depression bei Angehörigen</span><span class="hc-size">Archiv-Handout · ältere Fassung</span></span></a>
+        {% for entry in pdfs.groups.modul8ArchiveEntries %}
+        {{ archiveChip(entry.asset, entry.badge) }}
+        {% endfor %}
       </div>
     </div>
   </details>
@@ -440,8 +420,15 @@ breadcrumbs:
   <div class="handouts reveal">
     <div class="handouts-title">Passende Handouts</div>
     <div class="handouts-grid">
-      <a href="/handouts/brief-an-betroffene.pdf" target="_blank" rel="noopener" class="handout-card"><div class="handout-icon green">PDF</div><div><div class="handout-card-title">Brief an Betroffene</div><div class="handout-card-sub">Was Angehörige durchmachen — zum Weitergeben</div></div></a>
-      <a href="/handout-drafts/brief-an-betroffene/" target="_blank" rel="noopener" class="handout-card"><div class="handout-icon green">Web</div><div><div class="handout-card-title">Brief an Betroffene — Webansicht</div><div class="handout-card-sub">Online lesen ohne Download</div></div></a>
+      {{ handoutCard(pdfs.handouts.brief_an_betroffene, { actionLabel: 'Vorschau öffnen · danach öffnen oder direkt herunterladen' }) }}
+      <a href="/handout-drafts/brief-an-betroffene/" target="_blank" rel="noopener" class="handout-card">
+        <div class="handout-icon green">Web</div>
+        <div class="handout-card-text">
+          <div class="handout-card-title">Brief an Betroffene — Webansicht</div>
+          <div class="handout-card-sub">Online lesen ohne Download</div>
+          <div class="handout-card-meta">Direkt lesen · kein PDF-Reader nötig</div>
+        </div>
+      </a>
     </div>
   </div>
 
@@ -504,17 +491,17 @@ breadcrumbs:
   <div class="pdf-preview-dialog" role="dialog" aria-modal="true" aria-labelledby="pdf-preview-title" tabindex="-1">
     <div class="pdf-preview-header">
       <div>
-        <div class="pdf-preview-title" id="pdf-preview-title">PDF-Vorschau</div>
-        <div class="pdf-preview-sub">Wenn die Vorschau nicht angezeigt wird, können Sie das Dokument direkt öffnen oder herunterladen.</div>
+        <div class="pdf-preview-title" id="pdf-preview-title">PDF-Vorschau auf dieser Seite</div>
+        <div class="pdf-preview-sub">Erster Klick = Vorschau auf dieser Seite. Für direktes Öffnen oder Speichern stehen darunter zwei eigene Aktionen bereit.</div>
       </div>
       <div class="pdf-preview-actions">
-        <a href="/" id="pdf-preview-open" class="pdf-preview-link" target="_blank" rel="noopener">Im neuen Tab öffnen</a>
-        <a href="/" id="pdf-preview-download" class="pdf-preview-link" download>Herunterladen</a>
+        <a href="/" id="pdf-preview-open" class="pdf-preview-link" target="_blank" rel="noopener">Direkt im neuen Tab öffnen</a>
+        <a href="/" id="pdf-preview-download" class="pdf-preview-link" download>Direkt herunterladen</a>
         <button type="button" class="pdf-preview-close" id="pdf-preview-close">Schliessen</button>
       </div>
     </div>
     <div class="pdf-preview-body">
-      <div class="pdf-preview-note">Die Vorschau bleibt auf dieser Seite. Für Reader oder Druckansicht können Sie das PDF direkt öffnen.</div>
+      <div class="pdf-preview-note">Die Vorschau bleibt auf dieser Seite. Für Reader, Druckansicht oder Speichern nutzen Sie die beiden Direktaktionen darüber.</div>
       <div class="pdf-preview-frame-wrap">
         <iframe class="pdf-preview-frame" id="pdf-preview-frame" title="PDF-Vorschau" loading="lazy"></iframe>
       </div>
@@ -529,7 +516,7 @@ breadcrumbs:
 <script>
   const pb=document.getElementById('readingProgress');window.addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-window.innerHeight;pb.style.width=h>0?(window.scrollY/h*100)+'%':'0%'});
   const tocLinks=document.querySelectorAll('.toc a[href^="#"]');const tocSections=Array.from(tocLinks).map(a=>{const id=a.getAttribute('href').slice(1);return{link:a,el:document.getElementById(id)}}).filter(s=>s.el);const tocObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){tocLinks.forEach(l=>l.classList.remove('active'));const match=tocSections.find(s=>s.el===e.target);if(match)match.link.classList.add('active')}})},{threshold:0.1,rootMargin:'-100px 0px -60% 0px'});tocSections.forEach(s=>tocObs.observe(s.el));
-  const MATERIAL_FINDER={akut:[{kicker:'Jetzt zuerst',title:'Notfallseite öffnen',text:'Wenn Gefahr oder starke Unsicherheit im Raum stehen, ist die Triage wichtiger als die ganze Materialsammlung.',href:'/notfall/',label:'Zum Notfallweg →'},{kicker:'PDF',title:'Notfallkarte Kanton Zürich',text:'Alle wichtigen Nummern mit kurzer Einordnung, wann welche Stelle sinnvoll ist.',href:'/downloads/notfallkarte-kanton-zuerich-puk.pdf',label:'Notfallkarte herunterladen →'},{kicker:'Danach',title:'Krisenplan bereithalten',text:'Wenn schon einer existiert, jetzt hervornehmen. Wenn nicht, später in ruhiger Phase vorbereiten.',href:'/modul/6/',label:'Zu Modul 6 →'}],plan:[{kicker:'PDF',title:'Krisenplan-Vorlage',text:'Die wichtigste Unterlage, wenn Sie Frühwarnzeichen, Kontakte und Klinikwünsche vorab ordnen möchten.',href:'/downloads/krisenplan-vorlage-bipolare-stoerung-puk-zuerich.pdf',label:'Krisenplan herunterladen →'},{kicker:'Werkzeug',title:'Krisenplan-Werkzeug',text:'Wenn Sie den Plan lieber direkt am Bildschirm vorbereiten und danach drucken möchten.',href:'/tools/krisenplan/',label:'Werkzeug öffnen →'},{kicker:'Vertiefung',title:'Modul 6: konkrete Schritte',text:'Für Gespräche, Grenzen, Krisenplan und Vorbereitung in stabilen Phasen.',href:'/modul/6/',label:'Zu Modul 6 →'}],ersch:[{kicker:'Archiv-Handout',title:'Trauer ohne klaren Abschied',text:'Hilft, schleichende Erschöpfung, Trauer und Selbstverlust besser zu verstehen. Dieses Blatt gehört noch zum älteren PDF-Bestand.',href:'/handouts/a4_ambiguous_loss.pdf',label:'Handout öffnen →'},{kicker:'PDF',title:'Was stabilisiert — was schadet',text:'Ein kompaktes Blatt für Alltag, Selbstfürsorge und kleine entlastende Schritte.',href:'/downloads/kurzblatt-was-stabilisiert-was-schadet-puk-zuerich.pdf',label:'Kurzblatt herunterladen →'},{kicker:'Kontakt',title:'Selbsthilfe oder Angehörigenberatung',text:'Wenn Information allein nicht mehr reicht, ist Resonanz oft der entlastendere nächste Schritt.',href:'#anlaufstellen',label:'Zu den Anlaufstellen →'}],recht:[{kicker:'Kontakt',title:'Pro Mente Sana',text:'Psychosoziale und juristische Beratung zu FU, Vorsorgeauftrag, Patientenverfügung und Konflikten mit Institutionen.',href:'https://www.promentesana.ch',label:'Pro Mente Sana öffnen →'},{kicker:'Kontakt',title:'Ombudsstelle Krankenversicherung',text:'Wenn Leistungsstreitigkeiten oder abgelehnte Kostengutsprachen blockieren.',href:'https://om-kv.ch',label:'Ombudsstelle öffnen →'},{kicker:'Orientierung',title:'Systemblockaden einordnen',text:'Wenn das Versorgungssystem zusätzlich belastet, hilft oft zuerst die Klärung der Beschwerde- und Beratungswege.',href:'#system',label:'Zum System-Abschnitt →'}]};
+  const MATERIAL_FINDER={akut:[{kicker:'Jetzt zuerst',title:'Notfallseite öffnen',text:'Wenn Gefahr oder starke Unsicherheit im Raum stehen, ist die Triage wichtiger als die ganze Materialsammlung.',href:'/notfall/',label:'Zum Notfallweg →'},{kicker:'PDF',title:'{{ pdfs.downloads.notfallkarte.title }}',text:'Alle wichtigen Nummern mit kurzer Einordnung, wann welche Stelle sinnvoll ist.',href:'{{ pdfs.downloads.notfallkarte.url }}',label:'Notfallkarte direkt herunterladen →'},{kicker:'Danach',title:'Krisenplan bereithalten',text:'Wenn schon einer existiert, jetzt hervornehmen. Wenn nicht, später in ruhiger Phase vorbereiten.',href:'/modul/6/',label:'Zu Modul 6 →'}],plan:[{kicker:'PDF',title:'{{ pdfs.downloads.krisenplanVorlage.title }}',text:'Die wichtigste Unterlage, wenn Sie Frühwarnzeichen, Kontakte und Klinikwünsche vorab ordnen möchten.',href:'{{ pdfs.downloads.krisenplanVorlage.url }}',label:'Krisenplan direkt herunterladen →'},{kicker:'Werkzeug',title:'Krisenplan-Werkzeug',text:'Wenn Sie den Plan lieber direkt am Bildschirm vorbereiten und danach drucken möchten.',href:'/tools/krisenplan/',label:'Werkzeug öffnen →'},{kicker:'Vertiefung',title:'Modul 6: konkrete Schritte',text:'Für Gespräche, Grenzen, Krisenplan und Vorbereitung in stabilen Phasen.',href:'/modul/6/',label:'Zu Modul 6 →'}],ersch:[{kicker:'Archiv-Handout',title:'{{ pdfs.handouts.a4_ambiguous_loss.title }}',text:'Hilft, schleichende Erschöpfung, Trauer und Selbstverlust besser zu verstehen. Dieses Blatt gehört noch zum älteren PDF-Bestand.',href:'{{ pdfs.handouts.a4_ambiguous_loss.url }}',label:'Handout-Vorschau öffnen →'},{kicker:'PDF',title:'{{ pdfs.downloads.kurzblattStabilisiert.title }}',text:'Ein kompaktes Blatt für Alltag, Selbstfürsorge und kleine entlastende Schritte.',href:'{{ pdfs.downloads.kurzblattStabilisiert.url }}',label:'Kurzblatt direkt herunterladen →'},{kicker:'Kontakt',title:'Selbsthilfe oder Angehörigenberatung',text:'Wenn Information allein nicht mehr reicht, ist Resonanz oft der entlastendere nächste Schritt.',href:'#anlaufstellen',label:'Zu den Anlaufstellen →'}],recht:[{kicker:'Kontakt',title:'Pro Mente Sana',text:'Psychosoziale und juristische Beratung zu FU, Vorsorgeauftrag, Patientenverfügung und Konflikten mit Institutionen.',href:'https://www.promentesana.ch',label:'Pro Mente Sana öffnen →'},{kicker:'Kontakt',title:'Ombudsstelle Krankenversicherung',text:'Wenn Leistungsstreitigkeiten oder abgelehnte Kostengutsprachen blockieren.',href:'https://om-kv.ch',label:'Ombudsstelle öffnen →'},{kicker:'Orientierung',title:'Systemblockaden einordnen',text:'Wenn das Versorgungssystem zusätzlich belastet, hilft oft zuerst die Klärung der Beschwerde- und Beratungswege.',href:'#system',label:'Zum System-Abschnitt →'}]};
   const materialFinderButtons=document.querySelectorAll('[data-material-finder]');
   const materialFinderResults=document.getElementById('materialFinderResults');
   const renderMaterialFinder=(key)=>{const items=MATERIAL_FINDER[key];if(!items||!materialFinderResults)return;materialFinderButtons.forEach(btn=>{const isActive=btn.dataset.materialFinder===key;btn.classList.toggle('is-active',isActive);btn.setAttribute('aria-pressed',isActive?'true':'false');});materialFinderResults.innerHTML=items.map(item=>`<div class="finder-card"><div class="finder-card-kicker">${item.kicker}</div><h4>${item.title}</h4><p>${item.text}</p><a href="${item.href}"${item.href.startsWith('http')?' target="_blank" rel="noopener"':''}${item.href.startsWith('/downloads/')?' download':''}>${item.label}</a></div>`).join('');materialFinderResults.hidden=false;materialFinderResults.querySelectorAll('a[href$=".pdf"]').forEach(setupPdfPreviewLink);};

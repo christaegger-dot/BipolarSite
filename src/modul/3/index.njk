@@ -18,6 +18,7 @@ breadcrumbs:
 {% block nav %}
 {% include "nav-full.njk" %}
 {% endblock %}
+{% from "pdf-macros.njk" import handoutCard %}
 {% block content %}
 <div class="reading-progress"><div class="reading-progress-fill" id="readingProgress"></div></div>
 
@@ -368,34 +369,9 @@ breadcrumbs:
   <div class="handouts reveal">
     <div class="handouts-title">Passende Handouts</div>
     <div class="handouts-grid">
-      <a href="/handouts/b10_trennung_scheidung.pdf" target="_blank" rel="noopener" class="handout-card">
-        <div class="handout-icon green">PDF</div>
-        <div>
-          <div class="handout-card-title">Beziehung an Grenzen</div>
-          <div class="handout-card-sub">Wenn Nähe, Vertrauen und Rollen kippen</div>
-        </div>
-      </a>
-      <a href="/handouts/b3_kritische_zeitpunkte.pdf" target="_blank" rel="noopener" class="handout-card">
-        <div class="handout-icon green">PDF</div>
-        <div>
-          <div class="handout-card-title">Kritische Zeitpunkte</div>
-          <div class="handout-card-sub">Wann Beziehungen besonders verletzlich werden</div>
-        </div>
-      </a>
-    </div>
-  </div>
-
-  <!-- TOOL LINKS -->
-  <div class="tool-links reveal">
-    <h3>Passende Werkzeuge</h3>
-    <div class="tool-links-grid">
-      <a href="/tools/ee-kreislauf/" class="tool-link-card">
-        <div class="tool-link-icon">🔄</div>
-        <div>
-          <div class="tool-link-title">EE-Kreislauf</div>
-          <div class="tool-link-desc">Sehen Sie, wie Kritik und Überforderung sich gegenseitig hochschaukeln.</div>
-        </div>
-      </a>
+      {% for asset in pdfs.groups.modul3 %}
+      {{ handoutCard(asset) }}
+      {% endfor %}
     </div>
   </div>
 

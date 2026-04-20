@@ -18,6 +18,7 @@ breadcrumbs:
 {% block nav %}
 {% include "nav-full.njk" %}
 {% endblock %}
+{% from "pdf-macros.njk" import handoutCard %}
 {% block content %}
 <div class="reading-progress"><div class="reading-progress-fill" id="readingProgress"></div></div>
 
@@ -451,10 +452,9 @@ breadcrumbs:
   <div class="handouts reveal">
     <div class="handouts-title">Passende Handouts</div>
     <div class="handouts-grid">
-      <a href="/handouts/c6_selbstfuersorge.pdf" target="_blank" rel="noopener" class="handout-card"><div class="handout-icon green">PDF</div><div><div class="handout-card-title">Selbstfürsorge-Plan</div><div class="handout-card-sub">Körper, Seele, Beziehung</div></div></a>
-      <a href="/handouts/d4_solidaritaet_wellen.pdf" target="_blank" rel="noopener" class="handout-card"><div class="handout-icon green">PDF</div><div><div class="handout-card-title">Belastung und Stabilität in Wellen</div><div class="handout-card-sub">Die fünf Säulen im Überblick</div></div></a>
-      <a href="/handouts/trialog.pdf" target="_blank" rel="noopener" class="handout-card"><div class="handout-icon green">PDF</div><div><div class="handout-card-title">Trialog</div><div class="handout-card-sub">Gemeinsam statt übereinander</div></div></a>
-      <a href="/handouts/transformationsreise.pdf" target="_blank" rel="noopener" class="handout-card"><div class="handout-icon green">PDF</div><div><div class="handout-card-title">Veränderung über Zeit</div><div class="handout-card-sub">Wachstum ohne Pflicht</div></div></a>
+      {% for asset in pdfs.groups.modul7 %}
+      {{ handoutCard(asset) }}
+      {% endfor %}
     </div>
   </div>
 

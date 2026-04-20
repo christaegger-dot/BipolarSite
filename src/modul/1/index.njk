@@ -18,6 +18,7 @@ breadcrumbs:
 {% block nav %}
 {% include "nav-full.njk" %}
 {% endblock %}
+{% from "pdf-macros.njk" import handoutCard %}
 {% block content %}
 <!-- READING PROGRESS -->
 <div class="reading-progress"><div class="reading-progress-fill" id="readingProgress"></div></div>
@@ -529,34 +530,9 @@ breadcrumbs:
   <div class="handouts reveal">
     <div class="handouts-title">Passende Handouts</div>
     <div class="handouts-grid">
-      <a href="/handouts/a8_warnsignale.pdf" target="_blank" rel="noopener" class="handout-card">
-        <div class="handout-icon green">PDF</div>
-        <div class="handout-card-text">
-          <div class="handout-card-title">Warnsignale — Ampelsystem</div>
-          <div class="handout-card-sub">Frühwarnzeichen erkennen</div>
-        </div>
-      </a>
-      <a href="/handouts/c4_manie.pdf" target="_blank" rel="noopener" class="handout-card">
-        <div class="handout-icon">PDF</div>
-        <div class="handout-card-text">
-          <div class="handout-card-title">Umgang mit Manie</div>
-          <div class="handout-card-sub">Praktische Strategien</div>
-        </div>
-      </a>
-      <a href="/handouts/c5_depression.pdf" target="_blank" rel="noopener" class="handout-card">
-        <div class="handout-icon green">PDF</div>
-        <div class="handout-card-text">
-          <div class="handout-card-title">Umgang mit Depression</div>
-          <div class="handout-card-sub">Wenn die erkrankte Person nicht erreichbar ist</div>
-        </div>
-      </a>
-      <a href="/handouts/b7_behandlung_ambivalenz.pdf" target="_blank" rel="noopener" class="handout-card">
-        <div class="handout-icon">PDF</div>
-        <div class="handout-card-text">
-          <div class="handout-card-title">Behandlung und Ambivalenz</div>
-          <div class="handout-card-sub">Warum Hilfe wichtig ist und trotzdem schwer werden kann</div>
-        </div>
-      </a>
+      {% for asset in pdfs.groups.modul1 %}
+      {{ handoutCard(asset) }}
+      {% endfor %}
     </div>
   </div>
 
@@ -585,17 +561,17 @@ breadcrumbs:
   <div class="pdf-preview-dialog" role="dialog" aria-modal="true" aria-labelledby="pdf-preview-title" tabindex="-1">
     <div class="pdf-preview-header">
       <div>
-        <div class="pdf-preview-title" id="pdf-preview-title">PDF-Vorschau</div>
-        <div class="pdf-preview-sub">Wenn die Vorschau nicht angezeigt wird, können Sie das Dokument direkt öffnen oder herunterladen.</div>
+        <div class="pdf-preview-title" id="pdf-preview-title">PDF-Vorschau auf dieser Seite</div>
+        <div class="pdf-preview-sub">Erster Klick = Vorschau auf dieser Seite. Wenn Sie lieber direkt öffnen oder speichern möchten, nutzen Sie die beiden klaren Aktionen rechts.</div>
       </div>
       <div class="pdf-preview-actions">
-        <a href="/" id="pdf-preview-open" class="pdf-preview-link" target="_blank" rel="noopener">Im neuen Tab öffnen</a>
-        <a href="/" id="pdf-preview-download" class="pdf-preview-link" download>Herunterladen</a>
+        <a href="/" id="pdf-preview-open" class="pdf-preview-link" target="_blank" rel="noopener">Direkt im neuen Tab öffnen</a>
+        <a href="/" id="pdf-preview-download" class="pdf-preview-link" download>Direkt herunterladen</a>
         <button type="button" class="pdf-preview-close" id="pdf-preview-close">Schliessen</button>
       </div>
     </div>
     <div class="pdf-preview-body">
-      <div class="pdf-preview-note">Die Vorschau bleibt auf dieser Seite. Für Reader oder Druckansicht können Sie das PDF direkt öffnen.</div>
+      <div class="pdf-preview-note">Die Vorschau bleibt auf dieser Seite. Für Reader, Druckansicht oder Speichern nutzen Sie „Direkt im neuen Tab öffnen“ oder „Direkt herunterladen“.</div>
       <div class="pdf-preview-frame-wrap">
         <iframe class="pdf-preview-frame" id="pdf-preview-frame" title="PDF-Vorschau" loading="lazy"></iframe>
       </div>

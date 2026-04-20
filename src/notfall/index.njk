@@ -18,6 +18,7 @@ breadcrumbs:
 {% block nav %}
 {% include "nav-full.njk" %}
 {% endblock %}
+{% from "pdf-macros.njk" import guidePdfLink %}
 {% block content %}
 <header class="hero notfall-hero"><div class="hero-inner">
   <div class="hero-copy">
@@ -97,7 +98,7 @@ breadcrumbs:
       <div class="guide-sos">Bei konkretem Plan oder vorhandenen Mitteln: sofort <a href="tel:144">144</a> anrufen. Nicht allein bewältigen.</div>
       <div class="guide-do">✓ Zuhören. Direkt fragen. Bei der Person bleiben. Fachpersonen einbeziehen.</div>
       <div class="guide-dont">✗ «Das wird schon.» Bagatellisieren. Allein lassen. Versprechen erzwingen.</div>
-      <a href="/handouts/c2_suizidgedanken.pdf" target="_blank" rel="noopener" class="guide-link">↓ PDF: Umgang mit Suizidgedanken</a>
+      {{ guidePdfLink(pdfs.handouts.c2_suizidgedanken, "↓ PDF") }}
       <p class="guide-context-hint">Ausführlichere Gesprächshilfen: <a href="/modul/6/">Modul 6</a>.</p>
     </div></div>
   </div>
@@ -119,7 +120,7 @@ breadcrumbs:
       <div class="guide-do">✓ Ruhig bleiben. Kurze Sätze. Sicherheit priorisieren. <a href="{{ site.tel.aerztefon.href }}">{{ site.tel.aerztefon.display }}</a> anrufen.</div>
       <div class="guide-dont">✗ «Du bist manisch!» Diskutieren. Ultimaten. Allein lösen wollen.</div>
       <div class="guide-sos">Wenn unmittelbare Gefahr dazukommt oder Sicherheit, Fahren, Geld oder Verhalten nicht mehr kontrollierbar sind: nicht weiter diskutieren, sondern <a href="tel:144">144</a> oder <a href="tel:117">117</a>.</div>
-      <a href="/handouts/c4_manie.pdf" target="_blank" rel="noopener" class="guide-link">↓ PDF: Umgang mit Manie</a> · <a href="/modul/6/#manie-komm" class="guide-link">→ Modul 6: Kommunikation in der Manie</a>
+      {{ guidePdfLink(pdfs.handouts.c4_manie, "↓ PDF") }} · <a href="/modul/6/#manie-komm" class="guide-link">→ Modul 6: Kommunikation in der Manie</a>
     </div></div>
   </div>
 
@@ -139,7 +140,7 @@ breadcrumbs:
       <div class="guide-do">✓ Da sein. Geduld. Alltag aufrechterhalten. Eigene Grenzen wahren.</div>
       <div class="guide-dont">✗ «Reiss dich zusammen.» Vergleiche. Ratschläge. Schuldgefühle machen.</div>
       <div class="guide-sos">Wenn Suizidgedanken, Verabschiedungen oder konkrete Hinweise dazukommen: direkt fragen und <a href="{{ site.tel.aerztefon.href }}">{{ site.tel.aerztefon.display }}</a> anrufen.</div>
-      <a href="/handouts/c5_depression.pdf" target="_blank" rel="noopener" class="guide-link">↓ PDF: Umgang mit Depression</a> · <a href="/modul/6/#depression-komm" class="guide-link">→ Modul 6: Kommunikation in der Depression</a>
+      {{ guidePdfLink(pdfs.handouts.c5_depression, "↓ PDF") }} · <a href="/modul/6/#depression-komm" class="guide-link">→ Modul 6: Kommunikation in der Depression</a>
     </div></div>
   </div>
 
@@ -161,7 +162,7 @@ breadcrumbs:
       <div class="guide-do">✓ Ruhe. Einfache Sprache. Gefühle anerkennen, nicht den Inhalt. Professionelle Hilfe.</div>
       <div class="guide-dont">✗ «Das bildest du dir ein!» Diskutieren. Sich verteidigen. Allein managen.</div>
       <div class="guide-sos">Wenn die Lage bedrohlich wird oder kein ruhiger Kontakt mehr möglich ist: sofort <a href="tel:117">117</a>. Ihre Sicherheit geht vor.</div>
-      <a href="/handouts/c3_psychose_wahn.pdf" target="_blank" rel="noopener" class="guide-link">↓ PDF: Umgang mit Psychose und Wahn</a>
+      {{ guidePdfLink(pdfs.handouts.c3_psychose_wahn, "↓ PDF") }}
     </div></div>
   </div>
 
@@ -309,17 +310,17 @@ breadcrumbs:
   <div class="pdf-preview-dialog" role="dialog" aria-modal="true" aria-labelledby="pdf-preview-title" tabindex="-1">
     <div class="pdf-preview-header">
       <div>
-        <div class="pdf-preview-title" id="pdf-preview-title">PDF-Vorschau</div>
-        <div class="pdf-preview-sub">Wenn die Vorschau nicht angezeigt wird, können Sie das Dokument direkt öffnen oder herunterladen.</div>
+        <div class="pdf-preview-title" id="pdf-preview-title">PDF-Vorschau auf dieser Seite</div>
+        <div class="pdf-preview-sub">Erster Klick = Vorschau auf dieser Seite. Für direktes Öffnen oder Speichern nutzen Sie die beiden Aktionen rechts.</div>
       </div>
       <div class="pdf-preview-actions">
-        <a href="/" id="pdf-preview-open" class="pdf-preview-link" target="_blank" rel="noopener">Im neuen Tab öffnen</a>
-        <a href="/" id="pdf-preview-download" class="pdf-preview-link" download>Herunterladen</a>
+        <a href="/" id="pdf-preview-open" class="pdf-preview-link" target="_blank" rel="noopener">Direkt im neuen Tab öffnen</a>
+        <a href="/" id="pdf-preview-download" class="pdf-preview-link" download>Direkt herunterladen</a>
         <button type="button" class="pdf-preview-close" id="pdf-preview-close">Schliessen</button>
       </div>
     </div>
     <div class="pdf-preview-body">
-      <div class="pdf-preview-note">Die Vorschau bleibt auf dieser Seite. Für Reader oder Druckansicht können Sie das PDF direkt öffnen.</div>
+      <div class="pdf-preview-note">Die Vorschau bleibt auf dieser Seite. Für Reader, Druckansicht oder Speichern nutzen Sie die beiden Direktaktionen darüber.</div>
       <div class="pdf-preview-frame-wrap">
         <iframe class="pdf-preview-frame" id="pdf-preview-frame" title="PDF-Vorschau" loading="lazy"></iframe>
       </div>
