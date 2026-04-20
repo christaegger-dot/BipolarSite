@@ -1,0 +1,35 @@
+Welle-6 Browser-Spotcheck – Zwischenstand
+
+Modul 5 lokal unter http://127.0.0.1:8084/modul/5/ erfolgreich geladen.
+
+Sichtbarer Befund im Modul-5-Kontext:
+- Die neue Handout-Reihenfolge ist sichtbar: Loyalitätskonflikte, Ambivalente Loyalität, Expressed Emotions, Grenzsetzung, Beziehung an Grenzen.
+- Die neuen Welle-6-Karten zeigen im sichtbaren UI die Kennzeichnung web_v02.
+- Sichtbare Karten im Modul-5-Kontext:
+  - HO-10 · web_v02 · Loyalitätskonflikte
+  - HO-13 · web_v02 · Ambivalente Loyalität
+  - HO-05 · web_v02 · Beziehung an Grenzen
+
+Interaktionshinweis:
+- Der erste Kartenklick auf das Loyalitätskonflikte-PDF lief in der Browser-Automation in ein Timeout.
+- Fortsetzung deshalb per direkter PDF-URL bzw. alternativer Navigation.
+
+Ergänzung nach PDF- und Modul-3-Spotcheck:
+- Das PDF b5_loyalitaetskonflikte lädt direkt unter /handouts/b5_loyalitaetskonflikte.pdf korrekt in der Browser-Vorschau.
+- Sichtbarer Befund in der Vorschau: 3 Seiten, Titel und Layout korrekt, A4-Darstellung sichtbar.
+- Modul 3 lokal unter http://127.0.0.1:8084/modul/3/ erfolgreich geladen.
+- Im Modul-3-Kontext ist die Karte „Beziehung an Grenzen“ sichtbar.
+- Sichtbarer Metadatenbefund im Modul-3-Kontext: HO-05 · web_v02.
+
+Ergänzung nach Modul-8-Spotcheck:
+- Modul 8 lokal unter http://127.0.0.1:8084/modul/8/ erfolgreich geladen.
+- Im Archivkontext sind alle drei regenerierten Welle-6-Handouts sichtbar.
+- Sichtbare Archiv-Einträge im Modul-8-Kontext:
+  - M3 Beziehung an Grenzen — HO-05 · web_v02 · 2026-04-20
+  - M5 Loyalitätskonflikte — HO-10 · web_v02 · 2026-04-20
+  - M5 Ambivalente Loyalität — HO-13 · web_v02 · 2026-04-20
+
+GATE-Fazit Browser:
+- Modul 5 zeigt das neue Welle-6-Paket in der vorgesehenen Reihenfolge.
+- Das Loyalitätskonflikte-PDF lädt in der lokalen Vorschau korrekt.
+- Modul 3 und Modul 8 zeigen die regenerierten Welle-6-Einträge mit aktualisierten Metadaten.
