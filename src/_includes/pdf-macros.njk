@@ -1,0 +1,36 @@
+{% macro handoutCard(asset, options = {}) %}
+{% set icon = options.icon or 'PDF' %}
+{% set iconClass = options.iconClass or 'green' %}
+{% set title = options.title or asset.title %}
+{% set subtitle = options.subtitle or asset.subtitle %}
+{% set href = options.href or asset.url %}
+{% set actionLabel = options.actionLabel or 'Vorschau öffnen · danach öffnen oder herunterladen' %}
+<a href="{{ href }}" target="_blank" rel="noopener" class="handout-card" data-pdf-mode="{{ asset.mode or 'preview' }}" data-pdf-asset-id="{{ asset.assetId }}">
+  <div class="handout-icon {{ iconClass }}">{{ icon }}</div>
+  <div class="handout-card-text">
+    <div class="handout-card-title">{{ title }}</div>
+    <div class="handout-card-sub">{{ subtitle }}</div>
+    <div class="handout-card-meta">{{ actionLabel }}</div>
+    <div class="handout-card-meta handout-card-meta-secondary">{{ asset.metaLine }}</div>
+  </div>
+</a>
+{% endmacro %}
+
+{% macro archiveChip(asset, badge) %}
+<a href="{{ asset.url }}" target="_blank" rel="noopener" class="handout-chip" data-pdf-mode="{{ asset.mode or 'preview' }}" data-pdf-asset-id="{{ asset.assetId }}">
+  <span class="hc-badge">{{ badge }}</span>
+  <span class="hc-body">
+    <span class="hc-title">{{ asset.title }}</span>
+    <span class="hc-size">Vorschau öffnen · {{ asset.pages }}</span>
+    <span class="hc-meta">{{ asset.metaLine }}</span>
+  </span>
+</a>
+{% endmacro %}
+
+{% macro directDownloadButton(asset, label, classes = 'dl-btn') %}
+<a class="{{ classes }}" href="{{ asset.url }}" download data-pdf-mode="download" data-pdf-asset-id="{{ asset.assetId }}">{{ label }} <span class="dl-meta">{{ asset.pages }} · Direktdownload</span><span class="dl-meta dl-meta-secondary">{{ asset.metaLine }}</span></a>
+{% endmacro %}
+
+{% macro guidePdfLink(asset, prefix = '↓ PDF') %}
+<a href="{{ asset.url }}" target="_blank" rel="noopener" class="guide-link" data-pdf-mode="{{ asset.mode or 'preview' }}" data-pdf-asset-id="{{ asset.assetId }}">{{ prefix }}: {{ asset.title }} <span class="guide-link-meta">Vorschau öffnen · {{ asset.metaLine }}</span></a>
+{% endmacro %}
