@@ -1,0 +1,16 @@
+Welle 9 Browser-Spotcheck – 2026-04-20
+
+1) Modul 7 – http://127.0.0.1:8084/modul/7/
+- `Geschlechtsspezifische Nuancen` ist als neue PDF-Karte sichtbar.
+- Sichtbarer Untertitel: `Wie Rollenbilder Belastungen mitprägen`.
+- Die Karte erscheint zusammen mit den übrigen Modul-7-Handouts und bestätigt damit die Ausspielung in der Modul-7-Gruppe.
+
+2) Direkte PDF-URL – http://127.0.0.1:8084/handouts/b6_geschlechtsspezifisch.pdf
+- PDF lädt direkt im Browser-PDF-Viewer.
+- Die Vorschau zeigt das Dokument `b6_geschlechtsspezifisch.pdf` korrekt an.
+- Im Viewer sind drei Seiten sichtbar; die Datei ist somit erreichbar und renderbar.
+
+3) Modul 8 – http://127.0.0.1:8084/modul/8/
+- Im optionalen Archiv ist `Geschlechtsspezifische Nuancen` sichtbar.
+- Der Eintrag trägt die Badge `M7` und die Metadaten `HO-26 · web_v02 · 2026-04-20`.
+- Damit ist der Archivkontext in Modul 8 für Welle 9 korrekt vorhanden.
