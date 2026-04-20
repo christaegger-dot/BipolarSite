@@ -1,0 +1,30 @@
+Modul-7-Spotcheck, Stand 2026-04-20
+
+- Seite http://127.0.0.1:8084/modul/7/ lädt korrekt.
+- Modul 7 zeigt vier PDF-Karten für die regenerierten Assets HO-22 bis HO-25.
+- Sichtbare UI-Texte aus dem Browser:
+  - Selbstfürsorge als Belastungsmanagement / Schutz vor Auszehrung im Alltag
+  - Was langfristig trägt / Fünf Säulen für die lange Strecke
+  - Trialog und Zusammenarbeit / Drei Perspektiven sichtbar machen
+  - Veränderung über Zeit / Wachstum ohne Pflicht zur positiven Bilanz
+- Die Karten enthalten laut sichtbarem Text die erwartete Vorschau-/Öffnen-/Download-UI sowie sichtbare Asset-Metadaten mit Asset-ID, Version und Datum.
+- Ein direkter Klick auf die erste Karte lief in einen Browser-Timeout; deshalb wird der Spotcheck mit Seiteninhalt und robusteren Folgeaktionen fortgesetzt.
+
+PDF-Vorschau HO-22 / c6_selbstfuersorge:
+
+- Die Vorschau öffnet unter http://127.0.0.1:8084/handouts/c6_selbstfuersorge.pdf direkt im Browser-PDF-Viewer.
+- Titel im Viewer: "Selbstfürsorge als Belastungsmanagement".
+- Die PDF umfasst laut Viewer 3 Seiten.
+- Sichtprüfung der ersten Seite: Titel, Typbadge, Quick-Steps und rote Hinweisbox werden sauber gerendert; keine offensichtlichen Font- oder Layoutfehler im sichtbaren Bereich.
+- Damit ist das Vorschau-/Öffnen-Verhalten für mindestens ein regeneriertes Welle-4-Asset im Browser bestätigt.
+
+Modul-8-Spotcheck, Stand 2026-04-20:
+
+- Seite http://127.0.0.1:8084/modul/8/ lädt korrekt.
+- Im vollständigen Archivbereich erscheinen die vier neuen Modul-7-Einträge sichtbar und mit aktualisierten Metadaten:
+  - M7 Selbstfürsorge als Belastungsmanagement — HO-22 · web_v02 · 2026-04-20
+  - M7 Was langfristig trägt — HO-23 · web_v02 · 2026-04-20
+  - M7 Veränderung über Zeit — HO-24 · web_v02 · 2026-04-20
+  - M7 Trialog und Zusammenarbeit — HO-25 · web_v02 · 2026-04-20
+- Die Archivmarkierung bleibt korrekt nur bei den noch nicht regenerierten M7-Einträgen HO-26 und HO-04 sichtbar.
+- Damit ist die zentrale Manifest-Ausspielung für Modul 8 im Browser konsistent mit der neuen Welle 4.
