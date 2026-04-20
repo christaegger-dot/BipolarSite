@@ -1,0 +1,27 @@
+Welle 8 Browser-Spotcheck – 2026-04-20
+
+Modul 3:
+- Die neue Karte «Kritische Zeitpunkte» ist im Modul-3-Kontext sichtbar.
+- Titel, Untertitel und Kartenplatzierung wirken plausibel neben «Beziehung an Grenzen».
+- Die Modulzuordnung ist im inhaltlichen Kontext stimmig, weil der Abschnitt zu Nachwirkungen und belastenden Übergängen direkt vorgelagert ist.
+
+PDF-Vorschau b3_kritische_zeitpunkte:
+- Das PDF lädt in der lokalen Vorschau korrekt.
+- Sichtbar sind Titel, Warnstreifen und Quick-Step-Block im erwarteten Layout.
+- Die Vorschau zeigt drei Seiten und keine offensichtlichen Darstellungsfehler im sichtbaren Bereich.
+
+Modul 6:
+- Die neue Karte «Rechtliche Orientierung» ist im Modul-6-Kontext sichtbar.
+- Titel, Untertitel und Platzierung innerhalb des Handout-Blocks wirken konsistent mit den bestehenden Krisen- und Kommunikationshandouts.
+- Die Einbindung passt fachlich zum Abschnitt über Schweigepflicht, Vorsorge und Finanzen.
+
+PDF-Vorschau rechtliche_orientierung:
+- Das PDF lädt in der lokalen Vorschau korrekt.
+- Sichtbar sind Titel, Warnstreifen und Quick-Step-Block im erwarteten Layout.
+- Die Vorschau zeigt zwei Seiten und keine offensichtlichen Darstellungsfehler im sichtbaren Bereich.
+
+Modul 8:
+- Im Archivkontext erscheinen beide regenerierten Welle-8-Handouts sichtbar und plausibel.
+- «Kritische Zeitpunkte» trägt nun das stimmige Badge M3.
+- «Rechtliche Orientierung» erscheint mit Badge M6 und konsistenter regenerierter Metazeile.
+- Im sichtbaren Bereich zeigen sich keine offensichtlichen UI- oder Zuordnungsfehler.
