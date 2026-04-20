@@ -1,0 +1,21 @@
+Modul-4-Spotcheck, Stand 2026-04-20:
+
+Die lokal gebaute Seite `http://127.0.0.1:8084/modul/4/` lädt korrekt. Im Bereich „Passende Handouts“ werden die drei regenerierten Welle-5-Einträge sichtbar ausgespielt: `Trauer ohne klaren Abschied`, `Beziehung unter Druck` und `Schonhaltung und Co-Isolation`. Die Karten zeigen die aktualisierten Metadaten mit Asset-IDs HO-06 bis HO-08 sowie `web_v02` und Datum `2026-04-20`.
+
+Ein direkter Klick auf die erste PDF-Karte im Browser-Viewport lief in einen Timeout. Für die weitere Prüfung wird deshalb die PDF-Vorschau über eine robustere Navigation fortgesetzt.
+
+PDF-Vorschau und Modul-8-Spotcheck:
+
+Die direkte lokale PDF-Vorschau von `a4_ambiguous_loss.pdf` lädt im Browser korrekt. Die Datei wird als mehrseitige A4-Vorschau dargestellt und zeigt den regenerierten Titel, die Notfallleiste und die neue Struktur sichtbar an.
+
+Im Modul-8-Archiv erscheinen die drei regenerierten Modul-4-Einträge konsistent mit aktualisierten Metadaten:
+
+- `M4 Trauer ohne klaren Abschied` — HO-06 · web_v02 · 2026-04-20
+- `M4 Beziehung unter Druck` — HO-07 · web_v02 · 2026-04-20
+- `M4 Schonhaltung und Co-Isolation` — HO-08 · web_v02 · 2026-04-20
+
+Der zurückgestellte Eintrag `M4 Kritische Zeitpunkte` bleibt korrekt als Archivfassung sichtbar:
+
+- `M4 Kritische Zeitpunkte` — HO-09 · archiv_v01 · Stand offen
+
+Damit ist die zentrale Manifest-Ausspielung für Modul 4 und Modul 8 im Browser konsistent mit der beschlossenen Welle 5.
