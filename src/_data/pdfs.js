@@ -401,12 +401,12 @@ const handouts = {
     title: "Geschlechtsspezifische Nuancen",
     subtitle: "Wie Rollenbilder Belastungen mitprägen",
     assetId: "HO-26",
-    version: "archiv_v01",
-    updated: "Stand offen",
+    version: "web_v02",
+    updated: "2026-04-20",
     filename: "b6_geschlechtsspezifisch.pdf",
-    pages: "Archiv-Handout · ältere Fassung",
+    pages: "A4 · 1 Seite",
     mode: "preview",
-    quality: "archive",
+    quality: "regenerated",
   }),
 };
 
@@ -417,7 +417,7 @@ const groups = {
   modul4: [handouts.a4_ambiguous_loss, handouts.b2_erosion_solidaritaet, handouts.b4_mechanismen_erosion],
   modul5: [handouts.b5_loyalitaetskonflikte, handouts.a3_ambivalente_loyalitaet, handouts.expressed_emotions, handouts.grenzsetzung, handouts.b10_trennung_scheidung],
   modul6: [handouts.c1_krisenplan, handouts.grenzsetzung, handouts.c4_manie, handouts.c5_depression, handouts.c2_suizidgedanken, handouts.rechtliche_orientierung, handouts.brief_an_betroffene],
-  modul7: [handouts.c6_selbstfuersorge, handouts.d4_solidaritaet_wellen, handouts.trialog, handouts.transformationsreise],
+  modul7: [handouts.c6_selbstfuersorge, handouts.d4_solidaritaet_wellen, handouts.trialog, handouts.transformationsreise, handouts.b6_geschlechtsspezifisch],
   modul8TopDownloads: [downloads.notfallkarte, downloads.krisenplanVorlage, downloads.kurzblattStabilisiert],
   modul8TopArchive: [handouts.grenzsetzung, handouts.a4_ambiguous_loss],
   modul8ArchiveEntries: [
