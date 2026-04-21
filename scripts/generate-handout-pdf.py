@@ -14,23 +14,20 @@ Design tokens match the website's "warm-editorial" palette.
 Fonts: DM Sans (body) + DM Serif Display (headings).
 """
 
-import os
-import sys
 import re
-import yaml
+import sys
+from datetime import datetime
 from pathlib import Path
 
+import yaml
+from reportlab.lib.colors import HexColor
+from reportlab.lib.enums import TA_CENTER
 from reportlab.lib.pagesizes import A4
-from reportlab.lib.units import mm, cm
-from reportlab.lib.colors import HexColor, Color
 from reportlab.lib.styles import ParagraphStyle
-from reportlab.lib.enums import TA_LEFT, TA_CENTER
-from reportlab.platypus import (
-    SimpleDocTemplate, Paragraph, Spacer, HRFlowable,
-    Table, TableStyle, KeepTogether, ListFlowable, ListItem
-)
+from reportlab.lib.units import mm
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.platypus import HRFlowable, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 
 # ── Paths ──────────────────────────────────────────────────────────────
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -43,23 +40,19 @@ pdfmetrics.registerFont(TTFont("DMSans", str(FONT_DIR / "dm-sans-variable.ttf"))
 pdfmetrics.registerFont(TTFont("DMSerif", str(FONT_DIR / "dm-serif-display-400.ttf")))
 
 # ── Design Tokens (matching handout-draft.njk print tokens) ───────────
-NAVY    = HexColor("#7a6f66")
-TEAL    = HexColor("#3a9aa3")
+NAVY = HexColor("#7a6f66")
+TEAL = HexColor("#3a9aa3")
 TEAL_SOFT = HexColor("#d9ecec")
-WARM    = HexColor("#fcf8f4")
-SAND    = HexColor("#ddd2bf")
-ALERT   = HexColor("#9a3412")
-TEXT_C  = HexColor("#2d2823")
-MUTED   = HexColor("#5c5a56")
-LINE    = HexColor("#d6d0c8")
-PAPER   = HexColor("#fffdf9")
-WHITE   = HexColor("#ffffff")
+ALERT = HexColor("#9a3412")
+TEXT_C = HexColor("#2d2823")
+MUTED = HexColor("#5c5a56")
+LINE = HexColor("#d6d0c8")
 
 PAGE_W, PAGE_H = A4
 MARGIN_L = 22 * mm
 MARGIN_R = 22 * mm
 MARGIN_T = 18 * mm
-MARGIN_B = 16 * mm
+MARGIN_B = 12 * mm
 
 # ── Paragraph Styles ──────────────────────────────────────────────────
 styles = {}
@@ -76,9 +69,6 @@ styles["body"] = ParagraphStyle(
     "Body", fontName="DMSans", fontSize=9.5, leading=14.5,
     textColor=TEXT_C, spaceAfter=2.5 * mm,
 )
-styles["body_bold"] = ParagraphStyle(
-    "BodyBold", parent=styles["body"], fontName="DMSans",
-)
 styles["bullet"] = ParagraphStyle(
     "Bullet", fontName="DMSans", fontSize=9.5, leading=14,
     textColor=TEXT_C, leftIndent=5 * mm, bulletIndent=0,
@@ -89,33 +79,25 @@ styles["sub_bullet"] = ParagraphStyle(
     textColor=MUTED, leftIndent=10 * mm, bulletIndent=5 * mm,
     spaceAfter=1 * mm,
 )
-styles["emergency_num"] = ParagraphStyle(
-    "EmNum", fontName="DMSans", fontSize=11, leading=14,
-    textColor=ALERT, spaceAfter=0,
-)
-styles["emergency_label"] = ParagraphStyle(
-    "EmLabel", fontName="DMSans", fontSize=8, leading=11,
-    textColor=MUTED, spaceAfter=0,
-)
 styles["footer"] = ParagraphStyle(
-    "Footer", fontName="DMSans", fontSize=7.5, leading=10,
+    "Footer", fontName="DMSans", fontSize=7, leading=8.5,
     textColor=MUTED, alignment=TA_CENTER,
 )
 styles["quick_step"] = ParagraphStyle(
     "QuickStep", fontName="DMSans", fontSize=9, leading=13,
     textColor=TEXT_C,
 )
-styles["callout"] = ParagraphStyle(
-    "Callout", fontName="DMSans", fontSize=9.5, leading=14,
-    textColor=ALERT, spaceAfter=2 * mm,
-)
 styles["italic"] = ParagraphStyle(
     "Italic", fontName="DMSans", fontSize=9.5, leading=14.5,
     textColor=MUTED, spaceAfter=2.5 * mm,
 )
-styles["link"] = ParagraphStyle(
-    "Link", fontName="DMSans", fontSize=8.5, leading=12,
-    textColor=TEAL, spaceAfter=1.5 * mm,
+styles["help_title"] = ParagraphStyle(
+    "HelpTitle", fontName="DMSans", fontSize=8.5, leading=11,
+    textColor=MUTED, spaceAfter=1.2 * mm,
+)
+styles["help_note"] = ParagraphStyle(
+    "HelpNote", fontName="DMSans", fontSize=8.3, leading=11.5,
+    textColor=MUTED, spaceAfter=2.5 * mm,
 )
 
 
@@ -124,11 +106,10 @@ def parse_draft(path: Path):
     """Parse a markdown file with YAML frontmatter."""
     content = path.read_text(encoding="utf-8")
 
-    # Split frontmatter
     if content.startswith("---"):
         parts = content.split("---", 2)
         if len(parts) >= 3:
-            meta = yaml.safe_load(parts[1])
+            meta = yaml.safe_load(parts[1]) or {}
             body = parts[2].strip()
         else:
             meta = {}
@@ -142,15 +123,130 @@ def parse_draft(path: Path):
 
 def md_inline(text):
     """Convert inline markdown to reportlab XML."""
-    # Bold
+    text = "" if text is None else str(text)
     text = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', text)
-    # Italic
     text = re.sub(r'\*(.+?)\*', r'<i>\1</i>', text)
-    # Links - strip to text only for PDF
     text = re.sub(r'\[(.+?)\]\((.+?)\)', r'\1', text)
-    # Escape XML entities that aren't already tags
-    # (reportlab uses XML-like markup)
     return text
+
+
+def format_swiss_date(value):
+    """Format yyyy-mm-dd as dd.mm.yyyy for footer usage."""
+    if not value:
+        return None
+    try:
+        return datetime.strptime(str(value), "%Y-%m-%d").strftime("%d.%m.%Y")
+    except ValueError:
+        return str(value)
+
+
+def normalize_help_module(meta):
+    """Return a normalized help module or None when disabled / absent."""
+    help_module = meta.get("help_module")
+    if not isinstance(help_module, dict):
+        return None
+    if help_module.get("enabled", True) is False:
+        return None
+
+    raw_items = help_module.get("items", [])
+    if not isinstance(raw_items, list):
+        return None
+
+    items = []
+    for raw in raw_items:
+        if not isinstance(raw, dict):
+            continue
+        label = str(raw.get("label", "") or "").strip()
+        value = str(raw.get("number", raw.get("text", "")) or "").strip()
+        note = str(raw.get("note", "") or "").strip()
+        tone = str(raw.get("tone", "") or "").strip()
+        if not (label or value or note):
+            continue
+        items.append({
+            "label": label,
+            "value": value,
+            "note": note,
+            "tone": tone,
+        })
+
+    if not items:
+        return None
+
+    return {
+        "title": str(help_module.get("title", "Hilfe") or "Hilfe").strip(),
+        "note": str(help_module.get("note", "") or "").strip(),
+        "items": items,
+    }
+
+
+def build_help_module_flowables(help_module, content_width):
+    """Create flowables for the optional help module."""
+    flowables = [Spacer(1, 1.5 * mm)]
+    flowables.append(HRFlowable(width="100%", thickness=0.5, color=LINE, spaceAfter=3 * mm))
+    flowables.append(Paragraph(f'<b>{md_inline(help_module["title"])}</b>', styles["help_title"]))
+    if help_module.get("note"):
+        flowables.append(Paragraph(md_inline(help_module["note"]), styles["help_note"]))
+
+    item_rows = []
+    for item in help_module["items"]:
+        tone_color = ALERT if item.get("tone") == "urgent" else TEAL
+        value_markup = md_inline(item["value"] or item["label"]) or "–"
+        label_markup = md_inline(item["label"] or "")
+        note_markup = md_inline(item.get("note") or "")
+
+        if label_markup and note_markup:
+            detail_markup = (
+                f'<b>{label_markup}</b><br/>'
+                f'<font size="7.5" color="#{MUTED.hexval()[2:]}">{note_markup}</font>'
+            )
+        elif label_markup:
+            detail_markup = f'<b>{label_markup}</b>'
+        elif note_markup:
+            detail_markup = f'<font size="7.5" color="#{MUTED.hexval()[2:]}">{note_markup}</font>'
+        else:
+            detail_markup = ""
+
+        item_rows.append([
+            Paragraph(
+                f'<font color="#{tone_color.hexval()[2:]}"><b>{value_markup}</b></font>',
+                ParagraphStyle("hv", fontName="DMSans", fontSize=10, leading=13),
+            ),
+            Paragraph(
+                detail_markup,
+                ParagraphStyle("hl", fontName="DMSans", fontSize=8.5, leading=12, textColor=TEXT_C),
+            ),
+        ])
+
+    help_table = Table(item_rows, colWidths=[30 * mm, content_width - 30 * mm])
+    help_table.setStyle(TableStyle([
+        ("TOPPADDING", (0, 0), (-1, -1), 1.8 * mm),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 1.8 * mm),
+        ("LEFTPADDING", (0, 0), (-1, -1), 0),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 0),
+        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+        ("LINEBELOW", (0, 0), (-1, -2), 0.3, LINE),
+    ]))
+    flowables.append(help_table)
+    return flowables
+
+
+def build_footer_line(meta):
+    """Return a professional footer line without contact content."""
+    parts = ["PUK Zürich · Fachstelle Angehörigenarbeit"]
+    formatted_date = format_swiss_date(meta.get("last_updated"))
+    if formatted_date:
+        parts.append(f"Stand: {formatted_date}")
+    parts.append("bipolarsite.netlify.app")
+    return " · ".join(parts)
+
+
+def draw_footer(canvas, doc, meta):
+    """Draw the footer in the page margin so it does not create extra pages."""
+    canvas.saveState()
+    canvas.setFont("DMSans", 7)
+    canvas.setFillColor(MUTED)
+    canvas.drawCentredString(PAGE_W / 2, 6.5 * mm, build_footer_line(meta))
+    canvas.restoreState()
 
 
 # ── Build PDF ─────────────────────────────────────────────────────────
@@ -172,28 +268,25 @@ def build_pdf(meta, body, output_path: Path):
     story = []
     content_width = PAGE_W - MARGIN_L - MARGIN_R
 
-    # ── Header: Type badge + Title ──
     handout_type = meta.get("type", "Handout")
     story.append(Paragraph(
         f'<font color="#{TEAL.hexval()[2:]}" size="8">{handout_type.upper()}</font>',
-        styles["body"]
+        styles["body"],
     ))
     story.append(Spacer(1, 1 * mm))
 
     title = meta.get("title", "Handout")
     story.append(Paragraph(title, styles["h1"]))
 
-    # ── Emergency Strip ──
     if meta.get("emergency_callout"):
-        # Build emergency box as a table
         emergency_data = [[
             Paragraph(
-                f'<b>{meta.get("emergency_label", "Notfall")}</b>',
-                ParagraphStyle("el", fontName="DMSans", fontSize=8, textColor=ALERT, leading=11)
+                f'<b>{md_inline(meta.get("emergency_label", "Notfall"))}</b>',
+                ParagraphStyle("el", fontName="DMSans", fontSize=8, textColor=ALERT, leading=11),
             ),
             Paragraph(
                 md_inline(meta["emergency_callout"]),
-                ParagraphStyle("ec", fontName="DMSans", fontSize=9.5, textColor=ALERT, leading=13)
+                ParagraphStyle("ec", fontName="DMSans", fontSize=9.5, textColor=ALERT, leading=13),
             ),
         ]]
 
@@ -210,17 +303,16 @@ def build_pdf(meta, body, output_path: Path):
         story.append(emergency_table)
         story.append(Spacer(1, 4 * mm))
 
-    # ── Quick Steps ──
     quick_steps = meta.get("quick_steps", [])
     if quick_steps:
         step_data = []
         for step in quick_steps:
-            icon = step.get("icon", "•")
-            text = step.get("text", "")
+            icon = step.get("icon", "•") if isinstance(step, dict) else "•"
+            text = step.get("text", "") if isinstance(step, dict) else str(step)
             step_data.append([
                 Paragraph(
-                    f'<font color="#{TEAL.hexval()[2:]}" size="11"><b>{icon}</b></font>',
-                    ParagraphStyle("si", fontName="DMSans", fontSize=11, alignment=TA_CENTER, leading=14)
+                    f'<font color="#{TEAL.hexval()[2:]}" size="11"><b>{md_inline(icon)}</b></font>',
+                    ParagraphStyle("si", fontName="DMSans", fontSize=11, alignment=TA_CENTER, leading=14),
                 ),
                 Paragraph(md_inline(text), styles["quick_step"]),
             ])
@@ -239,38 +331,31 @@ def build_pdf(meta, body, output_path: Path):
         story.append(step_table)
         story.append(Spacer(1, 4 * mm))
 
-    # Divider
     story.append(HRFlowable(width="100%", thickness=0.5, color=LINE, spaceAfter=3 * mm))
 
-    # ── Body Content ──
     lines = body.split("\n")
     i = 0
     while i < len(lines):
         line = lines[i].rstrip()
 
-        # H1 (skip — already rendered from frontmatter)
         if line.startswith("# ") and not line.startswith("## "):
             i += 1
             continue
 
-        # H2
         if line.startswith("## "):
             heading = line[3:].strip()
             story.append(Paragraph(md_inline(heading), styles["h2"]))
             i += 1
             continue
 
-        # Horizontal rule
         if line.strip() == "---":
             story.append(Spacer(1, 2 * mm))
             story.append(HRFlowable(width="100%", thickness=0.3, color=LINE, spaceAfter=2 * mm))
             i += 1
             continue
 
-        # Bullet list
         if line.startswith("- "):
             bullet_text = line[2:].strip()
-            # Check for sub-bullets
             sub_items = []
             j = i + 1
             while j < len(lines) and lines[j].startswith("  - "):
@@ -279,34 +364,38 @@ def build_pdf(meta, body, output_path: Path):
 
             story.append(Paragraph(
                 f'<bullet>&bull;</bullet>{md_inline(bullet_text)}',
-                styles["bullet"]
+                styles["bullet"],
             ))
 
             for sub in sub_items:
                 story.append(Paragraph(
                     f'<bullet>–</bullet>{md_inline(sub)}',
-                    styles["sub_bullet"]
+                    styles["sub_bullet"],
                 ))
 
             i = j
             continue
 
-        # Empty line
         if not line.strip():
             i += 1
             continue
 
-        # Italic paragraph (starts with *)
         if line.startswith("*") and line.endswith("*") and not line.startswith("**"):
             inner = line.strip("*").strip()
             story.append(Paragraph(f'<i>{md_inline(inner)}</i>', styles["italic"]))
             i += 1
             continue
 
-        # Regular paragraph
         para_lines = [line]
         j = i + 1
-        while j < len(lines) and lines[j].strip() and not lines[j].startswith("#") and not lines[j].startswith("- ") and not lines[j].startswith("*") and lines[j].strip() != "---":
+        while (
+            j < len(lines)
+            and lines[j].strip()
+            and not lines[j].startswith("#")
+            and not lines[j].startswith("- ")
+            and not lines[j].startswith("*")
+            and lines[j].strip() != "---"
+        ):
             para_lines.append(lines[j].rstrip())
             j += 1
 
@@ -314,51 +403,15 @@ def build_pdf(meta, body, output_path: Path):
         story.append(Paragraph(md_inline(text), styles["body"]))
         i = j
 
-    # ── Emergency Contacts Footer ──
-    contacts = meta.get("emergency_contacts", [])
-    if contacts:
-        story.append(Spacer(1, 3 * mm))
-        story.append(HRFlowable(width="100%", thickness=0.5, color=LINE, spaceAfter=3 * mm))
+    help_module = normalize_help_module(meta)
+    if help_module:
+        story.extend(build_help_module_flowables(help_module, content_width))
 
-        contact_data = []
-        for c in contacts:
-            tone = c.get("tone", "")
-            num_color = ALERT if tone == "urgent" else TEAL
-            contact_data.append([
-                Paragraph(
-                    f'<font color="#{num_color.hexval()[2:]}"><b>{c["number"]}</b></font>',
-                    ParagraphStyle("cn", fontName="DMSans", fontSize=10, leading=13)
-                ),
-                Paragraph(
-                    f'<b>{c["label"]}</b><br/><font size="7.5" color="#{MUTED.hexval()[2:]}">{c.get("note", "")}</font>',
-                    ParagraphStyle("cl", fontName="DMSans", fontSize=8.5, leading=12, textColor=TEXT_C)
-                ),
-            ])
-
-        col_w = content_width / len(contact_data)
-        # Transpose to single row
-        row = [item for pair in contact_data for item in [pair]]
-        contact_table = Table(contact_data, colWidths=[30 * mm, content_width - 30 * mm])
-        contact_table.setStyle(TableStyle([
-            ("TOPPADDING", (0, 0), (-1, -1), 1.5 * mm),
-            ("BOTTOMPADDING", (0, 0), (-1, -1), 1.5 * mm),
-            ("LEFTPADDING", (0, 0), (-1, -1), 0),
-            ("LINEBELOW", (0, 0), (-1, -2), 0.3, LINE),
-            ("VALIGN", (0, 0), (-1, -1), "TOP"),
-        ]))
-        story.append(contact_table)
-
-    # ── Footer ──
-    story.append(Spacer(1, 4 * mm))
-    org = "PUK Zürich · Fachstelle Angehörigenarbeit"
-    url = "bipolarsite.netlify.app"
-    story.append(Paragraph(
-        f'{org} · {url}',
-        styles["footer"]
-    ))
-
-    # Build
-    doc.build(story)
+    doc.build(
+        story,
+        onFirstPage=lambda canvas, doc: draw_footer(canvas, doc, meta),
+        onLaterPages=lambda canvas, doc: draw_footer(canvas, doc, meta),
+    )
     return output_path
 
 

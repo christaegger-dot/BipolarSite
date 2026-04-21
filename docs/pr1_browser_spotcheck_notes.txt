@@ -1,0 +1,22 @@
+PR 1 Browser-Spotcheck
+
+1) Draft-Vorschau `handout-drafts/c2_suizidgedanken/`
+- Neues `help_module` wird als bewusster Schlussblock nach dem Body gerendert.
+- Kein generischer Kontaktblock oberhalb des Inhalts mehr sichtbar.
+- Alert-Panel und Quick-Steps bleiben intakt.
+- Restproblem: Im Body steht unter `Weiterführend` weiterhin externe Hilfe (`Ärztefon – Notfalldienst Zürich`), während das neue Hilfemodul dieselbe Hilfe nochmals strukturiert ausgibt. Das ist als Übergang für PR 1 tolerierbar, bestätigt aber den Bedarf für PR 2.
+
+2) Draft-Vorschau `handout-drafts/b6_geschlechtsspezifisch/`
+- Kein automatischer Kontaktblock mehr am Seitenende sichtbar.
+- Der neue Standardfall ohne Hilfemodul wirkt in der Vorschau ruhig und technisch stabil.
+- Restproblem: Im Body stehen unter `Weiterführend` weiterhin externe Kontakte (`Dargebotene Hand`, `Ärztefon Zürich`). Das ist kein Template-Fehler, sondern ein geplanter Migrationspunkt für PR 2 / PR 3.
+
+3) Direkte PDF-Vorschau `handouts/c2_suizidgedanken.pdf`
+- Das neue Hilfemodul wird im PDF grundsätzlich gerendert; kein alter generischer Endkontaktblock ist als separater Systembaustein sichtbar.
+- Der Footer ist kompakter und enthält keine zusätzliche Kontaktliste.
+- Auffälligkeit: Die PDF öffnet im Browser als 3-seitiges Dokument, obwohl das Draft-Metafeld `target_format` auf `A4, 1 Seite` verweist. Das ist ein bestehendes / systemisches Pagination-Thema und kein Rückfall in die alte Kontaktlogik.
+
+4) Direkte PDF-Vorschau `handouts/b6_geschlechtsspezifisch.pdf`
+- Die PDF erscheint ohne neuen Hilfeblock; der generische Standard-Endkontaktblock ist entfernt.
+- Der Footer bleibt kompakt.
+- Auffälligkeit: Auch dieses PDF wird aktuell als 3-seitig gerendert. Die Seitenzahl bestätigt ein unabhängiges Layout-/Pagination-Thema, das in PR 2 oder einem separaten Folge-PR adressiert werden sollte.
