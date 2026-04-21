@@ -22,6 +22,20 @@ quick_steps:
   - icon: "144"
     wide: true
     text: "Bei konkreter Gefahr 144"
+help_module:
+  enabled: true
+  title: "Sofort Hilfe dazunehmen"
+  items:
+    - label: "Sanität"
+      number: "144"
+      note: "Bei konkretem Plan, vorhandenen Mitteln oder unmittelbarer Gefahr"
+      tone: "urgent"
+    - label: "Notfalldienst Zürich"
+      number: "0800&nbsp;33&nbsp;66&nbsp;55"
+      note: "Wenn die Lage ernst ist, aber keine unmittelbare Lebensgefahr besteht"
+    - label: "Dargebotene Hand"
+      number: "143"
+      note: "Wenn Sie sofort mit jemandem sprechen müssen"
 emergency_contacts:
   - label: "Sanität"
     number: "144"

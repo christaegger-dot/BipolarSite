@@ -285,14 +285,40 @@
       overflow-wrap:anywhere;
     }
 
-    .draft-number-bar{
+    .draft-help-module{
       margin:1.35rem 0 1.1rem;
+      padding-top:0.9rem;
+      border-top:1px solid rgba(45,40,35,0.08);
+    }
+
+    .draft-help-header{
+      margin-bottom:0.8rem;
+      max-width:36rem;
+    }
+
+    .draft-help-title{
+      font-size:var(--text-xs);
+      font-weight:800;
+      letter-spacing:0.04em;
+      text-transform:uppercase;
+      color:#6f6b65;
+      margin-bottom:0.3rem;
+    }
+
+    .draft-help-note{
+      margin:0;
+      font-size:var(--text-sm);
+      line-height:1.55;
+      color:var(--muted);
+    }
+
+    .draft-help-grid{
       display:grid;
       grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
       gap:var(--grid-gap-tight);
     }
 
-    .draft-number-card{
+    .draft-help-card{
       border-radius:var(--card-radius);
       border:1px solid rgba(45,40,35,0.08);
       background:rgba(245,241,235,0.95);
@@ -300,12 +326,12 @@
       min-width:0;
     }
 
-    .draft-number-card.urgent{
+    .draft-help-card.urgent{
       border-color:rgba(154,52,18,0.18);
       background:rgba(250,233,227,0.96);
     }
 
-    .draft-number-label{
+    .draft-help-label{
       font-size:var(--text-xs);
       font-weight:700;
       letter-spacing:0.03em;
@@ -313,11 +339,11 @@
       margin-bottom:4px;
     }
 
-    .draft-number-card.urgent .draft-number-label{
+    .draft-help-card.urgent .draft-help-label{
       color:var(--alert);
     }
 
-    .draft-number-value{
+    .draft-help-value{
       font-size:var(--text-lg);
       line-height:1.15;
       color:var(--navy);
@@ -326,11 +352,11 @@
       overflow-wrap:anywhere;
     }
 
-    .draft-number-card.urgent .draft-number-value{
+    .draft-help-card.urgent .draft-help-value{
       color:#68200b;
     }
 
-    .draft-number-note{
+    .draft-help-note-inline{
       margin-top:6px;
       font-size:var(--text-xs);
       line-height:1.5;
@@ -463,12 +489,16 @@
       }
       .draft-step-index{width:24px;height:24px;font-size:0.7rem}
       .draft-step-text{font-size:0.8rem}
-      /* Compact emergency contacts */
-      .draft-number-bar{margin:0.5rem 0;gap:6px;grid-template-columns:repeat(3,1fr)}
-      .draft-number-card{padding:6px 8px}
-      .draft-number-label{font-size:0.6rem;margin-bottom:1px}
-      .draft-number-value{font-size:0.85rem}
-      .draft-number-note{font-size:0.6rem;margin-top:2px}
+      /* Compact optional help module */
+      .draft-help-module{margin:0.55rem 0;padding-top:0.45rem}
+      .draft-help-header{margin-bottom:0.35rem}
+      .draft-help-title{font-size:0.58rem;margin-bottom:2px}
+      .draft-help-note{font-size:0.68rem;line-height:1.35}
+      .draft-help-grid{gap:6px;grid-template-columns:repeat(3,1fr)}
+      .draft-help-card{padding:6px 8px}
+      .draft-help-label{font-size:0.6rem;margin-bottom:1px}
+      .draft-help-value{font-size:0.85rem}
+      .draft-help-note-inline{font-size:0.6rem;margin-top:2px}
       /* Compact content headings & text */
       .draft-content h2{
         font-size:1.05rem;
@@ -544,19 +574,29 @@
         {% endif %}
       </header>
 
+      {% set helpItems = [] %}
+      {% if help_module and help_module.enabled != false and help_module.items %}
+        {% set helpItems = help_module.items %}
+      {% endif %}
       <main class="draft-content">
-        {% if emergency_contacts %}
-          <section class="draft-number-bar" aria-label="Wichtige Nummern">
-            {% for item in emergency_contacts %}
-              <div class="draft-number-card{% if item.tone == 'urgent' %} urgent{% endif %}">
-                <div class="draft-number-label">{{ item.label }}</div>
-                <div class="draft-number-value">{{ item.number }}</div>
-                {% if item.note %}<div class="draft-number-note">{{ item.note }}</div>{% endif %}
-              </div>
-            {% endfor %}
+        {{ content | stripFirstH1 | previewRelativeHtml | safe }}
+        {% if helpItems | length %}
+          <section class="draft-help-module" aria-label="{{ help_module.title or 'Hilfe' }}">
+            <div class="draft-help-header">
+              <div class="draft-help-title">{{ help_module.title or 'Hilfe' }}</div>
+              {% if help_module.note %}<p class="draft-help-note">{{ help_module.note }}</p>{% endif %}
+            </div>
+            <div class="draft-help-grid">
+              {% for item in helpItems %}
+                <div class="draft-help-card{% if item.tone == 'urgent' %} urgent{% endif %}">
+                  <div class="draft-help-label">{{ item.label }}</div>
+                  <div class="draft-help-value">{{ item.number or item.text }}</div>
+                  {% if item.note %}<div class="draft-help-note-inline">{{ item.note }}</div>{% endif %}
+                </div>
+              {% endfor %}
+            </div>
           </section>
         {% endif %}
-        {{ content | stripFirstH1 | previewRelativeHtml | safe }}
       </main>
 
       <footer class="draft-footer">

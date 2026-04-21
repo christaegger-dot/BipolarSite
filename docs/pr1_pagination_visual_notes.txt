@@ -1,0 +1,15 @@
+PR 1 Pagination – visuelle Befunde
+
+Referenz `c2_suizidgedanken.pdf`:
+Die dritte Seite enthält faktisch nur die Footer-Zeile. Der eigentliche Inhalt endet bereits auf Seite 2 mit dem Hilfemodul. Das bestätigt, dass hier unnötiger Leerraum nicht inhaltlich, sondern durch die aktuelle Schlusslogik und den Footer-Umbruch entsteht.
+
+Referenz `b6_geschlechtsspezifisch.pdf`:
+Die dritte Seite enthält zwar noch Inhalt, endet aber mit deutlich sichtbarem Leerraum unter dem Abschnitt `Weiterführend`. Hier liegt also kein reiner Footer-Orphan vor, sondern eine allgemeine Verteilungsfrage des Fliesstexts über die letzten beiden Seiten.
+
+Übergreifender Befund:
+Die aktuelle Generatorlogik überlässt ReportLab fast alle Umbrüche vollständig implizit. Es gibt bislang keine gezielte Steuerung für zusammengehörige Schlussblöcke, keine Regel gegen isolierte Footer-Seiten und keine bewusste Verdichtung kurz vor dem Seitenende.
+
+Nach Footer-Umbau (Footer als fester Seitenfuss statt Fliesstext):
+- `c2_suizidgedanken.pdf` fällt von 3 auf 2 Seiten. Der Footer sitzt nun auf Seite 1 und 2 im unteren Seitenfuss; die frühere reine Footer-Seite ist verschwunden.
+- `b6_geschlechtsspezifisch.pdf` bleibt 3-seitig. Der Footer sitzt jetzt korrekt im Seitenfuss jeder Seite und erzeugt keinen zusätzlichen Umbruch.
+- Der verbleibende Leerraum in `b6_geschlechtsspezifisch.pdf` ist kein Footer-Artefakt mehr, sondern ein normales Restvolumen auf der letzten Inhaltsseite. Die neue Logik beseitigt also den künstlichen Leerraum, nicht aber jede inhaltsbedingte Restfläche.
