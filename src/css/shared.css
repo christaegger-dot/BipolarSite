@@ -556,8 +556,10 @@ a, button, input, select, textarea,
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 20% 100%, rgba(168,213,203,0.10) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 50% at 85% 20%, rgba(175,115,110,0.05) 0%, transparent 60%);
+    /* Audit 3: Opazität von 0.10 auf 0.15 erhöht — mehr Tiefe ohne Kontrastverlust */
+    radial-gradient(ellipse 80% 60% at 20% 100%, rgba(168,213,203,0.15) 0%, transparent 70%),
+    /* Audit 3: Opazität von 0.05 auf 0.12 erhöht — Rosé-Akzent sichtbarer */
+    radial-gradient(ellipse 50% 50% at 85% 20%, rgba(175,115,110,0.12) 0%, transparent 60%);
   pointer-events: none;
 }
 .home-hero::after {
@@ -586,6 +588,50 @@ a, button, input, select, textarea,
   max-width: var(--content-width);
   position: relative;
   z-index: 3;
+}
+
+/* ── Audit 1: Hero Split-Layout ── */
+.home-hero-split {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+  width: 100%;
+}
+
+.home-hero-visual {
+  display: none; /* Mobile: ausgeblendet */
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--card-shadow-hover);
+  flex-shrink: 0;
+}
+
+.home-hero-visual img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+@media (min-width: 900px) {
+  .home-hero-split {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .home-hero-visual {
+    display: block;
+  }
+
+  .home-hero-text {
+    max-width: 100%;
+  }
+
+  .home-hero-paths {
+    grid-column: 1 / -1;
+  }
 }
 .home-hero-badge {
   display: inline-flex;
@@ -894,10 +940,12 @@ a, button, input, select, textarea,
 
 /* ── Einladung ── */
 .invitation-section {
-  background: var(--surface-alt);
-  border-top: 1px solid var(--border-warm);
+  /* Audit 2: Dunkler Teal-Hintergrund für visuellen Rhythmus-Bruch */
+  background: var(--teal-cta-dark);
+  border-top: none;
   padding-left: 2rem;
   padding-right: 2rem;
+  color: var(--white-text);
 }
 .invitation-inner {
   max-width: var(--content-width);
@@ -909,10 +957,11 @@ a, button, input, select, textarea,
   font-size: var(--text-xl);
   line-height: 1.5;
   margin-bottom: var(--heading-gap-h2);
+  color: #ffffff;
 }
 .invitation-inner > p {
   font-size: var(--text-base);
-  color: var(--slate);
+  color: rgba(255,255,255,0.85);
   line-height: 1.7;
   max-width: var(--content-width-narrow);
   margin: 0 auto 32px;
@@ -929,30 +978,32 @@ a, button, input, select, textarea,
   min-height: 46px;
   padding: 0 24px;
   border-radius: var(--radius-md);
-  background: var(--cta-primary-bg);
-  color: var(--cta-primary-text);
+  /* Audit 2: Invertierter Button auf dunklem Hintergrund */
+  background: #ffffff;
+  color: var(--teal-cta-dark);
   text-decoration: none;
   font-size: var(--text-base);
   font-weight: 700;
   letter-spacing: 0.02em;
   transition: background 0.2s ease;
 }
-.invitation-phone:hover { background: var(--cta-primary-hover); }
+.invitation-phone:hover { background: var(--surface-alt); }
 .invitation-email {
   display: inline-flex;
   align-items: center;
   min-height: 46px;
   padding: 0 24px;
   border-radius: var(--radius-md);
-  border: 1px solid var(--border-warm-md);
-  background: var(--card);
-  color: var(--navy);
+  /* Audit 2: Ghost-Button auf dunklem Hintergrund */
+  border: 1px solid rgba(255,255,255,0.3);
+  background: transparent;
+  color: #ffffff;
   text-decoration: none;
   font-size: var(--text-base);
   font-weight: 600;
-  transition: border-color 0.2s ease, color 0.2s ease;
+  transition: border-color 0.2s ease, background 0.2s ease;
 }
-.invitation-email:hover { border-color: var(--teal-solid); color: var(--teal-cta); }
+.invitation-email:hover { border-color: #ffffff; background: rgba(255,255,255,0.1); color: #ffffff; }
 @media (max-width: 600px) {
   .invitation-section { padding: var(--section-tight) 1.4rem; }
   .invitation-contacts { flex-direction: column; align-items: center; }
@@ -1568,9 +1619,33 @@ header.hero .hero-content {
 
 /* ══════════ WERKZEUGE PAGE (extracted from inline <style>) ══════════ */
 
-/* Decorative blobs — disabled */
-.werkzeuge-page .overview-hero::before,
-.werkzeuge-page .overview-hero::after { display: none; }
+/* Audit 3: Werkzeuge-Blobs reaktiviert — subtile Tiefe ohne Kontrastverlust */
+.werkzeuge-page .overview-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.werkzeuge-page .overview-hero::before {
+  content: '';
+  position: absolute;
+  top: -20%; right: -10%;
+  width: 60%; height: 140%;
+  background: radial-gradient(circle, var(--teal-light) 0%, transparent 70%);
+  filter: blur(40px);
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.werkzeuge-page .overview-hero::after {
+  display: none;
+}
+
+.werkzeuge-page .overview-hero-content,
+.werkzeuge-page .overview-hero-inner {
+  position: relative;
+  z-index: 2;
+}
 .werkzeuge-page .overview-badge { background: rgba(217,236,236,0.42); color: var(--navy-mid); }
 .werkzeuge-page .overview-intro { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .werkzeuge-page .overview-note { background: var(--card); }
