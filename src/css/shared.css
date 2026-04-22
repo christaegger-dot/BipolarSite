@@ -938,6 +938,69 @@ a, button, input, select, textarea,
   .story-section { padding: 48px 1.4rem 56px; }
 }
 
+/* ── P0.1 Audit: Triage Full-Width-Banner ── */
+/* Bricht aus dem Container aus — erster echter Farbbruch auf der Startseite */
+.triage-fullwidth-section {
+  background: var(--teal-faint, rgba(40,127,135,0.06));
+  border-top: 1px solid var(--border-warm);
+  border-bottom: 1px solid var(--border-warm);
+  padding-top: var(--section-standard);
+  padding-bottom: var(--section-standard);
+  margin-left: calc(-1 * var(--page-gutter, 2rem));
+  margin-right: calc(-1 * var(--page-gutter, 2rem));
+  padding-left: var(--page-gutter, 2rem);
+  padding-right: var(--page-gutter, 2rem);
+}
+.triage-fullwidth-section .quick-triage {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  background: var(--card);
+  border: 1px solid var(--border-warm);
+  border-radius: var(--card-radius);
+  padding: var(--space-xl) var(--space-lg);
+  box-shadow: var(--card-shadow-hover);
+}
+.triage-fullwidth-section .urgent-note-standalone {
+  max-width: var(--content-width);
+  margin: var(--space-lg) auto 0;
+}
+@media (max-width: 600px) {
+  .triage-fullwidth-section {
+    margin-left: -1.4rem;
+    margin-right: -1.4rem;
+    padding-left: 1.4rem;
+    padding-right: 1.4rem;
+  }
+}
+
+/* ── P0.2 Audit: Story 50/50 Split-Layout ── */
+.story-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: var(--content-width-wide, 1040px);
+}
+.story-split-visual {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--card-shadow-hover);
+  flex-shrink: 0;
+}
+.story-split-visual img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+@media (max-width: 860px) {
+  .story-split {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .story-split-visual { display: none; }
+}
+
 /* ── Einladung ── */
 .invitation-section {
   /* Audit 2: Dunkler Teal-Hintergrund für visuellen Rhythmus-Bruch */
