@@ -262,12 +262,8 @@ breadcrumbs:
       <p>Selbstfürsorge ist kein Luxus — sie ist die Voraussetzung dafür, dass Sie langfristig begleiten können. Licht hereinlassen bedeutet nicht, die Schwere zu leugnen. Es bedeutet, sich selbst nicht zu vergessen.</p>
     </div>
     <figure class="module-illustration__figure">
-      <img
-        src="/visuals/modul7-licht-lassen.webp"
-        alt="Illustration: ein geöffnetes Bogenfenster lässt warmes Licht herein, eine Pflanze wächst in Richtung des Lichts — Metapher für Selbstfürsorge und Hoffnung."
-        width="1200" height="800"
-        loading="lazy" decoding="async"
-      />
+      {# P3 Audit: heroImage-Shortcode — AVIF/WebP/JPEG + responsive srcset #}
+      {% heroImage "/visuals/modul7-licht-lassen.webp", "Illustration: ein geöffnetes Bogenfenster lässt warmes Licht herein, eine Pflanze wächst in Richtung des Lichts — Metapher für Selbstfürsorge und Hoffnung.", "lazy", "", "(max-width: 860px) 100vw, 600px" %}
     </figure>
   </div>
 

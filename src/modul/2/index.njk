@@ -102,12 +102,8 @@ breadcrumbs:
 
   <div class="module-illustration module-illustration--reverse reveal">
     <figure class="module-illustration__figure">
-      <img
-        src="/visuals/modul2-gleichgewicht.webp"
-        alt="Illustration: eine Figur balanciert ruhig auf einer dünnen Linie — Metapher für das tägliche Gleichgewichthalten der Angehörigen."
-        width="1200" height="800"
-        loading="lazy" decoding="async"
-      />
+      {# P3 Audit: heroImage-Shortcode — AVIF/WebP/JPEG + responsive srcset #}
+      {% heroImage "/visuals/modul2-gleichgewicht.webp", "Illustration: eine Figur balanciert ruhig auf einer dünnen Linie — Metapher für das tägliche Gleichgewichthalten der Angehörigen.", "lazy", "", "(max-width: 860px) 100vw, 600px" %}
     </figure>
     <div class="module-illustration__body">
       <p>Dass sich die häufigsten Belastungen um <strong>Informationsmangel und Unsicherheit</strong> drehen, ist wichtig: Es zeigt, warum Angehörigenwissen und Einordnung nicht «nice to have» sind, sondern entlasten können. Sie sind nicht «zu empfindlich» — Sie befinden sich in einer objektiv schwierigen Situation.</p>

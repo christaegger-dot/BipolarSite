@@ -5,9 +5,10 @@ module.exports = function (eleventyConfig) {
   const handoutPreviewRoot = "../../";
 
   // P3 Audit: Bild-Optimierung — WebP/AVIF + responsive srcset
-  // Nunjucks-Shortcode für Hero-Bilder: generiert <picture> mit AVIF, WebP und JPEG
-  // Verwendung in Templates: {% heroImage "/visuals/bild.webp", "Alt-Text", "eager" %}
-  eleventyConfig.addNunjucksAsyncShortcode("heroImage", async function (src, alt, loading = "lazy", fetchpriority = "") {
+  // Nunjucks-Shortcode für alle Bilder: generiert <picture> mit AVIF, WebP und JPEG
+  // Hero-Verwendung:  {% heroImage "/visuals/bild.webp", "Alt-Text", "eager", "high" %}
+  // Modul-Verwendung: {% heroImage "/visuals/bild.webp", "Alt-Text", "lazy", "", "(max-width: 860px) 100vw, 600px" %}
+  eleventyConfig.addNunjucksAsyncShortcode("heroImage", async function (src, alt, loading = "lazy", fetchpriority = "", sizes = "(max-width: 860px) 100vw, 50vw") {
     if (!src) return "";
     const inputPath = path.join("src", src);
     const options = {
@@ -23,7 +24,7 @@ module.exports = function (eleventyConfig) {
     const metadata = await Image(inputPath, options);
     const attrs = {
       alt: alt || "",
-      sizes: "(max-width: 860px) 100vw, 50vw",
+      sizes: sizes,
       loading: loading,
       decoding: "async",
     };

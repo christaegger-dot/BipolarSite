@@ -356,12 +356,8 @@ breadcrumbs:
       <p>Die bipolare Störung ist nicht ein Charakter, der sich verändert — sie ist ein zweiter Zustand, der denselben Menschen bewohnt. Zwei Zustände, eine Person. Diese Erfahrung ist real, und sie ist eine der zentralen Belastungen im Alltag.</p>
     </div>
     <figure class="module-illustration__figure">
-      <img
-        src="/visuals/modul1-zwei-monde.webp"
-        alt="Abstrakte Illustration: ein Teal-Kreis und ein Rosé-Halbmond berühren sich — Metapher für zwei Zustände in einer Person."
-        width="1200" height="800"
-        loading="lazy" decoding="async"
-      />
+      {# P3 Audit: heroImage-Shortcode — AVIF/WebP/JPEG + responsive srcset #}
+      {% heroImage "/visuals/modul1-zwei-monde.webp", "Abstrakte Illustration: ein Teal-Kreis und ein Rosé-Halbmond berühren sich — Metapher für zwei Zustände in einer Person.", "lazy", "", "(max-width: 860px) 100vw, 600px" %}
     </figure>
   </div>
 
