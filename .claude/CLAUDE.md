@@ -57,4 +57,4 @@
 - Homepage has scroll-reveal animation — content is `opacity:0` until IntersectionObserver fires
 - Phase colors in tools use inline `style=""` (JS-generated)
 - `build` requires `@11ty/eleventy-img`; a fresh clone needs `npm install` before `npm run build`. Netlify runs `npm install && npx eleventy`, CI installs with `npm ci`.
-- Node-version drift: GitHub Actions runs Node 22, Netlify (`netlify.toml`) is pinned to 18 — keep an eye on this until harmonized.
+- Node 22 everywhere (GitHub Actions, Netlify). Local Node should be ≥22.

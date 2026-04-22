@@ -4,7 +4,7 @@
   publish = "_site"
 
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "22"
   NPM_FLAGS = "--include=dev"
 
 # Redirect /tools/ overview to /werkzeuge/ (fix broken entry-path link, keep incoming links working)
