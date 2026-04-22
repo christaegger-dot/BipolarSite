@@ -1,6 +1,9 @@
 node_modules/
 _site/
 .lighthouseci/
+.netlify/
+.claude/settings.local.json
+.claude/worktrees/
 
 # Eleventy builds to _site/ — don't commit build output at root
 /404.html
