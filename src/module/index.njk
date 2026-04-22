@@ -18,12 +18,21 @@ breadcrumbs:
 {% endblock %}
 
 {% block content %}
-<header class="overview-hero">
-  <div class="overview-hero-inner">
-    <div class="breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><span>Module</span></div>
-    <div class="overview-badge">Lernpfad</div>
-    <h1>Die 8 Module im Überblick</h1>
-    <p class="overview-lead">Hier finden Sie den vollständigen Lernpfad in einer eigenen Übersicht. Sie können die Module der Reihe nach lesen oder gezielt dort einsteigen, wo Ihre Lage im Moment am meisten Druck macht.</p>
+<!-- P2.2 Audit: modul-einstieg.webp als Split-Layout eingebunden -->
+<header class="overview-hero module-hero-split">
+  <div class="overview-hero-inner module-hero-inner">
+    <div class="module-overview-hero-text">
+      <div class="breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><span>Module</span></div>
+      <div class="overview-badge">Lernpfad</div>
+      <h1>Die 8 Module im Überblick</h1>
+      <p class="overview-lead">Hier finden Sie den vollständigen Lernpfad in einer eigenen Übersicht. Sie können die Module der Reihe nach lesen oder gezielt dort einsteigen, wo Ihre Lage im Moment am meisten Druck macht.</p>
+    </div>
+    <div class="module-overview-hero-visual" aria-hidden="true">
+      <picture>
+        <source srcset="/visuals/modul-einstieg.webp" type="image/webp">
+        <img src="/visuals/modul-einstieg.webp" alt="" width="520" height="390" loading="eager" fetchpriority="high" decoding="async">
+      </picture>
+    </div>
   </div>
 </header>
 
