@@ -28,10 +28,8 @@ breadcrumbs:
       <p class="overview-lead">Hier finden Sie den vollständigen Lernpfad in einer eigenen Übersicht. Sie können die Module der Reihe nach lesen oder gezielt dort einsteigen, wo Ihre Lage im Moment am meisten Druck macht.</p>
     </div>
     <div class="module-overview-hero-visual" aria-hidden="true">
-      <picture>
-        <source srcset="/visuals/modul-einstieg.webp" type="image/webp">
-        <img src="/visuals/modul-einstieg.webp" alt="" width="520" height="390" loading="eager" fetchpriority="high" decoding="async">
-      </picture>
+      {# P3 Audit: heroImage-Shortcode — AVIF/WebP/JPEG + responsive srcset #}
+      {% heroImage "/visuals/modul-einstieg.webp", "", "eager", "high" %}
     </div>
   </div>
 </header>

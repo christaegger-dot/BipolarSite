@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-img": "^4.0.2",
     "html-validate": "^9.0.0",
     "http-server": "^14.1.1",
     "pa11y-ci": "^3.1.0",

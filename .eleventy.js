@@ -1,5 +1,35 @@
+const Image = require("@11ty/eleventy-img");
+const path = require("path");
+
 module.exports = function (eleventyConfig) {
   const handoutPreviewRoot = "../../";
+
+  // P3 Audit: Bild-Optimierung — WebP/AVIF + responsive srcset
+  // Nunjucks-Shortcode für Hero-Bilder: generiert <picture> mit AVIF, WebP und JPEG
+  // Verwendung in Templates: {% heroImage "/visuals/bild.webp", "Alt-Text", "eager" %}
+  eleventyConfig.addNunjucksAsyncShortcode("heroImage", async function (src, alt, loading = "lazy", fetchpriority = "") {
+    if (!src) return "";
+    const inputPath = path.join("src", src);
+    const options = {
+      widths: [400, 800, 1200, null],
+      formats: ["avif", "webp", "jpeg"],
+      outputDir: "./_site/img/",
+      urlPath: "/img/",
+      svgShortCircuit: true,
+      sharpAvifOptions: { quality: 65 },
+      sharpWebpOptions: { quality: 80 },
+      sharpJpegOptions: { quality: 82, progressive: true },
+    };
+    const metadata = await Image(inputPath, options);
+    const attrs = {
+      alt: alt || "",
+      sizes: "(max-width: 860px) 100vw, 50vw",
+      loading: loading,
+      decoding: "async",
+    };
+    if (fetchpriority) attrs.fetchpriority = fetchpriority;
+    return Image.generateHTML(metadata, attrs, { whitespaceMode: "inline" });
+  });
 
   // Passthrough copy — static assets
   eleventyConfig.addPassthroughCopy("src/fonts");

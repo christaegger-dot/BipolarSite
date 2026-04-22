@@ -1,9 +1,11 @@
 [build]
-  command = "npx eleventy"
+  # P3 Audit: npm install statt npx damit devDependencies (eleventy-img) installiert werden
+  command = "npm install && npx eleventy"
   publish = "_site"
 
 [build.environment]
   NODE_VERSION = "18"
+  NPM_FLAGS = "--include=dev"
 
 # Redirect /tools/ overview to /werkzeuge/ (fix broken entry-path link, keep incoming links working)
 [[redirects]]
@@ -74,3 +76,9 @@
   for = "/handouts/*"
   [headers.values]
     Cache-Control = "public, max-age=604800"
+
+# P3 Audit: Generierte Bild-Assets (AVIF/WebP/JPEG) — lang cachen (content-hashed)
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

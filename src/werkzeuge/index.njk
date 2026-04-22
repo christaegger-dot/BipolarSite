@@ -29,10 +29,8 @@ breadcrumbs:
       <p class="overview-lead">Hier finden Sie alle interaktiven Hilfen an einem Ort. Die Werkzeuge sind dafür gedacht, Muster sichtbarer zu machen, Gespräche vorzubereiten und konkrete nächste Schritte leichter festzuhalten.</p>
     </div>
     <div class="werkzeuge-hero-visual" aria-hidden="true">
-      <picture>
-        <source srcset="/visuals/werkzeuge-hero.webp" type="image/webp">
-        <img src="/visuals/werkzeuge-hero.webp" alt="" width="520" height="390" loading="eager" fetchpriority="high" decoding="async">
-      </picture>
+      {# P3 Audit: heroImage-Shortcode — AVIF/WebP/JPEG + responsive srcset #}
+      {% heroImage "/visuals/werkzeuge-hero.webp", "", "eager", "high" %}
     </div>
   </div>
 </header>
