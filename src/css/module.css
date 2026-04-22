@@ -2424,3 +2424,51 @@ table tbody tr:nth-child(even),
 /* Ampel card link (modul/6) */
 a.ampel-card{text-decoration:none;display:block}
 
+
+/* ── Module Illustration: nahtlos eingebettet, kein Border ── */
+.module-illustration {
+  margin: var(--section-standard) 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 340px);
+  gap: var(--space-xl);
+  align-items: center;
+}
+.module-illustration--reverse {
+  grid-template-columns: minmax(220px, 340px) minmax(0, 1fr);
+}
+.module-illustration--reverse .module-illustration__figure {
+  order: -1;
+}
+.module-illustration__figure {
+  margin: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  /* Hintergrund exakt wie --bg der Seite: kein sichtbarer Rand */
+  background: var(--bg);
+  /* Schwebender Schatten statt Border */
+  box-shadow: 0 6px 32px rgba(26, 35, 50, 0.07), 0 1px 4px rgba(26, 35, 50, 0.04);
+}
+.module-illustration__figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+.module-illustration__body {
+  /* Kein extra Styling nötig — erbt den normalen Prose-Stil */
+}
+/* Auf Mobilgeräten: Illustration unter den Text, zentriert */
+@media (max-width: 680px) {
+  .module-illustration,
+  .module-illustration--reverse {
+    grid-template-columns: 1fr;
+  }
+  .module-illustration--reverse .module-illustration__figure {
+    order: 0;
+  }
+  .module-illustration__figure {
+    max-width: 340px;
+    margin: 0 auto;
+  }
+}
