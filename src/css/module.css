@@ -17,7 +17,7 @@
 /* ── Breadcrumb on dark notfall hero – overrides shared.css default ── */
 .hero.notfall-hero .breadcrumb {
   font-size: var(--text-xs); color: var(--white-text);
-  margin-bottom: 20px; display: flex; align-items: center; gap: var(--space-sm);
+  margin-bottom: var(--space-md); display: flex; align-items: center; gap: var(--space-sm);
 }
 .hero.notfall-hero .breadcrumb a { color: var(--white-text-secondary); text-decoration: none; }
 .hero.notfall-hero .breadcrumb a:hover { text-decoration: underline; color: var(--cta-primary-text); }
@@ -44,7 +44,7 @@
 
 /* ── Module Meta ── */
 .module-meta {
-  display: flex; align-items: center; gap: 20px;
+  display: flex; align-items: center; gap: var(--space-md);
   font-size: var(--text-sm); color: var(--text-soft); margin-bottom: var(--space-lg);
 }
 .module-meta span { display: flex; align-items: center; gap: 6px; }
@@ -57,7 +57,7 @@
 }
 .toc-title {
   font-size: var(--text-xs); font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.06em; color: var(--navy-mid); margin-bottom: 14px;
+  letter-spacing: 0.06em; color: var(--navy-mid); margin-bottom: var(--space-base);
 }
 .toc ol {
   list-style: none; counter-reset: toc-counter;
@@ -278,7 +278,7 @@
 }
 .sources-title {
   font-size: var(--text-xs); font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.06em; color: var(--navy-mid); margin-bottom: 14px;
+  letter-spacing: 0.06em; color: var(--navy-mid); margin-bottom: var(--space-base);
 }
 .sources ul {
   list-style: none; max-height: 0; overflow: hidden;
@@ -305,7 +305,7 @@
 .handouts { margin: var(--temp-dense-margin) 0; }
 .handouts-title {
   font-family: 'DM Sans', sans-serif; font-size: var(--text-lg); font-weight: 700;
-  color: var(--navy-mid); margin-bottom: 20px;
+  color: var(--navy-mid); margin-bottom: var(--space-md);
 }
 .handouts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--grid-gap-tight); }
 .handout-card {
@@ -439,10 +439,10 @@
   margin-bottom: var(--space-lg); position: relative;
 }
 .module-summary strong {
-  font-size: var(--text-base); color: var(--teal-text); display: block; margin-bottom: 10px;
+  font-size: var(--text-base); color: var(--teal-text); display: block; margin-bottom: var(--space-sm);
 }
 .module-summary p {
-  font-size: var(--text-base); color: var(--text-soft); line-height: 1.75; margin-bottom: 10px;
+  font-size: var(--text-base); color: var(--text-soft); line-height: 1.75; margin-bottom: var(--space-sm);
 }
 .module-summary a {
   color: var(--teal-text); font-weight: 600; text-decoration: none;
