@@ -268,26 +268,28 @@ src/modul/8/index.njk:483   <div class="next-module-escape reveal"> ✅ VORHANDE
 **Aufwand:** Gross (interne Refaktorierung ohne äussere Verhaltensänderung)
 **Priorität:** Niedrig (funktional stabil, aber Wartbarkeit für Zukunft)
 
-### P3: A11y-Findings auf Modul 8 (von Lighthouse)
+### P3: A11y-Findings — ERLEDIGT (22.4. Commit nach LHCI-Härtung)
 
-LHCI-Probelauf vom 22.4. hat auf `/modul/8/` drei A11y-Befunde gemeldet (Score 0.9 statt 1.0):
+LHCI-Probelauf hatte initial drei Issue-Klassen auf Modul 8 gemeldet (Score 0.9); beim Ausbau auf 6 URLs kamen vergleichbare Fälle auf /modul/1/, /notfall/, /werkzeuge/ dazu. Alle adressiert:
 
-1. **color-contrast** — Header/Hero-Bereich:
-   - `header.module-hero > div.module-hero-inner > div.module-hero-copy > div.module-badge`
-   - `div.module-hero-inner > div.module-summary > ul > li`
-   - Kontrastverhältnisse gegen Hero-Hintergrund nachmessen, ggf. Textfarbe abdunkeln
+1. **color-contrast** (fixed):
+   - `.module-badge` (Modul 8, accent 8): `--teal-cta` → `--teal-text`
+   - `.module-summary li`, `.module-summary p`: `--slate` → `--text-soft`
+   - `.dl-meta`, `.dl-meta-secondary`: `opacity` entfernt (volle Sättigung)
+   - `.tool-cta-btn`: `--cta-tertiary-text` → `--teal-text`
+   - `.handout-icon.green`, `.accordion-icon-badge`: `--teal-dark` → `--teal-text`
 
-2. **heading-order** — h4 ohne vorheriges h3:
-   - `div.action-grid > div.action-card > div > h4`
-   - `div.insight-grid > div.insight-card > div > h4`
-   - Entweder auf h3 hochstufen oder Container-Struktur anpassen
+2. **heading-order** (fixed):
+   - action-card + insight-card in Modul 8: h4 → h3 (14 Instanzen)
+   - tool-cta-body quer durch M1–M7: h4 → h3 (9 Instanzen) + CSS-Regel nachgezogen
+   - treatment-card quer durch M1: h4 → h3 (12 Instanzen) + CSS-Regel nachgezogen
 
-3. **link-in-text-block** — Farbabhängige Links:
-   - `.link-teal` in Fliesstext, `.stelle-contact > a`
-   - Unterstreichung oder zweites Distinguishing-Merkmal ergänzen (WCAG 1.4.1)
+3. **link-in-text-block** (fixed):
+   - `.link-teal`/`-bold`/`.link-alert`/`-mid`/`.link-sand`: Underline + dezente Thickness/Offset
+   - `.stelle-contact a`: von `text-decoration:none` auf underline + Farbe auf `--teal-text`
+   - Neue Regel in shared.css + module.css: `.content p a, .module-summary p a, .after-step-body a, .overview-footer-note a` bekommen standardmässig Underline (WCAG 1.4.1)
 
-**Aufwand:** Mittel (3 separate Fixes, teilweise CSS-Änderung an `.link-teal` global)
-**Priorität:** Mittel — A11y-Score 0.9 ist Lighthouse-AA-Schwelle, sollte aber für medizinische Site auf ≥0.95 gezielt werden.
+**Ergebnis:** LHCI-Scores auf allen 6 getesteten URLs: **A11y 100, Best-Practices 100, SEO 100**. Performance 88–98 (solid).
 
 ---
 

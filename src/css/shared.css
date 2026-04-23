@@ -420,6 +420,7 @@ a, button, input, select, textarea,
   line-height: 1.75;
   color: var(--text-soft);
 }
+.overview-footer-note a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
 
 @media (max-width: 900px) {
   .overview-intro {
