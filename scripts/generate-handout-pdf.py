@@ -39,6 +39,24 @@ FONT_DIR = Path("/tmp/fonts_ttf")
 pdfmetrics.registerFont(TTFont("DMSans", str(FONT_DIR / "dm-sans-variable.ttf")))
 pdfmetrics.registerFont(TTFont("DMSerif", str(FONT_DIR / "dm-serif-display-400.ttf")))
 
+# Glyphs available in DM Sans — used to decide whether an icon renders
+# or needs to fall back to a safe numeric marker. Avoids "tofu" squares
+# for emoji/unusual unicode in quick-step icons.
+_DM_SANS_CMAP = None
+
+
+def _icon_renderable(icon: str) -> bool:
+    """Return True if every codepoint of `icon` is present in DM Sans."""
+    global _DM_SANS_CMAP
+    if _DM_SANS_CMAP is None:
+        from fontTools.ttLib import TTFont as _TTFont
+        _DM_SANS_CMAP = _TTFont(str(FONT_DIR / "dm-sans-variable.ttf")).getBestCmap()
+    # Ignore variation selectors (U+FE0E/FE0F) — they don't need a glyph
+    return all(
+        ord(ch) in _DM_SANS_CMAP or 0xFE00 <= ord(ch) <= 0xFE0F
+        for ch in icon
+    )
+
 # ── Design Tokens (matching handout-draft.njk print tokens) ───────────
 NAVY = HexColor("#7a6f66")
 TEAL = HexColor("#3a9aa3")
@@ -306,9 +324,13 @@ def build_pdf(meta, body, output_path: Path):
     quick_steps = meta.get("quick_steps", [])
     if quick_steps:
         step_data = []
-        for step in quick_steps:
+        for idx, step in enumerate(quick_steps, start=1):
             icon = step.get("icon", "•") if isinstance(step, dict) else "•"
             text = step.get("text", "") if isinstance(step, dict) else str(step)
+            # Fallback to step number if glyphs are missing in DM Sans
+            # or if the icon is too wide for the 12mm column (>4 chars).
+            if not _icon_renderable(str(icon)) or len(str(icon)) > 4:
+                icon = str(idx)
             step_data.append([
                 Paragraph(
                     f'<font color="#{TEAL.hexval()[2:]}" size="11"><b>{md_inline(icon)}</b></font>',
@@ -317,7 +339,7 @@ def build_pdf(meta, body, output_path: Path):
                 Paragraph(md_inline(text), styles["quick_step"]),
             ])
 
-        step_table = Table(step_data, colWidths=[12 * mm, content_width - 12 * mm])
+        step_table = Table(step_data, colWidths=[15 * mm, content_width - 15 * mm])
         step_table.setStyle(TableStyle([
             ("BACKGROUND", (0, 0), (-1, -1), TEAL_SOFT),
             ("TOPPADDING", (0, 0), (-1, -1), 2 * mm),

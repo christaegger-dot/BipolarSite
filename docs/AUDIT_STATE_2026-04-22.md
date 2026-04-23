@@ -260,13 +260,11 @@ src/modul/8/index.njk:483   <div class="next-module-escape reveal"> ✅ VORHANDE
 **Aufwand:** Klein (Grep-Replace mit neuen Tokens `--space-sm`, `--space-base`, `--space-md`)
 **Priorität:** Niedrig (kosmetisch, beeinträchtigt nicht Cascade/Wartbarkeit)
 
-### P2: tools.css Modulstruktur (langfristig)
+### P2: tools.css Modulstruktur — NICHT BENÖTIGT (Korrektur)
 
-**Befund:** tools.css ist mit 2'700+ Zeilen ein Monolith geworden (post-Konsolidierung von tarif-kompass-theme)
-**Ort:** `/src/css/tools.css` (Durchatmen Dark-Theme + 9 Tool-Styles)
+Vorheriger Befund "tools.css ist 2'700+ Zeilen Monolith" war veraltet. Aktueller Stand: **558 Zeilen** mit klaren Sektionen (shared + 9 Tools, kommentiert). Split wäre Over-Engineering — Datei ist bereits gut strukturiert.
 
-**Aufwand:** Gross (interne Refaktorierung ohne äussere Verhaltensänderung)
-**Priorität:** Niedrig (funktional stabil, aber Wartbarkeit für Zukunft)
+Zum Vergleich: module.css ist mit 2'480 Zeilen die grösste CSS-Datei, gliedert sich aber ebenfalls sauber nach Sektionen (Hero, TOC, Cards, Footer-Navigation, etc.).
 
 ### P3: A11y-Findings — ERLEDIGT (22.4. Commit nach LHCI-Härtung)
 

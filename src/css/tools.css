@@ -171,8 +171,8 @@ body.dark-tool .breadcrumb{color:var(--white-text-muted)}
 .breathe-action:focus-visible{outline:2px solid var(--teal-accent-light);outline-offset:2px}
 .breathe-action--emergency{background:var(--emergency-mid);color:var(--white-text)}
 .breathe-action--emergency:focus-visible{outline-color:var(--alert-red-coral)}
-.breathe-action--krisenplan{background:var(--teal-muted);color:var(--teal-accent-light);border:1px solid var(--teal-accent-20)}
-.breathe-action--weiter{background:var(--white-overlay-sm);color:var(--white-text-muted);border:1px solid var(--white-text-dim)}
+.breathe-action--krisenplan{background:var(--teal-muted);color:var(--white-text);border:1px solid var(--teal-accent-20)}
+.breathe-action--weiter{background:var(--white-overlay-sm);color:var(--white-text-secondary);border:1px solid var(--white-text-dim)}
 @media(prefers-reduced-motion:reduce){.breathe-circle{animation:none}}
 
 
