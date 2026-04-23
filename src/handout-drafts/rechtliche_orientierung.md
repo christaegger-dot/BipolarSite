@@ -2,7 +2,7 @@
 title: "Rechtliche Orientierung"
 slug: "rechtliche_orientierung"
 source_pdf: "/handouts/rechtliche_orientierung.pdf"
-status: "draft"
+status: "promoted"
 show_status_badge: false
 show_priority_badge: false
 type: "Orientierungsblatt"
@@ -10,16 +10,16 @@ audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Rechtliche und systemische Fragen in belastenden Phasen besser ordnen und erste Schritte klären"
 target_format: "A4, 1 Seite"
 priority: "P1"
-last_updated: "2026-04-20"
+last_updated: "2026-04-23"
 emergency_label: "Wenn Schutz nicht warten kann"
 emergency_callout: "Bei akuter Selbst- oder Fremdgefährdung, schwerer Psychose oder Gewalt geht Schutz vor juristischer Klärung. Dann zuerst Notfallwege nutzen."
 emergency_note: "Rechtliche Orientierung soll entlasten, nicht überfordern. Viele Fragen lassen sich besser in ruhigen Phasen vorbereiten als mitten in der Eskalation."
 quick_steps:
-  - icon: "i"
+  - icon: "1"
     text: "Schweigepflicht richtig einordnen"
-  - icon: "⇄"
+  - icon: "2"
     text: "Vorsorge früh besprechen"
-  - icon: "↗"
+  - icon: "3"
     wide: true
     text: "Bei Blockaden gezielt Beratung nutzen"
 emergency_contacts:

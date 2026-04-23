@@ -159,6 +159,33 @@ const downloads = {
     mode: "download",
     quality: "core",
   }),
+  // ── Welle-8-Promotion 23.4.2026: b3 + rechtliche Orientierung ──
+  kritischeZeitpunkte: asset({
+    key: "kritischeZeitpunkte",
+    url: "/downloads/kritische-zeitpunkte-angehoerige-puk-zuerich.pdf",
+    title: "Kritische Zeitpunkte",
+    subtitle: "Belastende Übergänge und Nachwirkungen früher erkennen",
+    assetId: "DL-11",
+    version: "core_v01",
+    updated: "2026-04-23",
+    filename: "kritische-zeitpunkte-angehoerige-puk-zuerich.pdf",
+    pages: "PDF · 1 Seite A4",
+    mode: "download",
+    quality: "core",
+  }),
+  rechtlicheOrientierung: asset({
+    key: "rechtlicheOrientierung",
+    url: "/downloads/rechtliche-orientierung-angehoerige-puk-zuerich.pdf",
+    title: "Rechtliche Orientierung",
+    subtitle: "Schweigepflicht, Vorsorge und Systemfragen praktisch ordnen",
+    assetId: "DL-12",
+    version: "core_v01",
+    updated: "2026-04-23",
+    filename: "rechtliche-orientierung-angehoerige-puk-zuerich.pdf",
+    pages: "PDF · 1 Seite A4",
+    mode: "download",
+    quality: "core",
+  }),
 };
 
 const handouts = {
@@ -492,10 +519,10 @@ const handouts = {
 const groups = {
   modul1: [handouts.a8_warnsignale, handouts.c4_manie, handouts.c5_depression, handouts.b7_behandlung_ambivalenz],
   modul2: [handouts.b1_18_belastungen, handouts.a5_affiliate_stigma, handouts.b9_depression_partner],
-  modul3: [handouts.b10_trennung_scheidung, handouts.b3_kritische_zeitpunkte],
+  modul3: [handouts.b10_trennung_scheidung, downloads.kritischeZeitpunkte],
   modul4: [handouts.a4_ambiguous_loss, handouts.b2_erosion_solidaritaet, handouts.b4_mechanismen_erosion],
   modul5: [handouts.b5_loyalitaetskonflikte, handouts.a3_ambivalente_loyalitaet, handouts.expressed_emotions, handouts.grenzsetzung, handouts.b10_trennung_scheidung],
-  modul6: [handouts.c1_krisenplan, handouts.grenzsetzung, handouts.c4_manie, handouts.c5_depression, handouts.c2_suizidgedanken, handouts.rechtliche_orientierung],
+  modul6: [handouts.c1_krisenplan, handouts.grenzsetzung, handouts.c4_manie, handouts.c5_depression, handouts.c2_suizidgedanken, downloads.rechtlicheOrientierung],
   modul7: [handouts.c6_selbstfuersorge, handouts.d4_solidaritaet_wellen, handouts.trialog, handouts.transformationsreise, handouts.b6_geschlechtsspezifisch],
   modul8TopDownloads: [downloads.notfallkarte, downloads.krisenplanVorlage, downloads.kurzblattStabilisiert],
   modul8TopArchive: [handouts.grenzsetzung, handouts.a4_ambiguous_loss],

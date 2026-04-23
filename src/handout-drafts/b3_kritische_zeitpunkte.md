@@ -2,7 +2,7 @@
 title: "Kritische Zeitpunkte"
 slug: "b3_kritische_zeitpunkte"
 source_pdf: "/handouts/b3_kritische_zeitpunkte.pdf"
-status: "draft"
+status: "promoted"
 show_status_badge: false
 show_priority_badge: false
 type: "Orientierungsblatt"
@@ -10,16 +10,16 @@ audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Belastende Übergänge und Nachwirkungsphasen früher erkennen und besser einordnen"
 target_format: "A4, 1 Seite"
 priority: "P1"
-last_updated: "2026-04-20"
+last_updated: "2026-04-23"
 emergency_label: "Wenn Schutz vorgeht"
 emergency_callout: "Wenn Gewalt, akute Selbstgefährdung, schwere Psychose oder massive Eskalation dazukommen: nicht weiter analysieren, sondern Schutz organisieren und sofort Hilfe holen."
 emergency_note: "Nicht jeder kritische Zeitpunkt ist ein Notfall. Entscheidend ist die Frage, ob noch Gespräch möglich ist oder ob Schutz bereits Vorrang hat."
 quick_steps:
-  - icon: "◔"
+  - icon: "1"
     text: "Übergänge genauer beobachten"
-  - icon: "≋"
+  - icon: "2"
     text: "Nachwirkungen ernst nehmen"
-  - icon: "!"
+  - icon: "3"
     wide: true
     text: "Bei Gefahr von Einordnung auf Schutz umschalten"
 emergency_contacts:
