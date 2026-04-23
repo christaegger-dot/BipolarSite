@@ -44,6 +44,10 @@
 - Fonts: DM Sans (body), DM Serif Display (headings) — self-hosted WOFF2 in `src/fonts/`
 - Design tokens in `:root` of `tokens.css` — use `var(--token)` not hardcoded values
 
+## Audit / Reference
+- `docs/AUDIT_STATE_2026-04-22.md` — **canonical** Ist-Zustand (CSS-Architektur, Tokens, !important, Inline-Styles, Navigation). Ältere April-Audits in `docs/AUDIT_*_2026-04-0*.md` sind historisch.
+- `docs/PDF_WELLE{4..9}_PLAN_2026-04-20.md` — PDF-Regenerations-Wellen (Migration Archiv → Downloads).
+
 ## Skills
 - `.claude/skills/bipolarsite-frontend/SKILL.md` — Frontend-Gestaltungsrichtlinien (Design-Haltung, Tokens, Komponenten, A11y). **Canonical source.**
 - `.agents/skills/pdf-handout-production/SKILL.md` — Audit/Refactor/Replace workflow for PDF handouts and drafts

@@ -58,11 +58,11 @@ Do not use this skill for general website copy or unrelated UI work.
 - `src/modul/8/index.njk`
   - the main product surface for materials, archive framing, and material finder logic
 
-- `AUDIT_PDF_HANDOUTS_2026-04-03.md`
+- `docs/AUDIT_PDF_HANDOUTS_2026-04-03.md`
   - prioritized audit of the current PDF estate
 
-- `PDF_HANDOUT_MIGRATION_PLAN_2026-04-03.md`
-  - migration order and target logic
+- `docs/PDF_WELLE{4..9}_PLAN_2026-04-20.md`
+  - migration order and target logic, split into thematic waves
 
 ## Current product logic
 

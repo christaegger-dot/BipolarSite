@@ -1,6 +1,8 @@
 # Harmony Audit — BipolarSite
 **Datum:** 2026-04-05 | **Methodik:** CSS-Analyse + Playwright (Chromium, 1280px + 390px)
 
+> **Status:** Abgelöst durch [`AUDIT_STATE_2026-04-22.md`](./AUDIT_STATE_2026-04-22.md). Die dort dokumentierten Ist-Messwerte (22.4.2026) sind die aktuelle Kanonik-Quelle. Dieses Dokument bleibt als historische Vergleichsbasis erhalten.
+
 ---
 
 ## 1. Spacing-Token Abweichungen (Inline Styles)
