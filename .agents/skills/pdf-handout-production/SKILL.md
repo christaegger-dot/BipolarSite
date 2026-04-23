@@ -31,6 +31,17 @@ Do not use this skill for general website copy or unrelated UI work.
 - `downloads/`
   - promoted, lightweight, text-based production PDFs
   - these are the current quality reference
+  - currently 10 handouts:
+    - `grenzsetzung-angehoerige-puk-zuerich.pdf`
+    - `krisenplan-erstellen-bipolare-stoerung-puk-zuerich.pdf`
+    - `krisenplan-vorlage-bipolare-stoerung-puk-zuerich.pdf`
+    - `kurzblatt-was-stabilisiert-was-schadet-puk-zuerich.pdf`
+    - `notfallkarte-kanton-zuerich-puk.pdf`
+    - `umgang-mit-depression-puk-zuerich.pdf`
+    - `umgang-mit-manie-puk-zuerich.pdf`
+    - `umgang-mit-psychose-wahn-puk-zuerich.pdf`
+    - `umgang-mit-suizidgedanken-puk-zuerich.pdf`
+    - `warnsignale-frueh-erkennen-puk-zuerich.pdf`
 
 - `handouts/`
   - live archive PDFs

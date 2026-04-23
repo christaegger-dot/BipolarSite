@@ -33,7 +33,7 @@
 - 9 interactive tools: `durchatmen`, `ee-kreislauf`, `eisberg`, `komm-trainer`, `krisenplan`, `phasenverlauf`, `saeulen-check`, `selbsttest`, `solidaritaets-chart`
 - Overview pages: `/module/` (module index) and `/werkzeuge/` (tools index). Legacy `/tools/` redirects to `/werkzeuge/` via `netlify.toml`.
 - Emergency page (`/notfall/`), Legal (`/impressum/`), 404
-- PDF handouts: `src/downloads/` (promoted, 3 files), `src/handouts/` (archive, 25 files), `src/handout-drafts/` (rebuilt source drafts, 25 files) — see `.agents/skills/pdf-handout-production/SKILL.md`
+- PDF handouts: `src/downloads/` (promoted, 10 files), `src/handouts/` (archive, 25 files), `src/handout-drafts/` (rebuilt source drafts, 25 files) — see `.agents/skills/pdf-handout-production/SKILL.md`
 - All content in German (lang="de")
 
 ## Conventions
