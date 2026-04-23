@@ -2,7 +2,7 @@
 title: "Wenn Belastung unterschiedlich sichtbar wird"
 slug: "b6_geschlechtsspezifisch"
 source_pdf: "/handouts/b6_geschlechtsspezifisch.pdf"
-status: "draft"
+status: "promoted"
 show_status_badge: false
 show_priority_badge: false
 type: "Orientierungsblatt"
@@ -10,16 +10,16 @@ audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Angehörige darin entlasten, ungleiche Sichtbarkeit von Belastung, Rollenbilder und Erwartungsdruck ohne stereotype Zuschreibungen einzuordnen"
 target_format: "A4, 1 Seite"
 priority: "P2"
-last_updated: "2026-04-20"
+last_updated: "2026-04-23"
 emergency_label: "Wenn Ihre Belastung kaum noch sichtbar bleibt"
 emergency_callout: "Wenn Sie merken, dass Sie über längere Zeit still mittragen, kaum mehr Raum haben oder innerlich erschöpft sind: holen Sie früh Unterstützung dazu und sprechen Sie Belastung ausdrücklich an."
 emergency_note: "Nicht jede Überlastung wird laut. Gerade stille, funktional verdeckte Erschöpfung braucht Worte, bevor sie chronisch wird."
 quick_steps:
-  - icon: "👀"
+  - icon: "1"
     text: "Unsichtbare Lasten benennen"
-  - icon: "⚖"
+  - icon: "2"
     text: "Verantwortung neu prüfen"
-  - icon: "🗣"
+  - icon: "3"
     wide: true
     text: "Belastung früh besprechbar machen"
 emergency_contacts:

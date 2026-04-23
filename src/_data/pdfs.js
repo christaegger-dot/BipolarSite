@@ -186,6 +186,20 @@ const downloads = {
     mode: "download",
     quality: "core",
   }),
+  // ── Welle-9-Promotion 23.4.2026: b6 als entstigmatisierter Framing-Shift ──
+  sichtbarkeitBelastung: asset({
+    key: "sichtbarkeitBelastung",
+    url: "/downloads/belastung-unterschiedlich-sichtbar-puk-zuerich.pdf",
+    title: "Wenn Belastung unterschiedlich sichtbar wird",
+    subtitle: "Rollenmuster, Sichtbarkeit und Erwartungsdruck einordnen",
+    assetId: "DL-13",
+    version: "core_v01",
+    updated: "2026-04-23",
+    filename: "belastung-unterschiedlich-sichtbar-puk-zuerich.pdf",
+    pages: "PDF · 1 Seite A4",
+    mode: "download",
+    quality: "core",
+  }),
 };
 
 const handouts = {
@@ -504,8 +518,8 @@ const handouts = {
   b6_geschlechtsspezifisch: asset({
     key: "b6_geschlechtsspezifisch",
     url: "/handouts/b6_geschlechtsspezifisch.pdf",
-    title: "Geschlechtsspezifische Nuancen",
-    subtitle: "Wie Rollenbilder Belastungen mitprägen",
+    title: "Wenn Belastung unterschiedlich sichtbar wird",
+    subtitle: "Rollenmuster, Sichtbarkeit und Erwartungsdruck einordnen",
     assetId: "HO-26",
     version: "web_v02",
     updated: "2026-04-20",
@@ -523,7 +537,7 @@ const groups = {
   modul4: [handouts.a4_ambiguous_loss, handouts.b2_erosion_solidaritaet, handouts.b4_mechanismen_erosion],
   modul5: [handouts.b5_loyalitaetskonflikte, handouts.a3_ambivalente_loyalitaet, handouts.expressed_emotions, handouts.grenzsetzung, handouts.b10_trennung_scheidung],
   modul6: [handouts.c1_krisenplan, handouts.grenzsetzung, handouts.c4_manie, handouts.c5_depression, handouts.c2_suizidgedanken, downloads.rechtlicheOrientierung],
-  modul7: [handouts.c6_selbstfuersorge, handouts.d4_solidaritaet_wellen, handouts.trialog, handouts.transformationsreise, handouts.b6_geschlechtsspezifisch],
+  modul7: [handouts.c6_selbstfuersorge, handouts.d4_solidaritaet_wellen, handouts.trialog, handouts.transformationsreise, downloads.sichtbarkeitBelastung],
   modul8TopDownloads: [downloads.notfallkarte, downloads.krisenplanVorlage, downloads.kurzblattStabilisiert],
   modul8TopArchive: [handouts.grenzsetzung, handouts.a4_ambiguous_loss],
   modul8ArchiveEntries: [

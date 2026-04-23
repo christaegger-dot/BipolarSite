@@ -14,15 +14,16 @@
 Der `generate-handout-pdf.py`-Flow produziert bei den inhaltlichen Drafts (6 Prosa-Sections + Bullet-Listen + emergency-callout + help-Module) systematisch eine zweite Seite. Das `pages`-Feld im Manifest wurde nie an die Realität angepasst — es blieb als Ziel-Spezifikation stehen, obwohl der Output konsistent davon abweicht.
 
 **Betroffene Einträge in `src/_data/pdfs.js`:**
-- `downloads.suizidgedanken` (DL-04)
-- `downloads.psychoseWahn` (DL-05)
-- `downloads.manie` (DL-06)
-- `downloads.depression` (DL-07)
-- `downloads.warnsignale` (DL-08)
-- `downloads.krisenplanGuide` (DL-09)
-- `downloads.grenzsetzungPraxis` (DL-10)
-- `downloads.kritischeZeitpunkte` (DL-11, neu aus 30b3315)
-- `downloads.rechtlicheOrientierung` (DL-12, neu aus 30b3315)
+- `downloads.suizidgedanken` (DL-04) — 2 Seiten
+- `downloads.psychoseWahn` (DL-05) — 2 Seiten
+- `downloads.manie` (DL-06) — 2 Seiten
+- `downloads.depression` (DL-07) — 2 Seiten
+- `downloads.warnsignale` (DL-08) — 2 Seiten
+- `downloads.krisenplanGuide` (DL-09) — 2 Seiten
+- `downloads.grenzsetzungPraxis` (DL-10) — 2 Seiten
+- `downloads.kritischeZeitpunkte` (DL-11) — 2 Seiten (aus 30b3315)
+- `downloads.rechtlicheOrientierung` (DL-12) — 2 Seiten (aus 30b3315)
+- `downloads.sichtbarkeitBelastung` (DL-13) — **3 Seiten** (Welle 9, Outlier — inhaltsreichster Draft)
 
 Zusätzlich betroffen (ältere Einträge):
 - `downloads.krisenplanVorlage` (DL-02) — 2 Seiten
