@@ -6,8 +6,7 @@
   <div class="nav-links" id="primary-nav">
     {% if navCurrent != "home" %}<a href="/">Startseite</a>{% endif %}
     <a href="/module/"{% if navCurrent == "module-overview" %} aria-current="page"{% endif %}>Module</a>
-    <!-- P1.2 Audit: Ressourcen-Link umbenannt auf Modul 8 + aria-current -->
-    <a href="/modul/8/"{% if navCurrent == "modul-8" %} aria-current="page"{% endif %}>Modul 8</a>
+    <a href="/modul/8/"{% if navCurrent == "modul-8" %} aria-current="page"{% endif %}>Anlaufstellen</a>
     <a href="/werkzeuge/"{% if navCurrent == "tools-overview" %} aria-current="page"{% endif %}>Werkzeuge</a>
     {% if navCurrent == "impressum" %}<a href="/impressum/" aria-current="page">Impressum</a>{% endif %}
     <a href="/notfall/" class="nav-sos">SOS Krise</a>
