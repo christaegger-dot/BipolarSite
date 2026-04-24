@@ -21,7 +21,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: var(--teal-dark, var(--navy));
+  color: var(--teal-text);
   text-decoration: underline;
 }
 

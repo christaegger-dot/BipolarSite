@@ -47,7 +47,6 @@
   --teal:        rgba(58,154,163,0.75);
   --teal-solid:  #3a9aa3;         /* opaque fallback for borders, small UI */
   --teal-light:  rgba(168,213,203,0.3);
-  --teal-dark:   rgba(58,154,163,0.9);
 
   /* Accessible teal for text — deliberately darker than brand-teal
      to guarantee AA on tinted backgrounds (success-soft, surface-alt).
