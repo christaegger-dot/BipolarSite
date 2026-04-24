@@ -65,8 +65,9 @@ useNavJS: true
 
   <div class="quick-triage reveal" id="quickTriage">
     <h2>Wo anfangen?</h2>
-    <p>Drei kurze Fragen helfen Ihnen, den passenden Einstieg zu finden.</p>
+    <p>Bis zu fünf kurze Fragen helfen Ihnen, den passenden Einstieg zu finden. Ihre Antworten führen direkt zu einem Modul oder dem Notfallweg.</p>
     <div class="triage-question" id="triageQ1">
+      <div class="triage-progress">Frage 1 <span class="triage-progress-note">von bis zu 5</span></div>
       <div class="triage-q-text">Besteht gerade Gefahr für Leib und Leben?</div>
       <div class="triage-btns">
         <button type="button" class="triage-btn triage-btn--yes" data-triage="q1-yes">Ja oder unklar</button>
@@ -74,6 +75,7 @@ useNavJS: true
       </div>
     </div>
     <div class="triage-question" id="triageQ1b" hidden>
+      <div class="triage-progress">Frage 2 <span class="triage-progress-note">von bis zu 5</span></div>
       <div class="triage-q-text">Haben Sie gerade zum ersten Mal von der Diagnose erfahren?</div>
       <div class="triage-btns">
         <button type="button" class="triage-btn triage-btn--yes" data-triage="q1b-yes">Ja, die Diagnose ist ganz neu</button>
@@ -81,6 +83,7 @@ useNavJS: true
       </div>
     </div>
     <div class="triage-question" id="triageQ2" hidden>
+      <div class="triage-progress">Frage 3 <span class="triage-progress-note">von bis zu 5</span></div>
       <div class="triage-q-text">Sind Sie selbst gerade am Limit — erschöpft, überfordert, ausgebrannt?</div>
       <div class="triage-btns">
         <button type="button" class="triage-btn triage-btn--yes" data-triage="q2-yes">Ja</button>
@@ -88,6 +91,7 @@ useNavJS: true
       </div>
     </div>
     <div class="triage-question" id="triageQ3" hidden>
+      <div class="triage-progress">Frage 4 <span class="triage-progress-note">von bis zu 5</span></div>
       <div class="triage-q-text">Brauchen Sie vor allem Grundlagenwissen über die Erkrankung?</div>
       <div class="triage-btns">
         <button type="button" class="triage-btn triage-btn--yes" data-triage="q3-yes">Ja</button>
@@ -95,6 +99,7 @@ useNavJS: true
       </div>
     </div>
     <div class="triage-question" id="triageQ4" hidden>
+      <div class="triage-progress">Frage 5 <span class="triage-progress-note">von bis zu 5</span></div>
       <div class="triage-q-text">Was steht bei Ihnen gerade am meisten im Vordergrund?</div>
       <div class="triage-btns">
         <button type="button" class="triage-btn triage-btn--no" data-triage="q4-beziehung">Beziehung, Vertrauen, Nähe</button>
