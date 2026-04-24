@@ -966,11 +966,14 @@ a, button, input, select, textarea,
   color: var(--text-soft);
 }
 .story-note {
-  display: block;
-  font-size: var(--text-xs);
+  display: inline-block;
+  font-size: var(--text-sm);
   font-style: italic;
-  color: var(--navy-mid);
-  margin-top: 4px;
+  color: var(--slate);
+  margin-top: 8px;
+  padding: 4px 10px;
+  background: var(--surface-alt);
+  border-radius: var(--radius-sm);
 }
 @media (max-width: 600px) {
   .story-section { padding: 48px 1.4rem 56px; }
