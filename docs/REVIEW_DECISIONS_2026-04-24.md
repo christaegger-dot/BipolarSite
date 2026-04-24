@@ -5,14 +5,19 @@ Hält fest, welche Befunde **nicht umgesetzt** wurden und warum — damit die of
 
 ---
 
-## PUK-geblockt (warten auf Kommunikations-Abstimmung)
+## Erledigte PUK-Abstimmungen
 
-### K-10 · PUK-Positionierung
-Header nennt „Psychiatrische Universitätsklinik Zürich · Fachstelle Angehörigenarbeit", Footer sagt „Kein offizielles Angebot der PUK Zürich". Widerspruch.
+### ~~K-10 · PUK-Positionierung~~ ✅ umgesetzt (25.4.2026)
+Christas Klärung: Die Website ist **kein offizielles Angebot der PUK** als Institution, sondern **ein Angebot der Fachstelle Angehörigenarbeit**, die Teil der PUK ist.
 
-**Status:** Muss von PUK-Kommunikation + Ch. Egger gemeinsam entschieden werden (offizielles Angebot vs. eigenständig). Danach Header-Badge oder Footer-Disclaimer anpassen.
+**Umgesetzt (Commit `757e9dd`):**
+- Hero-Badge + Footer-Credit leiten mit Fachstelle, PUK als Kontext
+- Footer-Disclaimer positiv umformuliert
+- Schema.org publisher = Fachstelle mit parentOrganization = PUK
+- Impressum-Haftungsausschluss auf Fachstelle umformuliert
+- Krisenplan-Druckvorlage nennt Fachstelle
 
-**Blocker für:** Impressum-Text, Footer-Disclaimer, Site-Brand-Claim.
+**Bewusst unverändert (legal/SEO):** Impressum-Herausgeberin-Block, Impressum-Urheberrecht, Page-Title-Suffix „| PUK Zürich".
 
 ---
 
@@ -89,11 +94,11 @@ Review: „Die zwei Illustrationen (Tisch, Figur am Fenster) haben unterschiedli
 
 | Tier | Umgesetzt | Bewusst belassen | PUK-geblockt |
 |---|---|---|---|
-| Kritisch (K) | 13 | — | K-10 |
+| Kritisch (K) | 14 | — | — |
 | Mittel (M) | 10 | M-01, M-03, M-09, M-16 | — |
 | Kosmetisch (C) | 2 (C-01, C-02) | C-04 | — |
 
-**24 von 37 Review-Befunden ausgeführt** (plus 4 verifiziert-OK ohne Code-Änderung), 5 bewusst deferred, 1 PUK-geblockt (K-10).
+**25 von 37 Review-Befunden ausgeführt** (plus 4 verifiziert-OK ohne Code-Änderung), 5 bewusst deferred, 0 PUK-geblockt. Review strukturell vollständig.
 
 ---
 
