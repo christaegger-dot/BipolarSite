@@ -1503,7 +1503,7 @@ input:focus, textarea:focus, select:focus,
 .mini-plan input:focus, .mini-plan textarea:focus, .mini-plan select:focus {
   outline: none;
   border-color: var(--teal-solid);
-  box-shadow: 0 0 0 3px var(--teal-subtle);
+  box-shadow: 0 0 0 3px var(--teal-muted);
 }
 textarea { min-height: 80px; resize: vertical; }
 

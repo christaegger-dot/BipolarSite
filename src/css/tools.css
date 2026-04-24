@@ -182,7 +182,7 @@ body.ee-kreislauf-page .wrap{max-width:var(--content-width-narrow);padding:32px 
 .svg-wrap svg{width:100%;height:auto;filter:drop-shadow(0 10px 22px rgba(28,43,58,0.08))}
 .svg-wrap circle{cursor:pointer;transition:background-color 0.3s ease,color 0.3s ease,border-color 0.3s ease}
 .svg-wrap circle:hover{filter:brightness(0.95)}
-.svg-wrap [role="button"]:focus{filter:drop-shadow(0 0 0.35rem rgba(116,138,90,0.45))}
+.svg-wrap [role="button"]:focus-visible{filter:drop-shadow(0 0 0.35rem rgba(116,138,90,0.45))}
 .svg-wrap .arrow{transition:opacity 0.5s}
 .interrupted .arrow{opacity:0.2;stroke-dasharray:8 6}
 .center-text{font-family:'DM Serif Display',Georgia,serif;transition:fill 0.3s}
@@ -516,7 +516,7 @@ body.solidaritaets-chart-page .wrap{width:100%;max-width:680px;padding:32px 20px
 .legend-line{width:20px;height:3px;border-radius:var(--radius-sm)}
 body.solidaritaets-chart-page .chart-wrap{width:100%;background:var(--card);border-radius:var(--card-radius);border:1px solid var(--border-warm);box-shadow:var(--card-shadow);padding:20px;margin-bottom:var(--space-md);overflow-x:auto}
 body.solidaritaets-chart-page .chart-wrap svg{width:100%;height:auto;display:block}
-body.solidaritaets-chart-page .chart-wrap [role="button"]:focus{filter:drop-shadow(0 0 0.35rem rgba(116,138,90,0.45))}
+body.solidaritaets-chart-page .chart-wrap [role="button"]:focus-visible{filter:drop-shadow(0 0 0.35rem rgba(116,138,90,0.45))}
 .episodes{display:flex;gap:var(--space-sm);margin-bottom:var(--space-md);flex-wrap:wrap;justify-content:center}
 .ep-btn{padding:8px 16px;border-radius:var(--radius-sm);border:1px solid var(--border-warm-md);background:var(--card);font-size:var(--text-xs);font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background-color 0.2s ease,color 0.2s ease,border-color 0.2s ease;-webkit-appearance:none}
 .ep-btn.active{color:var(--card)}
