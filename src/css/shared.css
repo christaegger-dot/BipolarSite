@@ -303,17 +303,21 @@ a, button, input, select, textarea,
 }
 
 /* ── Accessibility ── */
+/* Global focus outline: --teal-solid #3a9aa3 → 3.03:1 on --bg (passes WCAG 1.4.11 3:1 for UI) */
 *:focus-visible {
-  outline: 2px solid var(--teal);
+  outline: 2px solid var(--teal-solid);
   outline-offset: 3px;
   border-radius: var(--radius-sm);
 }
-/* Focus outline on dark backgrounds: use lighter variant for visibility (WCAG 2.4.7) */
+/* Focus outline on tinted heroes: darker teal for WCAG 1.4.11 */
 .hero *:focus-visible,
 .home-hero *:focus-visible,
-.module-hero *:focus-visible,
+.module-hero *:focus-visible {
+  outline-color: var(--teal-cta-dark);
+}
+/* Focus outline on dark takeaways block: white for 4.5:1+ against dark bg */
 .takeaways *:focus-visible {
-  outline-color: var(--teal-light);
+  outline-color: #ffffff;
 }
 
 /* ── No-JS fallback: show nav links when hamburger can't work ── */
@@ -767,7 +771,7 @@ a, button, input, select, textarea,
   flex-shrink: 0;
 }
 .entry-path-link:hover .entry-path-destination {
-  color: var(--teal-dark);
+  color: var(--teal-text);
 }
 .entry-path-link--crisis {
   border-color: var(--alert-border, var(--border-warm-md));
@@ -900,7 +904,7 @@ a, button, input, select, textarea,
 .triage-result--urgent a:hover{background:var(--emergency-dark)}
 .triage-result--safe{background:var(--success-soft);border:1px solid var(--green-border);padding:var(--space-md) var(--space-lg);border-radius:var(--radius-sm)}
 .triage-result--safe p{font-size:var(--text-base);color:var(--phase-green);margin:0}
-.triage-result--safe a{background:none;padding:0;color:var(--teal-cta);text-decoration:underline;font-size:inherit;border-radius:0;display:inline}
+.triage-result--safe a{background:none;padding:0;color:var(--teal-text);text-decoration:underline;font-size:inherit;border-radius:0;display:inline}
 /* triage-restart now in unified BUTTON SYSTEM */
 .triage-restart { display: block; margin-top: 12px; }
 
@@ -1565,13 +1569,6 @@ textarea { min-height: 80px; resize: vertical; }
   color: var(--rose);
 }
 
-/* ── [from overrides.css] ACCESSIBILITY & VISITED LINKS ── */
-*:focus-visible {
-  outline: 2px solid var(--teal);
-  outline-offset: 3px;
-  border-radius: var(--radius-sm);
-}
-
 /* ── Visited link styling ── */
 a:visited {
   color: var(--teal-text);
@@ -2157,7 +2154,7 @@ body.draft-overview-page .draft-link.secondary {
 }
 
 body.impressum-page a {
-  color: var(--teal-dark);
+  color: var(--teal-text);
 }
 body.impressum-page .hero {
   padding: 56px 24px 40px;
@@ -2234,7 +2231,7 @@ body.impressum-page .section strong {
   color: var(--text);
 }
 body.impressum-page .section a {
-  color: var(--teal-dark);
+  color: var(--teal-text);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
