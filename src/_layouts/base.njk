@@ -62,7 +62,11 @@
       "@type": "WebSite",
       "name": "Bipolare Störung — Psychoedukation für Angehörige",
       "url": "{{ site.url }}",
-      "publisher": { "@type": "Organization", "name": "PUK Zürich" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Fachstelle Angehörigenarbeit",
+        "parentOrganization": { "@type": "Organization", "name": "Psychiatrische Universitätsklinik Zürich" }
+      },
       "inLanguage": "de-CH"
     }{% if useModuleCSS or useToolCSS %},
     {
@@ -88,7 +92,8 @@
       },
       "publisher": {
         "@type": "Organization",
-        "name": "PUK Zürich"
+        "name": "Fachstelle Angehörigenarbeit",
+        "parentOrganization": { "@type": "Organization", "name": "Psychiatrische Universitätsklinik Zürich" }
       }
     }{% endif %}{% if breadcrumbs %},
     {
