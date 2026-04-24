@@ -1,6 +1,6 @@
 # Technical Backlog
 
-**Stand:** 2026-04-24
+**Stand:** 2026-04-25
 **Zweck:** Cross-cut technische Inkonsistenzen und Daten-Drift, die nicht in eine Modul-spezifische oder Welle-spezifische Arbeitsliste passen. Einträge werden beim Beheben entfernt oder in ein konkretes Paket überführt.
 
 ---
@@ -41,6 +41,42 @@ Vertiefungs-Handouts (Stigma, Belastungen, Loyalität, Selbstfürsorge) — bei 
 
 ---
 
+## P3 — Build/CI-Infrastruktur (Reviewer-Empfehlungen 2026-04-25)
+
+Aus dem Browser-Review nach den Welle-A/B/C-Audits stehen drei CI/Build-Punkte offen, die nicht akut sind, aber langfristig Drift / Regressionen abfangen würden:
+
+### a) Stylelint — 26 deaktivierte Regeln schrittweise re-aktivieren
+`.stylelintrc.json` hat aktuell 26 Regeln deaktiviert. Schritt für Schritt wieder einschalten, beginnend mit den sicheren: `color-no-invalid-hex`, `declaration-block-no-duplicate-properties`, `no-duplicate-selectors`. Eine Regel pro PR — kein Big-Bang. Bei Aktivierung läuft erstmal `npm run lint:css` durch und meldet alle Verstöße — fixen, dann mergen.
+
+### b) Link-Checker als wöchentlicher Cron-Job
+Bei 24+ PDFs und vielen externen Zielen (VASK, Pro Mente Sana, Ombudsstelle, GitHub) wird irgendwann einer tot sein. `lychee-action` oder `linkinator` als wöchentlicher GitHub-Action-Cron-Job, **nicht** als Merge-Blocker (externe Flakes). Ergebnis als GitHub-Issue posten lassen.
+
+### c) Playwright-Smoke-Tests
+`package.json` hat aktuell kein `test`-Script. Drei minimale Tests fangen 90% der Regressionen:
+- Landing lädt, H1 sichtbar
+- `/modul/8/` → Pathway-Card „Akut" klickbar → landet auf `/notfall/`
+- `/notfall/` → `tel:144`-Link hat korrektes `href`
+- Mini-Plan: Eintrag speichern → reload → da → Löschen → weg
+
+Ein `.reveal`-Race-Condition-Bug wie in 2026-04-25 (Modul 8 hatte 16 reveal-Elemente ohne Observer, sichtbar nur durch versteckten CSS-Override) wäre durch einen Smoke-Test sofort aufgefallen.
+
+**Trigger:** Eigene Session — keine Sofort-Notwendigkeit, aber wertvoll vor nächster großer Refactor-Welle.
+
+---
+
+## P3 — Pa11y lokal auf Apple Silicon
+
+**Befund (2026-04-25):**
+`npm run lint:a11y` schlägt lokal fehl mit `spawn Error -86` — Puppeteer's gebundeltes Chromium passt nicht zur ARM64-Architektur. Auf Linux-CI läuft es ohne Probleme.
+
+**Workaround für lokale Verifikation:**
+- Pa11y mit `chromeLaunchConfig.executablePath` auf system-Chrome zeigen lassen
+- Oder: Test nur in CI laufen lassen, lokal nur HTML-/CSS-Lint
+
+**Niedrige Priorität:** CI fängt Violations zuverlässig ab.
+
+---
+
 ## Erledigt
 
 ### ~~P2 — PDF-Label-Inkonsistenz: "1 Seite A4" vs. reale Seitenzahl~~ (2026-04-24)
@@ -49,11 +85,49 @@ Behoben: alle 37 falschen `pages`-Labels in `src/_data/pdfs.js` an die reale, pe
 
 Ursache nicht behoben (nur Symptom) — siehe P3 oben für die strukturelle Folge-Aufgabe.
 
+### ~~Review Startseite + Modul 8 (2026-04-24)~~ (Sessions 24.–25.4.2026)
+
+37-Befunde-Review extern erhalten. **25 von 37 Befunden** in 5 Wellen umgesetzt + 4 verifiziert-OK ohne Code-Änderung + 5 bewusst deferred. Details: `docs/REVIEW_STARTSEITE_MODUL8_2026-04-24.md` + `docs/REVIEW_DECISIONS_2026-04-24.md`.
+
+Highlights:
+- **K-03 Hero-CTA-Kontrast** (`a4aea32`)
+- **K-10 PUK-Positionierung** (`757e9dd`) — Fachstelle Angehörigenarbeit als Publisher, PUK als Kontext
+- **M-02 Gender-Stern** (`93bff3b`) + Folge-Sweep (`8479fe8`, `746b343`) — Doppelform site-weit (Angehörige, Partner, Psychiater, Therapeut)
+- **M-17 Modul-8-Hub-Refactor** (`6335dd0`) — eigene Page-Vorlage statt Modul-Template
+
+### ~~Accessibility-Audit (Welle A/B/C + Re-Audit-Nachzug)~~ (2026-04-25)
+
+WCAG-AA-Audit nach den Review-Wellen. Drei Implementierungs-Wellen plus Re-Audit-Nachzug:
+- **Welle A** (`65caa8d`): 18× `--teal-dark` → `--teal-text`, Focus-Outlines, säulen-check-buttons, einsicht-tag
+- **Welle B** (`dae99fa`): 62 H4→H3 Heading-Flips in Modul 2, 3, 4, 5, 7 + 32 CSS-Selektor-Swaps
+- **Welle C** (`007c174`): Form-Focus-Ring stärker, SVG-Button :focus-visible
+- **Re-Audit** (`2bfb17d`): F-1 bis F-6 Restbefunde
+
+### ~~Browser-Review-Fixes~~ (2026-04-25)
+
+Live-Test nach Welle-A/B/C + Hub-Refactor:
+- **Hub-Karten visuell präsenter** (`309aa81`) — box-shadow + border-warm-md
+- **5 Browser-Review-Patches** (`7fa4dcd`) — Nav-Height-Variable, Drop-Cap-Mobile, tel-nowrap, Triage-Grid, Hub-Contact-Focus
+- **`.reveal` Race-Condition** (`7a46440`) — entdeckt: Modul 8 hatte 16 reveal-Elemente ohne Observer, sichtbar nur durch versteckten CSS-Override `.reveal { opacity: 1 }`. Pattern refaktoriert: Default sichtbar, JS opt-in via `.js-reveal-active`.
+
+### ~~Lighthouse Tool-Coverage~~ (2026-04-25, `7a46440`)
+
+`lighthouserc.json` von 6 auf 14 URLs erweitert (alle 9 Tools + ursprüngliche 6).
+
 ---
 
 ## Verwandte Referenzen
 
-- `docs/AUDIT_STATE_2026-04-22.md` — CSS-Audit, betrifft dieses Thema nicht
+- `docs/REVIEW_STARTSEITE_MODUL8_2026-04-24.md` — externer Review, Quelle der Wellen-Arbeit
+- `docs/REVIEW_DECISIONS_2026-04-24.md` — bewusst-belassen-Entscheidungen + Status-Matrix
+- `docs/AUDIT_STATE_2026-04-22.md` — vor-Review-CSS-Audit (historisch)
 - `docs/UX_BACKLOG_MODUL_1.md` — Modul-1-UX, anderer Scope
-- `docs/WORK_PLAN_2026-04-23.md` — Paket A (Welle 8) hat das Label-Feld bewusst nicht angefasst, um die 9181c05-Konvention nicht im laufenden Replay zu ändern
-- Commits `9181c05` (Welle-8-Start) + `30b3315` (b3 + rechtliche Orientierung) + `73cb027` (Welle 9, b6)
+- `docs/WORK_PLAN_2026-04-23.md` — PDF-Welle-Replay-Plan (historisch)
+
+## Browser-Verifikation noch offen
+
+Die folgenden Punkte aus dem Browser-Review wurden im Code adressiert, sollten aber im Browser bestätigt werden:
+
+- **PDF-Modal Focus-Trap** auf `/modul/8/`: Tab + Shift-Tab + Escape + Fokus-Restaurierung
+- **Form-Input Focus** in Mini-Plan + Krisenplan-Werkzeug: Tab durch Felder, sichtbarer Fokus-Ring
+- **Breadcrumb-Sichtbarkeit** auf Hub + Modul-Seiten nach `--nav-height`-Fix
