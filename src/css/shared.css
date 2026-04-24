@@ -500,6 +500,13 @@ a, button, input, select, textarea,
 }
 .module-number { color: var(--navy); background: var(--teal-subtle); }
 
+/* M-07: dezente Pill-Differenzierung nach data-accent-Gruppen */
+.module-card[data-accent="blue"] .module-number { background: var(--blue-phase-subtle); color: var(--blue-phase); }
+.module-card[data-accent="amber"] .module-number { background: var(--amber-faint); color: var(--amber-dark-text); }
+.module-card[data-accent="purple"] .module-number { background: var(--purple-light); color: var(--purple-dark); }
+.module-card[data-accent="green"] .module-number { background: var(--green-subtle); color: var(--phase-green); }
+/* teal-accent (Modul 8) keeps the default teal-subtle pill */
+
 .module-card h3 {
   font-size: var(--text-lg);
   line-height: 1.15;
