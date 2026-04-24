@@ -278,7 +278,7 @@ breadcrumbs:
   <div class="dl-module dl-module-sos reveal">
     <div class="dl-icon">SOS</div>
     <div class="dl-body">
-      <h4>{{ pdfs.downloads.notfallkarte.title }}</h4>
+      <h3>{{ pdfs.downloads.notfallkarte.title }}</h3>
       <p>Für akute oder unklare Krisen. Alle wichtigen Nummern mit kurzer Einordnung, wann welche Stelle sinnvoll ist. Gut zum Ausdrucken und griffbereit Halten.</p>
       {{ directDownloadButton(pdfs.downloads.notfallkarte, 'Notfallkarte direkt herunterladen', 'dl-btn dl-btn-sos') }}
     </div>
@@ -287,7 +287,7 @@ breadcrumbs:
   <div class="dl-module reveal">
     <div class="dl-icon">Plan</div>
     <div class="dl-body">
-      <h4>{{ pdfs.downloads.krisenplanVorlage.title }}</h4>
+      <h3>{{ pdfs.downloads.krisenplanVorlage.title }}</h3>
       <p>Für stabile oder halbwegs ruhige Phasen. Hilft, Frühwarnzeichen, Kontakte, Medikamente und Klinikwünsche vor einer nächsten Eskalation zu ordnen.</p>
       {{ directDownloadButton(pdfs.downloads.krisenplanVorlage, 'Krisenplan direkt herunterladen') }}
     </div>
@@ -296,7 +296,7 @@ breadcrumbs:
   <div class="dl-module reveal">
     <div class="dl-icon">Kurz</div>
     <div class="dl-body">
-      <h4>{{ pdfs.downloads.kurzblattStabilisiert.title }}</h4>
+      <h3>{{ pdfs.downloads.kurzblattStabilisiert.title }}</h3>
       <p>Für den Alltag zwischen den Krisen. Ein kompaktes Blatt zu Kommunikation, Selbstfürsorge, Grenzsetzung und Frühwarnzeichen.</p>
       {{ directDownloadButton(pdfs.downloads.kurzblattStabilisiert, 'Kurzblatt direkt herunterladen') }}
     </div>
@@ -305,7 +305,7 @@ breadcrumbs:
   <div class="dl-module reveal">
     <div class="dl-icon">PDF</div>
     <div class="dl-body">
-      <h4>{{ pdfs.handouts.grenzsetzung.title }}</h4>
+      <h3>{{ pdfs.handouts.grenzsetzung.title }}</h3>
       <p>Wenn Sie merken, dass Sie zu viel tragen oder sich in Gesprächen verlieren. Dieses Blatt liegt jetzt als überarbeitete PDF-Handreichung vor und ist besonders hilfreich, wenn Gespräche, Medikamente oder Eskalationsgrenzen im Alltag immer wieder unscharf werden.</p>
       <a class="dl-btn" href="{{ pdfs.handouts.grenzsetzung.url }}" target="_blank" rel="noopener">Handout-Vorschau öffnen <span class="dl-meta">{{ pdfs.handouts.grenzsetzung.pages }} · öffnen oder herunterladen</span><span class="dl-meta dl-meta-secondary">{{ pdfs.handouts.grenzsetzung.metaLine }}</span></a>
     </div>
@@ -314,7 +314,7 @@ breadcrumbs:
   <div class="dl-module reveal">
     <div class="dl-icon">PDF</div>
     <div class="dl-body">
-      <h4>{{ pdfs.handouts.a4_ambiguous_loss.title }}</h4>
+      <h3>{{ pdfs.handouts.a4_ambiguous_loss.title }}</h3>
       <p>Wenn die Belastung weniger akut als zermürbend ist. Auch dieses Blatt gehört noch zum älteren Handout-Archiv. Für den schnellsten Einstieg bleiben die drei Downloads oben die bessere erste Wahl.</p>
       <a class="dl-btn" href="{{ pdfs.handouts.a4_ambiguous_loss.url }}" target="_blank" rel="noopener">Handout-Vorschau öffnen <span class="dl-meta">{{ pdfs.handouts.a4_ambiguous_loss.pages }} · öffnen oder herunterladen</span><span class="dl-meta dl-meta-secondary">{{ pdfs.handouts.a4_ambiguous_loss.metaLine }}</span></a>
     </div>
@@ -585,7 +585,7 @@ breadcrumbs:
   };
 
   const getPdfTitle=(link)=>{
-    const scopedTitle=link.querySelector('.handout-card-title,.hc-title,.guide-title,.dl-body h4');
+    const scopedTitle=link.querySelector('.handout-card-title,.hc-title,.guide-title,.dl-body h3');
     if(scopedTitle)return scopedTitle.textContent.trim();
     return link.textContent.replace(/\s+/g,' ').replace(/^↓\s*PDF:\s*/i,'').trim()||'PDF-Vorschau';
   };
