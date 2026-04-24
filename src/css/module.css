@@ -3,7 +3,7 @@
 
 /* ── Module Hero ── */
 .module-hero {
-  padding: 120px 2rem var(--section-standard);
+  padding: calc(var(--nav-height) + var(--space-2xl)) 2rem var(--section-standard);
   position: relative; overflow: hidden;
 }
 .module-hero::before {
@@ -176,6 +176,9 @@
   padding-right: var(--space-sm);
   padding-top: 4px;
   color: var(--teal-cta);
+}
+@media (max-width: 600px) {
+  .content:not(.hub-content) h2:first-of-type + p::first-letter { font-size: 2em; float: none; padding: 0; }
 }
 
 /* ── Quote Block ── [temp: pause] — Rosé accent for emotional content */
@@ -1866,7 +1869,7 @@ body.pdf-preview-open{overflow:hidden}
 .closing .closing-emphasis{font-family:'DM Serif Display',serif;font-size:var(--text-lg);color:var(--white-text);margin-top:var(--space-lg)}
 
 /* ── M-17 Hub (Modul 8 als Ressourcen-Hub, nicht als Lernmodul) ── */
-.hub-hero{padding:120px 2rem var(--space-xl);background:var(--surface-alt);border-bottom:1px solid var(--border-warm)}
+.hub-hero{padding:calc(var(--nav-height) + var(--space-2xl)) 2rem var(--space-xl);background:var(--surface-alt);border-bottom:1px solid var(--border-warm)}
 .hub-hero-inner{max-width:var(--content-width);margin:0 auto}
 .hub-hero .breadcrumb{font-size:var(--text-xs);color:var(--text-soft);margin-bottom:var(--space-md);display:flex;align-items:center;gap:var(--space-sm)}
 .hub-hero .breadcrumb a{color:var(--navy);text-decoration:none}
@@ -1881,7 +1884,7 @@ body.pdf-preview-open{overflow:hidden}
 
 .hub-pathways h2{border-top:none;padding-top:0;margin-top:var(--space-lg)}
 .hub-pathways-lead{font-size:var(--text-base);color:var(--slate);max-width:65ch;line-height:1.6;margin:0 0 var(--space-lg)}
-.hub-pathway-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--grid-gap-standard);margin:var(--space-xl) 0}
+.hub-pathway-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--grid-gap-standard);margin:var(--space-xl) 0}
 .hub-pathway-card{background:var(--card);border:1px solid var(--border-warm-md);border-radius:var(--card-radius);padding:var(--space-lg);text-decoration:none;color:var(--text);display:flex;flex-direction:column;gap:var(--space-sm);box-shadow:var(--shadow-soft);transition:border-color 0.2s ease,box-shadow 0.2s ease,transform 0.15s ease;min-height:200px}
 .hub-pathway-card:hover{border-color:var(--teal-muted);box-shadow:var(--card-shadow-hover);transform:translateY(-2px)}
 .hub-pathway-kicker{font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--teal-cta)}
@@ -1896,6 +1899,7 @@ body.pdf-preview-open{overflow:hidden}
 .hub-pathway-card--alert .hub-pathway-arrow{color:var(--alert)}
 
 .hub-contact-cta{background:var(--teal-cta-dark);color:var(--white-text);padding:var(--section-standard) 2rem;margin-top:var(--section-standard);text-align:center}
+.hub-contact-cta *:focus-visible { outline-color: #ffffff; }
 .hub-contact-inner{max-width:var(--content-width);margin:0 auto}
 .hub-contact-cta h2{color:#ffffff;border-top:none;padding-top:0;margin-top:0;font-family:'DM Serif Display',serif;font-size:var(--text-xl);line-height:1.3;margin-bottom:var(--space-md)}
 .hub-contact-cta p{color:rgba(255,255,255,0.88);font-size:var(--text-base);line-height:1.65;max-width:60ch;margin:0 auto}
@@ -1913,7 +1917,7 @@ body.pdf-preview-open{overflow:hidden}
   .hub-pathway-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
-  .hub-hero { padding: 80px 1.4rem var(--space-lg); }
+  .hub-hero { padding: calc(var(--nav-height) + var(--space-lg)) 1.4rem var(--space-lg); }
   .hub-content { padding: var(--space-lg) 1.4rem 0; }
   .hub-contact-cta { padding-left: 1.4rem; padding-right: 1.4rem; }
   .hub-footer-nav { gap: var(--space-sm); flex-wrap: wrap; }
@@ -1962,7 +1966,7 @@ body.pdf-preview-open{overflow:hidden}
   .coping-nav { grid-template-columns: 1fr; }
   .handout-list { grid-template-columns: 1fr; }
   [data-module-accent="8"] .module-hero-inner { grid-template-columns: 1fr; }
-  [data-module-accent="8"] .module-hero { padding: 100px 1.2rem 32px; }
+  [data-module-accent="8"] .module-hero { padding: calc(var(--nav-height) + var(--space-lg)) 1.2rem 32px; }
   [data-module-accent="8"] .module-hero .quote-block,
   [data-module-accent="8"] .module-hero-visual { display: none; }
   [data-module-accent="8"] .toc { padding: 18px 20px; margin-bottom: 26px; }

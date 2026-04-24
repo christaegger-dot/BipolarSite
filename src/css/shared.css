@@ -3,8 +3,11 @@
 
 /* ── Reset ── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; font-size: 16px; scroll-padding-top: 96px; }
+html { scroll-behavior: smooth; font-size: 16px; scroll-padding-top: calc(var(--nav-height) + 24px); }
 h1, h2 { hyphens: auto; -webkit-hyphens: auto; overflow-wrap: break-word; }
+
+/* Notrufnummern dürfen nicht umbrechen */
+a[href^="tel:"] { white-space: nowrap; }
 
 /* ── Body ── */
 body {
