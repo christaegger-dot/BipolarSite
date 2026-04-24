@@ -977,7 +977,7 @@ a, button, input, select, textarea,
 }
 .triage-fullwidth-section .urgent-note-standalone {
   max-width: var(--content-width);
-  margin: var(--space-lg) auto 0;
+  margin: 0 auto var(--space-lg);
 }
 @media (max-width: 600px) {
   .triage-fullwidth-section {
