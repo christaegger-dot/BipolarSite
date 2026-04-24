@@ -1748,6 +1748,8 @@ body.pdf-preview-open{overflow:hidden}
 /* ── Module 8: Insight, System, Action overrides, Anlaufstellen, Downloads, Material Finder, Mini Plan, Closing ── */
 [data-module-accent="8"] .module-hero::before{content:'';position:absolute;top:-30%;right:-15%;width:700px;height:700px;border-radius:var(--radius-round);display:none}
 [data-module-accent="8"] .module-hero-inner{max-width:1120px;margin:0 auto;position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,0.96fr) minmax(320px,0.84fr);gap:var(--grid-gap-standard);align-items:start}
+[data-module-accent="8"] .module-hero-aside{grid-column:1 / -1;margin-top:var(--space-xl);padding-top:var(--space-xl);border-top:1px solid var(--border-warm);display:grid;grid-template-columns:minmax(0,0.96fr) minmax(320px,0.84fr);gap:var(--grid-gap-standard);align-items:start}
+[data-module-accent="8"] .module-hero-aside .toc{margin-bottom:0}
 .module-hero-copy{min-width:0}
 .module-hero-visual{background:var(--card);border:1px solid var(--sand-border);border-radius:var(--card-radius);padding:18px;box-shadow:var(--card-shadow)}
 .module-hero-visual img{display:block;width:100%;height:auto;border-radius:var(--radius-sm)}
@@ -1922,6 +1924,7 @@ body.pdf-preview-open{overflow:hidden}
 }
 @media (max-width: 900px) {
   [data-module-accent="8"] .module-hero-inner { grid-template-columns: 1fr; }
+  [data-module-accent="8"] .module-hero-aside { grid-template-columns: 1fr; }
 }
 
 /* ── [from overrides.css] BORDER OVERRIDES ── */
