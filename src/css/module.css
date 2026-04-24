@@ -168,7 +168,7 @@
 .overview-footer-note a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
 
 /* Editorial drop cap — first paragraph after first h2 */
-.content h2:first-of-type + p::first-letter {
+.content:not(.hub-content) h2:first-of-type + p::first-letter {
   font-family: 'DM Serif Display', serif;
   font-size: 3.2em;
   float: left;
@@ -1882,7 +1882,7 @@ body.pdf-preview-open{overflow:hidden}
 .hub-pathways h2{border-top:none;padding-top:0;margin-top:var(--space-lg)}
 .hub-pathways-lead{font-size:var(--text-base);color:var(--slate);max-width:65ch;line-height:1.6;margin:0 0 var(--space-lg)}
 .hub-pathway-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--grid-gap-standard);margin:var(--space-xl) 0}
-.hub-pathway-card{background:var(--card);border:1px solid var(--border-warm);border-radius:var(--card-radius);padding:var(--space-lg);text-decoration:none;color:var(--text);display:flex;flex-direction:column;gap:var(--space-sm);transition:border-color 0.2s ease,box-shadow 0.2s ease,transform 0.15s ease;min-height:200px}
+.hub-pathway-card{background:var(--card);border:1px solid var(--border-warm-md);border-radius:var(--card-radius);padding:var(--space-lg);text-decoration:none;color:var(--text);display:flex;flex-direction:column;gap:var(--space-sm);box-shadow:var(--shadow-soft);transition:border-color 0.2s ease,box-shadow 0.2s ease,transform 0.15s ease;min-height:200px}
 .hub-pathway-card:hover{border-color:var(--teal-muted);box-shadow:var(--card-shadow-hover);transform:translateY(-2px)}
 .hub-pathway-kicker{font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--teal-cta)}
 .hub-pathway-card h3{font-size:var(--text-lg);font-weight:700;color:var(--navy);margin:0;line-height:1.25;letter-spacing:-0.01em}

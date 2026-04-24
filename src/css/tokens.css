@@ -317,7 +317,7 @@
   --text-lg:   1.25rem;   /* 20px */
   --text-xl:   1.6rem;    /* 25.6px */
   --text-2xl:  2.2rem;    /* 35.2px */
-  --text-3xl:  clamp(2.8rem, 5vw, 3.6rem);
+  --text-3xl:  clamp(2rem, 5vw, 3.6rem);
 
   /* Responsive semantic aliases */
   --text-tool-title: clamp(1.35rem, 3.5vw, 1.75rem);
