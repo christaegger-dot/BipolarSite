@@ -479,6 +479,7 @@ a, button, input, select, textarea,
   display: flex;
   flex-direction: column;
   gap: var(--grid-gap-tight);
+  min-height: 240px;
 }
 .module-card:hover {
   box-shadow: var(--card-shadow-hover);
