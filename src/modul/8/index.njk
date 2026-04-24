@@ -1,6 +1,6 @@
 ---
 layout: "base"
-title: "Modul 8: Unterstützung und Ressourcen | PUK Zürich"
+title: "Anlaufstellen und Ressourcen | PUK Zürich"
 navCurrent: "modul-8"
 description: "Anlaufstellen, Downloads und Orientierung für Angehörige von Menschen mit bipolarer Störung in der Schweiz, mit Schwerpunkt Kanton Zürich. PUK Zürich."
 permalink: "/modul/8/"
@@ -8,181 +8,180 @@ useSharedCSS: true
 useNavJS: true
 useModuleCSS: true
 moduleAccent: "8"
+bodyClass: "hub-page"
 breadcrumbs:
-  - name: "Module"
-    url: "/module/"
-  - name: "Modul 8: Unterstützung und Ressourcen"
+  - name: "Anlaufstellen und Ressourcen"
     url: "/modul/8/"
 ---
-{% block headCSS %}<!-- Module 8 styles migrated to module.css (P2.3) -->{% endblock %}
+{% block headCSS %}<!-- Hub styles in module.css (.hub-*) — shares .stelle-card, .action-card, .dl-module, .material-finder, .mini-plan with the module system -->{% endblock %}
 {% block nav %}
 {% include "nav-full.njk" %}
 {% endblock %}
-{% from "pdf-macros.njk" import directDownloadButton, archiveChip, handoutCard %}
+{% from "pdf-macros.njk" import directDownloadButton, archiveChip %}
 {% block content %}
-<div class="reading-progress"><div class="reading-progress-fill" id="readingProgress"></div></div>
 
-<header class="module-hero"><div class="module-hero-inner">
-  <div class="module-hero-copy">
-    <div class="breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><a href="/module/">Module</a><span class="sep" aria-hidden="true">›</span><span>Unterstützung und Ressourcen</span></div>
-    <div class="module-badge">Modul 8 / 8</div>
-    <h1>Unterstützung und Ressourcen</h1>
-    <div class="module-meta"><span>⚡ Schnellstart: ca. 3–5 Minuten</span><span>＋ Vertiefung bei Bedarf</span><span>📍 Wo Sie Hilfe finden</span></div>
+<header class="hub-hero">
+  <div class="hub-hero-inner">
+    <div class="breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><span>Anlaufstellen und Ressourcen</span></div>
+    <h1>Anlaufstellen und Ressourcen</h1>
+    <p class="hub-hero-lead">Diese Seite ist Ihr direkter Einstieg zu Beratung, Materialien und nächsten Schritten — unabhängig davon, ob Sie die Module gelesen haben oder direkt hier landen.</p>
+  </div>
+</header>
 
-    <div class="module-hero-note">
-      <p><strong>Dieses Modul ist zuerst ein Schnellstart-Arbeitsbereich.</strong> Sie sollen hier rasch finden, was Ihrer Lage im Moment wirklich hilft.</p>
-      <p>Wenn Sie heute nur einen Kontakt speichern, eine Unterlage öffnen oder einen nächsten Schritt notieren, ist das bereits ein sinnvoller Anfang. Alles Weitere ist Vertiefung für später.</p>
+<main id="main-content" class="content hub-content">
+
+  <aside class="urgent-note urgent-note-standalone reveal" aria-label="Akuter Einstieg">
+    <span class="urgent-note-kicker">Bei Suizidgedanken, Manie, Psychose oder Gewalt:</span>
+    <p>Der Notfallweg ist wichtiger als jede weitere Sortierung. <a href="/notfall/" class="urgent-note-link">Direkt zum Notfallweg →</a></p>
+  </aside>
+
+  <!-- ══════════ PATHWAYS — handlungsorientierter Einstieg ══════════ -->
+  <section class="hub-pathways reveal">
+    <h2>Was suchen Sie?</h2>
+    <p class="hub-pathways-lead">Wählen Sie die Richtung, die gerade am ehesten passt. Sie können jederzeit zu einem anderen Abschnitt springen.</p>
+    <div class="hub-pathway-grid">
+      <a href="/notfall/" class="hub-pathway-card hub-pathway-card--alert">
+        <div class="hub-pathway-kicker">Akut</div>
+        <h3>Wenn es akut oder unklar gefährlich ist</h3>
+        <p>Nummern, Notfallweg, schnelle Orientierung. Vor langer Suche.</p>
+        <span class="hub-pathway-arrow" aria-hidden="true">→</span>
+      </a>
+      <a href="#beratung" class="hub-pathway-card">
+        <div class="hub-pathway-kicker">Reden</div>
+        <h3>Wenn Sie selbst erschöpft sind oder reden müssen</h3>
+        <p>Fachstelle Angehörigenarbeit, Pro Mente Sana — nicht erst, wenn Sie zusammenbrechen.</p>
+        <span class="hub-pathway-arrow" aria-hidden="true">↓</span>
+      </a>
+      <a href="#austausch" class="hub-pathway-card">
+        <div class="hub-pathway-kicker">Austausch</div>
+        <h3>Wenn Sie Austausch mit Angehörigen suchen</h3>
+        <p>Selbsthilfe entlastet, wo reine Information nicht mehr reicht.</p>
+        <span class="hub-pathway-arrow" aria-hidden="true">↓</span>
+      </a>
+      <a href="#recht" class="hub-pathway-card">
+        <div class="hub-pathway-kicker">Recht</div>
+        <h3>Wenn rechtliche oder Systemfragen blockieren</h3>
+        <p>Ombudsstellen, FU, Vorsorgeauftrag, Versicherung, Beschwerden.</p>
+        <span class="hub-pathway-arrow" aria-hidden="true">↓</span>
+      </a>
+      <a href="#materialien" class="hub-pathway-card">
+        <div class="hub-pathway-kicker">Material</div>
+        <h3>Wenn Sie Unterlagen mitnehmen wollen</h3>
+        <p>Notfallkarte, Krisenplan, Kurzblatt — zum Ausdrucken oder Weitergeben.</p>
+        <span class="hub-pathway-arrow" aria-hidden="true">↓</span>
+      </a>
+      <a href="#mini-plan" class="hub-pathway-card">
+        <div class="hub-pathway-kicker">Festhalten</div>
+        <h3>Wenn Sie heute etwas für sich notieren wollen</h3>
+        <p>Eine Nummer, ein Dokument, ein nächster Schritt — lokal auf Ihrem Gerät.</p>
+        <span class="hub-pathway-arrow" aria-hidden="true">↓</span>
+      </a>
     </div>
-  </div>
-  <div class="module-hero-aside">
-    <div class="toc">
-      <div class="toc-title">Schnellstart in diesem Modul</div>
-      <ol>
-        <li><a href="#weitergehen">Wie Sie jetzt sinnvoll weitergehen können<span class="toc-desc">Vom Lesen zum nächsten realen Schritt</span></a></li>
-        <li><a href="#situationen">Orientierung nach Situation<span class="toc-desc">Welche Hilfe wofür zuerst sinnvoll ist</span></a></li>
-        <li><a href="#anlaufstellen">Anlaufstellen nach Zweck<span class="toc-desc">Beratung, Selbsthilfe, Recht, Familie</span></a></li>
-        <li><a href="#materialien">Die wichtigsten Materialien zuerst<span class="toc-desc">Kuratiert nach Anlass statt als Archiv</span></a></li>
-      </ol>
-      <p class="toc-note">Rollenfragen, Systemblockaden, Mini-Plan und das vollständige Materialarchiv folgen weiter unten als optionale Vertiefung.</p>
+  </section>
+
+  <!-- ══════════ 1. BERATUNG ══════════ -->
+  <section class="hub-section reveal">
+    <h2 id="beratung">Beratung und erstes Gespräch</h2>
+    <p>Diese Stellen sind die erste Wahl, wenn Sie eine vertrauliche Einordnung, ein erstes Gespräch oder konkrete fachliche Orientierung brauchen — auch für Familie und Kinder.</p>
+
+    <div class="stelle-card">
+      <div class="stelle-header"><h3>Fachstelle Angehörigenarbeit PUK Zürich</h3><div class="stelle-badge beratung">Beratung</div></div>
+      <p>Persönliche, vertrauliche und kostenlose Beratung — auch wenn die erkrankte Person nicht bei der PUK in Behandlung ist. Mo–Fr nach Vereinbarung.</p>
+      <div class="stelle-contact"><a href="{{ site.tel.fachstelle.href }}">{{ site.tel.fachstelle.display }}</a> · Lenggstrasse 31, 8032 Zürich</div>
     </div>
 
-    <div class="module-summary">
-      <strong>Auf einen Blick</strong>
-      <ul>
-        <li>Angehörigenberatung und Selbsthilfegruppen sind die wichtigsten ersten Anlaufstellen.</li>
-        <li>Rechtliche und finanzielle Fragen früh klären, bevor sie zusätzlich belasten.</li>
-        <li>Materialien wie Notfallplan, Notfallkarte und Merkblätter stehen zum Download bereit.</li>
-      </ul>
+    <div class="stelle-card">
+      <div class="stelle-header"><h3>Pro Mente Sana</h3><div class="stelle-badge beratung">Beratung + Recht</div></div>
+      <p>Schweizweite psychosoziale und juristische Beratung — besonders sinnvoll bei FU, Patientenverfügung, Vorsorgeauftrag oder Konflikten mit Institutionen. Mo–Fr telefonisch, Online 24/7.</p>
+      <div class="stelle-contact"><a href="{{ site.tel.proMenteSana.href }}">{{ site.tel.proMenteSana.display }}</a> · <a href="https://www.promentesana.ch">promentesana.ch</a></div>
     </div>
-  </div>
-</div></header>
+  </section>
 
-<main class="content" id="main-content">
+  <!-- ══════════ 2. AUSTAUSCH ══════════ -->
+  <section class="hub-section reveal">
+    <h2 id="austausch">Austausch mit anderen Angehörigen</h2>
+    <p>Diese Angebote sind besonders hilfreich, wenn Sie nicht nur Information, sondern Resonanz und Erfahrung von anderen Angehörigen suchen — ohne dass alles von Grund auf erklärt werden muss.</p>
 
-  <!-- ══════════ 1. WEITERGEHEN ══════════ -->
-  <h2 id="weitergehen" class="reveal">Wie Sie jetzt sinnvoll weitergehen können</h2>
-  <p class="reveal"><strong>Faustregel:</strong> Modul 8 hilft bei Kontakten, Materialien und rechtlicher Orientierung. Für Gespräche, Grenzen und die strukturierte Notfallvorbereitung ist <a href="/modul/6/" class="link-teal">Modul 6</a> der passendere Einstieg.</p>
-  <p class="reveal">Häufig hilfreicher als noch mehr Information ist etwas Kleines und Konkretes: einen Kontakt speichern, ein Merkblatt öffnen, ein erstes Gespräch vereinbaren. <strong>Ein nächster Schritt reicht.</strong></p>
-  <p class="reveal info-callout"><strong>Wenn Sie gerade nur eines tun möchten:</strong> Wählen Sie zuerst entweder die Orientierung nach Situation weiter unten, den Material-Finder oder den Mini-Plan. Alles andere ist Vertiefung für später.</p>
+    <div class="stelle-card">
+      <div class="stelle-header"><h3>VASK Zürich</h3><div class="stelle-badge selbsthilfe">Selbsthilfe</div></div>
+      <p>Verband Angehöriger psychisch Kranker. Selbsthilfe-Treffpunkte, Austausch mit Menschen in ähnlicher Situation.</p>
+      <div class="stelle-contact"><a href="{{ site.tel.vask.href }}">{{ site.tel.vask.display }}</a> · <a href="https://www.vaskzuerich.ch">vaskzuerich.ch</a></div>
+    </div>
 
-  <div class="action-grid action-grid--steps reveal content-wide">
-    <div class="action-card"><div class="action-icon">1</div><div><h3>Den nächsten Schritt klein genug machen</h3><p>Sie müssen nicht alles sortieren. Oft reicht es, heute eine Nummer zu speichern, eine Fachstelle zu kontaktieren oder ein passendes Dokument zu öffnen.</p></div></div>
-    <div class="action-card"><div class="action-icon">2</div><div><h3>Von Ihrer aktuellen Lage ausgehen</h3><p>Suchen Sie nicht gleich nach dem ganzen System, sondern zuerst nach dem, was gerade drängt: Krise, Erschöpfung, Austausch, Recht oder Familie.</p></div></div>
-    <div class="action-card"><div class="action-icon">3</div><div><h3>Die Schwelle zum ersten Kontakt senken</h3><p>Ein erstes Gespräch darf unfertig sein. Ihre Geschichte muss nicht geordnet sein, damit Unterstützung sinnvoll ist.</p></div></div>
-    <div class="action-card"><div class="action-icon">4</div><div><h3>Hilfsmittel als Entlastung benutzen</h3><p>Merkblätter, Notizen oder eine gemeinsame Notfallabsprache müssen nicht perfekt sein. Sie sollen tragen, nicht zusätzlichen Druck erzeugen.</p></div></div>
-  </div>
+    <div class="stelle-card">
+      <div class="stelle-header"><h3>Selbsthilfe Zürich</h3><div class="stelle-badge selbsthilfe">Vermittlung</div></div>
+      <p>Vermittlung von Selbsthilfegruppen in der Region Zürich, darunter auch eine bipolar-spezifische Angehörigengruppe.</p>
+      <div class="stelle-contact"><a href="{{ site.tel.selbsthilfe.href }}">{{ site.tel.selbsthilfe.display }}</a> · <a href="https://www.selbsthilfezuerich.ch">selbsthilfezuerich.ch</a></div>
+    </div>
+  </section>
 
-  <!-- ══════════ 2. SITUATIONEN ══════════ -->
-  <p class="reveal text-soft-sm" style="margin-top:var(--space-sm)"><strong>Wenn Sie noch etwas genauer sortieren möchten:</strong> Die Situationsübersicht reicht oft schon. Weitere Vertiefungen zu Rolle, Systemfragen und Archivmaterial sind weiter unten optional aufklappbar.</p>
-  <h2 id="situationen" class="reveal">Orientierung nach Situation</h2>
-  <p class="reveal">Nicht jede Hilfe ist für jede Lage gleich sinnvoll. Ordnen Sie zuerst ein, was gerade am meisten drängt. Die Logik ist bewusst dieselbe wie auf der Startseite: erst die Lage klären, dann den passenden nächsten Weg wählen.</p>
+  <!-- ══════════ 3. RECHT & SYSTEM ══════════ -->
+  <section class="hub-section reveal">
+    <h2 id="recht">Recht, Ombudsstellen und Systemfragen</h2>
+    <p>Diese Angebote sind besonders sinnvoll, wenn Versicherung, Finanzierung, Beschwerdewege oder andere Systemfragen blockieren. Diese Themen werden selten leichter, wenn man sie lange liegen lässt.</p>
 
-  <div class="insight-grid reveal content-wide">
-    <div class="insight-card"><div class="insight-num">1</div><div><h3>Wenn es akut oder unklar gefährlich ist</h3><p>Gehen Sie nicht zuerst in lange Suchprozesse. Nutzen Sie die <a href="/notfall/" class="link-alert">Notfallseite</a>, speichern Sie Nummern und halten Sie die Notfallkarte griffbereit.</p></div></div>
-    <div class="insight-card"><div class="insight-num">2</div><div><h3>Wenn Sie selbst erschöpft sind und reden müssen</h3><p>Beginnen Sie mit einer Angehörigenberatung oder einer Selbsthilfegruppe. Nicht erst dann, wenn Sie zusammenbrechen.</p></div></div>
-    <div class="insight-card"><div class="insight-num">3</div><div><h3>Wenn Sie Austausch mit Menschen in ähnlicher Lage suchen</h3><p>Selbsthilfe entlastet oft dort, wo reine Information nicht mehr reicht — ohne dass alles von Grund auf erklärt werden muss.</p></div></div>
-    <div class="insight-card"><div class="insight-num">4</div><div><h3>Wenn rechtliche, finanzielle oder versicherungsbezogene Fragen blockieren</h3><p>Holen Sie sich früh juristische oder Ombuds-Unterstützung. Diese Themen werden selten leichter, wenn man sie lange liegen lässt.</p></div></div>
-    <div class="insight-card"><div class="insight-num">5</div><div><h3>Wenn Kinder oder Familie mittragen</h3><p>Suchen Sie nicht nur Hilfe für die erkrankte Person. Auch Kinder, Co-Elternschaft und familiäre Entlastung brauchen eine eigene Spur.</p></div></div>
-    <div class="insight-card"><div class="insight-num">6</div><div><h3>Wenn Sie zuerst Unterlagen und Orientierung wollen</h3><p>Starten Sie mit den kuratierten Materialien unten: Vorsorgeplan, Notfallkarte, Kurzblatt oder thematisch passende Handouts.</p></div></div>
-  </div>
+    <div class="stelle-card">
+      <div class="stelle-header"><h3>Ombudsstelle Krankenversicherung</h3><div class="stelle-badge beratung">Recht</div></div>
+      <p>Bei Leistungsstreitigkeiten mit der Krankenkasse. Kostenlos und unabhängig.</p>
+      <div class="stelle-contact"><a href="https://om-kv.ch">om-kv.ch</a></div>
+    </div>
 
-  <h2 id="rollen" class="reveal">Orientierung nach Angehörigenrolle</h2>
-  <p class="reveal">Je nach Konstellation drängen unterschiedliche Fragen nach vorn. Wählen Sie, was am ehesten auf Sie zutrifft.</p>
-  <div class="action-grid action-grid--roles reveal">
-    <div class="action-card"><div class="action-icon">P</div><div><h3>Partner*in</h3><p>Oft stehen Beziehung, Alltag, Grenzen, Kinder, Geld und Tragfähigkeit im Zentrum. Häufig passend: Modul 3, 5, 6 sowie Angehörigen- oder Paarberatung.</p></div></div>
-    <div class="action-card"><div class="action-icon">E</div><div><h3>Eltern</h3><p>Viele Eltern schwanken zwischen Sorge, Schutzimpuls und Loslassen. Hilfreich sind oft Einordnung, Systemwissen und Beratung für die Familie.</p></div></div>
-    <div class="action-card"><div class="action-icon">G</div><div><h3>Geschwister</h3><p>Geschwister tragen oft mit, ohne klare Zuständigkeit zu haben. Austausch, Grenzklärung und Systemorientierung helfen hier oft mehr als zusätzliche Übernahme.</p></div></div>
-    <div class="action-card"><div class="action-icon">K</div><div><h3>Erwachsene Kinder</h3><p>Wenn ein Elternteil erkrankt ist, mischen sich Loyalität, Parentifizierung und eigene Lebensplanung. Besonders hilfreich sind oft Familienperspektive und externe Beratung.</p></div></div>
-  </div>
+    <p class="reveal link-teal-bold" style="font-size:var(--text-base);margin-top:var(--space-md)">Notfallnummern (143, 144, 117, Ärztefon – Notfalldienst Zürich) finden Sie auf der <a href="/notfall/" class="link-alert">Notfallseite →</a></p>
 
-  <!-- ══════════ 4. ANLAUFSTELLEN ══════════ -->
-  <h2 id="anlaufstellen" class="reveal">Anlaufstellen nach Zweck</h2>
-  <p class="reveal">Die folgende Übersicht ordnet die Stellen nach Zweck: <strong>Wer hilft wofür?</strong> So vermeiden Sie, in einer ohnehin belastenden Lage noch unnötig zwischen Angeboten zu pendeln.</p>
+    <details id="system" class="hub-details reveal">
+      <summary>
+        <span class="hub-details-kicker">Optional</span>
+        <span class="hub-details-title">Wenn das Versorgungssystem zusätzlich belastet</span>
+        <span class="hub-details-intro">Dann öffnen, wenn Versorgung, Versicherung oder Zuständigkeiten selbst zur Belastung geworden sind.</span>
+      </summary>
+      <div class="hub-details-body">
+        <p>Viele Angehörige tragen neben Sorge und Erschöpfung auch Frust auf das Versorgungssystem in sich: wegen Wartelisten, unklarer Zuständigkeiten, Schweigepflicht, Ablehnungen oder dem Gefühl, mitzutragen und trotzdem kaum Einfluss zu haben. Dieser Frust ist nicht bloss Ärger. Er ist oft eine zusätzliche Belastungsschicht.</p>
 
-  <h3 class="reveal">Offizielle Beratung &amp; Therapie</h3>
-  <p class="reveal">Diese Stellen sind die erste Wahl, wenn Sie eine vertrauliche Einordnung, ein erstes Gespräch oder konkrete fachliche Orientierung brauchen.</p>
+        <ul class="system-items">
+          <li>«Die erkrankte Person erfüllt die Kriterien für eine Hospitalisation nicht.» — obwohl die Situation eskaliert.</li>
+          <li>«Wir können ohne Einwilligung keine Informationen weitergeben.» — obwohl Sie den Alltag mittragen.</li>
+          <li>«Der nächste freie Therapieplatz ist in vier Monaten.» — obwohl die Lage jetzt kippt.</li>
+          <li>«Als Angehörige*r haben Sie keinen Anspruch auf Beratung.» — obwohl Sie direkt betroffen sind.</li>
+        </ul>
 
-  <div class="stelle-card reveal">
-    <div class="stelle-header"><h4>Fachstelle Angehörigenarbeit PUK Zürich</h4><div class="stelle-badge beratung">Beratung</div></div>
-    <p>Persönliche, vertrauliche und kostenlose Beratung — auch wenn die erkrankte Person nicht bei der PUK in Behandlung ist. Mo–Fr nach Vereinbarung.</p>
-    <div class="stelle-contact"><a href="{{ site.tel.fachstelle.href }}">{{ site.tel.fachstelle.display }}</a> · Lenggstrasse 31, 8032 Zürich</div>
-  </div>
+        <p>Diesen Frust ernst zu nehmen heisst nicht, das System pauschal abzuwerten. Es heisst, zusätzliche Belastung nicht mit persönlichem Versagen zu verwechseln. Wenn Hilfewege zermürben, dürfen Sie Beratung, Beschwerdewege und Ombudsstellen nutzen.</p>
+        <p><strong>Besonders sinnvoll sind hier:</strong> Pro Mente Sana für psychosoziale und juristische Einordnung, die Ombudsstelle Krankenversicherung bei Leistungsstreitigkeiten, Selbsthilfeverbände für Erfahrungsaustausch und die jeweiligen Rückmelde- oder Beschwerdewege von Kliniken oder Trägerschaften.</p>
 
-  <div class="stelle-card reveal">
-    <div class="stelle-header"><h4>Pro Mente Sana</h4><div class="stelle-badge beratung">Beratung + Recht</div></div>
-    <p>Schweizweite psychosoziale und juristische Beratung — besonders sinnvoll bei FU, Patientenverfügung, Vorsorgeauftrag oder Konflikten mit Institutionen. Mo–Fr telefonisch, Online 24/7.</p>
-    <div class="stelle-contact"><a href="{{ site.tel.proMenteSana.href }}">{{ site.tel.proMenteSana.display }}</a> · <a href="https://www.promentesana.ch">promentesana.ch</a></div>
-  </div>
+        <div class="action-box">
+          <h3>Was Sie konkret tun können — wenn das System blockiert</h3>
+          <ul>
+            <li><strong>Schriftlich dokumentieren:</strong> Datum, Aussage, Kontaktperson festhalten — bei Beschwerden entscheidend.</li>
+            <li><strong>Pro Mente Sana kontaktieren:</strong> Gute erste Anlaufstelle für psychosoziale und juristische Einordnung. <a href="https://www.promentesana.ch" target="_blank" rel="noopener" class="link-teal">promentesana.ch</a></li>
+            <li><strong>Ombudsstelle Krankenversicherung:</strong> Besonders passend bei Leistungsstreitigkeiten oder abgelehnten Kostengutsprachen. <a href="https://om-kv.ch" target="_blank" rel="noopener" class="link-teal">om-kv.ch</a></li>
+            <li><strong>Rückmeldung an Klinik oder Trägerschaft:</strong> Formelle Beschwerde über den internen Beschwerdeweg — oft wirksamer als erwartet.</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+  </section>
 
-  <h3 class="reveal">Recht &amp; Ombudsstellen</h3>
-  <p class="reveal">Diese Angebote sind besonders sinnvoll, wenn Versicherung, Finanzierung, Beschwerdewege oder andere Systemfragen blockieren.</p>
-
-  <div class="stelle-card reveal">
-    <div class="stelle-header"><h4>Ombudsstelle Krankenversicherung</h4><div class="stelle-badge beratung">Recht</div></div>
-    <p>Bei Leistungsstreitigkeiten mit der Krankenkasse. Kostenlos und unabhängig.</p>
-    <div class="stelle-contact"><a href="https://om-kv.ch">om-kv.ch</a></div>
-  </div>
-
-  <h3 class="reveal">Selbsthilfe &amp; Austausch</h3>
-  <p class="reveal">Diese ergänzenden Angebote sind besonders hilfreich, wenn Sie nicht nur Information, sondern Resonanz und Erfahrung von anderen Angehörigen suchen.</p>
-
-  <div class="stelle-card reveal">
-    <div class="stelle-header"><h4>VASK Zürich</h4><div class="stelle-badge selbsthilfe">Selbsthilfe</div></div>
-    <p>Verband Angehöriger psychisch Kranker. Selbsthilfe-Treffpunkte, Austausch mit Menschen in ähnlicher Situation.</p>
-    <div class="stelle-contact"><a href="{{ site.tel.vask.href }}">{{ site.tel.vask.display }}</a> · <a href="https://www.vaskzuerich.ch">vaskzuerich.ch</a></div>
-  </div>
-
-  <div class="stelle-card reveal">
-    <div class="stelle-header"><h4>Selbsthilfe Zürich</h4><div class="stelle-badge selbsthilfe">Vermittlung</div></div>
-    <p>Vermittlung von Selbsthilfegruppen in der Region Zürich, darunter auch eine bipolar-spezifische Angehörigengruppe.</p>
-    <div class="stelle-contact"><a href="{{ site.tel.selbsthilfe.href }}">{{ site.tel.selbsthilfe.display }}</a> · <a href="https://www.selbsthilfezuerich.ch">selbsthilfezuerich.ch</a></div>
-  </div>
-
-  <p class="reveal link-teal-bold" style="font-size:var(--text-base);margin-top:var(--space-md)">Notfallnummern (143, 144, 117, Ärztefon – Notfalldienst Zürich) finden Sie auf der <a href="/notfall/" class="link-alert">Notfallseite →</a></p>
-
-  <!-- ══════════ 5. SYSTEM ══════════ -->
-  <h2 id="system" class="reveal">Wenn das System zusätzlich belastet</h2>
-  <details class="hub-details reveal">
+  <!-- ══════════ 4. ORIENTIERUNG NACH ROLLE (optional) ══════════ -->
+  <details id="rollen" class="hub-details reveal">
     <summary>
       <span class="hub-details-kicker">Optional</span>
-      <span class="hub-details-title">Systemblockaden, Schweigepflicht und Beschwerdewege</span>
-      <span class="hub-details-intro">Dann öffnen, wenn Versorgung, Versicherung oder Zuständigkeiten selbst zur Belastung geworden sind.</span>
+      <span class="hub-details-title">Orientierung nach Angehörigenrolle</span>
+      <span class="hub-details-intro">Je nach Konstellation drängen unterschiedliche Fragen nach vorn. Öffnen, wenn Sie Ihre Rolle noch gezielter einordnen möchten.</span>
     </summary>
     <div class="hub-details-body">
-      <p>Viele Angehörige tragen neben Sorge und Erschöpfung auch Frust auf das Versorgungssystem in sich: wegen Wartelisten, unklarer Zuständigkeiten, Schweigepflicht, Ablehnungen oder dem Gefühl, mitzutragen und trotzdem kaum Einfluss zu haben. Dieser Frust ist nicht bloss Ärger. Er ist oft eine zusätzliche Belastungsschicht.</p>
-
-      <ul class="system-items">
-        <li>«Die erkrankte Person erfüllt die Kriterien für eine Hospitalisation nicht.» — obwohl die Situation eskaliert.</li>
-        <li>«Wir können ohne Einwilligung keine Informationen weitergeben.» — obwohl Sie den Alltag mittragen.</li>
-        <li>«Der nächste freie Therapieplatz ist in vier Monaten.» — obwohl die Lage jetzt kippt.</li>
-        <li>«Als Angehörige*r haben Sie keinen Anspruch auf Beratung.» — obwohl Sie direkt betroffen sind.</li>
-      </ul>
-
-      <p>Diesen Frust ernst zu nehmen heisst nicht, das System pauschal abzuwerten. Es heisst, zusätzliche Belastung nicht mit persönlichem Versagen zu verwechseln. Wenn Hilfewege zermürben, dürfen Sie Beratung, Beschwerdewege und Ombudsstellen nutzen.</p>
-      <p><strong>Besonders sinnvoll sind hier:</strong> Pro Mente Sana für psychosoziale und juristische Einordnung, die Ombudsstelle Krankenversicherung bei Leistungsstreitigkeiten, Selbsthilfeverbände für Erfahrungsaustausch und die jeweiligen Rückmelde- oder Beschwerdewege von Kliniken oder Trägerschaften.</p>
-
-      <figure class="wide-visual">
-        <img src="/visuals/modul8-material-ladder.svg" alt="Drei Stufen für Materialien: Notfallkarte in akuten Lagen, Krisenplan in stabilen Phasen und passende Handouts für den Alltag." width="720" height="360" loading="lazy" decoding="async">
-        <figcaption>Die Unterlagen unten sind nicht als Archiv gedacht. Nutzen Sie sie je nach Lage: zuerst das, was die Situation ordnet, nicht das, was am vollständigsten aussieht.</figcaption>
-      </figure>
-
-      <div class="action-box">
-        <h3>Was Sie konkret tun können — wenn das System blockiert</h3>
-        <ul>
-          <li><strong>Schriftlich dokumentieren:</strong> Datum, Aussage, Kontaktperson festhalten — bei Beschwerden entscheidend.</li>
-          <li><strong>Pro Mente Sana kontaktieren:</strong> Gute erste Anlaufstelle für psychosoziale und juristische Einordnung. <a href="https://www.promentesana.ch" target="_blank" rel="noopener" class="link-teal">promentesana.ch</a></li>
-          <li><strong>Ombudsstelle Krankenversicherung:</strong> Besonders passend bei Leistungsstreitigkeiten oder abgelehnten Kostengutsprachen. <a href="https://om-kv.ch" target="_blank" rel="noopener" class="link-teal">om-kv.ch</a></li>
-          <li><strong>Rückmeldung an Klinik oder Trägerschaft:</strong> Formelle Beschwerde über den internen Beschwerdeweg — oft wirksamer als erwartet.</li>
-        </ul>
+      <div class="action-grid action-grid--roles">
+        <div class="action-card"><div class="action-icon">P</div><div><h3>Partner*in</h3><p>Oft stehen Beziehung, Alltag, Grenzen, Kinder, Geld und Tragfähigkeit im Zentrum. Häufig passend: Modul 3, 5, 6 sowie Angehörigen- oder Paarberatung.</p></div></div>
+        <div class="action-card"><div class="action-icon">E</div><div><h3>Eltern</h3><p>Viele Eltern schwanken zwischen Sorge, Schutzimpuls und Loslassen. Hilfreich sind oft Einordnung, Systemwissen und Beratung für die Familie.</p></div></div>
+        <div class="action-card"><div class="action-icon">G</div><div><h3>Geschwister</h3><p>Geschwister tragen oft mit, ohne klare Zuständigkeit zu haben. Austausch, Grenzklärung und Systemorientierung helfen hier oft mehr als zusätzliche Übernahme.</p></div></div>
+        <div class="action-card"><div class="action-icon">K</div><div><h3>Erwachsene Kinder</h3><p>Wenn ein Elternteil erkrankt ist, mischen sich Loyalität, Parentifizierung und eigene Lebensplanung. Besonders hilfreich sind oft Familienperspektive und externe Beratung.</p></div></div>
       </div>
     </div>
   </details>
 
-  <!-- ══════════ 5b. KULTURELLE PERSPEKTIVEN ══════════ -->
-  <h2 id="kultur" class="reveal">Wenn kulturelle Prägung die Situation zusätzlich formt</h2>
-  <p class="reveal">Diese Website ist aus einer Schweizer Perspektive geschrieben. Aber Zürich ist vielfältig — und kulturelle Hintergründe beeinflussen, wie Familien mit psychischen Erkrankungen umgehen: wie offen darüber gesprochen wird, wer als zuständig gilt, ob professionelle Hilfe als legitim oder als Eingeständnis von Schwäche betrachtet wird.</p>
+  <!-- ══════════ 5. KULTURELLE PERSPEKTIVEN ══════════ -->
+  <section class="hub-section reveal">
+    <h2 id="kultur">Wenn kulturelle Prägung die Situation zusätzlich formt</h2>
+    <p>Diese Website ist aus einer Schweizer Perspektive geschrieben. Aber Zürich ist vielfältig — und kulturelle Hintergründe beeinflussen, wie Familien mit psychischen Erkrankungen umgehen: wie offen darüber gesprochen wird, wer als zuständig gilt, ob professionelle Hilfe als legitim oder als Eingeständnis von Schwäche betrachtet wird.</p>
 
-  <div class="reveal">
     <p>Einige Muster, die in der Forschung und in der Praxis sichtbar werden:</p>
     <ul class="step-list">
       <li><strong>Stigma-Intensität variiert:</strong> In vielen Kulturen ist psychische Erkrankung stärker stigmatisiert als in der Schweizer Mehrheitsgesellschaft. Die Angst, dass die Familie «Gesicht verliert», kann dazu führen, dass Angehörige noch isolierter sind — und noch später Hilfe suchen.</li>
@@ -190,160 +189,181 @@ breadcrumbs:
       <li><strong>Spirituelle oder religiöse Deutung:</strong> Manche Familien erleben die Erkrankung primär als spirituelle Prüfung, als Strafe oder als Besessenheit. Das schliesst psychiatrische Behandlung nicht aus, kann aber den Zugang erschweren oder verzögern.</li>
       <li><strong>Sprachbarrieren:</strong> Wenn die erkrankte Person oder die Angehörigen die Landessprache nicht fliessend sprechen, wird die Kommunikation mit dem Behandlungsteam zur zusätzlichen Hürde. Dolmetscherdienste in psychiatrischen Kontexten sind in der Schweiz verfügbar, aber nicht immer selbstverständlich — fragen Sie aktiv danach.</li>
     </ul>
-  </div>
 
-  <p class="reveal">Wenn Sie sich in einem dieser Muster wiedererkennen: <strong>Ihre kulturelle Prägung ist kein Hindernis — sie ist Teil Ihrer Realität.</strong> Gute Angehörigenberatung berücksichtigt das. Die Fachstelle Angehörigenarbeit PUK Zürich berät auch in kulturell vielfältigen Situationen. Zögern Sie nicht, Kontakt aufzunehmen: <a href="{{ site.tel.fachstelle.href }}">{{ site.tel.fachstelle.display }}</a>.</p>
+    <p>Wenn Sie sich in einem dieser Muster wiedererkennen: <strong>Ihre kulturelle Prägung ist kein Hindernis — sie ist Teil Ihrer Realität.</strong> Gute Angehörigenberatung berücksichtigt das. Die Fachstelle Angehörigenarbeit PUK Zürich berät auch in kulturell vielfältigen Situationen. Zögern Sie nicht, Kontakt aufzunehmen: <a href="{{ site.tel.fachstelle.href }}">{{ site.tel.fachstelle.display }}</a>.</p>
+  </section>
 
-  <!-- ══════════ 6. MATERIALIEN ZUERST ══════════ -->
-  <h2 id="materialien" class="reveal">Die wichtigsten Materialien zuerst</h2>
-  <p class="reveal">Wenn Sie nicht die ganze Sammlung durchsuchen möchten, beginnen Sie mit den Unterlagen, die in der aktuellen Lage am meisten Entlastung oder Struktur bringen. <strong>Wenn Sie nur noch eine Sache anklicken möchten, beginnen Sie hier.</strong></p>
+  <!-- ══════════ 6. MATERIALIEN ══════════ -->
+  <section class="hub-section reveal">
+    <h2 id="materialien">Materialien zum Mitnehmen</h2>
+    <p>Wenn Sie nicht die ganze Sammlung durchsuchen möchten, beginnen Sie mit den Unterlagen, die in der aktuellen Lage am meisten Entlastung oder Struktur bringen. <strong>Wenn Sie nur noch eine Sache anklicken möchten, beginnen Sie hier.</strong></p>
 
-  <div class="material-finder reveal content-wide" aria-labelledby="material-finder-title">
-    <div class="material-finder-kicker">Material-Finder</div>
-    <h3 id="material-finder-title">Ich brauche jetzt ...</h3>
-    <p>Wählen Sie die Lage, die gerade am ehesten passt. Sie bekommen 1 bis 3 passende Materialien, Kontakte oder nächste Schritte statt der ganzen Liste auf einmal.</p>
-    <div class="material-finder-options">
-      <button type="button" class="material-finder-option" data-material-finder="akut" aria-pressed="false" aria-controls="materialFinderResults">
-        <span class="material-finder-icon" aria-hidden="true">Akut</span>
-        <span><span class="material-finder-label">Akute oder unklare Krise</span><span class="material-finder-sub">Nummern, Notfallweg, schnelle Orientierung.</span></span>
-      </button>
-      <button type="button" class="material-finder-option" data-material-finder="plan" aria-pressed="false" aria-controls="materialFinderResults">
-        <span class="material-finder-icon" aria-hidden="true">Plan</span>
-        <span><span class="material-finder-label">Vorbereiten für die nächste Krise</span><span class="material-finder-sub">Krisenplan, Kontakte, ruhige Vorbereitung.</span></span>
-      </button>
-      <button type="button" class="material-finder-option" data-material-finder="ersch" aria-pressed="false" aria-controls="materialFinderResults">
-        <span class="material-finder-icon" aria-hidden="true">Entlastung</span>
-        <span><span class="material-finder-label">Erschöpfung und Belastung</span><span class="material-finder-sub">Entlastung, Einordnung, kleine nächste Schritte.</span></span>
-      </button>
-      <button type="button" class="material-finder-option" data-material-finder="recht" aria-pressed="false" aria-controls="materialFinderResults">
-        <span class="material-finder-icon" aria-hidden="true">Recht</span>
-        <span><span class="material-finder-label">Recht / System / Blockaden</span><span class="material-finder-sub">Beratung, Ombudsstellen, Beschwerdewege.</span></span>
-      </button>
+    <div class="material-finder content-wide" aria-labelledby="material-finder-title">
+      <div class="material-finder-kicker">Material-Finder</div>
+      <h3 id="material-finder-title">Ich brauche jetzt …</h3>
+      <p>Wählen Sie die Lage, die gerade am ehesten passt. Sie bekommen 1 bis 3 passende Materialien, Kontakte oder nächste Schritte statt der ganzen Liste auf einmal.</p>
+      <div class="material-finder-options">
+        <button type="button" class="material-finder-option" data-material-finder="akut" aria-pressed="false" aria-controls="materialFinderResults">
+          <span class="material-finder-icon" aria-hidden="true">Akut</span>
+          <span><span class="material-finder-label">Akute oder unklare Krise</span><span class="material-finder-sub">Nummern, Notfallweg, schnelle Orientierung.</span></span>
+        </button>
+        <button type="button" class="material-finder-option" data-material-finder="plan" aria-pressed="false" aria-controls="materialFinderResults">
+          <span class="material-finder-icon" aria-hidden="true">Plan</span>
+          <span><span class="material-finder-label">Vorbereiten für die nächste Krise</span><span class="material-finder-sub">Krisenplan, Kontakte, ruhige Vorbereitung.</span></span>
+        </button>
+        <button type="button" class="material-finder-option" data-material-finder="ersch" aria-pressed="false" aria-controls="materialFinderResults">
+          <span class="material-finder-icon" aria-hidden="true">Entlastung</span>
+          <span><span class="material-finder-label">Erschöpfung und Belastung</span><span class="material-finder-sub">Entlastung, Einordnung, kleine nächste Schritte.</span></span>
+        </button>
+        <button type="button" class="material-finder-option" data-material-finder="recht" aria-pressed="false" aria-controls="materialFinderResults">
+          <span class="material-finder-icon" aria-hidden="true">Recht</span>
+          <span><span class="material-finder-label">Recht / System / Blockaden</span><span class="material-finder-sub">Beratung, Ombudsstellen, Beschwerdewege.</span></span>
+        </button>
+      </div>
+      <div class="material-finder-results" id="materialFinderResults" hidden aria-live="polite" aria-atomic="true"></div>
     </div>
-    <div class="material-finder-results" id="materialFinderResults" hidden aria-live="polite" aria-atomic="true"></div>
-  </div>
 
-  <details class="hub-details reveal">
-    <summary>
-      <span class="hub-details-kicker">Optionales Werkzeug</span>
-      <span class="hub-details-title">Einen kleinen persönlichen Mini-Plan auf diesem Gerät speichern</span>
-      <span class="hub-details-intro">Nur öffnen, wenn Sie heute aktiv etwas festhalten möchten. Für viele reicht es, einfach ein Dokument herunterzuladen oder eine Nummer mitzunehmen.</span>
-    </summary>
-    <div class="hub-details-body">
-      <div class="mini-plan" aria-labelledby="mini-plan-title">
-        <div class="mini-plan-kicker">Mein Mini-Plan</div>
-        <h3 id="mini-plan-title">Meine Nummern, mein nächster Schritt, mein Dokument</h3>
-        <p>Wenn Sie etwas festhalten möchten, können Sie hier Ihren persönlichen Mini-Plan lokal im Browser speichern. Alles bleibt auf Ihrem Gerät — nichts wird gesendet. Wenn Ihnen das heute zu viel ist, lassen Sie diesen Bereich einfach aus und nehmen Sie nur eine Nummer oder ein Dokument mit.</p>
-        <div class="mini-plan-grid">
-          <div class="mini-plan-field">
-            <label for="miniPlanNumber">Meine wichtigste Nummer</label>
-            <input id="miniPlanNumber" name="number" type="tel" autocomplete="tel" placeholder="z. B. 0800&nbsp;33&nbsp;66&nbsp;55 oder 058&nbsp;384&nbsp;38&nbsp;00">
-          </div>
-          <div class="mini-plan-field">
-            <label for="miniPlanDocument">Mein ausgewähltes Dokument</label>
-            <select id="miniPlanDocument" name="document">
-              <option value="">Bitte wählen</option>
-              <option value="Notfallkarte Kanton Zürich">Notfallkarte Kanton Zürich</option>
-              <option value="Krisenplan-Vorlage">Krisenplan-Vorlage</option>
-              <option value="Was stabilisiert — was schadet">Was stabilisiert — was schadet</option>
-              <option value="Grenzsetzung">Grenzsetzung</option>
-              <option value="Trauer ohne klaren Abschied">Trauer ohne klaren Abschied</option>
-              <option value="Ein anderes Handout aus der Liste">Ein anderes Handout aus der Liste</option>
-            </select>
-          </div>
-          <div class="mini-plan-field full">
-            <label for="miniPlanStep">Mein nächster Schritt</label>
-            <textarea id="miniPlanStep" name="step" placeholder="z. B. Heute eine Nummer speichern, morgen bei der Fachstelle anrufen oder ein PDF ausdrucken"></textarea>
-          </div>
-        </div>
-        <div class="mini-plan-actions">
-          <button type="button" class="mini-plan-save" id="miniPlanSave">Mini-Plan speichern</button>
-          <button type="button" class="mini-plan-clear" id="miniPlanClear">Mini-Plan löschen</button>
-        </div>
-        <div class="mini-plan-status" id="miniPlanStatus" aria-live="polite"></div>
-        <div class="mini-plan-summary" id="miniPlanSummary" hidden>
-          <h4>Gespeichert auf diesem Gerät</h4>
-          <p><strong>Nummer:</strong> <span id="miniPlanSummaryNumber">—</span></p>
-          <p><strong>Dokument:</strong> <span id="miniPlanSummaryDocument">—</span></p>
-          <p><strong>Nächster Schritt:</strong> <span id="miniPlanSummaryStep">—</span></p>
-        </div>
+    <!-- 5 DOWNLOAD MODULES -->
+    <div class="dl-module dl-module-sos">
+      <div class="dl-icon">SOS</div>
+      <div class="dl-body">
+        <h3>{{ pdfs.downloads.notfallkarte.title }}</h3>
+        <p>Für akute oder unklare Krisen. Alle wichtigen Nummern mit kurzer Einordnung, wann welche Stelle sinnvoll ist. Gut zum Ausdrucken und griffbereit Halten.</p>
+        {{ directDownloadButton(pdfs.downloads.notfallkarte, 'Notfallkarte direkt herunterladen', 'dl-btn dl-btn-sos') }}
       </div>
     </div>
-  </details>
 
-  <!-- 3 DOWNLOAD MODULES -->
-  <div class="dl-module dl-module-sos reveal">
-    <div class="dl-icon">SOS</div>
-    <div class="dl-body">
-      <h3>{{ pdfs.downloads.notfallkarte.title }}</h3>
-      <p>Für akute oder unklare Krisen. Alle wichtigen Nummern mit kurzer Einordnung, wann welche Stelle sinnvoll ist. Gut zum Ausdrucken und griffbereit Halten.</p>
-      {{ directDownloadButton(pdfs.downloads.notfallkarte, 'Notfallkarte direkt herunterladen', 'dl-btn dl-btn-sos') }}
-    </div>
-  </div>
-
-  <div class="dl-module reveal">
-    <div class="dl-icon">Plan</div>
-    <div class="dl-body">
-      <h3>{{ pdfs.downloads.krisenplanVorlage.title }}</h3>
-      <p>Für stabile oder halbwegs ruhige Phasen. Hilft, Frühwarnzeichen, Kontakte, Medikamente und Klinikwünsche vor einer nächsten Eskalation zu ordnen.</p>
-      {{ directDownloadButton(pdfs.downloads.krisenplanVorlage, 'Krisenplan direkt herunterladen') }}
-    </div>
-  </div>
-
-  <div class="dl-module reveal">
-    <div class="dl-icon">Kurz</div>
-    <div class="dl-body">
-      <h3>{{ pdfs.downloads.kurzblattStabilisiert.title }}</h3>
-      <p>Für den Alltag zwischen den Krisen. Ein kompaktes Blatt zu Kommunikation, Selbstfürsorge, Grenzsetzung und Frühwarnzeichen.</p>
-      {{ directDownloadButton(pdfs.downloads.kurzblattStabilisiert, 'Kurzblatt direkt herunterladen') }}
-    </div>
-  </div>
-
-  <div class="dl-module reveal">
-    <div class="dl-icon">PDF</div>
-    <div class="dl-body">
-      <h3>{{ pdfs.handouts.grenzsetzung.title }}</h3>
-      <p>Wenn Sie merken, dass Sie zu viel tragen oder sich in Gesprächen verlieren. Dieses Blatt liegt jetzt als überarbeitete PDF-Handreichung vor und ist besonders hilfreich, wenn Gespräche, Medikamente oder Eskalationsgrenzen im Alltag immer wieder unscharf werden.</p>
-      <a class="dl-btn" href="{{ pdfs.handouts.grenzsetzung.url }}" target="_blank" rel="noopener">Handout-Vorschau öffnen <span class="dl-meta">{{ pdfs.handouts.grenzsetzung.pages }} · öffnen oder herunterladen</span><span class="dl-meta dl-meta-secondary">{{ pdfs.handouts.grenzsetzung.metaLine }}</span></a>
-    </div>
-  </div>
-
-  <div class="dl-module reveal">
-    <div class="dl-icon">PDF</div>
-    <div class="dl-body">
-      <h3>{{ pdfs.handouts.a4_ambiguous_loss.title }}</h3>
-      <p>Wenn die Belastung weniger akut als zermürbend ist. Auch dieses Blatt gehört noch zum älteren Handout-Archiv. Für den schnellsten Einstieg bleiben die drei Downloads oben die bessere erste Wahl.</p>
-      <a class="dl-btn" href="{{ pdfs.handouts.a4_ambiguous_loss.url }}" target="_blank" rel="noopener">Handout-Vorschau öffnen <span class="dl-meta">{{ pdfs.handouts.a4_ambiguous_loss.pages }} · öffnen oder herunterladen</span><span class="dl-meta dl-meta-secondary">{{ pdfs.handouts.a4_ambiguous_loss.metaLine }}</span></a>
-    </div>
-  </div>
-
-  <!-- 24 HANDOUTS -->
-  <h2 id="pdfs" class="reveal">Alle Materialien im Überblick</h2>
-  <details class="hub-details reveal">
-    <summary>
-      <span class="hub-details-kicker">Optionales Archiv</span>
-      <span class="hub-details-title">Das vollständige Handout-Archiv öffnen</span>
-      <span class="hub-details-intro">Erst nötig, wenn die kuratierten Materialien oben nicht reichen. Viele dieser Blätter stammen noch aus einem älteren PDF-Bestand.</span>
-    </summary>
-    <div class="hub-details-body">
-      <p>Hier finden Sie die vollständige Sammlung. Wenn Sie unsicher sind, beginnen Sie mit den kuratierten Materialien oben und kommen Sie erst danach hierher zurück.</p>
-      <p class="text-soft-sm" style="line-height:1.65;margin-top:-4px">Wichtig für die Einordnung: Diese Handouts sind inhaltlich weiterhin nützlich, stammen technisch aber überwiegend aus einem älteren PDF-Bestand. Sie sind deshalb schwerer und weniger einheitlich als die drei leichten Schnell-Downloads oben. Wir überarbeiten diesen Bestand schrittweise.</p>
-      <h3>Alle 24 Archiv-Handouts nach Modul</h3>
-      <p class="text-soft-xs" style="margin-bottom:var(--space-md)">Jedes Blatt fasst ein Kernthema auf 1–2 Seiten zusammen. Gut zum Nachlesen, Ausdrucken oder Weitergeben innerhalb der Familie.</p>
-
-      <div class="handout-list">
-        {% for entry in pdfs.groups.modul8ArchiveEntries %}
-        {{ archiveChip(entry.asset, entry.badge) }}
-        {% endfor %}
+    <div class="dl-module">
+      <div class="dl-icon">Plan</div>
+      <div class="dl-body">
+        <h3>{{ pdfs.downloads.krisenplanVorlage.title }}</h3>
+        <p>Für stabile oder halbwegs ruhige Phasen. Hilft, Frühwarnzeichen, Kontakte, Medikamente und Klinikwünsche vor einer nächsten Eskalation zu ordnen.</p>
+        {{ directDownloadButton(pdfs.downloads.krisenplanVorlage, 'Krisenplan direkt herunterladen') }}
       </div>
     </div>
-  </details>
 
+    <div class="dl-module">
+      <div class="dl-icon">Kurz</div>
+      <div class="dl-body">
+        <h3>{{ pdfs.downloads.kurzblattStabilisiert.title }}</h3>
+        <p>Für den Alltag zwischen den Krisen. Ein kompaktes Blatt zu Kommunikation, Selbstfürsorge, Grenzsetzung und Frühwarnzeichen.</p>
+        {{ directDownloadButton(pdfs.downloads.kurzblattStabilisiert, 'Kurzblatt direkt herunterladen') }}
+      </div>
+    </div>
+
+    <div class="dl-module">
+      <div class="dl-icon">PDF</div>
+      <div class="dl-body">
+        <h3>{{ pdfs.handouts.grenzsetzung.title }}</h3>
+        <p>Wenn Sie merken, dass Sie zu viel tragen oder sich in Gesprächen verlieren. Dieses Blatt liegt jetzt als überarbeitete PDF-Handreichung vor und ist besonders hilfreich, wenn Gespräche, Medikamente oder Eskalationsgrenzen im Alltag immer wieder unscharf werden.</p>
+        <a class="dl-btn" href="{{ pdfs.handouts.grenzsetzung.url }}" target="_blank" rel="noopener">Handout-Vorschau öffnen <span class="dl-meta">{{ pdfs.handouts.grenzsetzung.pages }} · öffnen oder herunterladen</span><span class="dl-meta dl-meta-secondary">{{ pdfs.handouts.grenzsetzung.metaLine }}</span></a>
+      </div>
+    </div>
+
+    <div class="dl-module">
+      <div class="dl-icon">PDF</div>
+      <div class="dl-body">
+        <h3>{{ pdfs.handouts.a4_ambiguous_loss.title }}</h3>
+        <p>Wenn die Belastung weniger akut als zermürbend ist. Auch dieses Blatt gehört noch zum älteren Handout-Archiv. Für den schnellsten Einstieg bleiben die drei Downloads oben die bessere erste Wahl.</p>
+        <a class="dl-btn" href="{{ pdfs.handouts.a4_ambiguous_loss.url }}" target="_blank" rel="noopener">Handout-Vorschau öffnen <span class="dl-meta">{{ pdfs.handouts.a4_ambiguous_loss.pages }} · öffnen oder herunterladen</span><span class="dl-meta dl-meta-secondary">{{ pdfs.handouts.a4_ambiguous_loss.metaLine }}</span></a>
+      </div>
+    </div>
+
+    <details class="hub-details">
+      <summary>
+        <span class="hub-details-kicker">Optionales Archiv</span>
+        <span class="hub-details-title">Das vollständige Handout-Archiv öffnen</span>
+        <span class="hub-details-intro">Erst nötig, wenn die kuratierten Materialien oben nicht reichen. Viele dieser Blätter stammen noch aus einem älteren PDF-Bestand.</span>
+      </summary>
+      <div class="hub-details-body">
+        <p>Hier finden Sie die vollständige Sammlung. Wenn Sie unsicher sind, beginnen Sie mit den kuratierten Materialien oben und kommen Sie erst danach hierher zurück.</p>
+        <p class="text-soft-sm" style="line-height:1.65;margin-top:-4px">Wichtig für die Einordnung: Diese Handouts sind inhaltlich weiterhin nützlich, stammen technisch aber überwiegend aus einem älteren PDF-Bestand. Sie sind deshalb schwerer und weniger einheitlich als die drei leichten Schnell-Downloads oben. Wir überarbeiten diesen Bestand schrittweise.</p>
+        <h3>Alle 24 Archiv-Handouts nach Modul</h3>
+        <p class="text-soft-xs" style="margin-bottom:var(--space-md)">Jedes Blatt fasst ein Kernthema auf 1–2 Seiten zusammen. Gut zum Nachlesen, Ausdrucken oder Weitergeben innerhalb der Familie.</p>
+
+        <div class="handout-list">
+          {% for entry in pdfs.groups.modul8ArchiveEntries %}
+          {{ archiveChip(entry.asset, entry.badge) }}
+          {% endfor %}
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ══════════ 7. MINI-PLAN ══════════ -->
+  <section class="hub-section reveal" id="mini-plan">
+    <h2>Mini-Plan auf diesem Gerät speichern</h2>
+    <p>Wenn Sie heute etwas festhalten möchten, können Sie hier Ihren persönlichen Mini-Plan lokal im Browser speichern. Alles bleibt auf Ihrem Gerät — nichts wird gesendet. Wenn Ihnen das zu viel ist, lassen Sie diesen Bereich einfach aus und nehmen Sie nur eine Nummer oder ein Dokument mit.</p>
+
+    <div class="mini-plan" aria-labelledby="mini-plan-title">
+      <div class="mini-plan-kicker">Mein Mini-Plan</div>
+      <h3 id="mini-plan-title">Meine Nummern, mein nächster Schritt, mein Dokument</h3>
+      <div class="mini-plan-grid">
+        <div class="mini-plan-field">
+          <label for="miniPlanNumber">Meine wichtigste Nummer</label>
+          <input id="miniPlanNumber" name="number" type="tel" autocomplete="tel" placeholder="z. B. 0800&nbsp;33&nbsp;66&nbsp;55 oder 058&nbsp;384&nbsp;38&nbsp;00">
+        </div>
+        <div class="mini-plan-field">
+          <label for="miniPlanDocument">Mein ausgewähltes Dokument</label>
+          <select id="miniPlanDocument" name="document">
+            <option value="">Bitte wählen</option>
+            <option value="Notfallkarte Kanton Zürich">Notfallkarte Kanton Zürich</option>
+            <option value="Krisenplan-Vorlage">Krisenplan-Vorlage</option>
+            <option value="Was stabilisiert — was schadet">Was stabilisiert — was schadet</option>
+            <option value="Grenzsetzung">Grenzsetzung</option>
+            <option value="Trauer ohne klaren Abschied">Trauer ohne klaren Abschied</option>
+            <option value="Ein anderes Handout aus der Liste">Ein anderes Handout aus der Liste</option>
+          </select>
+        </div>
+        <div class="mini-plan-field full">
+          <label for="miniPlanStep">Mein nächster Schritt</label>
+          <textarea id="miniPlanStep" name="step" placeholder="z. B. Heute eine Nummer speichern, morgen bei der Fachstelle anrufen oder ein PDF ausdrucken"></textarea>
+        </div>
+      </div>
+      <div class="mini-plan-actions">
+        <button type="button" class="mini-plan-save" id="miniPlanSave">Mini-Plan speichern</button>
+        <button type="button" class="mini-plan-clear" id="miniPlanClear">Mini-Plan löschen</button>
+      </div>
+      <div class="mini-plan-status" id="miniPlanStatus" aria-live="polite"></div>
+      <div class="mini-plan-summary" id="miniPlanSummary" hidden>
+        <h4>Gespeichert auf diesem Gerät</h4>
+        <p><strong>Nummer:</strong> <span id="miniPlanSummaryNumber">—</span></p>
+        <p><strong>Dokument:</strong> <span id="miniPlanSummaryDocument">—</span></p>
+        <p><strong>Nächster Schritt:</strong> <span id="miniPlanSummaryStep">—</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 8. CONTACT CTA ══════════ -->
+  <section class="hub-contact-cta reveal">
+    <div class="hub-contact-inner">
+      <h2>Sie müssen nicht wissen, was Sie sagen wollen</h2>
+      <p>Die Fachstelle Angehörigenarbeit berät auch Sie — nicht nur die erkrankte Person. Kostenlos und vertraulich.</p>
+      <div class="hub-contact-actions">
+        <a href="{{ site.tel.fachstelle.href }}" class="hub-contact-phone">☎ Fachstelle anrufen: {{ site.tel.fachstelle.display }}</a>
+        <a href="mailto:{{ site.email }}" class="hub-contact-email">{{ site.email }}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 9. HUB-SCHLUSSBILD ══════════ -->
+  <div class="module-illustration reveal">
+    <div class="module-illustration__body">
+      <p>Niemand muss das alleine tragen. Es gibt Menschen, Stellen und Angebote, die genau für Situationen wie Ihre gemacht sind — auch wenn sie manchmal schwer zu finden sind.</p>
+      <p>Dieser Überblick ist ein Ausgangspunkt. Nicht jede Ressource passt für jeden — aber eine davon passt für Sie.</p>
+    </div>
+    <figure class="module-illustration__figure">
+      {# P3 Audit: heroImage-Shortcode — AVIF/WebP/JPEG + responsive srcset #}
+      {% heroImage "/visuals/modul8-ressourcen.webp", "Abstrakte Illustration: ein Netzwerk aus Teal-Kreisen — Metapher für Unterstützungsstrukturen und Ressourcen.", "lazy", "", "(max-width: 860px) 100vw, 600px" %}
+    </figure>
+  </div>
+
+  <!-- ══════════ 10. LERNPFAD-ABSCHLUSS (optional für M1–M7-Leser:innen) ══════════ -->
   <details class="hub-details hub-details--quiet reveal">
     <summary>
       <span class="hub-details-kicker">Abschluss des Lernpfads</span>
-      <span class="hub-details-title">Wenn Sie dieses Modul als Ende der acht Module lesen</span>
-      <span class="hub-details-intro">Nur dann nötig, wenn Sie die Website gerade als vollständigen Lernpfad abschliessen und den Bogen zum Ganzen noch einmal sehen möchten.</span>
+      <span class="hub-details-title">Wenn Sie gerade alle acht Module durchgearbeitet haben</span>
+      <span class="hub-details-intro">Öffnen, wenn Sie die Website als vollständigen Lernpfad abschliessen und den Bogen zum Ganzen noch einmal sehen möchten.</span>
     </summary>
     <div class="hub-details-body">
       <div class="reflection">
@@ -372,7 +392,7 @@ breadcrumbs:
 
       <div class="takeaways closing">
         <div class="takeaways-inner closing-inner">
-          <h2>Unterstützung darf früh beginnen.</h2>
+          <h3>Unterstützung darf früh beginnen.</h3>
           <p>Es braucht nicht erst den Zusammenbruch, bevor Hilfe legitim wird. Ein früher Kontakt, ein klärendes Gespräch oder eine kleine praktische Vorbereitung kann viel entlasten.</p>
           <p>Wenn Sie von hier aus nur eines mitnehmen: Suchen Sie nicht nach der perfekten Lösung, sondern nach dem nächsten Schritt, der für Sie gerade tragbar ist.</p>
           <div class="closing-emphasis">«Nicht alles sofort. Aber etwas Konkretes als Nächstes.»</div>
@@ -381,46 +401,7 @@ breadcrumbs:
     </div>
   </details>
 
-  <!-- COMPLETION -->
-  <div class="completion-block reveal">
-    <h2>Sie haben den Lernpfad durchgearbeitet</h2>
-    <p>Oder dort eingestiegen, wo es am meisten drängte. Beides ist richtig. Sie müssen nicht alles auf einmal umsetzen — ein einziger Schritt reicht.</p>
-    <ul class="completion-steps">
-      <li>📞 <a href="{{ site.tel.fachstelle.href }}">Fachstelle Angehörigenarbeit kontaktieren: {{ site.tel.fachstelle.display }}</a></li>
-      <li>🛠 <a href="/tools/krisenplan/">Ein Werkzeug ausprobieren</a></li>
-      <li>📚 <a href="/module/">Zur Modulübersicht</a></li>
-    </ul>
-  </div>
-
-  <!-- TOOL LINKS -->
-  <div class="tool-links reveal">
-    <h2>Interaktive Werkzeuge</h2>
-    <div class="tool-links-grid">
-      <a href="/tools/krisenplan/" class="tool-link-card">
-        <div class="tool-link-icon">📋</div>
-        <div>
-          <div class="tool-link-title">Krisenplan-Werkzeug</div>
-          <div class="tool-link-desc">Noch keinen Notfallplan? Hier direkt einen anlegen.</div>
-        </div>
-      </a>
-      <a href="/tools/selbsttest/" class="tool-link-card">
-        <div class="tool-link-icon">🧭</div>
-        <div>
-          <div class="tool-link-title">Selbsttest</div>
-          <div class="tool-link-desc">Wo stehen Sie gerade? Kurz einordnen.</div>
-        </div>
-      </a>
-    </div>
-  </div>
-
-  <!-- HANDOUTS -->
-  <div class="handouts reveal">
-    <div class="handouts-title">Passende Handouts</div>
-    <div class="handouts-grid">
-    </div>
-  </div>
-
-  <!-- SOURCES -->
+  <!-- ══════════ QUELLEN ══════════ -->
   <div class="sources reveal">
     <button type="button" class="sources-toggle" aria-expanded="false" data-sources-toggle><span class="sources-title">Wissenschaftliche Quellen</span></button>
     <ul>
@@ -435,53 +416,11 @@ breadcrumbs:
     </ul>
   </div>
 
-  <!-- ══════════ ABSCHLUSS ══════════ -->
-  <div class="takeaways reveal">
-    <div class="takeaways-inner">
-      <h2>Sie haben alle acht Module durchlaufen</h2>
-      <div class="takeaway-item"><div class="takeaway-check">✓</div><p>Das allein zeigt, dass Sie bereit sind, sich mit einer schwierigen Situation auseinanderzusetzen — <strong>für sich selbst, nicht nur für die erkrankte Person.</strong></p></div>
-      <div class="takeaway-item"><div class="takeaway-check">✓</div><p>Hilfe holen ist kein Zeichen von Schwäche. Sie dürfen sich Unterstützung suchen — auch wenn Sie noch nicht genau wissen, was Sie brauchen.</p></div>
-      <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Ein nächster Schritt reicht.</strong> Eine Nummer speichern, ein Gespräch vereinbaren, ein Werkzeug ausprobieren.</p></div>
-    </div>
-  </div>
-
-  <div class="next-module reveal">
-    <div class="next-module-grid">
-      <a href="{{ site.tel.fachstelle.href }}" class="next-module-card">
-        <div>
-          <div class="next-module-label">Direkter Kontakt</div>
-          <div class="next-module-title">Fachstelle anrufen: {{ site.tel.fachstelle.display }}</div>
-          <div class="next-module-desc">Kostenlos und vertraulich. Auch wenn Sie noch nicht wissen, was Sie sagen wollen.</div>
-        </div>
-        <div class="next-module-arrow">→</div>
-      </a>
-      <a href="/werkzeuge/" class="next-module-card">
-        <div>
-          <div class="next-module-label">Praktisch weiter</div>
-          <div class="next-module-title">Werkzeuge im Überblick</div>
-          <div class="next-module-desc">Selbsttest, Krisenplan, Kommunikations-Trainer und mehr — direkt ausprobieren.</div>
-        </div>
-        <div class="next-module-arrow">→</div>
-      </a>
-    </div>
-  </div>
-  <div class="module-illustration reveal">
-    <div class="module-illustration__body">
-      <p>Niemand muss das alleine tragen. Es gibt Menschen, Stellen und Angebote, die genau für Situationen wie Ihre gemacht sind — auch wenn sie manchmal schwer zu finden sind.</p>
-      <p>Dieser Überblick ist ein Ausgangspunkt. Nicht jede Ressource passt für jeden — aber eine davon passt für Sie.</p>
-    </div>
-    <figure class="module-illustration__figure">
-      {# P3 Audit: heroImage-Shortcode — AVIF/WebP/JPEG + responsive srcset #}
-      {% heroImage "/visuals/modul8-ressourcen.webp", "Abstrakte Illustration: ein Netzwerk aus Teal-Kreisen — Metapher für Unterstützungsstrukturen und Ressourcen.", "lazy", "", "(max-width: 860px) 100vw, 600px" %}
-    </figure>
-  </div>
-
-  <div class="next-module-escape reveal"><a href="/module/">Nochmal ein bestimmtes Thema ansehen → Zur Modulübersicht</a></div>
-
-  <nav class="module-nav reveal" aria-label="Modul-Navigation">
-    <a href="/modul/7/" class="module-nav-prev">Modul 7</a>
-    <a href="/module/" class="module-nav-center">Alle Module</a>
-    <a href="/" class="module-nav-next">Startseite</a>
+  <!-- ══════════ FOOTER-NAV ══════════ -->
+  <nav class="hub-footer-nav reveal" aria-label="Weitere Navigation">
+    <a href="/">Startseite</a>
+    <a href="/module/">Modulübersicht</a>
+    <a href="/werkzeuge/">Werkzeuge</a>
   </nav>
 
 </main>
@@ -513,9 +452,7 @@ breadcrumbs:
 {% endblock %}
 {% block scripts %}
 <script>
-  const pb=document.getElementById('readingProgress');window.addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-window.innerHeight;pb.style.width=h>0?(window.scrollY/h*100)+'%':'0%'});
-  const tocLinks=document.querySelectorAll('.toc a[href^="#"]');const tocSections=Array.from(tocLinks).map(a=>{const id=a.getAttribute('href').slice(1);return{link:a,el:document.getElementById(id)}}).filter(s=>s.el);const tocObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){tocLinks.forEach(l=>l.classList.remove('active'));const match=tocSections.find(s=>s.el===e.target);if(match)match.link.classList.add('active')}})},{threshold:0.1,rootMargin:'-100px 0px -60% 0px'});tocSections.forEach(s=>tocObs.observe(s.el));
-  const MATERIAL_FINDER={akut:[{kicker:'Jetzt zuerst',title:'Notfallseite öffnen',text:'Wenn Gefahr oder starke Unsicherheit im Raum stehen, ist die Triage wichtiger als die ganze Materialsammlung.',href:'/notfall/',label:'Zum Notfallweg →'},{kicker:'PDF',title:'{{ pdfs.downloads.notfallkarte.title }}',text:'Alle wichtigen Nummern mit kurzer Einordnung, wann welche Stelle sinnvoll ist.',href:'{{ pdfs.downloads.notfallkarte.url }}',label:'Notfallkarte direkt herunterladen →'},{kicker:'Danach',title:'Krisenplan bereithalten',text:'Wenn schon einer existiert, jetzt hervornehmen. Wenn nicht, später in ruhiger Phase vorbereiten.',href:'/modul/6/',label:'Zu Modul 6 →'}],plan:[{kicker:'PDF',title:'{{ pdfs.downloads.krisenplanVorlage.title }}',text:'Die wichtigste Unterlage, wenn Sie Frühwarnzeichen, Kontakte und Klinikwünsche vorab ordnen möchten.',href:'{{ pdfs.downloads.krisenplanVorlage.url }}',label:'Krisenplan direkt herunterladen →'},{kicker:'Werkzeug',title:'Krisenplan-Werkzeug',text:'Wenn Sie den Plan lieber direkt am Bildschirm vorbereiten und danach drucken möchten.',href:'/tools/krisenplan/',label:'Werkzeug öffnen →'},{kicker:'Vertiefung',title:'Modul 6: konkrete Schritte',text:'Für Gespräche, Grenzen, Krisenplan und Vorbereitung in stabilen Phasen.',href:'/modul/6/',label:'Zu Modul 6 →'}],ersch:[{kicker:'Archiv-Handout',title:'{{ pdfs.handouts.a4_ambiguous_loss.title }}',text:'Hilft, schleichende Erschöpfung, Trauer und Selbstverlust besser zu verstehen. Dieses Blatt gehört noch zum älteren PDF-Bestand.',href:'{{ pdfs.handouts.a4_ambiguous_loss.url }}',label:'Handout-Vorschau öffnen →'},{kicker:'PDF',title:'{{ pdfs.downloads.kurzblattStabilisiert.title }}',text:'Ein kompaktes Blatt für Alltag, Selbstfürsorge und kleine entlastende Schritte.',href:'{{ pdfs.downloads.kurzblattStabilisiert.url }}',label:'Kurzblatt direkt herunterladen →'},{kicker:'Kontakt',title:'Selbsthilfe oder Angehörigenberatung',text:'Wenn Information allein nicht mehr reicht, ist Resonanz oft der entlastendere nächste Schritt.',href:'#anlaufstellen',label:'Zu den Anlaufstellen →'}],recht:[{kicker:'Kontakt',title:'Pro Mente Sana',text:'Psychosoziale und juristische Beratung zu FU, Vorsorgeauftrag, Patientenverfügung und Konflikten mit Institutionen.',href:'https://www.promentesana.ch',label:'Pro Mente Sana öffnen →'},{kicker:'Kontakt',title:'Ombudsstelle Krankenversicherung',text:'Wenn Leistungsstreitigkeiten oder abgelehnte Kostengutsprachen blockieren.',href:'https://om-kv.ch',label:'Ombudsstelle öffnen →'},{kicker:'Orientierung',title:'Systemblockaden einordnen',text:'Wenn das Versorgungssystem zusätzlich belastet, hilft oft zuerst die Klärung der Beschwerde- und Beratungswege.',href:'#system',label:'Zum System-Abschnitt →'}]};
+  const MATERIAL_FINDER={akut:[{kicker:'Jetzt zuerst',title:'Notfallseite öffnen',text:'Wenn Gefahr oder starke Unsicherheit im Raum stehen, ist die Triage wichtiger als die ganze Materialsammlung.',href:'/notfall/',label:'Zum Notfallweg →'},{kicker:'PDF',title:'{{ pdfs.downloads.notfallkarte.title }}',text:'Alle wichtigen Nummern mit kurzer Einordnung, wann welche Stelle sinnvoll ist.',href:'{{ pdfs.downloads.notfallkarte.url }}',label:'Notfallkarte direkt herunterladen →'},{kicker:'Danach',title:'Krisenplan bereithalten',text:'Wenn schon einer existiert, jetzt hervornehmen. Wenn nicht, später in ruhiger Phase vorbereiten.',href:'/modul/6/',label:'Zu Modul 6 →'}],plan:[{kicker:'PDF',title:'{{ pdfs.downloads.krisenplanVorlage.title }}',text:'Die wichtigste Unterlage, wenn Sie Frühwarnzeichen, Kontakte und Klinikwünsche vorab ordnen möchten.',href:'{{ pdfs.downloads.krisenplanVorlage.url }}',label:'Krisenplan direkt herunterladen →'},{kicker:'Werkzeug',title:'Krisenplan-Werkzeug',text:'Wenn Sie den Plan lieber direkt am Bildschirm vorbereiten und danach drucken möchten.',href:'/tools/krisenplan/',label:'Werkzeug öffnen →'},{kicker:'Vertiefung',title:'Modul 6: konkrete Schritte',text:'Für Gespräche, Grenzen, Krisenplan und Vorbereitung in stabilen Phasen.',href:'/modul/6/',label:'Zu Modul 6 →'}],ersch:[{kicker:'Archiv-Handout',title:'{{ pdfs.handouts.a4_ambiguous_loss.title }}',text:'Hilft, schleichende Erschöpfung, Trauer und Selbstverlust besser zu verstehen. Dieses Blatt gehört noch zum älteren PDF-Bestand.',href:'{{ pdfs.handouts.a4_ambiguous_loss.url }}',label:'Handout-Vorschau öffnen →'},{kicker:'PDF',title:'{{ pdfs.downloads.kurzblattStabilisiert.title }}',text:'Ein kompaktes Blatt für Alltag, Selbstfürsorge und kleine entlastende Schritte.',href:'{{ pdfs.downloads.kurzblattStabilisiert.url }}',label:'Kurzblatt direkt herunterladen →'},{kicker:'Kontakt',title:'Selbsthilfe oder Angehörigenberatung',text:'Wenn Information allein nicht mehr reicht, ist Resonanz oft der entlastendere nächste Schritt.',href:'#beratung',label:'Zu den Anlaufstellen →'}],recht:[{kicker:'Kontakt',title:'Pro Mente Sana',text:'Psychosoziale und juristische Beratung zu FU, Vorsorgeauftrag, Patientenverfügung und Konflikten mit Institutionen.',href:'https://www.promentesana.ch',label:'Pro Mente Sana öffnen →'},{kicker:'Kontakt',title:'Ombudsstelle Krankenversicherung',text:'Wenn Leistungsstreitigkeiten oder abgelehnte Kostengutsprachen blockieren.',href:'https://om-kv.ch',label:'Ombudsstelle öffnen →'},{kicker:'Orientierung',title:'Systemblockaden einordnen',text:'Wenn das Versorgungssystem zusätzlich belastet, hilft oft zuerst die Klärung der Beschwerde- und Beratungswege.',href:'#system',label:'Zum System-Abschnitt →'}]};
   const materialFinderButtons=document.querySelectorAll('[data-material-finder]');
   const materialFinderResults=document.getElementById('materialFinderResults');
   const renderMaterialFinder=(key)=>{const items=MATERIAL_FINDER[key];if(!items||!materialFinderResults)return;materialFinderButtons.forEach(btn=>{const isActive=btn.dataset.materialFinder===key;btn.classList.toggle('is-active',isActive);btn.setAttribute('aria-pressed',isActive?'true':'false');});materialFinderResults.innerHTML=items.map(item=>`<div class="finder-card"><div class="finder-card-kicker">${item.kicker}</div><h4>${item.title}</h4><p>${item.text}</p><a href="${item.href}"${item.href.startsWith('http')?' target="_blank" rel="noopener"':''}${item.href.startsWith('/downloads/')?' download':''}>${item.label}</a></div>`).join('');materialFinderResults.hidden=false;materialFinderResults.querySelectorAll('a[href$=".pdf"]').forEach(setupPdfPreviewLink);};
