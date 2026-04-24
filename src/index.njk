@@ -274,8 +274,9 @@ useNavJS: true
 {% block scripts %}
 <script>document.documentElement.classList.remove('no-js')
 
-  // ── Scroll reveal (IntersectionObserver) ──
-  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  // ── Scroll reveal (IntersectionObserver, opt-in via .js-reveal-active) ──
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('js-reveal-active');
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -285,9 +286,8 @@ useNavJS: true
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-  } else {
-    document.querySelectorAll('.reveal').forEach(el => el.classList.add('revealed'));
   }
+  // No else-branch needed — without .js-reveal-active class, .reveal renders visible by default.
 
   // ══════════ Quick Triage ══════════
   (function() {

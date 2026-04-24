@@ -492,9 +492,6 @@
   );
 }
 
-/* ── Scroll Reveal ── */
-.reveal { opacity: 1; }
-
 /* ── PDF Preview (used in modules with handouts) ── */
 body.pdf-preview-open { overflow: hidden; }
 .pdf-preview-overlay {

@@ -871,21 +871,22 @@ a, button, input, select, textarea,
   text-decoration: underline;
   color: var(--emergency-dark);
 }
-/* ── Scroll Reveal ── */
-.reveal {
+/* ── Scroll Reveal ──
+   Default: visible. JS opts into the hide-then-reveal animation only after
+   confirming IntersectionObserver is available (otherwise content stays
+   visible — no race-condition hidden-content bug). */
+html.js-reveal-active .reveal {
   opacity: 0;
   transform: translateY(18px);
   transition: opacity 0.55s ease, transform 0.55s ease;
 }
-.reveal.revealed {
+html.js-reveal-active .reveal.revealed {
   opacity: 1;
   transform: translateY(0);
 }
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; }
-  .reveal.revealed { opacity: 1; transform: none; }
+  html.js-reveal-active .reveal { opacity: 1; transform: none; transition: none; }
 }
-.no-js .reveal { opacity: 1; transform: none; }
 
 /* ── Quick Triage (editorial guidance, subtle background section) ── */
 .quick-triage{background:var(--card);border:1px solid var(--border-warm);border-radius:var(--card-radius);padding:var(--space-xl) var(--space-lg);box-shadow:var(--card-shadow)}
