@@ -16,12 +16,10 @@ Header nennt „Psychiatrische Universitätsklinik Zürich · Fachstelle Angehö
 
 ---
 
-### M-02 · Gender-Stern „Angehörige*r"
-Asterisk wird von Screenreadern als „Sterntaste" vorgelesen; in DE-Gender-Diskussion umstritten. Aktuell ~30 Vorkommen site-weit.
+### ~~M-02 · Gender-Stern~~ ✅ umgesetzt (25.4.2026)
+Christas Entscheidung: Doppelform „Angehörige und Nahestehende" — explizit inklusiv auch für nicht-familiäre Beziehungen. 12 Vorkommen ersetzt, 1 Glaswand-Label auf neutrales Plural vereinfacht (schmale Spalte). Commit `93bff3b`.
 
-**Status:** Wartet auf PUK-Styleguide-Entscheidung. Kandidaten: Beibehalten, Gender-Doppelpunkt („Angehörige:r"), Plural („Angehörige"), Doppelform („Angehörige und Nahestehende").
-
-**Wenn Entscheidung da:** Global-Replace + Konsistenz-Check, S-Aufwand.
+**Offen:** `Partner*in` / `Partner*innen` (15+ Vorkommen) wurde bewusst nicht mit-umgebaut — das war kein Teil der M-02-Entscheidung und braucht eigene Abwägung (Doppelform „Partnerin oder Partner" vs. Plural „Partner" vs. Beibehalten).
 
 ---
 
@@ -92,10 +90,10 @@ Review: „Die zwei Illustrationen (Tisch, Figur am Fenster) haben unterschiedli
 | Tier | Umgesetzt | Bewusst belassen | PUK-geblockt |
 |---|---|---|---|
 | Kritisch (K) | 13 | — | K-10 |
-| Mittel (M) | 9 | M-01, M-03, M-09, M-16 | M-02 |
+| Mittel (M) | 10 | M-01, M-03, M-09, M-16 | — |
 | Kosmetisch (C) | 2 (C-01, C-02) | C-04 | — |
 
-**23 von 37 Review-Befunden ausgeführt** (plus 4 verifiziert-OK ohne Code-Änderung), 6 bewusst deferred, 2 warten auf PUK.
+**24 von 37 Review-Befunden ausgeführt** (plus 4 verifiziert-OK ohne Code-Änderung), 5 bewusst deferred, 1 PUK-geblockt (K-10).
 
 ---
 
