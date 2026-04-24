@@ -95,6 +95,7 @@ useNavJS: true
       <div class="triage-q-text">Brauchen Sie vor allem Grundlagenwissen über die Erkrankung?</div>
       <div class="triage-btns">
         <button type="button" class="triage-btn triage-btn--yes" data-triage="q3-yes">Ja</button>
+        <button type="button" class="triage-btn triage-btn--no" data-triage="q3-both">Sowohl als auch / ich weiss noch nicht</button>
         <button type="button" class="triage-btn triage-btn--no" data-triage="q3-no">Nein, eher Werkzeuge und Orientierung</button>
       </div>
     </div>
@@ -320,7 +321,7 @@ useNavJS: true
         showNext('triageQ1b', 'triageQ2');
       } else if (action === 'q2-no') {
         showNext('triageQ2', 'triageQ3');
-      } else if (action === 'q3-no') {
+      } else if (action === 'q3-no' || action === 'q3-both') {
         showNext('triageQ3', 'triageQ4');
       } else if (responses[action]) {
         var r = responses[action];
