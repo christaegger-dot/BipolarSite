@@ -1752,8 +1752,8 @@ body.pdf-preview-open{overflow:hidden}
 .module-hero-visual{background:var(--card);border:1px solid var(--sand-border);border-radius:var(--card-radius);padding:18px;box-shadow:var(--card-shadow)}
 .module-hero-visual img{display:block;width:100%;height:auto;border-radius:var(--radius-sm)}
 .module-hero-note{background:var(--surface-alt);border:1px solid var(--border-warm);border-radius:var(--card-radius);padding:var(--space-lg)}
-.module-hero-note p{font-size:var(--text-lg);line-height:1.7;color:var(--slate);margin:0}
-.module-hero-note p + p{margin-top:var(--space-sm);font-size:var(--text-base)}
+.module-hero-note p{font-size:var(--text-base);line-height:1.7;color:var(--slate);margin:0}
+.module-hero-note p + p{margin-top:var(--space-sm)}
 .module-hero-note strong{color:var(--navy)}
 .toc-note{font-size:var(--text-xs);color:var(--text-soft);line-height:1.5;margin-top:14px}
 .insight-grid{display:block;margin:24px 0 34px;border-top:1px solid var(--border-warm-md)}
