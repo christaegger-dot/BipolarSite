@@ -1533,6 +1533,11 @@ textarea { min-height: 80px; resize: vertical; }
   margin: 0;
 }
 
+.footer-attribution {
+  color: var(--text);
+  font-weight: 600;
+}
+
 .footer-disclaimer {
   font-size: var(--text-xs);
   color: var(--slate);
