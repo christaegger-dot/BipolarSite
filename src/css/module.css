@@ -2538,3 +2538,209 @@ a.ampel-card{text-decoration:none;display:block}
     margin: 0 auto;
   }
 }
+
+/* ══════════════════════════════════════════════════════════
+   VISUAL POLISH PASS — Modul 8 Hub
+   Scoped polish for the resource hub without changing the module system.
+   ══════════════════════════════════════════════════════════ */
+
+.hub-page .hub-hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, var(--surface-hero-warm) 0%, var(--surface-teal-mist) 46%, var(--surface-alt) 100%);
+}
+
+.hub-page .hub-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 74% 58% at 8% 100%, rgba(168,213,203,0.2) 0%, transparent 72%),
+    radial-gradient(ellipse 34% 40% at 88% 18%, rgba(74,111,149,0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hub-page .hub-hero::after {
+  content: '';
+  position: absolute;
+  right: clamp(1.5rem, 5vw, 5rem);
+  top: calc(var(--nav-height) + 1rem);
+  width: 220px;
+  height: 220px;
+  border-radius: 32px;
+  border: 1px solid rgba(45,40,35,0.09);
+  background: linear-gradient(180deg, rgba(255,255,255,0.26), rgba(255,255,255,0));
+  transform: rotate(12deg);
+  opacity: 0.58;
+  pointer-events: none;
+}
+
+.hub-page .hub-hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.hub-page .hub-hero-lead {
+  max-width: 58ch;
+  line-height: 1.62;
+}
+
+.hub-page .hub-content .urgent-note-standalone {
+  border: 1px solid rgba(185,28,28,0.16);
+  border-radius: calc(var(--card-radius) + 8px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(251,242,240,0.9));
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+
+.hub-page .hub-content .urgent-note-standalone .urgent-note {
+  padding: 16px 18px;
+  background: transparent;
+  border-radius: 0;
+}
+
+.hub-page .hub-pathways {
+  padding: clamp(1.2rem, 2vw, 1.6rem);
+  border: 1px solid rgba(45,40,35,0.08);
+  border-radius: calc(var(--card-radius) + 12px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.92), var(--surface-hero-warm) 100%);
+  box-shadow: var(--shadow-soft);
+}
+
+.hub-page .hub-pathways h2 {
+  margin-top: 0;
+}
+
+.hub-page .hub-pathways-lead {
+  max-width: 62ch;
+  line-height: 1.62;
+}
+
+.hub-page .hub-pathway-card {
+  --pathway-line: var(--teal-cta);
+  --pathway-surface: linear-gradient(180deg, rgba(255,255,255,0.99), rgba(238,245,242,0.9));
+  --pathway-badge-bg: rgba(255,255,255,0.88);
+  position: relative;
+  overflow: hidden;
+  padding-left: 24px;
+  border-color: rgba(45,40,35,0.08);
+  background: var(--pathway-surface);
+  box-shadow: var(--shadow-soft);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+.hub-page .hub-pathway-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background: var(--pathway-line);
+}
+
+.hub-page .hub-pathway-card::after {
+  content: '';
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.84);
+  border: 1px solid rgba(45,40,35,0.08);
+}
+
+.hub-page .hub-pathway-card:hover {
+  border-color: rgba(45,40,35,0.12);
+  box-shadow: var(--shadow-atmosphere);
+  transform: translateY(-2px);
+}
+
+.hub-page .hub-pathway-kicker {
+  color: var(--pathway-line);
+}
+
+.hub-page .hub-pathway-arrow {
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--pathway-badge-bg);
+  border: 1px solid rgba(45,40,35,0.08);
+  box-shadow: 0 1px 0 rgba(45,40,35,0.03);
+}
+
+.hub-page .hub-pathway-card:hover .hub-pathway-arrow {
+  transform: scale(1.05);
+}
+
+.hub-page .hub-pathway-card--alert {
+  --pathway-line: var(--alert);
+  --pathway-surface: linear-gradient(180deg, rgba(254,242,242,0.98), rgba(255,255,255,0.98));
+  --pathway-badge-bg: rgba(255,255,255,0.92);
+  border-color: rgba(185,28,28,0.22);
+}
+
+.hub-page .hub-pathway-card--alert:hover {
+  border-color: rgba(185,28,28,0.28);
+  background: var(--pathway-surface);
+}
+
+.hub-page .hub-pathway-card--alert .hub-pathway-kicker,
+.hub-page .hub-pathway-card--alert h3,
+.hub-page .hub-pathway-card--alert .hub-pathway-arrow {
+  color: var(--alert);
+}
+
+.hub-page .hub-pathway-card--talk {
+  --pathway-line: var(--teal-cta);
+  --pathway-surface: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(238,245,242,0.94));
+}
+
+.hub-page .hub-pathway-card--exchange {
+  --pathway-line: var(--blue-phase);
+  --pathway-surface: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(238,243,248,0.96));
+}
+
+.hub-page .hub-pathway-card--law {
+  --pathway-line: var(--navy-mid);
+  --pathway-surface: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(241,238,234,0.96));
+}
+
+.hub-page .hub-pathway-card--material {
+  --pathway-line: var(--amber);
+  --pathway-surface: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(246,240,231,0.94));
+}
+
+.hub-page .hub-pathway-card--capture {
+  --pathway-line: var(--phase-green);
+  --pathway-surface: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(168,213,203,0.18));
+}
+
+@media (max-width: 900px) {
+  .hub-page .hub-hero::after {
+    display: none;
+  }
+
+  .hub-page .hub-pathways,
+  .hub-page .hub-content .urgent-note-standalone {
+    border-radius: calc(var(--card-radius) + 8px);
+  }
+}
+
+@media (max-width: 600px) {
+  .hub-page .hub-content .urgent-note-standalone .urgent-note {
+    padding: 14px 16px;
+  }
+
+  .hub-page .hub-pathways {
+    padding: 16px;
+  }
+
+  .hub-page .hub-pathway-card {
+    padding-left: 20px;
+  }
+}

@@ -6,6 +6,7 @@ permalink: "/"
 noJs: true          # Adds class="no-js" to <html>; inline script removes it immediately — hides JS-only UI (triage, accordion) until JS confirms it's available
 navCurrent: "home"
 navShowSub: true
+bodyClass: "home-page"
 useSharedCSS: true
 useNavJS: true
 ---
@@ -208,19 +209,19 @@ useNavJS: true
   <h2>Oder direkt ein Werkzeug öffnen</h2>
   <p>Wenn Sie lieber sofort etwas Konkretes ausprobieren möchten, helfen diese Tools bei Einordnung, Gesprächsvorbereitung und Krisenplanung.</p>
   <nav class="hero-tools-grid" aria-label="Werkzeuge">
-    <a href="/tools/selbsttest/" class="hero-tool-card">
+    <a href="/tools/selbsttest/" class="hero-tool-card" data-tone="teal">
       <span class="hero-tool-badge">Selbsttest</span>
       <h3>Belastung einschätzen</h3>
       <p>Wo stehen Sie gerade? 5 Fragen zur Orientierung.</p>
       <span class="hero-tool-arrow" aria-hidden="true">→</span>
     </a>
-    <a href="/tools/krisenplan/" class="hero-tool-card">
+    <a href="/tools/krisenplan/" class="hero-tool-card" data-tone="sand">
       <span class="hero-tool-badge">Werkzeug</span>
       <h3>Krisenplan</h3>
       <p>Gemeinsam in stabiler Phase ausfüllen.</p>
       <span class="hero-tool-arrow" aria-hidden="true">→</span>
     </a>
-    <a href="/tools/phasenverlauf/" class="hero-tool-card">
+    <a href="/tools/phasenverlauf/" class="hero-tool-card" data-tone="blue">
       <span class="hero-tool-badge">Interaktiv</span>
       <h3>Bipolarer Phasenverlauf</h3>
       <p>Manie, Depression, Stabilität interaktiv erkunden.</p>
