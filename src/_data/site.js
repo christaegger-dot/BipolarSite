@@ -11,6 +11,7 @@ module.exports = {
   address: "Lenggstrasse 31, Postfach, 8032 Zürich",
   email: "angehoerigenarbeit@pukzh.ch",
   sourcesPage: "/quellen/",
+  lastReviewed: "2026-05-01",
   noIndexDeploy: deployContext !== "production",
   contacts: sources.contacts,
   tel: sources.tel,
