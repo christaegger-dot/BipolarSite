@@ -10,7 +10,7 @@ audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Verstehen, warum Behandlung gleichzeitig wichtig und schwer sein kann, und ruhiger auf Ablehnung reagieren"
 target_format: "A4, 1 Seite"
 priority: "P1"
-last_updated: "2026-04-20"
+last_updated: "2026-04-30"
 emergency_label: "Wenn Ablehnung mit Gefahr zusammenfällt"
 emergency_callout: "Wenn fehlende Einsicht oder Behandlungsabbruch mit akuter Gefährdung zusammenkommen, endet der Gesprächsrahmen: Notfallseite nutzen und sofort 144 oder 0800 33 66 55 anrufen."
 emergency_note: "Ambivalenz ist nicht dasselbe wie akute fehlende Krankheitseinsicht. Entscheidend ist, ob noch genug Kontakt und Realitätssinn vorhanden sind."
@@ -49,6 +49,7 @@ Es macht einen Unterschied, ob jemand in einer akuten manischen Phase die eigene
 - konkrete Beobachtungen benennen statt Diagnosen verteilen
 - nach Gründen fragen, bevor Lösungen vorgeschlagen werden
 - das Behandlungsteam informieren, auch wenn Sie keine Rückmeldung bekommen dürfen
+- Beobachtungen weitergeben: Sie dürfen Informationen geben, auch ohne Einwilligung
 
 Ein hilfreicher Einstieg kann sein:
 **„Ich mache mir Sorgen, weil ich seit dem Absetzen Veränderungen sehe. Können wir darüber in Ruhe sprechen?“**
@@ -63,7 +64,7 @@ Ein hilfreicher Einstieg kann sein:
 
 ## Wenn Medikamente abgesetzt wurden
 
-Das Absetzen von Medikamenten ist kein exotischer Sonderfall, sondern ein vorhersehbares Risiko. Reagieren Sie nicht nur aus Panik. Sinnvoller ist: beobachten, dokumentieren, das Behandlungsteam informieren, in ruhigem Moment nach Gründen fragen und einen Plan B benennen, falls die Lage kippt.
+Das Absetzen von Medikamenten ist kein exotischer Sonderfall, sondern ein vorhersehbares Risiko. Reagieren Sie nicht nur aus Panik. Sinnvoller ist: beobachten, dokumentieren, das Behandlungsteam informieren, in ruhigem Moment nach Gründen fragen und einen Plan B benennen, falls die Lage kippt. Sie brechen keine Schweigepflicht, wenn Sie Ihre Beobachtungen mitteilen.
 
 ## Ihre Grenze darf sichtbar werden
 

@@ -10,7 +10,7 @@ audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Verstehen, wie Überlastung in Kritik, Rückzug und Kontrolle kippen kann — und wo der Kreislauf unterbrochen werden kann"
 target_format: "A4, 1 Seite"
 priority: "P1"
-last_updated: "2026-04-20"
+last_updated: "2026-04-30"
 emergency_label: "Wenn Streit in Gefahr kippt"
 emergency_callout: "Wenn Gespräche nicht mehr deeskalierbar sind oder Gefahr entsteht: Situation verlassen, Schutz organisieren und im Akutfall 144 oder 0800 33 66 55 anrufen."
 emergency_note: "Expressed Emotion ist kein moralisches Versagen. Meist ist es Überlastung, die in ein belastendes Beziehungsmuster kippt."
@@ -36,7 +36,7 @@ emergency_contacts:
 
 ## Was mit „Expressed Emotion“ gemeint ist
 
-„Expressed Emotion“ beschreibt ein angespanntes familiäres Klima mit viel Kritik, Gereiztheit oder zu starker Einmischung. Für Angehörige wichtig ist: Dieses Muster ist selten Bosheit. Häufig ist es Überlastung, die in Kontrolle, Vorwürfe oder Rückzug kippt.
+„Expressed Emotion“ beschreibt ein angespanntes familiäres Klima mit viel Kritik, Gereiztheit oder zu starker Einmischung. Für Angehörige wichtig ist: Dieses Muster ist selten Bosheit. Häufig ist es Überlastung, die in Kontrolle, Vorwürfe oder Rückzug kippt. Der Kreislauf ähnelt dem Hypervigilanz-Muster aus Modul 2, zeigt sich hier aber in Beziehungssprache.
 
 ## Wie der Teufelskreis oft beginnt
 
@@ -51,7 +51,7 @@ Danach kommt oft neue Schuld — und der Kreis beginnt erneut.
 
 ## Warum das so belastend ist
 
-Was als Fürsorge beginnt, kann die Eigenverantwortung der erkrankten Person schwächen und die Angehörigenperson ausbrennen. Dann wird der Ton schärfer, das Klima enger und beide Seiten fühlen sich missverstanden.
+Was als Fürsorge beginnt, kann die Eigenverantwortung der erkrankten Person schwächen und die Angehörigenperson ausbrennen. Dann wird der Ton schärfer, das Klima enger und beide Seiten fühlen sich missverstanden. Grenzen und klarere Zuständigkeiten unterbrechen diesen Kreis oft eher als noch mehr Kontrolle.
 
 ## Woran Sie merken, dass der Kreis gerade läuft
 

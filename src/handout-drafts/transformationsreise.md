@@ -10,7 +10,7 @@ audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Veränderung, Rückschläge und mögliches Wachstum so einordnen, dass weder Hoffnungspflicht noch Entwertung des Leidens entsteht"
 target_format: "A4, 1 Seite"
 priority: "P2"
-last_updated: "2026-04-20"
+last_updated: "2026-04-30"
 emergency_label: "Wenn ein Rückfall nach langer Stabilität alles erschüttert"
 emergency_callout: "Ein Rückfall nach guten Jahren kann sich besonders schmerzhaft anfühlen. Das bedeutet nicht, dass die stabilen Jahre wertlos waren oder Sie etwas verhindert haben müssten."
 emergency_note: "Wachstum ist möglich, aber nie Pflicht. Fortschritt verläuft meist wellenförmig und nicht linear."
@@ -36,6 +36,8 @@ emergency_contacts:
 ---
 
 ## Worum es hier geht
+
+Dieses Blatt ist für Momente mit etwas Abstand, nicht für akute Erschöpfung.
 
 Wenn nach langer Belastung von Wachstum gesprochen wird, kann das schnell so klingen, als müsse am Ende etwas Gutes herauskommen. Das ist nicht gemeint. Veränderung über Zeit kann bedeuten, dass Sie neue Sprache finden, klarere Grenzen setzen oder Ihre Prioritäten anders ordnen. Das Leiden wird dadurch nicht sinnvoller. Und Wachstum ist keine Pflicht.
 
@@ -79,6 +81,7 @@ Die wichtige Einordnung lautet: **Rückfälle gehören zur Natur bipolarer Stör
 - stabile Jahre nicht rückwirkend entwerten
 - kleine Zeichen von Klarheit und Boden festhalten
 - Unterstützung wieder früh dazunehmen
+- sich erinnern: Rückfälle gehören zur Natur bipolarer Störungen und sind nicht automatisch ein Beweis von Versagen
 
 ## Was eher nicht hilft
 

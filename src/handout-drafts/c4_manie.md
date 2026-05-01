@@ -10,7 +10,7 @@ audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Schnelle Orientierung bei akuten oder eskalierenden manischen Zuständen"
 target_format: "A4, 1 Seite"
 priority: "P1"
-last_updated: "2026-04-04"
+last_updated: "2026-04-30"
 emergency_label: "Wenn Schutz vorgeht"
 emergency_callout: "Bei Gewalt, Selbstgefährdung, massivem Kontrollverlust oder wenn niemand mehr sicher ist: sofort 144 oder 117."
 emergency_note: "Nicht diskutieren. Reize reduzieren, kurz sprechen, Risiko begrenzen und früh Hilfe dazunehmen."
@@ -42,7 +42,7 @@ Wenn eine manische Episode kippt, helfen meist nicht mehr Diskussion, Erklärung
 
 ## Woran Sie Manie erkennen können
 
-- sehr wenig Schlaf, ohne sich müde zu fühlen
+- seit zwei oder mehr Nächten kaum Schlaf, ohne sich müde zu fühlen
 - stark gesteigertes Tempo oder Rededrang
 - ungewöhnliche Selbstüberschätzung oder Grössenideen
 - Gereiztheit bei Widerspruch
@@ -56,7 +56,8 @@ Nicht jedes einzelne Zeichen bedeutet sofort Manie. Wichtig ist die Kombination 
 - ein Satz, ein Anliegen
 - eher strukturieren als diskutieren
 - Reize reduzieren: weniger Menschen, weniger Lärm, weniger Diskussion
-- Finanzen, Autofahren und Schutz mitdenken
+- Krisenplan aktivieren, wenn vorhanden. Sonst: Notfalldienst früh anrufen
+- Finanzen, Autofahren und Schutz mitdenken: Karten, Konten und Autoschlüssel notfalls sichern
 
 Hilfreicher als lange Erklärungen ist oft ein Satz wie:
 **«Ich möchte es gerade einfach halten. Wir holen jetzt Unterstützung dazu.»**
@@ -97,7 +98,7 @@ Nicht weiter diskutieren, sondern sofort Hilfe einschalten, wenn:
 
 Wenn die Situation noch ansprechbar, aber instabil ist: Hilfe früh einschalten und nicht erst auf die volle Eskalation warten. Wenn Schutz vorgeht: nicht mehr auf das bessere Gespräch hoffen, sondern Notfallhilfe nutzen.
 
-Auch wenn die Person Hilfe ablehnt, dürfen Sie selbst Unterstützung holen — Fachstelle Angehörigenarbeit PUK: 058&nbsp;384&nbsp;38&nbsp;00. Wenn es noch keinen Krisenplan gibt, kann er in einer ruhigeren Phase über Modul 6 vorbereitet werden.
+Auch wenn die Person Hilfe ablehnt, dürfen Sie selbst den Notfalldienst oder das Behandlungsteam kontaktieren. Wenn es noch keinen Krisenplan gibt, kann er in einer ruhigeren Phase über Modul 6 vorbereitet werden.
 
 Weiterführend:
 

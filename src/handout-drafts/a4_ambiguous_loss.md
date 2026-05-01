@@ -10,7 +10,7 @@ audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Angehörige entlasten, indem Ambiguous Loss als reale und berechtigte Form von Trauer verständlich eingeordnet wird"
 target_format: "A4, 1 Seite"
 priority: "P1"
-last_updated: "2026-04-20"
+last_updated: "2026-04-30"
 emergency_label: "Wenn die Trauer Sie ganz überrollt"
 emergency_callout: "Wenn Sie merken, dass Sie nur noch funktionieren, kaum schlafen oder sich völlig allein fühlen: holen Sie Unterstützung dazu und bleiben Sie mit dieser Trauer nicht isoliert."
 emergency_note: "Diese Form von Trauer ist real, auch wenn die erkrankte Person noch da ist. Sie brauchen sich dafür nicht zu rechtfertigen."
@@ -39,7 +39,7 @@ emergency_contacts:
 
 Manchmal ist ein Mensch noch da und zugleich nicht mehr so erreichbar, verlässlich oder vertraut wie früher. Genau diese Zwischenlage beschreibt der Begriff **Ambiguous Loss**: ein Verlust ohne klaren Abschied. Für Angehörige heisst das oft, dass Trauer entsteht, obwohl niemand gestorben ist.
 
-Diese Trauer ist nicht übertrieben und nicht unloyal. Sie ist eine verständliche Reaktion auf etwas, das schwer einzuordnen ist.
+Diese Trauer ist nicht übertrieben und nicht unloyal. Sie ist eine verständliche Reaktion auf etwas, das schwer einzuordnen ist. Oft bleibt sie zudem an chronische Erschöpfung gebunden und verschwindet nicht einfach zwischen Episoden.
 
 ## Woran diese Form von Trauer erkennbar wird
 
@@ -69,6 +69,11 @@ Gerade weil der Verlust nicht eindeutig ist, kommt die Trauer oft nicht zu einem
 - Freundschaften brechen weg oder werden dünner
 - Rückzug und Erklärungsnot verstärken das Gefühl von Isolation
 
+## Das eigene Leben auf später
+
+- Reisen, Routinen oder Pläne werden immer wieder verschoben
+- Sie spüren die Kosten des Nicht-Gelebten, ohne sie leicht benennen zu können
+
 ## Nähe und Intimität
 
 - emotionale und körperliche Nähe leiden unter Angst, Erschöpfung und Rollenverschiebung
@@ -80,6 +85,7 @@ Gerade weil der Verlust nicht eindeutig ist, kommt die Trauer oft nicht zu einem
 - sich erlauben, widersprüchliche Gefühle gleichzeitig zu haben
 - mit einer vertrauten Person oder Fachperson über diesen Verlust sprechen
 - kleine Inseln von Verbindung wahrnehmen, ohne den Schmerz kleinzureden
+- diese Trauer nicht mit Undankbarkeit verwechseln
 - Unterstützung nutzen, wenn die Trauer feststeckt oder immer schwerer wird
 
 Ein hilfreicher Satz kann sein:

@@ -10,7 +10,7 @@ audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Schnelle Orientierung bei psychotischer Zuspitzung, Wahn oder Paranoia"
 target_format: "A4, 1 Seite"
 priority: "P1"
-last_updated: "2026-04-20"
+last_updated: "2026-04-30"
 emergency_label: "Wenn Sicherheit kippt"
 emergency_callout: "Wenn die Lage bedrohlich wird, kein ruhiger Kontakt mehr möglich ist oder Kinder gefährdet sind: sofort 117 oder 144."
 emergency_note: "Wahnideen lassen sich nicht wegdiskutieren. Ruhige Sprache, Reizreduktion und professionelle Hilfe sind wichtiger als Überzeugungsversuche."
@@ -54,11 +54,12 @@ Nicht jede ungewöhnliche Aussage ist sofort eine Psychose. Entscheidend ist, ob
 ## Im Kontakt
 
 - ruhig, langsam und mit kurzen Sätzen sprechen
+- nicht widersprechen und nicht bestätigen: «Ich sehe es anders.»
 - Gefühle anerkennen, nicht den Inhalt bestätigen
 - bei Paranoia eher sagen: «Ich höre, dass du dir Sorgen machst.»
 - Reize senken: weniger Licht, weniger Lärm, weniger Menschen
 - Fluchtweg offenhalten und Kinder in Sicherheit bringen
-- das Behandlungsteam sofort informieren
+- das Behandlungsteam oder den Notfalldienst sofort informieren — psychotische Episoden erfordern fast immer professionelle Hilfe
 
 Hilfreicher als Widerspruch ist oft ein Satz wie:
 **«Ich sehe es anders. Wir holen jetzt Unterstützung dazu.»**

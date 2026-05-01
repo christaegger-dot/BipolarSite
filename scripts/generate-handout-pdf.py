@@ -20,6 +20,7 @@ from datetime import datetime
 from pathlib import Path
 
 import yaml
+from fontTools.ttLib import TTFont as FontToolsTTFont
 from reportlab.lib.colors import HexColor
 from reportlab.lib.enums import TA_CENTER
 from reportlab.lib.pagesizes import A4
@@ -34,10 +35,40 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DRAFTS_DIR = PROJECT_ROOT / "src" / "handout-drafts"
 OUTPUT_DIR = PROJECT_ROOT / "src" / "handouts"
 FONT_DIR = Path("/tmp/fonts_ttf")
+WEBFONT_DIR = PROJECT_ROOT / "src" / "fonts"
+
+# ── Font bootstrap ─────────────────────────────────────────────────────
+def ensure_pdf_fonts():
+    """Create local TTFs from repo webfonts when the temp cache is empty."""
+    FONT_DIR.mkdir(parents=True, exist_ok=True)
+
+    font_map = {
+        "dm-sans-variable.ttf": WEBFONT_DIR / "dm-sans-variable.woff2",
+        "dm-serif-display-400.ttf": WEBFONT_DIR / "dm-serif-display-400.woff2",
+    }
+
+    for target_name, source_path in font_map.items():
+        target_path = FONT_DIR / target_name
+        if target_path.exists():
+            continue
+        if not source_path.exists():
+            raise FileNotFoundError(f"Missing source webfont: {source_path}")
+
+        font = FontToolsTTFont(str(source_path))
+        font.flavor = None
+        font.save(str(target_path))
+
+    return {
+        "DMSans": FONT_DIR / "dm-sans-variable.ttf",
+        "DMSerif": FONT_DIR / "dm-serif-display-400.ttf",
+    }
+
+
+PDF_FONT_PATHS = ensure_pdf_fonts()
 
 # ── Register Fonts ─────────────────────────────────────────────────────
-pdfmetrics.registerFont(TTFont("DMSans", str(FONT_DIR / "dm-sans-variable.ttf")))
-pdfmetrics.registerFont(TTFont("DMSerif", str(FONT_DIR / "dm-serif-display-400.ttf")))
+pdfmetrics.registerFont(TTFont("DMSans", str(PDF_FONT_PATHS["DMSans"])))
+pdfmetrics.registerFont(TTFont("DMSerif", str(PDF_FONT_PATHS["DMSerif"])))
 
 # Glyphs available in DM Sans — used to decide whether an icon renders
 # or needs to fall back to a safe numeric marker. Avoids "tofu" squares
@@ -49,8 +80,7 @@ def _icon_renderable(icon: str) -> bool:
     """Return True if every codepoint of `icon` is present in DM Sans."""
     global _DM_SANS_CMAP
     if _DM_SANS_CMAP is None:
-        from fontTools.ttLib import TTFont as _TTFont
-        _DM_SANS_CMAP = _TTFont(str(FONT_DIR / "dm-sans-variable.ttf")).getBestCmap()
+        _DM_SANS_CMAP = FontToolsTTFont(str(PDF_FONT_PATHS["DMSans"])).getBestCmap()
     # Ignore variation selectors (U+FE0E/FE0F) — they don't need a glyph
     return all(
         ord(ch) in _DM_SANS_CMAP or 0xFE00 <= ord(ch) <= 0xFE0F

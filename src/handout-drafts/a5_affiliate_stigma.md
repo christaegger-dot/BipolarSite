@@ -10,7 +10,7 @@ audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Angehörige entlasten, indem Scham, Schweigen und sozialer Rückzug als nachvollziehbare Folgen von Belastung und fehlender Anerkennung eingeordnet werden"
 target_format: "A4, 1 Seite"
 priority: "P1"
-last_updated: "2026-04-20"
+last_updated: "2026-04-30"
 emergency_label: "Wenn Sie nur noch schweigen"
 emergency_callout: "Wenn Sie merken, dass Sie niemandem mehr von Ihrer Lage erzählen, sich immer stärker zurückziehen oder sich für Ihre Realität schämen: holen Sie Unterstützung dazu und bleiben Sie mit dieser Last nicht allein."
 emergency_note: "Scham ist kein Beweis, dass Sie etwas falsch machen. Sie entsteht oft dort, wo Menschen mit ihrer Not zu lange ungesehen bleiben."
@@ -49,11 +49,11 @@ Viele Angehörige leiden nicht nur an der Belastung selbst, sondern auch daran, 
 - Sie schämen sich für Gefühle wie Wut, Erschöpfung oder Fluchtwünsche
 - Sie erleben Ihre Belastung als weniger legitim als die der erkrankten Person
 
-Oft ist nicht ein einzelner Satz das Problem, sondern eine längere Erfahrung von Nicht-Gesehen-Werden.
+Oft ist nicht ein einzelner Satz das Problem, sondern eine längere Erfahrung von Nicht-Gesehen-Werden. Vieles von Ihrer Last bleibt unsichtbar, obwohl es real ist.
 
 ## Warum Scham hier so häufig wird
 
-Stigma entsteht nicht nur durch offene Ablehnung. Es wächst oft auch dort, wo die Situation verharmlost, missverstanden oder moralisch verkürzt wird. Wenn Sie hören oder spüren: „So schlimm kann es doch nicht sein“, „Dann geh halt“ oder „Du musst einfach geduldiger sein“, bleibt häufig weniger Raum für Ihre tatsächliche Realität. Das macht still.
+Stigma entsteht nicht nur durch offene Ablehnung. Es wächst oft auch dort, wo die Situation verharmlost, missverstanden oder moralisch verkürzt wird. Wenn Sie hören oder spüren: „So schlimm kann es doch nicht sein“, „Dann geh halt“ oder „Du musst einfach geduldiger sein“, bleibt häufig weniger Raum für Ihre tatsächliche Realität. Das macht nicht nur einsamer, sondern oft auch unsicherer bei Entscheidungen.
 
 ## Was dabei innerlich passieren kann
 
@@ -82,6 +82,7 @@ Stigma entsteht nicht nur durch offene Ablehnung. Es wächst oft auch dort, wo d
 - Scham als Reaktion auf Überforderung und Unsichtbarkeit verstehen, nicht als Urteil über Ihren Charakter
 - einer vertrauenswürdigen Person die Lage einmal weniger gefiltert erzählen
 - sich bewusst machen, dass Schweigen oft schützt, aber auf Dauer auch isoliert
+- Verharmlosung und Unsichtbarkeit als Teil des Problems erkennen, nicht als Beweis gegen Ihre Wahrnehmung
 - die eigenen Gefühle nicht erst legitimieren müssen, bevor Sie sie benennen dürfen
 - Räume suchen, in denen Angehörigenbelastung nicht erklärt oder verteidigt werden muss
 

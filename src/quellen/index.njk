@@ -1,0 +1,93 @@
+---
+layout: "base"
+title: "Quellen und Literatur | PUK Zürich"
+description: "Zentrale Bibliografie, Kontaktquellen und methodische Hinweise zur Psychoedukations-Website fuer Angehoerige von Menschen mit bipolarer Stoerung."
+permalink: "/quellen/"
+navCurrent: "impressum"
+useSharedCSS: true
+useModuleCSS: true
+useNavJS: true
+---
+{% block nav %}
+{% include "nav-full.njk" %}
+{% endblock %}
+{% block content %}
+<header class="hero">
+  <div class="hero-badge">Bibliografie</div>
+  <h1>Quellen und zentral gepflegte Kontakte</h1>
+  <p class="hero-subtitle">Diese Seite macht nachvollziehbar, worauf sich die Inhalte dieser Website stuetzen und welche Schweizer Anlaufstellen wir zentral pflegen.</p>
+  <div class="breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><span>Quellen</span></div>
+</header>
+
+<main class="content" id="main-content">
+
+  <section class="section">
+    <h2>Wie wir Quellen einsetzen</h2>
+    <div class="info-box">
+      <p><strong>Leitlinien zuerst:</strong> Wo moeglich stuetzen wir uns auf konsentierte Leitlinien wie NICE, CANMAT/ISBD, die deutschsprachige S3-Leitlinie und WFSBP.</p>
+      <p><strong>Primaerstudien gezielt:</strong> Einzelstudien nutzen wir vor allem dann, wenn sie eine konkrete Zahl, einen Verlauf oder einen Mechanismus besonders klar belegen.</p>
+      <p><strong>Schweizer Versorgung separat:</strong> Notfallnummern, Beratungsstellen und Selbsthilfeangebote werden als eigener Bereich mit eigenem Pruefdatum gepflegt.</p>
+    </div>
+    <p>Hinweise auf Fehler, fehlende Quellen oder veraenderte Kontaktdaten senden Sie bitte an <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
+  </section>
+
+  {% for group in sources.groups %}
+  <section class="section" id="gruppe-{{ group.id | slug }}">
+    <h2>{{ group.title }}</h2>
+    <p>{{ group.blurb }}</p>
+    <ol>
+      {% for entry in group.items %}
+      <li id="quelle-{{ entry.id }}" style="margin-bottom:1.4rem">
+        <p><strong>{{ entry.short }}</strong> - {{ entry.title }}</p>
+        <p>{{ entry.authors }} ({{ entry.year }}) - {{ entry.publisher }}</p>
+        {% if entry.note %}<p>{{ entry.note }}</p>{% endif %}
+        {% if entry.url %}<p><a href="{{ entry.url }}" target="_blank" rel="noopener">{{ entry.url }}</a></p>{% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+  {% endfor %}
+
+  <section class="section" id="kontakte">
+    <h2>Zentral gepflegte Kontakte</h2>
+    <p>Diese Kontakte werden fuer Notfallweg, Modul 8 und rechtliche Hinweise zentral an einer Stelle verwaltet.</p>
+
+    {% for group in sources.contactGroups %}
+    <h3>{{ group.title }}</h3>
+    <p>{{ group.blurb }}</p>
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Stelle</th>
+          <th scope="col">Kontakt</th>
+          <th scope="col">Einordnung</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for contact in group.items %}
+        <tr>
+          <td>
+            <strong>{{ contact.title }}</strong><br>
+            <span>{{ contact.kind }}</span>
+          </td>
+          <td>
+            {% if contact.href %}<a href="{{ contact.href }}">{{ contact.display }}</a><br>{% endif %}
+            {% if contact.email %}<a href="mailto:{{ contact.email }}">{{ contact.email }}</a><br>{% endif %}
+            {% if contact.url %}<a href="{{ contact.url }}" target="_blank" rel="noopener">{{ contact.urlLabel or contact.url }}</a>{% endif %}
+          </td>
+          <td>
+            {% if contact.availability %}<strong>{{ contact.availability }}</strong><br>{% endif %}
+            {{ contact.description }}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endfor %}
+  </section>
+
+</main>
+{% endblock %}
+{% block footer %}
+{% include "footer-medium.njk" %}
+{% endblock %}

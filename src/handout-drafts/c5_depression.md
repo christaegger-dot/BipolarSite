@@ -10,7 +10,7 @@ audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Klare Orientierung, wenn die erkrankte Person in einer depressiven Phase kaum erreichbar ist"
 target_format: "A4, 1 Seite"
 priority: "P1"
-last_updated: "2026-04-20"
+last_updated: "2026-04-30"
 emergency_label: "Wenn Suizidgefahr dazukommt"
 emergency_callout: "Bei Suizidgedanken, Verabschiedungen oder konkreten Hinweisen: direkt fragen und sofort 144 oder 0800 33 66 55 anrufen."
 emergency_note: "Depression braucht weniger Druck und mehr tragfähige Präsenz. Wenn die Gefahr akut wird, endet der Gesprächsrahmen und Schutz geht vor."
@@ -56,6 +56,8 @@ Nicht jedes einzelne Zeichen bedeutet sofort akute Gefahr. Entscheidend sind Dau
 - Druck aus dem Gespräch nehmen
 - eher in kleinen Einheiten denken als in grossen Lösungen
 - das Gefühl stehen lassen, statt es sofort zu korrigieren
+- zur Kontaktaufnahme mit dem Behandlungsteam ermutigen — und anbieten, gemeinsam anzurufen
+- Medikamenten-Einnahme sanft begleiten: «Ich erinnere dich gern» statt «Schon wieder vergessen?»
 - Kindern altersgerecht erklären, dass es sich um eine Krankheit handelt
 
 Hilfreicher als Aufmunterung ist oft ein Satz wie:

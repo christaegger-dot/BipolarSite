@@ -10,7 +10,7 @@ audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Langfristige Tragfähigkeit über wenige tragende Säulen konkret und alltagsnah erklärbar machen"
 target_format: "A4, 1 Seite"
 priority: "P1"
-last_updated: "2026-04-20"
+last_updated: "2026-05-01"
 emergency_label: "Wenn alles nur noch auf Reaktion läuft"
 emergency_callout: "Wenn der Alltag nur noch aus Krisenabwehr besteht, braucht es nicht mehr Härte, sondern wieder Strukturen, Entlastung und klare Absprachen."
 emergency_note: "Tragfähigkeit entsteht meist nicht aus grossen Durchbrüchen, sondern aus wiederholbaren Strukturen."
@@ -37,7 +37,7 @@ emergency_contacts:
 
 ## Worum es hier geht
 
-Langfristige Tragfähigkeit bedeutet nicht Harmonie und auch nicht Krisenfreiheit. Gemeint ist eher: Der Alltag wird über Zeit etwas haltbarer. Weniger allein. Weniger unvorbereitet. Etwas mehr abgestimmt. Etwas mehr entlastet.
+Langfristige Tragfähigkeit bedeutet nicht Harmonie und auch nicht Krisenfreiheit. Gemeint ist eher: Der Alltag wird über Zeit etwas haltbarer. Weniger allein. Weniger unvorbereitet. Etwas mehr abgestimmt. Etwas mehr entlastet. Etwas mehr eigene Person.
 
 Das entsteht meist nicht aus einem grossen Wendepunkt, sondern aus Strukturen, die immer wieder tragen.
 
@@ -47,9 +47,9 @@ Das entsteht meist nicht aus einem grossen Wendepunkt, sondern aus Strukturen, d
 
 Beide Seiten verstehen die Erkrankung besser: nicht als Schuldfrage, sondern als gemeinsame Realität. Das entlastet Gespräche, weil nicht jedes Zeichen neu interpretiert werden muss.
 
-## 2. Krankheitsfreie Inseln und Wertschätzung
+## 2. Krankheitsfreie Inseln
 
-Nicht jeder gemeinsame Moment darf von Symptomen oder Sorge besetzt sein. Kleine Inseln ohne Krankheitsthema schützen Beziehung und Würde. Wertschätzung für das, was gelingt, gehört dazu.
+Nicht jeder gemeinsame Moment darf von Symptomen oder Sorge besetzt sein. Kleine Inseln ohne Krankheitsthema schützen Beziehung und Würde. Gute Momente ohne Krankheitsthema zählen mit.
 
 ## 3. Grenzen und faire Lastverteilung
 
@@ -61,7 +61,7 @@ Ein Krisenplan wird nicht im Alarm geschrieben, sondern in stabileren Phasen. Ge
 
 ## 5. Eigene Entlastung und Unterstützung
 
-Auf der langen Strecke wird Belastung oft nicht durch fehlende Liebe schwerer, sondern durch Erschöpfung und Isolation. Selbsthilfe, Beratung oder eigene Therapie sind deshalb kein Nebenthema.
+Auf der langen Strecke wird Belastung oft nicht durch fehlende Liebe schwerer, sondern durch Erschöpfung und Isolation. Selbsthilfe, Beratung oder eigene Therapie sind deshalb kein Nebenthema, sondern Teil der Stabilität.
 
 ## Woran Sie eine brüchige Phase erkennen können
 
@@ -77,6 +77,7 @@ Auf der langen Strecke wird Belastung oft nicht durch fehlende Liebe schwerer, s
 - nicht alle Baustellen gleichzeitig angehen, sondern die schwächste Säule zuerst
 - eine wiederkehrende krankheitsfreie Insel einführen, auch wenn sie klein ist
 - Lasten offen benennen, bevor sich stiller Groll aufbaut
+- prüfen, ob Zuständigkeiten wieder unbemerkt verrutscht sind
 - Krisenwissen schriftlich festhalten statt nur im Kopf tragen
 - externe Entlastung als Teil der Stabilität mitdenken
 

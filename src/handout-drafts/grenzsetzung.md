@@ -10,7 +10,7 @@ audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Konkrete Formulierungen und Schutzlogik für Grenzen, die tragen statt eskalieren"
 target_format: "A4, 1 Seite"
 priority: "P1"
-last_updated: "2026-04-20"
+last_updated: "2026-04-30"
 emergency_label: "Wenn Worte nicht mehr reichen"
 emergency_callout: "Wenn Schutz, Gewalt, akute Psychose oder unmittelbare Gefahr im Vordergrund stehen, ist die Grenze nicht mehr das Gespräch, sondern der Wechsel auf den Notfallpfad."
 emergency_note: "Hilfreiche Grenzen benennen Verhalten, markieren Konsequenzen und schützen, ohne unnötig zu eskalieren."
@@ -69,7 +69,7 @@ Die Grenze bezieht sich auf Verhalten, nicht auf den Wert der Person.
 ## Drei praxistaugliche Beispiele
 
 - Statt **«Du bist unmöglich, wenn du so schreist!»** eher: **«Ich lasse mich nicht anschreien. Ich gehe ins Nebenzimmer — wenn wir ruhig reden können, komme ich zurück.»**
-- Statt **«Wenn du so weitermachst, gehe ich!»** eher: **«Wenn du die Medikamente absetzt und eine Episode kommt, kann ich die Verantwortung zu Hause nicht allein tragen. Dann brauchen wir einen Plan B.»**
+- Statt **«Wenn du so weitermachst, gehe ich!»** eher: **«Wenn du die Medikamente absetzt, kann ich die Verantwortung zu Hause nicht mehr tragen. Dann müssen wir über die Klinik reden.»**
 - Statt **«Hast du deine Medikamente genommen? Schon wieder vergessen?»** eher: **«Ich mache mir Sorgen, wenn ich sehe, dass die Packung noch voll ist. Was brauchst du, um dran zu bleiben?»**
 
 ## Woran Sie gute Grenzen erkennen
@@ -84,9 +84,16 @@ Die Grenze bezieht sich auf Verhalten, nicht auf den Wert der Person.
 
 Nicht jede Situation lässt sich mit besseren Sätzen entschärfen. Wenn Gewalt, akute Psychose, massive Eskalation oder unmittelbare Gefahr im Raum stehen, wird Kommunikation zweitrangig. Dann hilft Klarheit mehr als Gesprächsoptimierung.
 
+- Lage nicht kleinreden
+- eine Person informieren
+- zum Notfallpfad wechseln
+- sich danach selbst entlasten
+
+Bei Gewalt oder Bedrohung gilt: 117. Wenn Sie nach einem Vorfall Begleitung oder Schutzberatung brauchen, kann zusätzlich die Opferhilfe Zürich 24 h sinnvoll sein.
+
 ## Nächster sinnvoller Schritt
 
-Wenn Sie merken, dass Grenzen bei Ihnen immer wieder in Schuld, Drohung oder Rückzug kippen, beginnen Sie mit einer kleinen, klaren Grenze, die Sie wirklich umsetzen können. Wenn die Lage bereits nach Gefahr aussieht, wechseln Sie direkt auf den Notfallpfad.
+Wenn Sie merken, dass Grenzen bei Ihnen immer wieder in Schuld, Drohung oder Rückzug kippen, beginnen Sie mit einer kleinen, klaren Grenze, die Sie wirklich umsetzen können. Wenn die Lage bereits nach Gefahr aussieht, wechseln Sie direkt auf den Notfallpfad statt weiter an Formulierungen zu feilen.
 
 Weiterführend:
 

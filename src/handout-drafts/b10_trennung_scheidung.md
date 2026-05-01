@@ -10,7 +10,7 @@ audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Angehörige entlasten, indem Trennung, Abstand und Neuordnung als legitime Schutzfragen ohne Drängen eingeordnet werden"
 target_format: "A4, 1 Seite"
 priority: "P1"
-last_updated: "2026-04-20"
+last_updated: "2026-04-30"
 emergency_label: "Wenn Schutz sofort Vorrang hat"
 emergency_callout: "Wenn Gewalt, akute Bedrohung, massive Entgrenzung oder konkrete Gefährdung im Raum stehen: holen Sie sofort Hilfe und organisieren Sie Schutz, statt die Beziehungsfrage allein weiterzutragen."
 emergency_note: "Nicht jede Grenze ist eine Trennung. Aber wenn Sicherheit fehlt, geht Schutz vor Beziehungsklärung."
@@ -39,7 +39,7 @@ emergency_contacts:
 
 Viele Angehörige kennen den Gedanken, einfach weg zu sein. Nicht mehr zuständig zu sein. Nicht weiter alles tragen zu müssen. Solche Gedanken bedeuten nicht automatisch, dass eine Trennung richtig oder unausweichlich ist. Oft zeigen sie zuerst etwas anderes: **Sie sind an einer Grenze.**
 
-Darum ist die Frage nicht immer sofort: **„Gehe ich oder bleibe ich?“** Häufig ist die erste wichtigere Frage: **„Was braucht jetzt Schutz, Klarheit oder Neuordnung?“**
+Darum ist oft nicht zuerst wichtig: **„Gehe ich oder bleibe ich?“** Sondern: **„Was braucht jetzt Schutz, Klarheit oder Neuordnung?“**
 
 ## Woran Sie merken können, dass die Beziehung an Grenzen kommt
 
@@ -48,7 +48,6 @@ Darum ist die Frage nicht immer sofort: **„Gehe ich oder bleibe ich?“** Häu
 - Angst, Erschöpfung oder Kontrolle haben mehr Raum als Nähe
 - Kinder, Finanzen oder Sicherheit fühlen sich nicht mehr ausreichend geschützt an
 - Sie denken wiederholt an Abstand, Flucht oder Trennung
-- Sie merken, dass blosses Durchhalten keine tragfähige Lösung mehr ist
 
 Solche Zeichen bedeuten nicht automatisch das Ende einer Beziehung. Sie zeigen aber, dass die bisherige Form möglicherweise nicht mehr trägt.
 
@@ -72,7 +71,7 @@ Solche Zeichen bedeuten nicht automatisch das Ende einer Beziehung. Sie zeigen a
 - wenn Grenzverletzungen, Angst oder Erschöpfung nicht mehr tragbar bleiben
 - wenn die Beziehung in der bisherigen Form für Sie nicht mehr verantwortbar ist
 
-Keine dieser Bewegungen ist automatisch die moralisch bessere. Entscheidend ist eher, was realistisch tragfähig ist und was nicht mehr.
+Keine dieser Bewegungen ist automatisch moralisch besser. Entscheidend ist eher, was realistisch tragfähig ist und was nicht mehr.
 
 ## Was häufig hilft
 
@@ -95,11 +94,11 @@ Ein hilfreicher Satz kann sein:
 
 ## Wenn Kinder oder praktische Fragen mitbetroffen sind
 
-Gerade mit Kindern fühlt sich jede Bewegung oft noch schwerer an. Wichtig ist dann, Trennung oder Abstand nicht vorschnell mit Schuld zu verwechseln. Kinder brauchen vor allem Verlässlichkeit, ehrliche Orientierung und möglichst wenig Loyalitätsdruck. Auch finanzielle und rechtliche Fragen müssen nicht allein gelöst werden. Beratung ist hier keine Eskalation, sondern Entlastung.
+Mit Kindern fühlt sich jede Bewegung oft noch schwerer an. Wichtig ist dann, Trennung oder Abstand nicht vorschnell mit Schuld zu verwechseln. Eine psychische Erkrankung allein ist kein Grund für alleiniges Sorgerecht; entscheidend ist das Kindeswohl. Für Co-Parenting helfen oft knappe schriftliche Absprachen. Pro Mente Sana berät kostenlos zu Sorgerecht und rechtlichen Fragen.
 
 ## Nächster sinnvoller Schritt
 
-Fragen Sie sich in den nächsten Tagen nicht nur, ob Sie gehen oder bleiben wollen. Schreiben Sie stattdessen **auf, wovor Sie gerade am dringendsten Schutz brauchen**: vor Erschöpfung, Angst, Grenzverletzung, Chaos, Dauerverantwortung oder Unsicherheit. Diese Antwort zeigt oft klarer als die grosse Beziehungsfrage, welcher nächste Schritt jetzt wirklich passt.
+Fragen Sie sich in den nächsten Tagen nicht nur, ob Sie gehen oder bleiben wollen. Schreiben Sie stattdessen **auf, wovor Sie gerade am dringendsten Schutz brauchen**: vor Erschöpfung, Angst, Grenzverletzung, Chaos, Dauerverantwortung oder Unsicherheit. Das zeigt oft klarer als die grosse Beziehungsfrage, welcher nächste Schritt jetzt passt.
 
 Weiterführend:
 
