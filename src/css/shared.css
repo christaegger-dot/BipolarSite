@@ -2828,3 +2828,200 @@ body.impressum-page .info-box strong {
     justify-content: space-between;
   }
 }
+
+/* ══════════════════════════════════════════════════════════
+   VISUAL POLISH PASS — Module Overview
+   Extends the new overview language to /module/.
+   ══════════════════════════════════════════════════════════ */
+
+body.module-overview-page .overview-hero {
+  padding-bottom: calc(var(--section-tight) - 4px);
+  background:
+    linear-gradient(180deg, var(--surface-hero-warm) 0%, var(--surface-sand-mist) 46%, var(--bg) 100%);
+  border-bottom: 1px solid rgba(45,40,35,0.05);
+}
+
+body.module-overview-page .overview-hero::before {
+  display: block;
+  top: auto;
+  right: -8%;
+  bottom: -28%;
+  width: 50%;
+  height: 96%;
+  background: radial-gradient(circle, rgba(221,210,191,0.82) 0%, rgba(221,210,191,0.18) 42%, transparent 74%);
+  opacity: 1;
+}
+
+body.module-overview-page .overview-hero::after {
+  display: block;
+  top: calc(var(--nav-height) + 1rem);
+  right: clamp(1.5rem, 5vw, 5rem);
+  bottom: auto;
+  left: auto;
+  width: 220px;
+  height: 220px;
+  border: 1px solid rgba(45,40,35,0.09);
+  background: linear-gradient(180deg, rgba(255,255,255,0.28), rgba(255,255,255,0));
+  transform: rotate(12deg);
+  opacity: 0.56;
+}
+
+body.module-overview-page .overview-lead {
+  max-width: 58ch;
+  line-height: 1.62;
+}
+
+body.module-overview-page .module-overview-hero-visual {
+  border: 1px solid rgba(45,40,35,0.08);
+  background: rgba(255,255,255,0.76);
+  box-shadow: var(--shadow-atmosphere);
+}
+
+body.module-overview-page .overview-intro {
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+body.module-overview-page .overview-note {
+  --overview-note-line: var(--amber);
+  --overview-note-surface: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(246,240,231,0.94));
+  position: relative;
+  overflow: hidden;
+  padding: clamp(1.2rem, 2vw, 1.6rem);
+  border-color: rgba(45,40,35,0.08);
+  background: var(--overview-note-surface);
+  box-shadow: var(--shadow-soft);
+}
+
+body.module-overview-page .overview-note::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--overview-note-line);
+}
+
+body.module-overview-page .overview-note--urgent {
+  --overview-note-line: var(--alert);
+  --overview-note-surface: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(251,242,240,0.92));
+}
+
+body.module-overview-page .overview-note h2,
+body.module-overview-page .overview-note p,
+body.module-overview-page .overview-footer-note {
+  line-height: 1.62;
+}
+
+body.module-overview-page .overview-note p + p {
+  margin-top: 12px;
+}
+
+body.module-overview-page .overview-section {
+  margin-top: calc(var(--section-standard) - 8px);
+  padding: clamp(1.2rem, 2vw, 1.6rem);
+  border: 1px solid rgba(45,40,35,0.08);
+  border-radius: calc(var(--card-radius) + 12px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.92), var(--surface-ink-mist) 100%);
+  box-shadow: var(--shadow-soft);
+}
+
+body.module-overview-page .modules-grid {
+  gap: clamp(1rem, 1.8vw, 1.4rem);
+}
+
+body.module-overview-page .module-card {
+  --module-tone-band: var(--teal-cta);
+  --module-tone-surface: rgba(238,245,242,0.66);
+  --module-tone-pill: var(--teal-subtle);
+  --module-tone-text: var(--teal-text);
+  position: relative;
+  overflow: hidden;
+  padding-top: calc(var(--card-padding) + 10px);
+  border-left-width: 1px;
+  border-color: rgba(45,40,35,0.08);
+  background: linear-gradient(180deg, rgba(255,255,255,0.99) 0%, var(--module-tone-surface) 18%, #ffffff 80%);
+  box-shadow: var(--shadow-soft);
+  transition: box-shadow 0.2s ease, transform 0.15s ease, border-color 0.2s ease;
+}
+
+body.module-overview-page .module-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 5px;
+  background: var(--module-tone-band);
+}
+
+body.module-overview-page .module-card:hover {
+  border-color: rgba(45,40,35,0.12);
+  box-shadow: var(--shadow-atmosphere);
+  transform: translateY(-2px);
+}
+
+body.module-overview-page .module-card[data-accent="blue"] {
+  --module-tone-band: var(--blue-phase);
+  --module-tone-surface: rgba(238,243,248,0.9);
+  --module-tone-pill: rgba(74,111,149,0.12);
+  --module-tone-text: var(--blue-phase);
+}
+
+body.module-overview-page .module-card[data-accent="amber"] {
+  --module-tone-band: var(--amber);
+  --module-tone-surface: rgba(246,240,231,0.94);
+  --module-tone-pill: rgba(244,208,120,0.28);
+  --module-tone-text: #8f5612;
+}
+
+body.module-overview-page .module-card[data-accent="purple"] {
+  --module-tone-band: var(--purple-dark);
+  --module-tone-surface: rgba(241,238,247,0.94);
+  --module-tone-pill: rgba(152,133,188,0.18);
+  --module-tone-text: var(--purple-dark);
+}
+
+body.module-overview-page .module-card[data-accent="green"] {
+  --module-tone-band: var(--phase-green);
+  --module-tone-surface: rgba(168,213,203,0.2);
+  --module-tone-pill: rgba(168,213,203,0.28);
+  --module-tone-text: var(--phase-green);
+}
+
+body.module-overview-page .module-number {
+  color: var(--module-tone-text);
+  background: var(--module-tone-pill);
+}
+
+body.module-overview-page .module-card p {
+  line-height: 1.62;
+}
+
+body.module-overview-page .module-card-footer {
+  border-top-color: rgba(45,40,35,0.08);
+}
+
+@media (max-width: 900px) {
+  body.module-overview-page .overview-hero::after {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  body.module-overview-page .overview-hero {
+    padding-bottom: 24px;
+  }
+
+  body.module-overview-page .overview-intro {
+    gap: 14px;
+    margin-top: var(--space-lg);
+  }
+
+  body.module-overview-page .overview-note,
+  body.module-overview-page .overview-section {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
