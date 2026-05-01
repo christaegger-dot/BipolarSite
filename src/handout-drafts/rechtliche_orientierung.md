@@ -10,7 +10,7 @@ audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Rechtliche und systemische Fragen in belastenden Phasen besser ordnen und erste Schritte klären"
 target_format: "A4, 1 Seite"
 priority: "P1"
-last_updated: "2026-04-30"
+last_updated: "2026-05-01"
 emergency_label: "Wenn Schutz nicht warten kann"
 emergency_callout: "Bei akuter Selbst- oder Fremdgefährdung, schwerer Psychose oder Gewalt geht Schutz vor juristischer Klärung. Dann zuerst Notfallwege nutzen."
 emergency_note: "Rechtliche Orientierung soll entlasten, nicht überfordern. Viele Fragen lassen sich besser in ruhigen Phasen vorbereiten als mitten in der Eskalation."
@@ -31,7 +31,7 @@ emergency_contacts:
     note: "Wenn die Lage kippt und Einschätzung oder Schutz nötig werden"
     tone: "urgent"
   - label: "Ombudsstelle Krankenversicherung"
-    number: "041&nbsp;226&nbsp;10&nbsp;11 · om-kv.ch"
+    number: "041&nbsp;226&nbsp;10&nbsp;10 · om-kv.ch"
     note: "Bei Leistungsstreitigkeiten mit der Krankenkasse"
 ---
 
