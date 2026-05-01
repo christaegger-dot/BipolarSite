@@ -27,7 +27,7 @@ bodyClass: "draft-overview-page"
         <p class="draft-goal">{{ draft.data.goal }}</p>
         <div class="draft-links">
           <a class="draft-link primary" href="{{ draft.url }}">Draft öffnen</a>
-          {% if draft.data.source_pdf %}<a class="draft-link secondary" href="{{ draft.data.source_pdf }}" target="_blank" rel="noopener">Altes PDF</a>{% endif %}
+          {% if draft.data.source_pdf %}<a class="draft-link secondary" href="{{ draft.data.source_pdf }}" target="_blank" rel="noopener">PDF öffnen</a>{% endif %}
         </div>
       </article>
       {% endif %}
