@@ -75,7 +75,7 @@
       "description": "{{ description }}",
       "url": "{{ site.url }}{{ page.url }}",
       "inLanguage": "de-CH",
-      "lastReviewed": "2026-04-06",
+      "lastReviewed": "{{ page.inputPath | pageLastModified(site.lastReviewed) }}",
       "medicalAudience": {
         "@type": "MedicalAudience",
         "audienceType": "Caregiver",

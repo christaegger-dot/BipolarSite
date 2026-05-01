@@ -1,8 +1,42 @@
 const Image = require("@11ty/eleventy-img");
+const fs = require("fs");
 const path = require("path");
+const { execFileSync } = require("child_process");
 
 module.exports = function (eleventyConfig) {
   const handoutPreviewRoot = "../../";
+  const gitDateCache = new Map();
+
+  const resolveInputPath = (inputPath = "") => {
+    if (!inputPath) return null;
+    return path.isAbsolute(inputPath)
+      ? inputPath
+      : path.resolve(process.cwd(), inputPath.replace(/^\.\//, ""));
+  };
+
+  const readPageLastModified = (inputPath = "", fallback = "") => {
+    const resolvedPath = resolveInputPath(inputPath);
+    if (!resolvedPath) return fallback;
+    if (gitDateCache.has(resolvedPath)) return gitDateCache.get(resolvedPath);
+
+    let value = fallback;
+
+    try {
+      const relativePath = path.relative(process.cwd(), resolvedPath);
+      const gitDate = execFileSync("git", ["log", "-1", "--format=%cs", "--", relativePath], {
+        encoding: "utf8",
+        stdio: ["ignore", "pipe", "ignore"],
+      }).trim();
+      if (gitDate) value = gitDate;
+    } catch {}
+
+    if ((!value || !/^\d{4}-\d{2}-\d{2}$/.test(value)) && fs.existsSync(resolvedPath)) {
+      value = fs.statSync(resolvedPath).mtime.toISOString().slice(0, 10);
+    }
+
+    gitDateCache.set(resolvedPath, value);
+    return value;
+  };
 
   // P3 Audit: Bild-Optimierung — WebP/AVIF + responsive srcset
   // Nunjucks-Shortcode für alle Bilder: generiert <picture> mit AVIF, WebP und JPEG
@@ -85,6 +119,10 @@ module.exports = function (eleventyConfig) {
       year: "numeric",
     }).format(date);
   });
+
+  eleventyConfig.addFilter("pageLastModified", (inputPath = "", fallback = "") =>
+    readPageLastModified(inputPath, fallback)
+  );
 
   return {
     dir: {
