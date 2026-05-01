@@ -8,16 +8,16 @@ audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Frühe Veränderungen schneller erkennen und ruhiger einordnen"
 target_format: "A4, 1 Seite"
 priority: "P1"
-last_updated: "2026-04-04"
+last_updated: "2026-04-30"
 emergency_label: "Nicht jedes Zeichen ist schon eine Krise"
 emergency_callout: "Wichtiger als ein einzelnes Signal ist ein wiederkehrendes Muster."
 emergency_note: "Dieses Blatt ist für ruhigere oder halbwegs stabile Phasen gedacht. Es soll Orientierung geben, nicht in Dauer-Alarm versetzen."
 quick_steps:
-  - icon: "◎"
+  - icon: "1"
     text: "Auf Veränderungen im Muster achten, nicht auf jedes einzelne Detail"
-  - icon: "~"
+  - icon: "2"
     text: "Beobachtungen früh ansprechen statt lange abzuwarten"
-  - icon: "!"
+  - icon: "3"
     text: "Bei deutlicher Eskalation Krisenplan oder Notfallhilfe nutzen"
 emergency_contacts:
   - label: "Krisenplan / Vorbereitung"
@@ -40,19 +40,19 @@ Nicht jedes Zeichen ist schon eine Episode. Wichtig ist eher, ob sich mehrere Di
 Oft fällt nicht ein einzelnes Symptom zuerst auf, sondern eine Kombination aus:
 
 - weniger Schlaf
-- mehr Tempo oder mehr Rededrang
+- mehr Tempo oder schnelleres Reden
 - stärkere Gereiztheit
 - mehr Impulsivität
 - mehr Rückzug
 - sichtbare Veränderungen im Alltag
 
-Entscheidend ist nicht perfekte Beobachtung. Entscheidend ist, wiederkehrende Muster früh zu bemerken.
+Entscheidend ist nicht perfekte Beobachtung. Entscheidend ist, wiederkehrende Muster und deutliche Abweichungen vom üblichen Zustand früh zu bemerken.
 
 ## Richtung Hochphase
 
 - deutlich weniger Schlaf
 - mehr Aktivität und mehr Ideen
-- mehr Rededrang
+- mehr Rededrang oder schnelleres Sprechen
 - stärkere Selbstüberschätzung
 - mehr Geld ausgeben
 - gereizt reagieren, wenn jemand bremst
@@ -66,11 +66,13 @@ Entscheidend ist nicht perfekte Beobachtung. Entscheidend ist, wiederkehrende Mu
 - Termine absagen
 - Alltagsaufgaben nicht mehr schaffen
 
+Gerade Schlaf, Tempo und Rückzug gehören oft zu den verlässlichsten frühen Veränderungen. Nicht weil sie immer eindeutig wären, sondern weil sie sich im Verlauf häufig wiederholen.
+
 ## Ihre persönlichen Frühwarnzeichen
 
 Was fällt in Ihrem Umfeld erfahrungsgemäss zuerst auf? Markieren Sie aus den Listen oben zwei oder drei Zeichen, die bei Ihnen am verlässlichsten früh erscheinen. Das sind Ihre persönlichen Ankerpunkte — nicht die Lehrbuchliste.
 
-Halten Sie ausserdem fest, wen Sie bei deutlicher Veränderung früh informieren wollen: Behandlungsteam, Vertrauensperson, Krisenplan hervornehmen.
+Hilfreich ist oft, drei Frühwarnzeichen aus der letzten deutlichen Verschlechterung zu notieren und daneben festzuhalten, wen Sie bei deutlicher Veränderung früh informieren wollen: Behandlungsteam, Vertrauensperson, Krisenplan hervornehmen.
 
 ## Was eher hilft
 
@@ -94,6 +96,7 @@ Frühes Handeln wird sinnvoll, wenn:
 
 - mehrere Warnzeichen gleichzeitig auftreten
 - Schlaf deutlich kippt
+- das Muster klar vom üblichen Zustand abweicht
 - Risiko oder Selbstgefährdung zunimmt
 - die Person stark verändert oder kaum erreichbar wirkt
 
@@ -101,5 +104,5 @@ Dann geht es nicht mehr nur um Beobachtung, sondern um Vorbereitung, Absprache o
 
 Weiterführend:
 
-- Modul 6: Vorbereitung und Krisenplan
-- Notfallseite
+- [Modul 6: Vorbereitung und Krisenplan](/modul/6/)
+- [Notfallseite](/notfall/)

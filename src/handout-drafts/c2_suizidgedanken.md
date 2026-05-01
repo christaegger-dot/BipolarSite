@@ -10,9 +10,9 @@ audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Klare Orientierung bei Suizidgedanken, Suizidäusserungen oder konkreter Sorge"
 target_format: "A4, 1 Seite"
 priority: "P1"
-last_updated: "2026-04-04"
+last_updated: "2026-04-30"
 emergency_label: "Wenn es konkret wird"
-emergency_callout: "Bei konkretem Plan oder vorhandenen Mitteln: sofort 144."
+emergency_callout: "Bei konkretem Plan, vorhandenen Mitteln oder wenn die Person nicht mehr sicher allein ist: sofort 144."
 emergency_note: "Nicht erst alles ordnen wollen. Direkt fragen ist erlaubt. Wenn die Gefahr konkret ist, Hilfe sofort dazunehmen."
 quick_steps:
   - icon: "?"
@@ -81,7 +81,7 @@ Direkt zu fragen ist kein Fehler. Es schafft oft eher Klarheit und kann entlaste
 - ruhig bleiben
 - zuhören
 - direkt und klar fragen
-- bei der Person bleiben
+- bei der Person bleiben, bis professionelle Hilfe eintrifft
 - mögliche Mittel sichern, wenn das ohne zusätzliche Eskalation möglich ist
 - früh Hilfe dazuholen
 - auch bei Ablehnung selbst fachliche Hilfe holen
@@ -110,7 +110,7 @@ Nicht weiter allein tragen, sondern sofort handeln, wenn:
 
 ## Nächster sinnvoller Schritt
 
-Wenn die Lage unklar, aber noch ruhig genug ist: direkt fragen und psychiatrische Hilfe dazunehmen. Wenn die Gefahr konkret ist: nicht weiter ordnen oder beruhigen wollen, sondern sofort Notfallhilfe einschalten.
+Wenn die Lage unklar, aber noch ruhig genug ist: direkt fragen und Notfalldienst oder Behandlungsteam dazunehmen. Wenn die Gefahr konkret ist: nicht weiter ordnen oder beruhigen wollen, sondern sofort Notfallhilfe einschalten.
 
 Auch wenn die Person Hilfe ablehnt, dürfen Sie selbst Unterstützung holen. Wenn Sie im Moment niemanden erreichen, kann auch die Dargebotene Hand der erste Gesprächsschritt sein.
 

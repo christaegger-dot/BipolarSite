@@ -10,7 +10,7 @@ audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Eine gemeinsame, schriftliche Orientierung für belastende Phasen vorbereiten"
 target_format: "A4, 1 Seite"
 priority: "P1"
-last_updated: "2026-04-20"
+last_updated: "2026-04-30"
 emergency_label: "Wenn die Lage bereits kippt"
 emergency_callout: "Wenn akute Selbst- oder Fremdgefährdung im Raum steht, nicht erst planen: 144 oder 0800 33 66 55 anrufen und den Notfallpfad aktivieren."
 emergency_note: "Ein Krisenplan wird in einer stabilen Phase erstellt. In der akuten Krise zählt Schutz vor Perfektion."
@@ -50,6 +50,7 @@ Die beste Zeit für einen Krisenplan ist eine stabile Phase. Dann kann die erkra
 - behandelnde Stellen mit Telefonnummern
 - welche Schritte zuerst versucht werden sollen
 - ab wann Schutz vor Gespräch geht
+- wo der ausgedruckte Plan liegt und wer ihn im Ernstfall schnell hervornehmen kann
 - wichtige Grenzen, Zuständigkeiten und Wünsche für eine mögliche Klinikphase
 
 Je konkreter die Formulierungen sind, desto hilfreicher wird der Plan später.
@@ -83,7 +84,7 @@ Gerade dann lohnt sich ein aktualisierter Krisenplan besonders. Halten Sie fest,
 
 ## Nächster sinnvoller Schritt
 
-Öffnen Sie das Krisenplan-Werkzeug oder nehmen Sie die PDF-Vorlage zur Hand und füllen Sie zuerst nur drei Felder aus: Frühwarnzeichen, erste Kontakte und die eine Massnahme, die beim letzten Mal am meisten geholfen hat.
+Öffnen Sie das Krisenplan-Werkzeug oder nehmen Sie die PDF-Vorlage zur Hand und füllen Sie zuerst nur drei Felder aus: Frühwarnzeichen, erste Kontakte und die eine Massnahme, die beim letzten Mal am meisten geholfen hat. Wenn bereits Warnzeichen da sind, öffnen Sie zuerst den vorhandenen Plan, statt in der Akutsituation einen neuen perfekt schreiben zu wollen.
 
 Weiterführend:
 

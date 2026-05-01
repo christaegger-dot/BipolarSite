@@ -10,16 +10,16 @@ audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Angehörige darin entlasten, Selbstfürsorge als Schutz vor Auszehrung und nicht als Egoismus einzuordnen"
 target_format: "A4, 1 Seite"
 priority: "P1"
-last_updated: "2026-04-20"
+last_updated: "2026-04-30"
 emergency_label: "Wenn Sie selbst an eine Grenze kommen"
 emergency_callout: "Wenn Sie merken, dass Sie nicht mehr sicher, nicht mehr handlungsfähig oder völlig erschöpft sind: holen Sie früh Unterstützung dazu und bleiben Sie damit nicht allein."
-emergency_note: "Selbstfürsorge ist hier keine Kür. Sie schützt davor, dass chronische Belastung Sie selbst krank macht."
+emergency_note: "Selbstfürsorge ist hier keine Kür, sondern Schutz vor weiterer Auszehrung."
 quick_steps:
-  - icon: "🛏"
+  - icon: "1"
     text: "Schlaf und Mahlzeiten mit schützen"
-  - icon: "🤝"
+  - icon: "2"
     text: "Nicht alles allein tragen"
-  - icon: "📅"
+  - icon: "3"
     wide: true
     text: "Einen festen Entlastungstermin setzen"
 emergency_contacts:
@@ -72,13 +72,16 @@ Diese Zeichen bedeuten nicht, dass Sie versagt haben. Sie zeigen eher, dass Bela
 
 - gemeinsame Rituale erhalten oder neu schaffen
 - Absprachen für Krisen in ruhigen Phasen treffen
-- Momente ohne Krankheitsthema bewusst zulassen
+- kleine krankheitsfreie Inseln bewusst schützen
 - Hilfe auch als Prävention verstehen, nicht erst als letzte Lösung
+
+Langfristige Tragfähigkeit entsteht oft aus Strukturen: gemeinsames Verständnis, krankheitsfreie Inseln, Grenzen, vereinbarte Schritte für Krisen und eigene Entlastung.
 
 ## Was häufig hilft
 
 - mit einer einzigen Vertrauensperson wieder beginnen statt gleich mit allen
 - Entlastung konkret terminieren, nicht nur vage vornehmen
+- kleine krankheitsfreie Inseln im Alltag wieder bewusst einplanen
 - kleine Routinen ernst nehmen: Schlaf, Essen, frische Luft, Pause
 - Unterstützung suchen, bevor Sie nur noch funktionieren
 - sich sagen: Entlastung ist Prävention, nicht Selbstsucht
@@ -96,7 +99,7 @@ Ein hilfreicher Satz kann sein:
 
 ## Wenn soziale Kontakte weggebrochen sind
 
-Viele Angehörige ziehen sich mit der Zeit zurück, weil sie abgesagt, erklärt oder einfach keine Kraft mehr hatten. Der Wiedereinstieg muss nicht gross sein. Oft reicht es, mit **einer** verlässlichen Person zu beginnen. Das Ziel ist nicht, das frühere Netz exakt zurückzubekommen, sondern ein Netz, das zu Ihrer jetzigen Situation passt.
+Viele Angehörige ziehen sich mit der Zeit zurück, weil sie abgesagt, erklärt oder einfach keine Kraft mehr hatten. Diese Co-Isolation ist häufig. Der Wiedereinstieg muss nicht gross sein. Oft reicht es, mit **einer** verlässlichen Person zu beginnen. Das Ziel ist nicht, das frühere Netz exakt zurückzubekommen, sondern ein Netz, das zu Ihrer jetzigen Situation passt.
 
 ## Nächster sinnvoller Schritt
 

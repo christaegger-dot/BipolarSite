@@ -10,7 +10,7 @@ audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Angehörige entlasten, indem typische Belastungsmuster sichtbar, verständlich und als nachvollziehbare Folgen chronischer Anspannung eingeordnet werden"
 target_format: "A4, 1 Seite"
 priority: "P1"
-last_updated: "2026-04-20"
+last_updated: "2026-04-30"
 emergency_label: "Wenn die Belastung kippt"
 emergency_callout: "Wenn Sie merken, dass Sie kaum noch schlafen, innerlich nur noch im Alarmzustand sind oder selbst zusammenbrechen könnten: holen Sie Unterstützung dazu und tragen Sie diese Lage nicht länger allein."
 emergency_note: "Viele Belastungen von Angehörigen bleiben lange unsichtbar. Unsichtbar heisst aber nicht klein."
@@ -37,11 +37,11 @@ emergency_contacts:
 
 ## Worum es hier geht
 
-Viele Angehörige merken erst spät, wie viel sie längst mittragen. Nicht nur Termine, Krisen oder Gespräche kosten Kraft. Auch das ständige Mitdenken, Beobachten, Absichern, Hoffen, Sich-Sorgen und Funktionieren wird zu einer eigenen Last. Dieses Blatt ordnet typische Belastungen, damit aus diffusem Druck eine verständliche Lage wird.
+Viele Angehörige merken erst spät, wie viel sie längst mittragen. Nicht nur Termine, Krisen oder Gespräche kosten Kraft. Auch das ständige Mitdenken, Beobachten, Absichern, Hoffen, Sich-Sorgen und Funktionieren wird zu einer eigenen Last. Dieses Blatt ordnet typische Belastungen, damit aus diffusem Druck eine verständliche Lage wird statt nur das Gefühl, es sei «einfach alles zu viel».
 
 ## Warum Belastung oft unsichtbar bleibt
 
-Ein grosser Teil der Angehörigenbelastung ist von aussen kaum erkennbar. Man funktioniert, begleitet, organisiert und sagt oft noch, es gehe schon. Innerlich laufen aber häufig Alarmbereitschaft, Schlafmangel, Schuldgefühle, Einsamkeit und ständiges Vorausdenken mit. Gerade deshalb unterschätzen viele ihre Belastung lange — auch sich selbst gegenüber.
+Ein grosser Teil der Angehörigenbelastung ist von aussen kaum erkennbar. Man funktioniert, begleitet, organisiert und sagt oft noch, es gehe schon. Innerlich laufen aber häufig Alarmbereitschaft, Schlafmangel, Schuldgefühle, Einsamkeit und ständiges Vorausdenken mit. Gerade deshalb unterschätzen viele ihre Belastung lange — auch sich selbst gegenüber. Unsichtbar heisst nicht klein.
 
 ## Typische Belastungen von Angehörigen
 
@@ -70,7 +70,7 @@ Nicht jede Person erlebt alle diese Punkte. Aber schon wenige davon reichen, um 
 
 ## Wissen und Unsicherheit
 
-- fehlende Einordnung verstärkt Angst
+- Informationsmangel und fehlende Einordnung verstärken Angst
 - unklare Signale machen dauerndes Beobachten wahrscheinlicher
 - Unsicherheit rund um Behandlung, Rückfälle und Krisen kostet viel Kraft
 
@@ -110,7 +110,7 @@ Ein hilfreicher Satz kann sein:
 
 ## Nächster sinnvoller Schritt
 
-Schreiben Sie in den nächsten Tagen **die drei Belastungen auf, die Sie im Moment am meisten Kraft kosten**. Nicht, um alles sofort zu lösen, sondern um die Last erstmals klarer zu sortieren. Was benannt ist, lässt sich eher teilen, begrenzen und entlasten.
+Schreiben Sie in den nächsten Tagen **die drei Belastungen auf, die Sie im Moment am meisten Kraft kosten**. Markieren Sie dabei, was davon für andere sichtbar ist und was fast nur innerlich mitläuft. Nicht, um alles sofort zu lösen, sondern um die Last erstmals klarer zu sortieren. Was benannt ist, lässt sich eher teilen, begrenzen und entlasten.
 
 Weiterführend:
 

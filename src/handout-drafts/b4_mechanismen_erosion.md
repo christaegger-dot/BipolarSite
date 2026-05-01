@@ -10,7 +10,7 @@ audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Angehörige entlasten, indem schleichende Muster von Schonhaltung, Rückzug und Identitätsverlust erkennbar und besprechbar werden"
 target_format: "A4, 1 Seite"
 priority: "P1"
-last_updated: "2026-04-20"
+last_updated: "2026-04-30"
 emergency_label: "Wenn Sie sich selbst kaum noch spüren"
 emergency_callout: "Wenn Sie nur noch funktionieren, innerlich abstumpfen oder gar nicht mehr wissen, was Sie selbst brauchen: holen Sie früh Unterstützung dazu."
 emergency_note: "Dass Sie sich verändert haben, ist nicht automatisch ein Zeichen fehlender Liebe. Oft zeigt es, wie lange Sie schon zu viel getragen haben."
@@ -49,6 +49,7 @@ Das Problem ist nicht die Fürsorge an sich. Das Problem beginnt dort, wo Fürso
 - Sie sagen sich: „Ich muss jetzt stark sein“
 - Konflikte werden vermieden, auch wenn innerlich viel Druck entsteht
 - auf Dauer entstehen Sprachlosigkeit und emotionale Distanz
+- Schonhaltung schützt kurzfristig, verengt langfristig aber oft beide Seiten
 
 ## Co-Isolation
 
@@ -72,6 +73,7 @@ Diese Veränderungen sind unangenehm, aber sie sind oft Warnsignale chronischer 
 
 - mindestens ein eigenes Thema wieder regelmässig aussprechen
 - mit einer verlässlichen Person neu Kontakt aufnehmen, auch wenn es klein beginnt
+- eine Vertrauensperson ausserhalb der Familie bewusst wieder einbeziehen
 - Unterstützung nicht erst als letzte Rettung sehen, sondern als Prävention
 - sich fragen: „Was gehört noch zu mir ausser dieser Rolle?“
 - kleine eigene Routinen wieder schützen: Schlaf, Bewegung, Freundschaft, Pause

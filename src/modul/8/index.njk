@@ -93,11 +93,35 @@ breadcrumbs:
     <div class="stelle-card">
       <div class="stelle-header"><h3>Pro Mente Sana</h3><div class="stelle-badge beratung">Beratung + Recht</div></div>
       <p>Schweizweite psychosoziale und juristische Beratung — besonders sinnvoll bei FU, Patientenverfügung, Vorsorgeauftrag oder Konflikten mit Institutionen. Mo–Fr telefonisch, Online 24/7.</p>
-      <div class="stelle-contact"><a href="{{ site.tel.proMenteSana.href }}">{{ site.tel.proMenteSana.display }}</a> · <a href="https://www.promentesana.ch">promentesana.ch</a></div>
+      <div class="stelle-contact"><a href="{{ site.tel.proMenteSana.href }}">{{ site.tel.proMenteSana.display }}</a> · <a href="{{ site.contacts.proMenteSana.url }}">{{ site.contacts.proMenteSana.urlLabel }}</a></div>
     </div>
   </section>
 
-  <!-- ══════════ 2. AUSTAUSCH ══════════ -->
+  <!-- ══════════ 2. NACHT / KINDER / 24H ══════════ -->
+  <section class="hub-section reveal">
+    <h2 id="sofort-reden">Auch nachts, anonym oder für Kinder und Jugendliche</h2>
+    <p>Nicht jede dringliche Situation ist eine 144- oder 117-Lage. Diese Kontakte sind besonders hilfreich, wenn jemand sofort reden muss, Gewalt im Raum steht oder Kinder und Jugendliche direkt mitbetroffen sind.</p>
+
+    <div class="stelle-card">
+      <div class="stelle-header"><h3>Die Dargebotene Hand</h3><div class="stelle-badge beratung">24 h</div></div>
+      <p>Anonyme Gesprächs- und Krisenhilfe für Erwachsene — auch für Angehörige, die nachts oder am Wochenende nicht allein bleiben möchten.</p>
+      <div class="stelle-contact"><a href="{{ site.tel.dargeboteneHand.href }}">{{ site.tel.dargeboteneHand.display }}</a> · <a href="{{ site.contacts.dargeboteneHand.url }}">{{ site.contacts.dargeboteneHand.urlLabel }}</a></div>
+    </div>
+
+    <div class="stelle-card">
+      <div class="stelle-header"><h3>Pro Juventute 147</h3><div class="stelle-badge beratung">Kinder &amp; Jugendliche</div></div>
+      <p>Für Kinder und Jugendliche, die selbst überfordert sind, sich sorgen oder nicht wissen, mit wem sie sprechen sollen. Telefon, Chat und SMS sind rund um die Uhr erreichbar.</p>
+      <div class="stelle-contact"><a href="{{ site.tel.proJuventute.href }}">{{ site.tel.proJuventute.display }}</a> · <a href="{{ site.contacts.proJuventute.url }}">{{ site.contacts.proJuventute.urlLabel }}</a></div>
+    </div>
+
+    <div class="stelle-card">
+      <div class="stelle-header"><h3>Opferhilfe Zürich · 24-h-Telefon</h3><div class="stelle-badge beratung">Gewalt / Bedrohung</div></div>
+      <p>Wenn Gewalt, Bedrohung oder Stalking im Raum stehen. Anonym, kostenlos und rund um die Uhr erreichbar — auch dann, wenn Sie erst einmal nur klären möchten, wie ernst die Lage ist.</p>
+      <div class="stelle-contact"><a href="{{ site.tel.opferhilfe24h.href }}">{{ site.tel.opferhilfe24h.display }}</a> · <a href="{{ site.contacts.opferhilfe24h.url }}">{{ site.contacts.opferhilfe24h.urlLabel }}</a></div>
+    </div>
+  </section>
+
+  <!-- ══════════ 3. AUSTAUSCH ══════════ -->
   <section class="hub-section reveal">
     <h2 id="austausch">Austausch mit anderen Angehörigen</h2>
     <p>Diese Angebote sind besonders hilfreich, wenn Sie nicht nur Information, sondern Resonanz und Erfahrung von anderen Angehörigen suchen — ohne dass alles von Grund auf erklärt werden muss.</p>
@@ -105,17 +129,23 @@ breadcrumbs:
     <div class="stelle-card">
       <div class="stelle-header"><h3>VASK Zürich</h3><div class="stelle-badge selbsthilfe">Selbsthilfe</div></div>
       <p>Verband Angehöriger psychisch Kranker. Selbsthilfe-Treffpunkte, Austausch mit Menschen in ähnlicher Situation.</p>
-      <div class="stelle-contact"><a href="{{ site.tel.vask.href }}">{{ site.tel.vask.display }}</a> · <a href="https://www.vaskzuerich.ch">vaskzuerich.ch</a></div>
+      <div class="stelle-contact"><a href="{{ site.tel.vask.href }}">{{ site.tel.vask.display }}</a> · <a href="{{ site.contacts.vask.url }}">{{ site.contacts.vask.urlLabel }}</a></div>
     </div>
 
     <div class="stelle-card">
       <div class="stelle-header"><h3>Selbsthilfe Zürich</h3><div class="stelle-badge selbsthilfe">Vermittlung</div></div>
       <p>Vermittlung von Selbsthilfegruppen in der Region Zürich, darunter auch eine bipolar-spezifische Angehörigengruppe.</p>
-      <div class="stelle-contact"><a href="{{ site.tel.selbsthilfe.href }}">{{ site.tel.selbsthilfe.display }}</a> · <a href="https://www.selbsthilfezuerich.ch">selbsthilfezuerich.ch</a></div>
+      <div class="stelle-contact"><a href="{{ site.tel.selbsthilfe.href }}">{{ site.tel.selbsthilfe.display }}</a> · <a href="{{ site.contacts.selbsthilfe.url }}">{{ site.contacts.selbsthilfe.urlLabel }}</a></div>
+    </div>
+
+    <div class="stelle-card">
+      <div class="stelle-header"><h3>Schweizweite Alternativen</h3><div class="stelle-badge selbsthilfe">Schweiz</div></div>
+      <p>Wenn keine Gruppe in Zürich passt oder Sie ausserhalb der Region suchen: Selbsthilfe Schweiz vermittelt regional weiter, und EQUILIBRIUM bietet Austausch- und Informationsangebote zu Depression und bipolaren Erkrankungen, auch für Angehörige.</p>
+      <div class="stelle-contact"><a href="{{ site.contacts.selbsthilfeSchweiz.href }}">{{ site.contacts.selbsthilfeSchweiz.display }}</a> · <a href="{{ site.contacts.selbsthilfeSchweiz.url }}">{{ site.contacts.selbsthilfeSchweiz.urlLabel }}</a> · <a href="{{ site.contacts.equilibrium.href }}">{{ site.contacts.equilibrium.display }}</a> · <a href="{{ site.contacts.equilibrium.url }}">{{ site.contacts.equilibrium.urlLabel }}</a></div>
     </div>
   </section>
 
-  <!-- ══════════ 3. RECHT & SYSTEM ══════════ -->
+  <!-- ══════════ 4. RECHT & SYSTEM ══════════ -->
   <section class="hub-section reveal">
     <h2 id="recht">Recht, Ombudsstellen und Systemfragen</h2>
     <p>Diese Angebote sind besonders sinnvoll, wenn Versicherung, Finanzierung, Beschwerdewege oder andere Systemfragen blockieren. Diese Themen werden selten leichter, wenn man sie lange liegen lässt.</p>
@@ -123,10 +153,10 @@ breadcrumbs:
     <div class="stelle-card">
       <div class="stelle-header"><h3>Ombudsstelle Krankenversicherung</h3><div class="stelle-badge beratung">Recht</div></div>
       <p>Bei Leistungsstreitigkeiten mit der Krankenkasse. Kostenlos und unabhängig.</p>
-      <div class="stelle-contact"><a href="https://om-kv.ch">om-kv.ch</a></div>
+      <div class="stelle-contact"><a href="{{ site.contacts.ombudsstelleKrankenversicherung.url }}">{{ site.contacts.ombudsstelleKrankenversicherung.urlLabel }}</a> · <a href="{{ site.contacts.ombudsstelleKrankenversicherung.href }}">{{ site.contacts.ombudsstelleKrankenversicherung.display }}</a></div>
     </div>
 
-    <p class="reveal link-teal-bold" style="font-size:var(--text-base);margin-top:var(--space-md)">Notfallnummern (143, 144, 117, Ärztefon – Notfalldienst Zürich) finden Sie auf der <a href="/notfall/" class="link-alert">Notfallseite →</a></p>
+    <p class="reveal link-teal-bold" style="font-size:var(--text-base);margin-top:var(--space-md)">Notfallnummern (143, 144, 117, 147, Opferhilfe 24 h, Ärztefon – Notfalldienst Zürich) finden Sie auf der <a href="/notfall/" class="link-alert">Notfallseite →</a></p>
 
     <details id="system" class="hub-details reveal">
       <summary>
@@ -151,8 +181,8 @@ breadcrumbs:
           <h3>Was Sie konkret tun können — wenn das System blockiert</h3>
           <ul>
             <li><strong>Schriftlich dokumentieren:</strong> Datum, Aussage, Kontaktperson festhalten — bei Beschwerden entscheidend.</li>
-            <li><strong>Pro Mente Sana kontaktieren:</strong> Gute erste Anlaufstelle für psychosoziale und juristische Einordnung. <a href="https://www.promentesana.ch" target="_blank" rel="noopener" class="link-teal">promentesana.ch</a></li>
-            <li><strong>Ombudsstelle Krankenversicherung:</strong> Besonders passend bei Leistungsstreitigkeiten oder abgelehnten Kostengutsprachen. <a href="https://om-kv.ch" target="_blank" rel="noopener" class="link-teal">om-kv.ch</a></li>
+            <li><strong>Pro Mente Sana kontaktieren:</strong> Gute erste Anlaufstelle für psychosoziale und juristische Einordnung. <a href="{{ site.contacts.proMenteSana.url }}" target="_blank" rel="noopener" class="link-teal">{{ site.contacts.proMenteSana.urlLabel }}</a></li>
+            <li><strong>Ombudsstelle Krankenversicherung:</strong> Besonders passend bei Leistungsstreitigkeiten oder abgelehnten Kostengutsprachen. <a href="{{ site.contacts.ombudsstelleKrankenversicherung.url }}" target="_blank" rel="noopener" class="link-teal">{{ site.contacts.ombudsstelleKrankenversicherung.urlLabel }}</a></li>
             <li><strong>Rückmeldung an Klinik oder Trägerschaft:</strong> Formelle Beschwerde über den internen Beschwerdeweg — oft wirksamer als erwartet.</li>
           </ul>
         </div>
@@ -453,7 +483,7 @@ breadcrumbs:
 {% endblock %}
 {% block scripts %}
 <script>
-  const MATERIAL_FINDER={akut:[{kicker:'Jetzt zuerst',title:'Notfallseite öffnen',text:'Wenn Gefahr oder starke Unsicherheit im Raum stehen, ist die Triage wichtiger als die ganze Materialsammlung.',href:'/notfall/',label:'Zum Notfallweg →'},{kicker:'PDF',title:'{{ pdfs.downloads.notfallkarte.title }}',text:'Alle wichtigen Nummern mit kurzer Einordnung, wann welche Stelle sinnvoll ist.',href:'{{ pdfs.downloads.notfallkarte.url }}',label:'Notfallkarte direkt herunterladen →'},{kicker:'Danach',title:'Krisenplan bereithalten',text:'Wenn schon einer existiert, jetzt hervornehmen. Wenn nicht, später in ruhiger Phase vorbereiten.',href:'/modul/6/',label:'Zu Modul 6 →'}],plan:[{kicker:'PDF',title:'{{ pdfs.downloads.krisenplanVorlage.title }}',text:'Die wichtigste Unterlage, wenn Sie Frühwarnzeichen, Kontakte und Klinikwünsche vorab ordnen möchten.',href:'{{ pdfs.downloads.krisenplanVorlage.url }}',label:'Krisenplan direkt herunterladen →'},{kicker:'Werkzeug',title:'Krisenplan-Werkzeug',text:'Wenn Sie den Plan lieber direkt am Bildschirm vorbereiten und danach drucken möchten.',href:'/tools/krisenplan/',label:'Werkzeug öffnen →'},{kicker:'Vertiefung',title:'Modul 6: konkrete Schritte',text:'Für Gespräche, Grenzen, Krisenplan und Vorbereitung in stabilen Phasen.',href:'/modul/6/',label:'Zu Modul 6 →'}],ersch:[{kicker:'Archiv-Handout',title:'{{ pdfs.handouts.a4_ambiguous_loss.title }}',text:'Hilft, schleichende Erschöpfung, Trauer und Selbstverlust besser zu verstehen. Dieses Blatt gehört noch zum älteren PDF-Bestand.',href:'{{ pdfs.handouts.a4_ambiguous_loss.url }}',label:'Handout-Vorschau öffnen →'},{kicker:'PDF',title:'{{ pdfs.downloads.kurzblattStabilisiert.title }}',text:'Ein kompaktes Blatt für Alltag, Selbstfürsorge und kleine entlastende Schritte.',href:'{{ pdfs.downloads.kurzblattStabilisiert.url }}',label:'Kurzblatt direkt herunterladen →'},{kicker:'Kontakt',title:'Selbsthilfe oder Angehörigenberatung',text:'Wenn Information allein nicht mehr reicht, ist Resonanz oft der entlastendere nächste Schritt.',href:'#beratung',label:'Zu den Anlaufstellen →'}],recht:[{kicker:'Kontakt',title:'Pro Mente Sana',text:'Psychosoziale und juristische Beratung zu FU, Vorsorgeauftrag, Patientenverfügung und Konflikten mit Institutionen.',href:'https://www.promentesana.ch',label:'Pro Mente Sana öffnen →'},{kicker:'Kontakt',title:'Ombudsstelle Krankenversicherung',text:'Wenn Leistungsstreitigkeiten oder abgelehnte Kostengutsprachen blockieren.',href:'https://om-kv.ch',label:'Ombudsstelle öffnen →'},{kicker:'Orientierung',title:'Systemblockaden einordnen',text:'Wenn das Versorgungssystem zusätzlich belastet, hilft oft zuerst die Klärung der Beschwerde- und Beratungswege.',href:'#system',label:'Zum System-Abschnitt →'}]};
+  const MATERIAL_FINDER={akut:[{kicker:'Jetzt zuerst',title:'Notfallseite öffnen',text:'Wenn Gefahr oder starke Unsicherheit im Raum stehen, ist die Triage wichtiger als die ganze Materialsammlung.',href:'/notfall/',label:'Zum Notfallweg →'},{kicker:'PDF',title:'{{ pdfs.downloads.notfallkarte.title }}',text:'Alle wichtigen Nummern mit kurzer Einordnung, wann welche Stelle sinnvoll ist.',href:'{{ pdfs.downloads.notfallkarte.url }}',label:'Notfallkarte direkt herunterladen →'},{kicker:'Danach',title:'Krisenplan bereithalten',text:'Wenn schon einer existiert, jetzt hervornehmen. Wenn nicht, später in ruhiger Phase vorbereiten.',href:'/modul/6/',label:'Zu Modul 6 →'}],plan:[{kicker:'PDF',title:'{{ pdfs.downloads.krisenplanVorlage.title }}',text:'Die wichtigste Unterlage, wenn Sie Frühwarnzeichen, Kontakte und Klinikwünsche vorab ordnen möchten.',href:'{{ pdfs.downloads.krisenplanVorlage.url }}',label:'Krisenplan direkt herunterladen →'},{kicker:'Werkzeug',title:'Krisenplan-Werkzeug',text:'Wenn Sie den Plan lieber direkt am Bildschirm vorbereiten und danach drucken möchten.',href:'/tools/krisenplan/',label:'Werkzeug öffnen →'},{kicker:'Vertiefung',title:'Modul 6: konkrete Schritte',text:'Für Gespräche, Grenzen, Krisenplan und Vorbereitung in stabilen Phasen.',href:'/modul/6/',label:'Zu Modul 6 →'}],ersch:[{kicker:'Archiv-Handout',title:'{{ pdfs.handouts.a4_ambiguous_loss.title }}',text:'Hilft, schleichende Erschöpfung, Trauer und Selbstverlust besser zu verstehen. Dieses Blatt gehört noch zum älteren PDF-Bestand.',href:'{{ pdfs.handouts.a4_ambiguous_loss.url }}',label:'Handout-Vorschau öffnen →'},{kicker:'PDF',title:'{{ pdfs.downloads.kurzblattStabilisiert.title }}',text:'Ein kompaktes Blatt für Alltag, Selbstfürsorge und kleine entlastende Schritte.',href:'{{ pdfs.downloads.kurzblattStabilisiert.url }}',label:'Kurzblatt direkt herunterladen →'},{kicker:'Kontakt',title:'Selbsthilfe oder Angehörigenberatung',text:'Wenn Information allein nicht mehr reicht, ist Resonanz oft der entlastendere nächste Schritt.',href:'#beratung',label:'Zu den Anlaufstellen →'}],recht:[{kicker:'Kontakt',title:'Pro Mente Sana',text:'Psychosoziale und juristische Beratung zu FU, Vorsorgeauftrag, Patientenverfügung und Konflikten mit Institutionen.',href:'{{ site.contacts.proMenteSana.url }}',label:'Pro Mente Sana öffnen →'},{kicker:'Kontakt',title:'Ombudsstelle Krankenversicherung',text:'Wenn Leistungsstreitigkeiten oder abgelehnte Kostengutsprachen blockieren.',href:'{{ site.contacts.ombudsstelleKrankenversicherung.url }}',label:'Ombudsstelle öffnen →'},{kicker:'Orientierung',title:'Systemblockaden einordnen',text:'Wenn das Versorgungssystem zusätzlich belastet, hilft oft zuerst die Klärung der Beschwerde- und Beratungswege.',href:'#system',label:'Zum System-Abschnitt →'}]};
   const materialFinderButtons=document.querySelectorAll('[data-material-finder]');
   const materialFinderResults=document.getElementById('materialFinderResults');
   const renderMaterialFinder=(key)=>{const items=MATERIAL_FINDER[key];if(!items||!materialFinderResults)return;materialFinderButtons.forEach(btn=>{const isActive=btn.dataset.materialFinder===key;btn.classList.toggle('is-active',isActive);btn.setAttribute('aria-pressed',isActive?'true':'false');});materialFinderResults.innerHTML=items.map(item=>`<div class="finder-card"><div class="finder-card-kicker">${item.kicker}</div><h4>${item.title}</h4><p>${item.text}</p><a href="${item.href}"${item.href.startsWith('http')?' target="_blank" rel="noopener"':''}${item.href.startsWith('/downloads/')?' download':''}>${item.label}</a></div>`).join('');materialFinderResults.hidden=false;materialFinderResults.querySelectorAll('a[href$=".pdf"]').forEach(setupPdfPreviewLink);};

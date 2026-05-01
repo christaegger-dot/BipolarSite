@@ -10,7 +10,7 @@ audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Angehörigen eine klare und legitime Rolle in der Zusammenarbeit mit Betroffenen und Fachpersonen aufzeigen"
 target_format: "A4, 1 Seite"
 priority: "P1"
-last_updated: "2026-04-20"
+last_updated: "2026-04-30"
 emergency_label: "Wenn Sie im System nicht gehört werden"
 emergency_callout: "Sie dürfen Beobachtungen, Warnzeichen und Ihre Belastung benennen. Ein Angehörigengespräch ist ein legitimes Anliegen und kein Stören der Behandlung."
 emergency_note: "Zusammenarbeit wird oft realistischer, wenn Betroffene, Angehörige und Fachpersonen je ihren eigenen Beitrag einbringen."
@@ -70,6 +70,8 @@ Keine dieser Perspektiven ersetzt die andere. Gerade zusammen werden sie oft hil
 - Hinweise, was in früheren Krisen geholfen hat
 - offene Fragen an das Behandlungsteam
 
+Sie dürfen dem Behandlungsteam Beobachtungen jederzeit mitteilen, auch wenn es Ihnen ohne Einwilligung nicht alles zurückmelden darf.
+
 Wichtig ist, **konkret und zeitgebunden** zu sprechen. Das hilft mehr als allgemeine Sätze wie „Es ist einfach schlimm“.
 
 ## Was Sie für ein Angehörigengespräch vorbereiten können
@@ -92,6 +94,7 @@ Beispiele für zentrale Fragen:
 - die eigene Belastung nicht kleinreden
 - ansprechen, was im Notfall bereits funktioniert hat
 - Rückfragen stellen, wenn Begriffe oder Schritte unklar bleiben
+- eine Hauptfrage wählen, damit das Gespräch nicht zerfasert
 
 Ein hilfreicher Satz kann sein:
 **„Ich möchte meine Beobachtungen geordnet einbringen, damit die Zusammenarbeit realistischer wird.“**

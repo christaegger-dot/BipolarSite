@@ -10,7 +10,7 @@ audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Angehörige entlasten, indem depressive oder ängstliche Mitbelastung als verständliche Folge chronischer Überforderung eingeordnet und frühe Hilfe legitimiert wird"
 target_format: "A4, 1 Seite"
 priority: "P1"
-last_updated: "2026-04-20"
+last_updated: "2026-04-30"
 emergency_label: "Wenn Sie selbst nicht mehr können"
 emergency_callout: "Wenn Sie kaum noch aufstehen, nichts mehr spüren, nur noch funktionieren oder Suizidgedanken gegen sich selbst auftauchen: holen Sie sofort Unterstützung und bleiben Sie damit nicht allein."
 emergency_note: "Eigene depressive Symptome sind kein Zeichen von Schwäche. Sie können eine Folge langer Überlastung, Angst und Einsamkeit sein."
@@ -37,9 +37,9 @@ emergency_contacts:
 
 ## Worum es hier geht
 
-Viele Angehörige tragen Belastung so lange mit, bis sie merken, dass nicht nur die Situation schwer ist, sondern **sie selbst innerlich immer weniger werden**. Erschöpfung, Leere, Rückzug, Reizbarkeit oder Hoffnungslosigkeit können Zeichen sein, dass die dauernde Belastung nicht mehr nur Kraft kostet, sondern die eigene psychische Gesundheit angreift.
+Viele Angehörige tragen Belastung so lange mit, bis sie merken, dass nicht nur die Situation schwer ist, sondern **sie selbst innerlich immer weniger werden**. Erschöpfung, Leere, Rückzug, Reizbarkeit oder Hoffnungslosigkeit können Zeichen sein, dass die dauernde Belastung nicht mehr nur Kraft kostet, sondern die eigene psychische Gesundheit angreift. Eigene depressive oder ängstliche Symptome sind in dieser Lage nicht ungewöhnlich.
 
-Dieses Blatt soll nicht vorschnell alles als Depression bezeichnen. Es soll helfen zu erkennen, wann aus verständlicher Überforderung etwas geworden sein könnte, das selbst Unterstützung braucht.
+Dieses Blatt soll nicht vorschnell alles als Depression bezeichnen. Es soll helfen zu erkennen, wann aus verständlicher Überforderung etwas geworden sein könnte, das selbst Unterstützung braucht. Die Belastung verursacht solche Symptome oft mit — nicht umgekehrt.
 
 ## Woran Sie merken können, dass Ihre eigene Belastung kippt
 
@@ -82,6 +82,7 @@ Diese Übergänge sind nicht immer scharf. Gerade deshalb ist frühe Unterstütz
 - eine Hausärztin, Fachperson oder Beratungsstelle früh einbeziehen
 - Schlaf, Rückzug, Hoffnungslosigkeit und innere Leere bewusst beobachten
 - sich fragen, ob Ihre Kraft in den letzten Wochen spürbar kleiner geworden ist
+- Arbeitsfähigkeit und Alltag mitbesprechen: eine Krankschreibung wegen eigener Erschöpfung ist möglich und legitim
 
 Ein hilfreicher Satz kann sein:
 **„Auch meine Gesundheit darf jetzt wichtig werden.“**
@@ -96,7 +97,7 @@ Ein hilfreicher Satz kann sein:
 
 ## Warum frühe Hilfe so wichtig ist
 
-Angehörige geraten oft in eine Logik, in der sie die eigene Belastung immer nach hinten stellen. Genau das erhöht das Risiko, dass aus chronischer Anspannung eine eigene psychische Erkrankung wird. Früh Hilfe zu holen ist deshalb kein Rückzug aus Verantwortung, sondern eine Form von Schutz und Prävention.
+Angehörige geraten oft in eine Logik, in der sie die eigene Belastung immer nach hinten stellen. Genau das erhöht das Risiko, dass aus chronischer Anspannung eine eigene psychische Erkrankung wird. Früh Hilfe zu holen ist deshalb kein Rückzug aus Verantwortung, sondern eine Form von Schutz und Prävention. Entlastung ist hier nicht Selbstsucht, sondern Gesundheitsprophylaxe.
 
 ## Nächster sinnvoller Schritt
 
