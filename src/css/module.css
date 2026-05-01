@@ -1871,7 +1871,7 @@ body.pdf-preview-open{overflow:hidden}
 .hub-hero{padding:calc(var(--nav-height) + var(--space-2xl)) 2rem var(--space-xl);background:var(--surface-alt);border-bottom:1px solid var(--border-warm)}
 .hub-hero-inner{max-width:var(--content-width);margin:0 auto}
 .hub-hero .breadcrumb{font-size:var(--text-xs);color:var(--text-soft);margin-bottom:var(--space-md);display:flex;align-items:center;gap:var(--space-sm)}
-.hub-hero .breadcrumb a{color:var(--navy);text-decoration:none}
+.hub-hero .breadcrumb a{color:var(--slate);text-decoration:none}
 .hub-hero .breadcrumb a:hover{text-decoration:underline}
 .hub-hero .breadcrumb .sep{color:var(--text-soft)}
 .hub-hero h1{font-family:'DM Serif Display',serif;font-size:var(--text-3xl);font-weight:400;line-height:1.15;letter-spacing:-0.03em;color:var(--navy);margin:var(--space-md) 0 var(--space-md)}
