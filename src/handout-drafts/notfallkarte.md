@@ -40,7 +40,7 @@ Wenn Kinder dabei sind: zuerst in Sicherheit bringen.
 
 - **143** Dargebotene Hand - wenn Sie selbst sofort mit jemandem sprechen müssen
 - **147** Pro Juventute - für Kinder und Jugendliche
-- **044 455 21 42** Opferhilfe Zürich 24 h - bei Gewalt, Bedrohung oder Stalking
+- **142** Opferhilfe Zürich 24 h - bei Gewalt, Bedrohung oder Stalking
 
 ## Kurzregel
 
