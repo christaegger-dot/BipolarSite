@@ -34,12 +34,6 @@
   [headers.values]
     Cache-Control = "public, max-age=604800, must-revalidate"
 
-# Service worker must never be cached — browser needs to fetch the latest on every check
-[[headers]]
-  for = "/sw.js"
-  [headers.values]
-    Cache-Control = "no-cache"
-
 # Short-lived cache for HTML pages (re-check after 5 minutes)
 [[headers]]
   for = "/"
@@ -62,6 +56,31 @@
     Cache-Control = "public, max-age=300, must-revalidate"
 
 [[headers]]
+  for = "/module/*"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
+
+[[headers]]
+  for = "/werkzeuge/*"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
+
+[[headers]]
+  for = "/notfall/*"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
+
+[[headers]]
+  for = "/quellen/*"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
+
+[[headers]]
+  for = "/impressum/*"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
+
+[[headers]]
   for = "/*.png"
   [headers.values]
     Cache-Control = "public, max-age=604800, must-revalidate"
@@ -74,6 +93,11 @@
 # Downloadable PDFs — cache for 7 days
 [[headers]]
   for = "/handouts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/downloads/*"
   [headers.values]
     Cache-Control = "public, max-age=604800"
 
