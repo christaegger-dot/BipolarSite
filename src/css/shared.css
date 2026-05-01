@@ -2376,3 +2376,455 @@ body.impressum-page .info-box strong {
   border-radius: var(--radius-round);
   margin-bottom: var(--space-sm);
 }
+
+/* ══════════════════════════════════════════════════════════
+   VISUAL POLISH PASS — Home + Werkzeuge
+   More hierarchy, calmer atmospheres, clearer card families.
+   Scoped to the requested surfaces to avoid cross-site drift.
+   ══════════════════════════════════════════════════════════ */
+
+.home-page .home-hero {
+  padding-bottom: 56px;
+  background:
+    linear-gradient(180deg, var(--surface-hero-warm) 0%, var(--surface-teal-mist) 44%, var(--surface-alt) 100%);
+}
+
+.home-page .home-hero::before {
+  background:
+    radial-gradient(ellipse 72% 58% at 12% 100%, rgba(168,213,203,0.24) 0%, transparent 72%),
+    radial-gradient(ellipse 38% 44% at 88% 16%, rgba(175,115,110,0.14) 0%, transparent 62%),
+    linear-gradient(135deg, rgba(255,255,255,0.38) 0%, rgba(255,255,255,0) 52%);
+}
+
+.home-page .home-hero::after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: clamp(1.5rem, 5vw, 5rem);
+  top: calc(var(--nav-height) + 1.5rem);
+  width: 230px;
+  height: 230px;
+  border-radius: 34px;
+  border: 1px solid rgba(45,40,35,0.09);
+  background: linear-gradient(180deg, rgba(255,255,255,0.3), rgba(255,255,255,0));
+  transform: rotate(13deg);
+  opacity: 0.62;
+  pointer-events: none;
+}
+
+.home-page .home-hero-subtitle {
+  max-width: 54ch;
+  line-height: 1.62;
+}
+
+.home-page .home-hero-visual {
+  border: 1px solid rgba(45,40,35,0.08);
+  background: rgba(255,255,255,0.72);
+  box-shadow: var(--shadow-atmosphere);
+}
+
+.home-page .home-hero-paths {
+  width: 100%;
+  max-width: none;
+  margin-top: var(--space-2xl);
+  padding: 22px clamp(1rem, 2vw, 1.5rem);
+  border: 1px solid rgba(45,40,35,0.08);
+  border-radius: calc(var(--card-radius) + 10px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.86), rgba(255,255,255,0.72));
+  box-shadow: var(--shadow-soft);
+}
+
+.home-page .home-hero-paths-lead {
+  max-width: 72ch;
+  line-height: 1.62;
+  margin-bottom: var(--space-base);
+}
+
+.home-page .entry-path-link {
+  position: relative;
+  overflow: hidden;
+  align-items: flex-start;
+  padding: 16px 18px 16px 22px;
+  border-color: rgba(45,40,35,0.08);
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(244,241,236,0.82));
+  box-shadow: 0 1px 0 rgba(45,40,35,0.03);
+}
+
+.home-page .entry-path-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--teal-cta);
+}
+
+.home-page .entry-path-link:hover {
+  background: #ffffff;
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-2px);
+}
+
+.home-page .entry-path-label {
+  max-width: 30ch;
+}
+
+.home-page .entry-path-link--crisis {
+  background: linear-gradient(180deg, rgba(254,242,242,0.92), rgba(255,255,255,0.98));
+}
+
+.home-page .entry-path-link--crisis::before {
+  background: var(--alert);
+}
+
+.home-page .entry-path-link--crisis:hover {
+  background: var(--alert-soft);
+  border-color: rgba(185,28,28,0.22);
+  color: var(--alert);
+}
+
+.home-page .tools-highlight {
+  margin-top: calc(var(--section-standard) + 8px);
+  padding: calc(var(--section-standard) - 8px) clamp(1.4rem, 2.3vw, 2rem) calc(var(--section-standard) - 6px);
+  border: 1px solid rgba(45,40,35,0.08);
+  border-radius: calc(var(--card-radius) + 14px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.92), var(--surface-ink-mist) 100%);
+  box-shadow: var(--shadow-soft);
+}
+
+.home-page .hero-tool-card {
+  --tone-band: var(--teal-cta);
+  --tone-surface: linear-gradient(180deg, var(--surface-teal-mist) 0%, rgba(255,255,255,0.98) 30%, #ffffff 100%);
+  --tone-kicker-bg: var(--teal-subtle);
+  --tone-kicker-text: var(--teal-text);
+  position: relative;
+  overflow: hidden;
+  padding-top: calc(var(--card-padding) + 8px);
+  border-width: 1px;
+  border-color: rgba(45,40,35,0.08);
+  background: var(--tone-surface);
+  box-shadow: var(--shadow-soft);
+  transition: box-shadow 0.2s ease, transform 0.15s ease, border-color 0.2s ease;
+}
+
+.home-page .hero-tool-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 4px;
+  background: var(--tone-band);
+}
+
+.home-page .hero-tool-card:hover {
+  border-color: rgba(45,40,35,0.12);
+  box-shadow: var(--shadow-atmosphere);
+  transform: translateY(-2px);
+}
+
+.home-page .hero-tool-card[data-tone="sand"] {
+  --tone-band: var(--amber);
+  --tone-surface: linear-gradient(180deg, var(--surface-sand-mist) 0%, rgba(255,255,255,0.98) 30%, #ffffff 100%);
+  --tone-kicker-bg: rgba(244,208,120,0.28);
+  --tone-kicker-text: #8f5612;
+}
+
+.home-page .hero-tool-card[data-tone="blue"] {
+  --tone-band: var(--blue-phase);
+  --tone-surface: linear-gradient(180deg, var(--blue-phase-light) 0%, rgba(255,255,255,0.98) 30%, #ffffff 100%);
+  --tone-kicker-bg: rgba(74,111,149,0.12);
+  --tone-kicker-text: var(--blue-phase);
+}
+
+.home-page .hero-tool-badge {
+  color: var(--tone-kicker-text);
+  background: var(--tone-kicker-bg);
+}
+
+.home-page .hero-tool-card p {
+  line-height: 1.62;
+}
+
+.werkzeuge-page .overview-hero {
+  padding-bottom: calc(var(--section-tight) - 6px);
+  background:
+    linear-gradient(180deg, var(--surface-hero-warm) 0%, var(--surface-teal-mist) 48%, var(--bg) 100%);
+  border-bottom: 1px solid rgba(45,40,35,0.05);
+}
+
+.werkzeuge-page .overview-hero::before {
+  top: auto;
+  right: -6%;
+  bottom: -32%;
+  width: 48%;
+  height: 92%;
+  background: radial-gradient(circle, rgba(168,213,203,0.8) 0%, rgba(168,213,203,0.22) 46%, transparent 72%);
+  filter: none;
+  opacity: 1;
+}
+
+.werkzeuge-page .overview-hero::after {
+  content: '';
+  display: block;
+  top: calc(var(--nav-height) + 1rem);
+  right: clamp(1.5rem, 5vw, 5rem);
+  width: 220px;
+  height: 220px;
+  border: 1px solid rgba(45,40,35,0.09);
+  background: linear-gradient(180deg, rgba(255,255,255,0.28), rgba(255,255,255,0));
+  transform: rotate(14deg);
+  opacity: 0.58;
+}
+
+.werkzeuge-page .overview-lead {
+  max-width: 58ch;
+  line-height: 1.62;
+}
+
+.werkzeuge-page .werkzeuge-hero-visual {
+  border: 1px solid rgba(45,40,35,0.08);
+  background: rgba(255,255,255,0.76);
+  box-shadow: var(--shadow-atmosphere);
+}
+
+.werkzeuge-page .tool-guide {
+  margin-bottom: calc(var(--section-standard) - 10px);
+  padding: clamp(1.2rem, 2vw, 1.6rem);
+  border: 1px solid rgba(45,40,35,0.08);
+  border-radius: calc(var(--card-radius) + 12px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.92), var(--surface-hero-warm) 100%);
+  box-shadow: var(--shadow-soft);
+}
+
+.werkzeuge-page .tool-guide h2 {
+  margin-bottom: 10px;
+}
+
+.werkzeuge-page .tool-guide p {
+  max-width: 62ch;
+  line-height: 1.62;
+}
+
+.werkzeuge-page .tool-guide-item {
+  --tone-line: var(--teal-cta);
+  --tone-surface: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(238,245,242,0.88));
+  position: relative;
+  overflow: hidden;
+  padding-left: 22px;
+  border-color: rgba(45,40,35,0.08);
+  background: var(--tone-surface);
+  box-shadow: 0 1px 0 rgba(45,40,35,0.03);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+.werkzeuge-page .tool-guide-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--tone-line);
+}
+
+.werkzeuge-page .tool-guide-item:hover {
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-1px);
+}
+
+.werkzeuge-page .tool-guide-item[data-tone="sand"] {
+  --tone-line: var(--amber);
+  --tone-surface: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(246,240,231,0.9));
+}
+
+.werkzeuge-page .tool-guide-item[data-tone="rose"] {
+  --tone-line: #a45a55;
+  --tone-surface: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(251,242,240,0.9));
+}
+
+.werkzeuge-page .tool-guide-item[data-tone="blue"] {
+  --tone-line: var(--blue-phase);
+  --tone-surface: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(238,243,248,0.96));
+}
+
+.werkzeuge-page .tool-guide-item[data-tone="green"] {
+  --tone-line: var(--phase-green);
+  --tone-surface: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(168,213,203,0.18));
+}
+
+.werkzeuge-page .tool-guide-item--alert {
+  --tone-line: var(--alert);
+  --tone-surface: linear-gradient(180deg, rgba(254,242,242,0.98), rgba(255,255,255,0.98));
+  border-color: var(--alert-red-border);
+  box-shadow: none;
+}
+
+.werkzeuge-page .tool-guide-item--alert::before {
+  background: var(--alert);
+}
+
+.werkzeuge-page .tool-details {
+  margin-top: var(--space-lg);
+  padding-top: 6px;
+  border-top: 1px solid rgba(45,40,35,0.08);
+}
+
+.werkzeuge-page .tool-details-summary {
+  width: fit-content;
+  padding: 12px 16px;
+  border: 1px solid rgba(45,40,35,0.08);
+  border-radius: var(--radius-round);
+  background: rgba(255,255,255,0.88);
+  box-shadow: var(--shadow-soft);
+}
+
+.werkzeuge-page .tool-details[open] .tool-details-summary {
+  background: var(--surface-alt);
+}
+
+.werkzeuge-page .tool-details .tool-grid {
+  margin-top: var(--space-lg);
+}
+
+.werkzeuge-page .tool-card {
+  --tone-band: var(--teal-cta);
+  --tone-surface: rgba(238,245,242,0.62);
+  --tone-kicker-bg: var(--teal-subtle);
+  --tone-kicker-text: var(--teal-text);
+  position: relative;
+  overflow: hidden;
+  padding-top: calc(var(--card-padding) + 10px);
+  border-color: rgba(45,40,35,0.08);
+  background: linear-gradient(180deg, rgba(255,255,255,0.99) 0%, var(--tone-surface) 18%, #ffffff 76%);
+  box-shadow: var(--shadow-soft);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+.werkzeuge-page .tool-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 5px;
+  background: var(--tone-band);
+}
+
+.werkzeuge-page .tool-card:hover {
+  border-color: rgba(45,40,35,0.12);
+  box-shadow: var(--shadow-atmosphere);
+  transform: translateY(-2px);
+}
+
+.werkzeuge-page .tool-card[data-tone="blue"] {
+  --tone-band: var(--blue-phase);
+  --tone-surface: rgba(238,243,248,0.86);
+  --tone-kicker-bg: rgba(74,111,149,0.12);
+  --tone-kicker-text: var(--blue-phase);
+}
+
+.werkzeuge-page .tool-card[data-tone="ink"] {
+  --tone-band: var(--navy-mid);
+  --tone-surface: rgba(241,238,234,0.92);
+  --tone-kicker-bg: rgba(86,102,122,0.12);
+  --tone-kicker-text: var(--navy-mid);
+}
+
+.werkzeuge-page .tool-card[data-tone="sand"] {
+  --tone-band: var(--amber);
+  --tone-surface: rgba(246,240,231,0.88);
+  --tone-kicker-bg: rgba(244,208,120,0.28);
+  --tone-kicker-text: #8f5612;
+}
+
+.werkzeuge-page .tool-card[data-tone="rose"] {
+  --tone-band: #a45a55;
+  --tone-surface: rgba(251,242,240,0.92);
+  --tone-kicker-bg: rgba(175,115,110,0.16);
+  --tone-kicker-text: #8f4d48;
+}
+
+.werkzeuge-page .tool-card[data-tone="green"] {
+  --tone-band: var(--phase-green);
+  --tone-surface: rgba(168,213,203,0.18);
+  --tone-kicker-bg: rgba(168,213,203,0.28);
+  --tone-kicker-text: var(--phase-green);
+}
+
+.werkzeuge-page .tool-card[data-tone="amber"] {
+  --tone-band: var(--amber);
+  --tone-surface: rgba(254,243,226,0.92);
+  --tone-kicker-bg: rgba(251,191,36,0.2);
+  --tone-kicker-text: #8f5612;
+}
+
+.werkzeuge-page .tool-card[data-tone="warm"] {
+  --tone-band: var(--navy);
+  --tone-surface: rgba(247,242,235,0.92);
+  --tone-kicker-bg: rgba(45,40,35,0.08);
+  --tone-kicker-text: var(--navy);
+}
+
+.werkzeuge-page .tool-card-kicker {
+  color: var(--tone-kicker-text);
+  background: var(--tone-kicker-bg);
+}
+
+.werkzeuge-page .tool-card p,
+.werkzeuge-page .overview-footer-note {
+  line-height: 1.62;
+}
+
+@media (max-width: 900px) {
+  .home-page .home-hero::after,
+  .werkzeuge-page .overview-hero::after {
+    display: none;
+  }
+
+  .home-page .home-hero-paths,
+  .home-page .tools-highlight,
+  .werkzeuge-page .tool-guide {
+    border-radius: calc(var(--card-radius) + 8px);
+  }
+}
+
+@media (max-width: 600px) {
+  .home-page .home-hero {
+    padding-bottom: 44px;
+  }
+
+  .home-page .home-hero-paths {
+    margin-top: var(--space-xl);
+    padding: 18px 16px;
+  }
+
+  .home-page .entry-path-link {
+    padding: 15px 16px 15px 20px;
+  }
+
+  .home-page .tools-highlight,
+  .werkzeuge-page .tool-guide {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .werkzeuge-page .overview-hero {
+    padding-bottom: 24px;
+  }
+
+  .werkzeuge-page .tool-guide-item,
+  .werkzeuge-page .tool-card {
+    padding-left: 18px;
+  }
+
+  .werkzeuge-page .tool-card {
+    padding-top: 24px;
+  }
+
+  .werkzeuge-page .tool-details-summary {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

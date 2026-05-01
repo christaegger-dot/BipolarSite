@@ -90,6 +90,11 @@
   --bg:          #FAF8F5;
   --card:        #ffffff;
   --surface-alt: #F4F1EC;
+  --surface-hero-warm: #F7F2EB;
+  --surface-teal-mist: #EEF5F2;
+  --surface-rose-mist: #FBF2F0;
+  --surface-sand-mist: #F6F0E7;
+  --surface-ink-mist: #F1EEEA;
   --caregiver-col-bg: #f9f6f2;
 
 
@@ -256,6 +261,7 @@
   --shadow-soft:     0 4px 18px rgba(122,111,102,0.05);
   --shadow-card:     0 10px 28px rgba(122,111,102,0.06);
   --shadow-elevated: 0 16px 40px rgba(122,111,102,0.1);
+  --shadow-atmosphere: 0 24px 56px rgba(122,111,102,0.09);
   --shadow-nav:      0 1px 8px rgba(0,0,0,0.04);
 
 
