@@ -13,7 +13,6 @@ BipolarSite/
 │   ├── 404.njk                   # Fehlerseite
 │   ├── robots.njk                # robots.txt
 │   ├── sitemap.njk               # sitemap.xml
-│   ├── sw.js                     # Service Worker
 │   ├── _layouts/
 │   │   ├── base.njk              # Basis-Layout (alle Seiten)
 │   │   └── handout-draft.njk     # Layout für Handout-Vorschauen
@@ -128,9 +127,9 @@ Bei Änderungen an Layout, Navigation, Modulseiten, Tool-Seiten oder Notfallpfad
 
 Die Website wird automatisch über **Netlify** aus dem `main`-Branch deployt. Konfiguration: `netlify.toml`.
 
-- Build-Kommando: `npx eleventy`
+- Build-Kommando: `npm install && npx eleventy`
 - Publish-Verzeichnis: `_site`
-- Node-Version: 18
+- Node-Version: 22
 - Security-Header (CSP, X-Frame-Options, …)
 - Caching-Regeln für CSS, Fonts, HTML, PDFs
 

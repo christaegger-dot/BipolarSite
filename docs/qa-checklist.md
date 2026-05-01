@@ -79,7 +79,7 @@ Diese Checkliste ist ein zusätzliches Sicherheitsnetz, kein Ersatz für die tec
 |---|---|
 | `npm run build` | ja |
 | `npm run lint` | ja |
-| `npm run htmlvalidate` | ja |
+| `npm run lint:html` | ja |
 | GitHub-CI | ja |
 | frischer Browser-Kurztest | ja |
 
