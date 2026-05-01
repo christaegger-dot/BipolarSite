@@ -120,8 +120,15 @@ Die automatischen Prüfungen des Projekts werden durch kurze, reproduzierbare ma
 
 - `docs/qa-checklist.md` für den standardisierten Kurztest vor Merge
 - `docs/test-matrix.md` für priorisierte Geräte-, Browser- und Kernpfad-Abdeckung
+- `docs/release-audit.md` für den repo-nativen Release-Audit und seine Befehle
 
 Bei Änderungen an Layout, Navigation, Modulseiten, Tool-Seiten oder Notfallpfaden soll vor dem Merge zusätzlich ein frischer Browser-Test durchgeführt werden. Ein Merge bei roter GitHub-CI ist ausgeschlossen.
+
+Für den gebündelten technischen Release-Check steht zusätzlich zur Verfügung:
+
+```bash
+npm run audit:release
+```
 
 ## Deployment
 
