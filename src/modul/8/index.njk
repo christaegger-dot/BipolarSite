@@ -301,6 +301,22 @@ breadcrumbs:
 
     <details class="hub-details">
       <summary>
+        <span class="hub-details-kicker">Weitere Downloads</span>
+        <span class="hub-details-title">Drei kurze Praxisblätter direkt herunterladen</span>
+        <span class="hub-details-intro">Wenn Sie lieber ein kompaktes Einzelblatt zu Warnsignalen, Krisenplan oder Grenzsetzung mitnehmen möchten.</span>
+      </summary>
+      <div class="hub-details-body">
+        <p>Diese drei PDFs sind schlanker als viele Archiv-Handouts und eignen sich gut, wenn Sie ein einzelnes Thema gezielt ausdrucken, speichern oder weitergeben möchten.</p>
+        <div style="display:grid;gap:var(--space-sm);margin-top:var(--space-md)">
+          {{ directDownloadButton(pdfs.downloads.warnsignale, 'Warnsignale direkt herunterladen') }}
+          {{ directDownloadButton(pdfs.downloads.krisenplanGuide, 'Krisenplan-Anleitung herunterladen') }}
+          {{ directDownloadButton(pdfs.downloads.grenzsetzungPraxis, 'Grenzsetzung direkt herunterladen') }}
+        </div>
+      </div>
+    </details>
+
+    <details class="hub-details">
+      <summary>
         <span class="hub-details-kicker">Optionales Archiv</span>
         <span class="hub-details-title">Das vollständige Handout-Archiv öffnen</span>
         <span class="hub-details-intro">Erst nötig, wenn die kuratierten Materialien oben nicht reichen. Viele dieser Blätter stammen noch aus einem älteren PDF-Bestand.</span>
