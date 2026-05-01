@@ -44,7 +44,7 @@ const downloads = {
   krisenplanVorlage: asset({
     key: "krisenplanVorlage",
     url: "/downloads/krisenplan-vorlage-bipolare-stoerung-puk-zuerich.pdf",
-    title: "Krisenplan-Vorlage",
+    title: "Krisenplan-Vorlage – Bipolare Störung",
     subtitle: "Vorlage zum Ausfüllen für stabile Phasen",
     assetId: "DL-02",
     version: "core_v01",
@@ -57,7 +57,7 @@ const downloads = {
   kurzblattStabilisiert: asset({
     key: "kurzblattStabilisiert",
     url: "/downloads/kurzblatt-was-stabilisiert-was-schadet-puk-zuerich.pdf",
-    title: "Was stabilisiert — was schadet",
+    title: "Was stabilisiert - was schadet",
     subtitle: "Kompaktes Blatt für Kommunikation, Selbstfürsorge und Grenzen",
     assetId: "DL-03",
     version: "core_v01",
@@ -84,7 +84,7 @@ const downloads = {
   psychoseWahn: asset({
     key: "psychoseWahn",
     url: "/downloads/umgang-mit-psychose-wahn-puk-zuerich.pdf",
-    title: "Umgang mit Psychose / Wahn",
+    title: "Psychose / Wahn",
     subtitle: "Was hilft, wenn Kontakt und Realität entgleiten",
     assetId: "DL-05",
     version: "core_v01",
@@ -136,7 +136,7 @@ const downloads = {
   krisenplanGuide: asset({
     key: "krisenplanGuide",
     url: "/downloads/krisenplan-erstellen-bipolare-stoerung-puk-zuerich.pdf",
-    title: "Krisenplan erstellen — Anleitung",
+    title: "Krisenplan erstellen",
     subtitle: "Gesprächsführung und Schritte zur Vorbereitung",
     assetId: "DL-09",
     version: "core_v01",
@@ -149,7 +149,7 @@ const downloads = {
   grenzsetzungPraxis: asset({
     key: "grenzsetzungPraxis",
     url: "/downloads/grenzsetzung-angehoerige-puk-zuerich.pdf",
-    title: "Grenzsetzung für Angehörige",
+    title: "Grenzsetzung",
     subtitle: "Praktische Strategien und Formulierungen",
     assetId: "DL-10",
     version: "core_v01",
@@ -206,8 +206,8 @@ const handouts = {
   a8_warnsignale: asset({
     key: "a8_warnsignale",
     url: "/handouts/a8_warnsignale.pdf",
-    title: "Warnsignale — Ampelsystem",
-    subtitle: "Frühwarnzeichen erkennen",
+    title: "Warnsignale früh erkennen",
+    subtitle: "Ampelsystem für Frühwarnzeichen",
     assetId: "HO-01",
     version: "web_v02",
     updated: "2026-04-30",
@@ -338,7 +338,7 @@ const handouts = {
     url: "/handouts/expressed_emotions.pdf",
     title: "Kritik, Überforderung, Teufelskreis",
     subtitle: "Wie Überlastung in Kritik, Rückzug und Kontrolle kippen kann",
-    assetId: "HO-06",
+    assetId: "HO-11",
     version: "web_v02",
     updated: "2026-04-30",
     filename: "expressed_emotions.pdf",
