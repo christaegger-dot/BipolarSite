@@ -83,8 +83,6 @@ module.exports = function (eleventyConfig) {
 
   // Layouts directory alias
   eleventyConfig.addLayoutAlias("base", "base.njk");
-  eleventyConfig.addLayoutAlias("module", "module.njk");
-  eleventyConfig.addLayoutAlias("tool", "tool.njk");
 
   eleventyConfig.addFilter("stripFirstH1", (html = "") =>
     html.replace(/^\s*<h1\b[^>]*>[\s\S]*?<\/h1>\s*/i, "")

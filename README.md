@@ -29,7 +29,6 @@ BipolarSite/
 │   │   ├── module.css            # Modul-spezifische Stile
 │   │   ├── tools.css             # Tool-spezifische Stile
 │   │   ├── print.css             # Druckstile
-│   │   └── overrides.css         # Kaskaden-Overrides (lädt zuletzt)
 │   ├── fonts/                    # Selbst gehostete WOFF2-Fonts
 │   │   └── fonts.css             # Font-Face-Deklarationen
 │   ├── js/
@@ -102,17 +101,15 @@ Ausgabe landet in `_site/` (von Git ignoriert).
 
 ## CSS-Kaskade
 
-Die Stylesheets werden in dieser Reihenfolge geladen:
+Im Base-Layout werden CSS-Dateien in dieser Reihenfolge eingebunden:
 
 1. `tokens.css` — nur `:root`-Variablen, keine Selektoren
 2. `fonts.css` — `@font-face`-Deklarationen
-3. `shared.css` — globale Stile, Navigation, Layout
-4. `module.css` — Modul-spezifische Stile
-5. `tools.css` — Tool-spezifische Stile
-6. Inline-`<style>` im Template
-7. `overrides.css` — gewinnt durch Kaskadenposition (lädt zuletzt)
-
-`overrides.css` nutzt `!important` nur für Inline-`style=""`-Attribute auf HTML-Elementen. Nicht entfernen.
+3. `shared.css` — nur auf Seiten mit `useSharedCSS`
+4. `module.css` — nur auf Seiten mit `useModuleCSS`
+5. `tools.css` — nur auf Seiten mit `useToolCSS`
+6. zusätzlicher CSS-Inhalt im `headCSS`-Block des jeweiligen Templates
+7. `print.css` — separat für `media="print"`
 
 ## QA und manuelle Tests
 
