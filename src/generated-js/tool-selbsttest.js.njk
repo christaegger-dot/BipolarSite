@@ -1,0 +1,160 @@
+---
+permalink: /js/tool-selbsttest.js
+eleventyExcludeFromCollections: true
+---
+(() => {
+  const questions = [
+    { id: 1, t: 'Ich denke oft daran, was als nächstes schiefgehen könnte — auch wenn es gerade ruhig ist.' },
+    { id: 2, t: 'Ich habe das Gefühl, meine eigenen Bedürfnisse kommen kaum noch vor.' },
+    { id: 3, t: 'Freunde oder Hobbys habe ich in letzter Zeit vernachlässigt.' },
+    { id: 4, t: 'Ich fühle mich oft allein mit dieser Situation — auch wenn Menschen um mich herum sind.' },
+    { id: 5, t: 'Manchmal frage ich mich, wie lange ich das noch durchhalte.' },
+  ];
+
+  const options = [
+    { v: 0, l: 'Trifft nicht zu', e: '○' },
+    { v: 1, l: 'Trifft selten zu', e: '◔' },
+    { v: 2, l: 'Trifft manchmal zu', e: '◑' },
+    { v: 3, l: 'Trifft oft zu', e: '◕' },
+    { v: 4, l: 'Trifft fast immer zu', e: '●' },
+  ];
+
+  const progress = document.getElementById('prog');
+  const card = document.getElementById('card');
+  if (!progress || !card) return;
+
+  const getResult = (score) => {
+    if (score <= 6) {
+      return {
+        lv: 'niedrig',
+        cls: 'result--green',
+        ti: 'Belastung im grünen Bereich',
+        tx: 'Ihre Antworten deuten darauf hin, dass Sie aktuell gut zurechtkommen. Das bedeutet nicht, dass alles einfach ist — aber Sie scheinen Strategien zu haben, die funktionieren.',
+        rc: [
+          'Lesen Sie <a href="/modul/7/">Modul 7</a> zur langen Strecke und Tragfähigkeit — um tragende Routinen weiter zu stärken.',
+          'Bleiben Sie in Kontakt mit Ihrem sozialen Netz.',
+        ],
+      };
+    }
+
+    if (score <= 12) {
+      return {
+        lv: 'mittel',
+        cls: 'result--amber',
+        ti: 'Erhöhte Belastung — achten Sie auf sich',
+        tx: 'Ihre Antworten zeigen: Die Belastung ist spürbar. Das ist bei Angehörigen häufig — und kein Zeichen von Schwäche. Jetzt ist ein guter Zeitpunkt, aktiv gegenzusteuern.',
+        rc: [
+          'Abschnitt 3 dieses Moduls (Schonhaltung & Identitätsverlust) könnte besonders relevant sein.',
+          '<a href="/modul/6/">Modul 6</a> bietet konkrete Werkzeuge — insbesondere Grenzsetzung.',
+          'Sprechen Sie mit einer Vertrauensperson über Ihre Situation.',
+        ],
+      };
+    }
+
+    return {
+      lv: 'hoch',
+      cls: 'result--red',
+      ti: 'Deutliche Überlastung — Sie verdienen Unterstützung',
+      tx: 'Ihre Antworten deuten auf eine erhebliche Belastung hin. Das ist ernst zu nehmen. Sie tragen gerade sehr viel. Es wäre wichtig, dass Sie sich jetzt Hilfe holen.',
+      rc: [
+        '<a href="{{ site.tel.fachstelle.href }}" class="rec-cta">Fachstelle Angehörigenarbeit PUK Zürich anrufen<span>{{ site.tel.fachstelle.display }} — kostenlos, vertraulich</span></a>',
+        'Hausarzt einbeziehen: Chronische Belastung hat körperliche Folgen.',
+        '<a href="{{ site.tel.vask.href }}">VASK Zürich ({{ site.tel.vask.display }})</a> bietet Selbsthilfegruppen.',
+        'Lesen Sie <a href="/modul/4/#handlungsschritte">Abschnitt 6 dieses Moduls</a> — konkrete Handlungsschritte.',
+      ],
+    };
+  };
+
+  let answers = {};
+  let currentQuestion = 0;
+  let showResult = false;
+
+  const render = () => {
+    const answered = Object.keys(answers).length;
+    const score = Object.values(answers).reduce((sum, value) => sum + value, 0);
+    const allAnswered = answered === questions.length;
+
+    progress.innerHTML = questions
+      .map((_, index) => `<div class="${index < answered ? 'done' : index === currentQuestion && !showResult ? 'cur' : ''}"></div>`)
+      .join('');
+
+    if (!showResult) {
+      card.className = 'card';
+      document.title = `Frage ${currentQuestion + 1} / ${questions.length} — Selbsttest | PUK Zürich`;
+
+      const question = questions[currentQuestion];
+      const currentValue = answers[question.id];
+
+      card.innerHTML = `<div class="qhdr"><div class="qnum">${currentQuestion + 1}</div><p class="qtxt">${question.t}</p></div>
+        <div class="opts">${options
+          .map(
+            (option) => `<button class="opt${currentValue === option.v ? ' sel' : ''}" data-sa="${question.id}" data-sv="${option.v}"><span class="em" aria-hidden="true">${option.e}</span>${option.l}</button>`
+          )
+          .join('')}</div>
+        <div class="nav"><button class="btn btn-back" ${currentQuestion === 0 ? 'disabled' : ''} data-action="pv">← Zurück</button><span class="navlbl">${currentQuestion + 1} / ${questions.length}</span>
+        ${
+          currentQuestion < questions.length - 1
+            ? `<button class="btn btn-next" ${currentValue === undefined ? 'disabled' : ''} data-action="nx">Weiter →</button>`
+            : `<button class="btn btn-next" ${!allAnswered ? 'disabled' : ''} data-action="sh">Auswerten</button>`
+        }</div>`;
+      return;
+    }
+
+    document.title = 'Ergebnis — Selbsttest | PUK Zürich';
+    const result = getResult(score);
+
+    card.className = `card ${result.cls}`;
+    card.innerHTML = `<div class="res-top"><div class="res-score"><span>${score}</span></div><div><div class="res-level">${result.lv === 'niedrig' ? 'Grüner Bereich' : result.lv === 'mittel' ? 'Gelber Bereich' : 'Roter Bereich'}</div><div class="res-title">${result.ti}</div></div></div>
+      <div class="bar-wrap"><div class="bar-labels"><span>0</span><span>niedrig</span><span>mittel</span><span>hoch</span><span>20</span></div><div class="bar"><div class="bar-dot" style="left:${(score / 20) * 100}%"></div></div></div>
+      <p class="res-txt">${result.tx}</p>
+      <div class="rec"><div class="rec-title">Empfehlungen</div>${result.rc.map((item) => `<div class="rec-item">${item}</div>`).join('')}</div>
+      <div class="disc"><strong>Wichtig:</strong> Dieser Selbsttest ist keine Diagnose. Er gibt Orientierung. Fachstelle PUK: <a href="{{ site.tel.fachstelle.href }}">{{ site.tel.fachstelle.display }}</a>.</div>
+      <div class="btns"><button class="btn-reset" data-action="rs">Erneut einschätzen</button><button class="btn-cont" data-action="nav" data-href="/modul/4/">Zurück zu Modul 4 →</button></div>`;
+  };
+
+  const setAnswer = (id, value) => {
+    answers[id] = value;
+    render();
+  };
+
+  const next = () => {
+    currentQuestion += 1;
+    render();
+  };
+
+  const previous = () => {
+    currentQuestion -= 1;
+    render();
+  };
+
+  const revealResult = () => {
+    showResult = true;
+    render();
+  };
+
+  const reset = () => {
+    answers = {};
+    currentQuestion = 0;
+    showResult = false;
+    render();
+  };
+
+  render();
+
+  document.addEventListener('click', (event) => {
+    const answerButton = event.target.closest('[data-sa]');
+    if (answerButton) {
+      setAnswer(Number(answerButton.dataset.sa), Number(answerButton.dataset.sv));
+      return;
+    }
+
+    const actionButton = event.target.closest('[data-action]');
+    if (!actionButton || actionButton.disabled) return;
+
+    if (actionButton.dataset.action === 'pv') previous();
+    else if (actionButton.dataset.action === 'nx') next();
+    else if (actionButton.dataset.action === 'sh') revealResult();
+    else if (actionButton.dataset.action === 'rs') reset();
+    else if (actionButton.dataset.action === 'nav') window.location.assign(actionButton.dataset.href);
+  });
+})();

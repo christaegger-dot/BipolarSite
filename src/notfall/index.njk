@@ -337,29 +337,5 @@ breadcrumbs:
 {% include "footer-medium.njk" %}
 {% endblock %}
 {% block scripts %}
-<script>
-  const guides=[...document.querySelectorAll('.guide')];
-  const setGuideState=(guide,isOpen)=>{
-    guide.classList.toggle('open',isOpen);
-    const button=guide.querySelector('.guide-header');
-    const panel=guide.querySelector('.guide-body');
-    button.setAttribute('aria-expanded',isOpen?'true':'false');
-    panel.hidden=!isOpen;
-  };
-  const openGuide=(guide)=>{
-    guides.forEach(item=>setGuideState(item,item===guide?!item.classList.contains('open'):false));
-  };
-  guides.forEach(guide=>{
-    const button=guide.querySelector('.guide-header');
-    const isOpen=button.getAttribute('aria-expanded')==='true';
-    setGuideState(guide,isOpen);
-    button.addEventListener('click',()=>openGuide(guide));
-  });
-  if(window.location.hash){
-    try{
-      const target=document.querySelector(window.location.hash);
-      if(target&&target.classList.contains('guide'))setGuideState(target,true);
-    }catch(e){}
-  }
-</script>
+<script src="/js/notfall-guides.js"></script>
 {% endblock %}

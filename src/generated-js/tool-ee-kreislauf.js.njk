@@ -1,0 +1,86 @@
+---
+permalink: /js/tool-ee-kreislauf.js
+eleventyExcludeFromCollections: true
+---
+(() => {
+  const stations = [
+    { n: 'Schuld', c: 'var(--amber)', desc: 'Sie fühlen sich schuldig — «Ich mache nicht genug.» «Wenn ich nur aufmerksamer wäre.» Schuld ist in dieser Lage häufig und entsteht oft aus Liebe, Verantwortung und Hilflosigkeit zugleich.', mech: 'Diese Schuld treibt oft dazu, noch mehr zu übernehmen, noch stärker zu kontrollieren und noch weniger loszulassen. So beginnt der Kreislauf.', exit: 'Eine kleine Unterbrechung kann sein, Schuld zu benennen, ohne ihr sofort zu folgen: «Ich fühle mich schuldig, aber ich muss nicht alles allein auffangen.»' },
+    { n: 'Überengagement', c: 'var(--amber-dark-text)', desc: 'Sie übernehmen immer mehr — Medikamente, Termine, Finanzen, Stimmungskontrolle. Die Beziehung droht zur Daueraufgabe zu werden.', mech: 'Überengagement soll schützen, kann aber auch signalisieren: «Du kannst das nicht selbst.» Das schwächt Eigenverantwortung und verstärkt auf Dauer die Überlastung beider Seiten.', exit: 'Geben Sie eine kleine Aufgabe bewusst zurück. Nicht als Strafe, sondern als Schritt aus der Dauerübernahme.' },
+    { n: 'Erschöpfung', c: 'var(--blue-phase)', desc: 'Die dauernde Überlastung führt zu Erschöpfung — körperlich, emotional, kognitiv. Viele funktionieren weiter, merken aber erst spät, wie dünn sie innerlich geworden sind.', mech: 'Erschöpfung senkt die Toleranzschwelle. Was sonst gerade noch ging, wird schneller zu viel. Gereiztheit, Abstumpfung oder Härte nehmen zu.', exit: 'Unterbrechen heisst hier oft nicht viel, sondern etwas Kleines und Konkretes: eine Pause, ein Anruf, ein Abend ohne Zuständigkeit.' },
+    { n: 'Kritik', c: 'var(--phase-green)', desc: 'Aus der Erschöpfung heraus wird der Ton schärfer. Kritik ist oft nicht bloss Härte, sondern Überforderungssprache.', mech: 'Kritik erzeugt beim Partner eher Scham, Abwehr oder Rückzug — und bei Ihnen danach oft neue Schuld. So schliesst sich der Kreislauf erneut.', exit: 'Eine realistische Unterbrechung ist Beobachtung statt Bewertung: «Ich sehe, dass du heute nicht aufgestanden bist» statt «Du liegst schon wieder im Bett.»' },
+  ];
+
+  const detail = document.getElementById('detail');
+  const breakButton = document.getElementById('breakBtn');
+  const svgWrap = document.getElementById('svgWrap');
+  const centerText1 = document.getElementById('centerText1');
+  const centerText2 = document.getElementById('centerText2');
+  if (!detail || !breakButton || !svgWrap || !centerText1 || !centerText2) return;
+
+  let active = null;
+  let broken = false;
+
+  const render = () => {
+    [0, 1, 2, 3].forEach((index) => {
+      const station = document.getElementById(`station${index}`);
+      if (station) station.setAttribute('aria-pressed', active === index ? 'true' : 'false');
+    });
+
+    document.querySelectorAll('[data-station-btn]').forEach((button) => {
+      const isActive = Number(button.dataset.stationBtn) === active;
+      button.classList.toggle('is-active', isActive);
+      button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+
+    if (active !== null) {
+      const station = stations[active];
+      detail.className = 'detail vis';
+      detail.innerHTML = `<div class="detail-num" style="color:${station.c}">Station ${active + 1} — ${station.n}</div><h2>${station.n}</h2><p>${station.desc}</p><p style="font-size:var(--text-xs);color:var(--slate);font-style:italic">${station.mech}</p><div class="detail-exit"><div class="exit-lbl">Ausweg</div><p>${station.exit}</p></div>`;
+    } else {
+      detail.className = 'detail';
+    }
+  };
+
+  const select = (index) => {
+    active = active === index ? null : index;
+    render();
+  };
+
+  const toggleBreak = () => {
+    broken = !broken;
+    svgWrap.classList.toggle('interrupted', broken);
+    breakButton.classList.toggle('active', broken);
+    breakButton.setAttribute('aria-pressed', broken ? 'true' : 'false');
+    breakButton.textContent = broken ? 'Kreislauf ist unterbrochen' : 'Kreislauf unterbrechen';
+    centerText1.textContent = broken ? '✓' : 'Chronische';
+    centerText2.textContent = broken ? 'Unterbrochen' : 'Anspannung';
+
+    if (broken) {
+      centerText1.setAttribute('fill', 'var(--teal-cta)');
+      centerText2.setAttribute('fill', 'var(--teal-cta)');
+    } else {
+      centerText1.setAttribute('fill', 'var(--navy)');
+      centerText2.setAttribute('fill', 'var(--navy)');
+    }
+  };
+
+  const onSvgKey = (event, index) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      select(index);
+    }
+  };
+
+  [0, 1, 2, 3].forEach((index) => {
+    const station = document.getElementById(`station${index}`);
+    if (!station) return;
+    station.addEventListener('click', () => select(index));
+    station.addEventListener('keydown', (event) => onSvgKey(event, index));
+  });
+
+  document.querySelectorAll('[data-station-btn]').forEach((button) => {
+    button.addEventListener('click', () => select(Number(button.dataset.stationBtn)));
+  });
+
+  breakButton.addEventListener('click', toggleBreak);
+})();

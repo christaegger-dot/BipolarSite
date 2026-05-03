@@ -42,32 +42,5 @@ breadcrumbs:
 {% include "footer-medium.njk" %}
 {% endblock %}
 {% block scripts %}
-<script>
-const V=[{id:"schlaf",l:"Schlafmangel",d:"Sie liegen wach, weil Sie auf Geräusche horchen. Morgens funktionieren Sie — aber der Schlaf fehlt."},{id:"streit",l:"Konflikte",d:"Gespräche, die eskalieren. Türen, die knallen. Worte, die Sie bereuen — und die Ihr Partner bereut."},{id:"orga",l:"Alltag organisieren",d:"Arzttermine, Medikamente, Finanzen, Kinder, Haushalt. Alles liegt bei Ihnen. Niemand fragt, ob Sie das schaffen."},{id:"muede",l:"Erschöpfung",d:"Die Art von Müdigkeit, die kein Schlaf heilt. Eine Erschöpfung, die in den Knochen sitzt."}];
-const I=[{id:"scham",l:"Scham",d:"Scham darüber, dass Sie manchmal wütend sind. Scham, dass Sie es nicht «schaffen». Scham, dass Sie Hilfe bräuchten."},{id:"trauer",l:"Trauer",d:"Trauer um den Partner, der er einmal war. Um die gemeinsame Zukunft, die anders aussehen sollte. Eine Trauer ohne Abschluss."},{id:"wut",l:"Verdrängte Wut",d:"Wut auf die Erkrankung. Auf das System. Manchmal auf den Partner. Diese Wut ist berechtigt — und sie wird fast nie ausgesprochen."},{id:"einsamkeit",l:"Einsamkeit",d:"200 Kontakte im Handy und niemanden zum Anrufen. Nicht weil Menschen fehlen — sondern weil Worte fehlen."},{id:"identitaet",l:"Identitätsverlust",d:"Wer bin ich noch — ausserhalb der Betreuerrolle? Eigene Hobbys, Ziele, Träume: aufgeschoben, vergessen, als Luxus abgetan."},{id:"angst",l:"Dauerangst",d:"Die Angst, die nie ganz weg ist. Dass es wieder passiert. Dass der Anruf kommt. Dass Sie es nicht rechtzeitig merken."},{id:"schuld",l:"Schuldgefühle",d:"«Hätte ich es früher bemerkt?» «Bin ich genug?» «Darf ich an mich denken?» — Fragen, die nie aufhören."},{id:"erleichterung",l:"Verbotene Erleichterung",d:"Erleichterung, wenn der Partner in der Klinik ist. Und sofort danach: Scham über die Erleichterung. Beides ist menschlich."}];
-const A=[...V,...I];let aid=null;const rev=new Set();
-// Pre-built lookups: O(1) access instead of O(n) Array.find / O(n²) nested Array.some
-const AMap=new Map(A.map(i=>[i.id,i]));
-const ISet=new Set(I.map(i=>i.id));
-// Pre-compute animation delays once so they don't re-randomise on every render
-// Cache DOM references used on every render
-const elTv=document.getElementById('tv');
-const elTi=document.getElementById('ti');
-const elCtr=document.getElementById('ctr');
-const elDp=document.getElementById('dp');
-const elDc=document.getElementById('dc');
-const elRefl=document.getElementById('refl');
-function ck(id){aid=aid===id?null:id;rev.add(id);rn();}
-function rn(){
-  elTv.innerHTML=V.map((i,idx)=>`<button class="tag tv${aid===i.id?' on':''}" data-id="${i.id}">${i.l}</button>`).join('');
-  elTi.innerHTML=I.map(i=>{let c='tag ti';if(aid===i.id)c+=' on';else if(rev.has(i.id))c+=' rev';return`<button class="${c}" data-id="${i.id}">${i.l}</button>`}).join('');
-  const rc=[...rev].filter(id=>ISet.has(id)).length;
-  elCtr.textContent=rc>0?`${rc} von ${I.length} aufgedeckt`:'';
-  const it=AMap.get(aid),iv=ISet.has(aid);
-  if(it){elDp.classList.remove('hide');elDc.className='dc '+(iv?'dcd':'dcl');elDc.innerHTML=(iv?'<div class="dlbl">Das sieht niemand</div>':'')+`<h2>${it.l}</h2><p>${it.d}</p>`}else{elDp.classList.add('hide')}
-  elRefl.classList.toggle('vis',rc>=4);
-}
-rn();
-document.addEventListener('click',function(e){const b=e.target.closest('.tag[data-id]');if(b&&!b.disabled)ck(b.dataset.id);});
-</script>
+<script src="/js/tool-eisberg.js"></script>
 {% endblock %}

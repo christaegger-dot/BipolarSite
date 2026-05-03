@@ -1,0 +1,84 @@
+---
+permalink: /js/tool-eisberg.js
+eleventyExcludeFromCollections: true
+---
+(() => {
+  const visibleItems = [
+    { id: 'schlaf', l: 'Schlafmangel', d: 'Sie liegen wach, weil Sie auf Geräusche horchen. Morgens funktionieren Sie — aber der Schlaf fehlt.' },
+    { id: 'streit', l: 'Konflikte', d: 'Gespräche, die eskalieren. Türen, die knallen. Worte, die Sie bereuen — und die Ihr Partner bereut.' },
+    { id: 'orga', l: 'Alltag organisieren', d: 'Arzttermine, Medikamente, Finanzen, Kinder, Haushalt. Alles liegt bei Ihnen. Niemand fragt, ob Sie das schaffen.' },
+    { id: 'muede', l: 'Erschöpfung', d: 'Die Art von Müdigkeit, die kein Schlaf heilt. Eine Erschöpfung, die in den Knochen sitzt.' },
+  ];
+
+  const hiddenItems = [
+    { id: 'scham', l: 'Scham', d: 'Scham darüber, dass Sie manchmal wütend sind. Scham, dass Sie es nicht «schaffen». Scham, dass Sie Hilfe bräuchten.' },
+    { id: 'trauer', l: 'Trauer', d: 'Trauer um den Partner, der er einmal war. Um die gemeinsame Zukunft, die anders aussehen sollte. Eine Trauer ohne Abschluss.' },
+    { id: 'wut', l: 'Verdrängte Wut', d: 'Wut auf die Erkrankung. Auf das System. Manchmal auf den Partner. Diese Wut ist berechtigt — und sie wird fast nie ausgesprochen.' },
+    { id: 'einsamkeit', l: 'Einsamkeit', d: '200 Kontakte im Handy und niemanden zum Anrufen. Nicht weil Menschen fehlen — sondern weil Worte fehlen.' },
+    { id: 'identitaet', l: 'Identitätsverlust', d: 'Wer bin ich noch — ausserhalb der Betreuerrolle? Eigene Hobbys, Ziele, Träume: aufgeschoben, vergessen, als Luxus abgetan.' },
+    { id: 'angst', l: 'Dauerangst', d: 'Die Angst, die nie ganz weg ist. Dass es wieder passiert. Dass der Anruf kommt. Dass Sie es nicht rechtzeitig merken.' },
+    { id: 'schuld', l: 'Schuldgefühle', d: '«Hätte ich es früher bemerkt?» «Bin ich genug?» «Darf ich an mich denken?» — Fragen, die nie aufhören.' },
+    { id: 'erleichterung', l: 'Verbotene Erleichterung', d: 'Erleichterung, wenn der Partner in der Klinik ist. Und sofort danach: Scham über die Erleichterung. Beides ist menschlich.' },
+  ];
+
+  const allItems = [...visibleItems, ...hiddenItems];
+  const activeMap = new Map(allItems.map((item) => [item.id, item]));
+  const hiddenIds = new Set(hiddenItems.map((item) => item.id));
+  const revealed = new Set();
+
+  const elVisible = document.getElementById('tv');
+  const elHidden = document.getElementById('ti');
+  const elCounter = document.getElementById('ctr');
+  const elDetailWrap = document.getElementById('dp');
+  const elDetailCard = document.getElementById('dc');
+  const elReflection = document.getElementById('refl');
+
+  if (!elVisible || !elHidden || !elCounter || !elDetailWrap || !elDetailCard || !elReflection) return;
+
+  let activeId = null;
+
+  const toggleItem = (id) => {
+    activeId = activeId === id ? null : id;
+    revealed.add(id);
+    render();
+  };
+
+  const render = () => {
+    elVisible.innerHTML = visibleItems
+      .map((item) => `<button class="tag tv${activeId === item.id ? ' on' : ''}" data-id="${item.id}">${item.l}</button>`)
+      .join('');
+
+    elHidden.innerHTML = hiddenItems
+      .map((item) => {
+        let className = 'tag ti';
+        if (activeId === item.id) className += ' on';
+        else if (revealed.has(item.id)) className += ' rev';
+        return `<button class="${className}" data-id="${item.id}">${item.l}</button>`;
+      })
+      .join('');
+
+    const revealedHiddenCount = [...revealed].filter((id) => hiddenIds.has(id)).length;
+    elCounter.textContent = revealedHiddenCount > 0 ? `${revealedHiddenCount} von ${hiddenItems.length} aufgedeckt` : '';
+
+    const item = activeMap.get(activeId);
+    const isHidden = hiddenIds.has(activeId);
+
+    if (item) {
+      elDetailWrap.classList.remove('hide');
+      elDetailCard.className = `dc ${isHidden ? 'dcd' : 'dcl'}`;
+      elDetailCard.innerHTML = `${isHidden ? '<div class="dlbl">Das sieht niemand</div>' : ''}<h2>${item.l}</h2><p>${item.d}</p>`;
+    } else {
+      elDetailWrap.classList.add('hide');
+    }
+
+    elReflection.classList.toggle('vis', revealedHiddenCount >= 4);
+  };
+
+  render();
+
+  document.addEventListener('click', (event) => {
+    const button = event.target.closest('.tag[data-id]');
+    if (!button || button.disabled) return;
+    toggleItem(button.dataset.id);
+  });
+})();
