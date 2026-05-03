@@ -122,6 +122,8 @@ module.exports = function (eleventyConfig) {
     readPageLastModified(inputPath, fallback)
   );
 
+  eleventyConfig.addFilter("json", (value) => JSON.stringify(value));
+
   return {
     dir: {
       input: "src",

@@ -2,101 +2,102 @@
 permalink: /js/module8-hub.js
 eleventyExcludeFromCollections: true
 ---
+{% set materialFinderData = {
+  akut: [
+    {
+      kicker: "Jetzt zuerst",
+      title: "Notfallseite öffnen",
+      text: "Wenn Gefahr oder starke Unsicherheit im Raum stehen, ist die Triage wichtiger als die ganze Materialsammlung.",
+      href: "/notfall/",
+      label: "Zum Notfallweg →"
+    },
+    {
+      kicker: "PDF",
+      title: pdfs.downloads.notfallkarte.title,
+      text: "Alle wichtigen Nummern mit kurzer Einordnung, wann welche Stelle sinnvoll ist.",
+      href: pdfs.downloads.notfallkarte.url,
+      label: "Notfallkarte direkt herunterladen →"
+    },
+    {
+      kicker: "Danach",
+      title: "Krisenplan bereithalten",
+      text: "Wenn schon einer existiert, jetzt hervornehmen. Wenn nicht, später in ruhiger Phase vorbereiten.",
+      href: "/modul/6/",
+      label: "Zu Modul 6 →"
+    }
+  ],
+  plan: [
+    {
+      kicker: "PDF",
+      title: pdfs.downloads.krisenplanVorlage.title,
+      text: "Die wichtigste Unterlage, wenn Sie Frühwarnzeichen, Kontakte und Klinikwünsche vorab ordnen möchten.",
+      href: pdfs.downloads.krisenplanVorlage.url,
+      label: "Krisenplan direkt herunterladen →"
+    },
+    {
+      kicker: "Werkzeug",
+      title: "Krisenplan-Werkzeug",
+      text: "Wenn Sie den Plan lieber direkt am Bildschirm vorbereiten und danach drucken möchten.",
+      href: "/tools/krisenplan/",
+      label: "Werkzeug öffnen →"
+    },
+    {
+      kicker: "Vertiefung",
+      title: "Modul 6: konkrete Schritte",
+      text: "Für Gespräche, Grenzen, Krisenplan und Vorbereitung in stabilen Phasen.",
+      href: "/modul/6/",
+      label: "Zu Modul 6 →"
+    }
+  ],
+  ersch: [
+    {
+      kicker: "Archiv-Handout",
+      title: pdfs.handouts.a4_ambiguous_loss.title,
+      text: "Hilft, schleichende Erschöpfung, Trauer und Selbstverlust besser zu verstehen. Dieses Blatt gehört noch zum älteren PDF-Bestand.",
+      href: pdfs.handouts.a4_ambiguous_loss.url,
+      label: "Handout-Vorschau öffnen →"
+    },
+    {
+      kicker: "PDF",
+      title: pdfs.downloads.kurzblattStabilisiert.title,
+      text: "Ein kompaktes Blatt für Alltag, Selbstfürsorge und kleine entlastende Schritte.",
+      href: pdfs.downloads.kurzblattStabilisiert.url,
+      label: "Kurzblatt direkt herunterladen →"
+    },
+    {
+      kicker: "Kontakt",
+      title: "Selbsthilfe oder Angehörigenberatung",
+      text: "Wenn Information allein nicht mehr reicht, ist Resonanz oft der entlastendere nächste Schritt.",
+      href: "#beratung",
+      label: "Zu den Anlaufstellen →"
+    }
+  ],
+  recht: [
+    {
+      kicker: "Kontakt",
+      title: "Pro Mente Sana",
+      text: "Psychosoziale und juristische Beratung zu FU, Vorsorgeauftrag, Patientenverfügung und Konflikten mit Institutionen.",
+      href: site.contacts.proMenteSana.url,
+      label: "Pro Mente Sana öffnen →"
+    },
+    {
+      kicker: "Kontakt",
+      title: "Ombudsstelle Krankenversicherung",
+      text: "Wenn Leistungsstreitigkeiten oder abgelehnte Kostengutsprachen blockieren.",
+      href: site.contacts.ombudsstelleKrankenversicherung.url,
+      label: "Ombudsstelle öffnen →"
+    },
+    {
+      kicker: "Orientierung",
+      title: "Systemblockaden einordnen",
+      text: "Wenn das Versorgungssystem zusätzlich belastet, hilft oft zuerst die Klärung der Beschwerde- und Beratungswege.",
+      href: "#system",
+      label: "Zum System-Abschnitt →"
+    }
+  ]
+} %}
 (() => {
-  const MATERIAL_FINDER = {
-    akut: [
-      {
-        kicker: 'Jetzt zuerst',
-        title: 'Notfallseite öffnen',
-        text: 'Wenn Gefahr oder starke Unsicherheit im Raum stehen, ist die Triage wichtiger als die ganze Materialsammlung.',
-        href: '/notfall/',
-        label: 'Zum Notfallweg →',
-      },
-      {
-        kicker: 'PDF',
-        title: '{{ pdfs.downloads.notfallkarte.title }}',
-        text: 'Alle wichtigen Nummern mit kurzer Einordnung, wann welche Stelle sinnvoll ist.',
-        href: '{{ pdfs.downloads.notfallkarte.url }}',
-        label: 'Notfallkarte direkt herunterladen →',
-      },
-      {
-        kicker: 'Danach',
-        title: 'Krisenplan bereithalten',
-        text: 'Wenn schon einer existiert, jetzt hervornehmen. Wenn nicht, später in ruhiger Phase vorbereiten.',
-        href: '/modul/6/',
-        label: 'Zu Modul 6 →',
-      },
-    ],
-    plan: [
-      {
-        kicker: 'PDF',
-        title: '{{ pdfs.downloads.krisenplanVorlage.title }}',
-        text: 'Die wichtigste Unterlage, wenn Sie Frühwarnzeichen, Kontakte und Klinikwünsche vorab ordnen möchten.',
-        href: '{{ pdfs.downloads.krisenplanVorlage.url }}',
-        label: 'Krisenplan direkt herunterladen →',
-      },
-      {
-        kicker: 'Werkzeug',
-        title: 'Krisenplan-Werkzeug',
-        text: 'Wenn Sie den Plan lieber direkt am Bildschirm vorbereiten und danach drucken möchten.',
-        href: '/tools/krisenplan/',
-        label: 'Werkzeug öffnen →',
-      },
-      {
-        kicker: 'Vertiefung',
-        title: 'Modul 6: konkrete Schritte',
-        text: 'Für Gespräche, Grenzen, Krisenplan und Vorbereitung in stabilen Phasen.',
-        href: '/modul/6/',
-        label: 'Zu Modul 6 →',
-      },
-    ],
-    ersch: [
-      {
-        kicker: 'Archiv-Handout',
-        title: '{{ pdfs.handouts.a4_ambiguous_loss.title }}',
-        text: 'Hilft, schleichende Erschöpfung, Trauer und Selbstverlust besser zu verstehen. Dieses Blatt gehört noch zum älteren PDF-Bestand.',
-        href: '{{ pdfs.handouts.a4_ambiguous_loss.url }}',
-        label: 'Handout-Vorschau öffnen →',
-      },
-      {
-        kicker: 'PDF',
-        title: '{{ pdfs.downloads.kurzblattStabilisiert.title }}',
-        text: 'Ein kompaktes Blatt für Alltag, Selbstfürsorge und kleine entlastende Schritte.',
-        href: '{{ pdfs.downloads.kurzblattStabilisiert.url }}',
-        label: 'Kurzblatt direkt herunterladen →',
-      },
-      {
-        kicker: 'Kontakt',
-        title: 'Selbsthilfe oder Angehörigenberatung',
-        text: 'Wenn Information allein nicht mehr reicht, ist Resonanz oft der entlastendere nächste Schritt.',
-        href: '#beratung',
-        label: 'Zu den Anlaufstellen →',
-      },
-    ],
-    recht: [
-      {
-        kicker: 'Kontakt',
-        title: 'Pro Mente Sana',
-        text: 'Psychosoziale und juristische Beratung zu FU, Vorsorgeauftrag, Patientenverfügung und Konflikten mit Institutionen.',
-        href: '{{ site.contacts.proMenteSana.url }}',
-        label: 'Pro Mente Sana öffnen →',
-      },
-      {
-        kicker: 'Kontakt',
-        title: 'Ombudsstelle Krankenversicherung',
-        text: 'Wenn Leistungsstreitigkeiten oder abgelehnte Kostengutsprachen blockieren.',
-        href: '{{ site.contacts.ombudsstelleKrankenversicherung.url }}',
-        label: 'Ombudsstelle öffnen →',
-      },
-      {
-        kicker: 'Orientierung',
-        title: 'Systemblockaden einordnen',
-        text: 'Wenn das Versorgungssystem zusätzlich belastet, hilft oft zuerst die Klärung der Beschwerde- und Beratungswege.',
-        href: '#system',
-        label: 'Zum System-Abschnitt →',
-      },
-    ],
-  };
+  const MATERIAL_FINDER = {{ materialFinderData | json | safe }};
 
   const materialFinderButtons = document.querySelectorAll('[data-material-finder]');
   const materialFinderResults = document.getElementById('materialFinderResults');
