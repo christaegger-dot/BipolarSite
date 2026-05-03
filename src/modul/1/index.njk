@@ -151,13 +151,13 @@ breadcrumbs:
 
   <div class="phase-explorer reveal content-wide">
     <div class="phase-tabs" role="tablist" aria-label="Erkrankungsphasen">
-      <button type="button" class="phase-tab active-mania" role="tab" aria-selected="true" aria-controls="phase-mania" id="tab-mania" data-phase="mania">
+      <button type="button" class="phase-tab active-mania" role="tab" aria-selected="true" aria-controls="phase-mania" id="tab-mania" data-phase="mania" tabindex="0">
         <span class="phase-tab-icon">↑</span> Manie / Hypomanie
       </button>
-      <button type="button" class="phase-tab" role="tab" aria-selected="false" aria-controls="phase-stable" id="tab-stable" data-phase="stable">
+      <button type="button" class="phase-tab" role="tab" aria-selected="false" aria-controls="phase-stable" id="tab-stable" data-phase="stable" tabindex="-1">
         <span class="phase-tab-icon">→</span> Stabile Phase
       </button>
-      <button type="button" class="phase-tab" role="tab" aria-selected="false" aria-controls="phase-depression" id="tab-depression" data-phase="depression">
+      <button type="button" class="phase-tab" role="tab" aria-selected="false" aria-controls="phase-depression" id="tab-depression" data-phase="depression" tabindex="-1">
         <span class="phase-tab-icon">↓</span> Depression
       </button>
     </div>
@@ -192,7 +192,7 @@ breadcrumbs:
     </div>
 
     <!-- Stable -->
-    <div class="phase-content" id="phase-stable" role="tabpanel" aria-labelledby="tab-stable">
+    <div class="phase-content" id="phase-stable" role="tabpanel" aria-labelledby="tab-stable" hidden>
       <div class="phase-header phase-header--stable">Stabile Phase (Euthymie)</div>
       <div class="phase-subtitle">Wichtige Zeitfenster — aber nicht immer echte innere Entwarnung</div>
 
@@ -216,7 +216,7 @@ breadcrumbs:
     </div>
 
     <!-- Depression -->
-    <div class="phase-content" id="phase-depression" role="tabpanel" aria-labelledby="tab-depression">
+    <div class="phase-content" id="phase-depression" role="tabpanel" aria-labelledby="tab-depression" hidden>
       <div class="phase-header phase-header--depression">Depression</div>
       <div class="phase-subtitle">Nicht nur Traurigkeit, sondern Leere, Verlangsamung und oft lange Hilflosigkeit auf beiden Seiten</div>
 
@@ -264,7 +264,7 @@ breadcrumbs:
 
   <div class="accordion-group reveal">
     <div class="accordion-item">
-      <button type="button" class="accordion-header">
+      <button type="button" class="accordion-header" aria-expanded="false" aria-controls="accordion-bipolar-i">
         <span class="accordion-header-left">
           <span class="accordion-icon-badge">I</span>
           <span class="accordion-label-group">
@@ -274,7 +274,7 @@ breadcrumbs:
         </span>
         <span class="accordion-chevron">▼</span>
       </button>
-      <div class="accordion-body">
+      <div class="accordion-body" id="accordion-bipolar-i" hidden>
         <div class="accordion-body-inner">
           <p>Bipolar I ist die Form, die die meisten Menschen vor Augen haben, wenn sie «bipolar» hören. Die manischen Episoden sind oft unübersehbar: Die erkrankte Person schläft kaum noch, hat grandiose Ideen, gibt unkontrolliert Geld aus, redet ohne Pause und ist überzeugt, alles sei grossartig.</p>
           <p>Die Manie kann so schwer werden, dass eine Hospitalisation nötig wird. Für Angehörige steht hier oft die sichtbare Eskalation im Vordergrund: Kontrollverlust, Angst, Gefahr, Beschämung und das Gefühl, den vertrauten Menschen zeitweise nicht wiederzuerkennen.</p>
@@ -283,7 +283,7 @@ breadcrumbs:
     </div>
 
     <div class="accordion-item">
-      <button type="button" class="accordion-header">
+      <button type="button" class="accordion-header" aria-expanded="false" aria-controls="accordion-bipolar-ii">
         <span class="accordion-header-left">
           <span class="accordion-icon-badge">II</span>
           <span class="accordion-label-group">
@@ -293,7 +293,7 @@ breadcrumbs:
         </span>
         <span class="accordion-chevron">▼</span>
       </button>
-      <div class="accordion-body">
+      <div class="accordion-body" id="accordion-bipolar-ii" hidden>
         <div class="accordion-body-inner">
           <p>Bipolar II ist weniger bekannt, aber nicht weniger belastend. Statt vollständiger Manien treten Hypomanien auf — abgeschwächte, kürzere Hochphasen von etwa 4 bis 7 Tagen. Die Hypomanie wird oft als «gute Phase» fehlinterpretiert.</p>
           <p>Was Bipolar II besonders belastend macht: Die depressiven Phasen sind oft schwerer und dauern länger als bei Bipolar I. Die eigentliche Krankheitslast liegt damit häufig nicht in der auffälligen Hochphase, sondern in der langen, zermürbenden Depression — die von aussen oft kaum sichtbar ist.</p>

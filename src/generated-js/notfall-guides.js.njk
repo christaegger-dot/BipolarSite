@@ -32,7 +32,9 @@ eleventyExcludeFromCollections: true
   if (window.location.hash) {
     try {
       const target = document.querySelector(window.location.hash);
-      if (target && target.classList.contains('guide')) setGuideState(target, true);
+      if (target && target.classList.contains('guide')) {
+        guides.forEach((item) => setGuideState(item, item === target));
+      }
     } catch {}
   }
 })();
