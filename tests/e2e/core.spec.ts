@@ -51,6 +51,14 @@ test.describe('core user paths', () => {
     await expect(page.locator('#verstehen')).toBeVisible();
   });
 
+  test('desktop toc sidebar includes the real first module target', async ({ page }) => {
+    await page.goto('/modul/1/');
+
+    const sidebarLink = page.locator('.toc-sidebar a[href="#neu"]').first();
+    await expect(sidebarLink).toBeVisible();
+    await expect(sidebarLink).toHaveClass(/active/);
+  });
+
   test('werkzeuge overview exposes krisenplan and a distinct emergency path', async ({ page }) => {
     await page.goto('/werkzeuge/');
 
@@ -106,5 +114,30 @@ test.describe('mobile navigation', () => {
 
     await expect(toggle).toHaveAttribute('aria-expanded', 'false');
     await expect(toggle).toBeFocused();
+  });
+
+  test('module toc adapts when the viewport shrinks after load', async ({ browser }) => {
+    const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+    const page = await context.newPage();
+
+    await page.goto('/modul/1/');
+    await expect(page.locator('.toc-mobile-toggle')).toHaveCount(0);
+    await expect(page.locator('.toc ol')).toBeVisible();
+
+    await page.setViewportSize({ width: 390, height: 844 });
+
+    const toggle = page.locator('.toc-mobile-toggle');
+    await expect(toggle).toBeVisible();
+    await expect(page.locator('.toc ol')).toBeHidden();
+
+    await toggle.click();
+    await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+    await expect(page.locator('.toc ol')).toBeVisible();
+
+    await page.setViewportSize({ width: 1280, height: 900 });
+    await expect(page.locator('.toc-mobile-toggle')).toHaveCount(0);
+    await expect(page.locator('.toc ol')).toBeVisible();
+
+    await context.close();
   });
 });

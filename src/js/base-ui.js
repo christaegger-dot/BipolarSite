@@ -1,5 +1,6 @@
 (() => {
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const mobileTocQuery = window.matchMedia("(max-width: 768px)");
 
   document.querySelectorAll("[data-sources-toggle]").forEach((button, index) => {
     const section = button.closest(".sources");
@@ -24,35 +25,54 @@
     });
   });
 
-  if (window.innerWidth <= 768) {
+  const syncMobileToc = () => {
     document.querySelectorAll(".toc").forEach((toc) => {
       const ol = toc.querySelector("ol");
       const tocTitle = toc.querySelector(".toc-title");
-      if (!ol || !tocTitle || toc.querySelector(".toc-mobile-toggle")) return;
+      if (!ol || !tocTitle) return;
 
-      ol.hidden = true;
+      let btn = toc.querySelector(".toc-mobile-toggle");
 
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "toc-mobile-toggle";
-      btn.setAttribute("aria-expanded", "false");
-      btn.textContent = "Inhaltsverzeichnis anzeigen ▾";
-      tocTitle.after(btn);
+      if (mobileTocQuery.matches) {
+        if (!btn) {
+          btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "toc-mobile-toggle";
+          btn.setAttribute("aria-expanded", "false");
+          btn.textContent = "Inhaltsverzeichnis anzeigen ▾";
+          tocTitle.after(btn);
 
-      btn.addEventListener("click", () => {
-        const open = ol.hidden;
-        ol.hidden = !open;
-        btn.setAttribute("aria-expanded", open ? "true" : "false");
-        btn.textContent = open
-          ? "Inhaltsverzeichnis ausblenden ▴"
-          : "Inhaltsverzeichnis anzeigen ▾";
+          btn.addEventListener("click", () => {
+            const open = ol.hidden;
+            ol.hidden = !open;
+            btn.setAttribute("aria-expanded", open ? "true" : "false");
+            btn.textContent = open
+              ? "Inhaltsverzeichnis ausblenden ▴"
+              : "Inhaltsverzeichnis anzeigen ▾";
 
-        if (open) {
-          const firstLink = ol.querySelector("a");
-          if (firstLink) firstLink.focus();
+            if (open) {
+              const firstLink = ol.querySelector("a");
+              if (firstLink) firstLink.focus();
+            }
+          });
         }
-      });
+
+        const isOpen = btn.getAttribute("aria-expanded") === "true";
+        ol.hidden = !isOpen;
+        return;
+      }
+
+      if (btn) btn.remove();
+      ol.hidden = false;
     });
+  };
+
+  syncMobileToc();
+
+  if (typeof mobileTocQuery.addEventListener === "function") {
+    mobileTocQuery.addEventListener("change", syncMobileToc);
+  } else {
+    mobileTocQuery.addListener(syncMobileToc);
   }
 
   if (window.innerWidth >= 1100) {
@@ -77,25 +97,60 @@
       nav.appendChild(ol);
       contentEl.parentNode.insertBefore(nav, contentEl);
 
-      const headings = Array.from(contentEl.querySelectorAll("h2[id]"));
       const sidebarLinks = Array.from(nav.querySelectorAll("a"));
+      const sidebarTargets = sidebarLinks
+        .map((link) => {
+          const href = link.getAttribute("href");
+          if (!href || !href.startsWith("#")) return null;
 
-      if (headings.length && sidebarLinks.length) {
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (!entry.isIntersecting) return;
+          const target = document.getElementById(decodeURIComponent(href.slice(1)));
+          return target && contentEl.contains(target) ? target : null;
+        })
+        .filter((target, index, targets) => target && targets.indexOf(target) === index);
 
-              const id = entry.target.id;
-              sidebarLinks.forEach((link) =>
-                link.classList.toggle("active", link.getAttribute("href") === `#${id}`)
-              );
-            });
-          },
-          { rootMargin: "-80px 0px -70% 0px" }
-        );
+      if (sidebarTargets.length && sidebarLinks.length) {
+        const setActiveLink = (href) => {
+          sidebarLinks.forEach((link) =>
+            link.classList.toggle("active", link.getAttribute("href") === href)
+          );
+        };
 
-        headings.forEach((heading) => observer.observe(heading));
+        const updateActiveLink = () => {
+          const threshold = 140;
+          let currentTarget = sidebarTargets[0];
+
+          sidebarTargets.forEach((target) => {
+            if (target.getBoundingClientRect().top <= threshold) {
+              currentTarget = target;
+            }
+          });
+
+          if (currentTarget?.id) {
+            setActiveLink(`#${currentTarget.id}`);
+          }
+        };
+
+        let activeLinkTicking = false;
+        const requestActiveLinkUpdate = () => {
+          if (activeLinkTicking) return;
+
+          window.requestAnimationFrame(() => {
+            updateActiveLink();
+            activeLinkTicking = false;
+          });
+
+          activeLinkTicking = true;
+        };
+
+        setActiveLink(window.location.hash || sidebarLinks[0]?.getAttribute("href"));
+        requestActiveLinkUpdate();
+        window.addEventListener("hashchange", () => {
+          if (window.location.hash) {
+            setActiveLink(window.location.hash);
+          }
+        });
+        window.addEventListener("scroll", requestActiveLinkUpdate, { passive: true });
+        window.addEventListener("resize", requestActiveLinkUpdate);
       }
     }
   }
