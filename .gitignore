@@ -2,6 +2,10 @@ node_modules/
 _site/
 .lighthouseci/
 .netlify/
+.playwright-artifacts/
+.playwright/
+playwright-report/
+.auth/
 .claude/settings.local.json
 .claude/worktrees/
 
