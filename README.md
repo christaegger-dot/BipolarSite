@@ -64,7 +64,7 @@ BipolarSite/
 
 > **Hinweis zur Namenskonvention:** Die ähnlich klingenden Verzeichnisnamen sind bewusst getrennt:
 > - `src/modul/` enthält die **8 Einzelmodule** (je ein Unterordner `1/` – `8/`), `src/module/` ist ausschließlich die **Übersichtsseite** (`/module/`).
-> - `src/tools/` enthält die **8 einzelnen interaktiven Tools** (je ein Unterordner), `src/werkzeuge/` ist ausschließlich die **Übersichtsseite** (`/werkzeuge/`).
+> - `src/tools/` enthält die **9 einzelnen interaktiven Tools** (je ein Unterordner), `src/werkzeuge/` ist ausschließlich die **Übersichtsseite** (`/werkzeuge/`).
 >
 > Neue Inhalte (Module oder Tools) gehören also immer in `modul/` bzw. `tools/`, nicht in die Übersichtsordner.
 
@@ -118,6 +118,7 @@ Die automatischen Prüfungen des Projekts werden durch kurze, reproduzierbare ma
 - `docs/qa-checklist.md` für den standardisierten Kurztest vor Merge
 - `docs/test-matrix.md` für priorisierte Geräte-, Browser- und Kernpfad-Abdeckung
 - `docs/release-audit.md` für den repo-nativen Release-Audit und seine Befehle
+- `docs/TOOL_LAYOUT_STRATEGY.md` für die Typisierung und das gemeinsame Layout-Muster der interaktiven Werkzeuge
 
 Bei Änderungen an Layout, Navigation, Modulseiten, Tool-Seiten oder Notfallpfaden soll vor dem Merge zusätzlich ein frischer Browser-Test durchgeführt werden. Ein Merge bei roter GitHub-CI ist ausgeschlossen.
 
