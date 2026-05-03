@@ -143,8 +143,7 @@ Die Website wird automatisch über **Netlify** aus dem `main`-Branch deployt. Ko
 - **Static Site Generator:** Eleventy (11ty) v2 mit Nunjucks-Templates
 - **Sprache:** Deutsch (`lang="de"`)
 - **Fonts:** DM Serif Display, DM Sans — selbst gehostet als WOFF2
-- **Farbpalette:** Navy `#1C2B3A`, Teal `#1E656D`, Teal-light `#8DD4D9`, Amber `#B45309`
-- **Design-Tokens:** CSS custom properties in `src/css/tokens.css`
+- **Farbpalette und Design-Tokens:** CSS custom properties in `src/css/tokens.css` sind die Source of Truth für Farben, Abstände, Typografie und Komponentenwerte.
 
 ## Beitragen
 
