@@ -1517,14 +1517,14 @@ textarea { min-height: 80px; resize: vertical; }
   padding: var(--card-padding);
   border: 1px solid var(--border-warm);
   border-radius: var(--card-radius);
-  background: var(--surface-alt);
+  background: var(--bg);
 }
 .local-storage-choice legend,
 .local-storage-choice-title {
   padding: 0;
   font-size: var(--text-base);
   font-weight: 700;
-  color: var(--navy);
+  color: var(--text);
 }
 .local-storage-choice-lead {
   margin: var(--space-sm) 0 0;
