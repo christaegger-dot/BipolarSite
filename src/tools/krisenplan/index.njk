@@ -21,7 +21,7 @@ breadcrumbs:
 <nav class="tool-nav" aria-label="Werkzeug-Navigation">
   <a href="{{ toolBackHref }}" class="tool-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>{{ toolBackLabel }}</a>
   <div class="tool-actions">
-    <button type="submit" form="form" id="btnSave" class="btn-save">Speichern</button>
+    <button type="submit" form="form" id="btnSave" class="btn-save" disabled>Speichern</button>
     <button type="button" id="btnPrint" class="btn-print">Drucken</button>
     <button type="button" id="btnReset" class="btn-reset">Zurücksetzen</button>
   </div>
@@ -44,6 +44,30 @@ breadcrumbs:
   <div class="hdr">
 <div class="breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><a href="/werkzeuge/">Werkzeuge</a><span class="sep" aria-hidden="true">›</span><span>Krisenplan-Werkzeug</span></div>
 <div class="tool-glyph" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="7" width="20" height="26" rx="4" fill="var(--teal-light)"/><path d="M15 14H25" stroke="var(--teal-solid)" stroke-width="2.4" stroke-linecap="round"/><path d="M15 20H25" stroke="var(--teal-solid)" stroke-width="2.4" stroke-linecap="round"/><path d="M15 26H21" stroke="var(--teal-solid)" stroke-width="2.4" stroke-linecap="round"/></svg></div><h1>Krisenplan-Werkzeug</h1><p>Füllen Sie diesen Plan gemeinsam in einer stabilen Phase aus. Er soll in belastenden Situationen Entscheidungslast reduzieren und wichtige Absprachen festhalten.</p><div class="info-box"><p><strong>Hinweis zum Datenschutz:</strong> Ihre Einträge bleiben auf diesem Gerät und werden nicht an uns oder an einen Server übermittelt. Die Speicherung im Browser ist jedoch nicht verschlüsselt. Nutzen Sie das Werkzeug auf gemeinsam genutzten oder fremden Geräten daher vorsichtig, drucken Sie den Plan bei Bedarf aus und setzen Sie ihn anschließend zurück.</p></div></div>
+  <fieldset class="local-storage-choice" aria-describedby="storageModeStatus">
+    <legend>Wie möchten Sie den Plan hier nutzen?</legend>
+    <p class="local-storage-choice-lead">Sie können den Krisenplan ohne lokale Speicherung ausfüllen und direkt drucken. Erst wenn Sie die zweite Option aktivieren, dürfen Daten auf diesem Gerät gespeichert und später wieder geladen werden.</p>
+    <div class="local-storage-choice-options" role="radiogroup" aria-label="Lokale Speicherung für den Krisenplan">
+      <label class="local-storage-choice-option">
+        <input type="radio" name="storageMode" value="print" checked>
+        <span class="local-storage-choice-copy">
+          <strong>Nur ausfüllen und drucken</strong>
+          <small>Der Plan bleibt nur in diesem Besuch sichtbar und wird nicht lokal gespeichert.</small>
+        </span>
+      </label>
+      <label class="local-storage-choice-option">
+        <input type="radio" name="storageMode" value="save">
+        <span class="local-storage-choice-copy">
+          <strong>Lokal auf diesem Gerät speichern</strong>
+          <small>Vorhandene lokale Daten werden erst nach dieser bewussten Auswahl geladen.</small>
+        </span>
+      </label>
+    </div>
+    <div class="local-storage-choice-actions">
+      <button type="button" id="btnLocalDelete" class="btn-reset">Alle lokalen Daten löschen</button>
+      <p class="local-storage-choice-status" id="storageModeStatus" aria-live="polite"></p>
+    </div>
+  </fieldset>
   <div class="prog-wrap"><div class="prog-bar"><div class="prog-fill" id="progFill"></div></div><div class="prog-label" id="progLabel"></div></div>
   <form id="form" autocomplete="off">
     <div class="section s1"><h2><span class="section-step" aria-hidden="true">1</span> Frühwarnzeichen</h2><p class="sdesc">Was sind die ersten Anzeichen, dass eine Episode beginnen könnte?</p>

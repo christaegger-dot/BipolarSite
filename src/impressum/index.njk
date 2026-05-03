@@ -68,8 +68,10 @@ bodyClass: "impressum-page"
   </div>
 
   <div class="section">
-    <h2>Stand</h2>
-    <p>{{ build.stand }}</p>
+    <h2>Prüfstand</h2>
+    <p><strong>Inhaltlich geprüft:</strong> {{ site.contentReviewedDisplay }}</p>
+    <p><strong>Kontaktangaben geprüft:</strong> {{ site.contactsReviewedDisplay }}</p>
+    <p><strong>Technischer Stand dieser Version:</strong> {{ build.stand }}</p>
   </div>
 
 </main>
