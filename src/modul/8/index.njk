@@ -502,7 +502,7 @@ breadcrumbs:
   const MATERIAL_FINDER={akut:[{kicker:'Jetzt zuerst',title:'Notfallseite öffnen',text:'Wenn Gefahr oder starke Unsicherheit im Raum stehen, ist die Triage wichtiger als die ganze Materialsammlung.',href:'/notfall/',label:'Zum Notfallweg →'},{kicker:'PDF',title:'{{ pdfs.downloads.notfallkarte.title }}',text:'Alle wichtigen Nummern mit kurzer Einordnung, wann welche Stelle sinnvoll ist.',href:'{{ pdfs.downloads.notfallkarte.url }}',label:'Notfallkarte direkt herunterladen →'},{kicker:'Danach',title:'Krisenplan bereithalten',text:'Wenn schon einer existiert, jetzt hervornehmen. Wenn nicht, später in ruhiger Phase vorbereiten.',href:'/modul/6/',label:'Zu Modul 6 →'}],plan:[{kicker:'PDF',title:'{{ pdfs.downloads.krisenplanVorlage.title }}',text:'Die wichtigste Unterlage, wenn Sie Frühwarnzeichen, Kontakte und Klinikwünsche vorab ordnen möchten.',href:'{{ pdfs.downloads.krisenplanVorlage.url }}',label:'Krisenplan direkt herunterladen →'},{kicker:'Werkzeug',title:'Krisenplan-Werkzeug',text:'Wenn Sie den Plan lieber direkt am Bildschirm vorbereiten und danach drucken möchten.',href:'/tools/krisenplan/',label:'Werkzeug öffnen →'},{kicker:'Vertiefung',title:'Modul 6: konkrete Schritte',text:'Für Gespräche, Grenzen, Krisenplan und Vorbereitung in stabilen Phasen.',href:'/modul/6/',label:'Zu Modul 6 →'}],ersch:[{kicker:'Archiv-Handout',title:'{{ pdfs.handouts.a4_ambiguous_loss.title }}',text:'Hilft, schleichende Erschöpfung, Trauer und Selbstverlust besser zu verstehen. Dieses Blatt gehört noch zum älteren PDF-Bestand.',href:'{{ pdfs.handouts.a4_ambiguous_loss.url }}',label:'Handout-Vorschau öffnen →'},{kicker:'PDF',title:'{{ pdfs.downloads.kurzblattStabilisiert.title }}',text:'Ein kompaktes Blatt für Alltag, Selbstfürsorge und kleine entlastende Schritte.',href:'{{ pdfs.downloads.kurzblattStabilisiert.url }}',label:'Kurzblatt direkt herunterladen →'},{kicker:'Kontakt',title:'Selbsthilfe oder Angehörigenberatung',text:'Wenn Information allein nicht mehr reicht, ist Resonanz oft der entlastendere nächste Schritt.',href:'#beratung',label:'Zu den Anlaufstellen →'}],recht:[{kicker:'Kontakt',title:'Pro Mente Sana',text:'Psychosoziale und juristische Beratung zu FU, Vorsorgeauftrag, Patientenverfügung und Konflikten mit Institutionen.',href:'{{ site.contacts.proMenteSana.url }}',label:'Pro Mente Sana öffnen →'},{kicker:'Kontakt',title:'Ombudsstelle Krankenversicherung',text:'Wenn Leistungsstreitigkeiten oder abgelehnte Kostengutsprachen blockieren.',href:'{{ site.contacts.ombudsstelleKrankenversicherung.url }}',label:'Ombudsstelle öffnen →'},{kicker:'Orientierung',title:'Systemblockaden einordnen',text:'Wenn das Versorgungssystem zusätzlich belastet, hilft oft zuerst die Klärung der Beschwerde- und Beratungswege.',href:'#system',label:'Zum System-Abschnitt →'}]};
   const materialFinderButtons=document.querySelectorAll('[data-material-finder]');
   const materialFinderResults=document.getElementById('materialFinderResults');
-  const renderMaterialFinder=(key)=>{const items=MATERIAL_FINDER[key];if(!items||!materialFinderResults)return;materialFinderButtons.forEach(btn=>{const isActive=btn.dataset.materialFinder===key;btn.classList.toggle('is-active',isActive);btn.setAttribute('aria-pressed',isActive?'true':'false');});materialFinderResults.innerHTML=items.map(item=>`<div class="finder-card"><div class="finder-card-kicker">${item.kicker}</div><h4>${item.title}</h4><p>${item.text}</p><a href="${item.href}"${item.href.startsWith('http')?' target="_blank" rel="noopener"':''}${item.href.startsWith('/downloads/')?' download':''}>${item.label}</a></div>`).join('');materialFinderResults.hidden=false;materialFinderResults.querySelectorAll('a[href$=".pdf"]').forEach(setupPdfPreviewLink);};
+  const renderMaterialFinder=(key)=>{const items=MATERIAL_FINDER[key];if(!items||!materialFinderResults)return;materialFinderButtons.forEach(btn=>{const isActive=btn.dataset.materialFinder===key;btn.classList.toggle('is-active',isActive);btn.setAttribute('aria-pressed',isActive?'true':'false');});materialFinderResults.innerHTML=items.map(item=>`<div class="finder-card"><div class="finder-card-kicker">${item.kicker}</div><h4>${item.title}</h4><p>${item.text}</p><a href="${item.href}"${item.href.startsWith('http')?' target="_blank" rel="noopener"':''}${item.href.startsWith('/downloads/')?' download':''}>${item.label}</a></div>`).join('');materialFinderResults.hidden=false;materialFinderResults.querySelectorAll('a[href$=".pdf"]').forEach(link=>window.setupPdfPreviewLink?.(link));};
   materialFinderButtons.forEach(button=>{button.addEventListener('click',()=>renderMaterialFinder(button.dataset.materialFinder));});
   const MINI_PLAN_KEY='puk_modul8_mini_plan';
   const miniPlanNumber=document.getElementById('miniPlanNumber');
@@ -544,63 +544,5 @@ breadcrumbs:
     miniPlanNumber.value='';miniPlanDocument.value='';miniPlanStep.value='';clearMiniPlanStorage();renderMiniPlanSummary(null);miniPlanStatus.textContent='Mini-Plan von diesem Gerät gelöscht.';
   });
   loadMiniPlan();
-  const pdfPreview=document.getElementById('pdf-preview');
-  const pdfPreviewFrame=document.getElementById('pdf-preview-frame');
-  const pdfPreviewTitle=document.getElementById('pdf-preview-title');
-  const pdfPreviewOpen=document.getElementById('pdf-preview-open');
-  const pdfPreviewDownload=document.getElementById('pdf-preview-download');
-  const pdfPreviewClose=document.getElementById('pdf-preview-close');
-  const pdfPreviewDialog=pdfPreview.querySelector('.pdf-preview-dialog');
-  const FOCUSABLE_SELECTOR='a[href],button:not([disabled]),textarea:not([disabled]),input:not([disabled]),select:not([disabled]),[tabindex]:not([tabindex="-1"])';
-  let pdfPreviewTrigger=null;
-
-  const setPageInert=(isInert)=>{[...document.body.children].filter(el=>el!==pdfPreview).forEach(el=>{el.inert=isInert})};
-  const trapFocus=(event,container)=>{
-    if(event.key!=='Tab')return;
-    const focusable=[...container.querySelectorAll(FOCUSABLE_SELECTOR)].filter(el=>!el.hidden&&el.offsetParent!==null);
-    if(!focusable.length){event.preventDefault();container.focus();return}
-    const first=focusable[0];
-    const last=focusable[focusable.length-1];
-    if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus()}
-    else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus()}
-  };
-
-  const getPdfTitle=(link)=>{
-    const scopedTitle=link.querySelector('.handout-card-title,.hc-title,.guide-title,.dl-body h3');
-    if(scopedTitle)return scopedTitle.textContent.trim();
-    return link.textContent.replace(/\s+/g,' ').replace(/^↓\s*PDF:\s*/i,'').trim()||'PDF-Vorschau';
-  };
-
-  const closePdfPreview=()=>{
-    pdfPreview.hidden=true;
-    document.body.classList.remove('pdf-preview-open');
-    setPageInert(false);
-    pdfPreviewFrame.src='about:blank';
-    if(pdfPreviewTrigger)pdfPreviewTrigger.focus();
-  };
-
-  const setupPdfPreviewLink=(link)=>{
-    const href=link.getAttribute('href');
-    if(!href||!href.startsWith('/')||href.startsWith('/downloads/'))return;
-    link.addEventListener('click',(event)=>{
-      if(event.defaultPrevented||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
-      event.preventDefault();
-      pdfPreviewTrigger=link;
-      pdfPreviewTitle.textContent=getPdfTitle(link);
-      pdfPreviewFrame.src=`${href}#view=FitH`;
-      pdfPreviewOpen.href=href;
-      pdfPreviewDownload.href=href;
-      pdfPreview.hidden=false;
-      document.body.classList.add('pdf-preview-open');
-      setPageInert(true);
-      pdfPreviewClose.focus();
-    });
-  };
-  document.querySelectorAll('a[href$=".pdf"]').forEach(setupPdfPreviewLink);
-
-  pdfPreviewClose.addEventListener('click',closePdfPreview);
-  pdfPreviewDialog.addEventListener('keydown',event=>{trapFocus(event,pdfPreviewDialog)});
-  pdfPreview.addEventListener('click',(event)=>{if(event.target===pdfPreview)closePdfPreview();});
-  document.addEventListener('keydown',(event)=>{if(event.key==='Escape'&&!pdfPreview.hidden)closePdfPreview();});
 </script>
 {% endblock %}
