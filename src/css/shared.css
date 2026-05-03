@@ -1639,13 +1639,13 @@ body:not(.dark-tool) .tool-nav .tool-back:hover {
 }
 
 body:not(.dark-tool) .tool-nav .tool-brand {
-  color: var(--navy);
+  color: var(--text);
 }
 
 /* ── [from overrides.css] TOOL NAV TEXT (non-dark) ── */
 body:not(.dark-tool) .tool-back,
 body:not(.dark-tool) .tool-brand {
-  color: var(--navy);
+  color: var(--text);
 }
 
 /* ── [from overrides.css] RESPONSIVE ── */

@@ -539,9 +539,12 @@ footer.tf a[href="/notfall/"] {
 }
 
 /* ── [from overrides.css] TOOL-BACK/TOOL-BRAND RULES ── */
-body:not(.dark-tool) .tool-back,
-body:not(.dark-tool) .tool-brand {
+body:not(.dark-tool) .tool-back {
   color: var(--navy);
+}
+
+body:not(.dark-tool) .tool-brand {
+  color: var(--text);
 }
 @media(max-width:600px){body.selbsttest-page .card{padding:24px 20px;min-height:auto}.bar-labels{font-size:var(--text-xs)}.bar-labels span:nth-child(2),.bar-labels span:nth-child(4){display:none}}
 /* Result state colours */
