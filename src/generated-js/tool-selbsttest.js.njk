@@ -38,7 +38,7 @@ eleventyExcludeFromCollections: true
         lv: 'niedrig',
         cls: 'result--green',
         ti: 'Belastung im grünen Bereich',
-        tx: 'Ihre Antworten deuten darauf hin, dass Sie aktuell gut zurechtkommen. Das bedeutet nicht, dass alles einfach ist — aber Sie scheinen Strategien zu haben, die funktionieren.',
+        tx: 'Ihre Antworten heute deuten darauf hin, dass Sie im Moment vergleichsweise stabil mit der Belastung umgehen. Das bedeutet nicht, dass alles leicht ist — aber Sie scheinen Strategien zu haben, die Ihnen gerade helfen.',
         rc: [
           'Lesen Sie <a href="/modul/7/">Modul 7</a> zur langen Strecke und Tragfähigkeit — um tragende Routinen weiter zu stärken.',
           'Bleiben Sie in Kontakt mit Ihrem sozialen Netz.',
@@ -51,9 +51,9 @@ eleventyExcludeFromCollections: true
         lv: 'mittel',
         cls: 'result--amber',
         ti: 'Erhöhte Belastung — achten Sie auf sich',
-        tx: 'Ihre Antworten zeigen: Die Belastung ist spürbar. Das ist bei Angehörigen häufig — und kein Zeichen von Schwäche. Jetzt ist ein guter Zeitpunkt, aktiv gegenzusteuern.',
+        tx: 'Ihre Antworten heute zeigen: Die Belastung ist spürbar. Das ist bei Angehörigen häufig — und kein Zeichen von Schwäche. Jetzt ist ein guter Zeitpunkt, aktiv gegenzusteuern.',
         rc: [
-          'Abschnitt 3 dieses Moduls (Schonhaltung & Identitätsverlust) könnte besonders relevant sein.',
+          '<a href="/modul/4/#mechanismen">Modul 4: Schonhaltung, Co-Isolation und Identitätsverlust</a> könnte gerade besonders relevant sein.',
           '<a href="/modul/6/">Modul 6</a> bietet konkrete Werkzeuge — insbesondere Grenzsetzung.',
           'Sprechen Sie mit einer Vertrauensperson über Ihre Situation.',
         ],
@@ -64,12 +64,12 @@ eleventyExcludeFromCollections: true
       lv: 'hoch',
       cls: 'result--red',
       ti: 'Deutliche Überlastung — Sie verdienen Unterstützung',
-      tx: 'Ihre Antworten deuten auf eine erhebliche Belastung hin. Das ist ernst zu nehmen. Sie tragen gerade sehr viel. Es wäre wichtig, dass Sie sich jetzt Hilfe holen.',
+      tx: 'Ihre Antworten heute deuten auf eine deutliche Belastung hin. Das ist ernst zu nehmen. Sie tragen gerade sehr viel. Es wäre wichtig, dass Sie sich jetzt kleine, konkrete Unterstützung holen.',
       rc: [
         fachstelleCallToAction,
         'Hausarzt einbeziehen: Chronische Belastung hat körperliche Folgen.',
         vaskReference,
-        'Lesen Sie <a href="/modul/4/#handlungsschritte">Abschnitt 6 dieses Moduls</a> — konkrete Handlungsschritte.',
+        'Lesen Sie <a href="/modul/4/#handeln">Modul 4: Warnsignale und erste Gegensteuerung</a> — konkrete Handlungsschritte.',
       ],
     };
   };
@@ -117,7 +117,7 @@ eleventyExcludeFromCollections: true
       <div class="bar-wrap"><div class="bar-labels"><span>0</span><span>niedrig</span><span>mittel</span><span>hoch</span><span>20</span></div><div class="bar"><div class="bar-dot" style="left:${(score / 20) * 100}%"></div></div></div>
       <p class="res-txt">${result.tx}</p>
       <div class="rec"><div class="rec-title">Empfehlungen</div>${result.rc.map((item) => `<div class="rec-item">${item}</div>`).join('')}</div>
-      <div class="disc"><strong>Wichtig:</strong> Dieser Selbsttest ist keine Diagnose. Er gibt Orientierung. Fachstelle PUK: ${fachstelleInline}.</div>
+      <div class="disc"><strong>Wichtig:</strong> Dieser Selbsttest ist keine Diagnose und keine Bewertung Ihrer Person. Er gibt nur eine Momentaufnahme zur Orientierung. Fachstelle PUK: ${fachstelleInline}.</div>
       <div class="btns"><button class="btn-reset" data-action="rs">Erneut einschätzen</button><button class="btn-cont" data-action="nav" data-href="/modul/4/">Zurück zu Modul 4 →</button></div>`;
   };
 

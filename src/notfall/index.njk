@@ -36,7 +36,7 @@ breadcrumbs:
     <div class="situations">
       <a href="#guide-suizid" class="sit-card urgent"><div class="sit-badge">!</div><div class="sit-text"><strong>Suizidgedanken</strong>144 oder 0800&nbsp;33&nbsp;66&nbsp;55</div></a>
       <a href="#guide-psychose" class="sit-card urgent"><div class="sit-badge">!</div><div class="sit-text"><strong>Psychose / Wahn / Paranoia</strong>0800&nbsp;33&nbsp;66&nbsp;55</div></a>
-      <a href="#guide-manie" class="sit-card urgent"><div class="sit-badge">!</div><div class="sit-text"><strong>Manie ausser Kontrolle</strong>0800&nbsp;33&nbsp;66&nbsp;55</div></a>
+      <a href="#guide-manie" class="sit-card urgent"><div class="sit-badge">!</div><div class="sit-text"><strong>Manie mit hohem Risiko</strong>0800&nbsp;33&nbsp;66&nbsp;55</div></a>
       <a href="#guide-gewalt" class="sit-card urgent"><div class="sit-badge">!</div><div class="sit-text"><strong>Gewalt oder Bedrohung</strong>117 (Polizei)</div></a>
       <a href="#guide-depression" class="sit-card"><div class="sit-badge">–</div><div class="sit-text"><strong>Schwere Depression</strong>143 oder 0800&nbsp;33&nbsp;66&nbsp;55</div></a>
       <a href="#guide-finanzen" class="sit-card"><div class="sit-badge">CHF</div><div class="sit-text"><strong>Finanzielle Eskalation</strong>Spontankäufe, Verträge, Schulden</div></a>
@@ -53,13 +53,13 @@ breadcrumbs:
   <p><strong>Kurzregel:</strong> Unmittelbare Gefahr → <a href="tel:144"><strong>144</strong></a> oder <a href="tel:117"><strong>117</strong></a>. Psychiatrische Krise ohne Lebensgefahr → <a href="{{ site.tel.aerztefon.href }}"><strong>{{ site.tel.aerztefon.display }}</strong></a>.</p>
   <div class="grauzone grauzone--hero">
     <h3>Akut gefährlich</h3>
-    <p>Konkrete Suizidabsicht, Gewalt, schwere Bedrohung, massive Entgleisung. <strong>→ <a href="tel:144">144</a> oder <a href="tel:117">117</a>.</strong></p>
+    <p>Konkrete Suizidabsicht, Gewalt, schwere Bedrohung, schwere Krise. <strong>→ <a href="tel:144">144</a> oder <a href="tel:117">117</a>.</strong></p>
 
-    <h3>Akut entgleisend, noch ansprechbar</h3>
+    <h3>Akut zugespitzt, noch ansprechbar</h3>
     <p>Manie, psychotische Zuspitzung, schwere Depression, rasche Eskalation. <strong>→ <a href="{{ site.tel.aerztefon.href }}">{{ site.tel.aerztefon.display }}</a>, dann Krisenplan aktivieren.</strong></p>
 
     <h3>Noch nicht akut, aber nicht warten</h3>
-    <p>Frühe Warnzeichen, Kontrollverlust, starke Verunsicherung. <strong>→ Heute handeln.</strong></p>
+    <p>Frühe Warnzeichen, spürbare Zuspitzung, starke Verunsicherung. <strong>→ Heute handeln.</strong></p>
   </div>
 
   <p class="krisenplan-hint"><strong>Krisenplan vorhanden?</strong> Jetzt öffnen und den vereinbarten Schritten folgen. Noch keinen? → <a href="/tools/krisenplan/">Krisenplan-Werkzeug</a></p>
@@ -110,7 +110,7 @@ breadcrumbs:
   <!-- MANIE -->
   <div class="guide" id="guide-manie">
     <button type="button" class="guide-header" aria-expanded="false" aria-controls="guide-panel-manie">
-      <span class="guide-header-left"><span class="guide-badge red">!</span><span><span class="guide-title">Manie ausser Kontrolle</span><span class="guide-subtitle">Euphorie, Schlaflosigkeit, Grössenideen, Impulsivität</span></span></span>
+      <span class="guide-header-left"><span class="guide-badge red">!</span><span><span class="guide-title">Manische Krise mit hohem Risiko</span><span class="guide-subtitle">Euphorie, Schlaflosigkeit, Grössenideen, Impulsivität</span></span></span>
       <span class="guide-chevron">▼</span>
     </button>
     <div class="guide-body" id="guide-panel-manie" hidden><div class="guide-body-inner">
@@ -123,7 +123,7 @@ breadcrumbs:
       </ul>
       <div class="guide-do">✓ Ruhig bleiben. Kurze Sätze. Sicherheit priorisieren. <a href="{{ site.tel.aerztefon.href }}">{{ site.tel.aerztefon.display }}</a> anrufen.</div>
       <div class="guide-dont">✗ «Du bist manisch!» Diskutieren. Ultimaten. Allein lösen wollen.</div>
-      <div class="guide-sos">Wenn unmittelbare Gefahr dazukommt oder Sicherheit, Fahren, Geld oder Verhalten nicht mehr kontrollierbar sind: nicht weiter diskutieren, sondern <a href="tel:144">144</a> oder <a href="tel:117">117</a>.</div>
+      <div class="guide-sos">Wenn unmittelbare Gefahr dazukommt oder Sicherheit, Fahren, Geld oder Verhalten nicht mehr sicher einschätzbar sind: nicht weiter diskutieren, sondern <a href="tel:144">144</a> oder <a href="tel:117">117</a>.</div>
       {{ guidePdfLink(pdfs.downloads.manie, "↓ PDF") }} · <a href="/modul/6/#manie-komm" class="guide-link">→ Modul 6: Kommunikation in der Manie</a>
     </div></div>
   </div>
@@ -173,7 +173,7 @@ breadcrumbs:
   <!-- GEWALT -->
   <div class="guide" id="guide-gewalt">
     <button type="button" class="guide-header" aria-expanded="false" aria-controls="guide-panel-gewalt">
-      <span class="guide-header-left"><span class="guide-badge red">!</span><span><span class="guide-title">Gewalt oder Bedrohung</span><span class="guide-subtitle">Körperliche oder verbale Gewalt, Zerstörung, Bedrohung</span></span></span>
+      <span class="guide-header-left"><span class="guide-badge red">!</span><span><span class="guide-title">Gewalt oder Bedrohung</span><span class="guide-subtitle">Körperliche oder verbale Gewalt, Sachbeschädigung, Bedrohung</span></span></span>
       <span class="guide-chevron">▼</span>
     </button>
     <div class="guide-body" id="guide-panel-gewalt" hidden><div class="guide-body-inner">
@@ -187,7 +187,7 @@ breadcrumbs:
       </ul>
       <div class="guide-do">✓ Raum verlassen. Kinder mitnehmen. <a href="tel:117">117</a> anrufen. Dokumentieren.</div>
       <div class="guide-dont">✗ Sich verteidigen, wenn es eskaliert. Allein bleiben. Vorfall verschweigen.</div>
-      <p class="guide-note"><strong>Wichtig:</strong> Gewalt ist nie akzeptabel — auch nicht als Symptom einer Erkrankung. Das zu benennen ist kein Verrat an Ihrem Partner.</p>
+      <p class="guide-note"><strong>Wichtig:</strong> Gewalt ist nie akzeptabel — auch nicht als Symptom einer Erkrankung. Das zu benennen ist kein Verrat an einer nahestehenden Person.</p>
     </div></div>
   </div>
 
