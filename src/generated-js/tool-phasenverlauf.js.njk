@@ -2,8 +2,17 @@
 permalink: /js/tool-phasenverlauf.js
 eleventyExcludeFromCollections: true
 ---
+{% set supportContacts = {
+  fachstelle: site.tel.fachstelle,
+  aerztefon: site.tel.aerztefon,
+  dargeboteneHand: site.tel.dargeboteneHand
+} %}
 (() => {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const SUPPORT_CONTACTS = {{ supportContacts | json | safe }};
+  const formatPhoneLabel = (value) => value.replace(/ /g, '&nbsp;');
+  const contactLink = (contact, color) =>
+    `<a href="${contact.href}" style="color:${color};font-weight:600">${formatPhoneLabel(contact.display)}</a>`;
 
   const phases = {
     mania: {
@@ -52,7 +61,7 @@ eleventyExcludeFromCollections: true
       pulseId: 'pulse-mild',
       person: ['Antriebslosigkeit, Erschöpfung, Interesseverlust', 'Sozialer Rückzug und Isolation', 'Grübeln, Schlafstörungen, Appetitverlust', 'Konzentrationsprobleme im Alltag', 'Gefühl der Wertlosigkeit oder Schuld'],
       caregiver: ['Die Person ist körperlich da, aber emotional unerreichbar', 'Gefühl, hilflos zu sein — nichts, was man tut, hilft', 'Übernahme aller Alltagsaufgaben und Verantwortung', 'Eigene Einsamkeit und Erschöpfung wächst still', 'Unsicherheit: Ansprechen oder lieber in Ruhe lassen?'],
-      note: '<strong>Wichtig:</strong> In depressiven Phasen ist aktive Unterstützung wichtig — ohne Druck. Wenn Sie sich überfordert fühlen, wenden Sie sich an die Fachstelle Angehörigenarbeit: <a href="tel:+41583843800" style="color:var(--blue-phase);font-weight:600">058&nbsp;384&nbsp;38&nbsp;00</a>.',
+      note: `<strong>Wichtig:</strong> In depressiven Phasen ist aktive Unterstützung wichtig — ohne Druck. Wenn Sie sich überfordert fühlen, wenden Sie sich an die Fachstelle Angehörigenarbeit: ${contactLink(SUPPORT_CONTACTS.fachstelle, 'var(--blue-phase)')}.`,
     },
     'severe-dep': {
       name: 'Schwere Depression',
@@ -64,7 +73,7 @@ eleventyExcludeFromCollections: true
       pulseId: 'pulse-severe',
       person: ['Schwere Antriebslosigkeit und Hoffnungslosigkeit', 'Suizidale Gedanken möglich — ernst nehmen', 'Kaum Fähigkeit, sich zu bewegen oder zu sprechen', 'Vollständiger Rückzug und Isolation', 'Psychotische Symptome bei schwerer Episode möglich'],
       caregiver: ['Angst um das Leben der Person — rund um die Uhr', 'Vollständige Übernahme aller Aufgaben, totale Erschöpfung', 'Schwere emotionale Belastung und Hilflosigkeit', 'Unklare Grenze: Wann ist eine Hospitalisation nötig?', 'Eigene Schlafstörungen, Traumatisierung möglich'],
-      note: '<strong>⚠ Bei Suizidgedanken:</strong> Ärztefon – Notfalldienst ZH: <a href="tel:+41800336655" style="color:var(--slate);font-weight:600">0800&nbsp;33&nbsp;66&nbsp;55</a> (24/7, kostenlos). Dargebotene Hand: <a href="tel:143" style="color:var(--slate);font-weight:600">143</a>. Angehörige brauchen jetzt selbst Unterstützung: <a href="tel:+41583843800" style="color:var(--slate);font-weight:600">058&nbsp;384&nbsp;38&nbsp;00</a>.',
+      note: `<strong>⚠ Bei Suizidgedanken:</strong> Ärztefon – Notfalldienst ZH: ${contactLink(SUPPORT_CONTACTS.aerztefon, 'var(--slate)')} (24/7, kostenlos). Dargebotene Hand: ${contactLink(SUPPORT_CONTACTS.dargeboteneHand, 'var(--slate)')}. Angehörige brauchen jetzt selbst Unterstützung: ${contactLink(SUPPORT_CONTACTS.fachstelle, 'var(--slate)')}.`,
     },
   };
 

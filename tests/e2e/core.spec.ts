@@ -70,6 +70,28 @@ test.describe('core user paths', () => {
     await expect(emergencyCard).toContainText(/Es ist akut/i);
   });
 
+  test('selbsttest renders its result actions with central contact links intact', async ({ page }) => {
+    await page.goto('/tools/selbsttest/');
+
+    for (let i = 0; i < 5; i += 1) {
+      await page.locator('[data-sa]').nth(0).click();
+      if (i < 4) {
+        await page.getByRole('button', { name: 'Weiter →' }).click();
+      }
+    }
+
+    await page.getByRole('button', { name: 'Auswerten' }).click();
+    await expect(page.locator('.disc a[href^="tel:"]')).toBeVisible();
+  });
+
+  test('phasenverlauf exposes emergency contacts from the shared data set', async ({ page }) => {
+    await page.goto('/tools/phasenverlauf/');
+
+    await page.getByRole('button', { name: /Schwere Depression/i }).click();
+    await expect(page.locator('#detailCard')).toContainText('0800 33 66 55');
+    await expect(page.locator('#detailCard a[href="tel:143"]')).toBeVisible();
+  });
+
   test('krisenplan only loads local data after explicit storage consent and can reset it', async ({ page }) => {
     await page.goto('/tools/krisenplan/');
     await page.evaluate(() => localStorage.clear());

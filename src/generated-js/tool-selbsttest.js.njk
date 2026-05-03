@@ -2,7 +2,12 @@
 permalink: /js/tool-selbsttest.js
 eleventyExcludeFromCollections: true
 ---
+{% set supportContacts = {
+  fachstelle: site.tel.fachstelle,
+  vask: site.tel.vask
+} %}
 (() => {
+  const SUPPORT_CONTACTS = {{ supportContacts | json | safe }};
   const questions = [
     { id: 1, t: 'Ich denke oft daran, was als nächstes schiefgehen könnte — auch wenn es gerade ruhig ist.' },
     { id: 2, t: 'Ich habe das Gefühl, meine eigenen Bedürfnisse kommen kaum noch vor.' },
@@ -22,6 +27,10 @@ eleventyExcludeFromCollections: true
   const progress = document.getElementById('prog');
   const card = document.getElementById('card');
   if (!progress || !card) return;
+
+  const fachstelleCallToAction = `<a href="${SUPPORT_CONTACTS.fachstelle.href}" class="rec-cta">Fachstelle Angehörigenarbeit PUK Zürich anrufen<span>${SUPPORT_CONTACTS.fachstelle.display} — kostenlos, vertraulich</span></a>`;
+  const vaskReference = `<a href="${SUPPORT_CONTACTS.vask.href}">VASK Zürich (${SUPPORT_CONTACTS.vask.display})</a> bietet Selbsthilfegruppen.`;
+  const fachstelleInline = `<a href="${SUPPORT_CONTACTS.fachstelle.href}">${SUPPORT_CONTACTS.fachstelle.display}</a>`;
 
   const getResult = (score) => {
     if (score <= 6) {
@@ -57,9 +66,9 @@ eleventyExcludeFromCollections: true
       ti: 'Deutliche Überlastung — Sie verdienen Unterstützung',
       tx: 'Ihre Antworten deuten auf eine erhebliche Belastung hin. Das ist ernst zu nehmen. Sie tragen gerade sehr viel. Es wäre wichtig, dass Sie sich jetzt Hilfe holen.',
       rc: [
-        '<a href="{{ site.tel.fachstelle.href }}" class="rec-cta">Fachstelle Angehörigenarbeit PUK Zürich anrufen<span>{{ site.tel.fachstelle.display }} — kostenlos, vertraulich</span></a>',
+        fachstelleCallToAction,
         'Hausarzt einbeziehen: Chronische Belastung hat körperliche Folgen.',
-        '<a href="{{ site.tel.vask.href }}">VASK Zürich ({{ site.tel.vask.display }})</a> bietet Selbsthilfegruppen.',
+        vaskReference,
         'Lesen Sie <a href="/modul/4/#handlungsschritte">Abschnitt 6 dieses Moduls</a> — konkrete Handlungsschritte.',
       ],
     };
@@ -108,7 +117,7 @@ eleventyExcludeFromCollections: true
       <div class="bar-wrap"><div class="bar-labels"><span>0</span><span>niedrig</span><span>mittel</span><span>hoch</span><span>20</span></div><div class="bar"><div class="bar-dot" style="left:${(score / 20) * 100}%"></div></div></div>
       <p class="res-txt">${result.tx}</p>
       <div class="rec"><div class="rec-title">Empfehlungen</div>${result.rc.map((item) => `<div class="rec-item">${item}</div>`).join('')}</div>
-      <div class="disc"><strong>Wichtig:</strong> Dieser Selbsttest ist keine Diagnose. Er gibt Orientierung. Fachstelle PUK: <a href="{{ site.tel.fachstelle.href }}">{{ site.tel.fachstelle.display }}</a>.</div>
+      <div class="disc"><strong>Wichtig:</strong> Dieser Selbsttest ist keine Diagnose. Er gibt Orientierung. Fachstelle PUK: ${fachstelleInline}.</div>
       <div class="btns"><button class="btn-reset" data-action="rs">Erneut einschätzen</button><button class="btn-cont" data-action="nav" data-href="/modul/4/">Zurück zu Modul 4 →</button></div>`;
   };
 
