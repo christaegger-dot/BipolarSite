@@ -32,5 +32,6 @@
 {% endmacro %}
 
 {% macro guidePdfLink(asset, prefix = '↓ PDF') %}
-<a href="{{ asset.url }}" target="_blank" rel="noopener" class="guide-link" data-pdf-mode="{{ asset.mode or 'preview' }}" data-pdf-asset-id="{{ asset.assetId }}">{{ prefix }}: {{ asset.title }} <span class="guide-link-meta">Vorschau öffnen · {{ asset.metaLine }}</span></a>
+{% set actionText = 'Vorschau öffnen' if (asset.mode or 'preview') == 'preview' else 'Direkt öffnen oder herunterladen' %}
+<a href="{{ asset.url }}" target="_blank" rel="noopener" class="guide-link" data-pdf-mode="{{ asset.mode or 'preview' }}" data-pdf-asset-id="{{ asset.assetId }}">{{ prefix }}: {{ asset.title }} <span class="guide-link-meta">{{ actionText }} · {{ asset.metaLine }}</span></a>
 {% endmacro %}

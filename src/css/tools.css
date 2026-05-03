@@ -203,6 +203,8 @@ body {
 
 /* ── durchatmen ── */
 body.dark-tool{color:var(--white-text);background:var(--dark-bg);justify-content:center;padding:var(--space-lg);overflow-x:hidden;overflow-y:auto}
+body.dark-tool .tool-nav-main a{color:var(--white-text-secondary)}
+body.dark-tool .tool-nav-main a:hover{color:var(--white-text)}
 body.dark-tool .tool-nav{background:var(--dark-nav-bg);border-bottom:1px solid var(--dark-border)}
 body.dark-tool .tool-back{color:var(--white-text-secondary)}
 body.dark-tool .tool-brand{color:var(--white-text-secondary)}

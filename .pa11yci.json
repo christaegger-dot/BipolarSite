@@ -17,8 +17,15 @@
     "http://localhost:8080/modul/6/",
     "http://localhost:8080/modul/7/",
     "http://localhost:8080/modul/8/",
+    "http://localhost:8080/tools/durchatmen/",
     "http://localhost:8080/tools/eisberg/",
+    "http://localhost:8080/tools/ee-kreislauf/",
+    "http://localhost:8080/tools/komm-trainer/",
     "http://localhost:8080/tools/krisenplan/",
+    "http://localhost:8080/tools/phasenverlauf/",
+    "http://localhost:8080/tools/saeulen-check/",
+    "http://localhost:8080/tools/selbsttest/",
+    "http://localhost:8080/tools/solidaritaets-chart/",
     "http://localhost:8080/notfall/",
     "http://localhost:8080/impressum/"
   ]
