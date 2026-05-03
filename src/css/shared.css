@@ -1602,13 +1602,20 @@ textarea { min-height: 80px; resize: vertical; }
 
 .footer-disclaimer a { color: var(--rose-text); font-weight: 600; }
 
-.footer-link-alert {
-  color: var(--rose-text);
+.footer-inner .footer-link-alert {
+  color: var(--alert);
   font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.14em;
 }
 
-.footer-link-alert:hover {
-  color: var(--rose);
+.footer-inner .footer-link-alert:hover {
+  color: var(--emergency-dark);
+}
+
+.footer-inner .footer-link-alert:visited {
+  color: var(--alert);
 }
 
 /* ── Visited link styling ── */
@@ -1628,10 +1635,12 @@ a:visited {
 .invitation-phone:visited,
 .invitation-email:visited,
 .urgent-note-link:visited,
-.footer-link-alert:visited,
-.footer-disclaimer a:visited,
-footer a:visited {
+.footer-disclaimer a:visited {
   color: inherit;
+}
+
+.footer-links a:visited {
+  color: var(--slate);
 }
 
 /* ── [from overrides.css] TOOL NAV LIGHT VARIANT ── */
