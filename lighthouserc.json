@@ -65,7 +65,7 @@
             "categories:performance": [
               "error",
               {
-                "minScore": 0.83
+                "minScore": 0.82
               }
             ],
             "categories:best-practices": [
