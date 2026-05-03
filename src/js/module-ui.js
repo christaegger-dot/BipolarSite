@@ -61,45 +61,101 @@
 
   const phaseTabs = document.querySelector(".phase-tabs");
   if (phaseTabs) {
-    const showPhase = (phase) => {
-      document.querySelectorAll(".phase-content").forEach((element) => {
-        element.classList.remove("visible");
+    const tabs = [...phaseTabs.querySelectorAll(".phase-tab[data-phase]")];
+    const panels = tabs
+      .map((tab) => ({
+        tab,
+        panel: document.getElementById(tab.getAttribute("aria-controls")),
+      }))
+      .filter(({ panel }) => panel);
+
+    const activateTab = (nextTab, { focus = true } = {}) => {
+      const phase = nextTab?.dataset.phase;
+      if (!phase) return;
+
+      panels.forEach(({ tab, panel }) => {
+        const isActive = tab === nextTab;
+        tab.classList.remove("active-mania", "active-stable", "active-depression");
+        tab.setAttribute("aria-selected", isActive ? "true" : "false");
+        tab.tabIndex = isActive ? 0 : -1;
+        panel.classList.toggle("visible", isActive);
+        panel.hidden = !isActive;
       });
 
-      document.querySelectorAll(".phase-tab").forEach((element) => {
-        element.className = "phase-tab";
-        element.setAttribute("aria-selected", "false");
-      });
-
-      const panel = document.getElementById(`phase-${phase}`);
-      const tab = document.querySelector(`.phase-tab[data-phase="${phase}"]`);
-      if (!panel || !tab) return;
-
-      panel.classList.add("visible");
-      tab.setAttribute("aria-selected", "true");
-      tab.classList.add(`active-${phase}`);
+      nextTab.classList.add(`active-${phase}`);
+      if (focus) nextTab.focus();
     };
 
     phaseTabs.addEventListener("click", (event) => {
       const button = event.target.closest(".phase-tab[data-phase]");
       if (!button) return;
-      showPhase(button.dataset.phase);
+      activateTab(button, { focus: false });
     });
+
+    phaseTabs.addEventListener("keydown", (event) => {
+      const currentTab = event.target.closest(".phase-tab[data-phase]");
+      if (!currentTab) return;
+
+      const currentIndex = tabs.indexOf(currentTab);
+      if (currentIndex < 0) return;
+
+      let nextIndex = null;
+      if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+        nextIndex = (currentIndex + 1) % tabs.length;
+      } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+        nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+      } else if (event.key === "Home") {
+        nextIndex = 0;
+      } else if (event.key === "End") {
+        nextIndex = tabs.length - 1;
+      }
+
+      if (nextIndex === null) return;
+      event.preventDefault();
+      activateTab(tabs[nextIndex]);
+    });
+
+    const initialTab =
+      tabs.find((tab) => tab.getAttribute("aria-selected") === "true") ?? tabs[0];
+    if (initialTab) activateTab(initialTab, { focus: false });
   }
+
+  const setAccordionState = (item, isOpen) => {
+    const header = item.querySelector(".accordion-header");
+    const body = item.querySelector(".accordion-body");
+    if (!header || !body) return;
+
+    item.classList.toggle("open", isOpen);
+    header.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    body.hidden = !isOpen;
+  };
+
+  document.querySelectorAll(".accordion-item").forEach((item) => {
+    const header = item.querySelector(".accordion-header");
+    if (!header) return;
+    const isOpen =
+      item.classList.contains("open") || header.getAttribute("aria-expanded") === "true";
+    setAccordionState(item, isOpen);
+  });
 
   document.addEventListener("click", (event) => {
     const header = event.target.closest(".accordion-header");
     if (!header) return;
 
     const item = header.closest(".accordion-item");
+    if (!item) return;
+
     const group = header.closest(".accordion-group");
-    if (!item || !group) return;
-
     const wasOpen = item.classList.contains("open");
-    group.querySelectorAll(".accordion-item").forEach((element) => {
-      element.classList.remove("open");
-    });
 
-    if (!wasOpen) item.classList.add("open");
+    if (group) {
+      group.querySelectorAll(".accordion-item").forEach((element) => {
+        setAccordionState(element, false);
+      });
+      setAccordionState(item, !wasOpen);
+      return;
+    }
+
+    setAccordionState(item, !wasOpen);
   });
 })();
