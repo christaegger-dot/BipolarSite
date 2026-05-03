@@ -70,10 +70,15 @@ test.describe('core user paths', () => {
     await expect(emergencyCard).toContainText(/Es ist akut/i);
   });
 
-  test('krisenplan persists, reloads and resets local data', async ({ page }) => {
+  test('krisenplan only loads local data after explicit storage consent and can reset it', async ({ page }) => {
     await page.goto('/tools/krisenplan/');
     await page.evaluate(() => localStorage.clear());
     await page.reload();
+
+    const saveMode = page.getByLabel(/Lokal auf diesem Gerät speichern/i).first();
+    await expect(page.getByRole('button', { name: 'Speichern' })).toBeDisabled();
+
+    await saveMode.check();
 
     const warningField = page.locator('#warn_manie');
     await warningField.fill('Wenig Schlaf und starkes Reden');
@@ -82,15 +87,46 @@ test.describe('core user paths', () => {
     await expect(page.locator('#savedMsg')).toContainText('Gespeichert');
 
     await page.reload();
+    await expect(warningField).toHaveValue('');
+    await expect(page.locator('#storageModeStatus')).toContainText('gespeicherte Krisenplan-Daten');
+
+    await saveMode.check();
     await expect(warningField).toHaveValue('Wenig Schlaf und starkes Reden');
 
-    await page.getByRole('button', { name: 'Zurücksetzen' }).click();
+    await page.getByRole('button', { name: 'Alle lokalen Daten löschen' }).click();
     await expect(page.getByRole('dialog')).toBeVisible();
     await page.getByRole('button', { name: 'Endgültig löschen' }).click();
 
     await expect(warningField).toHaveValue('');
     await page.reload();
     await expect(warningField).toHaveValue('');
+  });
+
+  test('mini-plan only saves and loads after explicit storage consent', async ({ page }) => {
+    await page.goto('/modul/8/');
+    await page.evaluate(() => localStorage.clear());
+    await page.reload();
+
+    const saveButton = page.getByRole('button', { name: 'Mini-Plan speichern' });
+    await expect(saveButton).toBeDisabled();
+
+    const storageConsent = page.getByLabel(/Mini-Plan lokal auf diesem Gerät speichern/i);
+    await storageConsent.check();
+
+    const numberField = page.locator('#miniPlanNumber');
+    await numberField.fill('0800 33 66 55');
+    await saveButton.click();
+    await expect(page.locator('#miniPlanStatus')).toContainText('lokal auf diesem Gerät gespeichert');
+
+    await page.reload();
+    await expect(numberField).toHaveValue('');
+    await expect(page.locator('#miniPlanStatus')).toContainText('gespeicherten Mini-Plan');
+
+    await storageConsent.check();
+    await expect(numberField).toHaveValue('0800 33 66 55');
+
+    await page.getByRole('button', { name: 'Mini-Plan löschen' }).click();
+    await expect(numberField).toHaveValue('');
   });
 });
 

@@ -1,6 +1,6 @@
 [build]
-  # P3 Audit: npm install statt npx damit devDependencies (eleventy-img) installiert werden
-  command = "npm install && npx eleventy"
+  # Keep Netlify deploys aligned with CI and package-lock.json
+  command = "npm ci && npm run build"
   publish = "_site"
 
 [build.environment]

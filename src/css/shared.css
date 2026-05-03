@@ -1512,6 +1512,82 @@ input:focus, textarea:focus, select:focus,
 }
 textarea { min-height: 80px; resize: vertical; }
 
+.local-storage-choice {
+  margin: 0 0 var(--space-lg);
+  padding: var(--card-padding);
+  border: 1px solid var(--border-warm);
+  border-radius: var(--card-radius);
+  background: var(--surface-alt);
+}
+.local-storage-choice legend,
+.local-storage-choice-title {
+  padding: 0;
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--navy);
+}
+.local-storage-choice-lead {
+  margin: var(--space-sm) 0 0;
+  font-size: var(--text-sm);
+  line-height: 1.65;
+  color: var(--slate);
+}
+.local-storage-choice-options {
+  display: grid;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+.local-storage-choice-option {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-base);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-warm-md);
+  background: var(--card);
+}
+.local-storage-choice-option input {
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+  accent-color: var(--teal-solid);
+}
+.local-storage-choice-copy {
+  display: grid;
+  gap: 0.2rem;
+}
+.local-storage-choice-copy strong {
+  font-size: var(--text-sm);
+  color: var(--navy);
+}
+.local-storage-choice-copy small {
+  font-size: var(--text-xs);
+  line-height: 1.55;
+  color: var(--text-soft);
+}
+.local-storage-choice-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+.local-storage-choice-status {
+  flex: 1 1 16rem;
+  min-height: 1.2em;
+  margin: 0;
+  font-size: var(--text-xs);
+  line-height: 1.55;
+  color: var(--text-soft);
+}
+@media (max-width: 600px) {
+  .local-storage-choice {
+    padding: var(--space-lg) var(--space-base);
+  }
+  .local-storage-choice-option {
+    padding: var(--space-sm);
+  }
+}
+
 /* ── [from overrides.css] SPACING ── */
 
 /* ── Content width ── */
