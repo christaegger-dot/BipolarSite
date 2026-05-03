@@ -2729,6 +2729,10 @@ a.ampel-card{text-decoration:none;display:block}
   .hub-page .hub-content .urgent-note-standalone {
     border-radius: calc(var(--card-radius) + 8px);
   }
+
+  .notfall-hero .hero-visual {
+    display: none;
+  }
 }
 
 @media (max-width: 600px) {
@@ -2736,12 +2740,27 @@ a.ampel-card{text-decoration:none;display:block}
     padding: 14px 16px;
   }
 
+  .hub-page .hub-hero {
+    padding-top: calc(var(--nav-height) + var(--space-base));
+    padding-bottom: var(--space-base);
+  }
+
+  .hub-page .hub-hero-lead {
+    font-size: var(--text-base);
+  }
+
   .hub-page .hub-pathways {
-    padding: 16px;
+    margin-top: var(--space-base);
+    padding: 14px;
+  }
+
+  .hub-page .hub-content .urgent-note-standalone {
+    margin-bottom: var(--space-lg);
   }
 
   .hub-page .hub-pathway-card {
     padding-left: 20px;
+    min-height: 0;
   }
 }
 
@@ -3101,11 +3120,20 @@ a.ampel-card{text-decoration:none;display:block}
 
 @media (max-width: 600px) {
   [data-module-accent]:not([data-module-accent="8"]) .module-hero {
+    padding-top: calc(var(--nav-height) + var(--space-lg));
     padding-bottom: 28px;
+  }
+
+  [data-module-accent]:not([data-module-accent="8"]) .module-hero-inner {
+    gap: var(--space-base);
   }
 
   [data-module-accent]:not([data-module-accent="8"]) .module-hero h1 {
     max-width: none;
+  }
+
+  [data-module-accent]:not([data-module-accent="8"]) .module-meta {
+    gap: var(--space-sm);
   }
 
   [data-module-accent]:not([data-module-accent="8"]) .quote-block,
@@ -3122,12 +3150,29 @@ a.ampel-card{text-decoration:none;display:block}
   }
 
   .notfall-hero {
+    padding-top: calc(var(--nav-height) + var(--space-base));
     padding-bottom: var(--space-lg);
+  }
+
+  .notfall-hero h1 {
+    margin-bottom: var(--space-sm);
+  }
+
+  .notfall-hero p {
+    margin-bottom: var(--space-sm);
   }
 
   .emergency-strip-hero,
   .situations {
     padding: 10px;
+  }
+
+  .emergency-strip-hero {
+    gap: var(--space-sm);
+  }
+
+  .emergency-call {
+    min-height: 52px;
   }
 
   .sit-card {

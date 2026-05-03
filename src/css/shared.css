@@ -1540,28 +1540,52 @@ textarea { min-height: 80px; resize: vertical; }
 
 /* ── Compact footer layout ── */
 .footer-inner--compact {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-base);
-  text-align: center;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: var(--space-lg) var(--space-xl);
+  text-align: left;
+}
+
+.footer-group {
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.footer-inner--compact .footer-links {
+  justify-content: flex-start;
+  gap: var(--space-sm) var(--space-md);
+}
+
+.footer-group-title {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-soft);
 }
 
 .footer-credit {
   font-size: var(--text-xs);
-  color: var(--text-soft);
+  line-height: 1.65;
+  color: var(--slate);
   margin: 0;
 }
 
 .footer-attribution {
+  font-size: var(--text-xs);
+  line-height: 1.65;
   color: var(--text);
   font-weight: 600;
+  margin: 0;
 }
 
 .footer-disclaimer {
   font-size: var(--text-xs);
+  line-height: 1.65;
   color: var(--slate);
   margin: 0;
+  max-width: 36ch;
 }
 .footer-disclaimer a { color: var(--rose-text); font-weight: 600; }
 
@@ -1615,13 +1639,13 @@ body:not(.dark-tool) .tool-nav .tool-back:hover {
 }
 
 body:not(.dark-tool) .tool-nav .tool-brand {
-  color: var(--navy);
+  color: var(--text);
 }
 
 /* ── [from overrides.css] TOOL NAV TEXT (non-dark) ── */
 body:not(.dark-tool) .tool-back,
 body:not(.dark-tool) .tool-brand {
-  color: var(--navy);
+  color: var(--text);
 }
 
 /* ── [from overrides.css] RESPONSIVE ── */
@@ -1893,14 +1917,17 @@ header.hero .hero-content {
 .tool-nav-main {
   display: flex;
   align-items: center;
-  gap: 1.2rem;
-  padding: 0 2rem;
+  gap: var(--space-base);
+  padding: 0 clamp(1rem, 3vw, 2rem);
   max-width: var(--content-width);
-  margin: 0 auto 0.6rem;
+  margin: 0 auto var(--space-xs);
   font-size: var(--text-xs);
 }
 .tool-nav-main a {
-  color: var(--slate);
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--text-soft);
   text-decoration: none;
   font-family: 'DM Sans', sans-serif;
   white-space: nowrap;
@@ -1932,7 +1959,7 @@ header.hero .hero-content {
   .tool-nav-main a {
     display: inline-flex;
     align-items: center;
-    min-height: 40px;
+    min-height: 44px;
     padding: 8px 12px;
     border: 1px solid var(--border-warm-md);
     border-radius: var(--radius-round);
@@ -2659,10 +2686,21 @@ body.impressum-page .info-box strong {
   --tone-surface: linear-gradient(180deg, rgba(254,242,242,0.98), rgba(255,255,255,0.98));
   border-color: var(--alert-red-border);
   box-shadow: none;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-sm) var(--space-base);
+  padding-right: 22px;
 }
 
 .werkzeuge-page .tool-guide-item--alert::before {
   background: var(--alert);
+}
+
+.werkzeuge-page .tool-guide-item--alert span {
+  justify-self: end;
+  font-weight: 700;
 }
 
 .werkzeuge-page .tool-details {
@@ -2792,16 +2830,48 @@ body.impressum-page .info-box strong {
 
 @media (max-width: 600px) {
   .home-page .home-hero {
-    padding-bottom: 44px;
+    padding-top: 88px;
+    padding-bottom: 34px;
+  }
+
+  .home-page .home-hero-subtitle {
+    margin-bottom: var(--space-lg);
+    font-size: var(--text-base);
+  }
+
+  .home-page .home-hero .home-hero-link {
+    min-height: 46px;
+    padding: 0 18px;
+    font-size: var(--text-sm);
+    box-shadow: none;
   }
 
   .home-page .home-hero-paths {
-    margin-top: var(--space-xl);
-    padding: 18px 16px;
+    margin-top: var(--space-lg);
+    padding: 14px;
+  }
+
+  .home-page .home-hero-paths-lead {
+    margin-bottom: var(--space-sm);
   }
 
   .home-page .entry-path-link {
-    padding: 15px 16px 15px 20px;
+    padding: 14px 14px 14px 18px;
+    gap: var(--space-sm);
+  }
+
+  .home-page .entry-path-destination {
+    font-size: var(--text-xs);
+  }
+
+  #orientierung {
+    margin-top: var(--space-lg);
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
+  }
+
+  .quick-triage {
+    padding: var(--space-lg) var(--space-base);
   }
 
   .home-page .tools-highlight,
@@ -2811,12 +2881,21 @@ body.impressum-page .info-box strong {
   }
 
   .werkzeuge-page .overview-hero {
+    padding-top: 92px;
     padding-bottom: 24px;
   }
 
   .werkzeuge-page .tool-guide-item,
   .werkzeuge-page .tool-card {
     padding-left: 18px;
+  }
+
+  .werkzeuge-page .tool-guide-item--alert {
+    grid-template-columns: 1fr;
+  }
+
+  .werkzeuge-page .tool-guide-item--alert span {
+    justify-self: start;
   }
 
   .werkzeuge-page .tool-card {
@@ -2826,6 +2905,22 @@ body.impressum-page .info-box strong {
   .werkzeuge-page .tool-details-summary {
     width: 100%;
     justify-content: space-between;
+  }
+
+  body.module-overview-page .overview-hero {
+    padding-top: 92px;
+  }
+
+  body.module-overview-page .overview-lead,
+  .werkzeuge-page .overview-lead {
+    font-size: var(--text-base);
+  }
+}
+
+@media (max-width: 900px) {
+  .footer-inner--compact {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
   }
 }
 
