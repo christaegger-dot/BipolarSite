@@ -1553,8 +1553,10 @@ textarea { min-height: 80px; resize: vertical; }
 }
 
 .footer-inner--compact .footer-links {
+  display: grid;
   justify-content: flex-start;
-  gap: var(--space-sm) var(--space-md);
+  justify-items: flex-start;
+  gap: var(--space-sm);
 }
 
 .footer-group-title {
@@ -1570,6 +1572,7 @@ textarea { min-height: 80px; resize: vertical; }
   line-height: 1.65;
   color: var(--slate);
   margin: 0;
+  max-width: 40ch;
 }
 
 .footer-attribution {
@@ -1587,6 +1590,16 @@ textarea { min-height: 80px; resize: vertical; }
   margin: 0;
   max-width: 36ch;
 }
+
+.footer-emergency-note {
+  font-size: var(--text-xs);
+  line-height: 1.65;
+  color: var(--text);
+  font-weight: 600;
+  margin: 0;
+  max-width: 32ch;
+}
+
 .footer-disclaimer a { color: var(--rose-text); font-weight: 600; }
 
 .footer-link-alert {
