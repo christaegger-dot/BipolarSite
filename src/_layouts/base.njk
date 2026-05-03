@@ -125,6 +125,8 @@
 <button type="button" class="back-to-top" aria-label="Zurück nach oben" id="backToTop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg></button>
 {% if useNavJS %}<script src="/js/nav.js"></script>{% endif %}
 <script src="/js/base-ui.js"></script>
+{% if useModuleCSS %}<script src="/js/module-ui.js"></script>{% endif %}
+{% if useModuleCSS %}<script src="/js/pdf-preview.js"></script>{% endif %}
 {% block scripts %}{% endblock %}
 </body>
 </html>
