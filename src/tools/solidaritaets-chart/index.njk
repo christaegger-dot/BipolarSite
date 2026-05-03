@@ -74,43 +74,5 @@ breadcrumbs:
 {% include "footer-medium.njk" %}
 {% endblock %}
 {% block scripts %}
-<script>
-const eps=[
-  {name:"Hypomanie",col:"var(--amber)",bg:"rgba(196,147,59,0.1)",impact:"Leicht–Mittel",bel:"Die Belastungsreserve sinkt oft zunächst nur leicht. Gerade das macht Hypomanie für Angehörige schwer lesbar: Viel wirkt noch produktiv oder charmant, gleichzeitig werden Schlaf, Reizbarkeit und Unsicherheit grösser.",stim:"Die Stimmung steigt an — mehr Energie, weniger Schlaf, grössere Ideen. Für Angehörige bleibt oft unklar, ob es noch eine gute Phase ist oder schon der Beginn einer Episode."},
-  {name:"Schwere Manie",col:"var(--alert)",bg:"rgba(199,84,80,0.1)",impact:"Hoch",bel:"Die Belastungsreserve bricht deutlich ein. Sicherheit, Geld, Konflikte, Kontrollverlust und Schlafentzug kommen oft gleichzeitig. Nach einer schweren Manie fühlt sich Erholung selten wie ein echter Neustart an.",stim:"Der Ausschlag nach oben wird extrem: Grössenideen, Impulsivität, Gereiztheit, möglicherweise Psychose. Professionelle Intervention oder Hospitalisation ist häufig nötig."},
-  {name:"Lange Depression",col:"var(--blue-phase)",bg:"rgba(91,127,165,0.1)",impact:"Mittel–Hoch",bel:"Die Belastungsreserve sinkt langsamer, aber stetig. Gerade diese schleichende Form wird oft unterschätzt: wenig sichtbare Dramatik, aber hohe Langzeitlast, Monotonie und innere Ausdünnung.",stim:"Die Stimmung bleibt über Wochen oder Monate tief. Rückzug, Hoffnungslosigkeit, verlangsamter Alltag und Suizidgedanken können Angehörige auf andere Weise zermürben als eine Manie."}
-];
-let activeEp=null,showSup=false;
-// Cache DOM references to avoid repeated queries on every render
-const epBtns=document.querySelectorAll('.ep-btn');
-const epRects=[0,1,2].map(i=>document.getElementById('ep'+i));
-const elDetail=document.getElementById('detail');
-function selEp(i){activeEp=activeEp===i?null:i;rn()}
-function toggleSupport(){showSup=!showSup;document.getElementById('curveSup').setAttribute('opacity',showSup?'1':'0');document.getElementById('toggleBtn').classList.toggle('on',showSup);document.getElementById('toggleBtn').setAttribute('aria-pressed',showSup?'true':'false');document.getElementById('toggleBtn').textContent=showSup?'Entlastungsvergleich ausblenden':'Mit Entlastung vergleichen';document.getElementById('legSupport').style.display=showSup?'flex':'none'}
-function rn(){
-  // Episode buttons
-  epBtns.forEach((btn,i)=>{
-    const a=activeEp===i;
-    btn.classList.toggle('active',a);
-    btn.style.background=a?eps[i].col:'var(--card)';
-    btn.style.color=a?'var(--cta-primary-text)':'var(--slate)';
-    btn.style.borderColor=a?eps[i].col:'var(--border-warm)';
-    btn.setAttribute('aria-pressed',a?'true':'false');
-  });
-  // Episode bands
-  epRects.forEach((rect,i)=>{
-    rect.setAttribute('fill',activeEp===i?eps[i].bg:'rgba(0,0,0,0.02)');
-  });
-  // Detail
-  if(activeEp!==null){
-    const e=eps[activeEp];
-    elDetail.className='detail vis';
-    elDetail.innerHTML=`<h2>${e.name} <span style="font-size:var(--text-xs);font-weight:600;color:${e.col};background:${e.bg};padding:2px 8px;border-radius:var(--radius-sm);margin-left:8px">Belastung: ${e.impact}</span></h2>
-    <div class="detail-grid"><div class="detail-col" style="background:var(--amber-bg)"><h3 style="color:var(--amber)">Belastungsreserve</h3><p style="color:var(--slate)">${e.bel}</p></div><div class="detail-col" style="background:var(--blue-phase-light)"><h3 style="color:var(--blue-phase)">Stimmung</h3><p style="color:var(--slate)">${e.stim}</p></div></div>`;
-  }else{elDetail.className='detail'}
-}
-[0,1,2].forEach(i=>{const el=document.getElementById('ep'+i);el.addEventListener('click',()=>selEp(i));});
-document.querySelector('.episodes').addEventListener('click',e=>{const btn=e.target.closest('.ep-btn[data-ep]');if(btn)selEp(Number(btn.dataset.ep))});
-document.getElementById('toggleBtn').addEventListener('click',toggleSupport);
-</script>
+<script src="/js/tool-solidaritaets-chart.js"></script>
 {% endblock %}

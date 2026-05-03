@@ -1,0 +1,100 @@
+---
+permalink: /js/tool-saeulen-check.js
+eleventyExcludeFromCollections: true
+---
+(() => {
+  const pillars = [
+    { id: 'wissen', n: 1, l: 'Gemeinsames Krankheitsverständnis', s: 'Wissen', c: 'var(--teal-cta-dark)', q: 'Gibt es ein gemeinsames Grundverständnis dafür, was die Erkrankung mit Alltag und Beziehung macht?', lo: 'Psychoedukation kann helfen: Modul 1 erklärt die Grundlagen. Manchmal entlastet schon ein gemeinsames Gespräch mit dem Behandlungsteam oder eine ruhigere Nachbesprechung in stabileren Phasen.', hi: 'Gemeinsames Wissen trägt oft mehr, als man im Alltag merkt. Nutzen Sie ruhigere Phasen, um Beobachtungen und neue Erkenntnisse nachzuschärfen.' },
+    { id: 'inseln', n: 2, l: 'Krankheitsfreie Inseln', s: 'Inseln', c: 'var(--amber)', q: 'Gibt es regelmässige Momente, in denen nicht alles von der Erkrankung bestimmt wird?', lo: 'Beginnen Sie klein: ein Kaffee, ein Spaziergang, ein Abend ohne Krankheitsgespräch. Es muss nicht gross sein, um wieder etwas Beziehung oder Alltag zurückzubringen.', hi: 'Diese Inseln sind kein Luxus. Sie helfen, dass Beziehung und Alltag nicht vollständig um Symptome, Krisen und Erholung kreisen.' },
+    { id: 'grenzen', n: 3, l: 'Grenzen & faire Lastverteilung', s: 'Grenzen', c: 'var(--amber-dark-text)', q: 'Können Sie Grenzen setzen — und trägt die Last nicht dauerhaft nur eine Person?', lo: 'Modul 5 erklärt, warum Grenzen so schwer fallen. Modul 6 zeigt konkrete Formulierungen. Oft hilft es, mit einer kleinen, klaren Grenze zu beginnen statt mit einer grossen Neuordnung.', hi: 'Klare Grenzen und eine etwas fairere Lastverteilung machen die lange Strecke meist tragfähiger. Prüfen Sie immer wieder, ob Zuständigkeiten wieder unbemerkt verrutscht sind.' },
+    { id: 'krisenplan', n: 4, l: 'Gemeinsamer Krisenplan', s: 'Krisenplan', c: 'var(--blue-phase)', q: 'Gibt es einen schriftlichen Krisenplan, der in einer stabilen Phase erstellt wurde?', lo: 'Ein Krisenplan ist oft das wichtigste Einzelwerkzeug. Modul 6 enthält eine Vorlage und das Krisenplan-Werkzeug. Je unklarer frühere Krisen waren, desto mehr lohnt sich dieser Schritt.', hi: 'Ein Krisenplan schafft nicht Kontrolle, aber oft mehr Orientierung. Überprüfen Sie ihn regelmässig — Kontakte, Medikamente und Zuständigkeiten verändern sich.' },
+    { id: 'entlastung', n: 5, l: 'Eigene Entlastung & Unterstützung', s: 'Entlastung', c: 'var(--purple-dark)', q: 'Haben Sie eigene Unterstützung — Vertrauensperson, Fachstelle, Therapie oder Selbsthilfe?', lo: 'Lange Belastung wird oft durch Isolation schwerer. Ein erster Schritt reicht: die Fachstelle PUK anrufen, eine Vertrauensperson einweihen oder eine Selbsthilfegruppe prüfen.', hi: 'Ein tragfähiges Netz entlastet nicht automatisch, aber es macht es leichter, Belastung nicht nur allein zu tragen. Halten Sie diesen Kontakt aktiv.' },
+  ];
+
+  const scaleLabels = ['Kaum', 'Wenig', 'Teils', 'Gut', 'Stark'];
+  const app = document.getElementById('app');
+  if (!app) return;
+
+  let ratings = {};
+  let showResult = false;
+
+  const render = () => {
+    const allRated = Object.keys(ratings).length === pillars.length;
+
+    if (!showResult) {
+      app.innerHTML =
+        pillars
+          .map((pillar) => {
+            const value = ratings[pillar.id];
+            return `<div class="pc" style="border-color:${pillar.c}"><div class="pc-hdr"><div class="pc-num" style="background:${pillar.c}">${pillar.n}</div><h2>${pillar.l}</h2></div><p>${pillar.q}</p><div class="sc">${[1, 2, 3, 4, 5]
+              .map(
+                (score) => `<button class="${value === score ? 'sel' : ''}" style="${value === score ? `background:${pillar.c};border-color:${pillar.c}` : ''}" data-rate="${pillar.id}" data-rv="${score}"><span class="sv">${score}</span><span class="sl">${scaleLabels[score - 1]}</span></button>`
+              )
+              .join('')}</div></div>`;
+          })
+          .join('') + `<button class="submit${allRated ? ' ready' : ''}" ${allRated ? 'data-action="show"' : 'disabled'}>Auswerten</button>`;
+      return;
+    }
+
+    const totalScore = Object.values(ratings).reduce((sum, value) => sum + value, 0);
+    const sorted = [...pillars].sort((a, b) => (ratings[a.id] || 0) - (ratings[b.id] || 0));
+    const weakest = sorted[0];
+    const strongest = sorted[sorted.length - 1];
+
+    app.innerHTML = `<div class="res-card"><h2>Was Sie gerade trägt</h2>
+      <div class="pillars">${pillars
+        .map((pillar) => {
+          const value = ratings[pillar.id] || 1;
+          const height = (value / 5) * 160;
+          const isWeak = pillar.id === weakest.id && value < 4;
+          return `<div class="pillar"><span class="pv" style="color:${pillar.c}">${value}</span><div class="pb" style="height:${height}px;background:${isWeak ? `repeating-linear-gradient(45deg,${pillar.c}22,${pillar.c}22 4px,${pillar.c}11 4px,${pillar.c}11 8px)` : pillar.c};opacity:${isWeak ? 1 : 0.85};${isWeak ? `border:2px dashed ${pillar.c}` : ''}"></div><span class="pl" style="color:${pillar.c}">${pillar.s}</span></div>`;
+        })
+        .join('')}</div>
+      <div class="res-score"><span>Gesamt: <strong>${totalScore}</strong> / ${pillars.length * 5}</span></div>
+      ${weakest && ratings[weakest.id] < 4 ? `<div class="rbox rbox-weak" style="border-color:${weakest.c}"><div class="rbox-title" style="color:${weakest.c}">Hier fehlt aktuell am meisten Boden: ${weakest.l}</div><p style="color:var(--slate)">${weakest.lo}</p></div>` : ''}
+      ${strongest && ratings[strongest.id] >= 4 ? `<div class="rbox rbox-strong" style="border-color:var(--phase-green)"><div class="rbox-title" style="color:var(--phase-green)">Was Sie bereits trägt: ${strongest.l}</div><p style="color:var(--navy)">${strongest.hi}</p></div>` : ''}
+      <div class="all-detail"><div class="all-title">Alle fünf Bereiche im Detail</div>${pillars
+        .map((pillar) => {
+          const value = ratings[pillar.id] || 1;
+          return `<div class="ad-row"><div class="ad-num" style="background:${pillar.c}">${value}</div><div><div class="ad-name">${pillar.l}</div><div class="ad-text">${value < 3 ? pillar.lo : pillar.hi}</div></div></div>`;
+        })
+        .join('')}</div>
+      <div class="btns"><button class="btn-r" data-action="reset">Erneut einschätzen</button><button class="btn-c" data-action="nav" data-href="/modul/7/">Zurück zu Modul 7 →</button></div>
+      <div class="disc">Standortbestimmung, keine Diagnose. Beginnen Sie dort, wo aktuell am wenigsten trägt oder am meisten Druck entsteht.</div></div>`;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const rate = (id, value) => {
+    ratings[id] = value;
+    render();
+  };
+
+  const show = () => {
+    showResult = true;
+    render();
+  };
+
+  const reset = () => {
+    ratings = {};
+    showResult = false;
+    render();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  render();
+
+  document.addEventListener('click', (event) => {
+    const ratingButton = event.target.closest('[data-rate]');
+    if (ratingButton) {
+      rate(ratingButton.dataset.rate, Number(ratingButton.dataset.rv));
+      return;
+    }
+
+    const actionButton = event.target.closest('[data-action]');
+    if (!actionButton || actionButton.disabled) return;
+
+    if (actionButton.dataset.action === 'show') show();
+    else if (actionButton.dataset.action === 'reset') reset();
+    else if (actionButton.dataset.action === 'nav') window.location.assign(actionButton.dataset.href);
+  });
+})();

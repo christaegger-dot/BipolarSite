@@ -1,0 +1,35 @@
+---
+permalink: /js/tool-durchatmen.js
+eleventyExcludeFromCollections: true
+---
+(() => {
+  const label = document.getElementById('breatheLabel');
+  const circle = document.querySelector('.breathe-circle');
+  if (!label || !circle) return;
+
+  const phases = [
+    { text: 'Einatmen', ms: 4000 },
+    { text: 'Halten', ms: 4000 },
+    { text: 'Ausatmen', ms: 6000 },
+  ];
+
+  let index = 0;
+
+  const restartAnim = () => {
+    circle.style.animation = 'none';
+    circle.offsetHeight;
+    circle.style.animation = '';
+  };
+
+  const cycle = () => {
+    label.textContent = phases[index].text;
+    window.setTimeout(() => {
+      index = (index + 1) % phases.length;
+      if (index === 0) restartAnim();
+      cycle();
+    }, phases[index].ms);
+  };
+
+  restartAnim();
+  cycle();
+})();

@@ -37,46 +37,5 @@ breadcrumbs:
 {% include "footer-medium.njk" %}
 {% endblock %}
 {% block scripts %}
-<script>
-const P=[
-  {id:"wissen",n:1,l:"Gemeinsames Krankheitsverständnis",s:"Wissen",c:"var(--teal-cta-dark)",q:"Gibt es ein gemeinsames Grundverständnis dafür, was die Erkrankung mit Alltag und Beziehung macht?",lo:"Psychoedukation kann helfen: Modul 1 erklärt die Grundlagen. Manchmal entlastet schon ein gemeinsames Gespräch mit dem Behandlungsteam oder eine ruhigere Nachbesprechung in stabileren Phasen.",hi:"Gemeinsames Wissen trägt oft mehr, als man im Alltag merkt. Nutzen Sie ruhigere Phasen, um Beobachtungen und neue Erkenntnisse nachzuschärfen."},
-  {id:"inseln",n:2,l:"Krankheitsfreie Inseln",s:"Inseln",c:"var(--amber)",q:"Gibt es regelmässige Momente, in denen nicht alles von der Erkrankung bestimmt wird?",lo:"Beginnen Sie klein: ein Kaffee, ein Spaziergang, ein Abend ohne Krankheitsgespräch. Es muss nicht gross sein, um wieder etwas Beziehung oder Alltag zurückzubringen.",hi:"Diese Inseln sind kein Luxus. Sie helfen, dass Beziehung und Alltag nicht vollständig um Symptome, Krisen und Erholung kreisen."},
-  {id:"grenzen",n:3,l:"Grenzen & faire Lastverteilung",s:"Grenzen",c:"var(--amber-dark-text)",q:"Können Sie Grenzen setzen — und trägt die Last nicht dauerhaft nur eine Person?",lo:"Modul 5 erklärt, warum Grenzen so schwer fallen. Modul 6 zeigt konkrete Formulierungen. Oft hilft es, mit einer kleinen, klaren Grenze zu beginnen statt mit einer grossen Neuordnung.",hi:"Klare Grenzen und eine etwas fairere Lastverteilung machen die lange Strecke meist tragfähiger. Prüfen Sie immer wieder, ob Zuständigkeiten wieder unbemerkt verrutscht sind."},
-  {id:"krisenplan",n:4,l:"Gemeinsamer Krisenplan",s:"Krisenplan",c:"var(--blue-phase)",q:"Gibt es einen schriftlichen Krisenplan, der in einer stabilen Phase erstellt wurde?",lo:"Ein Krisenplan ist oft das wichtigste Einzelwerkzeug. Modul 6 enthält eine Vorlage und das Krisenplan-Werkzeug. Je unklarer frühere Krisen waren, desto mehr lohnt sich dieser Schritt.",hi:"Ein Krisenplan schafft nicht Kontrolle, aber oft mehr Orientierung. Überprüfen Sie ihn regelmässig — Kontakte, Medikamente und Zuständigkeiten verändern sich."},
-  {id:"entlastung",n:5,l:"Eigene Entlastung & Unterstützung",s:"Entlastung",c:"var(--purple-dark)",q:"Haben Sie eigene Unterstützung — Vertrauensperson, Fachstelle, Therapie oder Selbsthilfe?",lo:"Lange Belastung wird oft durch Isolation schwerer. Ein erster Schritt reicht: die Fachstelle PUK anrufen, eine Vertrauensperson einweihen oder eine Selbsthilfegruppe prüfen.",hi:"Ein tragfähiges Netz entlastet nicht automatisch, aber es macht es leichter, Belastung nicht nur allein zu tragen. Halten Sie diesen Kontakt aktiv."}
-];
-const SL=["Kaum","Wenig","Teils","Gut","Stark"];
-let rat={},show=false;
-const elApp=document.getElementById('app');
-function rn(){
-  const allR=Object.keys(rat).length===P.length;
-  if(!show){
-    elApp.innerHTML=P.map(p=>{const v=rat[p.id];return`<div class="pc" style="border-color:${p.c}"><div class="pc-hdr"><div class="pc-num" style="background:${p.c}">${p.n}</div><h2>${p.l}</h2></div><p>${p.q}</p><div class="sc">${[1,2,3,4,5].map(n=>`<button class="${v===n?'sel':''}" style="${v===n?'background:'+p.c+';border-color:'+p.c:''}" data-rate="${p.id}" data-rv="${n}"><span class="sv">${n}</span><span class="sl">${SL[n-1]}</span></button>`).join('')}</div></div>`}).join('')+
-    `<button class="submit${allR?' ready':''}" ${allR?'data-action="doShow"':'disabled'}>Auswerten</button>`;
-  }else{
-    const ts=Object.values(rat).reduce((a,b)=>a+b,0);
-    const sorted=[...P].sort((a,b)=>(rat[a.id]||0)-(rat[b.id]||0));
-    const weak=sorted[0],strong=sorted[sorted.length-1];
-    elApp.innerHTML=`<div class="res-card"><h2>Was Sie gerade trägt</h2>
-    <div class="pillars">${P.map(p=>{const v=rat[p.id]||1;const h=(v/5)*160;const isW=p.id===weak.id&&v<4;return`<div class="pillar"><span class="pv" style="color:${p.c}">${v}</span><div class="pb" style="height:${h}px;background:${isW?'repeating-linear-gradient(45deg,'+p.c+'22,'+p.c+'22 4px,'+p.c+'11 4px,'+p.c+'11 8px)':p.c};opacity:${isW?1:0.85};${isW?'border:2px dashed '+p.c:''}"></div><span class="pl" style="color:${p.c}">${p.s}</span></div>`}).join('')}</div>
-    <div class="res-score"><span>Gesamt: <strong>${ts}</strong> / ${P.length*5}</span></div>
-    ${weak&&rat[weak.id]<4?`<div class="rbox rbox-weak" style="border-color:${weak.c}"><div class="rbox-title" style="color:${weak.c}">Hier fehlt aktuell am meisten Boden: ${weak.l}</div><p style="color:var(--slate)">${weak.lo}</p></div>`:''}
-    ${strong&&rat[strong.id]>=4?`<div class="rbox rbox-strong" style="border-color:var(--phase-green)"><div class="rbox-title" style="color:var(--phase-green)">Was Sie bereits trägt: ${strong.l}</div><p style="color:var(--navy)">${strong.hi}</p></div>`:''}
-    <div class="all-detail"><div class="all-title">Alle fünf Bereiche im Detail</div>${P.map(p=>{const v=rat[p.id]||1;return`<div class="ad-row"><div class="ad-num" style="background:${p.c}">${v}</div><div><div class="ad-name">${p.l}</div><div class="ad-text">${v<3?p.lo:p.hi}</div></div></div>`}).join('')}</div>
-    <div class="btns"><button class="btn-r" data-action="rs">Erneut einschätzen</button><button class="btn-c" data-action="nav" data-href="/modul/7/">Zurück zu Modul 7 →</button></div>
-    <div class="disc">Standortbestimmung, keine Diagnose. Beginnen Sie dort, wo aktuell am wenigsten trägt oder am meisten Druck entsteht.</div></div>`;
-  }
-}
-function rate(id,v){rat[id]=v;rn()}
-function doShow(){show=true;rn();window.scrollTo({top:0,behavior:'smooth'})}
-function rs(){rat={};show=false;rn();window.scrollTo({top:0,behavior:'smooth'})}
-rn();
-document.addEventListener('click',function(e){
-  const r=e.target.closest('[data-rate]');if(r){rate(r.dataset.rate,Number(r.dataset.rv));return;}
-  const a=e.target.closest('[data-action]');if(!a||a.disabled)return;
-  if(a.dataset.action==='doShow')doShow();
-  else if(a.dataset.action==='rs')rs();
-  else if(a.dataset.action==='nav')window.location.assign(a.dataset.href);
-});
-</script>
+<script src="/js/tool-saeulen-check.js"></script>
 {% endblock %}

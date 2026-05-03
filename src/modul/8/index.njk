@@ -500,51 +500,5 @@ breadcrumbs:
 {% include "footer-medium.njk" %}
 {% endblock %}
 {% block scripts %}
-<script>
-  const MATERIAL_FINDER={akut:[{kicker:'Jetzt zuerst',title:'Notfallseite öffnen',text:'Wenn Gefahr oder starke Unsicherheit im Raum stehen, ist die Triage wichtiger als die ganze Materialsammlung.',href:'/notfall/',label:'Zum Notfallweg →'},{kicker:'PDF',title:'{{ pdfs.downloads.notfallkarte.title }}',text:'Alle wichtigen Nummern mit kurzer Einordnung, wann welche Stelle sinnvoll ist.',href:'{{ pdfs.downloads.notfallkarte.url }}',label:'Notfallkarte direkt herunterladen →'},{kicker:'Danach',title:'Krisenplan bereithalten',text:'Wenn schon einer existiert, jetzt hervornehmen. Wenn nicht, später in ruhiger Phase vorbereiten.',href:'/modul/6/',label:'Zu Modul 6 →'}],plan:[{kicker:'PDF',title:'{{ pdfs.downloads.krisenplanVorlage.title }}',text:'Die wichtigste Unterlage, wenn Sie Frühwarnzeichen, Kontakte und Klinikwünsche vorab ordnen möchten.',href:'{{ pdfs.downloads.krisenplanVorlage.url }}',label:'Krisenplan direkt herunterladen →'},{kicker:'Werkzeug',title:'Krisenplan-Werkzeug',text:'Wenn Sie den Plan lieber direkt am Bildschirm vorbereiten und danach drucken möchten.',href:'/tools/krisenplan/',label:'Werkzeug öffnen →'},{kicker:'Vertiefung',title:'Modul 6: konkrete Schritte',text:'Für Gespräche, Grenzen, Krisenplan und Vorbereitung in stabilen Phasen.',href:'/modul/6/',label:'Zu Modul 6 →'}],ersch:[{kicker:'Archiv-Handout',title:'{{ pdfs.handouts.a4_ambiguous_loss.title }}',text:'Hilft, schleichende Erschöpfung, Trauer und Selbstverlust besser zu verstehen. Dieses Blatt gehört noch zum älteren PDF-Bestand.',href:'{{ pdfs.handouts.a4_ambiguous_loss.url }}',label:'Handout-Vorschau öffnen →'},{kicker:'PDF',title:'{{ pdfs.downloads.kurzblattStabilisiert.title }}',text:'Ein kompaktes Blatt für Alltag, Selbstfürsorge und kleine entlastende Schritte.',href:'{{ pdfs.downloads.kurzblattStabilisiert.url }}',label:'Kurzblatt direkt herunterladen →'},{kicker:'Kontakt',title:'Selbsthilfe oder Angehörigenberatung',text:'Wenn Information allein nicht mehr reicht, ist Resonanz oft der entlastendere nächste Schritt.',href:'#beratung',label:'Zu den Anlaufstellen →'}],recht:[{kicker:'Kontakt',title:'Pro Mente Sana',text:'Psychosoziale und juristische Beratung zu FU, Vorsorgeauftrag, Patientenverfügung und Konflikten mit Institutionen.',href:'{{ site.contacts.proMenteSana.url }}',label:'Pro Mente Sana öffnen →'},{kicker:'Kontakt',title:'Ombudsstelle Krankenversicherung',text:'Wenn Leistungsstreitigkeiten oder abgelehnte Kostengutsprachen blockieren.',href:'{{ site.contacts.ombudsstelleKrankenversicherung.url }}',label:'Ombudsstelle öffnen →'},{kicker:'Orientierung',title:'Systemblockaden einordnen',text:'Wenn das Versorgungssystem zusätzlich belastet, hilft oft zuerst die Klärung der Beschwerde- und Beratungswege.',href:'#system',label:'Zum System-Abschnitt →'}]};
-  const materialFinderButtons=document.querySelectorAll('[data-material-finder]');
-  const materialFinderResults=document.getElementById('materialFinderResults');
-  const renderMaterialFinder=(key)=>{const items=MATERIAL_FINDER[key];if(!items||!materialFinderResults)return;materialFinderButtons.forEach(btn=>{const isActive=btn.dataset.materialFinder===key;btn.classList.toggle('is-active',isActive);btn.setAttribute('aria-pressed',isActive?'true':'false');});materialFinderResults.innerHTML=items.map(item=>`<div class="finder-card"><div class="finder-card-kicker">${item.kicker}</div><h4>${item.title}</h4><p>${item.text}</p><a href="${item.href}"${item.href.startsWith('http')?' target="_blank" rel="noopener"':''}${item.href.startsWith('/downloads/')?' download':''}>${item.label}</a></div>`).join('');materialFinderResults.hidden=false;materialFinderResults.querySelectorAll('a[href$=".pdf"]').forEach(link=>window.setupPdfPreviewLink?.(link));};
-  materialFinderButtons.forEach(button=>{button.addEventListener('click',()=>renderMaterialFinder(button.dataset.materialFinder));});
-  const MINI_PLAN_KEY='puk_modul8_mini_plan';
-  const miniPlanNumber=document.getElementById('miniPlanNumber');
-  const miniPlanDocument=document.getElementById('miniPlanDocument');
-  const miniPlanStep=document.getElementById('miniPlanStep');
-  const miniPlanSave=document.getElementById('miniPlanSave');
-  const miniPlanClear=document.getElementById('miniPlanClear');
-  const miniPlanStatus=document.getElementById('miniPlanStatus');
-  const miniPlanSummary=document.getElementById('miniPlanSummary');
-  const miniPlanSummaryNumber=document.getElementById('miniPlanSummaryNumber');
-  const miniPlanSummaryDocument=document.getElementById('miniPlanSummaryDocument');
-  const miniPlanSummaryStep=document.getElementById('miniPlanSummaryStep');
-  const readMiniPlan=()=>{try{return JSON.parse(localStorage.getItem(MINI_PLAN_KEY)||'null')}catch{return null}};
-  const writeMiniPlan=(data)=>{try{localStorage.setItem(MINI_PLAN_KEY,JSON.stringify(data));return true}catch{return false}};
-  const clearMiniPlanStorage=()=>{try{localStorage.removeItem(MINI_PLAN_KEY)}catch{}};
-  const renderMiniPlanSummary=(data)=>{
-    if(!data||(!data.number&&!data.document&&!data.step)){miniPlanSummary.hidden=true;miniPlanSummaryNumber.textContent='—';miniPlanSummaryDocument.textContent='—';miniPlanSummaryStep.textContent='—';return;}
-    miniPlanSummary.hidden=false;
-    miniPlanSummaryNumber.textContent=data.number||'—';
-    miniPlanSummaryDocument.textContent=data.document||'—';
-    miniPlanSummaryStep.textContent=data.step||'—';
-  };
-  const loadMiniPlan=()=>{
-    const saved=readMiniPlan();
-    if(!saved)return;
-    miniPlanNumber.value=saved.number||'';
-    miniPlanDocument.value=saved.document||'';
-    miniPlanStep.value=saved.step||'';
-    renderMiniPlanSummary(saved);
-    miniPlanStatus.textContent='Ihr zuletzt gespeicherter Mini-Plan wurde geladen.';
-  };
-  miniPlanSave.addEventListener('click',()=>{
-    const data={number:miniPlanNumber.value.trim(),document:miniPlanDocument.value,step:miniPlanStep.value.trim()};
-    if(!data.number&&!data.document&&!data.step){miniPlanStatus.textContent='Bitte zuerst mindestens ein Feld ausfüllen.';renderMiniPlanSummary(null);return;}
-    if(writeMiniPlan(data)){miniPlanStatus.textContent='Mini-Plan lokal auf diesem Gerät gespeichert.';renderMiniPlanSummary(data);}
-    else{miniPlanStatus.textContent='Speichern war in diesem Browser gerade nicht möglich.';}
-  });
-  miniPlanClear.addEventListener('click',()=>{
-    miniPlanNumber.value='';miniPlanDocument.value='';miniPlanStep.value='';clearMiniPlanStorage();renderMiniPlanSummary(null);miniPlanStatus.textContent='Mini-Plan von diesem Gerät gelöscht.';
-  });
-  loadMiniPlan();
-</script>
+<script src="/js/module8-hub.js"></script>
 {% endblock %}

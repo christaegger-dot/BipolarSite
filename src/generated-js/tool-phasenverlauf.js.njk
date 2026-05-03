@@ -1,0 +1,192 @@
+---
+permalink: /js/tool-phasenverlauf.js
+eleventyExcludeFromCollections: true
+---
+(() => {
+  const phases = {
+    mania: {
+      name: 'Manie',
+      subtitle: 'Ausgeprägte Hochphase — oft mit Realitätsverlust',
+      duration: 'Typisch: 2–4 Wochen bis mehrere Monate',
+      color: 'var(--amber)',
+      bg: 'var(--mania-phase-bg)',
+      border: 'var(--mania-phase-border)',
+      pulseId: 'pulse-mania',
+      person: ['Gesteigerte Energie, kaum Schlafbedürfnis', 'Grandiose Pläne, übersteigertes Selbstwertgefühl', 'Impulsive Entscheidungen (Geld, Beziehungen, Risiken)', 'Reizbarkeit und Gereiztheit bei Widerstand', 'Häufig fehlende Krankheitseinsicht'],
+      caregiver: ['Schlafmangel durch nächtliche Aktivität', 'Schwierigkeiten, die Person zu bremsen', 'Finanzielle Schäden, Eskalation und Beschämung', 'Angst vor Fremdgefährdung oder Rufschaden', 'Wird als «Bremse» erlebt, nicht als Schutz'],
+      note: '<strong>Wichtig:</strong> Manie kann so schwer werden, dass eine Hospitalisation nötig ist. Das frühzeitige Erkennen von Frühwarnzeichen ist entscheidend. Krisenplan in stabiler Phase erstellen.',
+    },
+    hypomania: {
+      name: 'Hypomanie',
+      subtitle: 'Abgeschwächte Hochphase — schwer erkennbar',
+      duration: 'Typisch: 4 Tage bis 2 Wochen',
+      color: 'var(--hypo-phase)',
+      bg: 'var(--hypo-phase-bg)',
+      border: '#fde68a',
+      pulseId: 'pulse-hypo',
+      person: ['Erhöhte Energie und Produktivität', 'Reduziertes Schlafbedürfnis (ohne Erschöpfungsgefühl)', 'Gesteigertes Selbstvertrauen und Kreativität', 'Leichte Enthemmung und erhöhte Risikobereitschaft', 'Keine offensichtlichen psychotischen Symptome'],
+      caregiver: ['Für andere oft als «gute Phase» wahrnehmbar', 'Innere Anspannung: «Ist das der Beginn einer Manie?»', 'Partnerin und Partner wird als übertrieben besorgt abgetan', 'Schwer, Unterstützung zu suchen — von aussen kein Problem sichtbar', 'Übergang zu Manie kann schnell und unerwartet passieren'],
+      note: '<strong>Hypomanie ist tückisch:</strong> Sie wirkt nach aussen oft produktiv oder erleichternd — auch für das direkte Umfeld. Gerade für Angehörige ist das schwierig: Sie erkennen das Muster früher und werden trotzdem nicht ernst genommen.',
+    },
+    stable: {
+      name: 'Stabile Phase (Euthymie)',
+      subtitle: 'Keine Episode — aber nicht immer innere Entwarnung',
+      duration: 'Sehr variabel: Wochen bis Jahre',
+      color: 'var(--phase-green)',
+      bg: 'var(--success-soft)',
+      border: 'var(--teal-light)',
+      pulseId: 'pulse-stable',
+      person: ['Normales Funktionsniveau', 'Kann aktiv an Behandlung und Planung mitwirken', 'Manche spüren Restsymptome oder Erschöpfung', 'Oft Scham über das Verhalten in Episoden', 'Wichtige Zeit für Krisenplanung und Vereinbarungen'],
+      caregiver: ['Äusserliche Ruhe — aber innere Hypervigilanz bleibt oft', 'Ständiges inneres Prüfen: «Ist das wirklich stabil?»', 'Angst, durch schwierige Gespräche die Phase zu kippen', 'Wichtiges Zeitfenster für gemeinsamen Krisenplan', 'Eigene Erholung kommt häufig zu kurz'],
+      note: '<strong>Stabile Phasen sind wertvoll.</strong> Sie sind der richtige Moment für Gespräche, Vereinbarungen und Erholung — auch für Angehörige. Nutzen Sie diese Zeit für gemeinsame Planung, z. B. mit dem <a href="/tools/krisenplan/" style="color:var(--phase-green);font-weight:600">Krisenplan-Werkzeug</a>.',
+    },
+    'mild-dep': {
+      name: 'Leichte bis mittelschwere Depression',
+      subtitle: 'Rückzug, Erschöpfung, schleichende Unerreichbarkeit',
+      duration: 'Typisch: 2 Wochen bis 3 Monate',
+      color: 'var(--blue-phase)',
+      bg: 'var(--blue-phase-light)',
+      border: 'var(--mild-dep-phase-border)',
+      pulseId: 'pulse-mild',
+      person: ['Antriebslosigkeit, Erschöpfung, Interesseverlust', 'Sozialer Rückzug und Isolation', 'Grübeln, Schlafstörungen, Appetitverlust', 'Konzentrationsprobleme im Alltag', 'Gefühl der Wertlosigkeit oder Schuld'],
+      caregiver: ['Die Person ist körperlich da, aber emotional unerreichbar', 'Gefühl, hilflos zu sein — nichts, was man tut, hilft', 'Übernahme aller Alltagsaufgaben und Verantwortung', 'Eigene Einsamkeit und Erschöpfung wächst still', 'Unsicherheit: Ansprechen oder lieber in Ruhe lassen?'],
+      note: '<strong>Wichtig:</strong> In depressiven Phasen ist aktive Unterstützung wichtig — ohne Druck. Wenn Sie sich überfordert fühlen, wenden Sie sich an die Fachstelle Angehörigenarbeit: <a href="tel:+41583843800" style="color:var(--blue-phase);font-weight:600">058&nbsp;384&nbsp;38&nbsp;00</a>.',
+    },
+    'severe-dep': {
+      name: 'Schwere Depression',
+      subtitle: 'Tiefste Erschöpfung — oft mit Suizidrisiko',
+      duration: 'Variabel: Wochen bis Monate',
+      color: 'var(--slate)',
+      bg: 'var(--severe-dep-phase-bg)',
+      border: 'var(--severe-dep-phase-border)',
+      pulseId: 'pulse-severe',
+      person: ['Schwere Antriebslosigkeit und Hoffnungslosigkeit', 'Suizidale Gedanken möglich — ernst nehmen', 'Kaum Fähigkeit, sich zu bewegen oder zu sprechen', 'Vollständiger Rückzug und Isolation', 'Psychotische Symptome bei schwerer Episode möglich'],
+      caregiver: ['Angst um das Leben der Person — rund um die Uhr', 'Vollständige Übernahme aller Aufgaben, totale Erschöpfung', 'Schwere emotionale Belastung und Hilflosigkeit', 'Unklare Grenze: Wann ist eine Hospitalisation nötig?', 'Eigene Schlafstörungen, Traumatisierung möglich'],
+      note: '<strong>⚠ Bei Suizidgedanken:</strong> Ärztefon – Notfalldienst ZH: <a href="tel:+41800336655" style="color:var(--slate);font-weight:600">0800&nbsp;33&nbsp;66&nbsp;55</a> (24/7, kostenlos). Dargebotene Hand: <a href="tel:143" style="color:var(--slate);font-weight:600">143</a>. Angehörige brauchen jetzt selbst Unterstützung: <a href="tel:+41583843800" style="color:var(--slate);font-weight:600">058&nbsp;384&nbsp;38&nbsp;00</a>.',
+    },
+  };
+
+  const detailCard = document.getElementById('detailCard');
+  const phaseButtons = document.querySelector('.phase-btns');
+  const wavePath = document.getElementById('wavePath');
+  if (!detailCard || !phaseButtons) return;
+
+  let active = null;
+
+  const selectPhase = (phase) => {
+    if (active === phase) return;
+    active = phase;
+    const data = phases[phase];
+
+    document.querySelectorAll('.pbtn').forEach((button) => {
+      const isActive = button.dataset.phase === phase;
+      button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      button.classList.toggle('active', isActive);
+      button.style.background = isActive ? data.color : 'var(--bg)';
+      button.style.borderColor = isActive ? data.color : 'transparent';
+      button.style.color = isActive ? 'var(--cta-primary-text)' : 'var(--slate)';
+    });
+
+    document.querySelectorAll('.zone-bg').forEach((zone) => {
+      zone.style.opacity = zone.dataset.phase === phase ? '1' : '0.4';
+      zone.style.transition = 'opacity 0.3s';
+    });
+
+    document.querySelectorAll('.wpt').forEach((point) => {
+      const isActive = point.dataset.phase === phase;
+      point.setAttribute('r', isActive ? '12' : '9');
+      point.style.filter = isActive ? `drop-shadow(0 0 6px ${data.color})` : 'none';
+    });
+
+    document.querySelectorAll('.pulse').forEach((pulse) => {
+      pulse.style.opacity = '0';
+    });
+
+    const pulse = document.getElementById(data.pulseId);
+    if (pulse) {
+      pulse.style.opacity = '0.5';
+      pulse.style.transition = 'none';
+      window.setTimeout(() => {
+        pulse.style.transition = 'opacity 0.8s';
+        pulse.style.opacity = '0';
+      }, 100);
+    }
+
+    detailCard.style.borderLeftColor = data.color;
+    detailCard.innerHTML = `
+      <div class="det-top">
+        <div class="det-icon" style="background:${data.bg}">${data.name === 'Manie' ? '↑↑' : data.name === 'Hypomanie' ? '↑' : data.name.includes('Stabil') ? '→' : data.name.includes('Schwere') ? '↓↓' : '↓'}</div>
+        <div>
+          <div class="det-phase-name" style="color:${data.color}">${data.name}</div>
+          <div class="det-title">${data.subtitle}</div>
+        </div>
+      </div>
+      <div class="det-dur">⏱ ${data.duration}</div>
+      <div class="det-cols">
+        <div class="det-col" style="background:${data.bg};border-color:${data.color}">
+          <div class="det-col-lbl" style="color:${data.color}">Für die erkrankte Person</div>
+          <ul>${data.person.map((item) => `<li>${item}</li>`).join('')}</ul>
+        </div>
+        <div class="det-col" style="background:var(--caregiver-col-bg);border-color:var(--teal-light)">
+          <div class="det-col-lbl" style="color:var(--slate)">Für Angehörige</div>
+          <ul>${data.caregiver.map((item) => `<li>${item}</li>`).join('')}</ul>
+        </div>
+      </div>
+      <div class="det-note" style="background:${data.bg}">${data.note}</div>
+    `;
+    detailCard.classList.add('vis');
+    window.setTimeout(() => detailCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
+  };
+
+  const showPulseHints = () => {
+    document.querySelectorAll('.pulse').forEach((pulse, index) => {
+      window.setTimeout(() => {
+        pulse.style.transition = 'opacity 0.5s';
+        pulse.style.opacity = '0.45';
+        window.setTimeout(() => {
+          pulse.style.opacity = '0';
+        }, 1200);
+      }, index * 200);
+    });
+  };
+
+  window.addEventListener('load', () => {
+    if (!wavePath || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      showPulseHints();
+      return;
+    }
+
+    const length = wavePath.getTotalLength();
+    wavePath.style.strokeDasharray = length;
+    wavePath.style.strokeDashoffset = length;
+    wavePath.style.transition = 'stroke-dashoffset 2s cubic-bezier(0.4,0,0.2,1)';
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        wavePath.style.strokeDashoffset = '0';
+        window.setTimeout(showPulseHints, 2200);
+      });
+    });
+  });
+
+  document.querySelectorAll('.zone-hit, .wpt').forEach((element) => {
+    element.addEventListener('click', () => selectPhase(element.dataset.phase));
+  });
+
+  document.querySelectorAll('.wpt').forEach((element) => {
+    element.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        selectPhase(element.dataset.phase);
+      }
+    });
+  });
+
+  phaseButtons.addEventListener('click', (event) => {
+    const button = event.target.closest('.pbtn[data-phase]');
+    if (button) selectPhase(button.dataset.phase);
+  });
+
+  window.setTimeout(() => {
+    if (!active) selectPhase('mania');
+  }, 2400);
+})();
