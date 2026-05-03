@@ -12,7 +12,7 @@ eleventyExcludeFromCollections: true
         {
           t: '«Kannst du bitte mal zuhören? Ich versuche dir seit einer Stunde zu erklären, dass…»',
           ok: false,
-          fb: 'Lange Erklärungen und die Aufforderung zuzuhören funktionieren in der Manie nicht — das Gehirn kann es physisch nicht. Das eskaliert die Situation.',
+          fb: 'Lange Erklärungen und die Aufforderung zuzuhören greifen in der Manie meist nicht — das Gehirn kann es in diesem Moment oft nicht verarbeiten. Das eskaliert die Situation.',
         },
         {
           t: '«Mir fällt auf, dass du heute sehr viel Energie hast. Lass uns morgen darüber reden.»',
@@ -119,7 +119,7 @@ eleventyExcludeFromCollections: true
         {
           t: '«Mir fällt auf, dass du die letzten drei Nächte weniger geschlafen hast. Magst du das auch wahrnehmen?»',
           ok: true,
-          fb: 'Beobachtung ohne Anklage, Einbeziehung statt Überfahren. In der Frühwarnphase ist das Ziel: die Person einladen, selbst hinzuschauen — nicht überzeugen, dass etwas falsch ist.',
+          fb: 'Beobachtung ohne Anklage, Einbeziehung statt Überfahren. In der Frühwarnphase ist das Ziel: die Person einladen, selbst hinzuschauen — nicht sie davon zu überzeugen, dass schon alles feststeht.',
         },
       ],
     },
@@ -179,7 +179,7 @@ eleventyExcludeFromCollections: true
             }
 
             let html = `<button class="${className}" ${revealed ? 'disabled' : ''} data-pick="${index}"><span class="mark">${revealed ? (isCorrect ? '✓' : '✗') : ''}</span>${option.t}</button>`;
-            if (revealed && (isSelected || isCorrect)) html += `<div class="fb ${isCorrect ? 'fb-ok' : 'fb-no'}">${option.fb}</div>`;
+            if (revealed && (isSelected || isCorrect)) html += `<div class="fb ${isCorrect ? 'fb-ok' : 'fb-no'}"><strong>${isCorrect ? 'Eher hilfreich:' : 'Eher riskant:'}</strong> ${option.fb}</div>`;
             return html;
           })
           .join('')}
@@ -193,8 +193,9 @@ eleventyExcludeFromCollections: true
     const background = percent >= 80 ? 'var(--success-soft)' : percent >= 50 ? 'var(--amber-bg)' : 'var(--alert-soft)';
 
     card.innerHTML = `<div class="res"><div class="res-circle" style="background:${background};border-color:${color}"><span style="color:${color}">${score.ok}/${situations.length}</span></div>
-      <h2>${percent >= 80 ? 'Sie haben ein gutes Gespür für die Unterschiede.' : percent >= 50 ? 'Eine brauchbare Basis ist da — mit Übung wird es klarer.' : 'Kommunikation unter Druck ist schwer — genau dafür ist diese Übung da.'}</h2>
-      <p>${percent >= 80 ? 'Sie erkennen recht gut, warum Manie und Depression unterschiedliche Sprache brauchen.' : 'Die Situationen sind absichtlich schwer — im echten Leben bleibt oft kaum Zeit. Entscheidend sind nicht perfekte Sätze, sondern die Grundrichtung.'}</p>
+      <h2>${percent >= 80 ? 'Sie haben häufig eher deeskalierende Antworten gewählt.' : percent >= 50 ? 'Viele Antworten gehen schon in eine entlastende Richtung.' : 'Kommunikation unter Druck ist schwer — genau dafür ist diese Übung da.'}</h2>
+      <p>${percent >= 80 ? 'Ihre Auswahl zeigt ein gutes Gespür dafür, warum Manie, Depression und Nachkrisen unterschiedliche Sprache brauchen.' : 'Die Situationen sind absichtlich schwer — im echten Leben bleibt oft kaum Zeit. Entscheidend sind nicht perfekte Sätze, sondern die Grundrichtung.'}</p>
+      <p class="text-soft-sm">Das ist keine Bewertung Ihrer Person. Es geht nur darum, welche Reaktion in dieser konkreten Lage eher entlastend oder eher riskant wirkt.</p>
       <div class="rules"><div class="rules-title">Die zwei Grundregeln</div><p><strong>Manie:</strong> Kurz, klar, ein Thema. Nicht argumentieren. Rausgehen, wenn es eskaliert.</p><p><strong>Depression:</strong> Stille Präsenz. Nicht aufmuntern. Gefühle stehen lassen, nicht korrigieren.</p></div>
       <div class="btns"><button class="btn-r" data-action="rs">Erneut üben</button><button class="btn-c" data-action="nav" data-href="/modul/6/">Zurück zu Modul 6 →</button></div></div>`;
   };
