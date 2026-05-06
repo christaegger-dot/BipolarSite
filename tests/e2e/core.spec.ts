@@ -13,12 +13,15 @@ async function expectNoHorizontalScroll(page: Page) {
 }
 
 test.describe('core user paths', () => {
-  test('homepage loads with module and emergency entry points', async ({ page }) => {
+  test('homepage introduces the site clearly and exposes four direct entry paths', async ({ page }) => {
     await page.goto('/');
 
-    await expect(page.getByRole('heading', { level: 1 })).toContainText(/bipolarer Störung/i);
-    await expect(page.locator('a[href="/module/"]').first()).toBeVisible();
-    await expect(page.locator('a[href="/notfall/"]').first()).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1 })).toContainText(/Wenn eine bipolare Störung auch Ihr Leben mitbetrifft/i);
+    await expect(page.locator('.home-hero-subtitle')).toContainText(/praktischen Werkzeugen und Anlaufstellen/i);
+    await expect(page.locator('.entry-paths-list a[href="/notfall/"]').first()).toContainText(/Notfallweg/i);
+    await expect(page.locator('.entry-paths-list a[href="/modul/1/"]').first()).toContainText(/verstehen, was passiert/i);
+    await expect(page.locator('.entry-paths-list a[href="/modul/2/"]').first()).toContainText(/selbst am Limit/i);
+    await expect(page.locator('.entry-paths-list a[href="/werkzeuge/"]').first()).toContainText(/konkrete Werkzeuge/i);
   });
 
   test('notfall page exposes 144 and keeps mobile width stable', async ({ browser }) => {
