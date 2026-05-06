@@ -25,6 +25,7 @@
   const setModuleTotal = (path, total) => {
     const state = readState();
     const entry = state[path] || { visited: [], lastSection: null, ts: null };
+    if (entry.total === total) return;
     entry.total = total;
     state[path] = entry;
     writeState(state);
@@ -49,9 +50,18 @@
   const path = window.location.pathname;
   const isModulePage = /^\/modul\/[1-8]\/$/.test(path);
   const isHomepage = path === "/";
+  if (!isModulePage && !isHomepage) return;
 
-  if (isModulePage) initModulePage();
-  if (isHomepage) initHomepage();
+  const start = () => {
+    if (isModulePage) initModulePage();
+    if (isHomepage) initHomepage();
+  };
+
+  if ("requestIdleCallback" in window) {
+    window.requestIdleCallback(start, { timeout: 2000 });
+  } else {
+    window.setTimeout(start, 200);
+  }
 
   function initModulePage() {
     const main = document.querySelector("main.content");
