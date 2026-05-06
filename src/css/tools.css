@@ -13,6 +13,76 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* ── Tool Site-Header (Brand + Hauptnavigation) ──
+   Audit 2.1: Site-Brand auch auf Tool-Pages, damit Direkt-Lander
+   wissen, wo sie sind. */
+.tool-nav-main {
+  width: 100%;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border-warm);
+  padding: var(--space-sm) clamp(1rem, 3vw, 1.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+.tool-nav-main__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--navy);
+  min-height: 44px;
+}
+.tool-nav-main__brand img {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+.tool-nav-main__brand-text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: var(--text-base);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.tool-nav-main__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+.tool-nav-main__links a {
+  text-decoration: none;
+  color: var(--text-soft);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+.tool-nav-main__links a:hover {
+  color: var(--navy);
+}
+.tool-nav-main__links a.nav-sos {
+  color: var(--alert);
+}
+.tool-nav-main__links a.nav-sos:hover {
+  color: var(--emergency-dark);
+}
+@media (max-width: 600px) {
+  .tool-nav-main {
+    padding: var(--space-base) clamp(1rem, 3vw, 1.5rem);
+  }
+  .tool-nav-main__links {
+    gap: var(--space-base);
+  }
+  .tool-nav-main__brand-text {
+    font-size: var(--text-sm);
+  }
+}
+
 /* ── Tool Navigation ── */
 .tool-nav {
   width: 100%;
