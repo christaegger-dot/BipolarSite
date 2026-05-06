@@ -1,0 +1,53 @@
+---
+layout: "base"
+title: "Barrierefreiheit — Bipolare Störung | PUK Zürich"
+description: "Barrierefreiheitserklärung der Psychoedukations-Website für Angehörige. PUK Zürich."
+permalink: "/barrierefreiheit/"
+navCurrent: "impressum"
+useSharedCSS: true
+useNavJS: true
+bodyClass: "impressum-page"
+---
+{% block nav %}
+{% include "nav-full.njk" %}
+{% endblock %}
+{% block content %}
+<header class="hero">
+  <div class="hero-badge">Barrierefreiheit</div>
+  <h1>Barrierefreiheit</h1>
+  <div class="breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><a href="/impressum/">Impressum</a><span class="sep" aria-hidden="true">›</span><span>Barrierefreiheit</span></div>
+</header>
+
+<main class="content" id="main-content">
+
+  <div class="section">
+    <h2>Stand und Ziel</h2>
+    <p>Diese Website orientiert sich an den Web Content Accessibility Guidelines (WCAG 2.1) auf Konformitätsstufe AA. Wir arbeiten fortlaufend daran, Zugänglichkeit, Verständlichkeit und Bedienbarkeit weiter zu verbessern.</p>
+    <p>Die Inhalte richten sich an Angehörige und Nahestehende, oft in belastenden Situationen. Deshalb achten wir besonders auf ruhige Gestaltung, klare Sprache und verlässliche Bedienbarkeit.</p>
+  </div>
+
+  <div class="section">
+    <h2>Was bereits umgesetzt ist</h2>
+    <p>Umgesetzt sind unter anderem semantisches HTML5, Tastaturzugang für zentrale Interaktionen, Skip-Links, Unterstützung für reduzierte Bewegung und eine kontrastbewusste Gestaltung.</p>
+    <p>Navigation, Triage und zentrale Werkzeuge sind so aufgebaut, dass wichtige Wege auch ohne Maus erreichbar bleiben. Schriftarten werden lokal bereitgestellt; externe Tracking-, Analyse- oder Werbedienste werden nicht eingesetzt.</p>
+  </div>
+
+  <div class="section">
+    <h2>Hinweise geben</h2>
+    <p>Wenn Sie auf Barrieren stossen oder etwas schwer bedienbar, unverständlich oder technisch nicht zugänglich ist, freuen wir uns über einen Hinweis. So können wir die Website gezielt verbessern.</p>
+    <p>Kontakt für Rückmeldungen zur Barrierefreiheit: <a href="mailto:angehoerigenarbeit@pukzh.ch">angehoerigenarbeit@pukzh.ch</a></p>
+    <p>Impressum und Datenschutz finden Sie weiterhin auf der Seite <a href="/impressum/">Impressum &amp; Datenschutz</a>.</p>
+  </div>
+
+  <div class="section">
+    <h2>Prüfstand</h2>
+    <p><strong>Inhaltlich geprüft:</strong> {{ site.contentReviewedDisplay }}</p>
+    <p><strong>Kontaktangaben geprüft:</strong> {{ site.contactsReviewedDisplay }}</p>
+    <p><strong>Technischer Stand dieser Version:</strong> {{ build.stand }}</p>
+  </div>
+
+</main>
+{% endblock %}
+{% block footer %}
+{% include "footer-medium.njk" %}
+{% endblock %}

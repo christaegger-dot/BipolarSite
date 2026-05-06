@@ -13,6 +13,27 @@
   to = "/werkzeuge/"
   status = 301
 
+# Friendly crisis/resource aliases for direct URL entry and bookmarks
+[[redirects]]
+  from = "/sos"
+  to = "/notfall/"
+  status = 301
+
+[[redirects]]
+  from = "/sos/"
+  to = "/notfall/"
+  status = 301
+
+[[redirects]]
+  from = "/anlaufstellen"
+  to = "/modul/8/"
+  status = 301
+
+[[redirects]]
+  from = "/anlaufstellen/"
+  to = "/modul/8/"
+  status = 301
+
 # Security headers applied to all pages
 # Inline scripts have been extracted; inline styles still remain in templates and
 # generated interactive markup, so style-src keeps 'unsafe-inline' for now.
@@ -79,6 +100,11 @@
 
 [[headers]]
   for = "/impressum/*"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
+
+[[headers]]
+  for = "/barrierefreiheit/*"
   [headers.values]
     Cache-Control = "public, max-age=300, must-revalidate"
 
