@@ -111,10 +111,6 @@ body {
 .tool-back--overview:hover { color: var(--teal-cta); }
 .tool-back svg { width: 16px; height: 16px; }
 @media (max-width: 480px) { .tool-back--overview { display: none; } }
-.tool-brand {
-  font-family: 'DM Sans', sans-serif;
-  font-size: var(--text-xs); font-weight: 600; color: var(--text-soft);
-}
 
 /* ── Tool Glyph Icon ── */
 .tool-glyph {
@@ -225,11 +221,6 @@ body {
     font-size: var(--text-xs);
     padding: 6px 0;
   }
-  .tool-brand {
-    width: 100%;
-    order: 3;
-    color: var(--text-soft);
-  }
   .tool-actions {
     width: 100%;
     justify-content: stretch;
@@ -277,7 +268,6 @@ body.dark-tool .tool-nav-main a{color:var(--white-text-secondary)}
 body.dark-tool .tool-nav-main a:hover{color:var(--white-text)}
 body.dark-tool .tool-nav{background:var(--dark-nav-bg);border-bottom:1px solid var(--dark-border)}
 body.dark-tool .tool-back{color:var(--white-text-secondary)}
-body.dark-tool .tool-brand{color:var(--white-text-secondary)}
 body.dark-tool .breadcrumb a{color:var(--teal-accent-light)}
 body.dark-tool .breadcrumb{color:var(--white-text-muted)}
 .breathe-wrap{width:100%;max-width:var(--content-width-narrow);text-align:center;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--space-lg)}
@@ -465,7 +455,7 @@ body.krisenplan-page .wrap{max-width:var(--content-width);margin:0 auto;padding:
   .section{break-inside:avoid;border-radius:0;box-shadow:none}
   body{background:var(--card)}
 }
-@media(max-width:600px){.section{padding:18px 16px}.tool-nav{flex-wrap:wrap;padding:10px 14px;gap:10px}.tool-nav-links{width:100%;justify-content:space-between;gap:10px}.tool-back{min-height:44px;font-size:var(--text-xs);padding:6px 0}.tool-brand{width:100%;order:3;color:var(--text-soft)}.tool-actions{width:100%;justify-content:stretch}.tool-actions button{flex:1;padding:6px 8px;font-size:var(--text-xs);min-height:44px}.field textarea{min-height:60px}}
+@media(max-width:600px){.section{padding:18px 16px}.tool-nav{flex-wrap:wrap;padding:10px 14px;gap:10px}.tool-nav-links{width:100%;justify-content:space-between;gap:10px}.tool-back{min-height:44px;font-size:var(--text-xs);padding:6px 0}.tool-actions{width:100%;justify-content:stretch}.tool-actions button{flex:1;padding:6px 8px;font-size:var(--text-xs);min-height:44px}.field textarea{min-height:60px}}
 
 
 /* ── phasenverlauf ── */
@@ -618,9 +608,6 @@ body:not(.dark-tool) .tool-back {
   color: var(--navy);
 }
 
-body:not(.dark-tool) .tool-brand {
-  color: var(--text);
-}
 @media(max-width:600px){body.selbsttest-page .card{padding:24px 20px;min-height:auto}.bar-labels{font-size:var(--text-xs)}.bar-labels span:nth-child(2),.bar-labels span:nth-child(4){display:none}}
 /* Result state colours */
 body.selbsttest-page .card.result--green .res-score{background:var(--success-soft);border:2px solid var(--teal-light)}
