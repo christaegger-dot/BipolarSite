@@ -15,12 +15,17 @@ bodyClass: "draft-overview-page"
   <p class="lead">Diese Seite bündelt die neuen, wartbaren Voransichten für die priorisierten Handouts. Sie sind als redaktionelle und gestalterische Zwischenstufe gedacht, bevor daraus schlanke, neue PDFs exportiert werden.</p>
 
   <div class="draft-grid">
-    {% for draft in collections.all | reverse %}
-      {% if draft.url and draft.url.startsWith('/handout-drafts/') and draft.data.slug %}
+    {% if handoutDrafts and handoutDrafts.length %}
+    {% for draft in handoutDrafts | reverse %}
       <article class="draft-card">
         <div class="draft-badges">
           <span class="draft-badge">{{ draft.data.priority }}</span>
           <span class="draft-badge{% if draft.data.type == 'Akutblatt' %} alert{% endif %}">{{ draft.data.type }}</span>
+          {% if draft.data.status == 'promoted' %}
+          <span class="draft-badge draft-badge--promoted">Veröffentlicht</span>
+          {% else %}
+          <span class="draft-badge draft-badge--draft">Draft</span>
+          {% endif %}
         </div>
         <h2>{{ draft.data.title }}</h2>
         <div class="draft-meta">{{ draft.data.target_format }} · Stand {{ draft.data.last_updated }}</div>
@@ -30,8 +35,10 @@ bodyClass: "draft-overview-page"
           {% if draft.data.source_pdf %}<a class="draft-link secondary" href="{{ draft.data.source_pdf }}" target="_blank" rel="noopener">PDF öffnen</a>{% endif %}
         </div>
       </article>
-      {% endif %}
     {% endfor %}
+    {% else %}
+      <p class="draft-empty">Aktuell sind keine Handout-Drafts sichtbar.</p>
+    {% endif %}
   </div>
 </main>
 {% endblock %}

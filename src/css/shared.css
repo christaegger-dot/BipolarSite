@@ -2383,6 +2383,14 @@ body.draft-overview-page .draft-badge.alert {
   background: #f6ddd5;
   color: var(--alert);
 }
+body.draft-overview-page .draft-badge--promoted {
+  background: var(--green-subtle);
+  color: var(--phase-green);
+}
+body.draft-overview-page .draft-badge--draft {
+  background: var(--sand-subtle);
+  color: var(--sand-ink);
+}
 body.draft-overview-page .draft-card h2 {
   font-size: var(--text-lg);
   line-height: 1.15;
