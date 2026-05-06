@@ -1073,7 +1073,10 @@ p.bright-moment {
 .numbers-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gap-tight);margin:var(--space-lg) 0}
 .number-card{background:var(--card);border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:var(--space-md) var(--space-md);display:flex;align-items:center;gap:var(--grid-gap-tight);transition:box-shadow 0.2s ease;border-top:3px solid transparent;text-decoration:none;color:inherit}
 .number-card:hover{box-shadow:var(--card-shadow-hover)}
-.numbers-grid .number-card:nth-child(-n+2){background:var(--warm-pink-bg);border-color:var(--alert-subtle);border-top-color:var(--alert)}
+/* Audit 2.5: Top-Karten (Ärztefon, 144) sind bereits im Hero prominent.
+   Hier nur dezente Border-Top-Markierung als visuelle Hierarchie ohne
+   doppelte Hervorhebung (vorher: pink-background + alert-border). */
+.numbers-grid .number-card:nth-child(-n+2){border-top-color:var(--alert-subtle)}
 .number-card strong{display:block;font-family:'DM Sans',sans-serif;font-size:var(--text-lg);font-weight:700;color:var(--alert)}
 .number-label{font-size:var(--text-xs);color:var(--slate);line-height:1.5}
 .number-sub{font-size:var(--text-xs);color:var(--text-soft)}
@@ -3123,10 +3126,9 @@ a.ampel-card{text-decoration:none;display:block}
   box-shadow: var(--shadow-soft);
 }
 
-.numbers-grid .number-card:nth-child(-n+2) {
-  background: linear-gradient(180deg, rgba(255,255,255,0.99), rgba(254,242,242,0.92));
-  border-color: rgba(185,28,28,0.16);
-}
+/* Audit 2.5: Layer-3-Override entfernt — Top-Karten waren doppelt
+   hervorgehoben (Layer 1 + Layer 3). Visuelle Hierarchie kommt jetzt
+   nur über den dezenten border-top in Layer 1. */
 
 @media (max-width: 900px) {
   [data-module-accent]:not([data-module-accent="8"]) .module-hero::after,
