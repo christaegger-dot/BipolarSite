@@ -4,7 +4,11 @@
 /* ── Reset ── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; font-size: 16px; scroll-padding-top: calc(var(--nav-height) + 24px); }
-h1, h2 { hyphens: auto; -webkit-hyphens: auto; overflow-wrap: break-word; }
+/* hyphenate-limit-chars: nur Wörter mit >=6 Buchstaben trennen, mind. 3 vor
+   und 3 nach dem Trenner. Verhindert kurze sinnentleerte Trennungen wie
+   „Le-ben" oder „Ja-hr". Browser-Support: Chromium 109+, Firefox 117+,
+   Safari 17.5+ — Fallback ist das normale hyphens: auto. */
+h1, h2 { hyphens: auto; -webkit-hyphens: auto; hyphenate-limit-chars: 6 3 3; overflow-wrap: break-word; }
 
 /* Notrufnummern dürfen nicht umbrechen */
 a[href^="tel:"] { white-space: nowrap; }
