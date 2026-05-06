@@ -307,6 +307,10 @@
   --content-width-wide:  1040px;  /* was 960px — hero + wide prose at 72% of 1440px */
   --wide-width:          1200px;  /* was 1140px — module/tool grids at 83% of 1440px */
 
+  /* Tool-Wrap-Familie — kuratierte interaktive Tool-Container (B-2 Audit) */
+  --tool-wrap-medium:     600px;  /* Komm-Trainer, Säulen-Check, Selbsttest */
+  --tool-wrap-wide:       680px;  /* Phasenverlauf, Solidaritäts-Chart */
+
   /* Breakpoints (reference only — can't use var() in @media)
      --bp-mobile:  480px
      --bp-tablet:  600px
