@@ -1070,13 +1070,8 @@ html.js-reveal-active .reveal.revealed {
 .tools-highlight h2{font-size:var(--text-xl);margin-bottom:var(--heading-gap-h3)}
 .tools-highlight > p{font-size:var(--text-base);color:var(--slate);margin-bottom:var(--space-lg);max-width:48ch}
 .hero-tools-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--grid-gap-standard);max-width:var(--wide-width)}
-.hero-tool-card{text-decoration:none;color:var(--text);background:var(--card);border:1px solid var(--border-warm);border-left:3px solid var(--teal-light);border-radius:var(--card-radius);padding:var(--card-padding);transition:box-shadow 0.2s ease;display:flex;flex-direction:column;gap:var(--grid-gap-tight);position:relative}
-.hero-tool-card:hover{box-shadow:var(--card-shadow-hover)}
-.hero-tool-badge{font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.06em;display:inline-flex;align-items:center;padding:3px 10px;border-radius:var(--radius-round);color:var(--navy);background:var(--teal-subtle);width:fit-content}
-.hero-tool-card h3{font-size:var(--text-lg);line-height:1.15;letter-spacing:-0.015em}
-.hero-tool-card p{font-size:var(--text-base);color:var(--slate);line-height:1.5;flex:1}
-.hero-tool-arrow{color:var(--navy-mid);font-size:var(--text-lg);text-align:right;display:inline-block;transition:color 0.2s ease,transform 0.2s ease}
-.hero-tool-card:hover .hero-tool-arrow{color:var(--teal-cta);transform:translateX(3px)}
+/* Hero-Variant der .tool-card-Komponente — siehe .tool-card und .tool-card--hero unten.
+   .hero-tools-grid bleibt als spezifischer Container für die 3 Highlight-Werkzeuge auf der Startseite. */
 .hero-tools-all-link{display:inline-block;margin-top:var(--space-lg);font-weight:600;color:var(--navy-mid);text-decoration:none;font-size:var(--text-base)}
 .hero-tools-all-link:hover{text-decoration:underline}
 @media(max-width:900px){.hero-tools-grid{grid-template-columns:1fr}}
@@ -2794,57 +2789,41 @@ body.impressum-page .info-box strong {
   box-shadow: var(--shadow-soft);
 }
 
-.home-page .hero-tool-card {
-  --tone-band: var(--teal-cta);
+/* Hero-Variant der .tool-card — Audit 2.4 (war: .home-page .hero-tool-card).
+   Spezifischer Surface-Treatment (Gradient statt solid), ohne Footer.
+   Höhere Spezifität (.tool-card.tool-card--hero[data-tone]) gewinnt über
+   den .tool-card[data-tone]-Master-Selector unabhängig von File-Reihenfolge. */
+.tool-card.tool-card--hero[data-tone] {
   --tone-surface: linear-gradient(180deg, var(--surface-teal-mist) 0%, rgba(255,255,255,0.98) 30%, #ffffff 100%);
-  --tone-kicker-bg: var(--teal-subtle);
-  --tone-kicker-text: var(--teal-text);
-  position: relative;
-  overflow: hidden;
   padding-top: calc(var(--card-padding) + 8px);
-  border-width: 1px;
-  border-color: rgba(45,40,35,0.08);
   background: var(--tone-surface);
-  box-shadow: var(--shadow-soft);
-  transition: box-shadow 0.2s ease, transform 0.15s ease, border-color 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: var(--grid-gap-tight);
 }
 
-.home-page .hero-tool-card::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
+.tool-card--hero p {
+  flex: 1;
+}
+
+.tool-card.tool-card--hero[data-tone]::before {
   height: 4px;
-  background: var(--tone-band);
 }
 
-.home-page .hero-tool-card:hover {
-  border-color: rgba(45,40,35,0.12);
-  box-shadow: var(--shadow-atmosphere);
-  transform: translateY(-2px);
-}
-
-.home-page .hero-tool-card[data-tone="sand"] {
-  --tone-band: var(--amber);
+.tool-card.tool-card--hero[data-tone="sand"] {
   --tone-surface: linear-gradient(180deg, var(--surface-sand-mist) 0%, rgba(255,255,255,0.98) 30%, #ffffff 100%);
-  --tone-kicker-bg: rgba(244,208,120,0.28);
-  --tone-kicker-text: #8f5612;
 }
 
-.home-page .hero-tool-card[data-tone="blue"] {
-  --tone-band: var(--blue-phase);
+.tool-card.tool-card--hero[data-tone="blue"] {
   --tone-surface: linear-gradient(180deg, var(--blue-phase-light) 0%, rgba(255,255,255,0.98) 30%, #ffffff 100%);
-  --tone-kicker-bg: rgba(74,111,149,0.12);
-  --tone-kicker-text: var(--blue-phase);
 }
 
-.home-page .hero-tool-badge {
-  color: var(--tone-kicker-text);
-  background: var(--tone-kicker-bg);
+.tool-card--hero .tool-card-arrow {
+  align-self: flex-end;
+  margin-top: auto;
 }
 
-.home-page .hero-tool-card p {
+.tool-card--hero p {
   line-height: 1.62;
 }
 
@@ -3000,7 +2979,12 @@ body.impressum-page .info-box strong {
   margin-top: var(--space-lg);
 }
 
-.werkzeuge-page .tool-card {
+/* Tool-Card Master-Style mit data-tone-Variants —
+   gemeinsame Komponente für Werkzeuge-Page und (mit --hero Modifier) Startseite.
+   Audit 2.4: vorher gab es zwei separate Komponenten (.werkzeuge-page .tool-card
+   und .home-page .hero-tool-card), die sich sehr ähnlich, aber nicht identisch
+   verhielten. Konsolidiert. */
+.tool-card[data-tone] {
   --tone-band: var(--teal-cta);
   --tone-surface: rgba(238,245,242,0.62);
   --tone-kicker-bg: var(--teal-subtle);
@@ -3014,7 +2998,7 @@ body.impressum-page .info-box strong {
   transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
 }
 
-.werkzeuge-page .tool-card::before {
+.tool-card[data-tone]::before {
   content: '';
   position: absolute;
   left: 0;
@@ -3024,62 +3008,62 @@ body.impressum-page .info-box strong {
   background: var(--tone-band);
 }
 
-.werkzeuge-page .tool-card:hover {
+.tool-card[data-tone]:hover {
   border-color: rgba(45,40,35,0.12);
   box-shadow: var(--shadow-atmosphere);
   transform: translateY(-2px);
 }
 
-.werkzeuge-page .tool-card[data-tone="blue"] {
+.tool-card[data-tone="blue"] {
   --tone-band: var(--blue-phase);
   --tone-surface: rgba(238,243,248,0.86);
   --tone-kicker-bg: rgba(74,111,149,0.12);
   --tone-kicker-text: var(--blue-phase);
 }
 
-.werkzeuge-page .tool-card[data-tone="ink"] {
+.tool-card[data-tone="ink"] {
   --tone-band: var(--navy-mid);
   --tone-surface: rgba(241,238,234,0.92);
   --tone-kicker-bg: rgba(86,102,122,0.12);
   --tone-kicker-text: var(--navy-mid);
 }
 
-.werkzeuge-page .tool-card[data-tone="sand"] {
+.tool-card[data-tone="sand"] {
   --tone-band: var(--amber);
   --tone-surface: rgba(246,240,231,0.88);
   --tone-kicker-bg: rgba(244,208,120,0.28);
   --tone-kicker-text: #8f5612;
 }
 
-.werkzeuge-page .tool-card[data-tone="rose"] {
+.tool-card[data-tone="rose"] {
   --tone-band: #a45a55;
   --tone-surface: rgba(251,242,240,0.92);
   --tone-kicker-bg: rgba(175,115,110,0.16);
   --tone-kicker-text: #8f4d48;
 }
 
-.werkzeuge-page .tool-card[data-tone="green"] {
+.tool-card[data-tone="green"] {
   --tone-band: var(--phase-green);
   --tone-surface: rgba(168,213,203,0.18);
   --tone-kicker-bg: rgba(168,213,203,0.28);
   --tone-kicker-text: var(--phase-green);
 }
 
-.werkzeuge-page .tool-card[data-tone="amber"] {
+.tool-card[data-tone="amber"] {
   --tone-band: var(--amber);
   --tone-surface: rgba(254,243,226,0.92);
   --tone-kicker-bg: rgba(251,191,36,0.2);
   --tone-kicker-text: #8f5612;
 }
 
-.werkzeuge-page .tool-card[data-tone="warm"] {
+.tool-card[data-tone="warm"] {
   --tone-band: var(--navy);
   --tone-surface: rgba(247,242,235,0.92);
   --tone-kicker-bg: rgba(45,40,35,0.08);
   --tone-kicker-text: var(--navy);
 }
 
-.werkzeuge-page .tool-card-kicker {
+.tool-card[data-tone] .tool-card-kicker {
   color: var(--tone-kicker-text);
   background: var(--tone-kicker-bg);
 }
