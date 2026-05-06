@@ -1035,14 +1035,25 @@ p.bright-moment {
 .situations{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gap-tight);margin:0 0 var(--section-tight)}
 .sit-card{display:flex;align-items:center;gap:var(--grid-gap-tight);padding:var(--space-md) var(--space-md);min-height:44px;border-radius:var(--card-radius);text-decoration:none;color:var(--text);border:1px solid var(--border-warm);transition:box-shadow 0.2s ease;background:var(--card)}
 .sit-card:hover{box-shadow:var(--card-shadow-hover)}
-.sit-card.urgent{border-color:var(--alert-red-border);background:var(--alert-soft)}
-.sit-card.urgent:hover{border-color:var(--alert);box-shadow:var(--card-shadow-hover)}
+
+.sit-card--severe{border-color:var(--alert-red-border);background:var(--alert-soft)}
+.sit-card--severe:hover{border-color:var(--alert)}
+.sit-card--severe .sit-text strong{color:var(--alert)}
+
+.sit-card--acute{border-color:var(--amber-border);background:var(--amber-bg)}
+.sit-card--acute:hover{border-color:var(--amber)}
+.sit-card--acute .sit-text strong{color:var(--amber-dark)}
+
+.sit-card--watchful{border-color:var(--sand-border);background:var(--sand-faint)}
+.sit-card--watchful:hover{border-color:var(--sand-deep)}
+.sit-card--watchful .sit-text strong{color:var(--sand-ink)}
+
 .sit-badge{width:36px;height:36px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:var(--text-xs);font-weight:800;flex-shrink:0}
-.sit-card.urgent .sit-badge{background:var(--alert-subtle);color:var(--alert)}
-.sit-card:not(.urgent) .sit-badge{background:var(--alert-soft);color:var(--alert)}
+.sit-card--severe .sit-badge{background:var(--alert-subtle);color:var(--alert)}
+.sit-card--acute .sit-badge{background:var(--amber-faint);color:var(--amber-dark)}
+.sit-card--watchful .sit-badge{background:var(--sand-subtle);color:var(--sand-ink)}
 .sit-text{font-size:var(--text-xs);line-height:1.5}
 .sit-text strong{display:block;font-size:var(--text-base);margin-bottom:2px}
-.sit-card.urgent .sit-text strong{color:var(--alert)}
 
 /* ── Numbers Grid ── */
 .numbers-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gap-tight);margin:var(--space-lg) 0}
@@ -2048,11 +2059,6 @@ body.pdf-preview-open{overflow:hidden}
   background: var(--success-soft);
   color: var(--teal-text);
   border-radius: var(--radius-sm);
-}
-
-.sit-card.urgent .sit-badge {
-  background: var(--alert-subtle);
-  color: var(--alert);
 }
 
 .number-card {
@@ -3063,23 +3069,26 @@ a.ampel-card{text-decoration:none;display:block}
   background: var(--sand);
 }
 
-.sit-card.urgent {
+.sit-card--severe {
   border-color: rgba(185,28,28,0.16);
   background: linear-gradient(180deg, rgba(255,255,255,0.99), rgba(254,242,242,0.94));
 }
+.sit-card--severe::before { background: var(--alert); }
+.sit-card--severe .sit-badge { background: rgba(185,28,28,0.12); }
 
-.sit-card.urgent::before {
-  background: var(--alert);
+.sit-card--acute {
+  border-color: rgba(180,83,9,0.18);
+  background: linear-gradient(180deg, rgba(255,255,255,0.99), rgba(254,243,226,0.92));
 }
+.sit-card--acute::before { background: var(--amber); }
+.sit-card--acute .sit-badge { background: rgba(180,83,9,0.12); color: var(--amber-dark); }
 
-.sit-card:not(.urgent) .sit-badge {
-  background: rgba(221,210,191,0.42);
-  color: var(--sand-deep);
+.sit-card--watchful {
+  border-color: rgba(181,138,82,0.18);
+  background: linear-gradient(180deg, rgba(255,255,255,0.99), rgba(244,241,236,0.94));
 }
-
-.sit-card.urgent .sit-badge {
-  background: rgba(185,28,28,0.12);
-}
+.sit-card--watchful::before { background: var(--sand-deep); }
+.sit-card--watchful .sit-badge { background: rgba(221,210,191,0.42); color: var(--sand-deep); }
 
 .sit-text {
   line-height: 1.4;
