@@ -85,22 +85,38 @@
   margin-left: var(--space-sm); vertical-align: middle;
 }
 
-/* ── Desktop Sticky TOC Sidebar ── */
+/* ── Desktop Sticky TOC Sidebar ──
+   Wide viewports get a 2-column module layout (sidebar + content).
+   The sidebar lives inside a runtime-injected .module-layout grid wrapper
+   (see base-ui.js) and uses position:sticky inside that wrapper.
+   On <1280px the sidebar is hidden and the inline .toc takes over. */
 .toc-sidebar {
   display: none;
 }
-@media (min-width: 1100px) {
+.module-layout {
+  /* Default: behave like a normal block — grid only kicks in ≥1280px */
+}
+@media (min-width: 1280px) {
+  .module-layout {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1fr);
+    gap: var(--space-2xl);
+    max-width: 1240px;
+    margin-inline: auto;
+  }
   .toc-sidebar {
     display: block;
-    position: fixed;
-    top: 100px;
-    left: max(16px, calc((100vw - 1060px) / 2 - 200px));
-    width: 180px;
-    max-height: calc(100vh - 140px);
+    position: sticky;
+    top: 96px;
+    align-self: start;
+    max-height: calc(100vh - 120px);
     overflow-y: auto;
     font-size: var(--text-xs);
     line-height: 1.5;
-    z-index: 10;
+  }
+  /* Hide the inline TOC when the sidebar takes over — single source of nav */
+  body[data-module-accent] > .toc {
+    display: none;
   }
   .toc-sidebar ol {
     list-style: none;
