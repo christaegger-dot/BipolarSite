@@ -507,12 +507,19 @@ a, button, input, select, textarea,
   margin-bottom: var(--space-lg);
 }
 
-/* ── Module grid ── */
+/* ── Module grid ──
+   2×4-Layout für die 8 Module: editorialer vertikaler Lesefluss,
+   mehr Text-Atmung pro Card als bei dichtem 3+3+2-Grid. */
 .modules-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: 1fr;
   gap: var(--grid-gap-standard);
   max-width: var(--wide-width);
+}
+@media (min-width: 768px) {
+  .modules-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 /* ── Module cards ── */
@@ -639,10 +646,6 @@ a, button, input, select, textarea,
   border-color: var(--teal-solid);
   color:var(--teal-cta);
   transform: translateX(3px);
-}
-
-@media (max-width: 600px) {
-  .modules-grid { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {
