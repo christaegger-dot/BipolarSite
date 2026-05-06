@@ -23,14 +23,6 @@
   if (!quickTriage || !result) return;
 
   const responses = {
-    "q1-yes": {
-      type: "urgent",
-      eyebrow: "Sofort handeln",
-      title: "Notfallweg",
-      subtitle: "Bei akuter Gefahr für Leib und Leben.",
-      href: "/notfall/",
-      cta: "Zum Notfallweg",
-    },
     "q1b-yes": {
       type: "module",
       number: "Modul 1",
@@ -152,6 +144,11 @@
     if (!button) return;
 
     const action = button.dataset.triage;
+
+    if (action === "q1-yes") {
+      window.location.assign("/notfall/");
+      return;
+    }
 
     if (action === "q1-no") {
       showNext("triageQ1", "triageQ1b");

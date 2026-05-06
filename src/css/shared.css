@@ -1132,17 +1132,20 @@ html.js-reveal-active .reveal.revealed {
   margin-top: 24px;
   padding-top: 20px;
   border-top: 1px solid var(--border-warm-md);
-  font-size: var(--text-xs);
+  font-size: var(--text-sm);
   color: var(--text-soft);
 }
 .story-note {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   font-size: var(--text-sm);
-  font-style: italic;
-  color: var(--slate);
+  font-style: normal;
+  font-weight: 600;
+  color: var(--navy-mid);
   margin-top: 8px;
-  padding: 4px 10px;
+  padding: 6px 10px;
   background: var(--surface-alt);
+  border: 1px solid var(--border-warm-md);
   border-radius: var(--radius-sm);
 }
 @media (max-width: 600px) {

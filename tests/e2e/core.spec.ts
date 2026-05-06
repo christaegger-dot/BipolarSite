@@ -24,6 +24,17 @@ test.describe('core user paths', () => {
     await expect(page.locator('.entry-paths-list a[href="/werkzeuge/"]').first()).toContainText(/konkrete Werkzeuge/i);
   });
 
+  test('homepage triage sends urgent answers directly to the notfall page', async ({ page }) => {
+    await page.goto('/');
+
+    await Promise.all([
+      page.waitForURL(/\/notfall\/$/),
+      page.getByRole('button', { name: 'Ja oder unklar' }).click(),
+    ]);
+
+    await expect(page.getByRole('heading', { level: 1, name: /Notfall/i })).toBeVisible();
+  });
+
   test('notfall page exposes 144 and keeps mobile width stable', async ({ browser }) => {
     const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
     const page = await context.newPage();
@@ -36,6 +47,14 @@ test.describe('core user paths', () => {
     await expectNoHorizontalScroll(page);
 
     await context.close();
+  });
+
+  test('barrierefreiheit page is reachable and exposes WCAG and contact details', async ({ page }) => {
+    await page.goto('/barrierefreiheit/');
+
+    await expect(page.getByRole('heading', { level: 1, name: /Barrierefreiheit/i })).toBeVisible();
+    await expect(page.locator('main')).toContainText(/WCAG 2\.1/i);
+    await expect(page.locator('a[href="mailto:angehoerigenarbeit@pukzh.ch"]')).toBeVisible();
   });
 
   test('module overview links into modul 1 and toc remains reachable', async ({ page }) => {
