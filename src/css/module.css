@@ -1009,11 +1009,9 @@ p.bright-moment {
 .emergency-strip-hero{display:flex;gap:var(--grid-gap-tight);margin-bottom:var(--space-lg);flex-wrap:wrap}
 .emergency-call{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:64px;padding:var(--space-base) var(--space-md);border-radius:var(--card-radius);text-decoration:none;text-align:center;transition:box-shadow 0.2s ease;flex:1;min-width:120px}
 .emergency-call:hover{box-shadow:var(--card-shadow-hover)}
-.emergency-call--red{background:var(--alert);color:var(--cta-primary-text)}
 .emergency-call--outline{background:rgba(255,255,255,0.9);border:2px solid rgba(255,255,255,0.5);color:var(--emergency-dark)}
 .emergency-call-num{font-size:var(--text-xl);font-weight:900;letter-spacing:-0.02em;line-height:1.15}
 .emergency-call-label{font-size:var(--text-xs);font-weight:600;opacity:0.85;margin-top:2px;text-transform:uppercase;letter-spacing:0.04em}
-.emergency-call--red .emergency-call-label{opacity:0.9}
 @media(max-width:768px){
   .emergency-strip-hero{flex-direction:column}
   .emergency-call{min-height:56px;flex-direction:row;gap:var(--grid-gap-tight);padding:var(--space-base) var(--space-md)}
