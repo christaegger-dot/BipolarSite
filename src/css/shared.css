@@ -900,16 +900,85 @@ html.js-reveal-active .reveal.revealed {
 .triage-hint{font-size:var(--text-xs);color:var(--text-soft);line-height:1.5;margin:-4px 0 var(--space-base);font-style:italic}
 .triage-btns{display:flex;gap:var(--space-base);flex-wrap:wrap}
 /* triage-btn base + modifiers now in unified BUTTON SYSTEM above */
-.triage-result{padding:var(--space-md) var(--space-lg);border-radius:var(--radius-sm);margin-top:var(--space-base)}
+.triage-result{margin-top:var(--space-base)}
 .triage-result[hidden]{display:none}
-.triage-result a{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:var(--text-base);text-decoration:none;color:var(--cta-primary-text);background:var(--cta-primary-bg);padding:var(--space-base) var(--space-lg);border-radius:var(--radius-round)}
-.triage-result a:hover{background:var(--cta-primary-hover)}
-.triage-result--urgent{background:var(--alert-soft);border:1px solid var(--alert-subtle)}
-.triage-result--urgent a{background:var(--alert)}
-.triage-result--urgent a:hover{background:var(--emergency-dark)}
-.triage-result--safe{background:var(--success-soft);border:1px solid var(--green-border);padding:var(--space-md) var(--space-lg);border-radius:var(--radius-sm)}
-.triage-result--safe p{font-size:var(--text-base);color:var(--phase-green);margin:0}
-.triage-result--safe a{background:none;padding:0;color:var(--teal-text);text-decoration:underline;font-size:inherit;border-radius:0;display:inline}
+
+.triage-result-card{
+  background: var(--card);
+  border: 1px solid var(--border-warm);
+  border-left: 3px solid var(--teal-light);
+  border-radius: var(--card-radius);
+  padding: var(--card-padding);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  box-shadow: var(--shadow-soft);
+}
+.triage-result-card[data-accent="blue"]   { border-left-color: var(--blue-phase); }
+.triage-result-card[data-accent="amber"]  { border-left-color: var(--amber-dark-text); }
+.triage-result-card[data-accent="purple"] { border-left-color: var(--purple-dark); }
+.triage-result-card[data-accent="green"]  { border-left-color: var(--phase-green); }
+
+.triage-result-eyebrow{
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--teal-cta);
+}
+.triage-result-eyebrow--urgent{color: var(--alert)}
+
+.triage-result-card__head{
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.triage-result-card__badge{
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: var(--radius-round);
+  flex-shrink: 0;
+  color: var(--navy);
+  background: var(--teal-subtle);
+}
+.triage-result-card[data-accent="blue"]   .triage-result-card__badge { background: var(--blue-phase-subtle); color: var(--blue-phase); }
+.triage-result-card[data-accent="amber"]  .triage-result-card__badge { background: var(--amber-faint); color: var(--amber-dark-text); }
+.triage-result-card[data-accent="purple"] .triage-result-card__badge { background: var(--purple-light); color: var(--purple-dark); }
+.triage-result-card[data-accent="green"]  .triage-result-card__badge { background: var(--green-subtle); color: var(--phase-green); }
+
+.triage-result-card__text{display:flex;flex-direction:column;gap:4px;min-width:0}
+.triage-result-card__title{font-size:var(--text-lg);line-height:1.25;letter-spacing:-0.01em;color:var(--navy);font-weight:700}
+.triage-result-card__subtitle{font-size:var(--text-base);line-height:1.5;color:var(--text-soft)}
+
+.triage-result-card__cta{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  font-size: var(--text-base);
+  text-decoration: none;
+  color: var(--cta-primary-text);
+  background: var(--cta-primary-bg);
+  padding: var(--space-base) var(--space-lg);
+  border-radius: var(--radius-round);
+  align-self: flex-start;
+}
+.triage-result-card__cta:hover{background:var(--cta-primary-hover)}
+.triage-result-card__cta--urgent{background:var(--alert)}
+.triage-result-card__cta--urgent:hover{background:var(--emergency-dark)}
+
+.triage-result-card--urgent{
+  background: var(--alert-soft);
+  border-color: var(--alert-subtle);
+  border-left-color: var(--alert);
+}
 /* triage-restart now in unified BUTTON SYSTEM */
 .triage-restart { display: block; margin-top: 12px; }
 
