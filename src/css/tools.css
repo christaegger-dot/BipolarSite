@@ -265,7 +265,7 @@ body.ee-kreislauf-page .wrap{max-width:var(--content-width-narrow);padding:var(-
 
 
 /* ── eisberg ── */
-.tool-wrap{width:100%;max-width:560px;padding:var(--space-xl) var(--space-lg) var(--section-standard);flex:1}
+.tool-wrap{width:100%;max-width:var(--content-width-narrow);padding:var(--space-xl) var(--space-lg) var(--section-standard);flex:1}
 .tool-header h1{font-family:'DM Serif Display',Georgia,serif;font-size:var(--text-tool-title);font-weight:400;color:var(--navy);margin:0 0 8px;letter-spacing:-0.02em}
 .tool-header p{font-size:var(--text-base);color:var(--slate);line-height:1.65;max-width:58ch;margin:0}
 .iceberg{width:100%;border-radius:var(--card-radius);overflow:hidden;box-shadow:var(--card-shadow);border:1px solid var(--border-warm-md)}
