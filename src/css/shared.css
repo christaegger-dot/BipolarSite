@@ -973,7 +973,10 @@ html.js-reveal-active .reveal.revealed {
 }
 
 /* ── Quick Triage (editorial guidance, subtle background section) ── */
-.quick-triage{background:var(--card);border:1px solid var(--border-warm);border-radius:var(--card-radius);padding:var(--space-xl) var(--space-lg);box-shadow:var(--card-shadow)}
+/* Audit C2 (Container): Card-Hülle entfernt — Triage sitzt jetzt flach
+   im teal-getönten Banner statt als Card-im-Card. Mehr visuelle Ruhe,
+   editorial konsistent zum Modul-Grid darunter. */
+.quick-triage{padding:var(--space-xl) var(--space-lg)}
 .quick-triage h2{font-size:var(--text-xl);margin-bottom:var(--heading-gap-h4)}
 .quick-triage p{font-size:var(--text-base);color:var(--slate);margin-bottom:var(--space-lg);line-height:1.75;max-width:48ch}
 .triage-question{margin-bottom:var(--space-base)}
@@ -1166,11 +1169,7 @@ html.js-reveal-active .reveal.revealed {
 .triage-fullwidth-section .quick-triage {
   max-width: var(--content-width);
   margin: 0 auto;
-  background: var(--card);
-  border: 1px solid var(--border-warm);
-  border-radius: var(--card-radius);
   padding: var(--space-xl) var(--space-lg);
-  box-shadow: var(--card-shadow-hover);
 }
 .triage-fullwidth-section .urgent-note-standalone {
   max-width: var(--content-width);
@@ -1193,10 +1192,9 @@ html.js-reveal-active .reveal.revealed {
   align-items: center;
   max-width: var(--content-width-wide, 1040px);
 }
+/* Audit D2 (Container): Card-Hülle ums Bild entfernt — Bild sitzt jetzt
+   flach in der Rosé-Section statt als gerahmte Card-im-Card. */
 .story-split-visual {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--card-shadow-hover);
   flex-shrink: 0;
 }
 .story-split-visual img {
