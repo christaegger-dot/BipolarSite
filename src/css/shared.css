@@ -270,6 +270,47 @@ a:hover {
   transition: width 0.1s linear;
 }
 
+/* Continue-hint on module pages — rendered by reading-progress.js for returning readers */
+.reading-continue-hint {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-base);
+  margin: 0 0 var(--space-lg);
+  padding: var(--space-base) var(--space-md);
+  background: var(--surface-teal-mist);
+  border: 1px solid var(--teal-accent-border-faint);
+  border-left: 3px solid var(--teal-cta);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  color: var(--text);
+}
+.reading-continue-hint__label {
+  color: var(--text-soft);
+}
+.reading-continue-hint__link {
+  color: var(--teal-text);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.reading-continue-hint__link:hover {
+  color: var(--teal-cta-dark);
+}
+.reading-continue-hint__reset {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: var(--text-soft);
+  font-size: var(--text-xs);
+  cursor: pointer;
+  padding: 4px 8px;
+  text-decoration: underline;
+}
+.reading-continue-hint__reset:hover {
+  color: var(--text);
+}
+
 /* ── Footer (light, warm — L2 palette) ── */
 footer {
   background: var(--surface-alt);
@@ -514,6 +555,46 @@ a, button, input, select, textarea,
 .module-card[data-accent="purple"] .module-number { background: var(--purple-light); color: var(--purple-dark); }
 .module-card[data-accent="green"] .module-number { background: var(--green-subtle); color: var(--phase-green); }
 /* teal-accent (Modul 8) keeps the default teal-subtle pill */
+
+/* Reading-progress strip — added by reading-progress.js when localStorage has visited sections */
+.module-card-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--border-warm);
+  border-radius: 0 0 var(--card-radius) var(--card-radius);
+  overflow: hidden;
+}
+.module-card-progress__fill {
+  height: 100%;
+  background: var(--teal-cta);
+  transition: width 0.4s ease;
+}
+.module-card[data-accent="blue"]   .module-card-progress__fill { background: var(--blue-phase); }
+.module-card[data-accent="amber"]  .module-card-progress__fill { background: var(--amber-dark-text); }
+.module-card[data-accent="purple"] .module-card-progress__fill { background: var(--purple-dark); }
+.module-card[data-accent="green"]  .module-card-progress__fill { background: var(--phase-green); }
+
+.module-progress-reset {
+  text-align: center;
+  margin: var(--space-md) 0 0;
+  font-size: var(--text-xs);
+}
+.module-progress-reset button {
+  background: none;
+  border: none;
+  color: var(--text-soft);
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 4px 8px;
+  font-size: inherit;
+  font-family: inherit;
+}
+.module-progress-reset button:hover {
+  color: var(--text);
+}
 
 .module-card h3 {
   font-size: var(--text-lg);
