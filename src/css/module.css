@@ -1892,6 +1892,9 @@ body.pdf-preview-open{overflow:hidden}
 .hub-content{padding-top:var(--space-xl)}
 .hub-content .urgent-note-standalone{max-width:var(--content-width);margin:0 auto var(--space-xl)}
 .hub-content>section:first-of-type h2{border-top:none;padding-top:0;margin-top:var(--space-lg)}
+.hub-section-deepen{margin-top:var(--space-md);padding-top:var(--space-base);border-top:1px solid var(--border-warm);font-size:var(--text-sm);color:var(--text-soft);line-height:1.5}
+.hub-section-deepen a{color:var(--teal-text);text-decoration:underline;text-underline-offset:3px}
+.hub-section-deepen a:hover{color:var(--teal-cta-dark)}
 
 .hub-pathways h2{border-top:none;padding-top:0;margin-top:var(--space-lg)}
 .hub-pathways-lead{font-size:var(--text-base);color:var(--slate);max-width:65ch;line-height:1.6;margin:0 0 var(--space-lg)}
