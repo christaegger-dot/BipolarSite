@@ -823,8 +823,8 @@ a, button, input, select, textarea,
   margin: 0 0 var(--space-md);
 }
 .entry-paths-list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: var(--space-sm);
 }
 .entry-path-link {
@@ -2696,7 +2696,7 @@ body.impressum-page .info-box strong {
 }
 
 .home-page .home-hero-subtitle {
-  max-width: 54ch;
+  max-width: 58ch;
   line-height: 1.62;
 }
 
@@ -2723,11 +2723,19 @@ body.impressum-page .info-box strong {
   margin-bottom: var(--space-base);
 }
 
+.home-page .entry-paths-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-base);
+}
+
 .home-page .entry-path-link {
   position: relative;
   overflow: hidden;
+  flex-direction: column;
   align-items: flex-start;
+  justify-content: space-between;
   padding: 16px 18px 16px 22px;
+  min-height: 128px;
   border-color: rgba(45,40,35,0.08);
   background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(244,241,236,0.82));
   box-shadow: 0 1px 0 rgba(45,40,35,0.03);
@@ -2751,6 +2759,10 @@ body.impressum-page .info-box strong {
 
 .home-page .entry-path-label {
   max-width: 30ch;
+}
+
+.home-page .entry-path-destination {
+  margin-top: var(--space-sm);
 }
 
 .home-page .entry-path-link--crisis {
@@ -3111,9 +3123,14 @@ body.impressum-page .info-box strong {
     margin-bottom: var(--space-sm);
   }
 
+  .home-page .entry-paths-list {
+    grid-template-columns: 1fr;
+  }
+
   .home-page .entry-path-link {
     padding: 14px 14px 14px 18px;
     gap: var(--space-sm);
+    min-height: 0;
   }
 
   .home-page .entry-path-destination {
