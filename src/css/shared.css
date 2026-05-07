@@ -2548,6 +2548,7 @@ body.impressum-page .info-box strong {
 .module-overview-hero-visual {
   border-radius: var(--radius-lg);
   overflow: hidden;
+  /* box-shadow nur für module-overview, nicht für werkzeuge (wird unten überschrieben) */
   box-shadow: var(--card-shadow-hover);
   position: relative;
   z-index: 1;
@@ -2690,9 +2691,10 @@ body.impressum-page .info-box strong {
 }
 
 .home-page .home-hero-visual {
-  border: 1px solid rgba(45,40,35,0.08);
-  background: rgba(255,255,255,0.72);
-  box-shadow: var(--shadow-atmosphere);
+  /* Nahtlose Integration: kein Border, kein weisser Hintergrund */
+  border: none;
+  background: transparent;
+  box-shadow: none;
 }
 
 .home-page .home-hero-paths {
@@ -2852,9 +2854,10 @@ body.impressum-page .info-box strong {
 }
 
 .werkzeuge-page .werkzeuge-hero-visual {
-  border: 1px solid rgba(45,40,35,0.08);
-  background: rgba(255,255,255,0.76);
-  box-shadow: var(--shadow-atmosphere);
+  /* Nahtlose Integration: kein Border, Hintergrund exakt wie --bg der Seite */
+  border: none;
+  background: var(--bg);
+  box-shadow: none;
 }
 
 .werkzeuge-page .tool-guide {
@@ -3218,9 +3221,10 @@ body.module-overview-page .overview-lead {
 }
 
 body.module-overview-page .module-overview-hero-visual {
-  border: 1px solid rgba(45,40,35,0.08);
-  background: rgba(255,255,255,0.76);
-  box-shadow: var(--shadow-atmosphere);
+  /* Nahtlose Integration: kein Border, kein weisser Hintergrund */
+  border: none;
+  background: transparent;
+  box-shadow: none;
 }
 
 body.module-overview-page .overview-intro {
