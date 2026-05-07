@@ -394,6 +394,9 @@
 .handouts--list .handout-card:hover {
   background: var(--bg); box-shadow: none; border-color: var(--border-warm);
 }
+.handouts--list .handout-card-meta {
+  color: var(--teal-cta-dark); /* WCAG AA: 4.43:1 mit teal-cta auf bg-transparent → teal-cta-dark = 5.4:1 */
+}
 .handouts--list .handout-card::after {
   content: '↓'; opacity: 0.55;
   right: var(--space-base); font-size: var(--text-lg); color: var(--teal-cta-dark);
