@@ -24,8 +24,8 @@ test.describe('core user paths', () => {
     await expect(page.locator('.entry-paths-list a[href="/werkzeuge/"]').first()).toContainText(/konkrete Werkzeuge/i);
   });
 
-  test('homepage triage sends urgent answers directly to the notfall page', async ({ page }) => {
-    await page.goto('/');
+  test('einstiegsfrage tool sends urgent answers directly to the notfall page', async ({ page }) => {
+    await page.goto('/tools/einstiegsfrage/');
 
     await Promise.all([
       page.waitForURL(/\/notfall\/$/),
