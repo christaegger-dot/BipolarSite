@@ -75,7 +75,7 @@ breadcrumbs:
 <main class="content" id="main-content">
 
   <!-- ══════════ DIAGNOSESCHOCK-EINSTIEG ══════════ -->
-  <div id="neu" class="neu-block reveal">
+  <aside id="neu" class="neu-block reveal" aria-label="Hilfe für die ersten Tage nach der Diagnose">
 
     <div class="neu-kicker">Wenn die Diagnose gerade neu ist</div>
 
@@ -125,7 +125,7 @@ breadcrumbs:
       Wenn Sie bereit sind, weiterzulesen: <a href="#verstehen" class="link-teal-bold">Modul 1 beginnt hier ↓</a>
     </div>
 
-  </div>
+  </aside>
   <!-- ══ Ende Diagnoseschock-Einstieg ══ -->
 
   <h2 id="verstehen" class="reveal">Was Sie als Angehörige verstehen müssen</h2>
@@ -149,6 +149,7 @@ breadcrumbs:
   <h2 id="phasen" class="reveal">Wie sich Episoden im Alltag zeigen</h2>
   <p class="reveal">Die Phasenlehre ist nur dann hilfreich, wenn sie in den Alltag übersetzt wird. Entscheidend ist nicht nur, wie eine Episode diagnostisch heisst, sondern wie sie sich für Sie zu Hause anfühlt: unberechenbar, laut, leer, beschämend, angsteinflössend oder seltsam schwer greifbar.</p>
 
+  <p class="phase-tabs-hint reveal"><span aria-hidden="true">↔</span> Drei Phasen — tippen Sie eine an, um zu wechseln</p>
   <div class="phase-explorer reveal content-wide">
     <div class="phase-tabs" role="tablist" aria-label="Erkrankungsphasen">
       <button type="button" class="phase-tab active-mania" role="tab" aria-selected="true" aria-controls="phase-mania" id="tab-mania" data-phase="mania" tabindex="0">
@@ -262,6 +263,8 @@ breadcrumbs:
   <h2 id="typen" class="reveal">Bipolar I und Bipolar II</h2>
   <p class="reveal">Die Unterscheidung ist für Angehörige nicht nur medizinisch relevant. Sie verändert oft, welche Belastung im Vordergrund steht: sichtbare Eskalation, lange Depression, fehlende Ernstnahme durch das Umfeld oder wiederkehrende Unsicherheit in scheinbar guten Phasen.</p>
 
+  <p class="accordion-hint reveal"><span aria-hidden="true">↓</span> Die zwei Karten unten klappen auf — Antippen für die ausführliche Beschreibung.</p>
+
   <div class="accordion-group reveal">
     <div class="accordion-item">
       <button type="button" class="accordion-header" aria-expanded="false" aria-controls="accordion-bipolar-i">
@@ -365,11 +368,14 @@ breadcrumbs:
     <h3>Ein Leben in Wellen</h3>
     <p>Die blaue Linie zeigt den Krankheitsverlauf. Die gestrichelte orange Linie zeigt schematisch, warum Angehörige nach Episoden oft nicht einfach zum inneren Ausgangspunkt zurückkehren.</p>
     <div class="wave-chart">
-      <svg role="img" aria-label="Konzeptionelles Wellenmodell: Stimmungsverlauf bei bipolarer Störung über die Lebensspanne mit Manie-, Hypomanie- und Depressionsphasen" viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg">
-        <!-- Y-axis labels (inside SVG) -->
-        <text x="58" y="48" fill="#B45309" font-size="11" font-weight="600" text-anchor="end" font-family="DM Sans, sans-serif">Manie</text>
-        <text x="58" y="128" fill="#0d7a5f" font-size="11" font-weight="600" text-anchor="end" font-family="DM Sans, sans-serif">Stabil</text>
-        <text x="58" y="208" fill="#5b7fa5" font-size="11" font-weight="600" text-anchor="end" font-family="DM Sans, sans-serif">Depression</text>
+      <svg role="img" aria-label="Konzeptionelles Wellenmodell: Stimmungsverlauf bei bipolarer Störung über mehrere Jahre, mit Manie- und Depressionsphasen sowie steigender Angehörigen-Belastung" viewBox="0 0 900 290" xmlns="http://www.w3.org/2000/svg">
+        <!-- Y-axis title (rotated) -->
+        <text x="20" y="125" fill="#5d6b7e" font-size="12" font-weight="600" text-anchor="middle" font-family="DM Sans, sans-serif" transform="rotate(-90 20 125)">Stimmung</text>
+
+        <!-- Y-axis tick labels -->
+        <text x="62" y="48" fill="#B45309" font-size="13" font-weight="600" text-anchor="end" font-family="DM Sans, sans-serif">Manie</text>
+        <text x="62" y="128" fill="#0d7a5f" font-size="13" font-weight="600" text-anchor="end" font-family="DM Sans, sans-serif">Stabil</text>
+        <text x="62" y="208" fill="#5b7fa5" font-size="13" font-weight="600" text-anchor="end" font-family="DM Sans, sans-serif">Depression</text>
 
         <!-- Axes -->
         <line x1="70" y1="20" x2="70" y2="230" stroke="#a7d9d5" stroke-width="1.5"/>
@@ -388,15 +394,15 @@ breadcrumbs:
         <path d="M70,160 C170,157 270,150 370,144 C470,136 570,127 670,117 C770,108 820,100 870,94"
           fill="none" stroke="#B45309" stroke-width="2" stroke-dasharray="7 5" stroke-linecap="round" opacity="0.7"/>
 
+        <!-- X-axis title -->
+        <text x="470" y="255" fill="#5d6b7e" font-size="13" font-weight="600" text-anchor="middle" font-family="DM Sans, sans-serif">Zeit (mehrere Jahre) →</text>
+
         <!-- Legend -->
-        <line x1="580" y1="248" x2="604" y2="248" stroke="#5b7fa5" stroke-width="2.5"/>
-        <text x="610" y="252" fill="#5b7fa5" font-size="11" font-weight="500" font-family="DM Sans, sans-serif">Stimmung Partner</text>
+        <line x1="170" y1="280" x2="200" y2="280" stroke="#5b7fa5" stroke-width="2.5"/>
+        <text x="208" y="284" fill="#5b7fa5" font-size="13" font-weight="500" font-family="DM Sans, sans-serif">Stimmung der erkrankten Person</text>
 
-        <line x1="740" y1="248" x2="764" y2="248" stroke="#B45309" stroke-width="2" stroke-dasharray="5 3" opacity="0.7"/>
-        <text x="770" y="252" fill="#B45309" font-size="11" font-weight="500" font-family="DM Sans, sans-serif">Belastung Angehörige</text>
-
-        <!-- X-axis label -->
-        <text x="470" y="252" fill="#94a3b8" font-size="11" text-anchor="middle" font-family="DM Sans, sans-serif">→ Zeit (Jahre)</text>
+        <line x1="540" y1="280" x2="570" y2="280" stroke="#B45309" stroke-width="2" stroke-dasharray="5 3" opacity="0.7"/>
+        <text x="578" y="284" fill="#B45309" font-size="13" font-weight="500" font-family="DM Sans, sans-serif">Belastung der Angehörigen</text>
       </svg>
     </div>
     <div class="wave-caption">Konzeptionelles Modell auf Basis von Goodwin &amp; Jamison (2007) und Judd et al. (2003). Es zeigt nicht einen festen Standardverlauf, sondern warum Wiederkehr, Unsicherheit und kumulative Mitbelastung für Angehörige so prägend sind.</div>
@@ -457,29 +463,29 @@ breadcrumbs:
     <div class="treatment-card treatment-card--horizontal">
       <div class="treatment-card-icon treatment-card-icon--num">1</div>
       <div>
-        <h3>Frühwarnzeichen notieren</h3>
+        <h3>Notieren Sie drei Frühwarnzeichen.</h3>
         <p>Denken Sie an die letzte deutliche Verschlechterung: Was war zuerst auffällig? Weniger Schlaf? Gereiztheit? Rückzug? Übermässige Energie? Schreiben Sie drei Beobachtungen auf. Noch nicht als Diagnose — nur als Muster.</p>
       </div>
     </div>
     <div class="treatment-card treatment-card--horizontal">
       <div class="treatment-card-icon treatment-card-icon--num">2</div>
       <div>
-        <h3>Ein guter nächster Schritt: professionelle Beratung nutzen</h3>
+        <h3>Wenden Sie sich an die Fachstelle.</h3>
         <p>Wenn Sie nach diesem Modul merken, wie viel Unsicherheit Sie mittragen, ist das bereits ein guter Grund für Beratung. Die Fachstelle Angehörigenarbeit PUK Zürich bietet kostenlose Unterstützung — auch unabhängig davon, ob die erkrankte Person selbst Hilfe sucht. Telefon: <a href="{{ site.tel.fachstelle.href }}">{{ site.tel.fachstelle.display }}</a>.</p>
       </div>
     </div>
     <div class="treatment-card treatment-card--horizontal">
       <div class="treatment-card-icon treatment-card-icon--num">3</div>
       <div>
-        <h3>Wenn Sie bereit sind: passend weiterlesen</h3>
-        <p>Wenn Sie vor allem sich selbst besser verstehen wollen, ist <a href="/modul/2/">Modul 2</a> der richtige nächste Schritt. Wenn Sie eher konkrete Hilfen brauchen, gehen Sie direkt zu <a href="/modul/6/">Modul 6</a>. Sie müssen die Website nicht streng linear lesen.</p>
+        <h3>Lesen Sie das passende nächste Modul.</h3>
+        <p>Wenn Sie vor allem sich selbst besser verstehen wollen, ist <a href="/modul/2/">Modul 2</a> der richtige nächste Schritt. Wenn Sie eher konkrete Hilfen brauchen, gehen Sie direkt zu <a href="/modul/6/">Modul 6</a>. Sie müssen die Website nicht streng linear lesen — und nichts davon eilt.</p>
       </div>
     </div>
     <div class="treatment-card treatment-card--horizontal">
       <div class="treatment-card-icon treatment-card-icon--num">4</div>
       <div>
-        <h3>Wenn Sie bereit sind: eine Vertrauensperson einweihen</h3>
-        <p>Wenn Sie bisher vieles allein eingeordnet haben, entlastet oft schon eine Person, die die Lage kennt. Nicht die halbe Version, sondern die wirkliche: was Sie beobachten, was Sie befürchten und was Sie im Alltag tragen.</p>
+        <h3>Weihen Sie eine Vertrauensperson ein.</h3>
+        <p>Wenn Sie bisher vieles allein eingeordnet haben, entlastet oft schon eine Person, die die Lage kennt. Nicht die halbe Version, sondern die wirkliche: was Sie beobachten, was Sie befürchten und was Sie im Alltag tragen. Wenn Sie noch nicht bereit dafür sind, ist das auch in Ordnung.</p>
       </div>
     </div>
   </div>
