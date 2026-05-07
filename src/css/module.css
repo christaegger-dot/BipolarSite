@@ -197,6 +197,49 @@
   .content:not(.hub-content) h2:first-of-type + p::first-letter { font-size: 2em; float: none; padding: 0; }
 }
 
+/* ════════════════════════════════════════════════════════════════
+   PATTERN INVENTORY — Callouts & Voice-Components
+   ════════════════════════════════════════════════════════════════
+   Zweck: Bewusst gepflegtes Vokabular statt Komponenten-Inflation.
+   Audit P2.7 (Modul 1, 2026-04-23) hat 18+ visuelle Patterns auf
+   einer Seite identifiziert. Nach erneutem Audit (2026-05-07) gilt:
+   die fünf Callouts sind FUNKTIONAL distinkt — Konsolidierung
+   würde semantische Differenzierung opfern. Dokumentiert, damit
+   beim nächsten Refactoring NICHT noch ein sechstes Callout
+   entsteht ("when in doubt, reuse one of these").
+
+   ┌───────────────────┬─────────────────┬──────────────────────────┐
+   │ Klasse            │ Visueller Anker │ Wann verwenden           │
+   ├───────────────────┼─────────────────┼──────────────────────────┤
+   │ .quote-block      │ rosé Card,      │ Echtes Personen-Zitat    │
+   │                   │ Serif, «-Mark   │ als eigenständiger       │
+   │                   │                 │ Lese-Akzent              │
+   ├───────────────────┼─────────────────┼──────────────────────────┤
+   │ .inline-voice     │ schmaler rosé   │ Personen-Zitat im Fluss, │
+   │                   │ Left-Border     │ wenn .quote-block den    │
+   │                   │                 │ Lesefluss zu oft aufbricht│
+   ├───────────────────┼─────────────────┼──────────────────────────┤
+   │ .hint-note        │ teal Left-Border│ Inline-Hinweis, Querverwies,│
+   │   --alert         │ (alert: rot)    │ Folge-Modul-Verlinkung   │
+   ├───────────────────┼─────────────────┼──────────────────────────┤
+   │ .content-note     │ amber Card mit  │ Sachliche WICHTIG-Warnung │
+   │   (Module-Accent) │ Left-Border     │ im Lesefluss             │
+   ├───────────────────┼─────────────────┼──────────────────────────┤
+   │ .bright-moment    │ green Card mit  │ Positiver Lichtblick,    │
+   │                   │ Left-Border     │ Counterweight zu schweren │
+   │                   │ DM Sans italic  │ Inhalten                 │
+   ├───────────────────┼─────────────────┼──────────────────────────┤
+   │ .reflection       │ rosé Card       │ Selbstreflexions-Frage,  │
+   │                   │                 │ am Sektions-Ende         │
+   ├───────────────────┼─────────────────┼──────────────────────────┤
+   │ .takeaways        │ teal-cta-dark   │ Schluss-Box mit          │
+   │                   │ Box, weiss-Text │ "Worauf es ankommt"      │
+   └───────────────────┴─────────────────┴──────────────────────────┘
+   Card-Patterns (treatment-card, symptom-card, neu-col-bad/good):
+   semantisch getrennt (generisch vs. Phase-Color-Bound vs. DO/DONT).
+   Nicht konsolidieren ohne Phase-Color-Migration (Risiko/Aufwand
+   übertrifft Mehrwert; siehe a11y-Failure in PR #276 als Mahnung). */
+
 /* ── Inline Voice ── lightweight quotation woven into prose.
    Verwenden statt .quote-block, wenn der Lesefluss nicht ein zweites
    Mal gleich aufgebrochen werden soll (Audit P2.6 Modul 1). */
@@ -782,12 +825,6 @@ body.pdf-preview-open { overflow: hidden; }
 .hint-note--spaced { margin-bottom: var(--space-md); }
 .hint-note--spaced-lg { margin-bottom: var(--section-tight); }
 .hint-note--tight { margin-top: var(--space-sm); }
-
-/* Bright moment (positive break) */
-.bright-moment {
-  font-size: var(--text-base); color: var(--teal-text);
-  margin-top: var(--space-sm);
-}
 
 /* Saeulen legend dots (pillar colors) */
 .saeulen-legend-dot--1 { background: var(--teal); }
