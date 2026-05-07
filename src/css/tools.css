@@ -553,6 +553,17 @@ body.saeulen-check-page .disc{font-size:var(--text-xs);color:var(--slate);margin
 @media(max-width:480px){.sc{flex-wrap:wrap}.sc button{flex:1 1 calc(33% - 4px);min-height:44px}.pc{padding:18px 16px}.res-card{padding:24px 16px}.pillars{gap:6px;padding:0}}
 
 
+/* ── einstiegsfrage ── */
+body.einstiegsfrage-page{justify-content:center;padding:var(--space-lg)}
+body.einstiegsfrage-page .tool-nav{background:var(--bg);border-bottom:1px solid var(--border-warm)}
+body.einstiegsfrage-page .wrap{width:100%;max-width:var(--tool-wrap-medium);padding-top:var(--space-xl);padding-bottom:var(--section-standard)}
+body.einstiegsfrage-page .hdr{margin-bottom:var(--space-lg)}
+body.einstiegsfrage-page .hdr h1{font-size:var(--text-tool-title)}
+body.einstiegsfrage-page .hdr p{max-width:62ch}
+body.einstiegsfrage-page .urgent-note-standalone{margin-bottom:var(--space-lg)}
+body.einstiegsfrage-page .quick-triage{padding:0}
+body.einstiegsfrage-page .noscript-box{margin-top:var(--space-lg)}
+
 /* ── selbsttest ── */
 body.selbsttest-page{justify-content:center;padding:var(--space-lg)}
 body.selbsttest-page .tool-nav{background:var(--bg);border-bottom:1px solid var(--border-warm)}
