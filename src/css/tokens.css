@@ -307,6 +307,16 @@
   --content-width-wide:  1040px;  /* was 960px — hero + wide prose at 72% of 1440px */
   --wide-width:          1200px;  /* was 1140px — module/tool grids at 83% of 1440px */
 
+  /* Measure-Familie — typografische Lesespalten (ch-basiert).
+     Trennung Layout-Breite (px, oben) vs. Text-Breite (ch, hier).
+     Baymard/Ruder: 50–75 Zeichen pro Zeile = optimale Lesbarkeit.
+     - prose:  65ch — Body-Fliesstext, Modul-Inhalte, FAQ-Antworten
+     - lead:   52ch — Hero/Section-Leads (emotional näher, ruhiger)
+     - narrow: 44ch — Tool-Hilfetexte, Captions, Sub-Labels */
+  --measure-prose:  65ch;
+  --measure-lead:   52ch;
+  --measure-narrow: 44ch;
+
   /* Tool-Wrap-Familie — kuratierte interaktive Tool-Container (B-2 Audit) */
   --tool-wrap-medium:     600px;  /* Komm-Trainer, Säulen-Check, Selbsttest */
   --tool-wrap-wide:       680px;  /* Phasenverlauf, Solidaritäts-Chart */

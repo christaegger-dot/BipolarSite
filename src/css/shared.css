@@ -506,7 +506,7 @@ a, button, input, select, textarea,
 .section-desc {
   font-size: var(--text-base);
   color: var(--slate);
-  max-width: 60ch;
+  max-width: var(--measure-lead);
   line-height: 1.75;
   margin-bottom: var(--space-lg);
 }
@@ -791,7 +791,7 @@ a, button, input, select, textarea,
 .home-hero-subtitle {
   font-size: var(--text-lg);
   color: var(--slate);
-  max-width: 60ch;
+  max-width: var(--measure-lead);
   line-height: 1.7;
   margin-bottom: var(--space-2xl);
 }
@@ -923,7 +923,7 @@ a, button, input, select, textarea,
   margin-bottom: var(--heading-gap-h2);
 }
 .home-intro p {
-  max-width: 62ch;
+  max-width: var(--measure-prose);
   line-height: 1.75;
   color: var(--slate);
   margin-bottom: var(--space-md);
@@ -2705,7 +2705,7 @@ body.impressum-page .info-box strong {
 }
 
 .home-page .home-hero-subtitle {
-  max-width: 58ch;
+  max-width: var(--measure-lead);
   line-height: 1.62;
 }
 
@@ -2868,7 +2868,7 @@ body.impressum-page .info-box strong {
 }
 
 .werkzeuge-page .overview-lead {
-  max-width: 58ch;
+  max-width: var(--measure-lead);
   line-height: 1.62;
 }
 
