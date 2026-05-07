@@ -197,6 +197,22 @@
   .content:not(.hub-content) h2:first-of-type + p::first-letter { font-size: 2em; float: none; padding: 0; }
 }
 
+/* ── Inline Voice ── lightweight quotation woven into prose.
+   Verwenden statt .quote-block, wenn der Lesefluss nicht ein zweites
+   Mal gleich aufgebrochen werden soll (Audit P2.6 Modul 1). */
+.inline-voice {
+  font-family: 'DM Serif Display', serif;
+  font-size: var(--text-lg); color: var(--text);
+  line-height: 1.7; margin: var(--space-md) 0 var(--space-lg);
+  padding-left: var(--space-md); border-left: 2px solid var(--rose-border);
+}
+.inline-voice-attribution {
+  font-family: 'DM Sans', sans-serif;
+  font-size: var(--text-xs); font-weight: 600;
+  color: var(--rose-text); text-transform: uppercase; letter-spacing: 0.06em;
+  display: inline-block; margin-right: var(--space-sm);
+}
+
 /* ── Quote Block ── [temp: pause] — Rosé accent for emotional content */
 .quote-block {
   background: var(--rose-bg); border-radius: var(--card-radius);
@@ -360,6 +376,34 @@
 .handout-card-sub { font-size: var(--text-xs); color: var(--text-soft); }
 .handout-card-meta { margin-top: 6px; font-size: var(--text-xs); color: var(--teal-cta); font-weight: 600; line-height: 1.45; }
 .handout-card-meta-secondary { margin-top: 3px; color: var(--text-soft); font-weight: 400; }
+
+/* ── Handouts: Download-Liste-Variante ──
+   Kommt zum Einsatz, wenn die Handouts am Seiten-Ende visuell deutlich
+   von Content-Cards (treatment-card, accordion, etc.) getrennt werden
+   sollen — Pattern-Verwechslung "Habe ich das schon gesehen?" vermeiden
+   (Audit P2.8 Modul 1). Cards werden zu Listenitems mit Download-Pfeil. */
+.handouts--list .handouts-grid {
+  grid-template-columns: 1fr; gap: 0;
+  border-top: 1px solid var(--border-warm);
+}
+.handouts--list .handout-card {
+  border: none; border-bottom: 1px solid var(--border-warm);
+  border-radius: 0; padding: var(--space-md) var(--space-base);
+  background: transparent;
+}
+.handouts--list .handout-card:hover {
+  background: var(--bg); box-shadow: none; border-color: var(--border-warm);
+}
+.handouts--list .handout-card::after {
+  content: '↓'; opacity: 0.55;
+  right: var(--space-base); font-size: var(--text-lg); color: var(--teal-cta-dark);
+}
+.handouts--list .handout-card:hover::after {
+  opacity: 1; transform: translateY(-50%) translateY(2px);
+}
+.handouts--list .handout-icon {
+  width: 32px; height: 32px; font-size: 10px;
+}
 
 /* ── Next Module ── */
 .next-module {
