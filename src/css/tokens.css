@@ -280,9 +280,12 @@
   --space-2xl:  40px;
   --space-3xl:  52px;
 
-  /* Section rhythm */
+  /* Section rhythm — Major sections breathe at --section-standard.
+     Bumped from 64 → 80 (Baymard/UX guidance for editorial breathing).
+     Effect site-wide: Hero, Module, Tools, Story, Invitation, Notfall-
+     Hero, Modul-Hero, Overview-Hero get +16px vertical air. */
   --section-tight:    40px;
-  --section-standard: 64px;
+  --section-standard: 80px;
   --section-wide:     96px;
 
   /* Content temperature */
