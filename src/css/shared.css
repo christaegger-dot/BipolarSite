@@ -898,16 +898,44 @@ a, button, input, select, textarea,
 }
 
 /* Vertical rhythm — visual flow through alternating treatments:
-   Hero+paths (surface-alt) → Triage (subtle bg) → Modules (white) →
+   Hero+paths (surface-alt) → Intro (subtle bg) → Modules (white) →
    Tools (subtle bg) → Story (rosé) → Invitation (surface-alt) */
 /* Consistent section rhythm: --section-standard (64px) for all major sections.
    Sections separated by subtle top-borders, not by enclosing boxes.
    Editorial approach: content breathes in shared background. */
-#orientierung {
+#einstieg {
   margin-top: var(--section-standard);
   padding-top: var(--section-standard);
   padding-bottom: var(--section-standard);
   border-top: 1px solid var(--border-warm);
+}
+
+/* Home-Intro: redaktionelle Brücke zwischen Hero/Entry-Paths und Modulübersicht.
+   Ersetzt den früheren Triage-Block auf der Startseite (siehe /tools/einstiegsfrage/).
+   Lesespalte bewusst eng gehalten, kein Routing — nur Einordnung. */
+.home-intro {
+  max-width: var(--content-width);
+  margin-inline: auto;
+  padding-inline: var(--space-lg);
+}
+.home-intro h2 {
+  font-size: var(--text-xl);
+  margin-bottom: var(--heading-gap-h2);
+}
+.home-intro p {
+  max-width: 62ch;
+  line-height: 1.75;
+  color: var(--slate);
+  margin-bottom: var(--space-md);
+}
+.home-intro-lead {
+  font-size: var(--text-lg);
+  color: var(--navy);
+}
+.home-intro-helper {
+  font-size: var(--text-sm);
+  color: var(--text-soft);
+  margin-bottom: 0;
 }
 #module {
   padding-top: var(--section-standard);
@@ -1157,19 +1185,10 @@ html.js-reveal-active .reveal.revealed {
   .story-section { padding: 48px 1.4rem 56px; }
 }
 
-/* Triage-Sektion (Audit-IA-Stufe 2): zurückgestuft von Full-Width-Banner
-   zu normaler Sektion. Triage ist nicht mehr dritter Einstieg neben den
-   Hero-Pfaden, sondern Hilfsmittel im Lese-Fluss. Anker bleibt. */
-.triage-fullwidth-section {
-  padding-top: var(--section-standard);
-  padding-bottom: var(--section-standard);
-}
-.triage-fullwidth-section .quick-triage {
-  max-width: var(--content-width);
-  margin: 0 auto;
-  padding: var(--space-xl) var(--space-lg);
-}
-.triage-fullwidth-section .urgent-note-standalone {
+/* Triage als Routing-Schicht von der Startseite entfernt (siehe /tools/einstiegsfrage/).
+   .urgent-note-standalone wird von .home-intro-section weiterverwendet — Notfall bleibt
+   prominent über dem Intro-Text. */
+.home-intro-section .urgent-note-standalone {
   max-width: var(--content-width);
   margin: 0 auto var(--space-lg);
 }
@@ -3118,7 +3137,7 @@ body.impressum-page .info-box strong {
     font-size: var(--text-xs);
   }
 
-  #orientierung {
+  #einstieg {
     margin-top: var(--space-lg);
     padding-top: var(--space-xl);
     padding-bottom: var(--space-xl);
