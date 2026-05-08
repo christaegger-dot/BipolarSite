@@ -41,19 +41,26 @@ Aus dem Browser-Review nach den Welle-A/B/C-Audits stehen drei CI/Build-Punkte o
 ### a) Stylelint — 26 deaktivierte Regeln schrittweise re-aktivieren
 `.stylelintrc.json` hat aktuell 26 Regeln deaktiviert. Schritt für Schritt wieder einschalten, beginnend mit den sicheren: `color-no-invalid-hex`, `declaration-block-no-duplicate-properties`, `no-duplicate-selectors`. Eine Regel pro PR — kein Big-Bang. Bei Aktivierung läuft erstmal `npm run lint:css` durch und meldet alle Verstöße — fixen, dann mergen.
 
-### b) Link-Checker als wöchentlicher Cron-Job
-Bei 24+ PDFs und vielen externen Zielen (VASK, Pro Mente Sana, Ombudsstelle, GitHub) wird irgendwann einer tot sein. `lychee-action` oder `linkinator` als wöchentlicher GitHub-Action-Cron-Job, **nicht** als Merge-Blocker (externe Flakes). Ergebnis als GitHub-Issue posten lassen.
+### ✅ b) Link-Checker als wöchentlicher Cron-Job (erledigt 2026-05-08)
 
-### c) Playwright-Smoke-Tests
-`package.json` hat aktuell kein `test`-Script. Drei minimale Tests fangen 90% der Regressionen:
-- Landing lädt, H1 sichtbar
-- `/modul/8/` → Pathway-Card „Akut" klickbar → landet auf `/notfall/`
-- `/notfall/` → `tel:144`-Link hat korrektes `href`
-- Mini-Plan: Eintrag speichern → reload → da → Löschen → weg
+Erledigt durch `.github/workflows/link-check.yml`: lychee-action, wöchentlicher Cron + manueller `workflow_dispatch`, scannt das gebaute `_site/`. Findings werden als GitHub-Issue gepostet (Label `link-checker`), nicht als Merge-Blocker.
 
-Ein `.reveal`-Race-Condition-Bug wie in 2026-04-25 (Modul 8 hatte 16 reveal-Elemente ohne Observer, sichtbar nur durch versteckten CSS-Override) wäre durch einen Smoke-Test sofort aufgefallen.
+### ✅ c) Playwright-Smoke-Tests (erledigt 2026-04 / vor Backlog-Stand)
 
-**Trigger:** Eigene Session — keine Sofort-Notwendigkeit, aber wertvoll vor nächster großer Refactor-Welle.
+Bereits umgesetzt in `tests/e2e/core.spec.ts` — 13 Tests decken alle ursprünglich vorgeschlagenen Pfade ab plus deutlich mehr:
+
+- Homepage H1 + 4 Entry-Paths, Einstiegsfrage-Routing, Notfall mobile + `tel:144`, Barrierefreiheit-Page
+- Modul-Übersicht + Modul 1 + TOC, Desktop-TOC-Sidebar
+- Werkzeuge-Übersicht, Selbsttest-Wizard mit Auswertung, Phasenverlauf mit Notfallkontakten
+- Krisenplan: kompletter Storage-Consent-Pfad (Reload, Reset, Modal-Confirm)
+- Mini-Plan: Storage-Roundtrip auf `/modul/8/`
+- Mobile Nav: Open/Close + Escape + Focus-Return, Modul-TOC responsiv
+
+CI-Job `playwright-smoke` ruft `npm run test:e2e` auf jedem PR.
+
+Eine kleine Lücke bleibt (Modul-8-Pathway-Card → `/notfall/` ist nicht explizit getestet, nur indirekt via Homepage→Notfall in Test 1) — kein P3 mehr.
+
+**Trigger:** ~~Eigene Session — keine Sofort-Notwendigkeit, aber wertvoll vor nächster großer Refactor-Welle.~~ Erledigt.
 
 ---
 
