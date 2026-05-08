@@ -1318,23 +1318,27 @@ p.bright-moment {
 }
 @media(prefers-reduced-motion:reduce){.notfall-hero ~ *{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
 
-/* ── Notfall PDF Preview ── */
-body.pdf-preview-open{overflow:hidden}
-.pdf-preview-overlay{position:fixed;inset:0;z-index:1000;background:var(--overlay-warm);padding:var(--space-lg);display:flex;align-items:center;justify-content:center}
-.pdf-preview-overlay[hidden]{display:none}
-.pdf-preview-dialog{width:min(920px,100%);max-height:calc(100vh - 48px);background:var(--bg);border:1px solid var(--border-warm-md);border-radius:var(--card-radius);box-shadow:var(--shadow-card);display:flex;flex-direction:column;overflow:hidden}
-.pdf-preview-header{padding:20px 24px 16px;border-bottom:1px solid var(--border-warm-md);display:flex;gap: var(--space-md);justify-content:space-between;align-items:flex-start}
-.pdf-preview-title{font-family:'DM Sans',sans-serif;font-size:var(--text-lg);font-weight:700;color:var(--navy)}
-.pdf-preview-sub{margin-top:6px;font-size:var(--text-xs);color:var(--text-soft);max-width:var(--measure-narrow);line-height:1.5}
-.pdf-preview-actions{display:flex;gap:var(--grid-gap-tight);align-items:center;flex-wrap:wrap;justify-content:flex-end}
-.pdf-preview-link,.pdf-preview-close{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:9px 14px;border-radius:var(--radius-sm);font-size:var(--text-xs);font-weight:600;text-decoration:none}
-.pdf-preview-link{background:var(--alert-soft);color:var(--navy)}
-.pdf-preview-close{background:none;border:1px solid var(--border-warm-md);color:var(--text);cursor:pointer}
-.pdf-preview-body{padding:18px 24px 24px}
-.pdf-preview-note{font-size:var(--text-xs);color:var(--text-soft);margin-bottom:var(--space-base)}
-.pdf-preview-frame-wrap{background:var(--card);border:1px solid var(--border-warm-md);border-radius:var(--card-radius);overflow:hidden}
-.pdf-preview-frame{display:block;width:100%;height:60vh;min-height:420px;border:0;background:var(--surface-alt)}
-@media(max-width:720px){.pdf-preview-overlay{padding:12px}.pdf-preview-dialog{max-height:calc(100vh - 24px)}.pdf-preview-header,.pdf-preview-body{padding-left: var(--space-md);padding-right:16px}.pdf-preview-header{padding-top:16px}.pdf-preview-actions{justify-content:flex-start}.pdf-preview-link,.pdf-preview-close{width:100%}.pdf-preview-frame{height:50vh;min-height:320px}}
+/* ── Notfall PDF Preview — overrides der Default-PDF-Preview-Optik
+   aus diesem File (Zeile ~628). Notfall verwendet rote Akzentfarbe
+   (--alert-soft) statt teal, etwas schmäleren Dialog und eigene
+   Mobile-Anpassungen. body.notfall-page-Scope macht den Override
+   explizit; ohne den Scope (vor 2026-05-08) überschrieb er die
+   Default-Optik global, was ein Cascade-Bug war. */
+body.notfall-page .pdf-preview-overlay{position:fixed;inset:0;z-index:1000;background:var(--overlay-warm);padding:var(--space-lg);display:flex;align-items:center;justify-content:center}
+body.notfall-page .pdf-preview-overlay[hidden]{display:none}
+body.notfall-page .pdf-preview-dialog{width:min(920px,100%);max-height:calc(100vh - 48px);background:var(--bg);border:1px solid var(--border-warm-md);border-radius:var(--card-radius);box-shadow:var(--shadow-card);display:flex;flex-direction:column;overflow:hidden}
+body.notfall-page .pdf-preview-header{padding:20px 24px 16px;border-bottom:1px solid var(--border-warm-md);display:flex;gap: var(--space-md);justify-content:space-between;align-items:flex-start}
+body.notfall-page .pdf-preview-title{font-family:'DM Sans',sans-serif;font-size:var(--text-lg);font-weight:700;color:var(--navy)}
+body.notfall-page .pdf-preview-sub{margin-top:6px;font-size:var(--text-xs);color:var(--text-soft);max-width:var(--measure-narrow);line-height:1.5}
+body.notfall-page .pdf-preview-actions{display:flex;gap:var(--grid-gap-tight);align-items:center;flex-wrap:wrap;justify-content:flex-end}
+body.notfall-page .pdf-preview-link,body.notfall-page .pdf-preview-close{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:9px 14px;border-radius:var(--radius-sm);font-size:var(--text-xs);font-weight:600;text-decoration:none}
+body.notfall-page .pdf-preview-link{background:var(--alert-soft);color:var(--navy)}
+body.notfall-page .pdf-preview-close{background:none;border:1px solid var(--border-warm-md);color:var(--text);cursor:pointer}
+body.notfall-page .pdf-preview-body{padding:18px 24px 24px}
+body.notfall-page .pdf-preview-note{font-size:var(--text-xs);color:var(--text-soft);margin-bottom:var(--space-base)}
+body.notfall-page .pdf-preview-frame-wrap{background:var(--card);border:1px solid var(--border-warm-md);border-radius:var(--card-radius);overflow:hidden}
+body.notfall-page .pdf-preview-frame{display:block;width:100%;height:60vh;min-height:420px;border:0;background:var(--surface-alt)}
+@media(max-width:720px){body.notfall-page .pdf-preview-overlay{padding:12px}body.notfall-page .pdf-preview-dialog{max-height:calc(100vh - 24px)}body.notfall-page .pdf-preview-header,body.notfall-page .pdf-preview-body{padding-left: var(--space-md);padding-right:16px}body.notfall-page .pdf-preview-header{padding-top:16px}body.notfall-page .pdf-preview-actions{justify-content:flex-start}body.notfall-page .pdf-preview-link,body.notfall-page .pdf-preview-close{width:100%}body.notfall-page .pdf-preview-frame{height:50vh;min-height:320px}}
 
 /* ── Notfall Print ── */
 @media print{
