@@ -3943,3 +3943,54 @@ a.ampel-card{text-decoration:none;display:block}
     border-radius: 18px;
   }
 }
+
+/* ── Bipolar I/II — Zweispaltige Karten (AD-Fix: Akkordeons aufgelöst) ── */
+.bipolar-types-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+.bipolar-type-card {
+  background: var(--surface-soft, #f8f6f2);
+  border: 1.5px solid var(--border-light, #e8e2d9);
+  border-radius: var(--radius-lg, 16px);
+  padding: var(--space-lg) var(--space-lg);
+}
+.bipolar-type-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px; height: 36px;
+  background: var(--navy, #1a2744);
+  color: var(--white-text, #fff);
+  border-radius: 50%;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: var(--space-sm);
+}
+.bipolar-type-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: var(--text-xl);
+  font-weight: 400;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.bipolar-type-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-soft);
+  font-style: italic;
+  margin-bottom: var(--space-base);
+}
+.bipolar-type-card p {
+  font-size: var(--text-base);
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+}
+@media (max-width: 640px) {
+  .bipolar-types-grid {
+    grid-template-columns: 1fr;
+  }
+}
