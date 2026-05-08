@@ -4029,7 +4029,7 @@ a.ampel-card{text-decoration:none;display:block}
   border-top: none;
 }
 [data-module-accent="1"] .treatment-card-icon {
-  background: var(--surface-alt);
+  background: #f9f6f1; /* 4.54:1 WCAG AA — surface-alt #F4F1EC war 4.34:1 */
   color: var(--navy);
 }
 
@@ -4052,7 +4052,7 @@ a.ampel-card{text-decoration:none;display:block}
   border-top: none;
 }
 [data-module-accent="1"] .action-icon {
-  background: var(--surface-alt);
+  background: #f9f6f1; /* 4.54:1 WCAG AA */
   color: var(--navy);
   flex-shrink: 0;
 }
@@ -4086,7 +4086,7 @@ a.ampel-card{text-decoration:none;display:block}
 
 /* ── 3. TINTED: bipolar-type-cards (Bipolar I/II) ──────────────────── */
 [data-module-accent="1"] .bipolar-type-card {
-  background: var(--surface-alt);
+  background: #f9f6f1; /* 4.54:1 WCAG AA — surface-alt #F4F1EC war 4.34:1 */
   border: none;
   border-radius: var(--radius-lg);
   box-shadow: none;
@@ -4097,7 +4097,7 @@ a.ampel-card{text-decoration:none;display:block}
 
 /* ── 3. TINTED: wave-chart-section (Phasenverlauf-Grafik) ──────────── */
 [data-module-accent="1"] .wave-chart-section {
-  background: var(--surface-alt);
+  background: #f9f6f1; /* 4.54:1 WCAG AA */
   border: none;
   border-radius: var(--radius-lg);
   box-shadow: none;
