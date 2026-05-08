@@ -99,53 +99,53 @@ LINE = HexColor("#d6d0c8")
 PAGE_W, PAGE_H = A4
 MARGIN_L = 22 * mm
 MARGIN_R = 22 * mm
-MARGIN_T = 18 * mm
-MARGIN_B = 12 * mm
+MARGIN_T = 12 * mm
+MARGIN_B = 8 * mm
 
 # ── Paragraph Styles ──────────────────────────────────────────────────
 styles = {}
 
 styles["h1"] = ParagraphStyle(
-    "H1", fontName="DMSerif", fontSize=19, leading=24,
-    textColor=NAVY, spaceAfter=6 * mm, spaceBefore=0,
+    "H1", fontName="DMSerif", fontSize=18, leading=22,
+    textColor=NAVY, spaceAfter=4 * mm, spaceBefore=0,
 )
 styles["h2"] = ParagraphStyle(
-    "H2", fontName="DMSerif", fontSize=13, leading=17,
-    textColor=NAVY, spaceAfter=3 * mm, spaceBefore=6 * mm,
+    "H2", fontName="DMSerif", fontSize=11.5, leading=14,
+    textColor=NAVY, spaceAfter=1.5 * mm, spaceBefore=3 * mm,
 )
 styles["body"] = ParagraphStyle(
-    "Body", fontName="DMSans", fontSize=9.5, leading=14.5,
-    textColor=TEXT_C, spaceAfter=2.5 * mm,
+    "Body", fontName="DMSans", fontSize=9, leading=11.5,
+    textColor=TEXT_C, spaceAfter=1.2 * mm,
 )
 styles["bullet"] = ParagraphStyle(
-    "Bullet", fontName="DMSans", fontSize=9.5, leading=14,
+    "Bullet", fontName="DMSans", fontSize=9, leading=11.5,
     textColor=TEXT_C, leftIndent=5 * mm, bulletIndent=0,
-    spaceAfter=1.2 * mm,
+    spaceAfter=0.6 * mm,
 )
 styles["sub_bullet"] = ParagraphStyle(
-    "SubBullet", fontName="DMSans", fontSize=9, leading=13,
+    "SubBullet", fontName="DMSans", fontSize=8.5, leading=11.5,
     textColor=MUTED, leftIndent=10 * mm, bulletIndent=5 * mm,
-    spaceAfter=1 * mm,
+    spaceAfter=0.6 * mm,
 )
 styles["footer"] = ParagraphStyle(
     "Footer", fontName="DMSans", fontSize=7, leading=8.5,
     textColor=MUTED, alignment=TA_CENTER,
 )
 styles["quick_step"] = ParagraphStyle(
-    "QuickStep", fontName="DMSans", fontSize=9, leading=13,
+    "QuickStep", fontName="DMSans", fontSize=9, leading=12.5,
     textColor=TEXT_C,
 )
 styles["italic"] = ParagraphStyle(
-    "Italic", fontName="DMSans", fontSize=9.5, leading=14.5,
-    textColor=MUTED, spaceAfter=2.5 * mm,
+    "Italic", fontName="DMSans", fontSize=9.5, leading=13,
+    textColor=MUTED, spaceAfter=2 * mm,
 )
 styles["help_title"] = ParagraphStyle(
-    "HelpTitle", fontName="DMSans", fontSize=8.5, leading=11,
-    textColor=MUTED, spaceAfter=1.2 * mm,
+    "HelpTitle", fontName="DMSans", fontSize=8.5, leading=10.5,
+    textColor=MUTED, spaceAfter=1 * mm,
 )
 styles["help_note"] = ParagraphStyle(
-    "HelpNote", fontName="DMSans", fontSize=8.3, leading=11.5,
-    textColor=MUTED, spaceAfter=2.5 * mm,
+    "HelpNote", fontName="DMSans", fontSize=8.3, leading=11,
+    textColor=MUTED, spaceAfter=2 * mm,
 )
 
 
@@ -228,51 +228,57 @@ def normalize_help_module(meta):
 
 
 def build_help_module_flowables(help_module, content_width):
-    """Create flowables for the optional help module."""
-    flowables = [Spacer(1, 1.5 * mm)]
-    flowables.append(HRFlowable(width="100%", thickness=0.5, color=LINE, spaceAfter=3 * mm))
+    """Create flowables for the optional help module.
+    Horizontal 3-column grid (matches HTML preview); saves ~25mm vs.
+    vertical row layout — critical for 1-page acute handouts. */"""
+    flowables = [Spacer(1, 1 * mm)]
+    flowables.append(HRFlowable(width="100%", thickness=0.5, color=LINE, spaceAfter=2 * mm))
     flowables.append(Paragraph(f'<b>{md_inline(help_module["title"])}</b>', styles["help_title"]))
     if help_module.get("note"):
         flowables.append(Paragraph(md_inline(help_module["note"]), styles["help_note"]))
 
-    item_rows = []
-    for item in help_module["items"]:
+    items = help_module["items"]
+    # Horizontal grid: build one cell-Paragraph per item (label / number / note).
+    # Each cell stacks label-eyebrow + bold value + note via <br/>.
+    cell_style = ParagraphStyle(
+        "HelpCard", fontName="DMSans", fontSize=8.5, leading=11.5, textColor=TEXT_C,
+    )
+    cells = []
+    for item in items:
         tone_color = ALERT if item.get("tone") == "urgent" else TEAL
         value_markup = md_inline(item["value"] or item["label"]) or "–"
         label_markup = md_inline(item["label"] or "")
         note_markup = md_inline(item.get("note") or "")
 
-        if label_markup and note_markup:
-            detail_markup = (
-                f'<b>{label_markup}</b><br/>'
-                f'<font size="7.5" color="#{MUTED.hexval()[2:]}">{note_markup}</font>'
+        parts = []
+        if label_markup:
+            parts.append(
+                f'<font size="7" color="#{MUTED.hexval()[2:]}"><b>{label_markup.upper()}</b></font>'
             )
-        elif label_markup:
-            detail_markup = f'<b>{label_markup}</b>'
-        elif note_markup:
-            detail_markup = f'<font size="7.5" color="#{MUTED.hexval()[2:]}">{note_markup}</font>'
-        else:
-            detail_markup = ""
+        parts.append(
+            f'<font color="#{tone_color.hexval()[2:]}" size="10"><b>{value_markup}</b></font>'
+        )
+        if note_markup:
+            parts.append(
+                f'<font size="7" color="#{MUTED.hexval()[2:]}">{note_markup}</font>'
+            )
+        cells.append(Paragraph("<br/>".join(parts), cell_style))
 
-        item_rows.append([
-            Paragraph(
-                f'<font color="#{tone_color.hexval()[2:]}"><b>{value_markup}</b></font>',
-                ParagraphStyle("hv", fontName="DMSans", fontSize=10, leading=13),
-            ),
-            Paragraph(
-                detail_markup,
-                ParagraphStyle("hl", fontName="DMSans", fontSize=8.5, leading=12, textColor=TEXT_C),
-            ),
-        ])
+    # Pad to 3 columns if fewer items, so colWidth math stays predictable.
+    while len(cells) < 3:
+        cells.append(Paragraph("", cell_style))
 
-    help_table = Table(item_rows, colWidths=[30 * mm, content_width - 30 * mm])
+    col_width = (content_width - 6 * mm) / len(cells)
+    help_table = Table([cells], colWidths=[col_width] * len(cells))
     help_table.setStyle(TableStyle([
-        ("TOPPADDING", (0, 0), (-1, -1), 1.8 * mm),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 1.8 * mm),
-        ("LEFTPADDING", (0, 0), (-1, -1), 0),
-        ("RIGHTPADDING", (0, 0), (-1, -1), 0),
+        ("TOPPADDING", (0, 0), (-1, -1), 1.5 * mm),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 1.5 * mm),
+        ("LEFTPADDING", (0, 0), (-1, -1), 1.5 * mm),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 1.5 * mm),
         ("VALIGN", (0, 0), (-1, -1), "TOP"),
-        ("LINEBELOW", (0, 0), (-1, -2), 0.3, LINE),
+        ("BACKGROUND", (0, 0), (-1, -1), HexColor("#fafaf7")),
+        ("BOX", (0, 0), (-1, -1), 0.3, LINE),
+        ("LINEBEFORE", (1, 0), (-1, -1), 0.3, LINE),
     ]))
     flowables.append(help_table)
     return flowables
@@ -342,14 +348,14 @@ def build_pdf(meta, body, output_path: Path):
         emergency_table.setStyle(TableStyle([
             ("BACKGROUND", (0, 0), (-1, -1), HexColor("#fef2f2")),
             ("BOX", (0, 0), (-1, -1), 0.5, HexColor("#e8c4b8")),
-            ("TOPPADDING", (0, 0), (-1, -1), 3 * mm),
-            ("BOTTOMPADDING", (0, 0), (-1, -1), 3 * mm),
+            ("TOPPADDING", (0, 0), (-1, -1), 2 * mm),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 2 * mm),
             ("LEFTPADDING", (0, 0), (-1, -1), 4 * mm),
             ("RIGHTPADDING", (0, 0), (-1, -1), 4 * mm),
             ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
         ]))
         story.append(emergency_table)
-        story.append(Spacer(1, 4 * mm))
+        story.append(Spacer(1, 3 * mm))
 
     quick_steps = meta.get("quick_steps", [])
     if quick_steps:
@@ -372,8 +378,8 @@ def build_pdf(meta, body, output_path: Path):
         step_table = Table(step_data, colWidths=[15 * mm, content_width - 15 * mm])
         step_table.setStyle(TableStyle([
             ("BACKGROUND", (0, 0), (-1, -1), TEAL_SOFT),
-            ("TOPPADDING", (0, 0), (-1, -1), 2 * mm),
-            ("BOTTOMPADDING", (0, 0), (-1, -1), 2 * mm),
+            ("TOPPADDING", (0, 0), (-1, -1), 1.5 * mm),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 1.5 * mm),
             ("LEFTPADDING", (0, 0), (0, -1), 3 * mm),
             ("LEFTPADDING", (1, 0), (1, -1), 2 * mm),
             ("RIGHTPADDING", (-1, 0), (-1, -1), 3 * mm),
@@ -381,9 +387,9 @@ def build_pdf(meta, body, output_path: Path):
             ("LINEBELOW", (0, 0), (-1, -2), 0.3, HexColor("#b8d8d8")),
         ]))
         story.append(step_table)
-        story.append(Spacer(1, 4 * mm))
+        story.append(Spacer(1, 3 * mm))
 
-    story.append(HRFlowable(width="100%", thickness=0.5, color=LINE, spaceAfter=3 * mm))
+    story.append(HRFlowable(width="100%", thickness=0.5, color=LINE, spaceAfter=2 * mm))
 
     lines = body.split("\n")
     i = 0
