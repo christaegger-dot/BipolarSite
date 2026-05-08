@@ -35,18 +35,18 @@
   --sand:        #ddd2bf;
   --sand-deep:   #b58a52;
   --sand-ink:    #7a5630;
-  --sand-faint:  rgba(221,210,191,0.18);
-  --sand-subtle: rgba(221,210,191,0.34);
-  --sand-border: rgba(181,138,82,0.14);
+  --sand-faint:  rgba(221,210,191,18%);
+  --sand-subtle: rgba(221,210,191,34%);
+  --sand-border: rgba(181,138,82,14%);
 
 
   /* ══════════════════════════════════════════
      2. TEAL  (action, tools, CTAs)
      ══════════════════════════════════════════ */
 
-  --teal:        rgba(58,154,163,0.75);
+  --teal:        rgba(58,154,163,75%);
   --teal-solid:  #3a9aa3;         /* opaque fallback for borders, small UI */
-  --teal-light:  rgba(168,213,203,0.3);
+  --teal-light:  rgba(168,213,203,30%);
 
   /* Accessible teal for text — deliberately darker than brand-teal
      to guarantee AA on tinted backgrounds (success-soft, surface-alt).
@@ -59,28 +59,28 @@
   --teal-cta-dark: #1a6b72;
 
   /* Teal opacity scale */
-  --teal-faint:  rgba(58,154,163,0.04);
-  --teal-subtle: rgba(58,154,163,0.1);
-  --teal-muted:  rgba(58,154,163,0.2);
+  --teal-faint:  rgba(58,154,163,4%);
+  --teal-subtle: rgba(58,154,163,10%);
+  --teal-muted:  rgba(58,154,163,20%);
 
   /* Teal accent (for dark-bg Durchatmen tool) */
-  --teal-accent-light: rgba(141,212,217,0.7);
-  --teal-accent-20:  rgba(141,212,217,0.2);
-  --teal-accent-30:  rgba(141,212,217,0.3);
-  --teal-accent-40:  rgba(141,212,217,0.4);
-  --teal-accent-60:  rgba(141,212,217,0.6);
+  --teal-accent-light: rgba(141,212,217,70%);
+  --teal-accent-20:  rgba(141,212,217,20%);
+  --teal-accent-30:  rgba(141,212,217,30%);
+  --teal-accent-40:  rgba(141,212,217,40%);
+  --teal-accent-60:  rgba(141,212,217,60%);
 
 
   /* ══════════════════════════════════════════
      3. ROSÉ  (emotion, reflection, attention)
      ══════════════════════════════════════════ */
 
-  --rose:        rgba(175,115,110,0.55);
+  --rose:        rgba(175,115,110,55%);
   --rose-text:   #8A504B;             /* opaque, 5.95:1 on #FAF8F5 (WCAG AA) — was rgba(175,115,110,0.75) */
-  --rose-border: rgba(175,115,110,0.3);
-  --rose-bg:     rgba(175,115,110,0.04);
-  --rose-soft:   rgba(175,115,110,0.08);
-  --rose-badge:  rgba(175,115,110,0.15);
+  --rose-border: rgba(175,115,110,30%);
+  --rose-bg:     rgba(175,115,110,4%);
+  --rose-soft:   rgba(175,115,110,8%);
+  --rose-badge:  rgba(175,115,110,15%);
 
 
   /* ══════════════════════════════════════════
@@ -88,7 +88,7 @@
      ══════════════════════════════════════════ */
 
   --bg:          #FAF8F5;
-  --card:        #ffffff;
+  --card:        #fff;
   --surface-alt: #F4F1EC;
   --surface-hero-warm: #F7F2EB;
   --surface-teal-mist: #EEF5F2;
@@ -102,16 +102,16 @@
      BORDERS
      ══════════════════════════════════════════ */
 
-  --border:         rgba(45,40,35,0.08);
-  --border-warm:    rgba(45,40,35,0.04);  /* subtle: dividers, card edges, footer lines */
-  --border-warm-md: rgba(45,40,35,0.08);  /* visible: section separators, active states */
+  --border:         rgba(45,40,35,8%);
+  --border-warm:    rgba(45,40,35,4%);  /* subtle: dividers, card edges, footer lines */
+  --border-warm-md: rgba(45,40,35,8%);  /* visible: section separators, active states */
 
 
   /* ══════════════════════════════════════════
      STATUS / FEEDBACK
      ══════════════════════════════════════════ */
 
-  --success-soft: rgba(168,213,203,0.15);
+  --success-soft: rgba(168,213,203,15%);
   --amber-bg:    #fef3e2;
   --amber:       #B45309;
   --amber-light: #FBBF24;
@@ -131,9 +131,9 @@
   --emergency-mid:    #991b1b;
 
   /* Alert opacity scale */
-  --alert-faint:  rgba(185,28,28,0.06);
-  --alert-subtle: rgba(185,28,28,0.12);
-  --alert-muted:  rgba(185,28,28,0.25);
+  --alert-faint:  rgba(185,28,28,6%);
+  --alert-subtle: rgba(185,28,28,12%);
+  --alert-muted:  rgba(185,28,28,25%);
 
 
   /* ══════════════════════════════════════════
@@ -150,36 +150,36 @@
   --hypo-phase-bg:           #fff9f0;
   --mild-dep-phase-border:   #c5d5e8;
   --severe-dep-phase-bg:     #e4eaf2;
-  --severe-dep-phase-border: #8899aa;
+  --severe-dep-phase-border: #89a;
 
   /* Blue phase opacity scale (Module 1 accent) */
-  --blue-phase-subtle: rgba(91,127,165,0.15);
-  --blue-phase-border: rgba(91,127,165,0.3);
+  --blue-phase-subtle: rgba(91,127,165,15%);
+  --blue-phase-border: rgba(91,127,165,30%);
 
   /* Amber opacity scale (Module 2,4,5 accent) */
-  --amber-faint:         rgba(245,158,74,0.12);
-  --amber-border-accent: rgba(180,83,9,0.25);
-  --amber-border-faint:  rgba(180,83,9,0.12);
+  --amber-faint:         rgba(245,158,74,12%);
+  --amber-border-accent: rgba(180,83,9,25%);
+  --amber-border-faint:  rgba(180,83,9,12%);
   --amber-dark:          #92400e;
   --amber-dark-text:     #9A3412;
 
   /* Sand border scale (Module 3 accent) */
-  --sand-border-accent: rgba(181,138,82,0.25);
-  --sand-border-light:  rgba(181,138,82,0.2);
+  --sand-border-accent: rgba(181,138,82,25%);
+  --sand-border-light:  rgba(181,138,82,20%);
 
   /* Green phase opacity scale (Module 6,7 accent) */
-  --green-faint:    rgba(13,122,95,0.08);
-  --green-subtle:   rgba(13,122,95,0.12);
-  --green-border:   rgba(13,122,95,0.15);
-  --green-border-accent: rgba(13,122,95,0.25);
+  --green-faint:    rgba(13,122,95,8%);
+  --green-subtle:   rgba(13,122,95,12%);
+  --green-border:   rgba(13,122,95,15%);
+  --green-border-accent: rgba(13,122,95,25%);
   --green-light-bg: #f0faf5;
 
   /* Teal accent scale — darker teal #1e656d (Module 8 accent) */
-  --teal-accent-border:       rgba(30,101,109,0.15);
-  --teal-accent-border-md:    rgba(30,101,109,0.18);
-  --teal-accent-border-accent: rgba(30,101,109,0.25);
-  --teal-accent-border-faint: rgba(30,101,109,0.12);
-  --teal-accent-bg-faint:     rgba(30,101,109,0.04);
+  --teal-accent-border:       rgba(30,101,109,15%);
+  --teal-accent-border-md:    rgba(30,101,109,18%);
+  --teal-accent-border-accent: rgba(30,101,109,25%);
+  --teal-accent-border-faint: rgba(30,101,109,12%);
+  --teal-accent-bg-faint:     rgba(30,101,109,4%);
 
   /* Purple phase scale (Stigma cognitive) */
   --purple-light:  #f8f5ff;
@@ -187,8 +187,8 @@
   --purple-dark:   #5a4580;
 
   /* Alert/red opacity scale */
-  --alert-coral:       rgba(199,84,80,0.12);
-  --alert-coral-border: rgba(199,84,80,0.3);
+  --alert-coral:       rgba(199,84,80,12%);
+  --alert-coral-border: rgba(199,84,80,30%);
   --alert-dark-hover:  #a33d3a;
 
   /* Warm pink backgrounds */
@@ -212,15 +212,15 @@
 
   --cta-primary-bg:     var(--teal-cta);
   --cta-primary-hover:  #247880;
-  --cta-primary-text:   #ffffff;
+  --cta-primary-text:   #fff;
   --cta-secondary-bg:   var(--card);
   --cta-secondary-border: var(--border);
   --cta-secondary-text: var(--slate);
   --cta-secondary-hover-border: var(--teal-solid);
   --cta-secondary-hover-text:   var(--teal-solid);
   --cta-secondary-hover-bg:     var(--success-soft);
-  --cta-tertiary-text:  rgba(58,154,163,0.8);
-  --cta-tertiary-hover: rgba(58,154,163,0.95);
+  --cta-tertiary-text:  rgba(58,154,163,80%);
+  --cta-tertiary-hover: rgba(58,154,163,95%);
   --cta-danger-bg:      var(--card);
   --cta-danger-border:  var(--alert-red-border);
   --cta-danger-text:    var(--alert);
@@ -251,18 +251,18 @@
   --card-radius:  var(--radius-md);
   --card-padding: var(--space-lg);
   --card-shadow:  none;  /* shadows only on hover — editorial, not app */
-  --card-shadow-hover: 0 8px 24px rgba(122,111,102,0.07);
+  --card-shadow-hover: 0 8px 24px rgba(122,111,102,7%);
 
 
   /* ══════════════════════════════════════════
      SHADOW SCALE  (warm-tinted)
      ══════════════════════════════════════════ */
 
-  --shadow-soft:     0 4px 18px rgba(122,111,102,0.05);
-  --shadow-card:     0 10px 28px rgba(122,111,102,0.06);
-  --shadow-elevated: 0 16px 40px rgba(122,111,102,0.1);
-  --shadow-atmosphere: 0 24px 56px rgba(122,111,102,0.09);
-  --shadow-nav:      0 1px 8px rgba(0,0,0,0.04);
+  --shadow-soft:     0 4px 18px rgba(122,111,102,5%);
+  --shadow-card:     0 10px 28px rgba(122,111,102,6%);
+  --shadow-elevated: 0 16px 40px rgba(122,111,102,10%);
+  --shadow-atmosphere: 0 24px 56px rgba(122,111,102,9%);
+  --shadow-nav:      0 1px 8px rgba(0,0,0,4%);
 
 
   /* ══════════════════════════════════════════
@@ -365,30 +365,30 @@
      WHITE-ON-DARK  (Durchatmen dark theme)
      ══════════════════════════════════════════ */
 
-  --white-text:           rgba(255,255,255,0.88);
+  --white-text:           rgba(255,255,255,88%);
   /* ⚠ --white-text-secondary fails AA (< 4.5:1) on mid-tone backgrounds
      like --teal-cta (#287f87, 3.01:1) or --teal-cta-dark (#1a6b72, 3.94:1).
      Only use on dark backgrounds (--navy-dark, --emergency-dark, etc.)
      where 70 % white still passes. See PR #158 audit. */
-  --white-text-secondary: rgba(255,255,255,0.70);
-  --white-text-muted:     rgba(255,255,255,0.50);
-  --white-text-dim:       rgba(255,255,255,0.40);   /* 3.71:1 on #1a2332 — AA for non-text UI (was 0.30, 2.69:1) */
-  --white-overlay-sm:     rgba(255,255,255,0.08);
-  --white-overlay-md:     rgba(255,255,255,0.15);
+  --white-text-secondary: rgba(255,255,255,70%);
+  --white-text-muted:     rgba(255,255,255,50%);
+  --white-text-dim:       rgba(255,255,255,40%);   /* 3.71:1 on #1a2332 — AA for non-text UI (was 0.30, 2.69:1) */
+  --white-overlay-sm:     rgba(255,255,255,8%);
+  --white-overlay-md:     rgba(255,255,255,15%);
 
   /* Dark tool backgrounds */
   --dark-bg:       #1a2332;
-  --dark-nav-bg:   rgba(26,35,50,0.9);
-  --dark-border:   rgba(255,255,255,0.06);
+  --dark-nav-bg:   rgba(26,35,50,90%);
+  --dark-border:   rgba(255,255,255,6%);
 
 
   /* ══════════════════════════════════════════
      OVERLAY / BACKDROP
      ══════════════════════════════════════════ */
 
-  --overlay-dark:  rgba(0,0,0,0.3);
-  --overlay-warm:  rgba(42,33,27,0.38);
-  --overlay-barely: rgba(0,0,0,0.015);
+  --overlay-dark:  rgba(0,0,0,30%);
+  --overlay-warm:  rgba(42,33,27,38%);
+  --overlay-barely: rgba(0,0,0,1.5%);
 
 
   /* ══════════════════════════════════════════
