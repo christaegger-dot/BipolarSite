@@ -745,9 +745,8 @@ a, button, input, select, textarea,
 
 .home-hero-visual {
   display: none; /* Mobile: ausgeblendet */
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--card-shadow-hover);
+
+  /* AD-Fix: transparente Illustration — kein Rahmen, kein Schatten, kein overflow:hidden */
   flex-shrink: 0;
 }
 
