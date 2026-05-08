@@ -22,6 +22,21 @@ quick_steps:
   - icon: "144"
     wide: true
     text: "Bei Gefahr 144 oder 117"
+help_module:
+  enabled: true
+  title: "Sofort Hilfe dazunehmen"
+  items:
+    - label: "Notfalldienst Zürich"
+      number: "0800&nbsp;33&nbsp;66&nbsp;55"
+      note: "Wenn die Lage kippt, aber noch keine unmittelbare Gefahr besteht"
+    - label: "Sanität"
+      number: "144"
+      note: "Bei akuter Selbst- oder Fremdgefährdung"
+      tone: "urgent"
+    - label: "Polizei"
+      number: "117"
+      note: "Wenn Schutz oder Sicherung sofort nötig ist"
+      tone: "urgent"
 emergency_contacts:
   - label: "Notfalldienst Zürich"
     number: "0800&nbsp;33&nbsp;66&nbsp;55"

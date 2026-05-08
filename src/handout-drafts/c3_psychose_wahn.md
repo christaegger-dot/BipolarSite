@@ -22,6 +22,21 @@ quick_steps:
   - icon: "117"
     wide: true
     text: "Bei Bedrohung sofort Schutz holen"
+help_module:
+  enabled: true
+  title: "Sofort Hilfe dazunehmen"
+  items:
+    - label: "Notfalldienst Zürich"
+      number: "0800&nbsp;33&nbsp;66&nbsp;55"
+      note: "Wenn die Lage psychotisch entgleist und professionelle Hilfe sofort nötig ist"
+    - label: "Polizei"
+      number: "117"
+      note: "Wenn die Situation bedrohlich wird oder Schutz sofort nötig ist"
+      tone: "urgent"
+    - label: "Sanität"
+      number: "144"
+      note: "Bei akuter Selbst- oder Fremdgefährdung"
+      tone: "urgent"
 emergency_contacts:
   - label: "Notfalldienst Zürich"
     number: "0800&nbsp;33&nbsp;66&nbsp;55"

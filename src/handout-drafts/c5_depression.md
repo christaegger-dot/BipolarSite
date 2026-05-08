@@ -22,6 +22,20 @@ quick_steps:
   - icon: "144"
     wide: true
     text: "Bei akuter Suizidgefahr sofort handeln"
+help_module:
+  enabled: true
+  title: "Sofort Hilfe dazunehmen"
+  items:
+    - label: "Notfalldienst Zürich"
+      number: "0800&nbsp;33&nbsp;66&nbsp;55"
+      note: "Wenn die Lage ernst ist oder Sie professionelle Einschätzung brauchen"
+    - label: "Sanität"
+      number: "144"
+      note: "Bei akuter Suizidgefahr oder wenn niemand mehr sicher ist"
+      tone: "urgent"
+    - label: "Dargebotene Hand"
+      number: "143"
+      note: "Wenn Sie selbst sofort mit jemandem sprechen müssen"
 emergency_contacts:
   - label: "Notfalldienst Zürich"
     number: "0800&nbsp;33&nbsp;66&nbsp;55"
