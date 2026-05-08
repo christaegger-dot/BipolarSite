@@ -1910,7 +1910,7 @@ body.notfall-page .pdf-preview-frame{display:block;width:100%;height:60vh;min-he
 [data-module-accent="8"] .module-hero-aside{margin-top:var(--space-xl);padding-top:var(--space-xl);border-top:1px solid var(--border-warm);display:grid;grid-template-columns:minmax(0,0.96fr) minmax(320px,0.84fr);gap:var(--grid-gap-standard);align-items:start}
 [data-module-accent="8"] .module-hero-aside .toc{margin-bottom:0}
 .module-hero-copy{min-width:0}
-.module-hero-visual{background:var(--card);border:1px solid var(--sand-border);border-radius:var(--card-radius);padding:18px;box-shadow:var(--card-shadow)}
+.module-hero-visual{background:var(--bg);border:1px solid var(--sand-border);border-radius:var(--card-radius);padding:18px;box-shadow:var(--card-shadow)}
 .module-hero-visual img{display:block;width:100%;height:auto;border-radius:var(--radius-sm)}
 .module-hero-note{background:var(--surface-alt);border:1px solid var(--border-warm);border-radius:var(--card-radius);padding:var(--space-lg)}
 .module-hero-note p{font-size:var(--text-base);line-height:1.7;color:var(--slate);margin:0}
