@@ -462,8 +462,8 @@ breadcrumbs:
   </div>
 
   <!-- HANDOUTS -->
-  <div class="handouts reveal">
-    <div class="handouts-title">Passende Handouts</div>
+  <div class="handouts handouts--list reveal">
+    <div class="handouts-title">Passende Handouts zum Herunterladen</div>
     <div class="handouts-grid">
       {% for asset in pdfs.groups.modul7 %}
       {{ handoutCard(asset) }}
