@@ -34,28 +34,6 @@ Diese drei wurden geprobt (auch mit dichtem Layout 2-seitig), aber als Praxis-/O
 
 ---
 
-## P3 — Selektive Kürzung der Akut-Notfallblätter auf 1 Seite
-
-**Befund (2026-04-24):**
-Die Label-Korrektur (P2) hat sichtbar gemacht, dass auch Akut-Blätter (Suizidgedanken, Manie, Psychose, Depression, Notfallkarte-Zusatz) inzwischen 2 Seiten sind. Für Notfall-Zugriff ist 1-Seiten-Form inhaltlich relevanter als bei Vertiefungs-Handouts: Eine ausgedruckte Akutkarte gehört auf 1 Blatt.
-
-**Kandidaten:**
-- `umgang-mit-suizidgedanken-puk-zuerich.pdf` (DL-04)
-- `umgang-mit-manie-puk-zuerich.pdf` (DL-06)
-- `umgang-mit-psychose-wahn-puk-zuerich.pdf` (DL-05)
-- `umgang-mit-depression-puk-zuerich.pdf` (DL-07)
-- ggf. `warnsignale-frueh-erkennen-puk-zuerich.pdf` (DL-08) — Grenzfall
-
-**Vorgehen:**
-Pro Blatt: Draft in `src/handout-drafts/` redaktionell straffen (Bullet-Listen kürzen, eine Section zusammenfassen oder weglassen), neu rendern, manuell prüfen ob 1 Seite passt, sonst noch eine Iteration. Danach `pages`-Label aktualisieren.
-
-**Bewusst nicht in Scope:**
-Vertiefungs-Handouts (Stigma, Belastungen, Loyalität, Selbstfürsorge) — bei denen ist 2–3 Seiten inhaltlich richtig.
-
-**Trigger:** Nächster Akut-Blätter-Pass oder nach Nutzer-Feedback aus PUK.
-
----
-
 ## P3 — Build/CI-Infrastruktur (Reviewer-Empfehlungen 2026-04-25)
 
 Aus dem Browser-Review nach den Welle-A/B/C-Audits stehen drei CI/Build-Punkte offen, die nicht akut sind, aber langfristig Drift / Regressionen abfangen würden:
