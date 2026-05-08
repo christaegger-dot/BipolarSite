@@ -52,3 +52,18 @@ Anschliessend würden die üblichen technischen Schritte folgen: PDF-Export, Man
 ## Kurzfazit
 
 Welle 9 ist als **kleine potenzielle Abschlusswelle mit einem einzigen verbliebenen Archiv-Handout** sinnvoll. Der richtige Kandidat ist `b6_geschlechtsspezifisch`. Die Umsetzung sollte jedoch an eine erneute, strenge Prüfung der Web-Quellenbasis in Modul 7 gebunden bleiben. Damit bleibt die Schlusswelle fachlich sauber, redaktionell vorsichtig und produktionell kontrollierbar.
+
+---
+
+## Update 2026-05-08: Web-Vorbedingung erfüllt
+
+Modul 7 wurde gezielt nachgeschärft (Abschnitt `#sichtbarkeit` „Wenn Belastung unterschiedlich sichtbar wird"):
+
+- Drei Belastungsmuster sind jetzt **explizit benannt und differenziert** (still / verborgen / ungleich verteilt) — Voraussetzung für ein eigenständiges Handout statt Extrapolation aus allgemeiner Belastungslogik.
+- Die Lead-Passage benennt **Eltern, erwachsene Kinder, Geschwister und andere nahestehende Personen** ausdrücklich neben Partnerschaften — schützt vor unbemerkter Vermischung von Angehörigenrollen.
+- Konkrete Hinweise auf **unsichtbare Last, Fairness und Lastverteilung** sind im zweiten Absatz konkretisiert (emotionale Wachsamkeit, Frühzeichen-Mitdenken, Terminorganisation, finanzielle Mitverantwortung).
+- Querverweis zu Modul 5 `#grenzen` (Grenzen, Schuld, Lastverteilung) eingefügt.
+- Entlastende „kein Zeichen persönlicher Schwäche"-Botschaft als eigenständiger `bright-moment`-Block am Ende — dient später als Anker für die Handout-„Was Sie sich selbst sagen dürfen"-Sektion.
+- Die Sprache bleibt **bewusst nicht-essentialistisch**: keine Aussagen über „Frauen reagieren so / Männer so", sondern Rollenmuster, Sichtbarkeit und Erwartungsdruck.
+
+**Damit ist die in diesem Plan genannte Vorbedingung erfüllt.** Welle 9 kann auf Basis von `docs/WELLE9_HANDOUT_ENTWURF_b6_geschlechtsspezifisch_2026-04-20.md` produziert werden, sobald der nächste Produktionsslot ansteht.
