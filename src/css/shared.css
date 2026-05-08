@@ -2740,7 +2740,7 @@ body.impressum-page .info-box strong {
 }
 
 .home-page .entry-paths-list {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--space-base);
 }
 
