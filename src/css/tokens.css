@@ -353,7 +353,8 @@
 
   --text-xs:   0.75rem;   /* 12px */
   --text-sm:   0.875rem;  /* 14px */
-  --text-base: 1rem;      /* 16px */
+  --text-base: 1rem;      /* 16px — compact-body in dichten Komponenten (Cards, Captions, Labels) */
+  --text-body: 1.125rem;  /* 18px — Standard-Lese-Body, auf <body> angewandt; mobile auf 17px gedrosselt */
   --text-lg:   1.25rem;   /* 20px */
   --text-xl:   1.6rem;    /* 25.6px */
   --text-2xl:  2.2rem;    /* 35.2px */
@@ -418,5 +419,17 @@
   :root {
     --wide-width:         1400px;  /* 81% at 1728px (was 69%) */
     --content-width-wide: 1140px;  /* 66% at 1728px (was 56%) */
+  }
+}
+
+/* ══════════════════════════════════════════
+   MOBILE BODY SIZE (≤768px)
+   ──────────────────────────────────────────
+   Lesefluss auf kleinem Display etwas dichter:
+   18px Desktop → 17px Mobile, 1.75 Leading bleibt.
+   ══════════════════════════════════════════ */
+@media (max-width: 768px) {
+  :root {
+    --text-body: 1.0625rem;  /* 17px */
   }
 }
