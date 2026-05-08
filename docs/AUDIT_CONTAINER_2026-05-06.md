@@ -1,5 +1,7 @@
 # Container-Breiten Audit · 2026-05-06
 
+> **Hinweis:** Dieses Dokument ist ein **historischer Audit-Snapshot** (06.05.2026). Die lebende Referenz für das Container-System ist [`CONTAINER_SYSTEM.md`](./CONTAINER_SYSTEM.md).
+
 **Erstellt:** 6. Mai 2026
 **Anlass:** Audit-Nachtrag 2.6 (Container-Breiten-System inkonsistent) — Phase-A-Diagnostik
 **Methode:** Vollständige `grep`-Inventur über `src/css/{shared,module,tools,print}.css` plus Templates
