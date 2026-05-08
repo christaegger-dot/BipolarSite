@@ -154,15 +154,15 @@ breadcrumbs:
   </div>
 
   <div class="tool-embed reveal" data-tool-script="/js/tool-durchatmen.js">
-    <button class="tool-embed-toggle" aria-expanded="false" aria-controls="embed-durchatmen">
-      <div class="tool-embed-icon tool-embed-icon--teal" aria-hidden="true">🌬</div>
-      <div class="tool-embed-body">
-        <h3>Durchatmen — geführte Atemübung</h3>
-        <p>Eine kurze, geführte Übung für Momente, in denen Anspannung nachlassen soll — ohne App, ohne Anmeldung.</p>
-      </div>
+    <button type="button" class="tool-embed-toggle" aria-expanded="false" aria-controls="embed-durchatmen">
+      <span class="tool-embed-icon tool-embed-icon--teal" aria-hidden="true">🌬</span>
+      <span class="tool-embed-body">
+        <span class="tool-embed-body-title">Durchatmen — geführte Atemübung</span>
+        <span class="tool-embed-body-desc">Eine kurze, geführte Übung für Momente, in denen Anspannung nachlassen soll — ohne App, ohne Anmeldung.</span>
+      </span>
       <svg class="tool-embed-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </button>
-    <div class="tool-embed-panel" id="embed-durchatmen" role="region">
+    <div class="tool-embed-panel" id="embed-durchatmen" role="region" aria-label="Durchatmen — geführte Atemübung">
       <div class="tool-embed-panel-inner">
         <div class="breathe-circle">
           <span class="breathe-label" id="breatheLabel" aria-live="polite" aria-atomic="true">Einatmen</span>
@@ -333,15 +333,15 @@ breadcrumbs:
 
   <!-- ══════════ 3. PARTNER-WÜNSCHE ══════════ -->
   <div class="tool-embed reveal" data-tool-script="/js/tool-saeulen-check.js">
-    <button class="tool-embed-toggle" aria-expanded="false" aria-controls="embed-saeulen">
-      <div class="tool-embed-icon tool-embed-icon--blue" aria-hidden="true">🏗️</div>
-      <div class="tool-embed-body">
-        <h3>Optionale Reflexion zu den fünf Säulen</h3>
-        <p>Wenn Sie Ihre aktuelle Stabilität kurz einordnen möchten, können Sie die fünf Säulen hier als ergänzende Orientierung durchgehen.</p>
-      </div>
+    <button type="button" class="tool-embed-toggle" aria-expanded="false" aria-controls="embed-saeulen">
+      <span class="tool-embed-icon tool-embed-icon--blue" aria-hidden="true">🏗️</span>
+      <span class="tool-embed-body">
+        <span class="tool-embed-body-title">Optionale Reflexion zu den fünf Säulen</span>
+        <span class="tool-embed-body-desc">Wenn Sie Ihre aktuelle Stabilität kurz einordnen möchten, können Sie die fünf Säulen hier als ergänzende Orientierung durchgehen.</span>
+      </span>
       <svg class="tool-embed-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </button>
-    <div class="tool-embed-panel" id="embed-saeulen" role="region">
+    <div class="tool-embed-panel" id="embed-saeulen" role="region" aria-label="Optionale Reflexion zu den fünf Säulen">
       <div class="tool-embed-panel-inner">
         <div id="app"></div>
       </div>

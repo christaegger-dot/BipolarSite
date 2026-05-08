@@ -70,15 +70,15 @@ breadcrumbs:
   <!-- ══════════ 1. AMBIGUOUS LOSS ══════════ -->
   
   <div class="tool-embed reveal" data-tool-script="/js/tool-selbsttest.js">
-    <button class="tool-embed-toggle" aria-expanded="false" aria-controls="embed-selbsttest">
-      <div class="tool-embed-icon tool-embed-icon--neutral" aria-hidden="true">📋</div>
-      <div class="tool-embed-body">
-        <h3>Optionale Standortbestimmung</h3>
-        <p>Wenn Sie Ihre momentane Belastung kurz einordnen möchten, finden Sie hier eine knappe, nicht diagnostische Orientierung.</p>
-      </div>
+    <button type="button" class="tool-embed-toggle" aria-expanded="false" aria-controls="embed-selbsttest">
+      <span class="tool-embed-icon tool-embed-icon--neutral" aria-hidden="true">📋</span>
+      <span class="tool-embed-body">
+        <span class="tool-embed-body-title">Optionale Standortbestimmung</span>
+        <span class="tool-embed-body-desc">Wenn Sie Ihre momentane Belastung kurz einordnen möchten, finden Sie hier eine knappe, nicht diagnostische Orientierung.</span>
+      </span>
       <svg class="tool-embed-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </button>
-    <div class="tool-embed-panel" id="embed-selbsttest" role="region">
+    <div class="tool-embed-panel" id="embed-selbsttest" role="region" aria-label="Optionale Standortbestimmung">
       <div class="tool-embed-panel-inner">
         <div class="wrap"><div id="prog"></div><div id="card"></div></div>
       </div>

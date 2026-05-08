@@ -58,7 +58,8 @@
   min-width: 0;
 }
 
-.tool-embed-body h3 {
+.tool-embed-body-title {
+  display: block;
   font-size: var(--text-base);
   font-weight: 700;
   color: var(--text);
@@ -66,7 +67,8 @@
   line-height: 1.3;
 }
 
-.tool-embed-body p {
+.tool-embed-body-desc {
+  display: block;
   font-size: var(--text-xs);
   color: var(--text-soft);
   margin: 0;
