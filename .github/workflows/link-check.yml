@@ -1,0 +1,61 @@
+name: Link Check
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: link-check-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  link-check:
+    name: Lychee link check (built site, weekly)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - name: Build site
+        run: npm run build
+      - name: Restore lychee cache
+        uses: actions/cache@v4
+        with:
+          path: .lycheecache
+          key: lychee-cache-${{ github.run_id }}
+          restore-keys: lychee-cache-
+      - name: Run lychee
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >
+            --no-progress
+            --cache
+            --max-cache-age 7d
+            --max-redirects 5
+            --accept 200,206,403,429
+            --exclude-mail
+            --exclude-loopback
+            --exclude '^tel:'
+            --exclude '^mailto:'
+            './_site/**/*.html'
+          fail: false
+          format: markdown
+          output: ./lychee/out.md
+      - name: Open or update GitHub issue with findings
+        if: steps.lychee.outputs.exit_code != '0'
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: "Link-Checker findings (weekly cron)"
+          content-filepath: ./lychee/out.md
+          labels: link-checker, automated
