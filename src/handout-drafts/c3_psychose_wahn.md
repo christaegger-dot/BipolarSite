@@ -38,68 +38,40 @@ emergency_contacts:
 
 ## Orientierung bei Psychose oder Wahn
 
-Wahnideen fühlen sich für die betroffene Person real an. Sie können sie nicht wegdiskutieren. Was hilft, ist nicht das bessere Argument, sondern Ruhe, Reizreduktion, Schutz und frühes Dazunehmen professioneller Hilfe.
+Wahnideen fühlen sich für die Person real an und lassen sich nicht wegdiskutieren. Was hilft: Ruhe, Reizreduktion, Schutz und frühes Dazunehmen professioneller Hilfe.
 
-## Woran Sie aufmerksam werden sollten
+## Woran Sie aufmerksam werden
 
-- die Person glaubt Dinge, die nicht real sind
-- sie fühlt sich verfolgt, überwacht oder beschuldigt Sie
+- die Person glaubt Dinge, die nicht real sind, fühlt sich verfolgt oder beschuldigt Sie
 - Sprache, Denken oder Verhalten werden sprunghaft und schwer nachvollziehbar
-- starke Angst, Misstrauen oder Abwehr nehmen zu
-- sie schläft kaum noch oder wirkt massiv überdreht
-- Kinder oder andere Menschen im Umfeld werden mit in die Verunsicherung hineingezogen
-
-Nicht jede ungewöhnliche Aussage ist sofort eine Psychose. Entscheidend ist, ob Realität, Kontakt und Sicherheit spürbar entgleiten.
+- starke Angst, Misstrauen oder Abwehr; kaum Schlaf oder massive Überdrehtheit
+- Kinder oder Umfeld werden mit in die Verunsicherung gezogen
 
 ## Im Kontakt
 
-- ruhig, langsam und mit kurzen Sätzen sprechen
+- ruhig, langsam, kurze Sätze
 - nicht widersprechen und nicht bestätigen: «Ich sehe es anders.»
-- Gefühle anerkennen, nicht den Inhalt bestätigen
-- bei Paranoia eher sagen: «Ich höre, dass du dir Sorgen machst.»
-- Reize senken: weniger Licht, weniger Lärm, weniger Menschen
-- Fluchtweg offenhalten und Kinder in Sicherheit bringen
-- das Behandlungsteam oder den Notfalldienst sofort informieren — psychotische Episoden erfordern fast immer professionelle Hilfe
+- Gefühle anerkennen, nicht den Inhalt bestätigen — bei Paranoia: «Ich höre, dass du dir Sorgen machst.»
+- Reize senken (weniger Licht, Lärm, Menschen), Fluchtweg offenhalten, Kinder in Sicherheit bringen
+- Behandlungsteam oder Notfalldienst früh informieren
 
-Hilfreicher als Widerspruch ist oft ein Satz wie:
-**«Ich sehe es anders. Wir holen jetzt Unterstützung dazu.»**
-
-## Was eher hilft
-
-- eine ruhige Person spricht
-- einfache Sprache statt Diskussion
-- Schutz und Orientierung vor Beziehungsklärung
-- professionelle Hilfe früh einschalten
-- sich selbst und andere in Sicherheit bringen
+Hilfreich oft: **«Ich sehe es anders. Wir holen jetzt Unterstützung dazu.»**
 
 ## Was eher schadet
 
-- «Das bildest du dir ein!»
-- mit Beweisen diskutieren
+- «Das bildest du dir ein!» oder mit Beweisen diskutieren
 - sich rechtfertigen oder verteidigen
 - mehrere Menschen gleichzeitig reden lassen
 - die Situation allein managen wollen
 
-Bei Psychose oder Wahn ist fehlende Zustimmung kein Zeichen dafür, dass keine Hilfe nötig ist. Oft ist die Lage gerade deshalb so gefährlich, weil die Person sie selbst nicht einschätzen kann.
-
 ## Wann sofort handeln
 
-Nicht mehr diskutieren, sondern sofort Schutz holen, wenn:
+Nicht mehr diskutieren, sondern sofort Schutz holen, wenn die Lage bedrohlich wird, kein ruhiger Kontakt mehr möglich ist, Kinder gefährdet sind oder Flucht/Gewalt im Raum stehen.
 
-- die Lage bedrohlich wird
-- kein ruhiger Kontakt mehr möglich ist
-- Kinder gefährdet sind
-- die Person sich oder andere nicht mehr sicher lässt
-- Flucht, Gewalt oder massive Eskalation im Raum stehen
+**Dann: 117 oder 144. Ihre Sicherheit geht vor.**
 
-**Dann gilt: 117 oder 144. Ihre Sicherheit geht vor.**
+## Nächster Schritt
 
-## Nächster sinnvoller Schritt
+Wenn noch Kontakt möglich ist, aber Realität entgleitet: Notfalldienst oder Behandlungsteam einbeziehen — nicht allein tragen. Wenn Schutz vorgeht, endet der Gesprächsrahmen.
 
-Wenn noch Kontakt möglich ist, aber die Realität spürbar entgleitet: den Notfalldienst oder das Behandlungsteam sofort einbeziehen und die Situation nicht allein tragen. Wenn Schutz bereits vorgeht, endet der Gesprächsrahmen — dann zuerst Sicherheit, später Einordnung.
-
-Weiterführend:
-
-- Ärztefon – Notfalldienst Zürich: 0800&nbsp;33&nbsp;66&nbsp;55
-- [Notfallseite](/notfall/)
-- [Modul 6: Kommunikation, Grenzen, Krisenplan](/modul/6/)
+Weiterführend: [Notfallseite](/notfall/) · [Modul 6: Kommunikation, Grenzen, Krisenplan](/modul/6/)
