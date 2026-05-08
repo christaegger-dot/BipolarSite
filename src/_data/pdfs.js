@@ -307,19 +307,8 @@ const handouts = {
     mode: "preview",
     quality: "regenerated",
   }),
-  b3_kritische_zeitpunkte: asset({
-    key: "b3_kritische_zeitpunkte",
-    url: "/handouts/b3_kritische_zeitpunkte.pdf",
-    title: "Kritische Zeitpunkte",
-    subtitle: "Belastende Übergänge und Nachwirkungen früher erkennen",
-    assetId: "HO-09",
-    version: "web_v02",
-    updated: "2026-04-23",
-    filename: "b3_kritische_zeitpunkte.pdf",
-    pages: "A4 · 2 Seiten",
-    mode: "preview",
-    quality: "regenerated",
-  }),
+  // b3_kritische_zeitpunkte: in Welle 8 promotet — siehe downloads.kritischeZeitpunkte.
+  // Physische /handouts/b3_kritische_zeitpunkte.pdf bleibt für Bookmark-Backward-Compat.
   b5_loyalitaetskonflikte: asset({
     key: "b5_loyalitaetskonflikte",
     url: "/handouts/b5_loyalitaetskonflikte.pdf",
@@ -450,19 +439,8 @@ const handouts = {
     mode: "preview",
     quality: "regenerated",
   }),
-  rechtliche_orientierung: asset({
-    key: "rechtliche_orientierung",
-    url: "/handouts/rechtliche_orientierung.pdf",
-    title: "Rechtliche Orientierung",
-    subtitle: "Schweigepflicht, Vorsorge und Systemfragen praktisch ordnen",
-    assetId: "HO-20",
-    version: "web_v02",
-    updated: "2026-05-01",
-    filename: "rechtliche_orientierung.pdf",
-    pages: "A4 · 2 Seiten",
-    mode: "preview",
-    quality: "regenerated",
-  }),
+  // rechtliche_orientierung: in Welle 8 promotet — siehe downloads.rechtlicheOrientierung.
+  // Physische /handouts/rechtliche_orientierung.pdf bleibt für Bookmark-Backward-Compat.
   c6_selbstfuersorge: asset({
     key: "c6_selbstfuersorge",
     url: "/handouts/c6_selbstfuersorge.pdf",
@@ -549,7 +527,6 @@ const groups = {
     { badge: "M4", asset: handouts.a4_ambiguous_loss },
     { badge: "M4", asset: handouts.b2_erosion_solidaritaet },
     { badge: "M4", asset: handouts.b4_mechanismen_erosion },
-    { badge: "M3", asset: handouts.b3_kritische_zeitpunkte },
     { badge: "M5", asset: handouts.expressed_emotions },
     { badge: "M5", asset: handouts.b5_loyalitaetskonflikte },
     { badge: "M5", asset: handouts.a3_ambivalente_loyalitaet },
@@ -559,7 +536,6 @@ const groups = {
     { badge: "M6", asset: handouts.c2_suizidgedanken },
     { badge: "M6", asset: handouts.c3_psychose_wahn },
     { badge: "M6", asset: handouts.b7_behandlung_ambivalenz },
-    { badge: "M6", asset: handouts.rechtliche_orientierung },
     { badge: "M7", asset: handouts.c6_selbstfuersorge },
     { badge: "M7", asset: handouts.d4_solidaritaet_wellen },
     { badge: "M7", asset: handouts.transformationsreise },

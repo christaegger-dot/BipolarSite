@@ -1,7 +1,7 @@
 ---
 title: "Kritische Zeitpunkte"
 slug: "b3_kritische_zeitpunkte"
-source_pdf: "/handouts/b3_kritische_zeitpunkte.pdf"
+source_pdf: "/downloads/kritische-zeitpunkte-angehoerige-puk-zuerich.pdf"
 status: "promoted"
 show_status_badge: false
 show_priority_badge: false
