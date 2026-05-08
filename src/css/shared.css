@@ -1,9 +1,11 @@
 /* ══════════ SHARED CSS — BipolarSite ══════════ */
+
 /* Extracted from duplicated inline styles across 12+ pages */
 
 /* ── Reset ── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; font-size: 16px; scroll-padding-top: calc(var(--nav-height) + 24px); }
+
 /* hyphenate-limit-chars: nur Wörter mit >=6 Buchstaben trennen, mind. 3 vor
    und 3 nach dem Trenner. Verhindert kurze sinnentleerte Trennungen wie
    „Le-ben" oder „Ja-hr". Browser-Support: Chromium 109+, Firefox 117+,
@@ -112,6 +114,7 @@ a:hover {
   background: var(--surface-alt);
   color: var(--text);
 }
+
 /* P1.1 Audit: Deutlicherer aktiver Nav-State — Pill-Hintergrund + Unterstrich */
 .nav-links a[aria-current="page"] {
   color: var(--teal-text);
@@ -353,18 +356,21 @@ a, button, input, select, textarea,
 }
 
 /* ── Accessibility ── */
+
 /* Global focus outline: --teal-solid #3a9aa3 → 3.03:1 on --bg (passes WCAG 1.4.11 3:1 for UI) */
 *:focus-visible {
   outline: 2px solid var(--teal-solid);
   outline-offset: 3px;
   border-radius: var(--radius-sm);
 }
+
 /* Focus outline on tinted heroes: darker teal for WCAG 1.4.11 */
 .hero *:focus-visible,
 .home-hero *:focus-visible,
 .module-hero *:focus-visible {
   outline-color: var(--teal-cta-dark);
 }
+
 /* Focus outline on dark takeaways block: white for 4.5:1+ against dark bg */
 .takeaways *:focus-visible {
   outline-color: #fff;
@@ -399,6 +405,7 @@ a, button, input, select, textarea,
   position: relative;
   z-index: 1;
 }
+
 /* ── Unified Breadcrumb ── */
 .breadcrumb {
   font-size: var(--text-xs);
@@ -582,6 +589,7 @@ a, button, input, select, textarea,
 .module-card[data-accent="amber"] .module-number { background: var(--amber-faint); color: var(--amber-dark-text); }
 .module-card[data-accent="purple"] .module-number { background: var(--purple-light); color: var(--purple-dark); }
 .module-card[data-accent="green"] .module-number { background: var(--green-subtle); color: var(--phase-green); }
+
 /* teal-accent (Modul 8) keeps the default teal-subtle pill */
 
 /* Reading-progress strip — added by reading-progress.js when localStorage has visited sections */
@@ -908,6 +916,7 @@ a, button, input, select, textarea,
   padding-left: 2rem;
   padding-right: 2rem;
 }
+
 /* Full-bleed overrides — sections with background color span full width */
 #main-content > .story-section,
 #main-content > .invitation-section {
@@ -917,6 +926,7 @@ a, button, input, select, textarea,
 /* Vertical rhythm — visual flow through alternating treatments:
    Hero+paths (surface-alt) → Intro (subtle bg) → Modules (white) →
    Tools (subtle bg) → Story (rosé) → Invitation (surface-alt) */
+
 /* Consistent section rhythm: --section-standard (64px) for all major sections.
    Sections separated by subtle top-borders, not by enclosing boxes.
    Editorial approach: content breathes in shared background. */
@@ -1007,6 +1017,7 @@ a, button, input, select, textarea,
   text-decoration: underline;
   color: var(--emergency-dark);
 }
+
 /* ── Scroll Reveal ──
    Default: visible. JS opts into the hide-then-reveal animation only after
    confirming IntersectionObserver is available (otherwise content stays
@@ -1025,6 +1036,7 @@ html.js-reveal-active .reveal.revealed {
 }
 
 /* ── Quick Triage (editorial guidance, subtle background section) ── */
+
 /* Audit C2 (Container): Card-Hülle entfernt — Triage sitzt jetzt flach
    im teal-getönten Banner statt als Card-im-Card. Mehr visuelle Ruhe,
    editorial konsistent zum Modul-Grid darunter. */
@@ -1038,6 +1050,7 @@ html.js-reveal-active .reveal.revealed {
 .triage-q-text{font-size:var(--text-base);font-weight:600;color:var(--navy);margin-bottom:var(--space-base);line-height:1.5}
 .triage-hint{font-size:var(--text-xs);color:var(--text-soft);line-height:1.5;margin:-4px 0 var(--space-base);font-style:italic}
 .triage-btns{display:flex;gap:var(--space-base);flex-wrap:wrap}
+
 /* triage-btn base + modifiers now in unified BUTTON SYSTEM above */
 .triage-result{margin-top:var(--space-base)}
 .triage-result[hidden]{display:none}
@@ -1118,6 +1131,7 @@ html.js-reveal-active .reveal.revealed {
   border-color: var(--alert-subtle);
   border-left-color: var(--alert);
 }
+
 /* triage-restart now in unified BUTTON SYSTEM */
 .triage-restart { display: block; margin-top: 12px; }
 
@@ -1125,6 +1139,7 @@ html.js-reveal-active .reveal.revealed {
 .tools-highlight h2{font-size:var(--text-xl);margin-bottom:var(--heading-gap-h3)}
 .tools-highlight > p{font-size:var(--text-base);color:var(--slate);margin-bottom:var(--space-lg);max-width:48ch}
 .hero-tools-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--grid-gap-standard);max-width:var(--wide-width)}
+
 /* Hero-Variant der .tool-card-Komponente — siehe .tool-card und .tool-card--hero unten.
    .hero-tools-grid bleibt als spezifischer Container für die 3 Highlight-Werkzeuge auf der Startseite. */
 .hero-tools-all-link{display:inline-block;margin-top:var(--space-lg);font-weight:600;color:var(--navy-mid);text-decoration:none;font-size:var(--text-base)}
@@ -1233,6 +1248,7 @@ html.js-reveal-active .reveal.revealed {
   align-items: center;
   max-width: var(--content-width-wide, 1040px);
 }
+
 /* Audit D2 (Container): Card-Hülle ums Bild entfernt — Bild sitzt jetzt
    flach in der Rosé-Section statt als gerahmte Card-im-Card. */
 .story-split-visual {
@@ -1293,6 +1309,7 @@ html.js-reveal-active .reveal.revealed {
   min-height: 50px;
   padding: 0 28px;
   border-radius: var(--radius-md);
+
   /* Primary: invertierter Button auf dunklem Hintergrund */
   background: #fff;
   color: var(--teal-cta-dark);
@@ -1315,6 +1332,7 @@ html.js-reveal-active .reveal.revealed {
   min-height: 46px;
   padding: 0 20px;
   border-radius: var(--radius-md);
+
   /* Secondary: Ghost-Link auf dunklem Hintergrund */
   border: 1px solid rgba(255,255,255,20%);
   background: transparent;
@@ -1371,6 +1389,7 @@ html.js-reveal-active .reveal.revealed {
 .skip-link:focus-visible {
   position: fixed;
   top: 14px;
+
   /* AUDIT FIX K-01: skip-link uses white text on teal */
   left: 16px;
   width: auto;
@@ -1392,6 +1411,7 @@ html.js-reveal-active .reveal.revealed {
 /* body base consolidated to line ~9; dark-tool override in tools.css */
 
 /* ── [from overrides.css] TYPOGRAPHY ── */
+
 /* html font-size: 16px already set at line 6 (reset) */
 
 /* ── HEADING BASE ──
@@ -1795,6 +1815,7 @@ textarea { min-height: 80px; resize: vertical; }
 .nav-inner {
   max-width: var(--wide-width);
 }
+
 /* .footer-inner max-width consolidated to line ~167 */
 
 .guide-body-inner {
@@ -1888,6 +1909,7 @@ textarea { min-height: 80px; resize: vertical; }
 a:visited {
   color: var(--teal-text);
 }
+
 /* Exception list: components whose color must NOT change on :visited */
 .nav-links a:visited,
 .nav-sos:visited,
@@ -2604,6 +2626,7 @@ body.impressum-page .info-box strong {
 .module-overview-hero-visual {
   border-radius: var(--radius-lg);
   overflow: hidden;
+
   /* box-shadow nur für module-overview, nicht für werkzeuge (wird unten überschrieben) */
   box-shadow: var(--card-shadow-hover);
   position: relative;

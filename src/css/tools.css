@@ -1,4 +1,5 @@
 /* ══════════ TOOL SHARED CSS — BipolarSite ══════════ */
+
 /* Extracted from duplicated inline styles across 9 tool pages */
 
 /* ── Tool Body Override ── */
@@ -359,6 +360,7 @@ body.ee-kreislauf-page .wrap{max-width:var(--tool-wrap-narrow);padding:var(--spa
 .refl h2{font-size:var(--text-base);color:var(--navy-mid);line-height:1.5;margin:0 0 var(--heading-gap-h3)}
 .refl p{font-size:var(--text-base);color:var(--slate);line-height:1.75;margin:0}
 .tool-wrap .tf{color:var(--teal-light)}
+
 /* Floating tag animation removed (editorial restraint) */
 @media(prefers-reduced-motion:reduce){*{transition-duration:0.01ms!important}}
 @media(max-width:480px){
@@ -405,6 +407,7 @@ body.komm-trainer-page .btn-next{width:100%;font-size:var(--text-base);font-weig
 .rules p{font-size:var(--text-base);color:var(--navy);line-height:1.5;margin:0 0 8px}.rules p:last-child{margin:0}
 body.komm-trainer-page .btns{display:flex;gap:10px}
 body.komm-trainer-page .btns button{flex:1;padding:12px;border-radius:var(--radius-md);font-family:'DM Sans',sans-serif;font-size:var(--text-xs);font-weight:600;cursor:pointer}
+
 /* .btn-r and .btn-c base styles now in shared.css BUTTON SYSTEM */
 @media(max-width:480px){
   body.komm-trainer-page .wrap{padding:20px 14px 36px}
@@ -416,6 +419,7 @@ body.komm-trainer-page .btns button{flex:1;padding:12px;border-radius:var(--radi
 /* ── krisenplan ── */
 body.krisenplan-page{display:block}
 body.krisenplan-page .wrap{max-width:var(--content-width);margin:0 auto;padding:var(--space-xl) var(--space-lg) var(--section-standard)}
+
 /* .btn-save, .btn-print, .btn-reset base now in shared.css BUTTON SYSTEM */
 .btn-save:hover{background:var(--slate)}
 .tool-actions button:disabled,
@@ -428,6 +432,7 @@ body.krisenplan-page .wrap{max-width:var(--content-width);margin:0 auto;padding:
 .section .sdesc{font-size:var(--text-xs);color:var(--slate);margin-bottom:var(--space-md);line-height:1.5}
 .field{margin-bottom:var(--space-base)}
 .field label{display:block;font-size:var(--text-xs);font-weight:600;color:var(--slate);margin-bottom:6px}
+
 /* field input/textarea/focus base now in shared.css FORM FIELDS */
 .s1{background:var(--amber-bg);border-color:var(--amber)}.s1 h2{color:var(--amber)}
 .s2{background:var(--success-soft);border-color:var(--phase-green)}.s2 h2{color:var(--phase-green)}
@@ -548,6 +553,7 @@ body.saeulen-check-page .wrap{width:100%;max-width:var(--tool-wrap-medium);paddi
 .ad-text{font-size:var(--text-xs);color:var(--slate);line-height:1.5}
 body.saeulen-check-page .btns{display:flex;gap:10px;margin-top:24px}
 body.saeulen-check-page .btns button{flex:1;padding:12px;border-radius:var(--radius-md);font-family:'DM Sans',sans-serif;font-size:var(--text-xs);font-weight:600;cursor:pointer}
+
 /* saeulen-check .btn-r and .btn-c base now in shared.css BUTTON SYSTEM */
 body.saeulen-check-page .disc{font-size:var(--text-xs);color:var(--slate);margin-top:16px;line-height:1.5;text-align:center}
 @media(max-width:480px){.sc{flex-wrap:wrap}.sc button{flex:1 1 calc(33% - 4px);min-height:44px}.pc{padding:18px 16px}.res-card{padding:24px 16px}.pillars{gap:6px;padding:0}}
@@ -582,6 +588,7 @@ body.selbsttest-page .card.fade{opacity:0;transform:translateY(12px)}
 .opt.sel{border:2px solid var(--teal);background:var(--success-soft);color:var(--navy);font-weight:600}
 .opt .em{font-size:var(--text-lg);color:var(--teal-light);width:22px;text-align:center;line-height:1}.opt.sel .em{color:var(--teal-cta)}
 .nav{display:flex;justify-content:space-between;align-items:center;margin-top:24px;padding-top:16px;border-top:1px solid var(--border-warm)}
+
 /* .btn base, .btn-back, .btn-next base now in shared.css BUTTON SYSTEM */
 .btn-back{background:var(--success-soft);color:var(--slate)}.btn-back:disabled{visibility:hidden;cursor:default}
 body.selbsttest-page .btn-next:disabled{background:var(--teal-subtle);color:var(--text-soft);cursor:default}
@@ -603,10 +610,12 @@ body.selbsttest-page .disc{font-size:var(--text-xs);color:var(--slate);line-heig
 body.selbsttest-page .disc strong{color:var(--navy)}
 body.selbsttest-page .btns{display:flex;gap:10px;padding-top:12px;border-top:1px solid var(--border-warm)}
 body.selbsttest-page .btns button{flex:1;padding:12px;border-radius:var(--radius-md);font-family:'DM Sans',sans-serif;font-size:var(--text-xs);font-weight:600;cursor:pointer}
+
 /* .btn-reset and .btn-cont base now in shared.css BUTTON SYSTEM */
 body.selbsttest-page .tf{color:var(--teal-light);margin-top:20px}
 
 /* ── [from overrides.css] TOOL FOOTER CONTRAST FIX ── */
+
 /* --alert (#B91C1C) on navy (#1C2B3A) = ~1.65:1 — WCAG fail.
    Light red (#fca5a5) on navy = ~5.8:1 — passes AA. */
 footer.tf a[href="/notfall/"] {
@@ -620,6 +629,7 @@ body:not(.dark-tool) .tool-back {
 }
 
 @media(max-width:600px){body.selbsttest-page .card{padding:24px 20px;min-height:auto}.bar-labels{font-size:var(--text-xs)}.bar-labels span:nth-child(2),.bar-labels span:nth-child(4){display:none}}
+
 /* Result state colours */
 body.selbsttest-page .card.result--green .res-score{background:var(--success-soft);border:2px solid var(--teal-light)}
 body.selbsttest-page .card.result--green .res-score span,body.selbsttest-page .card.result--green .res-level{color:var(--phase-green)}
@@ -670,22 +680,27 @@ body.solidaritaets-chart-page .tf{color:var(--teal-light);margin-top:20px}
   body.solidaritaets-chart-page .mobile-chart-note{display:block}
   .detail-grid{grid-template-columns:1fr}
 }
+
 /* ── Noscript Fallback ── */
 .noscript-box{padding:20px 24px;background:var(--surface-alt);border-radius:var(--radius-md);margin:20px 0;font-family:'DM Sans',sans-serif}
 .noscript-box p:first-child{font-weight:600;margin:0 0 8px}
 .noscript-box p:last-child{margin:0}
 .noscript-box a{color:var(--teal-cta);font-weight:600}
+
 /* ── Phase Legend Dots ── */
 .leg-dot--mania{background:var(--amber)}
 .leg-dot--hypo{background:var(--hypo-phase)}
 .leg-dot--stable{background:var(--phase-green)}
 .leg-dot--dep-mild{background:var(--blue-phase)}
 .leg-dot--dep-severe{background:var(--slate)}
+
 /* ── Chart Legend Lines ── */
 .legend-line--amber{background:var(--amber)}
 .legend-line--blue{background:var(--blue-phase)}
 .legend-line--green{background:var(--phase-green);border-style:dashed}
+
 /* ── SVG Cursor Pointer ── */
 body.solidaritaets-chart-page .chart-wrap rect[id^="ep"]{cursor:pointer}
+
 /* ── SVG Fill ── */
 #zone-severe{fill:var(--severe-dep-phase-bg)}

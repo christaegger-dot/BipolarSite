@@ -1,4 +1,5 @@
 /* ══════════ MODULE SHARED CSS — BipolarSite ══════════ */
+
 /* Extracted from duplicated inline styles across 8 module pages */
 
 /* ── Module Hero ── */
@@ -55,6 +56,7 @@
   font-size: var(--text-sm); color: var(--text-soft); margin-bottom: var(--space-lg);
 }
 .module-meta span { display: flex; align-items: center; gap: 6px; }
+
 /* P3.10 Audit: Icons in der Modul-Meta-Zeile (Emoji ⏱ 📖 🛠 🌿) sollen
    bei jedem Renderer sichtbar bleiben. Wrap mit explizitem Font-Stack
    für Color-Emoji + leichte Anhebung der Schriftgrösse. aria-hidden,
@@ -130,6 +132,7 @@
     font-size: var(--text-xs);
     line-height: 1.5;
   }
+
   /* Hide the inline TOC when the sidebar takes over — single source of nav */
   body[data-module-accent] > .toc {
     display: none;
@@ -360,6 +363,7 @@
   padding: var(--space-base) 0; border-top: 1px solid rgba(255,255,255,10%);
 }
 .takeaway-item:first-of-type { border-top: none; }
+
 /* Decorative bullet indicator — WCAG 1.4.3 "pure decoration" exception.
    Contrast 4.49:1 on --teal-cta-dark (0.01 below 4.5:1 threshold for text),
    but ✓ functions as a list marker, not semantic text content. */
@@ -604,6 +608,7 @@
 /* ── Content Wide (for grids/visuals that need more than 720px) ── */
 .content-wide {
   max-width: var(--content-width-wide);
+
   /* Break out of .content's 2rem padding on each side,
      then extend to content-width-wide centered */
   width: min(
@@ -789,6 +794,7 @@ body.pdf-preview-open { overflow: hidden; }
   .tool-link-card {
     padding: 18px;
   }
+
   /* Reduce pause temperature on small screens */
   .quote-block, .reflection, .takeaways, .bright-moment {
     margin-top: var(--temp-standard-margin);
@@ -875,6 +881,7 @@ body.pdf-preview-open { overflow: hidden; }
 }
 
 /* ── Module Accent Colors (per-module visual identity) ── */
+
 /* Per-module accent: badge bg + color, toc border, h2 dividers
    Driven by [data-module-accent] attribute on module wrapper.
    L2 palette: light hero background, so badges use normal phase colors. */
@@ -1185,6 +1192,7 @@ p.bright-moment {
 .numbers-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gap-tight);margin:var(--space-lg) 0}
 .number-card{background:var(--card);border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:var(--space-md) var(--space-md);display:flex;align-items:center;gap:var(--grid-gap-tight);transition:box-shadow 0.2s ease;border-top:3px solid transparent;text-decoration:none;color:inherit}
 .number-card:hover{box-shadow:var(--card-shadow-hover)}
+
 /* Audit 2.5: Top-Karten (Ärztefon, 144) sind bereits im Hero prominent.
    Hier nur dezente Border-Top-Markierung als visuelle Hierarchie ohne
    doppelte Hervorhebung (vorher: pink-background + alert-border). */
@@ -1998,6 +2006,7 @@ body.pdf-preview-open{overflow:hidden}
 .mini-plan-field{display:flex;flex-direction:column;gap:6px}
 .mini-plan-field.full{grid-column:1 / -1}
 .mini-plan label{font-size:var(--text-xs);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--slate)}
+
 /* mini-plan input/textarea/select base now in shared.css FORM FIELDS */
 .mini-plan textarea{min-height:92px}
 .mini-plan-actions{display:flex;gap:var(--grid-gap-tight);flex-wrap:wrap;margin-top:14px}
@@ -2657,8 +2666,10 @@ a.ampel-card{text-decoration:none;display:block}
   margin: 0;
   border-radius: var(--radius-lg);
   overflow: hidden;
+
   /* Hintergrund exakt wie --bg der Seite: kein sichtbarer Rand */
   background: var(--bg);
+
   /* Schwebender Schatten statt Border */
   box-shadow: 0 6px 32px rgba(26, 35, 50, 7%), 0 1px 4px rgba(26, 35, 50, 4%);
 }
@@ -2672,6 +2683,7 @@ a.ampel-card{text-decoration:none;display:block}
 .module-illustration__body {
   /* Kein extra Styling nötig — erbt den normalen Prose-Stil */
 }
+
 /* Auf Mobilgeräten: Illustration unter den Text, zentriert */
 @media (max-width: 680px) {
   .module-illustration,
