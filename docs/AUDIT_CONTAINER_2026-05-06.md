@@ -175,21 +175,26 @@ Eine `docs/CONTAINER_SYSTEM.md` mit:
 
 ## Phase-C-Diskussionspunkte (Design-Entscheidungen)
 
-### `.quick-triage` Card-Hülle
+### `.quick-triage` Card-Hülle — ✅ erledigt (2026-05-08)
 
-Status quo: Card mit `background`, `border`, `box-shadow`, `padding xl lg`, eingebettet in 100vw-Banner mit Teal-Tint.
+**Status quo (06.05.):** Card mit `background`, `border`, `box-shadow`, `padding xl lg`, eingebettet in 100vw-Banner mit Teal-Tint.
 
-Audit-Empfehlung: Card-Hülle entfernen, flach auf Editorial-Wide.
+**Audit-Empfehlung:** Card-Hülle entfernen, flach auf Editorial-Wide.
 
-**Frage an Stakeholder:** Soll die Triage-Sektion visuell als „besondere Sektion" gerahmt bleiben, oder dem Editorial-Fluss der anderen Sektionen folgen?
+**Tatsächlicher Verlauf:**
+1. CSS-Card-Hülle bereits in einer früheren Iteration entfernt (siehe Kommentar `Audit C2 (Container)` in `shared.css`).
+2. PR #270/#271 hat die `quick-triage` ganz von der Startseite entfernt — sie lebt jetzt als eigenständiges Werkzeug `/tools/einstiegsfrage/`.
+3. Auf der Startseite wurde der frühere Triage-Slot durch eine ruhige `.home-intro`-Sektion ersetzt.
 
-### `.story-section` (Erfahrungsbericht)
+**Stakeholder-Entscheidung:** Implizit dadurch beantwortet — die Triage ist nicht mehr Teil des Startseiten-Flusses, sondern ein optionales Werkzeug. Im Tool-Kontext ist sie flach gerahmt (kein Card-im-Card).
 
-Status quo: Full-bleed mit Rosé-Hintergrund, 2-Spalten-Split (Text + Bild), `.story-inner` auf `--content-width` (780px).
+### `.story-section` (Erfahrungsbericht) — ✅ entschieden: zurückhaltend belassen (2026-05-08)
 
-Audit-Empfehlung: Bild größer / randabschließend.
+**Status quo:** Full-bleed mit Rosé-Hintergrund, 2-Spalten-Split (Text + Bild), `.story-split` auf `--content-width-wide` (1040px), Bild ~500px breit innerhalb des Grids. Card-Hülle ums Bild bereits entfernt (`Audit D2`-Kommentar in `shared.css`).
 
-**Frage an Stakeholder:** Aktuelle Bildgröße bewusst zurückhaltend, oder soll das Bild ähnlich expressiv werden wie das Werkzeuge-Hero?
+**Audit-Empfehlung:** Bild grösser / randabschliessend.
+
+**Stakeholder-Entscheidung (2026-05-08):** Bild bleibt zurückhaltend. Die Rosé-Section ist als emotional-bezogene Pausensektion lesbar; das Bild ordnet sich der Story unter und konkurriert nicht mit dem Werkzeuge-Hero. Keine Vergrösserung auf Werkzeuge-Hero-Niveau, kein Full-bleed-Effekt.
 
 ### `.tools-highlight`
 
@@ -197,23 +202,22 @@ Audit-Behauptung: „Eingerückte Card-Hülle". **Faktisch falsch** — `.tools-
 
 ---
 
-## Zusammenfassung
+## Zusammenfassung (Stand 2026-05-08)
 
-| Bereich | Status | Aufwand zur Korrektur |
+| Bereich | Status | Erledigt durch |
 |---|---|---|
 | Token-System | Existiert, funktioniert | — |
 | Token-Verwendung | ~51 Vorkommen, breit konsistent | — |
 | Character-basierte Limits | Editorisch korrekt | — |
-| Magic Numbers (CSS) | ~10 zu konsolidieren | S–M |
-| Tool-Wrap-Breiten | Untokenisiert, repetitiv | M (neue Token-Familie) |
-| Card-Hüllen-Konzept | Design-Entscheidung offen | C-Diskussion |
-| Erfahrungsbericht-Layout | Design-Entscheidung offen | D-Diskussion |
+| Magic Numbers (CSS) | ~10 konsolidiert | ✅ #282 |
+| Tool-Wrap-Breiten | Tokenisiert (`--tool-wrap-narrow/medium/wide`) | ✅ #282 |
+| `.quick-triage` Card-Hülle | Card-Hülle entfernt, Triage als Tool ausgelagert | ✅ Audit C2 + #270/#271 |
+| Erfahrungsbericht-Layout | Bild bewusst zurückhaltend | ✅ Stakeholder-Entscheidung |
 | Token-Reduktion 4→3 | Nicht empfohlen | — |
 
-**Klare Phase-B-Kandidaten:** ~10 Magic Numbers in CSS, plus optional Tool-Wrap-Token-Familie. Iterativ in 1–2 kleinen PRs umsetzbar.
-
-**Phase-C/D**: braucht Stakeholder-Input.
+**Container-Audit Phase A–D abgeschlossen.**
 
 ---
 
 **Erstellt von Claude Code — Phase A der Audit-2.6-Antwort.**
+**Aktualisiert 2026-05-08 — Phase B umgesetzt, Phase C/D entschieden.**
