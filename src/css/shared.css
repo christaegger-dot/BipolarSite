@@ -18,7 +18,7 @@ body {
   font-family: 'DM Sans', sans-serif;
   color: var(--text);
   background: var(--bg);
-  line-height: 1.75;
+  line-height: var(--leading-loose);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
