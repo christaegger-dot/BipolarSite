@@ -3994,3 +3994,177 @@ a.ampel-card{text-decoration:none;display:block}
     grid-template-columns: 1fr;
   }
 }
+
+/* ══════════════════════════════════════════════════════════════════════
+   CARD-ARCHETYPEN — Modul 1 Prototyp (AD-Fix: Card-Müdigkeit)
+   Scope: [data-module-accent="1"] — kein Einfluss auf andere Module
+   oder die Startseite. Nach Freigabe sitewide ausrollen.
+
+   Drei Archetypen:
+   1. Seamless  → Inhaltliche Aufzählungen (treatment, action, pillar)
+   2. Elevated  → Interaktive/navigationale Cards (tool-cta, next-module)
+   3. Tinted    → Hervorgehobene Zusatzinfos (bipolar-type, section-card)
+   ══════════════════════════════════════════════════════════════════════ */
+
+/* ── 1. SEAMLESS: treatment-cards ──────────────────────────────────── */
+/* Behandlungs-Grid: von geschlossenen Boxen zu Listeneinträgen */
+[data-module-accent="1"] .treatment-grid {
+  gap: 0;
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+[data-module-accent="1"] .treatment-card {
+  background: transparent;
+  border: none;
+  border-top: 1px solid var(--border-warm-md);
+  border-radius: 0;
+  padding: var(--space-lg) 0;
+  transition: none;
+}
+[data-module-accent="1"] .treatment-card:hover {
+  box-shadow: none;
+}
+[data-module-accent="1"] .treatment-card:first-child {
+  border-top: none;
+}
+[data-module-accent="1"] .treatment-card-icon {
+  background: var(--surface-alt);
+  color: var(--navy);
+}
+
+/* ── 1. SEAMLESS: action-cards (Was Sie jetzt tun können) ──────────── */
+[data-module-accent="1"] .action-grid {
+  gap: 0;
+}
+[data-module-accent="1"] .action-card {
+  background: transparent;
+  border: none;
+  border-top: 1px solid var(--border-warm-md);
+  border-radius: 0;
+  padding: var(--space-lg) 0;
+  transition: none;
+}
+[data-module-accent="1"] .action-card:hover {
+  box-shadow: none;
+}
+[data-module-accent="1"] .action-card:first-child {
+  border-top: none;
+}
+[data-module-accent="1"] .action-icon {
+  background: var(--surface-alt);
+  color: var(--navy);
+  flex-shrink: 0;
+}
+
+/* ── 2. ELEVATED: tool-cta (Phasenverlauf-Link) ────────────────────── */
+[data-module-accent="1"] .tool-cta {
+  background: var(--card);
+  border: none;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 6px 32px rgba(26,35,50,7%), 0 1px 4px rgba(26,35,50,4%);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+[data-module-accent="1"] .tool-cta:hover {
+  border-color: transparent;
+  box-shadow: 0 12px 40px rgba(26,35,50,11%), 0 2px 8px rgba(26,35,50,6%);
+  transform: translateY(-2px);
+}
+
+/* ── 2. ELEVATED: next-module-card ────────────────────────────────── */
+[data-module-accent="1"] .next-module-card {
+  background: var(--card);
+  border: none;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 6px 32px rgba(26,35,50,7%), 0 1px 4px rgba(26,35,50,4%);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+[data-module-accent="1"] .next-module-card:hover {
+  box-shadow: 0 12px 40px rgba(26,35,50,11%), 0 2px 8px rgba(26,35,50,6%);
+  transform: translateY(-2px);
+}
+
+/* ── 3. TINTED: bipolar-type-cards (Bipolar I/II) ──────────────────── */
+[data-module-accent="1"] .bipolar-type-card {
+  background: var(--surface-alt);
+  border: none;
+  border-radius: var(--radius-lg);
+  box-shadow: none;
+}
+[data-module-accent="1"] .bipolar-type-badge {
+  background: var(--navy);
+}
+
+/* ── 3. TINTED: wave-chart-section (Phasenverlauf-Grafik) ──────────── */
+[data-module-accent="1"] .wave-chart-section {
+  background: var(--surface-alt);
+  border: none;
+  border-radius: var(--radius-lg);
+  box-shadow: none;
+}
+
+/* ── 3. TINTED: TL;DR / module-summary ────────────────────────────── */
+[data-module-accent="1"] .module-summary {
+  background: var(--surface-teal-mist);
+  border: none;
+  border-radius: var(--radius-lg);
+  border-left: 3px solid var(--teal-cta);
+}
+
+/* ── Responsive: Seamless-Cards auf Mobile wieder etwas absetzen ───── */
+@media (max-width: 640px) {
+  [data-module-accent="1"] .treatment-card,
+  [data-module-accent="1"] .action-card {
+    padding: var(--space-md) 0;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   SPEZIFITÄTS-FIXES für Modul-1-Archetypen
+   Der globale Selector [data-module-accent]:not([data-module-accent="8"])
+   hat Spezifizität (0,2,0). Wir matchen mit (0,2,1) durch .content.
+   ══════════════════════════════════════════════════════════════════════ */
+
+/* Seamless: treatment-card — border-left und ::after entfernen */
+[data-module-accent="1"] .content .treatment-card {
+  background: transparent !important;
+  border: none !important;
+  border-top: 1px solid var(--border-warm-md) !important;
+  border-radius: 0 !important;
+  padding: var(--space-lg) 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+[data-module-accent="1"] .content .treatment-card::after {
+  display: none !important;
+}
+[data-module-accent="1"] .content .treatment-card:first-child {
+  border-top: none !important;
+}
+[data-module-accent="1"] .content .treatment-card:hover {
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Seamless: treatment-grid gap auf 0 */
+[data-module-accent="1"] .content .treatment-grid {
+  gap: 0 !important;
+}
+
+/* Elevated: tool-cta — Accent-Override überschreiben */
+[data-module-accent="1"] .content .tool-cta {
+  background: var(--card) !important;
+  border: none !important;
+  border-left: none !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: 0 6px 32px rgba(26,35,50,7%), 0 1px 4px rgba(26,35,50,4%) !important;
+  padding: var(--card-padding) !important;
+  overflow: visible !important;
+}
+[data-module-accent="1"] .content .tool-cta::after {
+  display: none !important;
+}
+[data-module-accent="1"] .content .tool-cta:hover {
+  border-color: transparent !important;
+  box-shadow: 0 12px 40px rgba(26,35,50,11%), 0 2px 8px rgba(26,35,50,6%) !important;
+  transform: translateY(-2px) !important;
+}
