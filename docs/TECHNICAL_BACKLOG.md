@@ -19,6 +19,21 @@ Alternativ minimaler: ein Validierungs-Script (`scripts/check-pdf-labels.js`), d
 
 ---
 
+## ✅ Selektive Kürzung der Akut-Notfallblätter auf 1 Seite (erledigt 2026-05-08)
+
+**Erledigt durch PRs #284 (Body-Kürzung) + #285 (Probe-Generation) + #286 (Print-Layout-Verdichtung im Skript).**
+
+Die vier Akut-Slots (`suizidgedanken`, `manie`, `psychoseWahn`, `depression`) sind jetzt verlässlich 1-seitig. Schlüssel-Hebel war die Umstellung des Help-Module-Grids im Generator-Skript von vertikaler 2-Spalten-Anordnung auf horizontales 3-Spalten-Layout (~25 mm Höhen-Ersparnis).
+
+**Bewusst NICHT auf 1-Seiten umgestellt:**
+- `warnsignale-frueh-erkennen-puk-zuerich.pdf` (DL-08): Orientierungsblatt mit Hochphase- + Depression-Listen — 2 Seiten richtig.
+- `krisenplan-erstellen-bipolare-stoerung-puk-zuerich.pdf` (DL-09): Praxisblatt mit Schritten — 2 Seiten richtig.
+- `grenzsetzung-angehoerige-puk-zuerich.pdf` (DL-10): Praxisblatt mit ausformulierten Beispielen — 2 Seiten richtig.
+
+Diese drei wurden geprobt (auch mit dichtem Layout 2-seitig), aber als Praxis-/Orientierungsblätter ist 2 Seiten inhaltlich angemessen.
+
+---
+
 ## P3 — Selektive Kürzung der Akut-Notfallblätter auf 1 Seite
 
 **Befund (2026-04-24):**
