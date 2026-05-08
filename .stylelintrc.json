@@ -10,6 +10,9 @@
     "rule-empty-line-before": null,
     "at-rule-empty-line-before": null,
     "no-duplicate-selectors": null,
+    "property-no-vendor-prefix": [true, {
+      "ignoreProperties": ["backdrop-filter", "hyphens"]
+    }],
     "selector-class-pattern": [
       "^[a-z][a-z0-9]*(-[a-z0-9]+)*(__[a-z0-9]+(-[a-z0-9]+)*)?(--[a-z0-9]+(-[a-z0-9]+)*)?$",
       {
