@@ -19,25 +19,18 @@ Alternativ minimaler: ein Validierungs-Script (`scripts/check-pdf-labels.js`), d
 
 ---
 
-## P3 — Selektive Kürzung der Akut-Notfallblätter auf 1 Seite
+## ✅ Selektive Kürzung der Akut-Notfallblätter auf 1 Seite (erledigt 2026-05-08)
 
-**Befund (2026-04-24):**
-Die Label-Korrektur (P2) hat sichtbar gemacht, dass auch Akut-Blätter (Suizidgedanken, Manie, Psychose, Depression, Notfallkarte-Zusatz) inzwischen 2 Seiten sind. Für Notfall-Zugriff ist 1-Seiten-Form inhaltlich relevanter als bei Vertiefungs-Handouts: Eine ausgedruckte Akutkarte gehört auf 1 Blatt.
+**Erledigt durch PRs #284 (Body-Kürzung) + #285 (Probe-Generation) + #286 (Print-Layout-Verdichtung im Skript).**
 
-**Kandidaten:**
-- `umgang-mit-suizidgedanken-puk-zuerich.pdf` (DL-04)
-- `umgang-mit-manie-puk-zuerich.pdf` (DL-06)
-- `umgang-mit-psychose-wahn-puk-zuerich.pdf` (DL-05)
-- `umgang-mit-depression-puk-zuerich.pdf` (DL-07)
-- ggf. `warnsignale-frueh-erkennen-puk-zuerich.pdf` (DL-08) — Grenzfall
+Die vier Akut-Slots (`suizidgedanken`, `manie`, `psychoseWahn`, `depression`) sind jetzt verlässlich 1-seitig. Schlüssel-Hebel war die Umstellung des Help-Module-Grids im Generator-Skript von vertikaler 2-Spalten-Anordnung auf horizontales 3-Spalten-Layout (~25 mm Höhen-Ersparnis).
 
-**Vorgehen:**
-Pro Blatt: Draft in `src/handout-drafts/` redaktionell straffen (Bullet-Listen kürzen, eine Section zusammenfassen oder weglassen), neu rendern, manuell prüfen ob 1 Seite passt, sonst noch eine Iteration. Danach `pages`-Label aktualisieren.
+**Bewusst NICHT auf 1-Seiten umgestellt:**
+- `warnsignale-frueh-erkennen-puk-zuerich.pdf` (DL-08): Orientierungsblatt mit Hochphase- + Depression-Listen — 2 Seiten richtig.
+- `krisenplan-erstellen-bipolare-stoerung-puk-zuerich.pdf` (DL-09): Praxisblatt mit Schritten — 2 Seiten richtig.
+- `grenzsetzung-angehoerige-puk-zuerich.pdf` (DL-10): Praxisblatt mit ausformulierten Beispielen — 2 Seiten richtig.
 
-**Bewusst nicht in Scope:**
-Vertiefungs-Handouts (Stigma, Belastungen, Loyalität, Selbstfürsorge) — bei denen ist 2–3 Seiten inhaltlich richtig.
-
-**Trigger:** Nächster Akut-Blätter-Pass oder nach Nutzer-Feedback aus PUK.
+Diese drei wurden geprobt (auch mit dichtem Layout 2-seitig), aber als Praxis-/Orientierungsblätter ist 2 Seiten inhaltlich angemessen.
 
 ---
 
