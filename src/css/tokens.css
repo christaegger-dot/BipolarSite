@@ -320,6 +320,15 @@
   --measure-lead:   52ch;
   --measure-narrow: 44ch;
 
+  /* Line-height tokens — kalibriert auf existierende Cluster im Codebase
+     plus Editorial-Lese-Empfehlung (1.65 mobile body / 1.7 desktop body / 1.75 long-form).
+     Anwendung opportunistisch bei Migration; body nutzt --leading-loose. */
+  --leading-tight:    1.2;   /* Überschriften, Badges, Tags (Cluster 1.15–1.25) */
+  --leading-snug:     1.35;  /* Sub-Headings, kompakte Karten-Titel (Cluster 1.3–1.35) */
+  --leading-base:     1.5;   /* UI-Texte, Button-Labels, kompakte Body-Stellen (dominanter Cluster) */
+  --leading-relaxed:  1.65;  /* Lead-Texte, Standard-Body in dichten Sektionen */
+  --leading-loose:    1.75;  /* Long-form Prose, Modul-Fließtext, body default */
+
   /* Tool-Wrap-Familie — kuratierte interaktive Tool-Container (B-2 Audit) */
   --tool-wrap-narrow:     560px;  /* Durchatmen, EE-Kreislauf, .tool-wrap (= --content-width-narrow) */
   --tool-wrap-medium:     600px;  /* Komm-Trainer, Säulen-Check, Selbsttest */
