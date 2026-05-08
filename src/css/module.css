@@ -22,7 +22,14 @@
 .hero.notfall-hero .breadcrumb a { color: var(--white-text-secondary); text-decoration: none; }
 .hero.notfall-hero .breadcrumb a:hover { text-decoration: underline; color: var(--cta-primary-text); }
 
-/* ── Hero Icon & Badge ── */
+/* ── Hero Icon & Badge ──
+   P3.11 Audit-Referenz: das Welle-Ornament (im DOM:
+   <svg class="hero-icon">) oben rechts neben dem Breadcrumb auf jeder
+   Modul-Seite ist eine subtile, gut gelungene Komponente. Als
+   POSITIVE REFERENZ für andere Module dokumentiert: 40×40px, niedrige
+   Sättigung (--teal-light), klare Stroke-Form, ohne Frame.
+   Wenn weitere Module ein Hero-Ornament brauchen, dieselbe Strategie
+   verwenden — kleines SVG, wenig Kontrast, kein Container. */
 .hero-icon {
   width: 40px; height: 40px; color: var(--teal-light);
   opacity: 1; margin-bottom: var(--space-base); display: block;
@@ -48,6 +55,15 @@
   font-size: var(--text-sm); color: var(--text-soft); margin-bottom: var(--space-lg);
 }
 .module-meta span { display: flex; align-items: center; gap: 6px; }
+/* P3.10 Audit: Icons in der Modul-Meta-Zeile (Emoji ⏱ 📖 🛠 🌿) sollen
+   bei jedem Renderer sichtbar bleiben. Wrap mit explizitem Font-Stack
+   für Color-Emoji + leichte Anhebung der Schriftgrösse. aria-hidden,
+   weil das Textlabel die Information bereits trägt. */
+.module-meta-icon {
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;
+  font-size: 1.05em; line-height: 1; font-style: normal;
+  display: inline-flex; align-items: center;
+}
 
 /* ── Table of Contents ── */
 .toc {
@@ -3674,6 +3690,13 @@ a.ampel-card{text-decoration:none;display:block}
   gap: 14px;
 }
 
+/* P3.9 Audit-Notiz: rgba(244,241,236,*) === --surface-alt (#F4F1EC) mit
+   Alpha. Die "sehr hell grünliche" Wahrnehmung im ursprünglichen Audit
+   stammte vermutlich vom angrenzenden --success-soft (rgba(168,213,203,
+   0.15)) im chevron- bzw. icon-badge-State. Die accordion-item-Surface
+   selbst ist ein White→Warm-Cream-Gradient, kein Grünton. Token-konsistent
+   in Spirit; Alpha-Variation (0.82–0.94) über die ~10 Vorkommnisse ist
+   visuell beabsichtigt für Layering-Tiefe und nicht zu vereinheitlichen. */
 [data-module-accent]:not([data-module-accent="8"]) .accordion-item {
   background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(244,241,236,0.9));
   border: 1px solid var(--module-body-line);
