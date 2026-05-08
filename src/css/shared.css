@@ -16,6 +16,7 @@ a[href^="tel:"] { white-space: nowrap; }
 /* ── Body ── */
 body {
   font-family: 'DM Sans', sans-serif;
+  font-size: var(--text-body);
   color: var(--text);
   background: var(--bg);
   line-height: var(--leading-loose);
