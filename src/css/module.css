@@ -4004,9 +4004,10 @@ a.ampel-card{text-decoration:none;display:block}
    1. Seamless  → Inhaltliche Aufzählungen (treatment, action, pillar)
    2. Elevated  → Interaktive/navigationale Cards (tool-cta, next-module)
    3. Tinted    → Hervorgehobene Zusatzinfos (bipolar-type, section-card)
-   ══════════════════════════════════════════════════════════════════════ */
+    ══════════════════════════════════════════════════════════════════════ */
 
 /* ── 1. SEAMLESS: treatment-cards ──────────────────────────────────── */
+
 /* Behandlungs-Grid: von geschlossenen Boxen zu Listeneinträgen */
 [data-module-accent="1"] .treatment-grid {
   gap: 0;
