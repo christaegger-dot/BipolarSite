@@ -4023,21 +4023,22 @@ a.ampel-card{text-decoration:none;display:block}
   transition: none;
 }
 [data-module-accent="1"] .treatment-card:hover {
-  box-shadow: none;
-}
-[data-module-accent="1"] .treatment-card:first-child {
-  border-top: none;
-}
-[data-module-accent="1"] .treatment-card-icon {
-  background: #f9f6f1; /* 4.54:1 WCAG AA — surface-alt #F4F1EC war 4.34:1 */
-  color: var(--navy);
+  box-shadow: none !important;
+  transform: none !important;
 }
 
+/* ══════════════════════════════════════════════════════════════════════
+   CARD-ARCHETYPEN — Sitewide (alle Module)
+   Scope: [data-module-accent] — gilt für alle Module 1–8
+   Modul-1-spezifische Overrides (treatment-card, bipolar-type-card,
+   wave-chart-section) bleiben mit [data-module-accent="1"] eingegrenzt.
+   ══════════════════════════════════════════════════════════════════════ */
+
 /* ── 1. SEAMLESS: action-cards (Was Sie jetzt tun können) ──────────── */
-[data-module-accent="1"] .action-grid {
+[data-module-accent] .action-grid {
   gap: 0;
 }
-[data-module-accent="1"] .action-card {
+[data-module-accent] .action-card {
   background: transparent;
   border: none;
   border-top: 1px solid var(--border-warm-md);
@@ -4045,41 +4046,41 @@ a.ampel-card{text-decoration:none;display:block}
   padding: var(--space-lg) 0;
   transition: none;
 }
-[data-module-accent="1"] .action-card:hover {
+[data-module-accent] .action-card:hover {
   box-shadow: none;
 }
-[data-module-accent="1"] .action-card:first-child {
+[data-module-accent] .action-card:first-child {
   border-top: none;
 }
-[data-module-accent="1"] .action-icon {
+[data-module-accent] .action-icon {
   background: #f9f6f1; /* 4.54:1 WCAG AA */
   color: var(--navy);
   flex-shrink: 0;
 }
 
-/* ── 2. ELEVATED: tool-cta (Phasenverlauf-Link) ────────────────────── */
-[data-module-accent="1"] .tool-cta {
+/* ── 2. ELEVATED: tool-cta (Tool-Links in allen Modulen) ───────────── */
+[data-module-accent] .tool-cta {
   background: var(--card);
   border: none;
   border-radius: var(--radius-lg);
   box-shadow: 0 6px 32px rgba(26,35,50,7%), 0 1px 4px rgba(26,35,50,4%);
   transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
-[data-module-accent="1"] .tool-cta:hover {
+[data-module-accent] .tool-cta:hover {
   border-color: transparent;
   box-shadow: 0 12px 40px rgba(26,35,50,11%), 0 2px 8px rgba(26,35,50,6%);
   transform: translateY(-2px);
 }
 
 /* ── 2. ELEVATED: next-module-card ────────────────────────────────── */
-[data-module-accent="1"] .next-module-card {
+[data-module-accent] .next-module-card {
   background: var(--card);
   border: none;
   border-radius: var(--radius-lg);
   box-shadow: 0 6px 32px rgba(26,35,50,7%), 0 1px 4px rgba(26,35,50,4%);
   transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
-[data-module-accent="1"] .next-module-card:hover {
+[data-module-accent] .next-module-card:hover {
   box-shadow: 0 12px 40px rgba(26,35,50,11%), 0 2px 8px rgba(26,35,50,6%);
   transform: translateY(-2px);
 }
@@ -4103,8 +4104,8 @@ a.ampel-card{text-decoration:none;display:block}
   box-shadow: none;
 }
 
-/* ── 3. TINTED: TL;DR / module-summary ────────────────────────────── */
-[data-module-accent="1"] .module-summary {
+/* ── 3. TINTED: TL;DR / module-summary (alle Module) ──────────────── */
+[data-module-accent] .module-summary {
   background: var(--surface-teal-mist);
   border: none;
   border-radius: var(--radius-lg);
@@ -4114,7 +4115,7 @@ a.ampel-card{text-decoration:none;display:block}
 /* ── Responsive: Seamless-Cards auf Mobile wieder etwas absetzen ───── */
 @media (max-width: 640px) {
   [data-module-accent="1"] .treatment-card,
-  [data-module-accent="1"] .action-card {
+  [data-module-accent] .action-card {
     padding: var(--space-md) 0;
   }
 }
@@ -4151,8 +4152,8 @@ a.ampel-card{text-decoration:none;display:block}
   gap: 0 !important;
 }
 
-/* Elevated: tool-cta — Accent-Override überschreiben */
-[data-module-accent="1"] .content .tool-cta {
+/* Elevated: tool-cta — Accent-Override überschreiben (alle Module) */
+[data-module-accent] .content .tool-cta {
   background: var(--card) !important;
   border: none !important;
   border-left: none !important;
@@ -4161,10 +4162,10 @@ a.ampel-card{text-decoration:none;display:block}
   padding: var(--card-padding) !important;
   overflow: visible !important;
 }
-[data-module-accent="1"] .content .tool-cta::after {
+[data-module-accent] .content .tool-cta::after {
   display: none !important;
 }
-[data-module-accent="1"] .content .tool-cta:hover {
+[data-module-accent] .content .tool-cta:hover {
   border-color: transparent !important;
   box-shadow: 0 12px 40px rgba(26,35,50,11%), 0 2px 8px rgba(26,35,50,6%) !important;
   transform: translateY(-2px) !important;
