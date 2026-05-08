@@ -321,8 +321,13 @@
   --measure-narrow: 44ch;
 
   /* Tool-Wrap-Familie — kuratierte interaktive Tool-Container (B-2 Audit) */
+  --tool-wrap-narrow:     560px;  /* Durchatmen, EE-Kreislauf, .tool-wrap (= --content-width-narrow) */
   --tool-wrap-medium:     600px;  /* Komm-Trainer, Säulen-Check, Selbsttest */
   --tool-wrap-wide:       680px;  /* Phasenverlauf, Solidaritäts-Chart */
+
+  /* Modul-spezifische Layout-Breiten (Container-Audit Phase B) */
+  --module-layout-max:   1240px;  /* TOC-Sidebar-Grid (200px Sidebar + Content), nur ≥1280px */
+  --module-hero-max:     1120px;  /* Modul-Hero-Inner (alle Module mit Hero-Grid) */
 
   /* Breakpoints (reference only — can't use var() in @media)
      --bp-mobile:  480px

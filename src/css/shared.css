@@ -2234,6 +2234,10 @@ body.error-page {
   flex-direction: column;
 }
 body.error-page .card {
+  /* Bewusst 640px — zwischen --content-width-narrow (560) und
+     --content-width (780); Error-Card soll kompakter wirken als
+     normaler Lese-Container, aber Platz für Such-/Link-Liste haben.
+     Container-Audit Phase B: NICHT zu tokenisieren (Single-Use). */
   max-width: 640px;
   width: 100%;
   margin: auto;
@@ -2337,7 +2341,7 @@ body.module-overview-page .overview-section {
 }
 
 body.draft-overview-page .draft-overview {
-  max-width: 1080px;
+  max-width: var(--content-width-wide);
   margin: 0 auto;
   padding: 120px 24px 72px;
 }
