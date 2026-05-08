@@ -1129,6 +1129,18 @@ html.js-reveal-active .reveal.revealed {
    .hero-tools-grid bleibt als spezifischer Container für die 3 Highlight-Werkzeuge auf der Startseite. */
 .hero-tools-all-link{display:inline-block;margin-top:var(--space-lg);font-weight:600;color:var(--navy-mid);text-decoration:none;font-size:var(--text-base)}
 .hero-tools-all-link:hover{text-decoration:underline}
+
+/* R4 aus Hero-Konzentration-Audit: Top-Tool als breitere Einzel-Karte
+   statt 3 konkurrierende Karten. Reuse der tool-card--hero-Optik mit
+   Stretch auf content-width-wide. */
+.tool-card.tool-card--feature {
+  display: block;
+  max-width: var(--content-width-wide);
+  margin-inline: auto;
+}
+.tool-card.tool-card--feature h3 {
+  font-size: var(--text-xl);
+}
 @media(max-width:900px){.hero-tools-grid{grid-template-columns:1fr}}
 
 /* ── Erfahrungsbericht ── */
