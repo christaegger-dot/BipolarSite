@@ -63,7 +63,7 @@ const downloads = {
     version: "core_v01",
     updated: "2026-05-01",
     filename: "kurzblatt-was-stabilisiert-was-schadet-puk-zuerich.pdf",
-    pages: "PDF · 1 Seite A4",
+    pages: "PDF · 2 Seiten A4",
     mode: "download",
     quality: "core",
   }),
