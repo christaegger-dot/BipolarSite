@@ -22,6 +22,21 @@ quick_steps:
   - icon: "144"
     wide: true
     text: "Bei Gefahr 144 oder 117"
+help_module:
+  enabled: true
+  title: "Sofort Hilfe dazunehmen"
+  items:
+    - label: "Notfalldienst Zürich"
+      number: "0800&nbsp;33&nbsp;66&nbsp;55"
+      note: "Wenn die Lage kippt, aber noch keine unmittelbare Gefahr besteht"
+    - label: "Sanität"
+      number: "144"
+      note: "Bei akuter Selbst- oder Fremdgefährdung"
+      tone: "urgent"
+    - label: "Polizei"
+      number: "117"
+      note: "Wenn Schutz oder Sicherung sofort nötig ist"
+      tone: "urgent"
 emergency_contacts:
   - label: "Notfalldienst Zürich"
     number: "0800&nbsp;33&nbsp;66&nbsp;55"
@@ -38,70 +53,44 @@ emergency_contacts:
 
 ## Orientierung in der Manie
 
-Wenn eine manische Episode kippt, helfen meist nicht mehr Diskussion, Erklärung oder Druck. Wichtiger sind Ruhe, kurze Sätze, Schutz und frühes Dazunehmen professioneller Hilfe.
+Wenn eine manische Episode kippt, helfen Diskussion und Druck nicht mehr. Wichtiger: Ruhe, kurze Sätze, Schutz, frühes Dazunehmen professioneller Hilfe.
 
-## Woran Sie Manie erkennen können
+## Woran Sie Manie erkennen
 
-- seit zwei oder mehr Nächten kaum Schlaf, ohne sich müde zu fühlen
+- seit ≥ 2 Nächten kaum Schlaf, ohne sich müde zu fühlen
 - stark gesteigertes Tempo oder Rededrang
-- ungewöhnliche Selbstüberschätzung oder Grössenideen
+- Selbstüberschätzung oder Grössenideen
 - Gereiztheit bei Widerspruch
 - unkontrollierte Ausgaben oder riskante Entscheidungen
-- fahriges, grenzüberschreitendes oder bedrohlich wirkendes Verhalten
+- fahriges, grenzüberschreitendes oder bedrohliches Verhalten
 
-Nicht jedes einzelne Zeichen bedeutet sofort Manie. Wichtig ist die Kombination und die Veränderung gegenüber dem üblichen Zustand.
+Entscheidend ist die Kombination und die Veränderung gegenüber dem üblichen Zustand.
 
 ## Im ersten Gespräch
 
-- ein Satz, ein Anliegen
-- eher strukturieren als diskutieren
-- Reize reduzieren: weniger Menschen, weniger Lärm, weniger Diskussion
-- Krisenplan aktivieren, wenn vorhanden. Sonst: Notfalldienst früh anrufen
-- Finanzen, Autofahren und Schutz mitdenken: Karten, Konten und Autoschlüssel notfalls sichern
+- ein Satz, ein Anliegen — strukturieren statt diskutieren
+- Reize senken (weniger Menschen, Lärm, Diskussion)
+- Krisenplan aktivieren — sonst Notfalldienst früh anrufen
+- Finanzen, Autofahren, Schutz mitdenken: Karten, Konten, Autoschlüssel notfalls sichern
 
-Hilfreicher als lange Erklärungen ist oft ein Satz wie:
-**«Ich möchte es gerade einfach halten. Wir holen jetzt Unterstützung dazu.»**
-
-## Was eher hilft
-
-- bei einem Punkt bleiben statt viele Themen gleichzeitig anzusprechen
-- mit ruhiger Stimme und klaren Sätzen sprechen
-- Finanzen, Autofahren und Sicherheit im Blick behalten
-- eine ruhige Bezugsperson spricht — nicht mehrere gleichzeitig
-- Behandlungsteam oder Krisendienst früh kontaktieren
-- Schutz ernst nehmen, auch wenn die Person das anders sieht
+Hilfreich oft: **«Ich möchte es gerade einfach halten. Wir holen jetzt Unterstützung dazu.»**
 
 ## Was eher schadet
 
 - diskutieren, ob Ihre Einschätzung «stimmt»
-- provozieren, belehren oder beschämen
-- Machtkämpfe anfangen
-- mit Logik oder Moral überzeugen wollen
+- provozieren, belehren, beschämen
+- Machtkämpfe oder Logik-Argumente
 - zu viele Menschen gleichzeitig einbeziehen
 - aus Angst alles allein kontrollieren wollen
 
-Wenn die Person stark gereizt oder grandios ist, wird Widerspruch oft nicht als Hilfe erlebt, sondern als Angriff.
-
 ## Wann sofort handeln
 
-Nicht weiter diskutieren, sondern sofort Hilfe einschalten, wenn:
-
-- die Person nicht mehr sicher fährt oder wegfahren will
-- massive Geld-, Sexual- oder andere Risikohandlungen passieren
-- Psychose, Wahn oder starker Kontrollverlust dazukommen
-- Gewalt, Bedrohung oder Selbstgefährdung im Raum stehen
-- Sie sich oder andere nicht mehr sicher fühlen
+Nicht weiter diskutieren, sondern sofort Hilfe einschalten, wenn die Person nicht mehr sicher fährt, massive Risikohandlungen passieren, Psychose oder Kontrollverlust dazukommen oder Gewalt/Selbstgefährdung im Raum steht.
 
 **Bei unmittelbarer Gefahr: 144 oder 117.**
 
-## Nächster sinnvoller Schritt
+## Nächster Schritt
 
-Wenn die Situation noch ansprechbar, aber instabil ist: Hilfe früh einschalten und nicht erst auf die volle Eskalation warten. Wenn Schutz vorgeht: nicht mehr auf das bessere Gespräch hoffen, sondern Notfallhilfe nutzen.
+Wenn ansprechbar, aber instabil: Hilfe früh einschalten — nicht auf volle Eskalation warten. Auch bei Ablehnung der Person dürfen Sie selbst den Notfalldienst oder das Behandlungsteam kontaktieren.
 
-Auch wenn die Person Hilfe ablehnt, dürfen Sie selbst den Notfalldienst oder das Behandlungsteam kontaktieren. Wenn es noch keinen Krisenplan gibt, kann er in einer ruhigeren Phase über Modul 6 vorbereitet werden.
-
-Weiterführend:
-
-- Ärztefon – Notfalldienst Zürich: 0800&nbsp;33&nbsp;66&nbsp;55
-- [Notfallseite](/notfall/)
-- [Modul 6: Kommunikation, Grenzen, Krisenplan](/modul/6/)
+Weiterführend: [Notfallseite](/notfall/) · [Modul 6: Kommunikation, Grenzen, Krisenplan](/modul/6/)
