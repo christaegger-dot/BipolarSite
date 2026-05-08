@@ -13,7 +13,7 @@ breadcrumbs:
   - name: "Modul 4: Wenn die Kraft nachlässt"
     url: "/modul/4/"
 ---
-{% block headCSS %}<!-- Module 4 styles migrated to module.css (P2.3) -->{% endblock %}
+{% block headCSS %}<link rel="stylesheet" href="/css/tool-embed.css?v=1">{% endblock %}
 {% block nav %}
 {% include "nav-full.njk" %}
 {% endblock %}
@@ -69,14 +69,22 @@ breadcrumbs:
 
   <!-- ══════════ 1. AMBIGUOUS LOSS ══════════ -->
   
-  <a href="/tools/selbsttest/" class="tool-cta reveal">
-    <div class="tool-cta-icon tool-cta-icon--neutral">📋</div>
-    <div class="tool-cta-body">
-      <h3>Optionale Standortbestimmung</h3>
-      <p>Wenn Sie Ihre momentane Belastung kurz einordnen möchten, finden Sie hier eine knappe, nicht diagnostische Orientierung.</p>
-      <span class="tool-cta-btn">Selbsttest öffnen →</span>
+  <div class="tool-embed reveal" data-tool-script="/js/tool-selbsttest.js">
+    <button class="tool-embed-toggle" aria-expanded="false" aria-controls="embed-selbsttest">
+      <div class="tool-embed-icon tool-embed-icon--neutral" aria-hidden="true">📋</div>
+      <div class="tool-embed-body">
+        <h3>Optionale Standortbestimmung</h3>
+        <p>Wenn Sie Ihre momentane Belastung kurz einordnen möchten, finden Sie hier eine knappe, nicht diagnostische Orientierung.</p>
+      </div>
+      <svg class="tool-embed-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="tool-embed-panel" id="embed-selbsttest" role="region">
+      <div class="tool-embed-panel-inner">
+        <div class="wrap"><div id="prog"></div><div id="card"></div></div>
+      </div>
     </div>
-  </a>
+    <a href="/tools/selbsttest/" class="tool-embed-fallback">Auf eigener Seite öffnen →</a>
+  </div>
 
 <h2 id="ambiguous" class="reveal">Da und doch nicht da — Trauer ohne klaren Abschied</h2>
   <p class="reveal">Pauline Boss nennt das «Ambiguous Loss»: eine Trauer ohne Abschluss, weil der Verlust nicht endgültig ist und sich deshalb nicht einfach verarbeiten lässt. Alltagsnäher gesagt: Jemand ist noch da, und gleichzeitig ist vieles nicht mehr so, wie es einmal war.</p>
@@ -476,4 +484,7 @@ breadcrumbs:
 {% endblock %}
 {% block footer %}
 {% include "footer-medium.njk" %}
+{% endblock %}
+{% block scripts %}
+<script src="/js/tool-embed.js"></script>
 {% endblock %}

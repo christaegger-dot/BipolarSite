@@ -13,7 +13,7 @@ breadcrumbs:
   - name: "Modul 7: Langfristige Tragfähigkeit"
     url: "/modul/7/"
 ---
-{% block headCSS %}<!-- Module 7 styles migrated to module.css (P2.3) -->{% endblock %}
+{% block headCSS %}<link rel="stylesheet" href="/css/tool-embed.css?v=1">{% endblock %}
 {% block nav %}
 {% include "nav-full.njk" %}
 {% endblock %}
@@ -153,14 +153,29 @@ breadcrumbs:
     </div>
   </div>
 
-  <a href="/tools/durchatmen/" class="tool-cta reveal">
-    <div class="tool-cta-icon tool-cta-icon--teal">🌬</div>
-    <div class="tool-cta-body">
-      <h3>Durchatmen — geführte Atemübung</h3>
-      <p>Eine kurze, geführte Übung für Momente, in denen Anspannung nachlassen soll — ohne App, ohne Anmeldung.</p>
-      <span class="tool-cta-btn">Übung starten →</span>
+  <div class="tool-embed reveal" data-tool-script="/js/tool-durchatmen.js">
+    <button class="tool-embed-toggle" aria-expanded="false" aria-controls="embed-durchatmen">
+      <div class="tool-embed-icon tool-embed-icon--teal" aria-hidden="true">🌬</div>
+      <div class="tool-embed-body">
+        <h3>Durchatmen — geführte Atemübung</h3>
+        <p>Eine kurze, geführte Übung für Momente, in denen Anspannung nachlassen soll — ohne App, ohne Anmeldung.</p>
+      </div>
+      <svg class="tool-embed-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="tool-embed-panel" id="embed-durchatmen" role="region">
+      <div class="tool-embed-panel-inner">
+        <div class="breathe-circle">
+          <span class="breathe-label" id="breatheLabel" aria-live="polite" aria-atomic="true">Einatmen</span>
+        </div>
+        <div class="breathe-steps">
+          <div class="breathe-step"><span>4s</span>Einatmen</div>
+          <div class="breathe-step"><span>4s</span>Halten</div>
+          <div class="breathe-step"><span>6s</span>Ausatmen</div>
+        </div>
+      </div>
     </div>
-  </a>
+    <a href="/tools/durchatmen/" class="tool-embed-fallback">Auf eigener Seite öffnen →</a>
+  </div>
 
   <div class="selfcare-grid reveal content-wide">
     <div class="selfcare-card body">
@@ -317,14 +332,22 @@ breadcrumbs:
   <p class="inline-voice reveal"><span class="inline-voice-attribution">Daniel, 45, Ehemann:</span> «Die Wende kam, als wir aufgehört haben, nur über die Erkrankung zu reden, und angefangen haben, wieder über uns zu reden. Wir haben einen Abend pro Woche eingeführt, an dem Bipolar tabu ist. Das hat mehr für unsere Beziehung getan als die meisten Therapiestunden.» <span class="inline-voice-disclaimer">(typisierte Erfahrungsstimme, anonymisiert)</span></p>
 
   <!-- ══════════ 3. PARTNER-WÜNSCHE ══════════ -->
-  <a href="/tools/saeulen-check/" class="tool-cta reveal">
-    <div class="tool-cta-icon tool-cta-icon--blue">🏛️</div>
-    <div class="tool-cta-body">
-      <h3>Optionale Reflexion zu den fünf Säulen</h3>
-      <p>Wenn Sie Ihre aktuelle Stabilität kurz einordnen möchten, können Sie die fünf Säulen hier als ergänzende Orientierung durchgehen.</p>
-      <span class="tool-cta-btn">Säulen-Check öffnen →</span>
+  <div class="tool-embed reveal" data-tool-script="/js/tool-saeulen-check.js">
+    <button class="tool-embed-toggle" aria-expanded="false" aria-controls="embed-saeulen">
+      <div class="tool-embed-icon tool-embed-icon--blue" aria-hidden="true">🏗️</div>
+      <div class="tool-embed-body">
+        <h3>Optionale Reflexion zu den fünf Säulen</h3>
+        <p>Wenn Sie Ihre aktuelle Stabilität kurz einordnen möchten, können Sie die fünf Säulen hier als ergänzende Orientierung durchgehen.</p>
+      </div>
+      <svg class="tool-embed-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="tool-embed-panel" id="embed-saeulen" role="region">
+      <div class="tool-embed-panel-inner">
+        <div id="app"></div>
+      </div>
     </div>
-  </a>
+    <a href="/tools/saeulen-check/" class="tool-embed-fallback">Auf eigener Seite öffnen →</a>
+  </div>
 
   <h3 id="sichtbarkeit" class="reveal">Wenn Belastung unterschiedlich sichtbar wird</h3>
   <p class="reveal">Rollen, Erwartungen und alte Zuständigkeiten prägen mit, wie Belastung in einer Beziehung erlebt, gezeigt oder verschwiegen wird. Das hat weniger mit Persönlichkeit zu tun als mit dem, was nach aussen als selbstverständlich gilt — wer organisiert, wer ausgleicht, wer Rücksicht nimmt, wer schweigt, und wer überhaupt das Gefühl hat, Hilfe einfordern zu dürfen. Diese Muster zeigen sich in Partnerschaften besonders deutlich, sie wirken aber auch zwischen Eltern und erwachsenen Kindern, zwischen Geschwistern oder bei anderen nahestehenden Personen.</p>
@@ -503,4 +526,7 @@ breadcrumbs:
 {% endblock %}
 {% block footer %}
 {% include "footer-medium.njk" %}
+{% endblock %}
+{% block scripts %}
+<script src="/js/tool-embed.js"></script>
 {% endblock %}

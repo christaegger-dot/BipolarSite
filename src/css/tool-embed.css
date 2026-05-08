@@ -1,0 +1,193 @@
+/* ══════════════════════════════════════════════════════════════════════
+   tool-embed.css — Inline Tool Panel (Selbsttest, Atemübung, Säulen-Check)
+   Lädt nur auf Seiten mit data-tool-embed Attribut
+   ══════════════════════════════════════════════════════════════════════ */
+
+/* ── Container ─────────────────────────────────────────────────────── */
+.tool-embed {
+  border: 1px solid var(--border-warm);
+  border-radius: var(--card-radius);
+  background: var(--card);
+  overflow: hidden;
+  margin-block: var(--space-lg);
+  box-shadow: var(--card-shadow);
+}
+
+/* ── Toggle-Header (ersetzt den alten <a> tool-cta) ─────────────────── */
+.tool-embed-toggle {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  color: inherit;
+  font-family: inherit;
+  transition: background 0.15s ease;
+}
+
+.tool-embed-toggle:hover {
+  background: var(--surface-alt);
+}
+
+.tool-embed-toggle:focus-visible {
+  outline: 2px solid var(--teal-solid);
+  outline-offset: -2px;
+}
+
+.tool-embed-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.2rem;
+}
+
+.tool-embed-icon--neutral { background: var(--bg); }
+.tool-embed-icon--teal    { background: var(--success-soft); }
+.tool-embed-icon--blue    { background: var(--blue-phase-light); }
+
+.tool-embed-body {
+  min-width: 0;
+}
+
+.tool-embed-body h3 {
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 2px;
+  line-height: 1.3;
+}
+
+.tool-embed-body p {
+  font-size: var(--text-xs);
+  color: var(--text-soft);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.tool-embed-chevron {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-soft);
+  transition: transform 0.25s ease;
+}
+
+.tool-embed[data-open] .tool-embed-chevron {
+  transform: rotate(180deg);
+}
+
+/* ── Panel (aufklappbar) ────────────────────────────────────────────── */
+.tool-embed-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+  border-top: 0 solid var(--border-warm);
+}
+
+.tool-embed[data-open] .tool-embed-panel {
+  grid-template-rows: 1fr;
+  border-top-width: 1px;
+}
+
+.tool-embed-panel-inner {
+  overflow: hidden;
+  padding: 0;
+  transition: padding 0.3s ease;
+}
+
+.tool-embed[data-open] .tool-embed-panel-inner {
+  padding: var(--space-lg);
+}
+
+/* ── Fallback-Link ──────────────────────────────────────────────────── */
+.tool-embed-fallback {
+  display: block;
+  text-align: right;
+  font-size: var(--text-xs);
+  color: var(--text-soft);
+  padding: var(--space-sm) var(--space-lg) var(--space-md);
+  border-top: 1px solid var(--border-warm);
+  text-decoration: none;
+}
+
+.tool-embed-fallback:hover {
+  color: var(--teal-solid);
+}
+
+.tool-embed[data-open] .tool-embed-fallback {
+  display: block;
+}
+
+.tool-embed:not([data-open]) .tool-embed-fallback {
+  display: none;
+}
+
+/* ── Atemübung spezifisch ───────────────────────────────────────────── */
+.tool-embed .breathe-wrap {
+  padding: 0;
+  min-height: unset;
+  background: none;
+}
+
+.tool-embed .breathe-intro {
+  display: none; /* Breadcrumb + H1 nicht im Embed zeigen */
+}
+
+.tool-embed .breathe-circle {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto var(--space-md);
+  font-size: var(--text-sm);
+  background: #3a9aa3;
+  border-color: rgba(255 255 255 / 40%);
+}
+
+.tool-embed .breathe-label {
+  color: var(--white-text, #fff);
+}
+
+.tool-embed .breathe-steps {
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.tool-embed .breathe-transition,
+.tool-embed .breathe-q,
+.tool-embed .breathe-actions {
+  display: none; /* Notfall-Links im Embed nicht zeigen */
+}
+
+/* ── Selbsttest spezifisch ──────────────────────────────────────────── */
+.tool-embed .wrap {
+  padding: 0;
+  max-width: none;
+}
+
+.tool-embed .hdr {
+  display: none; /* Breadcrumb + H1 nicht im Embed zeigen */
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .tool-embed-toggle {
+    padding: var(--space-sm) var(--space-md);
+    gap: var(--space-sm);
+  }
+
+  .tool-embed[data-open] .tool-embed-panel-inner {
+    padding: var(--space-md);
+  }
+}
