@@ -2878,8 +2878,8 @@ body.impressum-page .info-box strong {
 }
 
 .home-page .tools-highlight {
-  margin-top: calc(var(--section-standard) + 8px);
-  padding: calc(var(--section-standard) - 8px) clamp(1.4rem, 2.3vw, 2rem) calc(var(--section-standard) - 6px);
+  margin-top: var(--section-standard); /* was calc(+8px): normalised to section-standard */
+  padding: var(--section-standard) clamp(1.4rem, 2.3vw, 2rem); /* was -8px/-6px offsets: unified */
   border: 1px solid rgba(45,40,35,8%);
   border-radius: calc(var(--card-radius) + 14px);
   background: linear-gradient(180deg, rgba(255,255,255,92%), var(--surface-ink-mist) 100%);
