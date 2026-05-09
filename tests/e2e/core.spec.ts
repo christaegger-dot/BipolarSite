@@ -13,19 +13,19 @@ async function expectNoHorizontalScroll(page: Page) {
 }
 
 test.describe('core user paths', () => {
-  test('homepage introduces the site clearly and exposes four direct entry paths', async ({ page }) => {
+  test('homepage introduces the site clearly and exposes three direct entry paths', async ({ page }) => {
     await page.goto('/');
 
     await expect(page.getByRole('heading', { level: 1 })).toContainText(/Wenn eine bipolare Störung auch Ihr Leben mitbetrifft/i);
-    await expect(page.locator('.home-hero-subtitle')).toContainText(/Werkzeugen und Anlaufstellen/i);
+    await expect(page.locator('.home-hero-subtitle')).toContainText(/ruhige Begleitung für Angehörige/i);
+    await expect(page.locator('.home-hero-subtitle')).not.toContainText(/praktischen Werkzeugen und Anlaufstellen/i);
     await expect(page.locator('.entry-paths-list a[href="/notfall/"]').first()).toContainText(/Notfallweg/i);
     await expect(page.locator('.entry-paths-list a[href="/modul/1/"]').first()).toContainText(/verstehen, was passiert/i);
     await expect(page.locator('.entry-paths-list a[href="/modul/2/"]').first()).toContainText(/selbst am Limit/i);
-    await expect(page.locator('.entry-paths-list a[href="/werkzeuge/"]').first()).toContainText(/konkrete Werkzeuge/i);
   });
 
-  test('homepage triage sends urgent answers directly to the notfall page', async ({ page }) => {
-    await page.goto('/');
+  test('einstiegsfrage tool sends urgent answers directly to the notfall page', async ({ page }) => {
+    await page.goto('/tools/einstiegsfrage/');
 
     await Promise.all([
       page.waitForURL(/\/notfall\/$/),

@@ -96,3 +96,22 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Run smoke tests
         run: npm run test:e2e
+
+  release-audit:
+    name: Release Audit (PDF manifest, internal links, SEO)
+    runs-on: ubuntu-latest
+    needs: build-and-lint
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - name: Install poppler-utils (provides pdfinfo for PDF manifest checks)
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - name: Run release audit (skip production-only checks)
+        run: npm run audit:release:ci

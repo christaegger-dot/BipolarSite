@@ -1,7 +1,7 @@
 ---
 title: "Rechtliche Orientierung"
 slug: "rechtliche_orientierung"
-source_pdf: "/handouts/rechtliche_orientierung.pdf"
+source_pdf: "/downloads/rechtliche-orientierung-angehoerige-puk-zuerich.pdf"
 status: "promoted"
 show_status_badge: false
 show_priority_badge: false

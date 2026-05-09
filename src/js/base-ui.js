@@ -75,7 +75,7 @@
     mobileTocQuery.addListener(syncMobileToc);
   }
 
-  if (window.innerWidth >= 1100) {
+  if (window.innerWidth >= 1280) {
     const tocOl = document.querySelector(".toc ol");
     const contentEl = document.querySelector("main.content");
 
@@ -95,7 +95,14 @@
       });
 
       nav.appendChild(ol);
-      contentEl.parentNode.insertBefore(nav, contentEl);
+
+      // Wrap sidebar + main in a layout container so the grid can place them
+      // in columns and the sidebar can use position:sticky inside that scope.
+      const layoutWrapper = document.createElement("div");
+      layoutWrapper.className = "module-layout";
+      contentEl.parentNode.insertBefore(layoutWrapper, contentEl);
+      layoutWrapper.appendChild(nav);
+      layoutWrapper.appendChild(contentEl);
 
       const sidebarLinks = Array.from(nav.querySelectorAll("a"));
       const sidebarTargets = sidebarLinks

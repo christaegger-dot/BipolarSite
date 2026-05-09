@@ -13,7 +13,7 @@ breadcrumbs:
   - name: "Modul 7: Langfristige Tragfähigkeit"
     url: "/modul/7/"
 ---
-{% block headCSS %}<!-- Module 7 styles migrated to module.css (P2.3) -->{% endblock %}
+{% block headCSS %}<link rel="stylesheet" href="/css/tool-embed.css?v=1">{% endblock %}
 {% block nav %}
 {% include "nav-full.njk" %}
 {% endblock %}
@@ -25,8 +25,18 @@ breadcrumbs:
   <div class="breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><a href="/module/">Module</a><span class="sep" aria-hidden="true">›</span><span>Langfristige Tragfähigkeit</span></div>
     <svg class="hero-icon" aria-hidden="true" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 36V20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M20 20c0-6-6-12-12-12 0 6 6 12 12 12z" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="1.5"/><path d="M20 24c0-5 5-10 10-10-0 5-5 10-10 10z" fill="currentColor" opacity="0.1" stroke="currentColor" stroke-width="1.5"/></svg>
   <div class="module-badge">Modul 7 / 8</div>
+  <div class="module-progress" role="img" aria-label="Modul 7 von 8">
+    <span class="module-progress-seg is-done" aria-hidden="true"></span>
+    <span class="module-progress-seg is-done" aria-hidden="true"></span>
+    <span class="module-progress-seg is-done" aria-hidden="true"></span>
+    <span class="module-progress-seg is-done" aria-hidden="true"></span>
+    <span class="module-progress-seg is-done" aria-hidden="true"></span>
+    <span class="module-progress-seg is-done" aria-hidden="true"></span>
+    <span class="module-progress-seg is-current" aria-hidden="true"></span>
+    <span class="module-progress-seg" aria-hidden="true"></span>
+  </div>
   <h1>Langfristige Tragfähigkeit</h1>
-  <div class="module-meta"><span>⏱ ca. 12–14 Minuten</span><span>🌿 Für die lange Strecke</span></div>
+  <div class="module-meta"><span><span class="module-meta-icon" aria-hidden="true">⏱</span> ca. 12–14 Minuten</span><span><span class="module-meta-icon" aria-hidden="true">🌿</span> Für die lange Strecke</span></div>
 
   <div class="quote-block">
     <blockquote>Wir haben gelernt, als Team handlungsfähig zu bleiben. Er sagt mir, wenn sich etwas zuspitzt. Ich sage ihm, wenn ich eine Pause brauche. Es ist nicht perfekt — aber es ist unseres.</blockquote>
@@ -153,14 +163,29 @@ breadcrumbs:
     </div>
   </div>
 
-  <a href="/tools/durchatmen/" class="tool-cta reveal">
-    <div class="tool-cta-icon tool-cta-icon--teal">🌬</div>
-    <div class="tool-cta-body">
-      <h3>Durchatmen — geführte Atemübung</h3>
-      <p>Eine kurze, geführte Übung für Momente, in denen Anspannung nachlassen soll — ohne App, ohne Anmeldung.</p>
-      <span class="tool-cta-btn">Übung starten →</span>
+  <div class="tool-embed reveal" data-tool-script="/js/tool-durchatmen.js">
+    <button type="button" class="tool-embed-toggle" aria-expanded="false" aria-controls="embed-durchatmen">
+      <span class="tool-embed-icon tool-embed-icon--teal" aria-hidden="true">🌬</span>
+      <span class="tool-embed-body">
+        <span class="tool-embed-body-title">Durchatmen — geführte Atemübung</span>
+        <span class="tool-embed-body-desc">Eine kurze, geführte Übung für Momente, in denen Anspannung nachlassen soll — ohne App, ohne Anmeldung.</span>
+      </span>
+      <svg class="tool-embed-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="tool-embed-panel" id="embed-durchatmen" role="region" aria-label="Durchatmen — geführte Atemübung">
+      <div class="tool-embed-panel-inner">
+        <div class="breathe-circle">
+          <span class="breathe-label" id="breatheLabel" aria-live="polite" aria-atomic="true">Einatmen</span>
+        </div>
+        <div class="breathe-steps">
+          <div class="breathe-step"><span>4s</span>Einatmen</div>
+          <div class="breathe-step"><span>4s</span>Halten</div>
+          <div class="breathe-step"><span>6s</span>Ausatmen</div>
+        </div>
+      </div>
     </div>
-  </a>
+    <a href="/tools/durchatmen/" class="tool-embed-fallback">Auf eigener Seite öffnen →</a>
+  </div>
 
   <div class="selfcare-grid reveal content-wide">
     <div class="selfcare-card body">
@@ -314,25 +339,42 @@ breadcrumbs:
     <div class="pillar-card"><div class="pillar-num">5</div><div><h3>Eigene Entlastung + Unterstützung</h3><p>Selbsthilfegruppen, eigene Therapie, Fachstelle. Auf der langen Strecke wird Belastung oft nicht durch fehlende Liebe schwerer, sondern durch Erschöpfung und Isolation.</p></div></div>
   </div>
 
-  <div class="quote-block reveal">
-    <blockquote>Die Wende kam, als wir aufgehört haben, nur über die Erkrankung zu reden, und angefangen haben, wieder über uns zu reden. Wir haben einen Abend pro Woche eingeführt, an dem Bipolar tabu ist. Das hat mehr für unsere Beziehung getan als die meisten Therapiestunden.</blockquote>
-    <cite>— Daniel, 45 Jahre, Ehemann (typisierte Erfahrungsstimme, anonymisiert)</cite>
-  </div>
+  <p class="inline-voice reveal"><span class="inline-voice-attribution">Daniel, 45, Ehemann:</span> «Die Wende kam, als wir aufgehört haben, nur über die Erkrankung zu reden, und angefangen haben, wieder über uns zu reden. Wir haben einen Abend pro Woche eingeführt, an dem Bipolar tabu ist. Das hat mehr für unsere Beziehung getan als die meisten Therapiestunden.» <span class="inline-voice-disclaimer">(typisierte Erfahrungsstimme, anonymisiert)</span></p>
 
   <!-- ══════════ 3. PARTNER-WÜNSCHE ══════════ -->
-  <a href="/tools/saeulen-check/" class="tool-cta reveal">
-    <div class="tool-cta-icon tool-cta-icon--blue">🏛️</div>
-    <div class="tool-cta-body">
-      <h3>Optionale Reflexion zu den fünf Säulen</h3>
-      <p>Wenn Sie Ihre aktuelle Stabilität kurz einordnen möchten, können Sie die fünf Säulen hier als ergänzende Orientierung durchgehen.</p>
-      <span class="tool-cta-btn">Säulen-Check öffnen →</span>
+  <div class="tool-embed reveal" data-tool-script="/js/tool-saeulen-check.js">
+    <button type="button" class="tool-embed-toggle" aria-expanded="false" aria-controls="embed-saeulen">
+      <span class="tool-embed-icon tool-embed-icon--blue" aria-hidden="true">🏗️</span>
+      <span class="tool-embed-body">
+        <span class="tool-embed-body-title">Optionale Reflexion zu den fünf Säulen</span>
+        <span class="tool-embed-body-desc">Wenn Sie Ihre aktuelle Stabilität kurz einordnen möchten, können Sie die fünf Säulen hier als ergänzende Orientierung durchgehen.</span>
+      </span>
+      <svg class="tool-embed-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="tool-embed-panel" id="embed-saeulen" role="region" aria-label="Optionale Reflexion zu den fünf Säulen">
+      <div class="tool-embed-panel-inner">
+        <div id="app"></div>
+      </div>
     </div>
-  </a>
+    <a href="/tools/saeulen-check/" class="tool-embed-fallback">Auf eigener Seite öffnen →</a>
+  </div>
 
   <h3 id="sichtbarkeit" class="reveal">Wenn Belastung unterschiedlich sichtbar wird</h3>
-  <p class="reveal">Rollen, Erwartungen und alte Zuständigkeiten prägen mit, wie Belastung in einer Beziehung erlebt, gezeigt oder verschwiegen wird. Das hat weniger mit Persönlichkeit zu tun als mit dem, was nach aussen als selbstverständlich gilt — wer organisiert, wer ausgleicht, wer Rücksicht nimmt, wer schweigt, und wer überhaupt das Gefühl hat, Hilfe einfordern zu dürfen.</p>
-  <p class="reveal">Gerade in Partnerschaften bleibt viel unsichtbar: emotionale Wachsamkeit, das Mitdenken von Frühzeichen, Terminorganisation, finanzielle Mitverantwortung, das Bemühen, nach aussen Stabilität aufrechtzuerhalten. Solche Lasten sind nicht sofort erkennbar — auf Dauer können sie trotzdem stark erschöpfen. Wer lange still mitträgt, hört innerlich oft Sätze wie «Ich darf mich jetzt nicht auch noch wichtig machen». Auf Dauer verstärkt das die Isolation.</p>
-  <p class="reveal">Hilfreich ist deshalb nicht die Frage, wer typischerweise wie reagiert, sondern: <strong>Welche Erwartungen wirken in unserer Situation — und was machen sie mit unserer Belastung?</strong> Unsichtbare Organisations- und Beziehungsarbeit wird erst verhandelbar, wenn sie Sprache bekommt. Dazu gehört auch, Unterschiede in Belastung nicht als persönliches Versagen zu deuten, sondern als Hinweis auf Muster, die gemeinsam angeschaut werden dürfen.</p>
+  <p class="reveal">Rollen, Erwartungen und alte Zuständigkeiten prägen mit, wie Belastung in einer Beziehung erlebt, gezeigt oder verschwiegen wird. Das hat weniger mit Persönlichkeit zu tun als mit dem, was nach aussen als selbstverständlich gilt — wer organisiert, wer ausgleicht, wer Rücksicht nimmt, wer schweigt, und wer überhaupt das Gefühl hat, Hilfe einfordern zu dürfen. Diese Muster zeigen sich in Partnerschaften besonders deutlich, sie wirken aber auch zwischen Eltern und erwachsenen Kindern, zwischen Geschwistern oder bei anderen nahestehenden Personen.</p>
+  <p class="reveal">Gerade in engen Beziehungen bleibt viel unsichtbar: emotionale Wachsamkeit, das Mitdenken von Frühzeichen, Terminorganisation, finanzielle Mitverantwortung, das Bemühen, nach aussen Stabilität aufrechtzuerhalten. Solche Lasten sind nicht sofort erkennbar — auf Dauer können sie trotzdem stark erschöpfen. Wer lange still mitträgt, hört innerlich oft Sätze wie «Ich darf mich jetzt nicht auch noch wichtig machen». Auf Dauer verstärkt das die Isolation.</p>
+
+  <p class="reveal">Drei Muster begegnen Angehörigen besonders häufig — sie sind keine festen Typen, sondern Lesarten, die sich vermischen können:</p>
+  <ul class="step-list reveal">
+    <li><strong>Wenn Belastung eher still wird:</strong> Überlastung zeigt sich weniger in offenen Konflikten als in ständiger Anpassung, stiller Erschöpfung oder dem Gefühl, immer mitdenken zu müssen. Nach aussen wirkt vieles weiter geordnet. Innerlich nehmen Anspannung, Müdigkeit oder emotionale Leere zu — gerade dann, wenn viel zuverlässig übernommen wird, bleibt das oft lange unerkannt.</li>
+    <li><strong>Wenn Belastung eher verborgen wird:</strong> Rückzug, Funktionieren oder der Versuch, Probleme allein zu lösen. Nach aussen wirkt das kontrolliert oder sachlich. Innen kann es mit Scham oder dem Gefühl verbunden sein, für die eigene Belastung keinen legitimen Platz zu haben — Unterstützung wird dann häufig spät gesucht.</li>
+    <li><strong>Wenn Lasten ungleich verteilt bleiben:</strong> In manchen Beziehungen schleichen sich Zuständigkeiten ein, über die kaum noch gesprochen wird. Eine Person organisiert, beobachtet, erinnert, beruhigt. Die andere merkt oft erst spät, wie viel unsichtbar mitgetragen wird. Das ist kein Beweis für „besser geeignet" oder „weniger belastet" — eher ein Hinweis, dass Verantwortung in belasteten Systemen leicht stillschweigend verteilt wird.</li>
+  </ul>
+
+  <p class="reveal">Hilfreich ist deshalb nicht die Frage, wer typischerweise wie reagiert, sondern: <strong>Welche Erwartungen wirken in unserer Situation — und was machen sie mit unserer Belastung?</strong> Unsichtbare Organisations- und Beziehungsarbeit wird erst verhandelbar, wenn sie Sprache bekommt. Zum Thema Grenzen, Schuld und Lastverteilung siehe auch <a href="/modul/5/#grenzen" class="link-teal">Modul 5: Warum Grenzen setzen so schwer fällt</a>.</p>
+
+  <div class="bright-moment reveal">
+    <p>Wenn Sie merken, dass Sie über längere Zeit mehr tragen, weniger Raum haben oder Ihre Erschöpfung kaum vorkommt: Das ist <strong>kein Zeichen persönlicher Schwäche</strong>. Es kann ein Hinweis darauf sein, dass Belastung und Verantwortung in Ihrer Situation stillschweigend ungleich verteilt sind — und dass es einen Anlass gibt, sie ausdrücklich zu besprechen.</p>
+  </div>
 
   <h3 id="wuensche" class="reveal">Was betroffene Menschen sich häufig wünschen</h3>
   <p class="reveal">Ein kurzer Blick auf die andere Seite kann helfen, Missverständnisse zu entschärfen. Nicht, um Ihre Belastung kleiner zu machen, sondern um zu sehen, welche Formen von Unterstützung oft eher tragen als Kontrolle oder Schonhaltung.</p>
@@ -462,8 +504,8 @@ breadcrumbs:
   </div>
 
   <!-- HANDOUTS -->
-  <div class="handouts reveal">
-    <div class="handouts-title">Passende Handouts</div>
+  <div class="handouts handouts--list reveal">
+    <div class="handouts-title">Passende Handouts zum Herunterladen</div>
     <div class="handouts-grid">
       {% for asset in pdfs.groups.modul7 %}
       {{ handoutCard(asset) }}
@@ -494,4 +536,7 @@ breadcrumbs:
 {% endblock %}
 {% block footer %}
 {% include "footer-medium.njk" %}
+{% endblock %}
+{% block scripts %}
+<script src="/js/tool-embed.js"></script>
 {% endblock %}

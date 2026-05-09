@@ -35,16 +35,25 @@ breadcrumbs:
     </div>
     <svg class="hero-icon" aria-hidden="true" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 20c4-8 8-8 12 0s8 8 12 0 8-8 12 0" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
     <div class="module-badge">Modul 1 / 8</div>
+  <div class="module-progress" role="img" aria-label="Modul 1 von 8">
+    <span class="module-progress-seg is-current" aria-hidden="true"></span>
+    <span class="module-progress-seg" aria-hidden="true"></span>
+    <span class="module-progress-seg" aria-hidden="true"></span>
+    <span class="module-progress-seg" aria-hidden="true"></span>
+    <span class="module-progress-seg" aria-hidden="true"></span>
+    <span class="module-progress-seg" aria-hidden="true"></span>
+    <span class="module-progress-seg" aria-hidden="true"></span>
+    <span class="module-progress-seg" aria-hidden="true"></span>
+  </div>
     <h1>Die bipolare Störung verstehen</h1>
     <div class="module-meta">
-      <span>⏱ ca. 10–12 Minuten</span>
-      <span>📖 Grundlagenwissen</span>
+      <span><span class="module-meta-icon" aria-hidden="true">⏱</span> ca. 10–12 Minuten</span>
+      <span><span class="module-meta-icon" aria-hidden="true">Aa</span> Grundlagenwissen</span>
     </div>
 
-    <!-- Quote -->
     <div class="quote-block">
-      <blockquote>Als ich endlich begriffen habe, dass seine Gereiztheit ein Symptom ist und nicht gegen mich gerichtet — das hat alles verändert. Ich war nicht weniger erschöpft, aber ich war nicht mehr wütend.</blockquote>
-      <cite>— Thomas, 51 Jahre, Ehemann (anonymisiert)</cite>
+      <blockquote>Ich habe jahrelang gedacht, er ist einfach schwierig. Dann kam die Diagnose — und plötzlich hatte das alles einen Namen. Ich war nicht weniger erschöpft. Aber ich habe aufgehört, mich zu fragen, ob ich überreagiere.</blockquote>
+      <cite>— Angehörige, 44 Jahre (typisierte Erfahrungsstimme, anonymisiert)</cite>
     </div>
 
     <div class="module-summary">
@@ -75,7 +84,7 @@ breadcrumbs:
 <main class="content" id="main-content">
 
   <!-- ══════════ DIAGNOSESCHOCK-EINSTIEG ══════════ -->
-  <div id="neu" class="neu-block reveal">
+  <aside id="neu" class="neu-block reveal" aria-label="Hilfe für die ersten Tage nach der Diagnose">
 
     <div class="neu-kicker">Wenn die Diagnose gerade neu ist</div>
 
@@ -125,7 +134,7 @@ breadcrumbs:
       Wenn Sie bereit sind, weiterzulesen: <a href="#verstehen" class="link-teal-bold">Modul 1 beginnt hier ↓</a>
     </div>
 
-  </div>
+  </aside>
   <!-- ══ Ende Diagnoseschock-Einstieg ══ -->
 
   <h2 id="verstehen" class="reveal">Was Sie als Angehörige verstehen müssen</h2>
@@ -135,9 +144,11 @@ breadcrumbs:
   <p class="hint-note hint-note--spaced reveal"><strong>Hinweis:</strong> Viele Beispiele stammen aus Paarbeziehungen. Die Grundfragen — Was ist Symptom, was Beziehung, wo brauche ich Unterstützung? — gelten genauso für Eltern, Geschwister und erwachsene Kinder.</p>
 
   <div class="quote-block reveal">
-    <blockquote>Ich wollte am Anfang vor allem wissen, ob das jetzt er ist, die Krankheit ist oder ob ich überreagiere. Erst später habe ich verstanden: Für Angehörige ist genau diese Unklarheit oft die eigentliche Belastung.</blockquote>
-    <cite>— Partnerin, anonymisiert</cite>
+    <blockquote>Als ich endlich begriffen habe, dass seine Gereiztheit ein Symptom ist und nicht gegen mich gerichtet — das hat alles verändert. Ich war nicht weniger erschöpft, aber ich war nicht mehr wütend.</blockquote>
+    <cite>— Thomas, 51 Jahre, Ehemann (anonymisiert)</cite>
   </div>
+
+  <p class="inline-voice reveal"><span class="inline-voice-attribution">Eine Partnerin formulierte es so:</span> «Ich wollte am Anfang vor allem wissen, ob das jetzt er ist, die Krankheit ist oder ob ich überreagiere. Erst später habe ich verstanden: Für Angehörige ist genau diese Unklarheit oft die eigentliche Belastung.» <span class="inline-voice-disclaimer">(typisierte Erfahrungsstimme, anonymisiert)</span></p>
 
   <h2 class="reveal">Bipolar ist mehr als Hoch und Tief</h2>
   <p class="reveal">Das gängige Bild ist zu simpel: oben Manie, unten Depression, dazwischen Normalität. In der Realität sind Verläufe oft unruhiger. Es gibt klare Episoden, schleichende Übergänge, gemischte Zustände, scheinbar gute Phasen mit Kipprisiko und stabile Zeiten, die sich für Angehörige trotzdem nicht wirklich sicher anfühlen.</p>
@@ -149,6 +160,7 @@ breadcrumbs:
   <h2 id="phasen" class="reveal">Wie sich Episoden im Alltag zeigen</h2>
   <p class="reveal">Die Phasenlehre ist nur dann hilfreich, wenn sie in den Alltag übersetzt wird. Entscheidend ist nicht nur, wie eine Episode diagnostisch heisst, sondern wie sie sich für Sie zu Hause anfühlt: unberechenbar, laut, leer, beschämend, angsteinflössend oder seltsam schwer greifbar.</p>
 
+  <p class="phase-tabs-hint reveal"><span aria-hidden="true">↔</span> Drei Phasen — tippen Sie eine an, um zu wechseln</p>
   <div class="phase-explorer reveal content-wide">
     <div class="phase-tabs" role="tablist" aria-label="Erkrankungsphasen">
       <button type="button" class="phase-tab active-mania" role="tab" aria-selected="true" aria-controls="phase-mania" id="tab-mania" data-phase="mania" tabindex="0">
@@ -245,7 +257,7 @@ breadcrumbs:
 
   <!-- Tool link: Phasenverlauf -->
   <a href="/tools/phasenverlauf/" class="tool-cta reveal">
-    <div class="tool-cta-icon tool-cta-icon--phase-green">📈</div>
+    <div class="tool-cta-icon tool-cta-icon--phase-green" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="14 7 21 7 21 14"/></svg></div>
     <div class="tool-cta-body">
       <h3>Bipolarer Phasenverlauf — interaktiv</h3>
       <p>Klicken Sie die einzelnen Phasen an und erfahren Sie, was sie für Betroffene und Angehörige bedeuten — inkl. typischer Dauer und praktischer Hinweise.</p>
@@ -262,44 +274,21 @@ breadcrumbs:
   <h2 id="typen" class="reveal">Bipolar I und Bipolar II</h2>
   <p class="reveal">Die Unterscheidung ist für Angehörige nicht nur medizinisch relevant. Sie verändert oft, welche Belastung im Vordergrund steht: sichtbare Eskalation, lange Depression, fehlende Ernstnahme durch das Umfeld oder wiederkehrende Unsicherheit in scheinbar guten Phasen.</p>
 
-  <div class="accordion-group reveal">
-    <div class="accordion-item">
-      <button type="button" class="accordion-header" aria-expanded="false" aria-controls="accordion-bipolar-i">
-        <span class="accordion-header-left">
-          <span class="accordion-icon-badge">I</span>
-          <span class="accordion-label-group">
-            <span class="accordion-title">Was ist Bipolar I?</span>
-            <span class="accordion-subtitle">Die «sichtbare» Form mit ausgeprägten Manien</span>
-          </span>
-        </span>
-        <span class="accordion-chevron">▼</span>
-      </button>
-      <div class="accordion-body" id="accordion-bipolar-i" hidden>
-        <div class="accordion-body-inner">
-          <p>Bipolar I ist die Form, die die meisten Menschen vor Augen haben, wenn sie «bipolar» hören. Die manischen Episoden sind oft unübersehbar: Die erkrankte Person schläft kaum noch, hat grandiose Ideen, gibt unkontrolliert Geld aus, redet ohne Pause und ist überzeugt, alles sei grossartig.</p>
-          <p>Die Manie kann so schwer werden, dass eine Hospitalisation nötig wird. Für Angehörige steht hier oft die sichtbare Eskalation im Vordergrund: Kontrollverlust, Angst, Gefahr, Beschämung und das Gefühl, den vertrauten Menschen zeitweise nicht wiederzuerkennen.</p>
-        </div>
-      </div>
+  <div class="bipolar-types-grid reveal content-wide">
+    <div class="bipolar-type-card">
+      <div class="bipolar-type-badge">I</div>
+      <h3 class="bipolar-type-title">Bipolar I</h3>
+      <p class="bipolar-type-subtitle">Die «sichtbare» Form mit ausgeprägten Manien</p>
+      <p>Bipolar I ist die Form, die die meisten Menschen vor Augen haben, wenn sie «bipolar» hören. Die manischen Episoden sind oft unübersehbar: Die erkrankte Person schläft kaum noch, hat grandiose Ideen, gibt unkontrolliert Geld aus, redet ohne Pause und ist überzeugt, alles sei grossartig.</p>
+      <p>Die Manie kann so schwer werden, dass eine Hospitalisation nötig wird. Für Angehörige steht hier oft die sichtbare Eskalation im Vordergrund: Kontrollverlust, Angst, Gefahr, Beschämung und das Gefühl, den vertrauten Menschen zeitweise nicht wiederzuerkennen.</p>
     </div>
-
-    <div class="accordion-item">
-      <button type="button" class="accordion-header" aria-expanded="false" aria-controls="accordion-bipolar-ii">
-        <span class="accordion-header-left">
-          <span class="accordion-icon-badge">II</span>
-          <span class="accordion-label-group">
-            <span class="accordion-title">Was ist Bipolar II?</span>
-            <span class="accordion-subtitle">Die «unsichtbare» Form mit langen Depressionen</span>
-          </span>
-        </span>
-        <span class="accordion-chevron">▼</span>
-      </button>
-      <div class="accordion-body" id="accordion-bipolar-ii" hidden>
-        <div class="accordion-body-inner">
-          <p>Bipolar II ist weniger bekannt, aber nicht weniger belastend. Statt vollständiger Manien treten Hypomanien auf — abgeschwächte, kürzere Hochphasen von etwa 4 bis 7 Tagen. Die Hypomanie wird oft als «gute Phase» fehlinterpretiert.</p>
-          <p>Was Bipolar II besonders belastend macht: Die depressiven Phasen sind oft schwerer und dauern länger als bei Bipolar I. Die eigentliche Krankheitslast liegt damit häufig nicht in der auffälligen Hochphase, sondern in der langen, zermürbenden Depression — die von aussen oft kaum sichtbar ist.</p>
-          <p><strong>Warum der Unterschied für Angehörige wichtig ist:</strong> Bei Bipolar II fühlen sich Angehörige besonders oft nicht ernst genommen. Das Umfeld sagt «So schlimm ist das doch nicht» — weil niemand die Hypomanie als Problem erkennt. Die eigentliche Belastung liegt in den langen depressiven Phasen, die Wochen oder Monate dauern können.</p>
-        </div>
-      </div>
+    <div class="bipolar-type-card">
+      <div class="bipolar-type-badge">II</div>
+      <h3 class="bipolar-type-title">Bipolar II</h3>
+      <p class="bipolar-type-subtitle">Die «unsichtbare» Form mit langen Depressionen</p>
+      <p>Bipolar II ist weniger bekannt, aber nicht weniger belastend. Statt vollständiger Manien treten Hypomanien auf — abgeschwächte, kürzere Hochphasen von etwa 4 bis 7 Tagen. Die Hypomanie wird oft als «gute Phase» fehlinterpretiert.</p>
+      <p>Was Bipolar II besonders belastend macht: Die depressiven Phasen sind oft schwerer und dauern länger als bei Bipolar I. Die eigentliche Krankheitslast liegt damit häufig nicht in der auffälligen Hochphase, sondern in der langen, zermürbenden Depression — die von aussen oft kaum sichtbar ist.</p>
+      <p><strong>Warum der Unterschied für Angehörige wichtig ist:</strong> Bei Bipolar II fühlen sich Angehörige besonders oft nicht ernst genommen. Das Umfeld sagt «So schlimm ist das doch nicht» — weil niemand die Hypomanie als Problem erkennt. Die eigentliche Belastung liegt in den langen depressiven Phasen, die Wochen oder Monate dauern können.</p>
     </div>
   </div>
 
@@ -365,11 +354,14 @@ breadcrumbs:
     <h3>Ein Leben in Wellen</h3>
     <p>Die blaue Linie zeigt den Krankheitsverlauf. Die gestrichelte orange Linie zeigt schematisch, warum Angehörige nach Episoden oft nicht einfach zum inneren Ausgangspunkt zurückkehren.</p>
     <div class="wave-chart">
-      <svg role="img" aria-label="Konzeptionelles Wellenmodell: Stimmungsverlauf bei bipolarer Störung über die Lebensspanne mit Manie-, Hypomanie- und Depressionsphasen" viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg">
-        <!-- Y-axis labels (inside SVG) -->
-        <text x="58" y="48" fill="#B45309" font-size="11" font-weight="600" text-anchor="end" font-family="DM Sans, sans-serif">Manie</text>
-        <text x="58" y="128" fill="#0d7a5f" font-size="11" font-weight="600" text-anchor="end" font-family="DM Sans, sans-serif">Stabil</text>
-        <text x="58" y="208" fill="#5b7fa5" font-size="11" font-weight="600" text-anchor="end" font-family="DM Sans, sans-serif">Depression</text>
+      <svg role="img" aria-label="Konzeptionelles Wellenmodell: Stimmungsverlauf bei bipolarer Störung über mehrere Jahre, mit Manie- und Depressionsphasen sowie steigender Angehörigen-Belastung" viewBox="0 0 900 290" xmlns="http://www.w3.org/2000/svg">
+        <!-- Y-axis title (rotated) -->
+        <text x="20" y="125" fill="#5d6b7e" font-size="12" font-weight="600" text-anchor="middle" font-family="DM Sans, sans-serif" transform="rotate(-90 20 125)">Stimmung</text>
+
+        <!-- Y-axis tick labels -->
+        <text x="62" y="48" fill="#6b3d6e" font-size="13" font-weight="600" text-anchor="end" font-family="DM Sans, sans-serif">Manie</text>
+        <text x="62" y="128" fill="#4a7c6f" font-size="13" font-weight="600" text-anchor="end" font-family="DM Sans, sans-serif">Stabil</text>
+        <text x="62" y="208" fill="#6b3d6e" font-size="13" font-weight="600" text-anchor="end" font-family="DM Sans, sans-serif">Depression</text>
 
         <!-- Axes -->
         <line x1="70" y1="20" x2="70" y2="230" stroke="#a7d9d5" stroke-width="1.5"/>
@@ -380,23 +372,23 @@ breadcrumbs:
         <line x1="70" y1="45" x2="870" y2="45" stroke="#e2e8f0" stroke-width="0.5" stroke-dasharray="4 3"/>
         <line x1="70" y1="205" x2="870" y2="205" stroke="#eef3f8" stroke-width="0.5" stroke-dasharray="4 3"/>
 
-        <!-- Mood wave (blue) -->
+        <!-- Mood wave (aubergine) -->
         <path d="M70,125 C110,125 130,40 170,40 C210,40 220,125 250,125 C280,125 295,185 340,195 C385,205 395,125 435,125 C465,125 478,55 508,50 C538,45 558,125 588,125 C618,125 638,175 678,180 C718,185 728,125 768,125 C788,125 808,70 838,65 C858,62 870,100 870,100"
-          fill="none" stroke="#5b7fa5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          fill="none" stroke="#6b3d6e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 
-        <!-- Caregiver burden (orange dashed, rising) -->
+        <!-- Caregiver burden (sage dashed, rising) -->
         <path d="M70,160 C170,157 270,150 370,144 C470,136 570,127 670,117 C770,108 820,100 870,94"
-          fill="none" stroke="#B45309" stroke-width="2" stroke-dasharray="7 5" stroke-linecap="round" opacity="0.7"/>
+          fill="none" stroke="#4a7c6f" stroke-width="2" stroke-dasharray="7 5" stroke-linecap="round" opacity="0.8"/>
+
+        <!-- X-axis title -->
+        <text x="470" y="255" fill="#5d6b7e" font-size="13" font-weight="600" text-anchor="middle" font-family="DM Sans, sans-serif">Zeit (mehrere Jahre) →</text>
 
         <!-- Legend -->
-        <line x1="580" y1="248" x2="604" y2="248" stroke="#5b7fa5" stroke-width="2.5"/>
-        <text x="610" y="252" fill="#5b7fa5" font-size="11" font-weight="500" font-family="DM Sans, sans-serif">Stimmung Partner</text>
+        <line x1="170" y1="280" x2="200" y2="280" stroke="#6b3d6e" stroke-width="2.5"/>
+        <text x="208" y="284" fill="#6b3d6e" font-size="13" font-weight="500" font-family="DM Sans, sans-serif">Stimmung der erkrankten Person</text>
 
-        <line x1="740" y1="248" x2="764" y2="248" stroke="#B45309" stroke-width="2" stroke-dasharray="5 3" opacity="0.7"/>
-        <text x="770" y="252" fill="#B45309" font-size="11" font-weight="500" font-family="DM Sans, sans-serif">Belastung Angehörige</text>
-
-        <!-- X-axis label -->
-        <text x="470" y="252" fill="#94a3b8" font-size="11" text-anchor="middle" font-family="DM Sans, sans-serif">→ Zeit (Jahre)</text>
+        <line x1="540" y1="280" x2="570" y2="280" stroke="#4a7c6f" stroke-width="2" stroke-dasharray="5 3" opacity="0.8"/>
+        <text x="578" y="284" fill="#4a7c6f" font-size="13" font-weight="500" font-family="DM Sans, sans-serif">Belastung der Angehörigen</text>
       </svg>
     </div>
     <div class="wave-caption">Konzeptionelles Modell auf Basis von Goodwin &amp; Jamison (2007) und Judd et al. (2003). Es zeigt nicht einen festen Standardverlauf, sondern warum Wiederkehr, Unsicherheit und kumulative Mitbelastung für Angehörige so prägend sind.</div>
@@ -419,17 +411,17 @@ breadcrumbs:
         <p>Lithium, Valproat, Lamotrigin und weitere Medikamente sind oft die Basis. Sie können Rückfälle deutlich senken, brauchen aber Geduld, gute Begleitung und werden nicht immer auf Anhieb gut vertragen.</p>
       </div>
       <div class="treatment-card">
-        <div class="treatment-card-icon">🗣</div>
+        <div class="treatment-card-icon">Th</div>
         <h3>Psychotherapie</h3>
         <p>Gesprächstherapien und familienbezogene Behandlungsformen helfen, Warnzeichen früher zu erkennen, Rückfälle einzuordnen und den Alltag verlässlicher zu gestalten.</p>
       </div>
       <div class="treatment-card">
-        <div class="treatment-card-icon">📖</div>
+        <div class="treatment-card-icon">Ed</div>
         <h3>Psychoedukation</h3>
         <p>Strukturiertes Wissen für Betroffene und Angehörige senkt nachweislich das Rückfallrisiko. Gemeint ist: Muster besser verstehen, benennen und Krisen früher erkennen.</p>
       </div>
       <div class="treatment-card">
-        <div class="treatment-card-icon">⚖</div>
+        <div class="treatment-card-icon">≈</div>
         <h3>Realistische Erwartungen</h3>
         <p>Auch unter guter Behandlung können Episoden auftreten. Fortschritt heisst oft: weniger, mildere oder früher erkannte Krisen — nicht null Krisen. Gerade für Angehörige ist diese realistische Erwartung zentral.</p>
       </div>
@@ -457,29 +449,29 @@ breadcrumbs:
     <div class="treatment-card treatment-card--horizontal">
       <div class="treatment-card-icon treatment-card-icon--num">1</div>
       <div>
-        <h3>Frühwarnzeichen notieren</h3>
+        <h3>Notieren Sie drei Frühwarnzeichen.</h3>
         <p>Denken Sie an die letzte deutliche Verschlechterung: Was war zuerst auffällig? Weniger Schlaf? Gereiztheit? Rückzug? Übermässige Energie? Schreiben Sie drei Beobachtungen auf. Noch nicht als Diagnose — nur als Muster.</p>
       </div>
     </div>
     <div class="treatment-card treatment-card--horizontal">
       <div class="treatment-card-icon treatment-card-icon--num">2</div>
       <div>
-        <h3>Ein guter nächster Schritt: professionelle Beratung nutzen</h3>
+        <h3>Wenden Sie sich an die Fachstelle.</h3>
         <p>Wenn Sie nach diesem Modul merken, wie viel Unsicherheit Sie mittragen, ist das bereits ein guter Grund für Beratung. Die Fachstelle Angehörigenarbeit PUK Zürich bietet kostenlose Unterstützung — auch unabhängig davon, ob die erkrankte Person selbst Hilfe sucht. Telefon: <a href="{{ site.tel.fachstelle.href }}">{{ site.tel.fachstelle.display }}</a>.</p>
       </div>
     </div>
     <div class="treatment-card treatment-card--horizontal">
       <div class="treatment-card-icon treatment-card-icon--num">3</div>
       <div>
-        <h3>Wenn Sie bereit sind: passend weiterlesen</h3>
-        <p>Wenn Sie vor allem sich selbst besser verstehen wollen, ist <a href="/modul/2/">Modul 2</a> der richtige nächste Schritt. Wenn Sie eher konkrete Hilfen brauchen, gehen Sie direkt zu <a href="/modul/6/">Modul 6</a>. Sie müssen die Website nicht streng linear lesen.</p>
+        <h3>Lesen Sie das passende nächste Modul.</h3>
+        <p>Wenn Sie vor allem sich selbst besser verstehen wollen, ist <a href="/modul/2/">Modul 2</a> der richtige nächste Schritt. Wenn Sie eher konkrete Hilfen brauchen, gehen Sie direkt zu <a href="/modul/6/">Modul 6</a>. Sie müssen die Website nicht streng linear lesen — und nichts davon eilt.</p>
       </div>
     </div>
     <div class="treatment-card treatment-card--horizontal">
       <div class="treatment-card-icon treatment-card-icon--num">4</div>
       <div>
-        <h3>Wenn Sie bereit sind: eine Vertrauensperson einweihen</h3>
-        <p>Wenn Sie bisher vieles allein eingeordnet haben, entlastet oft schon eine Person, die die Lage kennt. Nicht die halbe Version, sondern die wirkliche: was Sie beobachten, was Sie befürchten und was Sie im Alltag tragen.</p>
+        <h3>Weihen Sie eine Vertrauensperson ein.</h3>
+        <p>Wenn Sie bisher vieles allein eingeordnet haben, entlastet oft schon eine Person, die die Lage kennt. Nicht die halbe Version, sondern die wirkliche: was Sie beobachten, was Sie befürchten und was Sie im Alltag tragen. Wenn Sie noch nicht bereit dafür sind, ist das auch in Ordnung.</p>
       </div>
     </div>
   </div>
@@ -534,9 +526,9 @@ breadcrumbs:
     </ul>
   </div>
 
-  <!-- ─── HANDOUTS ─── -->
-  <div class="handouts reveal">
-    <div class="handouts-title">Passende Handouts</div>
+  <!-- ─── HANDOUTS ─── (Audit P2.8: --list-Variante differenziert visuell von Content-Cards) -->
+  <div class="handouts handouts--list reveal">
+    <div class="handouts-title">Passende Handouts zum Herunterladen</div>
     <div class="handouts-grid">
       {% for asset in pdfs.groups.modul1 %}
       {{ handoutCard(asset) }}

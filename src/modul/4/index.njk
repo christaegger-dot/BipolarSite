@@ -13,7 +13,7 @@ breadcrumbs:
   - name: "Modul 4: Wenn die Kraft nachlässt"
     url: "/modul/4/"
 ---
-{% block headCSS %}<!-- Module 4 styles migrated to module.css (P2.3) -->{% endblock %}
+{% block headCSS %}<link rel="stylesheet" href="/css/tool-embed.css?v=1">{% endblock %}
 {% block nav %}
 {% include "nav-full.njk" %}
 {% endblock %}
@@ -25,8 +25,18 @@ breadcrumbs:
   <div class="breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><a href="/module/">Module</a><span class="sep" aria-hidden="true">›</span><span>Wenn die Kraft nachlässt</span></div>
     <svg class="hero-icon" aria-hidden="true" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="10" width="24" height="20" rx="3" stroke="currentColor" stroke-width="2"/><rect x="30" y="16" width="4" height="8" rx="1" fill="currentColor" opacity="0.3"/><rect x="9" y="22" width="6" height="5" rx="1" fill="currentColor" opacity="0.35"/></svg>
   <div class="module-badge">Modul 4 / 8</div>
+  <div class="module-progress" role="img" aria-label="Modul 4 von 8">
+    <span class="module-progress-seg is-done" aria-hidden="true"></span>
+    <span class="module-progress-seg is-done" aria-hidden="true"></span>
+    <span class="module-progress-seg is-done" aria-hidden="true"></span>
+    <span class="module-progress-seg is-current" aria-hidden="true"></span>
+    <span class="module-progress-seg" aria-hidden="true"></span>
+    <span class="module-progress-seg" aria-hidden="true"></span>
+    <span class="module-progress-seg" aria-hidden="true"></span>
+    <span class="module-progress-seg" aria-hidden="true"></span>
+  </div>
   <h1>Wenn die Kraft nachlässt</h1>
-  <div class="module-meta"><span>⏱ ca. 14–16 Minuten</span><span>📖 Chronische Erschöpfung</span></div>
+  <div class="module-meta"><span><span class="module-meta-icon" aria-hidden="true">⏱</span> ca. 14–16 Minuten</span><span><span class="module-meta-icon" aria-hidden="true">📖</span> Chronische Erschöpfung</span></div>
 
   <div class="quote-block">
     <blockquote>Ich sage allen, es geht mir gut. Aber nachts liege ich wach und frage mich, wie lange ich das noch schaffe. Ich bin so müde — nicht körperlich, sondern in meiner Seele.</blockquote>
@@ -69,14 +79,22 @@ breadcrumbs:
 
   <!-- ══════════ 1. AMBIGUOUS LOSS ══════════ -->
   
-  <a href="/tools/selbsttest/" class="tool-cta reveal">
-    <div class="tool-cta-icon tool-cta-icon--neutral">📋</div>
-    <div class="tool-cta-body">
-      <h3>Optionale Standortbestimmung</h3>
-      <p>Wenn Sie Ihre momentane Belastung kurz einordnen möchten, finden Sie hier eine knappe, nicht diagnostische Orientierung.</p>
-      <span class="tool-cta-btn">Selbsttest öffnen →</span>
+  <div class="tool-embed reveal" data-tool-script="/js/tool-selbsttest.js">
+    <button type="button" class="tool-embed-toggle" aria-expanded="false" aria-controls="embed-selbsttest">
+      <span class="tool-embed-icon tool-embed-icon--neutral" aria-hidden="true">📋</span>
+      <span class="tool-embed-body">
+        <span class="tool-embed-body-title">Optionale Standortbestimmung</span>
+        <span class="tool-embed-body-desc">Wenn Sie Ihre momentane Belastung kurz einordnen möchten, finden Sie hier eine knappe, nicht diagnostische Orientierung.</span>
+      </span>
+      <svg class="tool-embed-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="tool-embed-panel" id="embed-selbsttest" role="region" aria-label="Optionale Standortbestimmung">
+      <div class="tool-embed-panel-inner">
+        <div class="wrap"><div id="prog"></div><div id="card"></div></div>
+      </div>
     </div>
-  </a>
+    <a href="/tools/selbsttest/" class="tool-embed-fallback">Auf eigener Seite öffnen →</a>
+  </div>
 
 <h2 id="ambiguous" class="reveal">Da und doch nicht da — Trauer ohne klaren Abschied</h2>
   <p class="reveal">Pauline Boss nennt das «Ambiguous Loss»: eine Trauer ohne Abschluss, weil der Verlust nicht endgültig ist und sich deshalb nicht einfach verarbeiten lässt. Alltagsnäher gesagt: Jemand ist noch da, und gleichzeitig ist vieles nicht mehr so, wie es einmal war.</p>
@@ -234,10 +252,7 @@ breadcrumbs:
 
   <p class="reveal"><strong>Nicht nur Wut kann sich aufstauen.</strong> Manche Angehörige werden mit der Zeit auch abgestumpfter, zynischer oder innerlich härter. Das ist nicht schön — aber oft ein Warnsignal chronischer Überlastung, nicht ein Beweis fehlender Liebe. Genau darum gehört auch die eigene Veränderung in den Blick.</p>
 
-  <div class="quote-block reveal">
-    <blockquote>Ich habe jahrelang jedes Gespräch über meine eigenen Sorgen vermieden. Ich dachte, ich schütze sie damit — dabei habe ich mich selbst unsichtbar gemacht. Irgendwann wusste ich selbst nicht mehr, was ich wollte oder brauchte.</blockquote>
-    <cite>— Thomas, 51 Jahre, Ehemann (typisierte Erfahrungsstimme, anonymisiert)</cite>
-  </div>
+  <p class="inline-voice reveal"><span class="inline-voice-attribution">Thomas, 51, Ehemann:</span> «Ich habe jahrelang jedes Gespräch über meine eigenen Sorgen vermieden. Ich dachte, ich schütze sie damit — dabei habe ich mich selbst unsichtbar gemacht. Irgendwann wusste ich selbst nicht mehr, was ich wollte oder brauchte.» <span class="inline-voice-disclaimer">(typisierte Erfahrungsstimme, anonymisiert)</span></p>
 
   <!-- ══════════ 4. UNGELEBTE ZEIT ══════════ -->
   <h2 id="ungelebt" class="reveal">Was auf der Strecke bleibt</h2>
@@ -425,8 +440,8 @@ breadcrumbs:
   </div>
 
   <!-- HANDOUTS -->
-  <div class="handouts reveal">
-    <div class="handouts-title">Passende Handouts</div>
+  <div class="handouts handouts--list reveal">
+    <div class="handouts-title">Passende Handouts zum Herunterladen</div>
     <div class="handouts-grid">
       {% for asset in pdfs.groups.modul4 %}
       {{ handoutCard(asset) }}
@@ -479,4 +494,7 @@ breadcrumbs:
 {% endblock %}
 {% block footer %}
 {% include "footer-medium.njk" %}
+{% endblock %}
+{% block scripts %}
+<script src="/js/tool-embed.js"></script>
 {% endblock %}

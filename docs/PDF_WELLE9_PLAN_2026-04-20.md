@@ -52,3 +52,29 @@ Anschliessend würden die üblichen technischen Schritte folgen: PDF-Export, Man
 ## Kurzfazit
 
 Welle 9 ist als **kleine potenzielle Abschlusswelle mit einem einzigen verbliebenen Archiv-Handout** sinnvoll. Der richtige Kandidat ist `b6_geschlechtsspezifisch`. Die Umsetzung sollte jedoch an eine erneute, strenge Prüfung der Web-Quellenbasis in Modul 7 gebunden bleiben. Damit bleibt die Schlusswelle fachlich sauber, redaktionell vorsichtig und produktionell kontrollierbar.
+
+---
+
+## Update 2026-05-08: Web-Vorbedingung nachgereicht — Welle 9 bereits seit 23.4. produktiv
+
+**Korrigierter Stand:** Welle 9 wurde bereits zwischen 20.–23.4.2026 umgesetzt, bevor die hier formulierte Vorbedingung an Modul 7 nachträglich umgesetzt wurde:
+
+- Promoted PDF: `src/downloads/belastung-unterschiedlich-sichtbar-puk-zuerich.pdf` (Manifest-Eintrag `sichtbarkeitBelastung`, `DL-13`, `quality: "core"`, `mode: "download"`)
+- Source-Draft: `src/handout-drafts/b6_geschlechtsspezifisch.md` (`status: "promoted"`, `last_updated: 2026-04-23`)
+- Ausgespielt in Modul 7 (`pdfs.js` `groups.modul7`)
+- Alte Archiv-Variante `handouts/b6_geschlechtsspezifisch.pdf` (`HO-26`) existiert weiterhin im Modul-8-Archiv-Listing — Aufräumen ist möglich, aber nicht zwingend.
+
+**Was am 8.5. nachgereicht wurde:**
+
+Modul 7 wurde im Abschnitt `#sichtbarkeit` „Wenn Belastung unterschiedlich sichtbar wird" gezielt nachgeschärft, damit die Web-Quellenbasis das schon publizierte Handout fachlich trägt:
+
+- Drei Belastungsmuster sind jetzt **explizit benannt und differenziert** (still / verborgen / ungleich verteilt) — vorher in einen Fließtext verschmolzen.
+- Lead-Passage benennt **Eltern, erwachsene Kinder, Geschwister und andere nahestehende Personen** ausdrücklich neben Partnerschaften.
+- Konkrete Hinweise auf **unsichtbare Last, Fairness und Lastverteilung** sind ergänzt (emotionale Wachsamkeit, Frühzeichen-Mitdenken, Terminorganisation, finanzielle Mitverantwortung).
+- Querverweis zu Modul 5 `#grenzen` eingefügt.
+- Entlastende „kein Zeichen persönlicher Schwäche"-Botschaft als eigenständiger `bright-moment`-Block — bestätigt die parallele Botschaft im Handout.
+- Sprache bleibt **bewusst nicht-essentialistisch** (keine Aussagen über typisches Verhalten von Frauen oder Männern).
+
+**Lessons Learned:** Reihenfolge war umgekehrt zur ursprünglichen Plan-Logik — das Handout wurde produziert, bevor die Web-Basis ausreichend trennscharf war. Das funktioniert in diesem Fall, weil das Handout selbst sauber formuliert ist und die Modul-7-Nachschärfung jetzt den Web-Anker dafür liefert. Für künftige Wellen sollte die Web-Basis vor PDF-Produktion stehen, nicht nachgeführt werden.
+
+**Welle 9 ist damit endgültig abgeschlossen.** Im Manifest sind alle Archiv-Bestände entweder migriert oder als bewusster Archiv-Rest dokumentiert.

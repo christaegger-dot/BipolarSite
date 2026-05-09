@@ -25,8 +25,18 @@ breadcrumbs:
   <div class="breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><a href="/module/">Module</a><span class="sep" aria-hidden="true">›</span><span>Was Sie konkret tun können</span></div>
     <svg class="hero-icon" aria-hidden="true" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M28 8a8 8 0 01-2.5 15.5L14.5 34.5a3 3 0 01-4.2-4.2L21.3 19.2A8 8 0 0128 8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="28" cy="14" r="3" stroke="currentColor" stroke-width="1.5" opacity="0.4"/></svg>
   <div class="module-badge">Modul 6 / 8</div>
+  <div class="module-progress" role="img" aria-label="Modul 6 von 8">
+    <span class="module-progress-seg is-done" aria-hidden="true"></span>
+    <span class="module-progress-seg is-done" aria-hidden="true"></span>
+    <span class="module-progress-seg is-done" aria-hidden="true"></span>
+    <span class="module-progress-seg is-done" aria-hidden="true"></span>
+    <span class="module-progress-seg is-done" aria-hidden="true"></span>
+    <span class="module-progress-seg is-current" aria-hidden="true"></span>
+    <span class="module-progress-seg" aria-hidden="true"></span>
+    <span class="module-progress-seg" aria-hidden="true"></span>
+  </div>
   <h1>Was Sie konkret tun können</h1>
-  <div class="module-meta"><span>⏱ Kerntext ca. 12 Min · mit Vertiefungen ca. 22 Min</span><span>🛠 Hilfen für den Alltag</span></div>
+  <div class="module-meta"><span><span class="module-meta-icon" aria-hidden="true">⏱</span> Kerntext ca. 12 Min · mit Vertiefungen ca. 22 Min</span><span><span class="module-meta-icon" aria-hidden="true">🛠</span> Hilfen für den Alltag</span></div>
 
   <div class="quote-block">
     <blockquote>Bei der vierten Manie meines Mannes wusste ich wieder nicht, was ich tun soll. Dann haben wir in einer ruhigen Phase den Krisenplan geschrieben. Beim nächsten Mal habe ich ihn einfach aufgeschlagen. Ich musste nicht mehr denken. Ich musste nur noch handeln.</blockquote>
@@ -678,8 +688,8 @@ breadcrumbs:
   </div>
 
   <!-- HANDOUTS -->
-  <div class="handouts reveal">
-    <div class="handouts-title">Passende Handouts</div>
+  <div class="handouts handouts--list reveal">
+    <div class="handouts-title">Passende Handouts zum Herunterladen</div>
     <div class="handouts-grid">
       {% for asset in pdfs.groups.modul6 %}
       {{ handoutCard(asset) }}

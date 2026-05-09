@@ -17,6 +17,7 @@ const formatReviewedDate = (value) => {
 
 module.exports = {
   url: primaryUrl,
+  buildYear: new Date().getFullYear(),
   title: "Bipolare Störung – Psychoedukation für Angehörige | PUK Zürich",
   org: "Psychiatrische Universitätsklinik Zürich",
   department: "Fachstelle Angehörigenarbeit",
