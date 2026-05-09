@@ -635,6 +635,18 @@ a, button, input, select, textarea,
 }
 .module-number { color: var(--navy); background: var(--teal-subtle); }
 
+/* Kleines Akzent-Icon links in der Modul-Nummer-Pill */
+.module-accent-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: currentcolor;
+  opacity: 0.75;
+  margin-right: 4px;
+  vertical-align: middle;
+  display: inline-block;
+}
+
 /* M-07: dezente Pill-Differenzierung nach data-accent-Gruppen */
 .module-card[data-accent="blue"] .module-number { background: var(--blue-phase-subtle); color: var(--blue-phase); }
 .module-card[data-accent="amber"] .module-number { background: var(--amber-faint); color: var(--amber-dark-text); }
