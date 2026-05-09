@@ -3383,6 +3383,8 @@ a.ampel-card{text-decoration:none;display:block}
   position: relative;
   margin-top: clamp(3.35rem, 7vw, 4.85rem);
   padding-top: calc(var(--content-gap) + 18px);
+  padding-left: 16px;
+  border-left: 3px solid var(--module-body-accent);
   line-height: 1.05;
   letter-spacing: -0.015em;
   text-wrap: balance;
@@ -3391,13 +3393,26 @@ a.ampel-card{text-decoration:none;display:block}
 [data-module-accent]:not([data-module-accent="8"]) .content > h2::before {
   content: '';
   position: absolute;
-  left: 0;
+  left: -3px;
   top: 0;
-  width: 78px;
-  height: 4px;
+  width: 48px;
+  height: 3px;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--module-body-accent) 0%, rgba(255,255,255,0%) 100%);
-  box-shadow: 0 10px 26px var(--module-body-accent-glow);
+  background: var(--module-body-accent);
+  opacity: 0.35;
+}
+
+[data-module-accent]:not([data-module-accent="8"]) .content > h2:not(:first-of-type)::after {
+  content: '·  ·  ·';
+  position: absolute;
+  left: 16px;
+  top: calc(var(--content-gap) * 0.38);
+  font-size: 1.1rem;
+  letter-spacing: 0.35em;
+  color: var(--module-body-accent);
+  opacity: 0.45;
+  font-family: 'DM Serif Display', serif;
+  line-height: 1;
 }
 
 [data-module-accent]:not([data-module-accent="8"]) .content > h2 + p {
