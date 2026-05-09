@@ -459,7 +459,7 @@ a, button, input, select, textarea,
   max-width: var(--content-width-wide);
 }
 .overview-lead {
-  max-width: var(--content-width-wide);
+  max-width: var(--measure-lead);
   font-size: var(--text-base);
   line-height: 1.75;
   color: var(--slate);
@@ -481,6 +481,7 @@ a, button, input, select, textarea,
   font-size: var(--text-lg);
 }
 .overview-note p {
+  max-width: var(--measure-prose);
   margin: 0;
   font-size: var(--text-base);
   line-height: 1.75;
@@ -490,7 +491,7 @@ a, button, input, select, textarea,
   padding: 0 2rem var(--section-tight);
 }
 .overview-footer-note {
-  max-width: var(--content-width-wide);
+  max-width: var(--measure-prose);
   margin-top: var(--space-xl);
   font-size: var(--text-base);
   line-height: 1.75;
@@ -847,7 +848,7 @@ a, button, input, select, textarea,
   }
 
   .home-hero-text {
-    max-width: 100%;
+    max-width: var(--measure-prose);
   }
 
   .home-hero-paths {
@@ -3403,7 +3404,7 @@ body.module-overview-page .overview-hero::after {
 }
 
 body.module-overview-page .overview-lead {
-  max-width: 58ch;
+  max-width: var(--measure-lead);
   line-height: 1.62;
 }
 
