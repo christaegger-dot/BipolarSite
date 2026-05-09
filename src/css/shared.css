@@ -835,7 +835,7 @@ a, button, input, select, textarea,
   }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 901px) {
   .home-hero-split {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
