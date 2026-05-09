@@ -3043,10 +3043,23 @@ body.impressum-page .info-box strong {
 }
 
 .werkzeuge-page .werkzeuge-hero-visual {
-  /* Nahtlose Integration: kein Border, Hintergrund exakt wie --bg der Seite */
+  --visual-blend-mask: radial-gradient(142% 124% at 50% 50%, #000 64%, transparent 100%);
+
+  /* Nahtlose Integration: kein Border, kein Card-Rand, sanfter Rand-Fade */
   border: none;
-  background: var(--bg);
+  border-radius: 0;
+  overflow: visible;
+  background: transparent;
   box-shadow: none;
+  isolation: isolate;
+  /* stylelint-disable property-no-vendor-prefix */
+  -webkit-mask-image: var(--visual-blend-mask);
+  mask-image: var(--visual-blend-mask);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  /* stylelint-enable property-no-vendor-prefix */
 }
 
 .werkzeuge-page .tool-guide {
