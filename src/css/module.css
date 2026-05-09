@@ -3058,14 +3058,14 @@ a.ampel-card{text-decoration:none;display:block}
   display: flex;
   gap: 4px;
   margin-bottom: var(--space-md);
-  margin-top: -6px;
+  margin-top: 4px; /* was -6px: progress bar now sits 4px below badge */
   width: fit-content;
 }
 .module-progress-seg {
   width: 20px;
-  height: 3px;
+  height: 4px; /* was 3px: slightly more visible */
   border-radius: 999px;
-  background: rgba(45,40,35,14%);
+  background: rgba(45,40,35,16%);
   transition: background 0.2s;
 }
 .module-progress-seg.is-done {
@@ -3075,13 +3075,13 @@ a.ampel-card{text-decoration:none;display:block}
 .module-progress-seg.is-current {
   background: var(--module-hero-accent);
   opacity: 1;
-  width: 28px;
+  width: 32px; /* was 28px: slightly wider active segment */
 }
 
 [data-module-accent]:not([data-module-accent="8"]) .module-meta {
   flex-wrap: wrap;
   gap: 10px 18px;
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-lg); /* was --space-xl (32px): tighter gap to summary box */
 }
 
 [data-module-accent]:not([data-module-accent="8"]) .quote-block {
