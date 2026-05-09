@@ -24,66 +24,70 @@ breadcrumbs:
 {% block content %}
 <header class="hero notfall-hero"><div class="hero-inner">
   <div class="hero-copy">
-    <div class="breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><span>Notfall</span></div>
     <h1>Notfall — Was tun Sie jetzt?</h1>
     <p>In einer akuten Krise ist es wichtiger, Hilfe zu holen, als die Situation perfekt einzuschätzen.</p>
-
-    <div class="emergency-strip-hero">
-      <a href="tel:144" class="emergency-call emergency-call--primary"><span class="emergency-call-num">144</span><span class="emergency-call-label">Rettung / Sanität</span></a>
-      <a href="{{ site.tel.aerztefon.href }}" class="emergency-call emergency-call--secondary"><span class="emergency-call-num">{{ site.tel.aerztefon.display }}</span><span class="emergency-call-label">{{ site.tel.aerztefon.label }}</span></a>
-      <a href="tel:117" class="emergency-call emergency-call--outline"><span class="emergency-call-num">117</span><span class="emergency-call-label">Polizei</span></a>
-    </div>
-
-    <div class="situations">
-      <a href="#guide-suizid" class="sit-card sit-card--severe"><div class="sit-badge">!</div><div class="sit-text"><strong>Suizidgedanken</strong>144 oder 0800&nbsp;33&nbsp;66&nbsp;55</div></a>
-      <a href="#guide-gewalt" class="sit-card sit-card--severe"><div class="sit-badge">!</div><div class="sit-text"><strong>Gewalt oder Bedrohung</strong>117 (Polizei)</div></a>
-      <a href="#guide-psychose" class="sit-card sit-card--severe"><div class="sit-badge">!</div><div class="sit-text"><strong>Psychose / Wahn / Paranoia</strong>0800&nbsp;33&nbsp;66&nbsp;55 oder 117</div></a>
-      <a href="#guide-manie" class="sit-card sit-card--acute"><div class="sit-badge">!</div><div class="sit-text"><strong>Manie mit hohem Risiko</strong>0800&nbsp;33&nbsp;66&nbsp;55</div></a>
-      <a href="#guide-depression" class="sit-card sit-card--acute"><div class="sit-badge">–</div><div class="sit-text"><strong>Schwere Depression</strong>143 oder 0800&nbsp;33&nbsp;66&nbsp;55</div></a>
-      <a href="#guide-finanzen" class="sit-card sit-card--watchful"><div class="sit-badge">CHF</div><div class="sit-text"><strong>Finanzielle Eskalation</strong>Spontankäufe, Verträge, Schulden</div></a>
-    </div>
   </div>
-  <div class="hero-visual">
-    <img src="/visuals/notfall-triage-hero.svg" alt="Grafische Triage mit drei Wegen: 144 oder 117 bei unmittelbarer Gefahr, 0800 33 66 55 bei psychiatrischer Krise, heute handeln bei Warnzeichen." width="720" height="420" loading="eager" decoding="async" fetchpriority="high">
+
+  <div class="notfall-triage-grid">
+    <section class="notfall-tier notfall-tier--urgent">
+      <div class="notfall-tier-kicker">Akut gefährlich</div>
+      <p class="notfall-tier-desc">Konkrete Suizidabsicht, Gewalt, schwere Bedrohung, schwere Krise.</p>
+      <div class="notfall-tier-actions">
+        <a href="tel:144" class="notfall-tier-call">144</a>
+        <a href="tel:117" class="notfall-tier-call notfall-tier-call--secondary">117</a>
+      </div>
+    </section>
+
+    <section class="notfall-tier notfall-tier--acute">
+      <div class="notfall-tier-kicker">Akut zugespitzt, noch ansprechbar</div>
+      <p class="notfall-tier-desc">Manie, psychotische Zuspitzung, schwere Depression, rasche Eskalation.</p>
+      <div class="notfall-tier-actions">
+        <a href="{{ site.tel.aerztefon.href }}" class="notfall-tier-call notfall-tier-call--full">{{ site.tel.aerztefon.display }}</a>
+      </div>
+      <p class="notfall-tier-note">{{ site.tel.aerztefon.label }}</p>
+    </section>
+
+    <section class="notfall-tier notfall-tier--watchful">
+      <div class="notfall-tier-kicker">Noch nicht akut, aber nicht warten</div>
+      <p class="notfall-tier-desc">Frühe Warnzeichen, spürbare Zuspitzung, starke Verunsicherung.</p>
+      <p class="notfall-tier-meta"><a href="#notfall-guides">Kurzanleitungen unten</a> · <a href="/tools/krisenplan/">Krisenplan aktivieren</a> · Behandlungsteam kontaktieren</p>
+    </section>
   </div>
 </div></header>
 
 <main class="content" id="main-content">
+  <div class="grauzone notfall-uncertainty">
+    <h2 class="grauzone-h2">Wenn Sie unsicher sind, ob es schon ein Notfall ist</h2>
 
-  <h2>Zuerst klären: wie akut ist die Lage?</h2>
-  <p><strong>Kurzregel:</strong> Unmittelbare Gefahr → <a href="tel:144"><strong>144</strong></a> oder <a href="tel:117"><strong>117</strong></a>. Psychiatrische Krise ohne Lebensgefahr → <a href="{{ site.tel.aerztefon.href }}"><strong>{{ site.tel.aerztefon.display }}</strong></a>.</p>
-  <div class="grauzone grauzone--hero">
-    <h3>Akut gefährlich</h3>
-    <p>Konkrete Suizidabsicht, Gewalt, schwere Bedrohung, schwere Krise. <strong>→ <a href="tel:144">144</a> oder <a href="tel:117">117</a>.</strong></p>
+    <div class="grauzone-grid">
+      <div class="grauzone-card">
+        <div class="grauzone-card-top">
+          <p class="grauzone-scenario">«Es könnte schlimmer werden»</p>
+          <p>Frühe Warnsignale, aber noch "funktionsfähig".</p>
+        </div>
+        <div class="grauzone-action grauzone-action--amber">→ Jetzt handeln. Behandlungsteam kontaktieren. Frühe Eskalation ernst zu nehmen ist fast immer besser als warten.</div>
+      </div>
+      <div class="grauzone-card">
+        <div class="grauzone-card-top">
+          <p class="grauzone-scenario">«Er/sie sagt, es ist nichts»</p>
+          <p>Die Person verneint. Sie sehen es aber.</p>
+        </div>
+        <div class="grauzone-action grauzone-action--teal">→ Vertrauen Sie Ihrer Wahrnehmung. Kontaktieren Sie das Behandlungsteam — das dürfen Sie immer, auch ohne Einwilligung.</div>
+      </div>
+      <div class="grauzone-card">
+        <div class="grauzone-card-top">
+          <p class="grauzone-scenario">«Ich weiss nicht, ob es ernst gemeint ist»</p>
+          <p>Suizidgedanken „nur als Witz" oder beiläufig geäussert.</p>
+        </div>
+        <div class="grauzone-action grauzone-action--red">→ Immer ernst nehmen. Direkt fragen, dann Fachpersonen einbeziehen.</div>
+      </div>
+    </div>
 
-    <h3>Akut zugespitzt, noch ansprechbar</h3>
-    <p>Manie, psychotische Zuspitzung, schwere Depression, rasche Eskalation. <strong>→ <a href="{{ site.tel.aerztefon.href }}">{{ site.tel.aerztefon.display }}</a>, dann Krisenplan aktivieren.</strong></p>
-
-    <h3>Noch nicht akut, aber nicht warten</h3>
-    <p>Frühe Warnzeichen, spürbare Zuspitzung, starke Verunsicherung. <strong>→ Heute handeln.</strong></p>
+    <div class="grauzone-rule">Lieber einmal zu viel anrufen als einmal zu wenig.</div>
   </div>
-
-  <p class="krisenplan-hint"><strong>Krisenplan vorhanden?</strong> Jetzt öffnen und den vereinbarten Schritten folgen. Noch keinen? → <a href="/tools/krisenplan/">Krisenplan-Werkzeug</a></p>
-
-  <!-- NUMMERN -->
-  <h2>Notfallnummern und spezialisierte Anlaufstellen</h2>
-  <p>Die drei wichtigsten Sofortnummern stehen oben im Hero. Hier finden Sie zusätzlich spezialisierte Anlaufstellen — für Kinder und Jugendliche, Opferhilfe, Rechtsberatung. Primär für den Kanton Zürich; die Grundlogik gilt breiter.</p>
-  <div class="numbers-grid">
-    <a class="number-card" href="{{ site.tel.aerztefon.href }}"><div><strong>{{ site.tel.aerztefon.display }}</strong><div class="number-label">{{ site.tel.aerztefon.label }}</div><div class="number-sub">24/7, kostenlos</div></div></a>
-    <a class="number-card" href="tel:144"><div><strong>144</strong><div class="number-label">Sanität / Rettungsdienst</div><div class="number-sub">Akute Gefahr für Leib und Leben</div></div></a>
-    <a class="number-card" href="tel:117"><div><strong>117</strong><div class="number-label">Polizei</div><div class="number-sub">Gewalt oder unmittelbare Bedrohung</div></div></a>
-    <a class="number-card" href="tel:143"><div><strong>143</strong><div class="number-label">Dargebotene Hand</div><div class="number-sub">24/7 — auch für Angehörige</div></div></a>
-    <a class="number-card" href="{{ site.tel.proJuventute.href }}"><div><strong>{{ site.tel.proJuventute.display }}</strong><div class="number-label">{{ site.tel.proJuventute.label }}</div><div class="number-sub">24/7 — Kinder und Jugendliche</div></div></a>
-    <a class="number-card" href="{{ site.tel.pukNotfall.href }}"><div><strong>{{ site.tel.pukNotfall.display }}</strong><div class="number-label">{{ site.tel.pukNotfall.label }}</div><div class="number-sub">Ab 18 Jahre, 24/7</div></div></a>
-    <a class="number-card" href="{{ site.tel.pukKinder.href }}"><div><strong>{{ site.tel.pukKinder.display }}</strong><div class="number-label">{{ site.tel.pukKinder.label }}</div><div class="number-sub">24/7</div></div></a>
-    <a class="number-card" href="{{ site.tel.opferhilfe24h.href }}"><div><strong>{{ site.tel.opferhilfe24h.display }}</strong><div class="number-label">{{ site.tel.opferhilfe24h.label }}</div><div class="number-sub">24/7 bei Gewalt, Bedrohung, Stalking</div></div></a>
-    <a class="number-card" href="{{ site.tel.fachstelle.href }}"><div><strong>{{ site.tel.fachstelle.display }}</strong><div class="number-label">{{ site.tel.fachstelle.label }}</div><div class="number-sub">Beratung — kostenlos, vertraulich</div></div></a>
-    <a class="number-card" href="{{ site.tel.proMenteSana.href }}"><div><strong>{{ site.tel.proMenteSana.display }}</strong><div class="number-label">{{ site.tel.proMenteSana.label }}</div><div class="number-sub">Rechtsberatung, FU, Vorsorge</div></div></a>
-  </div>
-  <p class="content-note">Wenn Kinder oder Jugendliche im Haushalt direkt mitbetroffen sind, ist <a href="{{ site.tel.proJuventute.href }}">{{ site.tel.proJuventute.display }}</a> oft der passendere erste Gesprächskanal als langes Warten bis zum nächsten Werktag. Für kinder- und jugendpsychiatrische Notfälle ist zusätzlich <a href="{{ site.tel.pukKinder.href }}">{{ site.tel.pukKinder.display }}</a> erreichbar.</p>
 
   <!-- MINI GUIDES -->
-  <h2>Kurzanleitungen nach Situation</h2>
+  <h2 id="notfall-guides">Kurzanleitungen nach Situation</h2>
   <p>Öffnen Sie die Situation, die dem Moment am nächsten kommt. Ausführlichere Hilfen: <a href="/modul/6/" class="link-teal">Modul 6</a>.</p>
 
   <!-- SUIZID -->
@@ -192,35 +196,16 @@ breadcrumbs:
     </div></div>
   </div>
 
-  <!-- FINANZEN AKUT -->
-  <div class="guide" id="guide-finanzen">
-    <button type="button" class="guide-header" aria-expanded="false" aria-controls="guide-panel-finanzen">
-      <span class="guide-header-left"><span class="guide-badge amber">CHF</span><span><span class="guide-title">Finanzielle Eskalation</span><span class="guide-subtitle">Spontankäufe, Verträge, Schulden während einer Manie</span></span></span>
+  <div class="guide" id="fu">
+    <button type="button" class="guide-header" aria-expanded="false" aria-controls="guide-panel-fu">
+      <span class="guide-header-left"><span class="guide-badge sand">FU</span><span><span class="guide-title">Fürsorgerische Unterbringung (FU) — Was ist das?</span><span class="guide-subtitle">Wenn Schutz gegen den Willen der Person im Raum steht</span></span></span>
       <span class="guide-chevron">▼</span>
     </button>
-    <div class="guide-body" id="guide-panel-finanzen" hidden><div class="guide-body-inner">
-      <ul>
-        <li><strong>Bank sofort kontaktieren</strong> und die Situation schildern — viele Institute haben Vorgehensweisen für solche Fälle.</li>
-        <li>Käufe können in der Schweiz unter Umständen angefochten werden, wenn eine Geschäftsunfähigkeit nachgewiesen werden kann (Art. 18 ZGB).</li>
-        <li><strong>KESB kontaktieren</strong> (Kindes- und Erwachsenenschutzbehörde), wenn rasch Schutzmassnahmen geprüft werden müssen. Zuständigkeiten laufen je nach Wohnort über die örtliche Behörde.</li>
-        <li>Alles dokumentieren: Kontoauszüge, Verträge, Kommunikation — mit Datum und Uhrzeit.</li>
-        <li>Rechtsberatung: <a href="{{ site.tel.proMenteSana.href }}" class="link-teal">{{ site.tel.proMenteSana.label }} ({{ site.tel.proMenteSana.display }})</a> — kostenlos.</li>
-      </ul>
-      <div class="guide-do">✓ Bank anrufen. Dokumentieren. KESB oder Rechtsberatung kontaktieren.</div>
-      <div class="guide-dont">✗ Käufe selbst rückgängig machen wollen. Konfrontieren in der Manie. Abwarten.</div>
-      <p class="guide-note-small">Das ist meist keine 144-/117-Lage, aber oft eine akute Folgenschadensituation. Präventive Massnahmen wie Transaktionslimiten, Vorsorgeauftrag und Bankabsprachen sind in der Schweiz besonders wichtig. → <a href="/modul/6/" class="link-teal">Modul 6: Vorbereitung</a></p>
-    </div></div>
-  </div>
+    <div class="guide-body" id="guide-panel-fu" hidden><div class="guide-body-inner">
+      <p>Wenn eine Person sich selbst oder andere erheblich gefährdet und keine Einsicht zeigt, kann eine FU in eine Klinik erfolgen — auch gegen den Willen. Das ist ein letztes Mittel und eine schwere Entscheidung.</p>
 
-  <!-- FU ALERT (collapsible) -->
-  <details id="fu" class="fu-alert-wrapper">
-    <summary class="fu-alert-summary"><span class="fu-alert-icon">FU</span> Fürsorgerische Unterbringung (FU) — Was ist das?</summary>
-    <div class="fu-alert">
-      <div>
-        <p>Wenn eine Person sich selbst oder andere erheblich gefährdet und keine Einsicht zeigt, kann eine FU in eine Klinik erfolgen — auch gegen den Willen. Das ist ein letztes Mittel und eine schwere Entscheidung.</p>
-
-        <details class="fu-details">
-          <summary class="fu-summary">Wie läuft eine FU ab? ▸</summary>
+      <details class="fu-details">
+        <summary class="fu-summary">Wie läuft eine FU ab? ▸</summary>
         <div class="fu-details-inner">
           <div class="fu-steps">
             <div class="fu-step">
@@ -242,48 +227,38 @@ breadcrumbs:
             <div class="fu-step">
               <div class="fu-step-num">4</div>
               <div class="fu-step-title">Aufhebung</div>
-              <div class="fu-step-body">Endet wenn Gefährdungsvoraussetzungen wegfallen — durch Behandlung, Einsicht oder Gericht.</div>
+              <div class="fu-step-body">Endet, wenn Gefährdungsvoraussetzungen wegfallen — durch Behandlung, Einsicht oder Gericht.</div>
             </div>
           </div>
           <div class="fu-note">Als Angehörige und Nahestehende werden Sie nicht automatisch informiert — ausser bei Schweigepflichtentbindung. Sie können dem Behandlungsteam aber jederzeit Beobachtungen mitteilen.</div>
         </div>
       </details>
 
-        <p class="fu-contact"><a href="{{ site.tel.proMenteSana.href }}">{{ site.tel.proMenteSana.label }} ({{ site.tel.proMenteSana.display }})</a> — kostenlose Rechtsberatung zu FU, Vorsorge und Beschwerdewegen. Die <a href="{{ site.tel.fachstelle.href }}">{{ site.tel.fachstelle.label }}</a> unterstützt Sie bei dieser Entscheidung.</p>
-      </div>
-    </div>
-  </details>
-
-  <!-- GRAUZONE -->
-  <div class="grauzone">
-    <h2 class="grauzone-h2">Wenn Sie unsicher sind, ob es schon ein Notfall ist</h2>
-
-    <div class="grauzone-grid">
-      <div class="grauzone-card">
-        <div class="grauzone-card-top">
-          <p class="grauzone-scenario">«Es könnte schlimmer werden»</p>
-          <p>Frühe Warnsignale, aber noch "funktionsfähig".</p>
-        </div>
-        <div class="grauzone-action grauzone-action--amber">→ Jetzt handeln. Behandlungsteam kontaktieren. Frühe Eskalation ernst zu nehmen ist fast immer besser als warten.</div>
-      </div>
-      <div class="grauzone-card">
-        <div class="grauzone-card-top">
-          <p class="grauzone-scenario">«Er/sie sagt, es ist nichts»</p>
-          <p>Die Person verneint. Sie sehen es aber.</p>
-        </div>
-        <div class="grauzone-action grauzone-action--teal">→ Vertrauen Sie Ihrer Wahrnehmung. Kontaktieren Sie das Behandlungsteam — das dürfen Sie immer, auch ohne Einwilligung.</div>
-      </div>
-      <div class="grauzone-card">
-        <div class="grauzone-card-top">
-          <p class="grauzone-scenario">«Ich weiss nicht, ob es ernst gemeint ist»</p>
-          <p>Suizidgedanken „nur als Witz" oder beiläufig geäussert.</p>
-        </div>
-        <div class="grauzone-action grauzone-action--red">→ Immer ernst nehmen. Direkt fragen, dann Fachpersonen einbeziehen.</div>
-      </div>
-    </div>
-
-    <div class="grauzone-rule">Lieber einmal zu viel anrufen als einmal zu wenig.</div>
+      <p class="fu-contact"><a href="{{ site.tel.proMenteSana.href }}">{{ site.tel.proMenteSana.label }} ({{ site.tel.proMenteSana.display }})</a> — kostenlose Rechtsberatung zu FU, Vorsorge und Beschwerdewegen. Die <a href="{{ site.tel.fachstelle.href }}">{{ site.tel.fachstelle.label }}</a> unterstützt Sie bei dieser Entscheidung.</p>
+    </div></div>
   </div>
+
+  <!-- FINANZEN AKUT -->
+  <div class="guide" id="guide-finanzen">
+    <button type="button" class="guide-header" aria-expanded="false" aria-controls="guide-panel-finanzen">
+      <span class="guide-header-left"><span class="guide-badge amber">CHF</span><span><span class="guide-title">Finanzielle Eskalation</span><span class="guide-subtitle">Spontankäufe, Verträge, Schulden während einer Manie</span></span></span>
+      <span class="guide-chevron">▼</span>
+    </button>
+    <div class="guide-body" id="guide-panel-finanzen" hidden><div class="guide-body-inner">
+      <ul>
+        <li><strong>Bank sofort kontaktieren</strong> und die Situation schildern — viele Institute haben Vorgehensweisen für solche Fälle.</li>
+        <li>Käufe können in der Schweiz unter Umständen angefochten werden, wenn eine Geschäftsunfähigkeit nachgewiesen werden kann (Art. 18 ZGB).</li>
+        <li><strong>KESB kontaktieren</strong> (Kindes- und Erwachsenenschutzbehörde), wenn rasch Schutzmassnahmen geprüft werden müssen. Zuständigkeiten laufen je nach Wohnort über die örtliche Behörde.</li>
+        <li>Alles dokumentieren: Kontoauszüge, Verträge, Kommunikation — mit Datum und Uhrzeit.</li>
+        <li>Rechtsberatung: <a href="{{ site.tel.proMenteSana.href }}" class="link-teal">{{ site.tel.proMenteSana.label }} ({{ site.tel.proMenteSana.display }})</a> — kostenlos.</li>
+      </ul>
+      <div class="guide-do">✓ Bank anrufen. Dokumentieren. KESB oder Rechtsberatung kontaktieren.</div>
+      <div class="guide-dont">✗ Käufe selbst rückgängig machen wollen. Konfrontieren in der Manie. Abwarten.</div>
+      <p class="guide-note-small">Das ist meist keine 144-/117-Lage, aber oft eine akute Folgenschadensituation. Präventive Massnahmen wie Transaktionslimiten, Vorsorgeauftrag und Bankabsprachen sind in der Schweiz besonders wichtig. → <a href="/modul/6/" class="link-teal">Modul 6: Vorbereitung</a></p>
+    </div></div>
+  </div>
+
+  <p class="content-note notfall-crosslink"><strong>Weitere Anlaufstellen</strong> — für Beratung, Austausch und längerfristige Unterstützung finden Sie auf der <a href="/anlaufstellen/">Anlaufstellen-Seite</a>.</p>
 
   <h2>Nach der akuten Sicherung</h2>
   <p>Wenn die Lage gesichert ist:</p>
@@ -304,11 +279,9 @@ breadcrumbs:
     </div>
   </div>
 
-  <p class="content-footer"><strong>Diese Kurzanleitungen ersetzen keine professionelle Beratung.</strong> Im Zweifel: anrufen.</p>
-
   <p class="content-footer-link"><a href="/tools/durchatmen/">Brauchen Sie einen Moment Ruhe? → Durchatmen</a></p>
 
-  <p class="content-footer-nav"><a href="/modul/6/">→ Modul 6: Kommunikation &amp; Grenzen</a> · <a href="/anlaufstellen/#beratung">→ Anlaufstellen: Beratungsstellen</a> · <a href="/module/">→ Modulübersicht</a></p>
+  <p class="content-footer-nav"><a href="/modul/6/">→ Modul 6: Kommunikation &amp; Grenzen</a> · <a href="/anlaufstellen/">→ Anlaufstellen</a> · <a href="/module/">→ Modulübersicht</a></p>
 
 </main>
 
