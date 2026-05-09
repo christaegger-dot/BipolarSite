@@ -3051,6 +3051,33 @@ a.ampel-card{text-decoration:none;display:block}
   width: fit-content;
 }
 
+/* ── Module Progress Bar ──
+   8 Segmente: vergangene Segmente halb gefüllt, aktuelles voll, kommende leer.
+   Rein CSS via data-module-accent — kein JS nötig. */
+.module-progress {
+  display: flex;
+  gap: 4px;
+  margin-bottom: var(--space-md);
+  margin-top: -6px;
+  width: fit-content;
+}
+.module-progress-seg {
+  width: 20px;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(45,40,35,14%);
+  transition: background 0.2s;
+}
+.module-progress-seg.is-done {
+  background: var(--module-hero-accent);
+  opacity: 0.45;
+}
+.module-progress-seg.is-current {
+  background: var(--module-hero-accent);
+  opacity: 1;
+  width: 28px;
+}
+
 [data-module-accent]:not([data-module-accent="8"]) .module-meta {
   flex-wrap: wrap;
   gap: 10px 18px;

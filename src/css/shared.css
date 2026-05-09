@@ -770,6 +770,20 @@ a, button, input, select, textarea,
   height: auto;
   display: block;
   object-fit: cover;
+  animation: orbit-float 9s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes orbit-float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-hero-visual img {
+    animation: none;
+  }
 }
 
 @media (min-width: 900px) {
