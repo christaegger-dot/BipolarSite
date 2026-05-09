@@ -9,7 +9,7 @@
     "lint:html": "html-validate \"_site/**/*.html\"",
     "lint:css": "stylelint \"src/**/*.css\" \"src/fonts/*.css\"",
     "lint:lighthouse": "npx @lhci/cli@0.14.0 autorun --config=lighthouserc.json",
-    "lint:a11y": "pa11y-ci --config .pa11yci.json",
+    "lint:a11y": "node scripts/run-a11y-check.mjs",
     "lint": "npm run lint:html && npm run lint:css",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
