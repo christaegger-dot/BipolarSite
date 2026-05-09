@@ -338,7 +338,7 @@ a:hover {
 footer {
   background: var(--surface-alt);
   color: var(--navy);
-  padding: var(--space-2xl) var(--space-lg);
+  padding: var(--space-3xl) var(--space-lg) var(--space-xl);
   margin-top: 0;
   border-top: 1px solid var(--border-warm);
   position: relative;
@@ -3470,4 +3470,19 @@ body.module-overview-page .module-card-footer {
     padding-left: 16px;
     padding-right: 16px;
   }
+}
+
+/* ── Footer Bottom Bar (Copyright-Zeile) ── */
+.footer-bottom-bar {
+  max-width: var(--wide-width);
+  margin: var(--space-xl) auto 0;
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--border-warm);
+  text-align: center;
+}
+.footer-copyright {
+  font-size: var(--text-xs);
+  color: var(--text-soft);
+  margin: 0;
+  line-height: 1.5;
 }
