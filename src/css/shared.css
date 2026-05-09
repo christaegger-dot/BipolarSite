@@ -1600,6 +1600,8 @@ h3, h4 {
 
 .hero-subtitle {
   color: var(--slate);
+  max-width: var(--measure-lead);
+  line-height: var(--leading-relaxed);
 }
 
 /* ── Module hero (modul pages) ── */
