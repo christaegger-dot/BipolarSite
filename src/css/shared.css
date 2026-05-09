@@ -568,6 +568,42 @@ a, button, input, select, textarea,
   box-shadow: var(--card-shadow-hover);
 }
 
+/* ── Hover-Zitat-Overlay: zeigt data-quote beim Hovern über Modul-Karten ── */
+.module-card[data-quote] {
+  overflow: hidden;
+}
+
+.module-card[data-quote]::after {
+  content: attr(data-quote);
+  position: absolute;
+  inset: 0;
+  background: var(--surface-alt);
+  color: var(--text);
+  font-family: 'DM Serif Display', serif;
+  font-size: var(--text-sm);
+  font-style: italic;
+  line-height: 1.65;
+  padding: var(--card-padding);
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  border-radius: var(--card-radius);
+  pointer-events: none;
+}
+
+.module-card[data-quote]:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .module-card[data-quote]::after {
+    transition: none;
+  }
+}
+
 /* Accent: consistent teal left border (calmer than 5 different colors) */
 .module-card { border-left: 3px solid var(--teal-light); }
 
@@ -3035,10 +3071,10 @@ body.impressum-page .info-box strong {
 }
 
 .werkzeuge-page .tool-guide-item--alert {
-  --tone-line: var(--alert);
-  --tone-surface: linear-gradient(180deg, rgba(254,242,242,98%), rgba(255,255,255,98%));
+  --tone-line: var(--alert-muted); /* was --alert: softer left bar */
+  --tone-surface: linear-gradient(180deg, rgba(254,242,242,60%), rgba(255,255,255,98%));
 
-  border-color: var(--alert-red-border);
+  border-color: var(--alert-coral-border); /* was --alert-red-border: more muted */
   box-shadow: none;
   grid-column: 1 / -1;
   display: grid;
@@ -3049,12 +3085,13 @@ body.impressum-page .info-box strong {
 }
 
 .werkzeuge-page .tool-guide-item--alert::before {
-  background: var(--alert);
+  background: var(--alert-muted); /* was --alert: softer left accent bar */
 }
 
 .werkzeuge-page .tool-guide-item--alert span {
   justify-self: end;
   font-weight: 700;
+  color: var(--alert); /* keep arrow text red for clarity */
 }
 
 .werkzeuge-page .tool-details {
