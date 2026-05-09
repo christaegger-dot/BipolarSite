@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import { automatedBrowserProjects } from './tests/e2e/browser-matrix.mjs';
 
 const port = 4175;
 const baseURL = `http://127.0.0.1:${port}`;
@@ -17,14 +18,12 @@ export default defineConfig({
     screenshot: 'only-on-failure',
     video: 'off',
   },
-  projects: [
-    {
-      name: 'chromium',
-      use: {
-        ...devices['Desktop Chrome'],
-      },
+  projects: automatedBrowserProjects.map((project) => ({
+    name: project.name,
+    use: {
+      ...devices[project.device],
     },
-  ],
+  })),
   webServer: {
     command: `npm run build && npx http-server _site -p ${port} --silent`,
     url: baseURL,

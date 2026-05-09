@@ -26,7 +26,7 @@ if (navToggle && navLinks) {
     }
   };
   const openNav = () => {
-    lastFocusedBeforeOpen = document.activeElement;
+    lastFocusedBeforeOpen = navToggle;
     navLinks.classList.add('nav-open');
     navToggle.setAttribute('aria-expanded', 'true');
     navToggle.setAttribute('aria-label', 'Menü schliessen');

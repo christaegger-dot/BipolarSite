@@ -1,4 +1,4 @@
-import { expect, test, type Page } from '@playwright/test';
+import { expect, test, type Page, type TestInfo } from '@playwright/test';
 
 async function expectNoHorizontalScroll(page: Page) {
   const { maxWidth, viewportWidth } = await page.evaluate(() => ({
@@ -10,6 +10,10 @@ async function expectNoHorizontalScroll(page: Page) {
   }));
 
   expect(maxWidth).toBeLessThanOrEqual(viewportWidth + 1);
+}
+
+function isMobileProject(testInfo: TestInfo) {
+  return Boolean(testInfo.project.use?.isMobile);
 }
 
 test.describe('core user paths', () => {
@@ -66,6 +70,12 @@ test.describe('core user paths', () => {
     await page.goto('/modul/1/');
     await expect(page.getByRole('heading', { level: 1, name: /Die bipolare Störung verstehen/i })).toBeVisible();
 
+    const mobileTocToggle = page.locator('.toc-mobile-toggle');
+    if (await mobileTocToggle.count()) {
+      await mobileTocToggle.click();
+      await expect(mobileTocToggle).toHaveAttribute('aria-expanded', 'true');
+    }
+
     const tocLink = page.locator('.toc a[href="#verstehen"]').first();
     await expect(tocLink).toBeVisible();
     await tocLink.click();
@@ -73,7 +83,9 @@ test.describe('core user paths', () => {
     await expect(page.locator('#verstehen')).toBeVisible();
   });
 
-  test('desktop toc sidebar includes the real first module target', async ({ page }) => {
+  test('desktop toc sidebar includes the real first module target', async ({ page }, testInfo) => {
+    test.skip(isMobileProject(testInfo), 'Desktop-only TOC sidebar assertion.');
+
     await page.goto('/modul/1/');
 
     const sidebarLink = page.locator('.toc-sidebar a[href="#neu"]').first();
@@ -109,7 +121,7 @@ test.describe('core user paths', () => {
   test('phasenverlauf exposes emergency contacts from the shared data set', async ({ page }) => {
     await page.goto('/tools/phasenverlauf/');
 
-    await page.getByRole('button', { name: /Schwere Depression/i }).click();
+    await page.locator('.pbtn[data-phase="severe-dep"]').click();
     await expect(page.locator('#detailCard')).toContainText('0800 33 66 55');
     await expect(page.locator('#detailCard a[href="tel:143"]')).toBeVisible();
   });

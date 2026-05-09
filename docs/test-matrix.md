@@ -1,18 +1,23 @@
 # Test-Matrix für Geräte- und Browser-Readiness
 
-Diese Matrix definiert, **welche Kombinationen aus Gerät, Browser und Kernpfad** für die manuelle Qualitätssicherung der BipolarSite priorisiert werden. Sie ist bewusst kompakt gehalten. Ziel ist keine vollständige Marktdeckung, sondern eine belastbare Grundabdeckung für die wichtigsten realen Nutzungssituationen der Website.
+Diese Matrix definiert, **welche Kombinationen aus Gerät, Browser und Kernpfad** für die Qualitätssicherung der BipolarSite priorisiert werden. Sie verbindet jetzt zwei Ebenen:
+
+- repo-native Automatisierung über Playwright in CI
+- gezielte manuelle oder reale Geräte-Freigaben für die letzten risikoreichen Pfade
+
+Ziel ist keine vollständige Marktdeckung, sondern eine belastbare Grundabdeckung für die wichtigsten realen Nutzungssituationen der Website.
 
 ## Teststrategie
 
 Die Website ist ein psychoedukatives Hilfesystem mit langen Lesestrecken, Orientierungseinstiegen, Tools und einem besonders sensiblen Notfallpfad. Deshalb richtet sich die Matrix nicht nur nach technischen Engines, sondern auch nach **Nutzungskritikalität**. Priorität haben Geräte und Browser, bei denen kleine Layout-, Fokus- oder Interaktionsprobleme besonders schnell zu Reibung oder Abbruch führen können.
 
-| Priorität | Gerät / Viewport | Browser | Testtiefe | Begründung |
+| Priorität | Gerät / Viewport | Browser | Repo-native Abdeckung | Reale Freigabe |
 |---|---|---|---|---|
-| P1 | iPhone | Safari | vollständig | kritischer Mobile-Pfad und naheliegende Alltagsnutzung |
-| P1 | iPhone | Chrome | vollständig | reale iOS-Nutzung mit eigenem Browserkontext |
-| P1 | Desktop | Chrome | vollständig | breite Referenznutzung auf Desktop |
-| P1 | Desktop | Firefox | vollständig | zusätzlicher Rendering- und Interaktionspfad |
-| P2 | Android | Chrome | stichprobenartig, bei Verfügbarkeit vollständig | zusätzliche Mobile-Absicherung |
+| P1 | iPhone | Safari | angenähert via Playwright WebKit mit `iPhone 13`-Profil | weiterhin empfohlen bei Mobile-/Nav-/Tool-Änderungen |
+| P1 | iPhone | Chrome | nicht direkt auf iOS automatisierbar | weiterhin empfohlen bei Mobile-/Nav-/Tool-Änderungen |
+| P1 | Desktop | Chrome | voll automatisiert in CI | nur bei konkretem Befund zusätzlich |
+| P1 | Desktop | Firefox | voll automatisiert in CI | nur bei konkretem Befund zusätzlich |
+| P2 | Android | Chrome | automatisiert in CI via `Pixel 7`-Profil | bei Bedarf stichprobenartig real gegenprüfen |
 
 ## Bedeutung der Testtiefe
 
@@ -22,6 +27,7 @@ Die Begriffe „vollständig“ und „stichprobenartig“ sollen im Projekt ein
 |---|---|
 | vollständig | alle definierten Kernpfade durchführen und die Pflichtprüfungen aus `docs/qa-checklist.md` bewusst prüfen |
 | stichprobenartig | mindestens Startseite, ein Modul, ein Tool und die Notfallseite prüfen |
+| angenähert | Browser-Engine und Gerätetyp werden sinnvoll simuliert, ersetzen aber kein echtes Gerät |
 
 ## Kernpfade
 
@@ -35,14 +41,27 @@ Die Kernpfade beschreiben die wichtigsten realen Wege durch das System. Sie sind
 | KP4 | Notfall-Pfad | beliebige Standardseite → `/notfall/` → Hilfsoptionen und Telefonnummern → sicherer Rückweg | prüft Krisenzugang und Priorisierung |
 | KP5 | Tiefenstruktur-Pfad | längere Modulseite → interner Sprung, TOC oder Abschnittswechsel → Rückweg oder Weiterpfad | prüft Scroll-, Fokus- und Strukturverhalten |
 
+## Aktueller automatisierter Stand
+
+Die repo-native Smoke-Matrix läuft aktuell über diese vier Playwright-Projekte:
+
+| Projekt | Zweck | Priorität |
+|---|---|---|
+| `desktop-chrome` | Referenz-Desktoppfad | P1 |
+| `desktop-firefox` | zusätzlicher Rendering- und Fokuspfad | P1 |
+| `mobile-android-chrome` | mobiler Chrome-Pfad mit Android-Profil | P2 |
+| `mobile-iphone-safari-approx` | WebKit-basierte iPhone-Safari-Näherung | P1 angenähert |
+
+Damit ist die frühere pauschale Browser-Warnung im Release-Audit nicht mehr nötig. Offen bleibt bewusst nur die reale iPhone-Freigabe für Änderungen mit hohem Mobile-Risiko.
+
 ## Pflichtabdeckung je Testumgebung
 
-Nicht jede Umgebung muss gleich viel leisten. Für die P1-Kombinationen ist die volle Kernpfad-Abdeckung Pflicht. Bei P2-Kombinationen genügt ein reduzierter Test, solange keine konkreten Vorfälle oder Regressionen bekannt sind.
+Nicht jede Umgebung muss gleich viel leisten. Für die P1-Kombinationen ist die volle Kernpfad-Abdeckung Pflicht, sofern die Kombination repo-nativ automatisiert ist. Bei realen iPhone-Freigaben oder P2-Kombinationen genügt ein reduzierter Test, solange keine konkreten Vorfälle oder Regressionen bekannt sind.
 
 | Gerät / Browser | KP1 | KP2 | KP3 | KP4 | KP5 |
 |---|---|---|---|---|---|
-| iPhone Safari | ja | ja | ja | ja | ja |
-| iPhone Chrome | ja | ja | ja | ja | ja |
+| iPhone Safari (real) | ja | ja | ja | ja | ja |
+| iPhone Chrome (real) | ja | ja | ja | ja | ja |
 | Desktop Chrome | ja | ja | ja | ja | ja |
 | Desktop Firefox | ja | ja | ja | ja | ja |
 | Android Chrome | ja | optional | ja | ja | optional |
@@ -73,10 +92,6 @@ Befunde aus der Matrix sollen in einer Form festgehalten werden, die nachträgli
 | beobachtetes Verhalten | konkret beschreiben |
 | erwartetes Verhalten | knapp gegenüberstellen |
 
-## Übergang zu PR #189
-
-Diese Matrix ist nicht der Ort für die eigentlichen Fixes. Sie schafft die Grundlage dafür, dass PR #189 reale Befunde priorisiert behebt, statt hypothetische Probleme zu vermuten. Wenn ein Fehler in mehreren P1-Umgebungen auftritt oder einen Kernpfad blockiert, soll er in der nächsten Mobile-UX-Runde bevorzugt behandelt werden.
-
 ## Praktische Anwendung vor dem Merge
 
-Vor einem Merge reicht ein kurzer, frischer Testdurchlauf auf einer P1-Umgebung plus technische Validierung, wenn der PR nur kleine Änderungen enthält. Bei Layout-, Navigations- oder Tool-Änderungen auf mobilen Pfaden soll die Matrix bewusster ausgeschöpft werden. In jedem Fall gilt: Die Matrix ergänzt die CI und ersetzt sie nicht.
+Vor einem Merge reicht ein grüner CI-Lauf plus ein kurzer, frischer Testdurchlauf auf einer P1-Umgebung, wenn der PR nur kleine Änderungen enthält. Bei Layout-, Navigations- oder Tool-Änderungen auf mobilen Pfaden soll zusätzlich mindestens ein reales iPhone geprüft werden. In jedem Fall gilt: Die Matrix ergänzt die CI und ersetzt sie nicht.
