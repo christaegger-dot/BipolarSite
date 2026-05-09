@@ -98,6 +98,6 @@ Nehmen Sie sich in den nächsten Tagen **ein klärendes Gespräch oder einen eig
 Weiterführend:
 
 - [Modul 7: Langfristige Tragfähigkeit](/modul/7/)
-- [Modul 8: Unterstützung und Ressourcen](/modul/8/)
+- [Anlaufstellen und Ressourcen](/anlaufstellen/)
 - Dargebotene Hand: 143
 - Ärztefon Zürich: 0800&nbsp;33&nbsp;66&nbsp;55

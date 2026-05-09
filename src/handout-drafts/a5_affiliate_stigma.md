@@ -109,6 +109,6 @@ Weiterführend:
 
 - [Modul 2: Der Belastungs-Eisberg](/modul/2/#belastung)
 - [Modul 2: Was Suizidangst mit Ihnen macht](/modul/2/#suizidangst)
-- [Modul 8: Unterstützung und Ressourcen](/modul/8/)
+- [Anlaufstellen und Ressourcen](/anlaufstellen/)
 - Dargebotene Hand: 143
 - Ärztefon Zürich: 0800&nbsp;33&nbsp;66&nbsp;55

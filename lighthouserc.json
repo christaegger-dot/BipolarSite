@@ -1,21 +1,24 @@
 {
   "ci": {
     "collect": {
+      "staticDistDir": "./_site",
       "url": [
-        "http://localhost:8080/",
-        "http://localhost:8080/notfall/",
-        "http://localhost:8080/modul/1/",
-        "http://localhost:8080/modul/8/",
-        "http://localhost:8080/werkzeuge/",
-        "http://localhost:8080/tools/krisenplan/",
-        "http://localhost:8080/tools/selbsttest/",
-        "http://localhost:8080/tools/phasenverlauf/",
-        "http://localhost:8080/tools/eisberg/",
-        "http://localhost:8080/tools/komm-trainer/",
-        "http://localhost:8080/tools/saeulen-check/",
-        "http://localhost:8080/tools/durchatmen/",
-        "http://localhost:8080/tools/ee-kreislauf/",
-        "http://localhost:8080/tools/solidaritaets-chart/"
+        "http://127.0.0.1:8080/",
+        "http://127.0.0.1:8080/notfall/",
+        "http://127.0.0.1:8080/modul/1/",
+        "http://127.0.0.1:8080/anlaufstellen/",
+        "http://127.0.0.1:8080/materialien/",
+        "http://127.0.0.1:8080/werkzeuge/",
+        "http://127.0.0.1:8080/werkzeuge/mini-plan/",
+        "http://127.0.0.1:8080/tools/krisenplan/",
+        "http://127.0.0.1:8080/tools/selbsttest/",
+        "http://127.0.0.1:8080/tools/phasenverlauf/",
+        "http://127.0.0.1:8080/tools/eisberg/",
+        "http://127.0.0.1:8080/tools/komm-trainer/",
+        "http://127.0.0.1:8080/tools/saeulen-check/",
+        "http://127.0.0.1:8080/tools/durchatmen/",
+        "http://127.0.0.1:8080/tools/ee-kreislauf/",
+        "http://127.0.0.1:8080/tools/solidaritaets-chart/"
       ],
       "numberOfRuns": 3,
       "settings": {
@@ -25,7 +28,7 @@
     "assert": {
       "assertMatrix": [
         {
-          "matchingUrlPattern": "^http://localhost:8080/modul/1/$",
+          "matchingUrlPattern": "^http://127\\.0\\.0\\.1:8080/modul/1/$",
           "assertions": {
             "categories:accessibility": [
               "error",
@@ -54,7 +57,7 @@
           }
         },
         {
-          "matchingUrlPattern": "^http://localhost:8080/modul/8/$",
+          "matchingUrlPattern": "^http://127\\.0\\.0\\.1:8080/anlaufstellen/$",
           "assertions": {
             "categories:accessibility": [
               "error",
@@ -83,7 +86,7 @@
           }
         },
         {
-          "matchingUrlPattern": "^http://localhost:8080/notfall/$",
+          "matchingUrlPattern": "^http://127\\.0\\.0\\.1:8080/notfall/$",
           "assertions": {
             "categories:accessibility": [
               "error",
@@ -112,7 +115,7 @@
           }
         },
         {
-          "matchingUrlPattern": "^http://localhost:8080/(?!modul/1/|modul/8/|notfall/).*$",
+          "matchingUrlPattern": "^http://127\\.0\\.0\\.1:8080/(?!modul/1/|anlaufstellen/|notfall/).*$",
           "assertions": {
             "categories:accessibility": [
               "error",

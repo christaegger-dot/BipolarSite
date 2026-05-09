@@ -106,6 +106,6 @@ Versuchen Sie in den nächsten Tagen, **einen Verlust konkret zu benennen**, um 
 Weiterführend:
 
 - [Modul 4: Ambiguous Loss](/modul/4/#ambiguous)
-- [Modul 8: Unterstützung und Ressourcen](/modul/8/)
+- [Anlaufstellen und Ressourcen](/anlaufstellen/)
 - Dargebotene Hand: 143
 - Ärztefon Zürich: 0800&nbsp;33&nbsp;66&nbsp;55

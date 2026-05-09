@@ -25,14 +25,16 @@
   status = 301
 
 [[redirects]]
-  from = "/anlaufstellen"
-  to = "/modul/8/"
+  from = "/modul/8"
+  to = "/anlaufstellen/"
   status = 301
+  force = true
 
 [[redirects]]
-  from = "/anlaufstellen/"
-  to = "/modul/8/"
+  from = "/modul/8/"
+  to = "/anlaufstellen/"
   status = 301
+  force = true
 
 # Security headers applied to all pages
 # Inline scripts have been extracted; inline styles still remain in templates and

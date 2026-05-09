@@ -66,6 +66,7 @@ test.describe('core user paths', () => {
 
     const modul1Link = page.locator('a[href="/modul/1/"]').first();
     await expect(modul1Link).toBeVisible();
+    await expect(page.locator('a[href="/modul/8/"]')).toHaveCount(0);
 
     await page.goto('/modul/1/');
     await expect(page.getByRole('heading', { level: 1, name: /Die bipolare Störung verstehen/i })).toBeVisible();
@@ -158,8 +159,14 @@ test.describe('core user paths', () => {
     await expect(warningField).toHaveValue('');
   });
 
-  test('mini-plan only saves and loads after explicit storage consent', async ({ page }) => {
+  test('legacy modul 8 route redirects to anlaufstellen', async ({ page }) => {
     await page.goto('/modul/8/');
+    await expect(page).toHaveURL(/\/anlaufstellen\/$/);
+    await expect(page.getByRole('heading', { level: 1, name: /Anlaufstellen und Ressourcen/i })).toBeVisible();
+  });
+
+  test('mini-plan only saves and loads after explicit storage consent', async ({ page }) => {
+    await page.goto('/werkzeuge/mini-plan/');
     await page.evaluate(() => localStorage.clear());
     await page.reload();
 
@@ -199,6 +206,8 @@ test.describe('mobile navigation', () => {
     await expect(toggle).toHaveAttribute('aria-expanded', 'true');
     await expect(page.locator('#primary-nav')).toBeVisible();
     await expect(page.locator('#primary-nav a[href="/module/"]')).toBeVisible();
+    await expect(page.locator('#primary-nav a[href="/anlaufstellen/"]')).toBeVisible();
+    await expect(page.locator('#primary-nav a[href="/materialien/"]')).toBeVisible();
     await expect(page.locator('#primary-nav a[href="/werkzeuge/"]')).toBeVisible();
     await expect(page.locator('a.nav-sos-mobile[href="/notfall/"]')).toBeVisible();
 

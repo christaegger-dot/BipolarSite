@@ -98,5 +98,5 @@ Rechtliche Klarheit ersetzt keine Beziehung und keine Behandlung. Aber sie kann 
 Weiterführend:
 
 - [Modul 6: Schweigepflicht und Finanzen](/modul/6/#schweige)
-- [Modul 8: Recht & Ombudsstellen](/modul/8/#system)
+- [Anlaufstellen: Recht & Ombudsstellen](/anlaufstellen/#system)
 - [Notfallseite](/notfall/#fu)

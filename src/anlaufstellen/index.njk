@@ -1,0 +1,209 @@
+---
+layout: "base"
+title: "Anlaufstellen und Ressourcen | PUK Zürich"
+navCurrent: "anlaufstellen"
+description: "Beratung, Austausch und rechtliche Orientierung für Angehörige von Menschen mit bipolarer Störung in der Schweiz, mit Schwerpunkt Kanton Zürich."
+permalink: "/anlaufstellen/"
+useSharedCSS: true
+useNavJS: true
+useModuleCSS: true
+bodyClass: "hub-page anlaufstellen-page"
+breadcrumbs:
+  - name: "Anlaufstellen"
+    url: "/anlaufstellen/"
+---
+{% block headCSS %}<!-- Hub styles in module.css (.hub-*, .stelle-card, .hub-contact-cta) -->{% endblock %}
+{% block nav %}
+{% include "nav-full.njk" %}
+{% endblock %}
+{% block content %}
+
+<header class="hub-hero">
+  <div class="hub-hero-inner">
+    <div class="breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><span>Anlaufstellen</span></div>
+    <h1>Anlaufstellen und Ressourcen</h1>
+    <p class="hub-hero-lead">Hier finden Sie Beratung, Austausch und rechtliche Orientierung. Druckbare Materialien zum Mitnehmen liegen auf einer eigenen Seite.</p>
+  </div>
+</header>
+
+<main id="main-content" class="content hub-content">
+  <section class="hub-pathways reveal">
+    <h2>Was suchen Sie?</h2>
+    <p class="hub-pathways-lead">Wählen Sie die Richtung, die gerade am ehesten passt. Wenn es akut ist, öffnen Sie direkt den Notfallweg. Sonst können Sie jederzeit zu einem anderen Abschnitt springen.</p>
+    <div class="hub-pathway-grid">
+      <a href="/notfall/" class="hub-pathway-card hub-pathway-card--alert">
+        <div class="hub-pathway-kicker">Akut</div>
+        <h3>Es ist gerade akut oder unklar</h3>
+        <p>Nummern, Notfallweg, schnelle Orientierung. Vor langer Suche.</p>
+        <span class="hub-pathway-arrow" aria-hidden="true">→</span>
+      </a>
+      <a href="#beratung" class="hub-pathway-card hub-pathway-card--talk">
+        <div class="hub-pathway-kicker">Reden</div>
+        <h3>Wenn Sie selbst erschöpft sind oder reden müssen</h3>
+        <p>Fachstelle Angehörigenarbeit, Pro Mente Sana — nicht erst, wenn Sie zusammenbrechen.</p>
+        <span class="hub-pathway-arrow" aria-hidden="true">↓</span>
+      </a>
+      <a href="#austausch" class="hub-pathway-card hub-pathway-card--exchange">
+        <div class="hub-pathway-kicker">Austausch</div>
+        <h3>Wenn Sie Austausch mit Angehörigen suchen</h3>
+        <p>Selbsthilfe entlastet, wo reine Information nicht mehr reicht.</p>
+        <span class="hub-pathway-arrow" aria-hidden="true">↓</span>
+      </a>
+      <a href="#recht" class="hub-pathway-card hub-pathway-card--law">
+        <div class="hub-pathway-kicker">Recht</div>
+        <h3>Wenn Recht oder Versorgungssystem blockieren</h3>
+        <p>Ombudsstellen, FU, Vorsorgeauftrag, Versicherung und Beschwerdewege.</p>
+        <span class="hub-pathway-arrow" aria-hidden="true">↓</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="beratung" class="hub-section reveal">
+    <h2>Beratung und erstes Gespräch</h2>
+    <p>Diese Stellen sind die erste Wahl, wenn Sie eine vertrauliche Einordnung, ein erstes Gespräch oder konkrete fachliche Orientierung brauchen — auch für Familie und Kinder.</p>
+
+    <div class="stelle-card">
+      <div class="stelle-header"><h3>Fachstelle Angehörigenarbeit PUK Zürich</h3><div class="stelle-badge beratung">Beratung</div></div>
+      <p>Persönliche, vertrauliche und kostenlose Beratung — auch wenn die betroffene Person nicht bei der PUK in Behandlung ist. Mo–Fr nach Vereinbarung.</p>
+      <div class="stelle-contact"><a href="{{ site.tel.fachstelle.href }}">{{ site.tel.fachstelle.display }}</a> · Lenggstrasse 31, 8032 Zürich</div>
+    </div>
+
+    <div class="stelle-card">
+      <div class="stelle-header"><h3>Pro Mente Sana</h3><div class="stelle-badge beratung">Beratung + Recht</div></div>
+      <p>Schweizweite psychosoziale und juristische Beratung — besonders sinnvoll bei FU, Patientenverfügung, Vorsorgeauftrag oder Konflikten mit Institutionen. Telefonisch zu festen Beratungszeiten; die e-Beratung kann jederzeit gesendet werden, antwortet aber nicht sofort.</p>
+      <div class="stelle-contact"><a href="{{ site.tel.proMenteSana.href }}">{{ site.tel.proMenteSana.display }}</a> · <a href="{{ site.contacts.proMenteSana.url }}">{{ site.contacts.proMenteSana.urlLabel }}</a></div>
+    </div>
+
+    <p class="hub-section-deepen">→ Was in einem ersten Beratungsgespräch hilft und was zuerst entlastet: <a href="/modul/6/#zuerst">Modul 6, «Was in belastenden Situationen zuerst hilft»</a>.</p>
+  </section>
+
+  <section class="hub-section reveal">
+    <h2>Auch nachts, anonym oder für Kinder und Jugendliche</h2>
+    <p>Nicht jede dringliche Situation ist eine 144- oder 117-Lage. Diese Kontakte sind besonders hilfreich, wenn jemand sofort reden muss, Gewalt im Raum steht oder Kinder und Jugendliche direkt mitbetroffen sind.</p>
+
+    <div class="stelle-card">
+      <div class="stelle-header"><h3>Die Dargebotene Hand</h3><div class="stelle-badge beratung">24 h</div></div>
+      <p>Anonyme Gesprächs- und Krisenhilfe für Erwachsene — auch für Angehörige, die nachts oder am Wochenende nicht allein bleiben möchten.</p>
+      <div class="stelle-contact"><a href="{{ site.tel.dargeboteneHand.href }}">{{ site.tel.dargeboteneHand.display }}</a> · <a href="{{ site.contacts.dargeboteneHand.url }}">{{ site.contacts.dargeboteneHand.urlLabel }}</a></div>
+    </div>
+
+    <div class="stelle-card">
+      <div class="stelle-header"><h3>Pro Juventute 147</h3><div class="stelle-badge beratung">Kinder &amp; Jugendliche</div></div>
+      <p>Für Kinder und Jugendliche, die selbst überfordert sind, sich sorgen oder nicht wissen, mit wem sie sprechen sollen. Telefon, Chat und SMS sind rund um die Uhr erreichbar.</p>
+      <div class="stelle-contact"><a href="{{ site.tel.proJuventute.href }}">{{ site.tel.proJuventute.display }}</a> · <a href="{{ site.contacts.proJuventute.url }}">{{ site.contacts.proJuventute.urlLabel }}</a></div>
+    </div>
+
+    <div class="stelle-card">
+      <div class="stelle-header"><h3>Opferhilfe Zürich · 24-h-Telefon</h3><div class="stelle-badge beratung">Gewalt / Bedrohung</div></div>
+      <p>Wenn Gewalt, Bedrohung oder Stalking im Raum stehen. Anonym, kostenlos und rund um die Uhr erreichbar — auch dann, wenn Sie erst einmal nur klären möchten, wie ernst die Lage ist.</p>
+      <div class="stelle-contact"><a href="{{ site.tel.opferhilfe24h.href }}">{{ site.tel.opferhilfe24h.display }}</a> · <a href="{{ site.contacts.opferhilfe24h.url }}">{{ site.contacts.opferhilfe24h.urlLabel }}</a></div>
+    </div>
+
+    <p class="hub-section-deepen">→ Wenn ein Gespräch in der akuten Lage selbst nicht mehr trägt: <a href="/modul/6/#sofort">Modul 6, «Wenn sofortiges Handeln wichtiger ist als Kommunikation»</a>.</p>
+  </section>
+
+  <section id="austausch" class="hub-section reveal">
+    <h2>Austausch mit anderen Angehörigen</h2>
+    <p>Diese Angebote sind besonders hilfreich, wenn Sie nicht nur Information, sondern Resonanz und Erfahrung von anderen Angehörigen suchen — ohne dass alles von Grund auf erklärt werden muss.</p>
+
+    <div class="stelle-card">
+      <div class="stelle-header"><h3>VASK Zürich</h3><div class="stelle-badge selbsthilfe">Selbsthilfe</div></div>
+      <p>Angehörigenorganisation für Angehörige psychisch erkrankter Menschen. Selbsthilfe-Treffpunkte, Austausch mit Menschen in ähnlicher Situation.</p>
+      <div class="stelle-contact"><a href="{{ site.tel.vask.href }}">{{ site.tel.vask.display }}</a> · <a href="{{ site.contacts.vask.url }}">{{ site.contacts.vask.urlLabel }}</a></div>
+    </div>
+
+    <div class="stelle-card">
+      <div class="stelle-header"><h3>Selbsthilfe Zürich</h3><div class="stelle-badge selbsthilfe">Vermittlung</div></div>
+      <p>Vermittlung von Selbsthilfegruppen in der Region Zürich, darunter auch eine bipolar-spezifische Angehörigengruppe.</p>
+      <div class="stelle-contact"><a href="{{ site.tel.selbsthilfe.href }}">{{ site.tel.selbsthilfe.display }}</a> · <a href="{{ site.contacts.selbsthilfe.url }}">{{ site.contacts.selbsthilfe.urlLabel }}</a></div>
+    </div>
+
+    <div class="stelle-card">
+      <div class="stelle-header"><h3>Schweizweite Alternativen</h3><div class="stelle-badge selbsthilfe">Schweiz</div></div>
+      <p>Wenn keine Gruppe in Zürich passt oder Sie ausserhalb der Region suchen: Selbsthilfe Schweiz vermittelt regional weiter, und EQUILIBRIUM bietet Austausch- und Informationsangebote zu Depression und bipolaren Erkrankungen, auch für Angehörige.</p>
+      <div class="stelle-contact"><a href="{{ site.contacts.selbsthilfeSchweiz.href }}">{{ site.contacts.selbsthilfeSchweiz.display }}</a> · <a href="{{ site.contacts.selbsthilfeSchweiz.url }}">{{ site.contacts.selbsthilfeSchweiz.urlLabel }}</a> · <a href="{{ site.contacts.equilibrium.href }}">{{ site.contacts.equilibrium.display }}</a> · <a href="{{ site.contacts.equilibrium.url }}">{{ site.contacts.equilibrium.urlLabel }}</a></div>
+    </div>
+
+    <p class="hub-section-deepen">→ Warum soziale Kontakte für die lange Strecke entscheidend sind: <a href="/modul/7/#saeulen">Modul 7, «Was langfristig trägt»</a>.</p>
+  </section>
+
+  <section id="recht" class="hub-section reveal">
+    <h2>Recht, Ombudsstellen und Systemfragen</h2>
+    <p>Diese Angebote sind besonders sinnvoll, wenn Versicherung, Finanzierung, Beschwerdewege oder andere Systemfragen blockieren. Diese Themen werden selten leichter, wenn man sie lange liegen lässt.</p>
+
+    <div class="stelle-card">
+      <div class="stelle-header"><h3>Ombudsstelle Krankenversicherung</h3><div class="stelle-badge beratung">Recht</div></div>
+      <p>Bei Leistungsstreitigkeiten mit der Krankenkasse. Kostenlos und unabhängig.</p>
+      <div class="stelle-contact"><a href="{{ site.contacts.ombudsstelleKrankenversicherung.url }}">{{ site.contacts.ombudsstelleKrankenversicherung.urlLabel }}</a> · <a href="{{ site.contacts.ombudsstelleKrankenversicherung.href }}">{{ site.contacts.ombudsstelleKrankenversicherung.display }}</a></div>
+    </div>
+
+    <p class="reveal link-teal-bold" style="font-size:var(--text-base);margin-top:var(--space-md)">Notfallnummern (143, 144, 117, 147, Opferhilfe 24 h, Ärztefon – Notfalldienst Zürich) finden Sie auf der <a href="/notfall/" class="link-alert">Notfallseite →</a></p>
+
+    <details id="system" class="hub-details reveal">
+      <summary>
+        <span class="hub-details-kicker">Optional</span>
+        <span class="hub-details-title">Wenn das Versorgungssystem zusätzlich belastet</span>
+        <span class="hub-details-intro">Dann öffnen, wenn Versorgung, Versicherung oder Zuständigkeiten selbst zur Belastung geworden sind.</span>
+      </summary>
+      <div class="hub-details-body">
+        <p>Viele Angehörige tragen neben Sorge und Erschöpfung auch Frust auf das Versorgungssystem in sich: wegen Wartelisten, unklarer Zuständigkeiten, Schweigepflicht, Ablehnungen oder dem Gefühl, mitzutragen und trotzdem kaum Einfluss zu haben. Dieser Frust ist nicht bloss Ärger. Er ist oft eine zusätzliche Belastungsschicht.</p>
+
+        <ul class="system-items">
+          <li>«Die erkrankte Person erfüllt die Kriterien für eine Hospitalisation nicht.» — obwohl die Situation eskaliert.</li>
+          <li>«Wir können ohne Einwilligung keine Informationen weitergeben.» — obwohl Sie den Alltag mittragen.</li>
+          <li>«Der nächste freie Therapieplatz ist in vier Monaten.» — obwohl sich die Lage gerade verschlechtert.</li>
+          <li>«Als Angehörige und Nahestehende haben Sie keinen Anspruch auf Beratung.» — obwohl Sie direkt betroffen sind.</li>
+        </ul>
+
+        <p>Diesen Frust ernst zu nehmen heisst nicht, das System pauschal abzuwerten. Es heisst, zusätzliche Belastung nicht mit persönlichem Versagen zu verwechseln. Wenn Hilfewege zermürben, dürfen Sie Beratung, Beschwerdewege und Ombudsstellen nutzen.</p>
+        <p><strong>Besonders sinnvoll sind hier:</strong> Pro Mente Sana für psychosoziale und juristische Einordnung, die Ombudsstelle Krankenversicherung bei Leistungsstreitigkeiten, Selbsthilfeverbände für Erfahrungsaustausch und die jeweiligen Rückmelde- oder Beschwerdewege von Kliniken oder Trägerschaften.</p>
+
+        <div class="action-box">
+          <h3>Was Sie konkret tun können — wenn das System blockiert</h3>
+          <ul>
+            <li><strong>Schriftlich dokumentieren:</strong> Datum, Aussage, Kontaktperson festhalten — bei Beschwerden entscheidend.</li>
+            <li><strong>Pro Mente Sana kontaktieren:</strong> Gute erste Anlaufstelle für psychosoziale und juristische Einordnung. <a href="{{ site.contacts.proMenteSana.url }}" target="_blank" rel="noopener" class="link-teal">{{ site.contacts.proMenteSana.urlLabel }}</a></li>
+            <li><strong>Ombudsstelle Krankenversicherung:</strong> Besonders passend bei Leistungsstreitigkeiten oder abgelehnten Kostengutsprachen. <a href="{{ site.contacts.ombudsstelleKrankenversicherung.url }}" target="_blank" rel="noopener" class="link-teal">{{ site.contacts.ombudsstelleKrankenversicherung.urlLabel }}</a></li>
+            <li><strong>Rückmeldung an Klinik oder Trägerschaft:</strong> Formelle Beschwerde über den internen Beschwerdeweg — oft wirksamer als erwartet.</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <p class="hub-section-deepen">→ Wenn FU im Raum steht: <a href="/notfall/#fu">Notfall, «Fürsorgerische Unterbringung»</a>. Wenn schwierige Entscheidungen über Nähe und Abstand anstehen: <a href="/modul/5/">Modul 5, «Loyalitätskonflikte»</a>.</p>
+  </section>
+
+  <section class="hub-section reveal">
+    <div class="stelle-card">
+      <div class="stelle-header"><h3>Materialien zum Mitnehmen</h3><div class="stelle-badge selbsthilfe">PDF</div></div>
+      <p>Wenn Sie aus diesen Anlaufstellen ein konkretes Handout für sich oder zum Weitergeben suchen, finden Sie auf der <a href="/materialien/" class="link-teal">Materialien-Seite</a> druckbare A4-Blätter zu allen wichtigen Themen.</p>
+    </div>
+  </section>
+
+  <section class="hub-contact-cta reveal">
+    <div class="hub-contact-inner">
+      <h2>Reden, ohne wissen zu müssen, was Sie sagen wollen</h2>
+      <p>Diese Beratung ist für Sie selbst gedacht, nicht für die erkrankte Person. Sie sind hier richtig, auch wenn Sie unsicher sind, ob Sie Hilfe brauchen.</p>
+      <div class="hub-contact-actions">
+        <a href="{{ site.tel.fachstelle.href }}" class="hub-contact-phone">☎ Fachstelle anrufen: {{ site.tel.fachstelle.display }}</a>
+        <a href="mailto:{{ site.email }}" class="hub-contact-email">{{ site.email }}</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="sources reveal">
+    <button type="button" class="sources-toggle" aria-expanded="false" data-sources-toggle><span class="sources-title">Wissenschaftliche Quellen</span></button>
+    <ul>
+      <li><strong>Reinares, M. et al. (2016).</strong> Family interventions in bipolar disorder. <em>Clinical Psychology Review, 43</em>, 47–57.</li>
+      <li><strong>Chiba, R. et al. (2025).</strong> Effectiveness of peer support for family caregivers. <em>Psychiatric Services, 76</em>(1), 45–53.</li>
+      <li><strong>Grover, S. et al. (2017).</strong> Caregiver burden in bipolar disorder. <em>J Affective Disorders, 223</em>, 225–234.</li>
+      <li><strong>Miklowitz, D. J. (2010).</strong> <em>The Bipolar Disorder Survival Guide.</em> Guilford Press.</li>
+      <li><strong>Obegu, P. et al. (2025).</strong> Care coordination for people living with serious mental illness: the caregiver's perspective. <em>Frontiers in Health Services, 4</em>, 1473235.</li>
+      <li><strong>Wittenborn, A. K. et al. (2021).</strong> Couple and family interventions for depressive and bipolar disorders: evidence base update. <em>J Marital and Family Therapy, 48</em>(1), 129–153.</li>
+    </ul>
+  </div>
+</main>
+{% endblock %}
+{% block footer %}
+{% include "footer-medium.njk" %}
+{% endblock %}

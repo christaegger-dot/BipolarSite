@@ -115,5 +115,5 @@ Weiterführend:
 
 - [Modul 7: Trialog und Zusammenarbeit](/modul/7/#trialog)
 - [Modul 6: Schweigepflicht und Zusammenarbeit](/modul/6/#schweige)
-- [Modul 8: Unterstützung und Ressourcen](/modul/8/)
+- [Anlaufstellen und Ressourcen](/anlaufstellen/)
 - [Pro Mente Sana](https://www.promentesana.ch)
