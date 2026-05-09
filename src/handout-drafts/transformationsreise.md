@@ -99,5 +99,5 @@ Weiterführend:
 
 - [Modul 7: Was Wachstum heissen kann](/modul/7/#wachstum)
 - [Modul 6: Krisenplan und Vorbereitung](/modul/6/)
-- [Modul 8: Unterstützung und Ressourcen](/modul/8/)
+- [Anlaufstellen und Ressourcen](/anlaufstellen/)
 - Dargebotene Hand: 143

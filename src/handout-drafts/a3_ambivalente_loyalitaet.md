@@ -103,6 +103,6 @@ Weiterführend:
 
 - [Modul 5: Das Dilemma ist real](/modul/5/#dilemma)
 - [Modul 4: Trauer ohne klaren Abschied](/modul/4/#ambiguous)
-- [Modul 8: Unterstützung und Ressourcen](/modul/8/)
+- [Anlaufstellen und Ressourcen](/anlaufstellen/)
 - Dargebotene Hand: 143
 - Ärztefon Zürich: 0800&nbsp;33&nbsp;66&nbsp;55

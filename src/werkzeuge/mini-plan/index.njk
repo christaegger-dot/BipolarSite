@@ -1,0 +1,102 @@
+---
+layout: "base"
+title: "Mini-Plan | PUK Zürich"
+description: "Ein kurzer Mini-Plan für Angehörige: wichtigste Nummer, ausgewähltes Dokument und nächster Schritt lokal auf diesem Gerät festhalten."
+permalink: "/werkzeuge/mini-plan/"
+toolBackHref: "/werkzeuge/"
+toolBackLabel: "Zurück zu den Werkzeugen"
+useSharedCSS: true
+useToolCSS: true
+useModuleCSS: true
+skipModuleUiJS: true
+useNavJS: false
+bodyClass: "mini-plan-tool-page"
+breadcrumbs:
+  - name: "Werkzeuge"
+    url: "/werkzeuge/"
+  - name: "Mini-Plan"
+    url: "/werkzeuge/mini-plan/"
+---
+{% block headCSS %}<!-- Mini-Plan tool reuses .mini-plan from module.css and tool shell from tools.css -->{% endblock %}
+{% block nav %}
+{% include "nav-tool.njk" %}
+{% endblock %}
+{% block content %}
+<main class="wrap" id="main-content">
+  <div class="hdr">
+    <div class="breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><a href="/werkzeuge/">Werkzeuge</a><span class="sep" aria-hidden="true">›</span><span>Mini-Plan</span></div>
+    <div class="tool-glyph" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="8" width="22" height="24" rx="4" fill="var(--teal-light)"/><path d="M14 15H26" stroke="var(--teal-solid)" stroke-width="2.4" stroke-linecap="round"/><path d="M14 21H24" stroke="var(--teal-solid)" stroke-width="2.4" stroke-linecap="round"/><circle cx="26.5" cy="26.5" r="4.5" fill="var(--teal-solid)"/><path d="M24.8 26.5L26 27.7L28.4 25.3" stroke="var(--card)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <h1>Mini-Plan</h1>
+    <p>Wenn Sie heute etwas festhalten möchten, können Sie hier Ihre wichtigste Nummer, ein ausgewähltes Dokument und den nächsten Schritt lokal auf diesem Gerät sichern.</p>
+    <div class="info-box">
+      <p><strong>Wichtig:</strong> Alles bleibt lokal im Browser und wird nicht an uns oder an einen Server gesendet. Auf gemeinsam genutzten Geräten sollten Sie nur eintragen, was dort auch von anderen gesehen werden dürfte.</p>
+    </div>
+  </div>
+
+  <p class="mini-plan-privacy-note"><strong>Auf geteilten Geräten</strong> (Familien-Tablet, gemeinsam genutzter PC): Bitte keine belastenden Namen oder Details eintragen — der Plan liegt unverschlüsselt im Browser. Bereits gespeicherte Inhalte werden erst dann geladen, wenn Sie die lokale Speicherung unten ausdrücklich aktivieren. Mit dem Button «Mini-Plan löschen» unten jederzeit entfernbar.</p>
+
+  <div class="mini-plan" aria-labelledby="mini-plan-title">
+    <div class="mini-plan-kicker">Mein Mini-Plan</div>
+    <h2 id="mini-plan-title">Meine Nummern, mein nächster Schritt, mein Dokument</h2>
+    <div class="local-storage-choice local-storage-choice--mini" aria-describedby="miniPlanStatus">
+      <div class="local-storage-choice-title">Lokale Speicherung bewusst aktivieren</div>
+      <p class="local-storage-choice-lead">Wenn Sie den Mini-Plan auf diesem Gerät behalten möchten, aktivieren Sie die lokale Speicherung zuerst. Ohne diese Zustimmung lädt die Seite keine bereits gespeicherten Einträge.</p>
+      <label class="local-storage-choice-option">
+        <input id="miniPlanStorageConsent" name="miniPlanStorageConsent" type="checkbox">
+        <span class="local-storage-choice-copy">
+          <strong>Mini-Plan lokal auf diesem Gerät speichern</strong>
+          <small>Andere Personen mit Zugriff auf dieses Gerät könnten die gespeicherten Inhalte sehen.</small>
+        </span>
+      </label>
+    </div>
+    <div class="mini-plan-grid">
+      <div class="mini-plan-field">
+        <label for="miniPlanNumber">Meine wichtigste Nummer</label>
+        <input id="miniPlanNumber" name="number" type="tel" autocomplete="tel" placeholder="z. B. 0800 33 66 55 oder 058 384 38 00">
+      </div>
+      <div class="mini-plan-field">
+        <label for="miniPlanDocument">Mein ausgewähltes Dokument</label>
+        <select id="miniPlanDocument" name="document">
+          <option value="">Bitte wählen</option>
+          <option value="Notfallkarte Kanton Zürich">Notfallkarte Kanton Zürich</option>
+          <option value="Krisenplan-Vorlage">Krisenplan-Vorlage</option>
+          <option value="Was stabilisiert — was schadet">Was stabilisiert — was schadet</option>
+          <option value="Grenzsetzung">Grenzsetzung</option>
+          <option value="Trauer ohne klaren Abschied">Trauer ohne klaren Abschied</option>
+          <option value="Ein anderes Handout aus der Liste">Ein anderes Handout aus der Liste</option>
+        </select>
+      </div>
+      <div class="mini-plan-field full">
+        <label for="miniPlanStep">Mein nächster Schritt</label>
+        <textarea id="miniPlanStep" name="step" placeholder="z. B. Heute eine Nummer speichern, morgen bei der Fachstelle anrufen oder ein PDF ausdrucken"></textarea>
+      </div>
+    </div>
+    <div class="mini-plan-actions">
+      <button type="button" class="mini-plan-save" id="miniPlanSave" disabled>Mini-Plan speichern</button>
+      <button type="button" class="mini-plan-clear" id="miniPlanClear">Mini-Plan löschen</button>
+    </div>
+    <div class="mini-plan-status" id="miniPlanStatus" aria-live="polite"></div>
+    <div class="mini-plan-summary" id="miniPlanSummary" hidden>
+      <h3>Gespeichert auf diesem Gerät</h3>
+      <p><strong>Nummer:</strong> <span id="miniPlanSummaryNumber">—</span></p>
+      <p><strong>Dokument:</strong> <span id="miniPlanSummaryDocument">—</span></p>
+      <p><strong>Nächster Schritt:</strong> <span id="miniPlanSummaryStep">—</span></p>
+    </div>
+  </div>
+
+  <p class="text-soft-sm">Wenn Sie statt eines lokalen Mini-Plans lieber druckbare Unterlagen suchen, finden Sie auf der <a href="/materialien/">Materialien-Seite</a> Notfallkarten, Krisenplan-Vorlagen und weitere Handouts. Wenn Sie eher ein Gespräch als ein Dokument brauchen, ist die Seite <a href="/anlaufstellen/">Anlaufstellen</a> der passendere nächste Schritt.</p>
+
+  <noscript>
+    <div class="noscript-box">
+      <p>Dieses Werkzeug benötigt JavaScript.</p>
+      <p>Ohne JavaScript können Sie stattdessen auf der <a href="/materialien/">Materialien-Seite</a> passende PDFs öffnen oder auf der <a href="/anlaufstellen/">Anlaufstellen-Seite</a> direkt eine Beratung suchen.</p>
+    </div>
+  </noscript>
+</main>
+{% endblock %}
+{% block footer %}
+{% include "footer-medium.njk" %}
+{% endblock %}
+{% block scripts %}
+<script src="/js/mini-plan.js"></script>
+{% endblock %}

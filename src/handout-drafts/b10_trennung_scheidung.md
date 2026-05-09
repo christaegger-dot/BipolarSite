@@ -104,6 +104,6 @@ Weiterführend:
 
 - [Modul 5: Gehen, Bleiben, Abstand, Neuordnung](/modul/5/#gehen-bleiben)
 - [Modul 6: Grenzsetzung](/modul/6/#grenzen)
-- [Modul 8: Unterstützung und Ressourcen](/modul/8/)
+- [Anlaufstellen und Ressourcen](/anlaufstellen/)
 - Sanität: 144
 - Ärztefon Zürich: 0800&nbsp;33&nbsp;66&nbsp;55

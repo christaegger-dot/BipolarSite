@@ -94,4 +94,4 @@ Weiterführend:
 - [Notfallseite](/notfall/)
 - [Modul 6: Kommunikation, Grenzen, Krisenplan](/modul/6/)
 - [Modul 7: Langfristige Tragfähigkeit](/modul/7/)
-- [Modul 8: Unterstützung und Ressourcen](/modul/8/)
+- [Anlaufstellen und Ressourcen](/anlaufstellen/)

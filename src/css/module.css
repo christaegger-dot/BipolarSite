@@ -2004,12 +2004,12 @@ body.notfall-page .pdf-preview-frame{display:block;width:100%;height:60vh;min-he
 .mini-plan-privacy-note{font-size:var(--text-sm);color:var(--slate);background:var(--amber-bg);border-left:3px solid var(--amber-light);border-radius:var(--radius-sm);padding:12px 16px;line-height:1.6;margin:var(--space-md) 0}
 .mini-plan-privacy-note strong{color:var(--amber-dark-text)}
 .mini-plan-kicker{font-size:var(--text-xs);font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal-cta);margin-bottom:10px}
-.mini-plan h3{font-size:var(--text-lg);margin:0 0 var(--heading-gap-h4)}
+.mini-plan h2,.mini-plan h3{font-size:var(--text-lg);margin:0 0 var(--heading-gap-h4)}
 .mini-plan p{font-size:var(--text-base);color:var(--slate);line-height:1.6;margin:0 0 18px}
 .mini-plan-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gap-tight)}
 .mini-plan-field{display:flex;flex-direction:column;gap:6px}
 .mini-plan-field.full{grid-column:1 / -1}
-.mini-plan label{font-size:var(--text-xs);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--slate)}
+.mini-plan-field label{font-size:var(--text-xs);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--slate)}
 
 /* mini-plan input/textarea/select base now in shared.css FORM FIELDS */
 .mini-plan textarea{min-height:92px}
@@ -2020,7 +2020,7 @@ body.notfall-page .pdf-preview-frame{display:block;width:100%;height:60vh;min-he
 .mini-plan-status{font-size:var(--text-xs);color:var(--text-soft);margin-top: var(--space-base);min-height:1.2em}
 .mini-plan-summary{margin-top:18px;padding:16px 18px;border-radius:var(--card-radius);background:var(--surface-alt);border:1px solid var(--border-warm)}
 .mini-plan-summary[hidden]{display:none}
-.mini-plan-summary h4{font-size:var(--text-base);color:var(--navy);margin:0 0 var(--heading-gap-h3)}
+.mini-plan-summary h3,.mini-plan-summary h4{font-size:var(--text-base);color:var(--navy);margin:0 0 var(--heading-gap-h3)}
 .mini-plan-summary p{font-size:var(--text-xs);color:var(--slate);margin:0 0 8px}
 .mini-plan-summary strong{color:var(--navy)}
 .closing{text-align:center;padding:48px 40px}
@@ -2134,15 +2134,15 @@ body.notfall-page .pdf-preview-frame{display:block;width:100%;height:60vh;min-he
   [data-module-accent="8"] .module-hero-visual { display: none; }
   [data-module-accent="8"] .toc { padding: 18px 20px; margin-bottom: 26px; }
   [data-module-accent="8"] .toc-desc { display: none; }
-  [data-module-accent="8"] .action-card,
-  [data-module-accent="8"] .stelle-card,
-  [data-module-accent="8"] .dl-module,
-  [data-module-accent="8"] .material-finder,
-  [data-module-accent="8"] .mini-plan,
-  [data-module-accent="8"] .hub-details summary,
-  [data-module-accent="8"] .hub-details-body { padding-left: 18px; padding-right: 18px; }
-  [data-module-accent="8"] .dl-module { flex-direction: column; gap: var(--space-md); }
-  [data-module-accent="8"] .dl-btn { width: 100%; flex-wrap: wrap; }
+  .hub-page .action-card,
+  .hub-page .stelle-card,
+  .hub-page .dl-module,
+  .hub-page .material-finder,
+  .hub-page .mini-plan,
+  .hub-page .hub-details summary,
+  .hub-page .hub-details-body { padding-left: 18px; padding-right: 18px; }
+  .hub-page .dl-module { flex-direction: column; gap: var(--space-md); }
+  .hub-page .dl-btn { width: 100%; flex-wrap: wrap; }
   .closing { padding: var(--space-xl) var(--space-lg); }
 }
 @media (max-width: 900px) {

@@ -99,6 +99,6 @@ Weiterführend:
 
 - [Modul 5: Zwischen Verpflichtung und Selbstschutz](/modul/5/#spannung)
 - [Modul 7: Selbstfürsorge als Belastungsmanagement](/modul/7/#selbstfuersorge)
-- [Modul 8: Unterstützung und Ressourcen](/modul/8/)
+- [Anlaufstellen und Ressourcen](/anlaufstellen/)
 - Dargebotene Hand: 143
 - Ärztefon Zürich: 0800&nbsp;33&nbsp;66&nbsp;55
