@@ -25,19 +25,18 @@ useNavJS: true
         <div class="home-hero-text">
           <div class="home-hero-badge">Fachstelle Angehörigenarbeit — PUK Zürich</div>
           <h1>Wenn eine bipolare Störung auch Ihr Leben mitbetrifft</h1>
-          <p class="home-hero-subtitle">Eine ruhige Begleitung für Angehörige und Nahestehende — Sie müssen hier nichts auf einmal lösen.</p>
-          <a href="#einstieg" class="home-hero-link">Was Sie hier finden →</a>
+          <p class="home-hero-subtitle">Diese Website ist eine Begleitung für Angehörige und Nahestehende von Menschen mit einer bipolaren Erkrankung — für Tage, an denen Sorge, Erschöpfung und Unsicherheit gleichzeitig da sind.</p>
         </div>
         <div class="home-hero-visual">
           {# P3 Audit: heroImage-Shortcode — AVIF/WebP/JPEG + responsive srcset #}
           {% heroImage "/visuals/home-editorial-hero-v6-web.webp", "Abstrakte Illustration: zwei Kreise in Teal und Rose auf einer gemeinsamen Umlaufbahn — Metapher für zwei Menschen, die sich umkreisen und halten.", "eager", "high" %}
         </div>
       </div>
-      <div class="home-hero-paths">
-        <p class="home-hero-paths-lead">Wählen Sie den Einstieg, der im Moment am ehesten zu Ihrer Lage passt. Sie müssen nicht bei Modul 1 beginnen. Für Partnerinnen und Partner, Eltern, Geschwister und erwachsene Kinder gilt dabei dasselbe: Sie dürfen von Ihrer eigenen Situation ausgehen.</p>
+      <div class="home-hero-paths" id="einstieg">
+        <p class="home-hero-paths-lead">Wählen Sie den Einstieg, der zu Ihrer Lage passt.</p>
         <nav class="entry-paths-list" aria-label="Einstiegspfade">
           <a href="/notfall/" class="entry-path-link entry-path-link--crisis">
-            <span class="entry-path-label">Es ist gerade akut oder unklar gefährlich</span>
+            <span class="entry-path-label">Es ist gerade akut oder unklar</span>
             <span class="entry-path-destination">Notfallweg <span aria-hidden="true">→</span></span>
           </a>
           <a href="/modul/1/" class="entry-path-link entry-path-link--understand">
@@ -56,40 +55,22 @@ useNavJS: true
 
 <main id="main-content">
 
-<!-- ══════════ ERFAHRUNGSBERICHT — direkt nach Einstiegskarten für frühe emotionale Validierung ══════════ -->
-<section class="story-section reveal">
-  <div class="story-inner story-split">
-    <div class="story-split-text">
-      <div class="story-label">Erfahrungsbericht</div>
-      <h2>«Ich dachte, ich müsse einfach funktionieren»</h2>
-      <div class="story-body">
-        <p>Als mein Partner vor sechs Jahren die Diagnose bekam, habe ich zuerst alles gelesen, was ich finden konnte. Meistens stand da, was <em>er</em> braucht. Selten, was mit <em>mir</em> passiert.</p>
-        <p>Die ersten zwei Jahre habe ich durchgehalten. Ich habe Arzttermine organisiert, Krisen aufgefangen, bei der Arbeit so getan, als sei alles normal. Irgendwann habe ich gemerkt, dass ich abends nicht mehr weinen konnte, aber auch nicht mehr lachen. Ich war einfach da — funktional, aber leer.</p>
-        <p>Der Wendepunkt war kein grosser Moment. Ich habe bei der Fachstelle angerufen, ohne genau zu wissen, was ich sagen wollte. Die Frau am Telefon hat mir nicht erklärt, was bipolare Störung ist. Sie hat gefragt, wie es <em>mir</em> geht. Das war das Erste, was geholfen hat.</p>
-        <p>Heute ist es nicht einfach. Aber ich kenne den Unterschied zwischen seinen Episoden und meiner Erschöpfung. Ich weiss, wann ich Hilfe brauche und wann er sie braucht. Und ich weiss, dass beides gleichzeitig gelten darf.</p>
-      </div>
-      <p class="story-attribution">— S., 39, Partnerin seit 11 Jahren <span class="story-note">Hinweis: anonymisiert und verdichtet — keine reale Person, sondern wiederkehrende Erfahrungen aus der Praxis</span></p>
+<!-- ══════════ EINLADUNG — früh sichtbar nach dem Pfad-Picker ══════════ -->
+<section class="invitation-section reveal">
+  <div class="invitation-inner">
+    <h2>Reden, ohne wissen zu müssen, was Sie sagen wollen</h2>
+    <p>Diese Beratung ist für Sie selbst gedacht, nicht für die erkrankte Person. Sie sind hier richtig, auch wenn Sie unsicher sind, ob Sie Hilfe brauchen.</p>
+    <div class="invitation-contacts">
+      <a href="{{ site.tel.fachstelle.href }}" class="invitation-phone">{{ site.tel.fachstelle.display }}</a>
+      <a href="mailto:{{ site.email }}" class="invitation-email">{{ site.email }}</a>
     </div>
-    <div class="story-split-visual">
-      {# P3 Audit: heroImage-Shortcode — AVIF/WebP/JPEG + responsive srcset #}
-      {% heroImage "/visuals/modul-einstieg.webp", "Illustration einer Person, die nachdenklich in einem Sessel am Fenster sitzt — stille Szene der Selbstreflexion.", "lazy" %}
-    </div>
-  </div>
-</section>
-
-<!-- ══════════ EINFÜHRUNG — gekürzt auf das Wesentliche ══════════ -->
-<section id="einstieg" class="home-intro-section">
-  <div class="home-intro reveal">
-    <h2>Was Sie hier finden</h2>
-    <p class="home-intro-lead">Sieben fundierte Module für Angehörige und Nahestehende — von den Grundlagen der bipolaren Störung über Beziehungsdynamiken bis zu konkreten Schritten für den Alltag. Sie können in der Reihenfolge lesen, die zu Ihrer Lage passt.</p>
-    <p class="home-intro-helper"><strong>Unsicher, wo anfangen?</strong> Die <a href="/tools/einstiegsfrage/">Einstiegsfrage</a> sortiert in fünf kurzen Fragen, was zu Ihrer Lage passt.</p>
   </div>
 </section>
 
 <!-- ══════════ MODULES ══════════ -->
 <section id="module">
-  <h2 class="section-title reveal">Alle Inhalte im Überblick</h2>
-  <p class="section-desc reveal">Modul 1 und 2 geben den geordneten Einstieg — Sie können aber jedes Modul direkt anwählen.</p>
+  <h2 class="section-title reveal">Sieben Module für Angehörige</h2>
+  <p class="section-desc reveal">Modul 1 und 2 geben den geordneten Einstieg. Sie können aber jedes Modul direkt anwählen.</p>
 
   <div class="modules-grid">
 
@@ -190,10 +171,30 @@ useNavJS: true
   <p class="text-soft-sm reveal" style="margin-top:var(--space-lg);max-width:var(--measure-prose)">Suchen Sie keine Lese-Module, sondern direkte Hilfe? Auf den Seiten <a href="/anlaufstellen/">Anlaufstellen</a> und <a href="/materialien/">Materialien</a> finden Sie Beratung, Kontakte und druckbare Handouts.</p>
 </section>
 
-<!-- ══════════ TOOLS HIGHLIGHT — ein Top-Tool ══════════ -->
+<!-- ══════════ ERFAHRUNGSBERICHT — nach den Modulen als Resonanz und Brücke ══════════ -->
+<section class="story-section reveal">
+  <div class="story-inner story-split">
+    <div class="story-split-text">
+      <div class="story-label">Erfahrungsbericht</div>
+      <h2>«Ich dachte, ich müsse einfach funktionieren»</h2>
+      <div class="story-body">
+        <p>Als mein Partner vor sechs Jahren die Diagnose bekam, habe ich zuerst alles gelesen, was ich finden konnte. Meistens stand da, was <em>er</em> braucht. Selten, was mit <em>mir</em> passiert.</p>
+        <p>Heute ist es nicht einfach. Aber ich kenne den Unterschied zwischen seinen Episoden und meiner Erschöpfung. Ich weiss, wann ich Hilfe brauche und wann er sie braucht. Und ich weiss, dass beides gleichzeitig gelten darf.</p>
+      </div>
+      <p class="story-bridge">Wenn Sie sich hier wiederfinden, ist das Telefon der Fachstelle für genau solche Momente.</p>
+      <p class="story-attribution">— S., 39, Partnerin seit 11 Jahren <span class="story-note">Hinweis: anonymisiert und verdichtet — keine reale Person, sondern wiederkehrende Erfahrungen aus der Praxis</span></p>
+    </div>
+    <div class="story-split-visual">
+      {# P3 Audit: heroImage-Shortcode — AVIF/WebP/JPEG + responsive srcset #}
+      {% heroImage "/visuals/modul-einstieg.webp", "Illustration einer Person, die nachdenklich in einem Sessel am Fenster sitzt — stille Szene der Selbstreflexion.", "lazy" %}
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SELBSTTEST — optionales Werkzeug, kein zweiter Sortierer ══════════ -->
 <section class="tools-highlight reveal" id="tools">
-  <h2>Wo stehen Sie gerade?</h2>
-  <p>Wenn Sie zuerst etwas Konkretes ausprobieren möchten, hilft der Selbsttest mit fünf kurzen Fragen bei der Einordnung Ihrer eigenen Belastung.</p>
+  <h2>Wenn Sie einen kurzen Selbstcheck wollen</h2>
+  <p>Fünf Fragen zur Einordnung Ihrer eigenen Belastung. Anonym, lokal, ohne Anmeldung.</p>
   <a href="/tools/selbsttest/" class="tool-card tool-card--hero tool-card--feature" data-tone="teal">
     <span class="tool-card-kicker">Selbsttest</span>
     <h3>Belastung einschätzen</h3>
@@ -201,18 +202,6 @@ useNavJS: true
     <span class="tool-card-arrow" aria-hidden="true">→</span>
   </a>
   <a href="/werkzeuge/" class="hero-tools-all-link">Alle zehn Werkzeuge ansehen →</a>
-</section>
-
-<!-- ══════════ EINLADUNG ══════════ -->
-<section class="invitation-section reveal">
-  <div class="invitation-inner">
-    <h2>Reden, ohne wissen zu müssen, was Sie sagen wollen</h2>
-    <p>Diese Beratung ist für Sie selbst gedacht, nicht für die erkrankte Person. Sie sind hier richtig, auch wenn Sie unsicher sind, ob Sie Hilfe brauchen.</p>
-    <div class="invitation-contacts">
-      <a href="{{ site.tel.fachstelle.href }}" class="invitation-phone">{{ site.tel.fachstelle.display }}</a>
-      <a href="mailto:{{ site.email }}" class="invitation-email">{{ site.email }}</a>
-    </div>
-  </div>
 </section>
 
 </main>

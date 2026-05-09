@@ -180,7 +180,12 @@
       if (!firstGrid) firstGrid = card.closest(".modules-grid");
     });
 
-    if (anyAnnotated && firstGrid && firstGrid.parentElement) {
+    if (
+      anyAnnotated &&
+      firstGrid &&
+      firstGrid.parentElement &&
+      !document.body.classList.contains("home-page")
+    ) {
       const wrap = document.createElement("p");
       wrap.className = "module-progress-reset";
       const button = document.createElement("button");
