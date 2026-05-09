@@ -9,7 +9,7 @@ Der Release-Audit ist die erste repo-native MVP-Version eines wiederholbaren Fre
 - PDF-Manifest, Dateivorhandensein und Basis-Metadaten abgleichen
 - lokale SEO-/Metadatenlogik gegen den Build pruefen
 - Produktionsheader, Cache-Regeln und zentrale Live-Metadaten verifizieren
-- offene manuelle Hand-off-Gates explizit sichtbar machen
+- verbleibende manuelle Hand-off-Gates explizit sichtbar machen
 
 ## Befehle
 
@@ -23,7 +23,7 @@ Fuehrt den kompletten MVP-Audit aus:
 - `npm run lint`
 - lokale Build-Checks
 - Produktions-Header- und Metadaten-Checks
-- manueller Browser-Hand-off als explizite Warnschicht
+- Browser-Abdeckung plus verbleibender Hand-off-Hinweis
 
 ```bash
 npm run audit:release:ci
@@ -51,7 +51,7 @@ Wie `audit:release`, aber als JSON-Ausgabe.
 4. `PDF manifest and assets`
 5. `Local SEO and metadata`
 6. `Production headers and metadata`
-7. `Manual browser hand-off`
+7. `Browser coverage and manual hand-off`
 
 ## Statuslogik
 
@@ -63,14 +63,13 @@ Der Prozess beendet sich nur bei `FAIL` mit Exit-Code `1`. `WARN` bleibt bewusst
 
 ## Was die MVP noch nicht automatisiert
 
-- volle Playwright-basierte Browser-Matrix aus `docs/test-matrix.md`
-- reale iPhone-Safari- und Desktop-Firefox-Freigabe
+- reale iPhone-Safari- und iPhone-Chrome-Freigabe
 - fachliche Endfreigabe fuer Kontakte, Rechtsformulierungen und Krisenhinweise
 - tagesaktuelle externe Quellenverifikation fuer alle Kontaktstellen
 
 ## Naechste sinnvolle Ausbaustufen
 
-- echte Browser-Flow-Checks fuer `KP1` bis `KP5`
+- noch tiefere Browser-Flow-Checks fuer `KP1` bis `KP5`
 - Screenshot-Anhaenge bei Browser-Fehlern
 - strukturierter Kontakt-/Quellen-Audit auf Basis von `src/_data/sources.js`
 - Markdown-Reportdatei fuer PR-Anhaenge
