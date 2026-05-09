@@ -2296,10 +2296,8 @@ header.hero .hero-content {
   width: 20px;
   height: 20px;
 }
-@media (min-width: 1100px) {
-  /* Hide on desktop when TOC sidebar is visible */
-  body[data-module-accent] .back-to-top { display: none; }
-}
+
+/* back-to-top is visible on all pages and screen sizes */
 
 /* ── Tool Nav: Main-Nav links row ── */
 .tool-nav-main {
