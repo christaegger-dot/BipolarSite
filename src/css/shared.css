@@ -1983,6 +1983,8 @@ a:visited {
 .tool-card:visited,
 .entry-path-link:visited,
 .entry-path-link--crisis:visited,
+.entry-path-link--understand:visited,
+.entry-path-link--limit:visited,
 .tools-all-link:visited,
 .invitation-phone:visited,
 .invitation-email:visited,
@@ -2911,6 +2913,36 @@ body.impressum-page .info-box strong {
   background: var(--alert-soft);
   border-color: rgba(185,28,28,22%);
   color: var(--alert);
+}
+
+/* ── Entry Path: «Verstehen» (Teal/Blue accent) ── */
+.home-page .entry-path-link--understand::before {
+  background: var(--blue-phase);
+}
+
+.home-page .entry-path-link--understand:hover {
+  background: var(--blue-phase-light);
+  border-color: var(--blue-phase-border);
+  color: var(--blue-phase);
+}
+
+.home-page .entry-path-link--understand:hover .entry-path-destination {
+  color: var(--blue-phase);
+}
+
+/* ── Entry Path: «Am Limit» (Amber accent) ── */
+.home-page .entry-path-link--limit::before {
+  background: var(--amber);
+}
+
+.home-page .entry-path-link--limit:hover {
+  background: var(--amber-bg);
+  border-color: var(--amber-border-accent);
+  color: var(--amber-dark);
+}
+
+.home-page .entry-path-link--limit:hover .entry-path-destination {
+  color: var(--amber-dark);
 }
 
 .home-page .tools-highlight {

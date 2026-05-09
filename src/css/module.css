@@ -2538,10 +2538,8 @@ table tbody tr:nth-child(even),
   display: none;
 }
 
-.module-hero .hero-icon {
-  color: var(--sand-ink);
-  opacity: 0.75;
-}
+/* hero-icon colour is set per-module via [data-module-accent] .hero-icon
+   (see Visual Polish Pass block below) — no fallback override needed here */
 
 .hdr,
 .tool-header {
@@ -2942,25 +2940,25 @@ a.ampel-card{text-decoration:none;display:block}
   --module-summary-surface: rgba(238,245,242,72%);
 }
 
-[data-module-accent="1"],
-[data-module-accent="3"] {
+/* Specificity boost: [data-module-accent][data-module-accent='X'] = (0,2,0)
+   matches the :not() rule above — source order then wins for these overrides. */
+[data-module-accent="1"][data-module-accent],
+[data-module-accent="3"][data-module-accent] {
   --module-hero-accent: var(--blue-phase);
   --module-hero-mist: var(--blue-phase-light);
   --module-hero-glow: rgba(74,111,149,18%);
   --module-summary-surface: rgba(238,243,248,90%);
 }
-
-[data-module-accent="2"],
-[data-module-accent="4"],
-[data-module-accent="5"] {
+[data-module-accent="2"][data-module-accent],
+[data-module-accent="4"][data-module-accent],
+[data-module-accent="5"][data-module-accent] {
   --module-hero-accent: var(--amber);
   --module-hero-mist: var(--surface-sand-mist);
   --module-hero-glow: rgba(221,210,191,24%);
   --module-summary-surface: rgba(246,240,231,94%);
 }
-
-[data-module-accent="6"],
-[data-module-accent="7"] {
+[data-module-accent="6"][data-module-accent],
+[data-module-accent="7"][data-module-accent] {
   --module-hero-accent: var(--phase-green);
   --module-hero-mist: rgba(168,213,203,22%);
   --module-hero-glow: rgba(88,154,126,18%);
@@ -3040,6 +3038,7 @@ a.ampel-card{text-decoration:none;display:block}
   width: 44px;
   height: 44px;
   color: var(--module-hero-accent);
+  opacity: 0.72;
   justify-self: start;
 }
 
