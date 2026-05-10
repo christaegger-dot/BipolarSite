@@ -1780,10 +1780,38 @@ body.notfall-page .pdf-preview-frame{display:block;width:100%;height:60vh;min-he
 .glaswand-side strong{display:block;font-size:var(--text-xs);color:var(--blue-phase);margin-bottom:4px}
 .glaswand-side span{font-size:var(--text-xs);color:var(--slate)}
 .glaswand-quote{font-family:'DM Serif Display',serif;font-size:var(--text-base);color:var(--rose-text);margin-top:20px;line-height:1.5}
-.loss-cards{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gap-tight);margin:var(--temp-dense-margin) 0}
-.loss-card{background:var(--card);border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:22px;border-left:4px solid var(--blue-phase)}
-.loss-card h3{font-size:var(--text-base);color:var(--blue-phase);margin-bottom:var(--heading-gap-h4)}
-.loss-card p{font-size:var(--text-base);color:var(--slate);line-height:1.5;margin:0}
+
+/* ── Explain-card family (first pass: Modul 4) ───────────────────────
+   Shared basis for simple explanatory grid cards. Legacy module-specific
+   class names remain supported during the first migration pass. */
+.surface-explain-grid,
+.loss-cards,
+.mech-cards{display:grid;gap:var(--grid-gap-tight);margin:var(--temp-dense-margin) 0}
+.surface-explain-grid--two,
+.loss-cards,
+.mech-cards{grid-template-columns:1fr 1fr}
+.surface-explain-grid--auto,
+.age-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--grid-gap-tight);margin:16px 0 24px}
+.surface-explain-card,
+.loss-card,
+.mech-card,
+.age-card{background:var(--card);border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:22px}
+.surface-explain-card :is(h3,h4),
+.loss-card h3,
+.mech-card h3,
+.age-card h4{font-size:var(--text-base);color:var(--text);margin-bottom:var(--heading-gap-h4)}
+.surface-explain-card p,
+.loss-card p,
+.mech-card p,
+.age-card p{font-size:var(--text-base);color:var(--slate);line-height:1.5;margin:0}
+.surface-explain-card p + p,
+.age-card p + p{margin-top:8px}
+.surface-explain-card--accent,
+.loss-card{border-left:4px solid var(--blue-phase)}
+.surface-explain-card--accent :is(h3,h4),
+.loss-card h3{color:var(--blue-phase)}
+.surface-explain-card--compact,
+.age-card{border-color:var(--border-warm-md);padding:20px 18px}
 .phase-cards{display:grid;grid-template-columns:repeat(3, 1fr);gap:var(--grid-gap-tight);margin:var(--temp-dense-margin) 0}
 .phase-card{padding: var(--space-lg);border-radius:var(--radius-md);border-top:4px solid transparent}
 .phase-card.p1{background:var(--amber-bg);border-top-color:var(--amber)}
@@ -1803,10 +1831,8 @@ body.notfall-page .pdf-preview-frame{display:block;width:100%;height:60vh;min-he
 .chart-section>p{font-size:var(--text-base);color:var(--text-soft);margin-bottom:var(--space-lg)}
 .chart-wrap svg{width:100%;height:auto;display:block}
 .chart-caption{font-size:var(--text-xs);color:var(--text-soft);line-height:1.5;margin-top:16px}
-.mech-cards{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gap-tight);margin:var(--temp-dense-margin) 0}
-.mech-card{background:var(--card);border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:24px}
-.mech-card h3{font-size:var(--text-base);color:var(--text);margin-bottom:var(--heading-gap-h4)}
-.mech-card p{font-size:var(--text-base);color:var(--slate);line-height:1.5;margin:0 0 10px}
+.mech-card{padding:24px}
+.mech-card p{margin:0 0 10px}
 .mech-card .mech-result{font-size:var(--text-xs);color:var(--alert);font-weight:600}
 .identity-signs{list-style:none;margin:20px 0}
 .identity-signs li{font-size:var(--text-base);color:var(--slate);padding:10px 0 10px 24px;position:relative;border-bottom:1px solid var(--border-warm)}
@@ -1824,10 +1850,8 @@ body.notfall-page .pdf-preview-frame{display:block;width:100%;height:60vh;min-he
 .kids-col.need li{color:var(--navy)}
 .kids-col.perceive li::before{content:'\2022';position:absolute;left:0;color:var(--alert)}
 .kids-col.need li::before{content:'\2713';position:absolute;left:0;color:var(--teal-cta);font-weight:700}
-.age-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--grid-gap-tight);margin:16px 0 24px}
-.age-card{background:var(--card);border:1px solid var(--border-warm-md);border-radius:var(--radius-md);padding:20px 18px}
-.age-card h4{font-size:var(--text-base);color:var(--navy);margin:var(--heading-gap-h4) 0 var(--heading-gap-h4)}
-.age-card p{font-size:var(--text-base);line-height:1.5;color:var(--slate);margin:0 0 8px}.age-card p:last-child{margin:0}
+.age-card h4{color:var(--navy);margin:var(--heading-gap-h4) 0 var(--heading-gap-h4)}
+.age-card p:last-child{margin:0}
 .age-label{display:inline-flex;background:var(--success-soft);color:var(--teal-cta-dark);padding:3px 10px;border-radius:var(--radius-round);font-size:var(--text-xs);font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
 
 /* ── Module 5: Tension, Stigma, Barriers, Decision, Stat ── */
