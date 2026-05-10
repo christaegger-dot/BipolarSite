@@ -1266,11 +1266,8 @@ p.bright-moment {
 .grauzone-card{background:var(--card);border-radius:var(--radius-md);overflow:hidden;display:flex;flex-direction:column}
 .grauzone-card-top{padding:var(--space-md) var(--space-md) var(--space-base);flex:1}
 .grauzone-scenario{font-family:'DM Sans',sans-serif;font-size:var(--text-base);font-weight:700;color:var(--navy-mid);margin:0 0 var(--space-sm);line-height:1.5}
-.grauzone-card-top p{font-size:var(--text-base);color:var(--slate);line-height:1.5;margin:0}
-.grauzone-action{padding:var(--space-base) var(--space-md);font-size:var(--text-base);font-weight:600;line-height:1.5}
-.grauzone-action--amber{background:var(--amber-bg);color:var(--amber-dark);border-top:2px solid var(--amber-border)}
-.grauzone-action--teal{background:var(--alert-soft);color:var(--alert);border-top:2px solid var(--alert-red-border)}
-.grauzone-action--red{background:var(--alert-soft);color:var(--alert);border-top:2px solid var(--alert-red-border)}
+.grauzone-detail{font-size:var(--text-base);color:var(--slate);line-height:1.6;margin:0}
+.grauzone-action{padding:var(--space-base) var(--space-md);background:var(--surface-alt);border-top:2px solid var(--border-warm-md);font-size:var(--text-base);font-weight:600;line-height:1.6;color:var(--text)}
 @media(max-width:600px){.grauzone-grid{grid-template-columns:1fr}}
 
 /* ── Notfall Inline-Style Replacements ── */
