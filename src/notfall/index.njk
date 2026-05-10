@@ -97,12 +97,12 @@ breadcrumbs:
   <p>Öffnen Sie die Situation, die dem Moment am nächsten kommt. Ausführlichere Hilfen: <a href="/modul/6/" class="link-teal">Modul 6</a>.</p>
 
   <!-- SUIZID -->
-  <div class="guide" id="guide-suizid">
-    <button type="button" class="guide-header" aria-expanded="true" aria-controls="guide-panel-suizid">
-      <span class="guide-header-left"><span class="guide-badge red">SOS</span><span class="guide-copy"><span class="guide-title">Suizidgedanken</span><span class="guide-subtitle">Die Person spricht davon, sich etwas anzutun</span></span></span>
-      <span class="guide-chevron">▼</span>
+  <div class="guide surface-disclosure" id="guide-suizid">
+    <button type="button" class="guide-header surface-disclosure-header" aria-expanded="true" aria-controls="guide-panel-suizid">
+      <span class="guide-header-left surface-disclosure-header-left"><span class="guide-badge surface-disclosure-badge surface-disclosure-badge--alert red">SOS</span><span class="guide-copy surface-disclosure-copy"><span class="guide-title surface-disclosure-title">Suizidgedanken</span><span class="guide-subtitle surface-disclosure-subtitle">Die Person spricht davon, sich etwas anzutun</span></span></span>
+      <span class="guide-chevron surface-disclosure-chevron">▼</span>
     </button>
-    <div class="guide-body" id="guide-panel-suizid"><div class="guide-body-inner">
+    <div class="guide-body surface-disclosure-body" id="guide-panel-suizid"><div class="guide-body-inner surface-disclosure-body-inner">
       <ul>
         <li>Nehmen Sie jede Äusserung ernst — auch indirekte: «Es wäre besser, wenn ich nicht mehr da wäre.»</li>
         <li><strong>Fragen Sie direkt:</strong> «Denkst du daran, dir etwas anzutun?» Diese Frage löst Suizidgedanken <em>nicht</em> aus (Dazzi et al., 2014).</li>
@@ -113,7 +113,7 @@ breadcrumbs:
       <div class="guide-sos">Bei konkretem Plan oder vorhandenen Mitteln: sofort <a href="tel:144">144</a> anrufen. Nicht allein bewältigen.</div>
       <div class="guide-do">✓ Zuhören. Direkt fragen. Bei der Person bleiben. Fachpersonen einbeziehen.</div>
       <div class="guide-dont">✗ «Das wird schon.» Bagatellisieren. Allein lassen. Versprechen erzwingen.</div>
-      <div class="guide-links">
+      <div class="guide-links surface-disclosure-links">
         {{ guidePdfLink(pdfs.downloads.suizidgedanken, "↓ PDF") }}
       </div>
       <p class="guide-context-hint">Ausführlichere Gesprächshilfen: <a href="/modul/6/">Modul 6</a>.</p>
@@ -121,12 +121,12 @@ breadcrumbs:
   </div>
 
   <!-- MANIE -->
-  <div class="guide" id="guide-manie">
-    <button type="button" class="guide-header" aria-expanded="false" aria-controls="guide-panel-manie">
-      <span class="guide-header-left"><span class="guide-badge red">!</span><span class="guide-copy"><span class="guide-title">Manische Krise mit hohem Risiko</span><span class="guide-subtitle">Euphorie, Schlaflosigkeit, Grössenideen, Impulsivität</span></span></span>
-      <span class="guide-chevron">▼</span>
+  <div class="guide surface-disclosure" id="guide-manie">
+    <button type="button" class="guide-header surface-disclosure-header" aria-expanded="false" aria-controls="guide-panel-manie">
+      <span class="guide-header-left surface-disclosure-header-left"><span class="guide-badge surface-disclosure-badge surface-disclosure-badge--alert red">!</span><span class="guide-copy surface-disclosure-copy"><span class="guide-title surface-disclosure-title">Manische Krise mit hohem Risiko</span><span class="guide-subtitle surface-disclosure-subtitle">Euphorie, Schlaflosigkeit, Grössenideen, Impulsivität</span></span></span>
+      <span class="guide-chevron surface-disclosure-chevron">▼</span>
     </button>
-    <div class="guide-body" id="guide-panel-manie" hidden><div class="guide-body-inner">
+    <div class="guide-body surface-disclosure-body" id="guide-panel-manie" hidden><div class="guide-body-inner surface-disclosure-body-inner">
       <ul>
         <li>Schläft die Person seit 2+ Nächten kaum? Gibt sie unkontrolliert Geld aus? Ungewöhnlich reizbar oder grandios?</li>
         <li>Sprechen Sie ruhig und kurz: ein Satz, ein Anliegen. Nicht argumentieren.</li>
@@ -137,7 +137,7 @@ breadcrumbs:
       <div class="guide-do">✓ Ruhig bleiben. Kurze Sätze. Sicherheit priorisieren. <a href="{{ site.tel.aerztefon.href }}">{{ site.tel.aerztefon.display }}</a> anrufen.</div>
       <div class="guide-dont">✗ «Du bist manisch!» Diskutieren. Ultimaten. Allein lösen wollen.</div>
       <div class="guide-sos">Wenn unmittelbare Gefahr dazukommt oder Sicherheit, Fahren, Geld oder Verhalten nicht mehr sicher einschätzbar sind: nicht weiter diskutieren, sondern <a href="tel:144">144</a> oder <a href="tel:117">117</a>.</div>
-      <div class="guide-links">
+      <div class="guide-links surface-disclosure-links">
         {{ guidePdfLink(pdfs.downloads.manie, "↓ PDF") }}
         <a href="/modul/6/#manie-komm" class="guide-link">
           <span class="guide-link-label">→ Modul 6: Kommunikation in der Manie</span>
@@ -148,12 +148,12 @@ breadcrumbs:
   </div>
 
   <!-- DEPRESSION -->
-  <div class="guide" id="guide-depression">
-    <button type="button" class="guide-header" aria-expanded="false" aria-controls="guide-panel-depression">
-      <span class="guide-header-left"><span class="guide-badge blue">–</span><span class="guide-copy"><span class="guide-title">Schwere Depression</span><span class="guide-subtitle">Rückzug, Antriebslosigkeit, Hoffnungslosigkeit</span></span></span>
-      <span class="guide-chevron">▼</span>
+  <div class="guide surface-disclosure" id="guide-depression">
+    <button type="button" class="guide-header surface-disclosure-header" aria-expanded="false" aria-controls="guide-panel-depression">
+      <span class="guide-header-left surface-disclosure-header-left"><span class="guide-badge surface-disclosure-badge surface-disclosure-badge--info blue">–</span><span class="guide-copy surface-disclosure-copy"><span class="guide-title surface-disclosure-title">Schwere Depression</span><span class="guide-subtitle surface-disclosure-subtitle">Rückzug, Antriebslosigkeit, Hoffnungslosigkeit</span></span></span>
+      <span class="guide-chevron surface-disclosure-chevron">▼</span>
     </button>
-    <div class="guide-body" id="guide-panel-depression" hidden><div class="guide-body-inner">
+    <div class="guide-body surface-disclosure-body" id="guide-panel-depression" hidden><div class="guide-body-inner surface-disclosure-body-inner">
       <ul>
         <li>Anwesenheit ist wichtiger als Worte. «Ich bin da. Du musst nichts sagen.»</li>
         <li>Ermutigen Sie zur Kontaktaufnahme mit dem Behandlungsteam — bieten Sie an, gemeinsam anzurufen.</li>
@@ -163,7 +163,7 @@ breadcrumbs:
       <div class="guide-do">✓ Da sein. Geduld. Alltag aufrechterhalten. Eigene Grenzen wahren.</div>
       <div class="guide-dont">✗ «Reiss dich zusammen.» Vergleiche. Ratschläge. Schuldgefühle machen.</div>
       <div class="guide-sos">Wenn Suizidgedanken, Verabschiedungen oder konkrete Hinweise dazukommen: direkt fragen und <a href="{{ site.tel.aerztefon.href }}">{{ site.tel.aerztefon.display }}</a> anrufen.</div>
-      <div class="guide-links">
+      <div class="guide-links surface-disclosure-links">
         {{ guidePdfLink(pdfs.downloads.depression, "↓ PDF") }}
         <a href="/modul/6/#depression-komm" class="guide-link">
           <span class="guide-link-label">→ Modul 6: Kommunikation in der Depression</span>
@@ -174,12 +174,12 @@ breadcrumbs:
   </div>
 
   <!-- PSYCHOSE + PARANOIA -->
-  <div class="guide" id="guide-psychose">
-    <button type="button" class="guide-header" aria-expanded="false" aria-controls="guide-panel-psychose">
-      <span class="guide-header-left"><span class="guide-badge red">◉</span><span class="guide-copy"><span class="guide-title">Psychose, Wahn oder Paranoia</span><span class="guide-subtitle">Die Person glaubt Dinge, die nicht real sind — oder beschuldigt Sie</span></span></span>
-      <span class="guide-chevron">▼</span>
+  <div class="guide surface-disclosure" id="guide-psychose">
+    <button type="button" class="guide-header surface-disclosure-header" aria-expanded="false" aria-controls="guide-panel-psychose">
+      <span class="guide-header-left surface-disclosure-header-left"><span class="guide-badge surface-disclosure-badge surface-disclosure-badge--alert red">◉</span><span class="guide-copy surface-disclosure-copy"><span class="guide-title surface-disclosure-title">Psychose, Wahn oder Paranoia</span><span class="guide-subtitle surface-disclosure-subtitle">Die Person glaubt Dinge, die nicht real sind — oder beschuldigt Sie</span></span></span>
+      <span class="guide-chevron surface-disclosure-chevron">▼</span>
     </button>
-    <div class="guide-body" id="guide-panel-psychose" hidden><div class="guide-body-inner">
+    <div class="guide-body surface-disclosure-body" id="guide-panel-psychose" hidden><div class="guide-body-inner surface-disclosure-body-inner">
       <ul>
         <li><strong>Wahnideen fühlen sich für die Person real an.</strong> Sie können sie nicht wegdiskutieren.</li>
         <li>Ruhig, langsam, kurze Sätze. Nicht widersprechen, nicht bestätigen: «Ich sehe es anders.»</li>
@@ -191,19 +191,19 @@ breadcrumbs:
       <div class="guide-do">✓ Ruhe. Einfache Sprache. Gefühle anerkennen, nicht den Inhalt. Professionelle Hilfe.</div>
       <div class="guide-dont">✗ «Das bildest du dir ein!» Diskutieren. Sich verteidigen. Allein managen.</div>
       <div class="guide-sos">Wenn die Lage bedrohlich wird oder kein ruhiger Kontakt mehr möglich ist: sofort <a href="tel:117">117</a>. Ihre Sicherheit geht vor.</div>
-      <div class="guide-links">
+      <div class="guide-links surface-disclosure-links">
         {{ guidePdfLink(pdfs.downloads.psychoseWahn, "↓ PDF") }}
       </div>
     </div></div>
   </div>
 
   <!-- GEWALT -->
-  <div class="guide" id="guide-gewalt">
-    <button type="button" class="guide-header" aria-expanded="false" aria-controls="guide-panel-gewalt">
-      <span class="guide-header-left"><span class="guide-badge red">!</span><span class="guide-copy"><span class="guide-title">Gewalt oder Bedrohung</span><span class="guide-subtitle">Körperliche oder verbale Gewalt, Sachbeschädigung, Bedrohung</span></span></span>
-      <span class="guide-chevron">▼</span>
+  <div class="guide surface-disclosure" id="guide-gewalt">
+    <button type="button" class="guide-header surface-disclosure-header" aria-expanded="false" aria-controls="guide-panel-gewalt">
+      <span class="guide-header-left surface-disclosure-header-left"><span class="guide-badge surface-disclosure-badge surface-disclosure-badge--alert red">!</span><span class="guide-copy surface-disclosure-copy"><span class="guide-title surface-disclosure-title">Gewalt oder Bedrohung</span><span class="guide-subtitle surface-disclosure-subtitle">Körperliche oder verbale Gewalt, Sachbeschädigung, Bedrohung</span></span></span>
+      <span class="guide-chevron surface-disclosure-chevron">▼</span>
     </button>
-    <div class="guide-body" id="guide-panel-gewalt" hidden><div class="guide-body-inner">
+    <div class="guide-body surface-disclosure-body" id="guide-panel-gewalt" hidden><div class="guide-body-inner surface-disclosure-body-inner">
       <ul>
         <li><strong>Ihre Sicherheit geht vor.</strong> Verlassen Sie den Raum. Nehmen Sie Kinder mit.</li>
         <li>Rufen Sie <a href="tel:117" class="link-alert">117</a> (Polizei) an. Das ist kein Verrat — es ist Schutz.</li>
@@ -218,55 +218,55 @@ breadcrumbs:
     </div></div>
   </div>
 
-  <div class="guide" id="fu">
-    <button type="button" class="guide-header" aria-expanded="false" aria-controls="guide-panel-fu">
-      <span class="guide-header-left"><span class="guide-badge sand">FU</span><span class="guide-copy"><span class="guide-title">Fürsorgerische Unterbringung (FU) — Was ist das?</span><span class="guide-subtitle">Wenn Schutz gegen den Willen der Person im Raum steht</span></span></span>
-      <span class="guide-chevron">▼</span>
+  <div class="guide surface-disclosure surface-disclosure--quiet" id="fu">
+    <button type="button" class="guide-header surface-disclosure-header" aria-expanded="false" aria-controls="guide-panel-fu">
+      <span class="guide-header-left surface-disclosure-header-left"><span class="guide-badge surface-disclosure-badge surface-disclosure-badge--quiet sand">FU</span><span class="guide-copy surface-disclosure-copy"><span class="guide-title surface-disclosure-title">Fürsorgerische Unterbringung (FU) — Was ist das?</span><span class="guide-subtitle surface-disclosure-subtitle">Wenn Schutz gegen den Willen der Person im Raum steht</span></span></span>
+      <span class="guide-chevron surface-disclosure-chevron">▼</span>
     </button>
-    <div class="guide-body" id="guide-panel-fu" hidden><div class="guide-body-inner">
+    <div class="guide-body surface-disclosure-body" id="guide-panel-fu" hidden><div class="guide-body-inner surface-disclosure-body-inner">
       <p>Wenn eine Person sich selbst oder andere erheblich gefährdet und keine Einsicht zeigt, kann eine FU in eine Klinik erfolgen — auch gegen den Willen. Das ist ein letztes Mittel und eine schwere Entscheidung.</p>
 
-      <details class="fu-details">
-        <summary class="fu-summary">Wie läuft eine FU ab? ▸</summary>
-        <div class="fu-details-inner">
-          <div class="fu-steps">
-            <div class="fu-step">
-              <div class="fu-step-num">1</div>
-              <div class="fu-step-title">Auslösung</div>
-              <div class="fu-step-body">Arzt, KESB oder Polizei ordnen an. Angehörige können Gefährdungsmeldung einreichen.</div>
+      <details class="fu-details surface-disclosure-nested">
+        <summary class="fu-summary surface-disclosure-nested-summary">Wie läuft eine FU ab?</summary>
+        <div class="fu-details-inner surface-disclosure-nested-inner">
+          <div class="fu-steps surface-disclosure-step-grid">
+            <div class="fu-step surface-disclosure-step">
+              <div class="fu-step-num surface-disclosure-step-num">1</div>
+              <div class="fu-step-title surface-disclosure-step-title">Auslösung</div>
+              <div class="fu-step-body surface-disclosure-step-body">Arzt, KESB oder Polizei ordnen an. Angehörige können Gefährdungsmeldung einreichen.</div>
             </div>
-            <div class="fu-step">
-              <div class="fu-step-num">2</div>
-              <div class="fu-step-title">Einweisung</div>
-              <div class="fu-step-body">Arzt beurteilt vor Ort: Gefährdung, psychische Störung, fehlende Einsicht — dann Einweisung.</div>
+            <div class="fu-step surface-disclosure-step">
+              <div class="fu-step-num surface-disclosure-step-num">2</div>
+              <div class="fu-step-title surface-disclosure-step-title">Einweisung</div>
+              <div class="fu-step-body surface-disclosure-step-body">Arzt beurteilt vor Ort: Gefährdung, psychische Störung, fehlende Einsicht — dann Einweisung.</div>
             </div>
-            <div class="fu-step">
-              <div class="fu-step-num">3</div>
-              <div class="fu-step-title">Richterliche Prüfung</div>
-              <div class="fu-step-body">Betroffene Person kann die FU anfechten.</div>
-              <div class="fu-step-time">Entscheid innert 5 Werktagen</div>
+            <div class="fu-step surface-disclosure-step">
+              <div class="fu-step-num surface-disclosure-step-num">3</div>
+              <div class="fu-step-title surface-disclosure-step-title">Richterliche Prüfung</div>
+              <div class="fu-step-body surface-disclosure-step-body">Betroffene Person kann die FU anfechten.</div>
+              <div class="fu-step-time surface-disclosure-step-time">Entscheid innert 5 Werktagen</div>
             </div>
-            <div class="fu-step">
-              <div class="fu-step-num">4</div>
-              <div class="fu-step-title">Aufhebung</div>
-              <div class="fu-step-body">Endet, wenn Gefährdungsvoraussetzungen wegfallen — durch Behandlung, Einsicht oder Gericht.</div>
+            <div class="fu-step surface-disclosure-step">
+              <div class="fu-step-num surface-disclosure-step-num">4</div>
+              <div class="fu-step-title surface-disclosure-step-title">Aufhebung</div>
+              <div class="fu-step-body surface-disclosure-step-body">Endet, wenn Gefährdungsvoraussetzungen wegfallen — durch Behandlung, Einsicht oder Gericht.</div>
             </div>
           </div>
-          <div class="fu-note">Als Angehörige und Nahestehende werden Sie nicht automatisch informiert — ausser bei Schweigepflichtentbindung. Sie können dem Behandlungsteam aber jederzeit Beobachtungen mitteilen.</div>
+          <div class="fu-note surface-disclosure-note">Als Angehörige und Nahestehende werden Sie nicht automatisch informiert — ausser bei Schweigepflichtentbindung. Sie können dem Behandlungsteam aber jederzeit Beobachtungen mitteilen.</div>
         </div>
       </details>
 
-      <p class="fu-contact"><a href="{{ site.tel.proMenteSana.href }}">{{ site.tel.proMenteSana.label }} ({{ site.tel.proMenteSana.display }})</a> — kostenlose Rechtsberatung zu FU, Vorsorge und Beschwerdewegen. Die <a href="{{ site.tel.fachstelle.href }}">{{ site.tel.fachstelle.label }}</a> unterstützt Sie bei dieser Entscheidung.</p>
+      <p class="fu-contact surface-disclosure-contact"><a href="{{ site.tel.proMenteSana.href }}">{{ site.tel.proMenteSana.label }} ({{ site.tel.proMenteSana.display }})</a> — kostenlose Rechtsberatung zu FU, Vorsorge und Beschwerdewegen. Die <a href="{{ site.tel.fachstelle.href }}">{{ site.tel.fachstelle.label }}</a> unterstützt Sie bei dieser Entscheidung.</p>
     </div></div>
   </div>
 
   <!-- FINANZEN AKUT -->
-  <div class="guide" id="guide-finanzen">
-    <button type="button" class="guide-header" aria-expanded="false" aria-controls="guide-panel-finanzen">
-      <span class="guide-header-left"><span class="guide-badge amber">CHF</span><span class="guide-copy"><span class="guide-title">Finanzielle Eskalation</span><span class="guide-subtitle">Spontankäufe, Verträge, Schulden während einer Manie</span></span></span>
-      <span class="guide-chevron">▼</span>
+  <div class="guide surface-disclosure" id="guide-finanzen">
+    <button type="button" class="guide-header surface-disclosure-header" aria-expanded="false" aria-controls="guide-panel-finanzen">
+      <span class="guide-header-left surface-disclosure-header-left"><span class="guide-badge surface-disclosure-badge surface-disclosure-badge--warning amber">CHF</span><span class="guide-copy surface-disclosure-copy"><span class="guide-title surface-disclosure-title">Finanzielle Eskalation</span><span class="guide-subtitle surface-disclosure-subtitle">Spontankäufe, Verträge, Schulden während einer Manie</span></span></span>
+      <span class="guide-chevron surface-disclosure-chevron">▼</span>
     </button>
-    <div class="guide-body" id="guide-panel-finanzen" hidden><div class="guide-body-inner">
+    <div class="guide-body surface-disclosure-body" id="guide-panel-finanzen" hidden><div class="guide-body-inner surface-disclosure-body-inner">
       <ul>
         <li><strong>Bank sofort kontaktieren</strong> und die Situation schildern — viele Institute haben Vorgehensweisen für solche Fälle.</li>
         <li>Käufe können in der Schweiz unter Umständen angefochten werden, wenn eine Geschäftsunfähigkeit nachgewiesen werden kann (Art. 18 ZGB).</li>
