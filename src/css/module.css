@@ -834,9 +834,33 @@ body.pdf-preview-open { overflow: hidden; }
 .treatment-card--horizontal { display: flex; gap: 20px; align-items: flex-start; }
 .treatment-card-icon--num   { font-size: var(--text-xs); font-weight: 800; }
 
-/* Info callout (warm background box) [temp: dense] */
+/* Text-only callout family
+   ────────────────────────
+   Shared basis for short inline notes without icon column:
+   hint-note, context-note, info-callout, content-note.
+   Variants keep their existing visual language; the family reduces
+   duplication and gives future passes one common surface name. */
+.surface-callout {
+  display: block;
+  font-size: var(--text-base);
+  line-height: 1.75;
+}
+
+.surface-callout p {
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+.surface-callout a {
+  font-weight: 600;
+}
+
+.surface-callout--info,
 .info-callout {
-  font-size: var(--text-base); color: var(--slate);
+  font-size: var(--text-base);
+  color: var(--slate);
   background: var(--surface-alt);
   border: 1px solid var(--sand-border-light);
   border-radius: var(--card-radius);
@@ -921,16 +945,20 @@ body.pdf-preview-open { overflow: hidden; }
 [data-module-accent="8"] .content h2 { border-top: 1px solid var(--teal-accent-border-faint); }
 
 /* ── Hint Note (teal left-border callout) ── */
+.surface-callout--hint,
 .hint-note {
   font-size: var(--text-base);
   color: var(--text-soft);
   border-left: 3px solid var(--teal-border, var(--teal-accent-border-accent));
   padding: var(--space-base) 0 var(--space-base) var(--space-md);
 }
+.surface-callout--hint a,
 .hint-note a { color: var(--teal-text); }
+.surface-callout--alert,
 .hint-note--alert {
   border-left-color: var(--alert-red-border, var(--alert-coral-border));
 }
+.surface-callout--alert a,
 .hint-note--alert a { color: var(--alert); }
 
 /* quick-summary and tldr-card: now unified as .module-summary (see above) */
@@ -1285,7 +1313,6 @@ p.bright-moment {
 
 /* ── Notfall Inline-Style Replacements ── */
 .grauzone--hero{margin:var(--space-lg) 0 var(--space-xl)}
-.content-note{font-size:var(--text-xs);color:var(--text-soft);margin-top:-4px}
 .krisenplan-hint{font-size:var(--text-base);color:var(--alert);font-weight:600}
 .krisenplan-hint a,.notfall-hero ~ .content .link-teal{color:var(--alert)}
 .guide-body-inner .link-alert{color:var(--alert);font-weight:700}
@@ -2643,6 +2670,7 @@ table tbody tr:nth-child(even),
 }
 
 /* ── Content Note (informationeller Hinweis, ohne Icon-Spalte) ── */
+.surface-callout--note,
 .content-note {
   border-left: 3px solid var(--amber);
   background: var(--amber-bg);
@@ -2650,6 +2678,7 @@ table tbody tr:nth-child(even),
   padding: 14px 20px;
   margin: var(--space-lg) 0;
 }
+.surface-callout--note p,
 .content-note p {
   font-size: var(--text-base);
   color: var(--slate);
@@ -2690,6 +2719,7 @@ table tbody tr:nth-child(even),
 .takeaways > .takeaways-inner > p{color:var(--white-text);font-size:var(--text-xs);margin-bottom:1rem}
 
 /* Context note (modul/3 Hinweis zur Sprache) */
+.surface-callout--context,
 .context-note{font-size:var(--text-base);color:var(--teal-text);background:var(--success-soft);border-radius:var(--radius-sm);padding:var(--space-base) var(--space-md)}
 
 /* Ampel card link (modul/6) */
@@ -3508,11 +3538,11 @@ a.ampel-card{text-decoration:none;display:block}
   max-width: 66ch;
 }
 
-[data-module-accent]:not([data-module-accent="8"]) .content > h2 + :is(.phase-explorer, .accordion-group, .tool-cta, .alert-box, .content-note, .hint-note, .reflection, .takeaways, .bright-moment, .pause-box, .selftest, .do-dont, .ampel, .module-illustration, .wave-chart-section, .treatment-grid, .treatment-details) {
+[data-module-accent]:not([data-module-accent="8"]) .content > h2 + :is(.phase-explorer, .accordion-group, .tool-cta, .alert-box, .surface-callout, .content-note, .hint-note, .reflection, .takeaways, .bright-moment, .pause-box, .selftest, .do-dont, .ampel, .module-illustration, .wave-chart-section, .treatment-grid, .treatment-details) {
   margin-top: calc(var(--space-lg) + 4px);
 }
 
-[data-module-accent]:not([data-module-accent="8"]) .content :is(.quote-block, .alert-box, .reflection, .takeaways, .content-note, .hint-note, .bright-moment, .tool-cta, .pause-box, .selftest, .do-dont, .ampel, .module-illustration, .wave-chart-section, .treatment-grid, .treatment-details, .phase-explorer, .accordion-group) {
+[data-module-accent]:not([data-module-accent="8"]) .content :is(.quote-block, .alert-box, .surface-callout, .reflection, .takeaways, .content-note, .hint-note, .bright-moment, .tool-cta, .pause-box, .selftest, .do-dont, .ampel, .module-illustration, .wave-chart-section, .treatment-grid, .treatment-details, .phase-explorer, .accordion-group) {
   scroll-margin-top: calc(var(--nav-height) + 24px);
 }
 
@@ -3526,7 +3556,7 @@ a.ampel-card{text-decoration:none;display:block}
   max-width: 42ch;
 }
 
-[data-module-accent]:not([data-module-accent="8"]) .content .hint-note {
+[data-module-accent]:not([data-module-accent="8"]) .content :is(.hint-note, .surface-callout--hint) {
   display: block;
   background: var(--module-body-surface);
   border: 1px solid var(--module-body-line);
@@ -3536,17 +3566,17 @@ a.ampel-card{text-decoration:none;display:block}
   box-shadow: 0 10px 22px rgba(45,40,35,3.5%);
 }
 
-[data-module-accent]:not([data-module-accent="8"]) .content .hint-note strong {
+[data-module-accent]:not([data-module-accent="8"]) .content :is(.hint-note, .surface-callout--hint) strong {
   color: var(--text);
 }
 
-[data-module-accent]:not([data-module-accent="8"]) .content .hint-note--alert {
+[data-module-accent]:not([data-module-accent="8"]) .content :is(.hint-note--alert, .surface-callout--alert) {
   background: linear-gradient(180deg, rgba(255,255,255,99%), rgba(254,242,242,94%));
   border-color: rgba(185,28,28,16%);
   border-left-color: var(--alert-red-border);
 }
 
-[data-module-accent]:not([data-module-accent="8"]) .content .content-note {
+[data-module-accent]:not([data-module-accent="8"]) .content :is(.content-note, .surface-callout--note) {
   border: 1px solid rgba(180,83,9,14%);
   border-left: 4px solid var(--amber);
   border-radius: 0 20px 20px 0;
@@ -3697,6 +3727,7 @@ a.ampel-card{text-decoration:none;display:block}
   }
 
   [data-module-accent]:not([data-module-accent="8"]) .content h2.subsection-heading,
+  [data-module-accent]:not([data-module-accent="8"]) .content .surface-callout,
   [data-module-accent]:not([data-module-accent="8"]) .content .hint-note,
   [data-module-accent]:not([data-module-accent="8"]) .content .content-note,
   [data-module-accent]:not([data-module-accent="8"]) .content .alert-box,
