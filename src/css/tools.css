@@ -172,8 +172,8 @@ body {
 .tool-header .breadcrumb {
   margin-bottom: 0;
 }
-.hdr :is(.info-box, .surface-callout-box--tool),
-.tool-header :is(.info-box, .surface-callout-box--tool) {
+.hdr .surface-callout-box--tool,
+.tool-header .surface-callout-box--tool {
   margin-top: var(--space-sm);
   max-width: 60ch;
   padding: var(--space-base) var(--space-lg);
@@ -181,14 +181,14 @@ body {
   border-left: 3px solid var(--amber);
   background: var(--amber-bg);
 }
-.hdr :is(.info-box, .surface-callout-box--tool) p,
-.tool-header :is(.info-box, .surface-callout-box--tool) p {
+.hdr .surface-callout-box--tool p,
+.tool-header .surface-callout-box--tool p {
   font-size: var(--text-sm);
   line-height: 1.6;
   color: var(--slate);
 }
-.hdr :is(.info-box, .surface-callout-box--tool) strong,
-.tool-header :is(.info-box, .surface-callout-box--tool) strong {
+.hdr .surface-callout-box--tool strong,
+.tool-header .surface-callout-box--tool strong {
   color: var(--amber-dark-text);
 }
 
@@ -249,8 +249,6 @@ body {
   .tool-header h1,
   .hdr p,
   .tool-header p,
-  .hdr .info-box,
-  .tool-header .info-box,
   .hdr .surface-callout-box--tool,
   .tool-header .surface-callout-box--tool {
     max-width: none;

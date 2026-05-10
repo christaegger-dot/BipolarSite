@@ -238,18 +238,18 @@
    │                   │ Left-Border     │ wenn .quote-block den    │
    │                   │                 │ Lesefluss zu oft aufbricht│
    ├───────────────────┼─────────────────┼──────────────────────────┤
-   │ .hint-note        │ teal Left-Border│ Inline-Hinweis, Querverwies,│
-   │   --alert         │ (alert: rot)    │ Folge-Modul-Verlinkung   │
+   │ .surface-callout  │ teal Left-Border│ Inline-Hinweis, Querverwies,│
+   │   --hint/--alert  │ (alert: rot)    │ Folge-Modul-Verlinkung   │
    ├───────────────────┼─────────────────┼──────────────────────────┤
-   │ .content-note     │ amber Card mit  │ Sachliche WICHTIG-Warnung │
-   │   (Module-Accent) │ Left-Border     │ im Lesefluss             │
+   │ .surface-callout  │ amber Card mit  │ Sachliche WICHTIG-Warnung │
+   │   --note          │ Left-Border     │ im Lesefluss             │
    ├───────────────────┼─────────────────┼──────────────────────────┤
-   │ .bright-moment    │ green Card mit  │ Positiver Lichtblick,    │
-   │                   │ Left-Border     │ Counterweight zu schweren │
+   │ .surface-callout  │ green Card mit  │ Positiver Lichtblick,    │
+   │   --positive      │ Left-Border     │ Counterweight zu schweren │
    │                   │ DM Sans italic  │ Inhalten                 │
    ├───────────────────┼─────────────────┼──────────────────────────┤
-   │ .reflection       │ rosé Card       │ Selbstreflexions-Frage,  │
-   │                   │                 │ am Sektions-Ende         │
+   │ .surface-callout  │ rosé Card       │ Selbstreflexions-Frage,  │
+   │   --reflection    │                 │ am Sektions-Ende         │
    ├───────────────────┼─────────────────┼──────────────────────────┤
    │ .takeaways        │ teal-cta-dark   │ Schluss-Box mit          │
    │                   │ Box, weiss-Text │ "Worauf es ankommt"      │
@@ -306,46 +306,34 @@
 }
 
 /* ── Structured callout boxes ──
-   Shared family for alert-box and info-box style surfaces.
-   Legacy class aliases remain supported during incremental cleanup. */
-.surface-callout-box,
-.alert-box,
-.info-box {
+   Shared family for alert/info/tool surfaces with optional icon column. */
+.surface-callout-box {
   border-radius: var(--card-radius);
   margin: var(--temp-standard-margin) 0;
 }
-.surface-callout-box p,
-.alert-box p,
-.info-box p {
+.surface-callout-box p {
   font-size: var(--text-base);
   color: var(--slate);
   line-height: 1.75;
   margin: 0;
 }
-.surface-callout-box p + p,
-.alert-box p + p,
-.info-box p + p {
+.surface-callout-box p + p {
   margin-top: var(--space-sm);
 }
-.surface-callout-box a,
-.alert-box a,
-.info-box a {
+.surface-callout-box a {
   font-weight: 600;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
 }
-.surface-callout-box strong,
-.alert-box strong,
-.info-box strong {
+.surface-callout-box strong {
   color: inherit;
 }
 .surface-callout-box__body {
   flex: 1;
   min-width: 0;
 }
-.surface-callout-box__icon,
-.alert-box-icon {
+.surface-callout-box__icon {
   width: 38px;
   height: 38px;
   border-radius: var(--radius-md);
@@ -356,67 +344,54 @@
   font-size: var(--text-lg);
 }
 .surface-callout-box--alert,
-.surface-callout-box--accent-info,
-.alert-box {
+.surface-callout-box--accent-info {
   display: flex;
   gap: var(--space-md);
   align-items: flex-start;
   padding: var(--temp-standard-padding);
 }
-.surface-callout-box--alert,
-.alert-box {
+.surface-callout-box--alert {
   background: var(--alert-soft);
   border: 1px solid var(--alert-red-border);
 }
-.surface-callout-box--alert .surface-callout-box__icon,
-.alert-box-icon {
+.surface-callout-box--alert .surface-callout-box__icon {
   background: var(--alert-coral);
   color: var(--alert);
 }
-.surface-callout-box--alert a,
-.alert-box a {
+.surface-callout-box--alert a {
   color: var(--alert);
 }
-.surface-callout-box--alert strong,
-.alert-box strong {
+.surface-callout-box--alert strong {
   color: var(--alert);
 }
-.surface-callout-box--accent-info,
-.alert-box.alert-box--info {
+.surface-callout-box--accent-info {
   background: var(--success-soft);
   border: 1px solid var(--teal-solid);
 }
-.surface-callout-box--accent-info .surface-callout-box__icon,
-.alert-box--info .alert-box-icon,
-.alert-box--info .alert-icon {
+.surface-callout-box--accent-info .surface-callout-box__icon {
   background: var(--teal-light);
   color: var(--teal-cta);
 }
-.surface-callout-box--accent-info a,
-.alert-box.alert-box--info a {
+.surface-callout-box--accent-info a {
   color: var(--teal-cta);
 }
-.surface-callout-box--accent-info strong,
-.alert-box.alert-box--info strong {
+.surface-callout-box--accent-info strong {
   color: var(--teal-cta);
 }
-.surface-callout-box--quiet,
-.info-box {
+.surface-callout-box--quiet {
   background: var(--bg);
   border: 1px solid var(--border);
   padding: 16px 20px;
 }
 
 /* ── Reflection ── [temp: pause] — Rosé accent for self-reflection */
-.surface-callout--reflection,
-.reflection {
+.surface-callout--reflection {
   background: var(--rose-bg);
   border: 1px solid var(--rose-soft);
   border-radius: var(--card-radius); padding: var(--temp-pause-padding); margin: var(--temp-pause-margin) 0;
   position: relative; overflow: hidden;
 }
-.surface-callout--reflection::before,
-.reflection::before {
+.surface-callout--reflection::before {
   display: none;
 }
 .surface-callout--reflection .reflection-label,
@@ -424,13 +399,11 @@
   font-size: var(--text-xs); font-weight: 700; text-transform: uppercase;
   letter-spacing: 0.06em; color: var(--rose-text); margin-bottom: var(--space-base);
 }
-.surface-callout--reflection h3,
-.reflection h3 {
+.surface-callout--reflection h3 {
   font-size: var(--text-lg); line-height: 1.15;
   margin-bottom: var(--heading-gap-h3);
 }
-.surface-callout--reflection p,
-.reflection p {
+.surface-callout--reflection p {
   font-size: var(--text-base); color: var(--slate);
   line-height: 1.75; position: relative; z-index: 1; margin: 0;
 }
@@ -854,13 +827,9 @@ body.pdf-preview-open { overflow: hidden; }
   .toc,
   .module-summary,
   .quote-block,
-  .alert-box,
   .surface-callout-box,
   .takeaways,
-  .content-note,
-  .surface-callout--note,
-  .surface-callout--positive,
-  .bright-moment,
+  .surface-callout,
   .mini-plan {
     margin-left: 0;
     margin-right: 0;
@@ -895,7 +864,7 @@ body.pdf-preview-open { overflow: hidden; }
   }
 
   /* Reduce pause temperature on small screens */
-  .quote-block, .reflection, .surface-callout--reflection, .takeaways, .surface-callout--positive, .bright-moment {
+  .quote-block, .surface-callout--reflection, .takeaways, .surface-callout--positive {
     margin-top: var(--temp-standard-margin);
     margin-bottom: var(--temp-standard-margin);
     padding: var(--temp-standard-padding);
@@ -936,7 +905,7 @@ body.pdf-preview-open { overflow: hidden; }
 /* Text-only callout family
    ────────────────────────
    Shared basis for short inline notes without icon column:
-   hint-note, context-note, info-callout, content-note.
+   hint, context, info and note variants.
    Variants keep their existing visual language; the family reduces
    duplication and gives future passes one common surface name. */
 .surface-callout {
@@ -956,8 +925,7 @@ body.pdf-preview-open { overflow: hidden; }
   font-weight: 600;
 }
 
-.surface-callout--info,
-.info-callout {
+.surface-callout--info {
   font-size: var(--text-base);
   color: var(--slate);
   background: var(--surface-alt);
@@ -1044,15 +1012,13 @@ body.pdf-preview-open { overflow: hidden; }
 [data-module-accent="8"] .content h2 { border-top: 1px solid var(--teal-accent-border-faint); }
 
 /* ── Hint Note (teal left-border callout) ── */
-.surface-callout--hint,
-.hint-note {
+.surface-callout--hint {
   font-size: var(--text-base);
   color: var(--text-soft);
   border-left: 3px solid var(--teal-border, var(--teal-accent-border-accent));
   padding: var(--space-base) 0 var(--space-base) var(--space-md);
 }
-.surface-callout--hint a,
-.hint-note a { color: var(--teal-text); }
+.surface-callout--hint a { color: var(--teal-text); }
 .surface-callout--alert,
 .hint-note--alert {
   border-left-color: var(--alert-red-border, var(--alert-coral-border));
@@ -1063,8 +1029,7 @@ body.pdf-preview-open { overflow: hidden; }
 /* quick-summary and tldr-card: now unified as .module-summary (see above) */
 
 /* ── Bright Moment (positive counterweight) ── [temp: pause] */
-.surface-callout--positive,
-.bright-moment {
+.surface-callout--positive {
   background: var(--green-light-bg);
   border: 1px solid var(--green-subtle);
   border-left: 4px solid var(--phase-green);
@@ -1072,9 +1037,7 @@ body.pdf-preview-open { overflow: hidden; }
   padding: var(--temp-pause-padding); margin: var(--temp-pause-margin) 0;
 }
 .surface-callout--positive p,
-.bright-moment p,
-p.surface-callout--positive,
-p.bright-moment {
+p.surface-callout--positive {
   font-family: 'DM Sans', sans-serif;
   font-size: var(--text-base); font-style: italic; color: var(--slate);
   line-height: 1.75; margin: 0;
@@ -1254,7 +1217,7 @@ p.bright-moment {
   .pdf-preview-overlay, .module-nav,
   .next-module-escape, .completion-block { display: none !important; }
   .module-hero { padding-top: 20px; }
-  .section, .quote-block, .reflection, .surface-callout--reflection { page-break-inside: avoid; }
+  .section, .quote-block, .surface-callout--reflection { page-break-inside: avoid; }
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -2333,7 +2296,7 @@ body.notfall-page .pdf-preview-frame{display:block;width:100%;height:60vh;min-he
 .next-module,
 .toc,
 .quote-block,
-.alert-box,
+.surface-callout-box,
 .refl {
   border-color: var(--border);
 }
@@ -2623,22 +2586,14 @@ table tbody tr:nth-child(even),
 
 /* ── Alert / warning boxes ── */
 .surface-callout-box--alert,
-.surface-callout-box--accent-info,
-.alert-box {
+.surface-callout-box--accent-info {
   background: var(--alert-soft);
   border: 2px solid var(--alert-red-border);
   border-radius: var(--card-radius);
 }
 
-.alert-icon {
-  background: var(--alert-subtle);
-  color: var(--alert);
-  border-radius: var(--radius-sm);
-}
-
 .surface-callout-box--alert strong,
-.surface-callout-box--accent-info strong,
-.alert-box strong {
+.surface-callout-box--accent-info strong {
   color: var(--alert);
 }
 
@@ -2688,8 +2643,7 @@ table tbody tr:nth-child(even),
 /* ── [from overrides.css] COVERAGE AUDIT FIXES ── */
 
 /* structured quiet callout surfaces */
-.surface-callout-box--quiet,
-.info-box {
+.surface-callout-box--quiet {
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: var(--card-radius);
@@ -2777,16 +2731,14 @@ table tbody tr:nth-child(even),
 }
 
 /* ── Content Note (informationeller Hinweis, ohne Icon-Spalte) ── */
-.surface-callout--note,
-.content-note {
+.surface-callout--note {
   border-left: 3px solid var(--amber);
   background: var(--amber-bg);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   padding: 14px 20px;
   margin: var(--space-lg) 0;
 }
-.surface-callout--note p,
-.content-note p {
+.surface-callout--note p {
   font-size: var(--text-base);
   color: var(--slate);
   line-height: 1.75;
@@ -2796,14 +2748,12 @@ table tbody tr:nth-child(even),
 /* ── Inline-Style Migration (P2.5) ── */
 
 /* Alert-box variant: success/info (modul/7) */
-.surface-callout-box--accent-info,
-.alert-box.alert-box--info{border-color:var(--teal-solid);background:var(--success-soft)}
+.surface-callout-box--accent-info{border-color:var(--teal-solid);background:var(--success-soft)}
 .surface-callout-box--accent-info strong,
 .surface-callout-box--accent-info a,
-.alert-box.alert-box--info strong,
-.alert-box.alert-box--info a{color:var(--teal-cta)}
-.surface-callout-box--accent-info .surface-callout-box__icon,
-.alert-box--info .alert-box-icon,.alert-box--info .alert-icon{color:var(--teal-cta)}
+.surface-callout-box--accent-info strong,
+.surface-callout-box--accent-info a{color:var(--teal-cta)}
+.surface-callout-box--accent-info .surface-callout-box__icon{color:var(--teal-cta)}
 
 /* Hint-note spacing variants consolidated to line ~675 */
 
@@ -2825,16 +2775,14 @@ table tbody tr:nth-child(even),
 .barrier-grid{margin-top:20px}
 
 /* Bright moment emphasis */
-.surface-callout--positive,
-.bright-moment{font-weight:500}
+.surface-callout--positive{font-weight:500}
 
 /* Stelle text styling in dark sections (modul/8 takeaways) */
 .takeaways h2, .takeaways h3{color:var(--cta-primary-text);margin-bottom:0.25rem}
 .takeaways > .takeaways-inner > p{color:var(--white-text);font-size:var(--text-xs);margin-bottom:1rem}
 
 /* Context note (modul/3 Hinweis zur Sprache) */
-.surface-callout--context,
-.context-note{font-size:var(--text-base);color:var(--teal-text);background:var(--success-soft);border-radius:var(--radius-sm);padding:var(--space-base) var(--space-md)}
+.surface-callout--context{font-size:var(--text-base);color:var(--teal-text);background:var(--success-soft);border-radius:var(--radius-sm);padding:var(--space-base) var(--space-md)}
 
 /* Ampel card link (modul/6) */
 a.ampel-card{text-decoration:none;display:block}
@@ -3652,11 +3600,11 @@ a.ampel-card{text-decoration:none;display:block}
   max-width: 66ch;
 }
 
-[data-module-accent]:not([data-module-accent="8"]) .content > h2 + :is(.phase-explorer, .accordion-group, .tool-cta, .alert-box, .surface-callout-box, .surface-callout, .surface-callout--positive, .surface-callout--reflection, .content-note, .hint-note, .reflection, .takeaways, .bright-moment, .pause-box, .selftest, .do-dont, .ampel, .module-illustration, .wave-chart-section, .treatment-grid, .treatment-details) {
+[data-module-accent]:not([data-module-accent="8"]) .content > h2 + :is(.phase-explorer, .accordion-group, .tool-cta, .surface-callout-box, .surface-callout, .takeaways, .pause-box, .selftest, .do-dont, .ampel, .module-illustration, .wave-chart-section, .treatment-grid, .treatment-details) {
   margin-top: calc(var(--space-lg) + 4px);
 }
 
-[data-module-accent]:not([data-module-accent="8"]) .content :is(.quote-block, .alert-box, .surface-callout-box, .surface-callout, .surface-callout--positive, .surface-callout--reflection, .reflection, .takeaways, .content-note, .hint-note, .bright-moment, .tool-cta, .pause-box, .selftest, .do-dont, .ampel, .module-illustration, .wave-chart-section, .treatment-grid, .treatment-details, .phase-explorer, .accordion-group) {
+[data-module-accent]:not([data-module-accent="8"]) .content :is(.quote-block, .surface-callout-box, .surface-callout, .takeaways, .tool-cta, .pause-box, .selftest, .do-dont, .ampel, .module-illustration, .wave-chart-section, .treatment-grid, .treatment-details, .phase-explorer, .accordion-group) {
   scroll-margin-top: calc(var(--nav-height) + 24px);
 }
 
@@ -3670,7 +3618,7 @@ a.ampel-card{text-decoration:none;display:block}
   max-width: 42ch;
 }
 
-[data-module-accent]:not([data-module-accent="8"]) .content :is(.hint-note, .surface-callout--hint) {
+[data-module-accent]:not([data-module-accent="8"]) .content .surface-callout--hint {
   display: block;
   background: var(--module-body-surface);
   border: 1px solid var(--module-body-line);
@@ -3680,7 +3628,7 @@ a.ampel-card{text-decoration:none;display:block}
   box-shadow: 0 10px 22px rgba(45,40,35,3.5%);
 }
 
-[data-module-accent]:not([data-module-accent="8"]) .content :is(.hint-note, .surface-callout--hint) strong {
+[data-module-accent]:not([data-module-accent="8"]) .content .surface-callout--hint strong {
   color: var(--text);
 }
 
@@ -3690,7 +3638,7 @@ a.ampel-card{text-decoration:none;display:block}
   border-left-color: var(--alert-red-border);
 }
 
-[data-module-accent]:not([data-module-accent="8"]) .content :is(.content-note, .surface-callout--note) {
+[data-module-accent]:not([data-module-accent="8"]) .content .surface-callout--note {
   border: 1px solid rgba(180,83,9,14%);
   border-left: 4px solid var(--amber);
   border-radius: 0 20px 20px 0;
@@ -3699,7 +3647,7 @@ a.ampel-card{text-decoration:none;display:block}
   padding: 16px 20px;
 }
 
-[data-module-accent]:not([data-module-accent="8"]) .content :is(.alert-box, .surface-callout-box--alert, .surface-callout-box--accent-info) {
+[data-module-accent]:not([data-module-accent="8"]) .content :is(.surface-callout-box--alert, .surface-callout-box--accent-info) {
   position: relative;
   overflow: hidden;
   padding: 18px 20px;
@@ -3707,7 +3655,7 @@ a.ampel-card{text-decoration:none;display:block}
   box-shadow: 0 16px 34px rgba(165,42,42,7%);
 }
 
-[data-module-accent]:not([data-module-accent="8"]) .content :is(.alert-box, .surface-callout-box--alert, .surface-callout-box--accent-info)::before {
+[data-module-accent]:not([data-module-accent="8"]) .content :is(.surface-callout-box--alert, .surface-callout-box--accent-info)::before {
   content: '';
   position: absolute;
   left: 0;
@@ -3717,11 +3665,11 @@ a.ampel-card{text-decoration:none;display:block}
   background: var(--alert);
 }
 
-[data-module-accent]:not([data-module-accent="8"]) .content :is(.alert-box-icon, .surface-callout-box__icon) {
+[data-module-accent]:not([data-module-accent="8"]) .content .surface-callout-box__icon {
   box-shadow: inset 0 1px 0 rgba(255,255,255,25%);
 }
 
-[data-module-accent]:not([data-module-accent="8"]) .content :is(.reflection, .surface-callout--reflection) {
+[data-module-accent]:not([data-module-accent="8"]) .content .surface-callout--reflection {
   border-left: 4px solid var(--rose-border);
   box-shadow: var(--module-body-shadow);
   padding: 22px 24px;
@@ -3731,7 +3679,7 @@ a.ampel-card{text-decoration:none;display:block}
   letter-spacing: 0.12em;
 }
 
-[data-module-accent]:not([data-module-accent="8"]) .content :is(.bright-moment, .surface-callout--positive) {
+[data-module-accent]:not([data-module-accent="8"]) .content .surface-callout--positive {
   position: relative;
   overflow: hidden;
   background: linear-gradient(180deg, rgba(255,255,255,98%), rgba(232,246,239,94%));
@@ -3739,7 +3687,7 @@ a.ampel-card{text-decoration:none;display:block}
   padding: 20px 22px;
 }
 
-[data-module-accent]:not([data-module-accent="8"]) .content :is(.bright-moment, .surface-callout--positive)::before {
+[data-module-accent]:not([data-module-accent="8"]) .content .surface-callout--positive::before {
   content: '';
   position: absolute;
   inset: auto -36px -44px auto;
@@ -3751,9 +3699,7 @@ a.ampel-card{text-decoration:none;display:block}
 }
 
 [data-module-accent]:not([data-module-accent="8"]) .content .surface-callout--positive p,
-[data-module-accent]:not([data-module-accent="8"]) .content p.surface-callout--positive,
-[data-module-accent]:not([data-module-accent="8"]) .content .bright-moment p,
-[data-module-accent]:not([data-module-accent="8"]) .content p.bright-moment {
+[data-module-accent]:not([data-module-accent="8"]) .content p.surface-callout--positive {
   position: relative;
   z-index: 1;
   line-height: 1.72;
@@ -3844,14 +3790,7 @@ a.ampel-card{text-decoration:none;display:block}
 
   [data-module-accent]:not([data-module-accent="8"]) .content h2.subsection-heading,
   [data-module-accent]:not([data-module-accent="8"]) .content .surface-callout,
-  [data-module-accent]:not([data-module-accent="8"]) .content .surface-callout--positive,
-  [data-module-accent]:not([data-module-accent="8"]) .content .surface-callout--reflection,
-  [data-module-accent]:not([data-module-accent="8"]) .content .hint-note,
-  [data-module-accent]:not([data-module-accent="8"]) .content .content-note,
-  [data-module-accent]:not([data-module-accent="8"]) .content .alert-box,
   [data-module-accent]:not([data-module-accent="8"]) .content .surface-callout-box,
-  [data-module-accent]:not([data-module-accent="8"]) .content .reflection,
-  [data-module-accent]:not([data-module-accent="8"]) .content .bright-moment,
   [data-module-accent]:not([data-module-accent="8"]) .content .tool-cta,
   [data-module-accent]:not([data-module-accent="8"]) .content .pause-box,
   [data-module-accent]:not([data-module-accent="8"]) .content .selftest {
