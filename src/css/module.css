@@ -1833,6 +1833,8 @@ body.notfall-page .pdf-preview-frame{display:block;width:100%;height:60vh;min-he
 .section-card p{line-height:1.75}
 .surface-explain-card--compact,
 .age-card{border-color:var(--border-warm-md);padding:20px 18px}
+.surface-explain-card--quote-accent,
+.wish-card{border-left:4px solid var(--sand)}
 .phase-cards{display:grid;grid-template-columns:repeat(3, 1fr);gap:var(--grid-gap-tight);margin:var(--temp-dense-margin) 0}
 .phase-card{padding: var(--space-lg);border-radius:var(--radius-md);border-top:4px solid transparent}
 .phase-card.p1{background:var(--amber-bg);border-top-color:var(--amber)}
@@ -2020,7 +2022,6 @@ body.notfall-page .pdf-preview-frame{display:block;width:100%;height:60vh;min-he
 .pillar-card h3{font-size:var(--text-base);color:var(--text);margin-bottom:4px}
 .pillar-card p{font-size:var(--text-base);color:var(--slate);line-height:1.5;margin:0}
 .wish-cards{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gap-tight);margin:var(--temp-dense-margin) 0}
-.wish-card{background:var(--card);border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:22px;border-left:4px solid var(--sand)}
 .wish-card h4{font-size:var(--text-base);margin-bottom:var(--heading-gap-h4)}
 .wish-card p{font-size:var(--text-base);color:var(--slate);line-height:1.5;margin:0;font-style:italic}
 .trialog-visual{display:grid;grid-template-columns:repeat(3, 1fr);gap:var(--grid-gap-tight);margin:var(--temp-dense-margin) 0}
