@@ -1789,12 +1789,14 @@ body.notfall-page .pdf-preview-frame{display:block;width:100%;height:60vh;min-he
 .mech-cards,
 .barrier-grid,
 .coping-grid,
-.pillar-cards{display:grid;gap:var(--grid-gap-tight);margin:var(--temp-dense-margin) 0}
+.pillar-cards,
+.bipolar-types-grid{display:grid;gap:var(--grid-gap-tight);margin:var(--temp-dense-margin) 0}
 .surface-explain-grid--two,
 .loss-cards,
 .mech-cards,
 .barrier-grid,
-.coping-grid{grid-template-columns:1fr 1fr}
+.coping-grid,
+.bipolar-types-grid{grid-template-columns:1fr 1fr}
 .surface-explain-grid--auto,
 .age-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--grid-gap-tight);margin:16px 0 24px}
 .surface-explain-card,
@@ -1803,27 +1805,36 @@ body.notfall-page .pdf-preview-frame{display:block;width:100%;height:60vh;min-he
 .age-card,
 .barrier-card,
 .coping-card,
-.pillar-card{background:var(--card);border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:22px}
+.pillar-card,
+.bipolar-type-card{background:var(--card);border:1px solid var(--border-warm);border-radius:var(--radius-md);padding:22px}
 .surface-explain-card__label,
 .barrier-label{font-size:var(--text-xs);font-weight:800;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px}
 .surface-explain-card__label--accent,
 .barrier-label{color:var(--amber)}
 .surface-explain-card__marker,
 .pillar-num{width:36px;height:36px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:var(--text-xs);font-weight:800;flex-shrink:0}
+.surface-explain-card__badge,
+.bipolar-type-badge{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;font-size:var(--text-sm);font-weight:700;letter-spacing:0.04em;margin-bottom:var(--space-sm)}
 .surface-explain-card :is(h3,h4),
 .loss-card h3,
 .mech-card h3,
 .age-card h4,
 .barrier-card :is(h3,h4),
 .coping-card h4,
-.pillar-card h3{font-size:var(--text-base);color:var(--text);margin-bottom:var(--heading-gap-h4)}
+.pillar-card h3,
+.bipolar-type-card h3{font-size:var(--text-base);color:var(--text);margin-bottom:var(--heading-gap-h4)}
+.surface-explain-card__title--serif,
+.bipolar-type-title{font-family:'DM Serif Display',serif;font-size:var(--text-xl);font-weight:400;color:var(--navy);margin-bottom:4px}
+.surface-explain-card__subtitle,
+.bipolar-type-subtitle{font-size:var(--text-sm);color:var(--text-soft);font-style:italic;margin-bottom:var(--space-base)}
 .surface-explain-card p,
 .loss-card p,
 .mech-card p,
 .age-card p,
 .barrier-card p,
 .coping-card p,
-.pillar-card p{font-size:var(--text-base);color:var(--slate);line-height:1.5;margin:0}
+.pillar-card p,
+.bipolar-type-card p{font-size:var(--text-base);color:var(--slate);line-height:1.5;margin:0}
 .surface-explain-card p + p,
 .age-card p + p{margin-top:8px}
 .surface-explain-card--accent,
@@ -1843,6 +1854,8 @@ body.notfall-page .pdf-preview-frame{display:block;width:100%;height:60vh;min-he
 .wish-card{border-left:4px solid var(--sand)}
 .surface-explain-card--with-marker,
 .pillar-card{display:flex;gap:18px;align-items:flex-start}
+.surface-explain-card--tinted,
+.bipolar-type-card{background:#f9f6f1;border:none;border-radius:var(--radius-lg);box-shadow:none}
 .phase-cards{display:grid;grid-template-columns:repeat(3, 1fr);gap:var(--grid-gap-tight);margin:var(--temp-dense-margin) 0}
 .phase-card{padding: var(--space-lg);border-radius:var(--radius-md);border-top:4px solid transparent}
 .phase-card.p1{background:var(--amber-bg);border-top-color:var(--amber)}
@@ -4176,51 +4189,6 @@ a.ampel-card{text-decoration:none;display:block}
   }
 }
 
-/* ── Bipolar I/II — Zweispaltige Karten (AD-Fix: Akkordeons aufgelöst) ── */
-.bipolar-types-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-lg);
-  margin-top: var(--space-lg);
-  margin-bottom: var(--space-lg);
-}
-.bipolar-type-card {
-  background: var(--surface-soft, #f8f6f2);
-  border: 1.5px solid var(--border-light, #e8e2d9);
-  border-radius: var(--radius-lg, 16px);
-  padding: var(--space-lg) var(--space-lg);
-}
-.bipolar-type-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px; height: 36px;
-  background: var(--navy, #1a2744);
-  color: var(--white-text, #fff);
-  border-radius: 50%;
-  font-size: var(--text-sm);
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  margin-bottom: var(--space-sm);
-}
-.bipolar-type-title {
-  font-family: 'DM Serif Display', serif;
-  font-size: var(--text-xl);
-  font-weight: 400;
-  color: var(--navy);
-  margin-bottom: 4px;
-}
-.bipolar-type-subtitle {
-  font-size: var(--text-sm);
-  color: var(--text-soft);
-  font-style: italic;
-  margin-bottom: var(--space-base);
-}
-.bipolar-type-card p {
-  font-size: var(--text-base);
-  color: var(--text-primary);
-  margin-bottom: var(--space-sm);
-}
 @media (max-width: 640px) {
   .bipolar-types-grid {
     grid-template-columns: 1fr;
@@ -4324,8 +4292,9 @@ a.ampel-card{text-decoration:none;display:block}
   border-radius: var(--radius-lg);
   box-shadow: none;
 }
-[data-module-accent="1"] .bipolar-type-badge {
+[data-module-accent="1"] :is(.bipolar-type-badge, .surface-explain-card__badge) {
   background: var(--navy);
+  color: var(--white-text, #fff);
 }
 
 /* ── 3. TINTED: wave-chart-section (Phasenverlauf-Grafik) ──────────── */
