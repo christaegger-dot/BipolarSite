@@ -52,9 +52,7 @@
   .next-module,
   .treatment-card,
   .handout-card,
-  .info-box,
   .surface-callout-box,
-  .alert-box,
   .quote-block,
   .reflection-block,
   .toc {
@@ -106,9 +104,7 @@
   .quick-card,
   .sit-card,
   .guide,
-  .info-box,
   .surface-callout-box,
-  .alert-box,
   .action-card,
   .tool-chip {
     box-shadow: none !important;
@@ -141,12 +137,9 @@
   }
 
   /* ── Key content — avoid page breaks ── */
-  .reflection,
   .surface-callout--reflection,
   .takeaways,
-  .info-box,
   .surface-callout-box,
-  .alert-box,
   .module-summary {
     page-break-inside: avoid;
   }
