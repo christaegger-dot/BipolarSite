@@ -250,7 +250,9 @@ body {
   .hdr p,
   .tool-header p,
   .hdr .info-box,
-  .tool-header .info-box {
+  .tool-header .info-box,
+  .hdr .surface-callout-box--tool,
+  .tool-header .surface-callout-box--tool {
     max-width: none;
   }
 }

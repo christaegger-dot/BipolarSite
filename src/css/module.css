@@ -307,7 +307,7 @@
 
 /* ── Structured callout boxes ──
    Shared family for alert-box and info-box style surfaces.
-   Old classes stay attached in templates for safe incremental migration. */
+   Legacy class aliases remain supported during incremental cleanup. */
 .surface-callout-box,
 .alert-box,
 .info-box {
@@ -851,6 +851,7 @@ body.pdf-preview-open { overflow: hidden; }
   .module-summary,
   .quote-block,
   .alert-box,
+  .surface-callout-box,
   .takeaways,
   .content-note,
   .surface-callout--note,
@@ -3647,11 +3648,11 @@ a.ampel-card{text-decoration:none;display:block}
   max-width: 66ch;
 }
 
-[data-module-accent]:not([data-module-accent="8"]) .content > h2 + :is(.phase-explorer, .accordion-group, .tool-cta, .alert-box, .surface-callout, .surface-callout--positive, .surface-callout--reflection, .content-note, .hint-note, .reflection, .takeaways, .bright-moment, .pause-box, .selftest, .do-dont, .ampel, .module-illustration, .wave-chart-section, .treatment-grid, .treatment-details) {
+[data-module-accent]:not([data-module-accent="8"]) .content > h2 + :is(.phase-explorer, .accordion-group, .tool-cta, .alert-box, .surface-callout-box, .surface-callout, .surface-callout--positive, .surface-callout--reflection, .content-note, .hint-note, .reflection, .takeaways, .bright-moment, .pause-box, .selftest, .do-dont, .ampel, .module-illustration, .wave-chart-section, .treatment-grid, .treatment-details) {
   margin-top: calc(var(--space-lg) + 4px);
 }
 
-[data-module-accent]:not([data-module-accent="8"]) .content :is(.quote-block, .alert-box, .surface-callout, .surface-callout--positive, .surface-callout--reflection, .reflection, .takeaways, .content-note, .hint-note, .bright-moment, .tool-cta, .pause-box, .selftest, .do-dont, .ampel, .module-illustration, .wave-chart-section, .treatment-grid, .treatment-details, .phase-explorer, .accordion-group) {
+[data-module-accent]:not([data-module-accent="8"]) .content :is(.quote-block, .alert-box, .surface-callout-box, .surface-callout, .surface-callout--positive, .surface-callout--reflection, .reflection, .takeaways, .content-note, .hint-note, .bright-moment, .tool-cta, .pause-box, .selftest, .do-dont, .ampel, .module-illustration, .wave-chart-section, .treatment-grid, .treatment-details, .phase-explorer, .accordion-group) {
   scroll-margin-top: calc(var(--nav-height) + 24px);
 }
 
@@ -3844,6 +3845,7 @@ a.ampel-card{text-decoration:none;display:block}
   [data-module-accent]:not([data-module-accent="8"]) .content .hint-note,
   [data-module-accent]:not([data-module-accent="8"]) .content .content-note,
   [data-module-accent]:not([data-module-accent="8"]) .content .alert-box,
+  [data-module-accent]:not([data-module-accent="8"]) .content .surface-callout-box,
   [data-module-accent]:not([data-module-accent="8"]) .content .reflection,
   [data-module-accent]:not([data-module-accent="8"]) .content .bright-moment,
   [data-module-accent]:not([data-module-accent="8"]) .content .tool-cta,
