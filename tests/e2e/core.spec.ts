@@ -87,14 +87,16 @@ test.describe('core user paths', () => {
     await expect(page.locator('#verstehen')).toBeVisible();
   });
 
-  test('desktop toc sidebar includes the real first module target', async ({ page }, testInfo) => {
-    test.skip(isMobileProject(testInfo), 'Desktop-only TOC sidebar assertion.');
+  test('desktop modules keep the inline hero toc and do not inject a cloned sidebar by default', async ({ page }, testInfo) => {
+    test.skip(isMobileProject(testInfo), 'Desktop-only module TOC assertion.');
 
     await page.goto('/modul/1/');
 
-    const sidebarLink = page.locator('.toc-sidebar a[href="#neu"]').first();
-    await expect(sidebarLink).toBeVisible();
-    await expect(sidebarLink).toHaveClass(/active/);
+    await expect(page.locator('.toc-sidebar')).toHaveCount(0);
+
+    const heroTocLink = page.locator('.module1-hero-aside .toc a[href="#neu"]').first();
+    await expect(heroTocLink).toBeVisible();
+    await expect(heroTocLink).toHaveAttribute('href', '#neu');
   });
 
   test('werkzeuge overview exposes krisenplan and a distinct emergency path', async ({ page }) => {
