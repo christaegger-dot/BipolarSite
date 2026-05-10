@@ -305,20 +305,107 @@
   border-top: 1px solid var(--rose-border);
 }
 
-/* ── Alert Box ── [temp: standard] */
-.alert-box {
-  background: var(--alert-soft); border: 1px solid var(--alert-red-border);
-  border-radius: var(--card-radius); padding: var(--temp-standard-padding); margin: var(--temp-standard-margin) 0;
-  display: flex; gap: var(--space-md); align-items: flex-start;
+/* ── Structured callout boxes ──
+   Shared family for alert-box and info-box style surfaces.
+   Old classes stay attached in templates for safe incremental migration. */
+.surface-callout-box,
+.alert-box,
+.info-box {
+  border-radius: var(--card-radius);
+  margin: var(--temp-standard-margin) 0;
 }
+.surface-callout-box p,
+.alert-box p,
+.info-box p {
+  font-size: var(--text-base);
+  color: var(--slate);
+  line-height: 1.75;
+  margin: 0;
+}
+.surface-callout-box p + p,
+.alert-box p + p,
+.info-box p + p {
+  margin-top: var(--space-sm);
+}
+.surface-callout-box a,
+.alert-box a,
+.info-box a {
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+.surface-callout-box strong,
+.alert-box strong,
+.info-box strong {
+  color: inherit;
+}
+.surface-callout-box__body {
+  flex: 1;
+  min-width: 0;
+}
+.surface-callout-box__icon,
 .alert-box-icon {
-  width: 38px; height: 38px; border-radius: var(--radius-md); flex-shrink: 0;
-  background: var(--alert-coral); color: var(--alert);
-  display: flex; align-items: center; justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: var(--text-lg);
 }
-.alert-box p { font-size: var(--text-base); color: var(--slate); line-height: 1.75; }
-.alert-box a { color: var(--alert); font-weight: 600; }
+.surface-callout-box--alert,
+.surface-callout-box--accent-info,
+.alert-box {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+  padding: var(--temp-standard-padding);
+}
+.surface-callout-box--alert,
+.alert-box {
+  background: var(--alert-soft);
+  border: 1px solid var(--alert-red-border);
+}
+.surface-callout-box--alert .surface-callout-box__icon,
+.alert-box-icon {
+  background: var(--alert-coral);
+  color: var(--alert);
+}
+.surface-callout-box--alert a,
+.alert-box a {
+  color: var(--alert);
+}
+.surface-callout-box--alert strong,
+.alert-box strong {
+  color: var(--alert);
+}
+.surface-callout-box--accent-info,
+.alert-box.alert-box--info {
+  background: var(--success-soft);
+  border: 1px solid var(--teal-solid);
+}
+.surface-callout-box--accent-info .surface-callout-box__icon,
+.alert-box--info .alert-box-icon,
+.alert-box--info .alert-icon {
+  background: var(--teal-light);
+  color: var(--teal-cta);
+}
+.surface-callout-box--accent-info a,
+.alert-box.alert-box--info a {
+  color: var(--teal-cta);
+}
+.surface-callout-box--accent-info strong,
+.alert-box.alert-box--info strong {
+  color: var(--teal-cta);
+}
+.surface-callout-box--quiet,
+.info-box {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 16px 20px;
+}
 
 /* ── Reflection ── [temp: pause] — Rosé accent for self-reflection */
 .reflection {
@@ -2520,6 +2607,8 @@ table tbody tr:nth-child(even),
 }
 
 /* ── Alert / warning boxes ── */
+.surface-callout-box--alert,
+.surface-callout-box--accent-info,
 .alert-box {
   background: var(--alert-soft);
   border: 2px solid var(--alert-red-border);
@@ -2532,6 +2621,8 @@ table tbody tr:nth-child(even),
   border-radius: var(--radius-sm);
 }
 
+.surface-callout-box--alert strong,
+.surface-callout-box--accent-info strong,
 .alert-box strong {
   color: var(--alert);
 }
@@ -2581,7 +2672,8 @@ table tbody tr:nth-child(even),
 
 /* ── [from overrides.css] COVERAGE AUDIT FIXES ── */
 
-/* info-box (impressum) */
+/* structured quiet callout surfaces */
+.surface-callout-box--quiet,
 .info-box {
   background: var(--bg);
   border: 1px solid var(--border);
@@ -2689,7 +2781,13 @@ table tbody tr:nth-child(even),
 /* ── Inline-Style Migration (P2.5) ── */
 
 /* Alert-box variant: success/info (modul/7) */
+.surface-callout-box--accent-info,
 .alert-box.alert-box--info{border-color:var(--teal-solid);background:var(--success-soft)}
+.surface-callout-box--accent-info strong,
+.surface-callout-box--accent-info a,
+.alert-box.alert-box--info strong,
+.alert-box.alert-box--info a{color:var(--teal-cta)}
+.surface-callout-box--accent-info .surface-callout-box__icon,
 .alert-box--info .alert-box-icon,.alert-box--info .alert-icon{color:var(--teal-cta)}
 
 /* Hint-note spacing variants consolidated to line ~675 */
@@ -3585,7 +3683,7 @@ a.ampel-card{text-decoration:none;display:block}
   padding: 16px 20px;
 }
 
-[data-module-accent]:not([data-module-accent="8"]) .content .alert-box {
+[data-module-accent]:not([data-module-accent="8"]) .content :is(.alert-box, .surface-callout-box--alert, .surface-callout-box--accent-info) {
   position: relative;
   overflow: hidden;
   padding: 18px 20px;
@@ -3593,7 +3691,7 @@ a.ampel-card{text-decoration:none;display:block}
   box-shadow: 0 16px 34px rgba(165,42,42,7%);
 }
 
-[data-module-accent]:not([data-module-accent="8"]) .content .alert-box::before {
+[data-module-accent]:not([data-module-accent="8"]) .content :is(.alert-box, .surface-callout-box--alert, .surface-callout-box--accent-info)::before {
   content: '';
   position: absolute;
   left: 0;
@@ -3603,7 +3701,7 @@ a.ampel-card{text-decoration:none;display:block}
   background: var(--alert);
 }
 
-[data-module-accent]:not([data-module-accent="8"]) .content .alert-box-icon {
+[data-module-accent]:not([data-module-accent="8"]) .content :is(.alert-box-icon, .surface-callout-box__icon) {
   box-shadow: inset 0 1px 0 rgba(255,255,255,25%);
 }
 

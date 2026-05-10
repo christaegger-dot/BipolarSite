@@ -2617,19 +2617,19 @@ body.impressum-page .section a {
   text-decoration: underline;
   text-underline-offset: 2px;
 }
-body.impressum-page .info-box {
+body.impressum-page :is(.info-box, .surface-callout-box--quiet) {
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   padding: 16px 20px;
   margin: 16px 0;
 }
-body.impressum-page .info-box p {
+body.impressum-page :is(.info-box, .surface-callout-box--quiet) p {
   color: var(--slate);
   font-size: var(--text-xs);
   margin: 0;
 }
-body.impressum-page .info-box strong {
+body.impressum-page :is(.info-box, .surface-callout-box--quiet) strong {
   color: var(--slate);
 }
 

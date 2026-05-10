@@ -52,6 +52,8 @@
   .next-module,
   .treatment-card,
   .handout-card,
+  .info-box,
+  .surface-callout-box,
   .alert-box,
   .quote-block,
   .reflection-block,
@@ -104,6 +106,8 @@
   .quick-card,
   .sit-card,
   .guide,
+  .info-box,
+  .surface-callout-box,
   .alert-box,
   .action-card,
   .tool-chip {
@@ -139,6 +143,8 @@
   /* ── Key content — avoid page breaks ── */
   .reflection,
   .takeaways,
+  .info-box,
+  .surface-callout-box,
   .alert-box,
   .module-summary {
     page-break-inside: avoid;
