@@ -1264,21 +1264,24 @@ p.bright-moment {
 .guide-context-hint{font-size:var(--text-xs);color:var(--text-soft);margin-top: var(--space-md);padding-top: var(--space-base);border-top:1px solid var(--border-warm)}
 
 /* ── Grauzone ── */
-.grauzone{background:var(--warm-pink-deep);border-radius:var(--card-radius);padding:var(--card-padding);margin:var(--group-gap) 0;border:1px solid var(--alert-subtle)}
+.surface-callout{border-radius:var(--card-radius);padding:var(--card-padding);margin:var(--group-gap) 0}
+.surface-callout--warm,.grauzone{background:var(--warm-pink-deep);border-radius:var(--card-radius);padding:var(--card-padding);margin:var(--group-gap) 0;border:1px solid var(--alert-subtle)}
 .grauzone-h2{margin:0 0 var(--heading-gap-h2);padding:0;border:none;font-size:var(--text-xl)}
-.grauzone-rule{background:var(--card);border-radius:var(--radius-md);padding:var(--space-md) var(--space-lg);margin:var(--space-md) 0;font-size:var(--text-base);color:var(--navy);font-weight:600;line-height:1.5}
-.grauzone-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:var(--grid-gap-tight);margin:0 0 var(--space-md)}
-.grauzone-card{background:var(--card);border-radius:var(--radius-md);overflow:hidden;display:flex;flex-direction:column}
-.grauzone-card-top{padding:var(--space-md) var(--space-md) var(--space-base);flex:1}
-.grauzone-scenario{font-family:'DM Sans',sans-serif;font-size:var(--text-base);font-weight:700;color:var(--navy-mid);margin:0 0 var(--space-sm);line-height:1.5}
-.grauzone-detail{font-size:var(--text-base);color:var(--slate);line-height:1.6;margin:0}
-.grauzone-action{padding:var(--space-base) var(--space-md);background:var(--surface-alt);border-top:2px solid var(--border-warm-md);font-size:var(--text-base);font-weight:600;line-height:1.6;color:var(--text)}
-@media(max-width:600px){.grauzone-grid{grid-template-columns:1fr}}
+.surface-callout-rule,.grauzone-rule{background:var(--card);border-radius:var(--radius-md);padding:var(--space-md) var(--space-lg);margin:var(--space-md) 0;font-size:var(--text-base);color:var(--navy);font-weight:600;line-height:1.5}
+.surface-callout-grid,.grauzone-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:var(--grid-gap-tight);margin:0 0 var(--space-md)}
+.surface-callout-card,.grauzone-card{background:var(--card);border:1px solid var(--border-warm-md);border-radius:var(--radius-md);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow-soft)}
+.surface-callout-card-top,.grauzone-card-top{padding:var(--space-md) var(--space-md) var(--space-base);flex:1}
+.surface-callout-card-title,.grauzone-scenario{font-family:'DM Sans',sans-serif;font-size:var(--text-base);font-weight:700;color:var(--navy-mid);margin:0 0 var(--space-sm);line-height:1.5}
+.surface-callout-card-detail,.grauzone-detail{font-size:var(--text-base);color:var(--slate);line-height:1.6;margin:0}
+.surface-callout-card-action,.grauzone-action{padding:var(--space-base) var(--space-md);background:var(--surface-alt);border-top:2px solid var(--border-warm-md);font-size:var(--text-base);font-weight:600;line-height:1.6;color:var(--text)}
+.surface-callout--crosslink,.notfall-crosslink{margin:var(--space-lg) 0 var(--space-xl);padding:var(--space-md) var(--space-lg);background:var(--surface-alt);border:1px solid var(--border-warm);border-radius:var(--radius-md)}
+.surface-callout--crosslink p,.notfall-crosslink p{margin:0;font-size:var(--text-base);line-height:1.65;color:var(--slate)}
+.surface-callout--crosslink strong,.notfall-crosslink strong{color:var(--navy-mid)}
+@media(max-width:600px){.surface-callout-grid,.grauzone-grid{grid-template-columns:1fr}}
 
 /* ── Notfall Inline-Style Replacements ── */
 .grauzone--hero{margin:var(--space-lg) 0 var(--space-xl)}
 .content-note{font-size:var(--text-xs);color:var(--text-soft);margin-top:-4px}
-.notfall-crosslink{margin:var(--space-lg) 0 var(--space-xl);padding:var(--space-md) var(--space-lg);background:var(--surface-alt);border:1px solid var(--border-warm);border-radius:var(--radius-md)}
 .krisenplan-hint{font-size:var(--text-base);color:var(--alert);font-weight:600}
 .krisenplan-hint a,.notfall-hero ~ .content .link-teal{color:var(--alert)}
 .guide-body-inner .link-alert{color:var(--alert);font-weight:700}
@@ -1304,13 +1307,13 @@ p.bright-moment {
 .content-footer-sep{color:var(--text-soft)}
 
 /* ── After Steps ── */
-.after-steps{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gap-tight);margin:0 0 var(--space-lg)}
-.after-step{display:flex;gap:var(--grid-gap-tight);align-items:flex-start;background:var(--surface-alt);border-radius:var(--radius-md);padding:var(--space-md)}
-.after-step-num{flex-shrink:0;width:28px;height:28px;border-radius:var(--radius-round);background:var(--alert);color:var(--cta-primary-text);font-size:var(--text-xs);font-weight:700;display:flex;align-items:center;justify-content:center}
-.after-step-body{display:flex;flex-direction:column;gap:4px}
-.after-step-body strong{font-size:var(--text-base);color:var(--navy-mid);display:block}
-.after-step-body span{font-size:var(--text-xs);color:var(--slate);line-height:1.5}
-@media(max-width:600px){.after-steps{grid-template-columns:1fr}}
+.surface-action-grid,.after-steps{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gap-tight);margin:0 0 var(--space-lg)}
+.surface-action-card,.after-step{display:flex;gap:var(--grid-gap-tight);align-items:flex-start;background:var(--surface-alt);border:1px solid var(--border-warm-md);border-radius:var(--radius-md);padding:var(--space-md);box-shadow:var(--shadow-soft)}
+.surface-action-num,.after-step-num{flex-shrink:0;width:28px;height:28px;border-radius:var(--radius-round);background:var(--alert);color:var(--cta-primary-text);font-size:var(--text-xs);font-weight:700;display:flex;align-items:center;justify-content:center}
+.surface-action-body,.after-step-body{display:flex;flex-direction:column;gap:4px}
+.surface-action-body strong,.after-step-body strong{font-size:var(--text-base);color:var(--navy-mid);display:block}
+.surface-action-body span,.after-step-body span{font-size:var(--text-xs);color:var(--slate);line-height:1.5}
+@media(max-width:600px){.surface-action-grid,.after-steps{grid-template-columns:1fr}}
 
 /* ── Notfall Responsive ── */
 @media(max-width:768px){.notfall-hero .hero-inner{grid-template-columns:1fr}.situations{grid-template-columns:1fr}.numbers-grid{grid-template-columns:1fr}}
