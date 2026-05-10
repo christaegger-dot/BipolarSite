@@ -4230,6 +4230,49 @@ a.ampel-card{text-decoration:none;display:block}
   box-shadow: none;
 }
 
+/* ── Modul 1: Desktop-Komposition beruhigen ───────────────────────── */
+[data-module-accent="1"] .module-hero-inner {
+  max-width: 1180px;
+  grid-template-columns: minmax(0, 1.02fr) minmax(340px, 0.92fr);
+  gap: clamp(1.5rem, 2.8vw, 2.85rem);
+}
+[data-module-accent="1"] .module-hero-inner > .module-progress {
+  grid-column: 1;
+}
+[data-module-accent="1"] .module-hero-inner > .quote-block {
+  grid-column: 2 !important;
+  grid-row: auto !important;
+  max-width: 35rem;
+  justify-self: end;
+}
+[data-module-accent="1"] .module-hero-inner > .module-summary {
+  grid-column: 2 !important;
+  grid-row: auto !important;
+  max-width: 35rem;
+  justify-self: end;
+}
+[data-module-accent="1"] .module-hero-inner > .toc {
+  max-width: 60rem;
+}
+[data-module-accent="1"] .content {
+  max-width: 52.5rem;
+}
+[data-module-accent="1"] .content-wide {
+  max-width: 60rem;
+  width: min(60rem, calc(100vw - 4rem));
+}
+
+@media (min-width: 1280px) {
+  [data-module-accent="1"] .module-layout {
+    grid-template-columns: 156px minmax(0, 1fr);
+    gap: clamp(1.25rem, 2vw, 2rem);
+    max-width: 1060px;
+  }
+  [data-module-accent="1"] .toc-sidebar {
+    max-width: 156px;
+  }
+}
+
 /* ── 3. TINTED: TL;DR / module-summary (alle Module) ──────────────── */
 [data-module-accent] .module-summary {
   background: var(--surface-teal-mist);
