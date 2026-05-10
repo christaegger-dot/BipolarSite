@@ -4685,12 +4685,12 @@ a.ampel-card{text-decoration:none;display:block}
 }
 .module-hero-inner--stacked .module-hero-intro {
   display: grid;
-  grid-template-columns: minmax(0, 1.06fr) minmax(320px, 0.74fr);
-  gap: clamp(1.6rem, 3vw, 3rem);
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.54fr);
+  gap: clamp(1.25rem, 2.2vw, 2.2rem);
   align-items: start;
 }
 .module-hero-inner--stacked .module-hero-copy {
-  max-width: 41rem;
+  max-width: 37rem;
   min-width: 0;
 }
 .module-hero-inner--stacked .module-hero-kicker {
@@ -4714,64 +4714,46 @@ a.ampel-card{text-decoration:none;display:block}
   margin: 0;
 }
 .module-hero-inner--stacked .module-hero-copy h1 {
-  max-width: 12ch;
+  max-width: 10.5ch;
   margin-bottom: var(--space-sm);
   hyphens: none;
   text-wrap: balance;
   overflow-wrap: normal;
 }
 .module-hero-inner--stacked .module-hero-copy .module-meta {
-  margin-bottom: 1.1rem;
-}
-.module-hero-inner--stacked .module-hero-copy .module-summary {
   margin: 0;
-  max-width: 37rem;
-}
-.module-hero-inner--stacked .module-hero-voice {
-  margin: 1rem 0 0;
-  padding-top: 0.95rem;
-  max-width: 34rem;
-  border-top: 1px solid rgba(45,40,35,12%);
-}
-.module-hero-inner--stacked .module-hero-voice blockquote {
-  margin: 0;
-  font-family: 'DM Serif Display', serif;
-  font-size: clamp(1rem, 1.2vw, 1.08rem);
-  line-height: 1.62;
-  color: var(--slate);
-}
-.module-hero-inner--stacked .module-hero-voice figcaption {
-  margin-top: 0.55rem;
-  font-size: var(--text-xs);
-  line-height: 1.5;
-  color: var(--text-soft);
 }
 .module-hero-inner--stacked .module-hero-aside {
   min-width: 0;
-  padding-top: clamp(1.25rem, 5vw, 4rem);
+  padding-top: clamp(0.7rem, 2.2vw, 1.3rem);
 }
 .module-hero-inner--stacked .module-hero-aside .toc {
   margin: 0;
-  max-width: 23.5rem;
+  max-width: 20.75rem;
   justify-self: end;
-  padding: 1.4rem 1.45rem 1.35rem;
-  border-color: rgba(45,40,35,7%);
-  box-shadow: 0 10px 30px rgba(45,40,35,4%);
+  padding: 0 0 0 1.35rem;
+  background: transparent;
+  border: 0;
+  border-left: 1px solid rgba(45,40,35,10%);
+  border-radius: 0;
+  box-shadow: none;
 }
 .module-hero-inner--stacked .module-hero-aside .toc-title {
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   letter-spacing: 0.08em;
 }
 .module-hero-inner--stacked .module-hero-aside .toc ol {
-  gap: 0.95rem 1.2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
 }
 .module-hero-inner--stacked .module-hero-aside .toc li a {
-  padding: 0 0 0 1.5rem;
-  font-size: 0.99rem;
+  padding: 0 0 0 1.3rem;
+  font-size: 0.98rem;
   line-height: 1.5;
 }
 .module-hero-inner--stacked .module-hero-aside .toc li a::before {
-  top: 0.12rem;
+  top: 0.08rem;
   font-size: 0.72rem;
 }
 .module-hero-inner--stacked .module-hero-aside .toc li a.active::after {
@@ -4779,6 +4761,42 @@ a.ampel-card{text-decoration:none;display:block}
 }
 .module-hero-inner--stacked .module-hero-aside .toc-desc {
   display: none;
+}
+.module-opening-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.06fr) minmax(280px, 0.78fr);
+  gap: var(--grid-gap-standard);
+  align-items: start;
+  margin-top: 0;
+  margin-bottom: var(--section-tight);
+}
+.module-opening-grid > * {
+  margin: 0;
+}
+.module-opening-grid .module-summary {
+  max-width: none;
+  margin: 0;
+}
+.module-opening-grid .surface-callout--positive {
+  margin-top: var(--space-lg);
+}
+.module-opening-voice {
+  margin: 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(45,40,35,12%);
+}
+.module-opening-voice blockquote {
+  margin: 0;
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(1.04rem, 1.18vw, 1.16rem);
+  line-height: 1.62;
+  color: var(--slate);
+}
+.module-opening-voice figcaption {
+  margin-top: 0.7rem;
+  font-size: var(--text-xs);
+  line-height: 1.5;
+  color: var(--text-soft);
 }
 
 @media (min-width: 1280px) {
@@ -4887,13 +4905,16 @@ a.ampel-card{text-decoration:none;display:block}
     padding-top: 0;
   }
   .module-hero-inner--stacked .module-hero-aside .toc,
-  .module-hero-inner--stacked .module-hero-copy .module-summary,
-  .module-hero-inner--stacked .module-hero-voice {
+  .module-opening-grid .module-summary,
+  .module-opening-voice {
     max-width: none;
   }
   .module-hero-inner--stacked .module-hero-aside .toc {
     padding: var(--card-padding);
     box-shadow: var(--shadow-soft);
+    background: var(--card);
+    border: 1px solid var(--border-warm);
+    border-radius: var(--card-radius);
   }
   .module-hero-inner--stacked .module-hero-aside .toc li a {
     padding: var(--space-sm) 0 var(--space-sm) 28px;
@@ -4909,6 +4930,13 @@ a.ampel-card{text-decoration:none;display:block}
   }
   .module-hero-inner--stacked .module-hero-aside .toc-desc {
     display: block;
+  }
+  .module-opening-grid {
+    grid-template-columns: 1fr;
+  }
+  .module-opening-voice {
+    padding-top: 0;
+    border-top: none;
   }
 }
 
