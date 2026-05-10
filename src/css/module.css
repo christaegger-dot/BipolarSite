@@ -848,6 +848,7 @@ body.pdf-preview-open { overflow: hidden; }
   .alert-box,
   .takeaways,
   .content-note,
+  .surface-callout--positive,
   .bright-moment,
   .mini-plan {
     margin-left: 0;
@@ -883,7 +884,7 @@ body.pdf-preview-open { overflow: hidden; }
   }
 
   /* Reduce pause temperature on small screens */
-  .quote-block, .reflection, .takeaways, .bright-moment {
+  .quote-block, .reflection, .takeaways, .surface-callout--positive, .bright-moment {
     margin-top: var(--temp-standard-margin);
     margin-bottom: var(--temp-standard-margin);
     padding: var(--temp-standard-padding);
@@ -1051,6 +1052,7 @@ body.pdf-preview-open { overflow: hidden; }
 /* quick-summary and tldr-card: now unified as .module-summary (see above) */
 
 /* ── Bright Moment (positive counterweight) ── [temp: pause] */
+.surface-callout--positive,
 .bright-moment {
   background: var(--green-light-bg);
   border: 1px solid var(--green-subtle);
@@ -1058,7 +1060,9 @@ body.pdf-preview-open { overflow: hidden; }
   border-radius: 0 var(--card-radius) var(--card-radius) 0;
   padding: var(--temp-pause-padding); margin: var(--temp-pause-margin) 0;
 }
+.surface-callout--positive p,
 .bright-moment p,
+p.surface-callout--positive,
 p.bright-moment {
   font-family: 'DM Sans', sans-serif;
   font-size: var(--text-base); font-style: italic; color: var(--slate);
@@ -3636,11 +3640,11 @@ a.ampel-card{text-decoration:none;display:block}
   max-width: 66ch;
 }
 
-[data-module-accent]:not([data-module-accent="8"]) .content > h2 + :is(.phase-explorer, .accordion-group, .tool-cta, .alert-box, .surface-callout, .content-note, .hint-note, .reflection, .takeaways, .bright-moment, .pause-box, .selftest, .do-dont, .ampel, .module-illustration, .wave-chart-section, .treatment-grid, .treatment-details) {
+[data-module-accent]:not([data-module-accent="8"]) .content > h2 + :is(.phase-explorer, .accordion-group, .tool-cta, .alert-box, .surface-callout, .surface-callout--positive, .content-note, .hint-note, .reflection, .takeaways, .bright-moment, .pause-box, .selftest, .do-dont, .ampel, .module-illustration, .wave-chart-section, .treatment-grid, .treatment-details) {
   margin-top: calc(var(--space-lg) + 4px);
 }
 
-[data-module-accent]:not([data-module-accent="8"]) .content :is(.quote-block, .alert-box, .surface-callout, .reflection, .takeaways, .content-note, .hint-note, .bright-moment, .tool-cta, .pause-box, .selftest, .do-dont, .ampel, .module-illustration, .wave-chart-section, .treatment-grid, .treatment-details, .phase-explorer, .accordion-group) {
+[data-module-accent]:not([data-module-accent="8"]) .content :is(.quote-block, .alert-box, .surface-callout, .surface-callout--positive, .reflection, .takeaways, .content-note, .hint-note, .bright-moment, .tool-cta, .pause-box, .selftest, .do-dont, .ampel, .module-illustration, .wave-chart-section, .treatment-grid, .treatment-details, .phase-explorer, .accordion-group) {
   scroll-margin-top: calc(var(--nav-height) + 24px);
 }
 
@@ -3715,7 +3719,7 @@ a.ampel-card{text-decoration:none;display:block}
   letter-spacing: 0.12em;
 }
 
-[data-module-accent]:not([data-module-accent="8"]) .content .bright-moment {
+[data-module-accent]:not([data-module-accent="8"]) .content :is(.bright-moment, .surface-callout--positive) {
   position: relative;
   overflow: hidden;
   background: linear-gradient(180deg, rgba(255,255,255,98%), rgba(232,246,239,94%));
@@ -3723,7 +3727,7 @@ a.ampel-card{text-decoration:none;display:block}
   padding: 20px 22px;
 }
 
-[data-module-accent]:not([data-module-accent="8"]) .content .bright-moment::before {
+[data-module-accent]:not([data-module-accent="8"]) .content :is(.bright-moment, .surface-callout--positive)::before {
   content: '';
   position: absolute;
   inset: auto -36px -44px auto;
@@ -3734,6 +3738,8 @@ a.ampel-card{text-decoration:none;display:block}
   pointer-events: none;
 }
 
+[data-module-accent]:not([data-module-accent="8"]) .content .surface-callout--positive p,
+[data-module-accent]:not([data-module-accent="8"]) .content p.surface-callout--positive,
 [data-module-accent]:not([data-module-accent="8"]) .content .bright-moment p,
 [data-module-accent]:not([data-module-accent="8"]) .content p.bright-moment {
   position: relative;
@@ -3826,6 +3832,7 @@ a.ampel-card{text-decoration:none;display:block}
 
   [data-module-accent]:not([data-module-accent="8"]) .content h2.subsection-heading,
   [data-module-accent]:not([data-module-accent="8"]) .content .surface-callout,
+  [data-module-accent]:not([data-module-accent="8"]) .content .surface-callout--positive,
   [data-module-accent]:not([data-module-accent="8"]) .content .hint-note,
   [data-module-accent]:not([data-module-accent="8"]) .content .content-note,
   [data-module-accent]:not([data-module-accent="8"]) .content .alert-box,
