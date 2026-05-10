@@ -13,7 +13,7 @@ breadcrumbs:
   - name: "Modul 7: Langfristige Tragfähigkeit"
     url: "/modul/7/"
 ---
-{% block headCSS %}<link rel="stylesheet" href="/css/tool-embed.css?v=1">{% endblock %}
+{% block headCSS %}<link rel="stylesheet" href="/css/tool-embed.css?v={{ site.assetVersion }}">{% endblock %}
 {% block nav %}
 {% include "nav-full.njk" %}
 {% endblock %}
@@ -537,5 +537,5 @@ breadcrumbs:
 {% include "footer-medium.njk" %}
 {% endblock %}
 {% block scripts %}
-<script src="/js/tool-embed.js"></script>
+<script src="/js/tool-embed.js?v={{ site.assetVersion }}"></script>
 {% endblock %}

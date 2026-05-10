@@ -2,7 +2,7 @@
 <html lang="de"{% if noJs %} class="no-js"{% endif %}>
 <head>
 <meta charset="UTF-8">
-{% if noJs %}<script src="/js/no-js.js"></script>{% endif %}
+{% if noJs %}<script src="/js/no-js.js?v={{ site.assetVersion }}"></script>{% endif %}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32">
@@ -29,13 +29,13 @@
 {% if noIndex or site.noIndexDeploy %}<meta name="robots" content="noindex">{% endif %}
 <link rel="preload" as="font" href="/fonts/dm-sans-variable.woff2" type="font/woff2" crossorigin>
 <link rel="preload" as="font" href="/fonts/dm-serif-display-400.woff2" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/tokens.css?v=13">
-<link rel="stylesheet" href="/fonts/fonts.css?v=13">
-{% if useSharedCSS %}<link rel="stylesheet" href="/css/shared.css?v=13">{% endif %}
-{% if useModuleCSS %}<link rel="stylesheet" href="/css/module.css?v=13">{% endif %}
-{% if useToolCSS %}<link rel="stylesheet" href="/css/tools.css?v=13">{% endif %}
+<link rel="stylesheet" href="/css/tokens.css?v={{ site.assetVersion }}">
+<link rel="stylesheet" href="/fonts/fonts.css?v={{ site.assetVersion }}">
+{% if useSharedCSS %}<link rel="stylesheet" href="/css/shared.css?v={{ site.assetVersion }}">{% endif %}
+{% if useModuleCSS %}<link rel="stylesheet" href="/css/module.css?v={{ site.assetVersion }}">{% endif %}
+{% if useToolCSS %}<link rel="stylesheet" href="/css/tools.css?v={{ site.assetVersion }}">{% endif %}
 {% block headCSS %}{% endblock %}
-<link rel="stylesheet" href="/css/print.css?v=13" media="print">
+<link rel="stylesheet" href="/css/print.css?v={{ site.assetVersion }}" media="print">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -123,15 +123,15 @@
 {% block content %}{{ content | safe }}{% endblock %}
 {% block footer %}{% endblock %}
 <button type="button" class="back-to-top" aria-label="Zurück nach oben" id="backToTop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg></button>
-{% if useNavJS %}<script src="/js/nav.js"></script>{% endif %}
-<script src="/js/base-ui.js"></script>
+{% if useNavJS %}<script src="/js/nav.js?v={{ site.assetVersion }}"></script>{% endif %}
+<script src="/js/base-ui.js?v={{ site.assetVersion }}"></script>
 {% if useCombinedModuleUiJS %}
-<script src="/js/module-page.js"></script>
+<script src="/js/module-page.js?v={{ site.assetVersion }}"></script>
 {% else %}
-{% if useModuleCSS and not skipModuleUiJS %}<script src="/js/module-ui.js"></script>{% endif %}
-{% if usePdfPreviewJS %}<script src="/js/pdf-preview.js"></script>{% endif %}
+{% if useModuleCSS and not skipModuleUiJS %}<script src="/js/module-ui.js?v={{ site.assetVersion }}"></script>{% endif %}
+{% if usePdfPreviewJS %}<script src="/js/pdf-preview.js?v={{ site.assetVersion }}"></script>{% endif %}
 {% endif %}
-<script src="/js/reading-progress.js" defer></script>
+<script src="/js/reading-progress.js?v={{ site.assetVersion }}" defer></script>
 {% block scripts %}{% endblock %}
 </body>
 </html>
