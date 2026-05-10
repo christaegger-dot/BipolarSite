@@ -4343,6 +4343,112 @@ a.ampel-card{text-decoration:none;display:block}
   width: min(60rem, calc(100vw - 4rem));
 }
 
+[data-module-accent] .module-hero-inner.module-hero-inner--stacked {
+  display: block;
+  grid-template-columns: none;
+  max-width: 1180px;
+}
+[data-module-accent] .module-hero-inner.module-hero-inner--stacked > .breadcrumb {
+  margin-bottom: clamp(1.15rem, 2vw, 1.8rem);
+}
+.module-hero-inner--stacked .module-hero-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.06fr) minmax(320px, 0.74fr);
+  gap: clamp(1.6rem, 3vw, 3rem);
+  align-items: start;
+}
+.module-hero-inner--stacked .module-hero-copy {
+  max-width: 41rem;
+  min-width: 0;
+}
+.module-hero-inner--stacked .module-hero-kicker {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.35rem;
+}
+.module-hero-inner--stacked .module-hero-kicker .hero-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 0;
+  margin-top: 0.1rem;
+}
+.module-hero-inner--stacked .module-hero-status {
+  display: grid;
+  gap: 0.8rem;
+}
+.module-hero-inner--stacked .module-hero-status .module-badge,
+.module-hero-inner--stacked .module-hero-status .module-progress {
+  margin: 0;
+}
+.module-hero-inner--stacked .module-hero-copy h1 {
+  max-width: 12ch;
+  margin-bottom: var(--space-sm);
+  hyphens: none;
+  text-wrap: balance;
+  overflow-wrap: normal;
+}
+.module-hero-inner--stacked .module-hero-copy .module-meta {
+  margin-bottom: 1.1rem;
+}
+.module-hero-inner--stacked .module-hero-copy .module-summary {
+  margin: 0;
+  max-width: 37rem;
+}
+.module-hero-inner--stacked .module-hero-voice {
+  margin: 1rem 0 0;
+  padding-top: 0.95rem;
+  max-width: 34rem;
+  border-top: 1px solid rgba(45,40,35,12%);
+}
+.module-hero-inner--stacked .module-hero-voice blockquote {
+  margin: 0;
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(1rem, 1.2vw, 1.08rem);
+  line-height: 1.62;
+  color: var(--slate);
+}
+.module-hero-inner--stacked .module-hero-voice figcaption {
+  margin-top: 0.55rem;
+  font-size: var(--text-xs);
+  line-height: 1.5;
+  color: var(--text-soft);
+}
+.module-hero-inner--stacked .module-hero-aside {
+  min-width: 0;
+  padding-top: clamp(1.25rem, 5vw, 4rem);
+}
+.module-hero-inner--stacked .module-hero-aside .toc {
+  margin: 0;
+  max-width: 23.5rem;
+  justify-self: end;
+  padding: 1.4rem 1.45rem 1.35rem;
+  border-color: rgba(45,40,35,7%);
+  box-shadow: 0 10px 30px rgba(45,40,35,4%);
+}
+.module-hero-inner--stacked .module-hero-aside .toc-title {
+  margin-bottom: 1rem;
+  letter-spacing: 0.08em;
+}
+.module-hero-inner--stacked .module-hero-aside .toc ol {
+  gap: 0.95rem 1.2rem;
+}
+.module-hero-inner--stacked .module-hero-aside .toc li a {
+  padding: 0 0 0 1.5rem;
+  font-size: 0.99rem;
+  line-height: 1.5;
+}
+.module-hero-inner--stacked .module-hero-aside .toc li a::before {
+  top: 0.12rem;
+  font-size: 0.72rem;
+}
+.module-hero-inner--stacked .module-hero-aside .toc li a.active::after {
+  display: none;
+}
+.module-hero-inner--stacked .module-hero-aside .toc-desc {
+  display: none;
+}
+
 @media (min-width: 1280px) {
   [data-module-accent="1"] .module-layout {
     grid-template-columns: 156px minmax(0, 1fr);
@@ -4386,6 +4492,38 @@ a.ampel-card{text-decoration:none;display:block}
   [data-module-accent="1"] .module1-hero-aside .toc-desc {
     display: block;
   }
+
+  .module-hero-inner--stacked .module-hero-intro {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+  .module-hero-inner--stacked .module-hero-aside {
+    padding-top: 0;
+  }
+  .module-hero-inner--stacked .module-hero-aside .toc,
+  .module-hero-inner--stacked .module-hero-copy .module-summary,
+  .module-hero-inner--stacked .module-hero-voice {
+    max-width: none;
+  }
+  .module-hero-inner--stacked .module-hero-aside .toc {
+    padding: var(--card-padding);
+    box-shadow: var(--shadow-soft);
+  }
+  .module-hero-inner--stacked .module-hero-aside .toc li a {
+    padding: var(--space-sm) 0 var(--space-sm) 28px;
+    font-size: var(--text-base);
+    line-height: inherit;
+  }
+  .module-hero-inner--stacked .module-hero-aside .toc li a::before {
+    top: 10px;
+    font-size: var(--text-xs);
+  }
+  .module-hero-inner--stacked .module-hero-aside .toc li a.active::after {
+    display: inline-block;
+  }
+  .module-hero-inner--stacked .module-hero-aside .toc-desc {
+    display: block;
+  }
 }
 
 @media (max-width: 600px) {
@@ -4401,6 +4539,21 @@ a.ampel-card{text-decoration:none;display:block}
     max-width: none;
   }
   [data-module-accent="1"] .module1-hero-voice {
+    padding-top: 0.8rem;
+  }
+
+  .module-hero-inner--stacked .module-hero-kicker {
+    gap: 0.85rem;
+    margin-bottom: 1rem;
+  }
+  .module-hero-inner--stacked .module-hero-kicker .hero-icon {
+    width: 42px;
+    height: 42px;
+  }
+  .module-hero-inner--stacked .module-hero-copy h1 {
+    max-width: none;
+  }
+  .module-hero-inner--stacked .module-hero-voice {
     padding-top: 0.8rem;
   }
 }
