@@ -172,8 +172,8 @@ body {
 .tool-header .breadcrumb {
   margin-bottom: 0;
 }
-.hdr .info-box,
-.tool-header .info-box {
+.hdr :is(.info-box, .surface-callout-box--tool),
+.tool-header :is(.info-box, .surface-callout-box--tool) {
   margin-top: var(--space-sm);
   max-width: 60ch;
   padding: var(--space-base) var(--space-lg);
@@ -181,14 +181,14 @@ body {
   border-left: 3px solid var(--amber);
   background: var(--amber-bg);
 }
-.hdr .info-box p,
-.tool-header .info-box p {
+.hdr :is(.info-box, .surface-callout-box--tool) p,
+.tool-header :is(.info-box, .surface-callout-box--tool) p {
   font-size: var(--text-sm);
   line-height: 1.6;
   color: var(--slate);
 }
-.hdr .info-box strong,
-.tool-header .info-box strong {
+.hdr :is(.info-box, .surface-callout-box--tool) strong,
+.tool-header :is(.info-box, .surface-callout-box--tool) strong {
   color: var(--amber-dark-text);
 }
 
