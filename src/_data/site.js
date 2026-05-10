@@ -17,6 +17,7 @@ const formatReviewedDate = (value) => {
 
 module.exports = {
   url: primaryUrl,
+  assetVersion: "2026-05-10-o1",
   buildYear: new Date().getFullYear(),
   title: "Bipolare Störung – Psychoedukation für Angehörige | PUK Zürich",
   org: "Psychiatrische Universitätsklinik Zürich",
