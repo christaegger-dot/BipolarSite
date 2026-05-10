@@ -435,6 +435,10 @@
   line-height: 1.75; position: relative; z-index: 1; margin: 0;
 }
 
+.reflection-story {
+  margin-top: var(--group-gap);
+}
+
 /* ── Key Takeaways ── [temp: pause] */
 .takeaways {
   background: var(--teal-cta-dark); color: var(--cta-primary-text);
@@ -964,9 +968,9 @@ body.pdf-preview-open { overflow: hidden; }
 }
 
 /* Reflection/narrative body text */
-.reflection-body { font-style: normal; font-family: 'DM Sans', sans-serif; font-size: var(--text-base); margin-bottom: var(--space-base); }
-.reflection-body:last-of-type { margin-bottom: 0; }
-.reflection-cite { display: block; margin-top: 14px; font-size: var(--text-xs); color: var(--text-soft); font-style: italic; }
+.reflection-story .reflection-body { font-style: normal; font-family: 'DM Sans', sans-serif; font-size: var(--text-base); margin-bottom: var(--space-base); }
+.reflection-story .reflection-body:last-of-type { margin-bottom: 0; }
+.reflection-story .reflection-cite { display: block; margin-top: 14px; font-size: var(--text-xs); color: var(--text-soft); font-style: italic; }
 
 /* Hint note spacing variants */
 .hint-note--spaced { margin-bottom: var(--space-md); }
