@@ -853,6 +853,7 @@ body.pdf-preview-open { overflow: hidden; }
   .alert-box,
   .takeaways,
   .content-note,
+  .surface-callout--note,
   .surface-callout--positive,
   .bright-moment,
   .mini-plan {
@@ -1248,7 +1249,7 @@ p.bright-moment {
   .pdf-preview-overlay, .module-nav,
   .next-module-escape, .completion-block { display: none !important; }
   .module-hero { padding-top: 20px; }
-  .section, .quote-block, .reflection { page-break-inside: avoid; }
+  .section, .quote-block, .reflection, .surface-callout--reflection { page-break-inside: avoid; }
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -2819,6 +2820,7 @@ table tbody tr:nth-child(even),
 .barrier-grid{margin-top:20px}
 
 /* Bright moment emphasis */
+.surface-callout--positive,
 .bright-moment{font-weight:500}
 
 /* Stelle text styling in dark sections (modul/8 takeaways) */
