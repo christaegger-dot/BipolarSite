@@ -13,24 +13,7 @@ breadcrumbs:
   - name: "Modul 7: Langfristige Tragfähigkeit"
     url: "/modul/7/"
 ---
-{% block headCSS %}<link rel="stylesheet" href="/css/tool-embed.css?v={{ site.assetVersion }}">
-<style>
-  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-  .accordion-group { margin-top: 2rem; }
-  .accordion-item { border-bottom: 1px solid var(--border); }
-  .accordion-header { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 0; background: none; border: none; cursor: pointer; text-align: left; }
-  .accordion-header-left { display: flex; align-items: flex-start; gap: 1rem; }
-  .accordion-icon { font-size: 1.5rem; line-height: 1; }
-  .accordion-title { display: block; font-weight: 700; color: var(--text); margin-bottom: 0.25rem; }
-  .accordion-sub { display: block; font-size: 0.875rem; color: var(--text-soft); }
-  .accordion-toggle { font-size: 1.5rem; color: var(--navy); transition: transform 0.3s ease; }
-  .accordion-item.open .accordion-toggle { transform: rotate(45deg); }
-  .accordion-body { padding-bottom: 1.5rem; }
-  .accordion-body-inner { padding-left: 2.5rem; }
-  .accordion-body-inner p { margin-bottom: 0.75rem; }
-  .accordion-body-inner p:last-child { margin-bottom: 0; }
-</style>
-{% endblock %}
+{% block headCSS %}<link rel="stylesheet" href="/css/tool-embed.css?v={{ site.assetVersion }}">{% endblock %}
 {% block nav %}
 {% include "nav-full.njk" %}
 {% endblock %}
