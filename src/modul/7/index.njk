@@ -13,7 +13,23 @@ breadcrumbs:
   - name: "Modul 7: Langfristige Tragfähigkeit"
     url: "/modul/7/"
 ---
-{% block headCSS %}<link rel="stylesheet" href="/css/tool-embed.css?v={{ site.assetVersion }}">{% endblock %}
+{% block headCSS %}<link rel="stylesheet" href="/css/tool-embed.css?v={{ site.assetVersion }}">
+<style>
+  .accordion-group { margin-top: 2rem; }
+  .accordion-item { border-bottom: 1px solid var(--border); }
+  .accordion-header { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 0; background: none; border: none; cursor: pointer; text-align: left; }
+  .accordion-header-left { display: flex; align-items: flex-start; gap: 1rem; }
+  .accordion-icon { font-size: 1.5rem; line-height: 1; }
+  .accordion-title { display: block; font-weight: 700; color: var(--text); margin-bottom: 0.25rem; }
+  .accordion-sub { display: block; font-size: 0.875rem; color: var(--text-soft); }
+  .accordion-toggle { font-size: 1.5rem; color: var(--navy); transition: transform 0.3s ease; }
+  .accordion-item.open .accordion-toggle { transform: rotate(45deg); }
+  .accordion-body { padding-bottom: 1.5rem; }
+  .accordion-body-inner { padding-left: 2.5rem; }
+  .accordion-body-inner p { margin-bottom: 0.75rem; }
+  .accordion-body-inner p:last-child { margin-bottom: 0; }
+</style>
+{% endblock %}
 {% block nav %}
 {% include "nav-full.njk" %}
 {% endblock %}
@@ -52,7 +68,7 @@ breadcrumbs:
           <li><a href="#langstrecke">Wie die lange Strecke tragfähiger werden kann<span class="toc-desc">Worum es nach Notfallvorbereitung und Akuthilfe geht</span></a></li>
           <li><a href="#danach">Der Tag danach und die Wochen danach<span class="toc-desc">Emotionen, Gesprächsführung und Bilanz nach der Episode</span></a></li>
           <li><a href="#selbstfuersorge">Selbstfürsorge als Belastungsmanagement<span class="toc-desc">Nicht Kür, sondern Schutz vor Auszehrung</span></a></li>
-          <li><a href="#saeulen">Was langfristig trägt<span class="toc-desc">Fünf Säulen und tragende Routinen</span></a></li>
+          <li><a href="#dimensionen">Was langfristig trägt<span class="toc-desc">Drei Dimensionen und tragende Routinen</span></a></li>
           <li><a href="#trialog">Trialog und Zusammenarbeit<span class="toc-desc">Wie Angehörige im System sichtbarer werden</span></a></li>
           <li><a href="#wachstum">Was Wachstum heissen kann — und was nicht<span class="toc-desc">Ohne Pflicht zur positiven Bilanz</span></a></li>
           <li><a href="#handeln">Was Sie jetzt für die lange Strecke tun können<span class="toc-desc">Vier kleine, wiederholbare Schritte</span></a></li>
@@ -69,8 +85,8 @@ breadcrumbs:
     <div class="module-summary">
       <strong>Keine Zeit oder Kraft zum Lesen?</strong>
       <p>Nach einer Krise kommt eine eigene Phase mit Erschöpfung, Wut und Erleichterung gleichzeitig. Tragfähigkeit entsteht durch Routinen, nicht durch Perfektion. Selbstfürsorge ist kein Luxus, sondern schützt vor Auszehrung.</p>
-      <p>Konkreter nächster Schritt: Prüfen Sie, welche Ihrer fünf Säulen gerade am schwächsten ist.</p>
-      <a href="/tools/saeulen-check/">Säulen-Check öffnen</a>
+      <p>Konkreter nächster Schritt: Nutzen Sie den Entlastungs-Kompass weiter unten, um zu prüfen, wo Sie aktuell am meisten Energie verlieren.</p>
+      <a href="#dimensionen">Zu den Dimensionen der Tragfähigkeit</a>
     </div>
 
     <figure class="module-opening-voice">
@@ -201,25 +217,28 @@ breadcrumbs:
 
   <div class="selfcare-grid reveal content-wide">
     <div class="selfcare-card body">
-      <h4>Körper</h4>
+      <h4>Kurzfristige Regulation</h4>
+      <p class="text-soft-sm">Akute Stressbewältigung im Alltag</p>
       <ul>
-        <li>Eigenen Schlafrhythmus beibehalten</li>
-        <li>Regelmässige Bewegung — auch kurz</li>
-        <li>Regelmässige Mahlzeiten</li>
-        <li>Eigene Arztbesuche nicht vergessen</li>
+        <li>Atemübungen (wie oben)</li>
+        <li>Kurze Pausen einfordern</li>
+        <li>Bewegung an der frischen Luft</li>
+        <li>Ausreichend Schlaf priorisieren</li>
       </ul>
     </div>
     <div class="selfcare-card soul">
-      <h4>Seele</h4>
+      <h4>Langfristige Struktur</h4>
+      <p class="text-soft-sm">Schutz vor chronischer Auszehrung</p>
       <ul>
         <li>Hobbys ohne Erkrankungsbezug</li>
         <li>Freundschaften bewusst pflegen</li>
-        <li>Eigene Gefühle reflektieren</li>
-        <li>Psychologische Unterstützung</li>
+        <li>Eigene Arztbesuche wahrnehmen</li>
+        <li>Psychologische Unterstützung suchen</li>
       </ul>
     </div>
     <div class="selfcare-card relation">
-      <h4>Beziehung</h4>
+      <h4>Beziehungspflege</h4>
+      <p class="text-soft-sm">Stabilität im Miteinander</p>
       <ul>
         <li>Gemeinsame Rituale schaffen</li>
         <li>Notfallabsprachen in stabilen Phasen</li>
@@ -281,7 +300,7 @@ breadcrumbs:
     </div>
   </div>
 
-  <!-- ══════════ 2. FÜNF SÄULEN ══════════ -->
+  <!-- ══════════ 2. DIMENSIONEN DER TRAGFÄHIGKEIT ══════════ -->
   <h3 class="reveal">Beruf und Angehörigenrolle</h3>
   <p class="reveal">Arbeit kann ein Schutzfaktor sein — sie gibt Identität, Struktur und Abstand. Gleichzeitig leiden viele Angehörige über Monate unter Konzentrationsproblemen, Fehlzeiten oder reduzierter Leistungsfähigkeit, ohne dass das von aussen sichtbar ist.</p>
   <p class="reveal">Was helfen kann: Den Hausarzt einbeziehen, wenn die Belastung die Arbeitsfähigkeit beeinträchtigt. Vertrauenspersonen am Arbeitsplatz (z.B. Personalverantwortliche oder Vertrauensärzte) frühzeitig ansprechen — nicht um Details zu erklären, sondern um Spielraum zu schaffen. <strong>Sie sind nicht verpflichtet, Ihrer Arbeitgeberin die Diagnose einer nahestehenden Person mitzuteilen.</strong> Eine Krankschreibung wegen eigener Erschöpfung ist möglich und legitim.</p>
@@ -291,84 +310,115 @@ breadcrumbs:
     <p>Manche Angehörige beschreiben, dass sich die Beziehung mit der Zeit verändert — nicht nur zum Schwereren, sondern auch zum Bewussteren, Ehrlicheren. Das passiert nicht automatisch und nicht bei allen. Aber es passiert.</p>
   </div>
 
-  <h2 id="saeulen" class="reveal section-pause">Was langfristig trägt</h2>
-  <p class="reveal">Langfristige Tragfähigkeit entsteht selten aus grossen Durchbrüchen. Gemeint ist: Der Alltag wird Schritt für Schritt etwas stabiler und haltbarer. Meist entsteht das aus wiederholbaren Strukturen: aus Absprachen, Entlastung, guten Momenten ohne Krankheitsthema, geteiltem Wissen und dem Mut, Belastung nicht nur allein zu tragen.</p>
+  <h2 id="dimensionen" class="reveal section-pause">Was langfristig trägt: Drei Dimensionen</h2>
+  <p class="reveal">Langfristige Tragfähigkeit entsteht selten aus grossen Durchbrüchen. Gemeint ist: Der Alltag wird Schritt für Schritt etwas stabiler und haltbarer. Die Forschung zu Angehörigenbelastung (Caregiver Burden) zeigt, dass Resilienz nicht einfach «positives Denken» ist. Sie entsteht aus konkreten, wiederholbaren Strukturen, die vor Auszehrung schützen.</p>
+  
   <div class="module-illustration reveal">
     <div class="module-illustration__body">
-      <p>Die folgenden fünf Säulen sind kein Idealzustand. Sie sind eher eine praktische Orientierung: Was hilft Beziehungen und Angehörigen, über Zeit nicht nur zu überleben, sondern etwas tragfähiger zu werden?</p>
-      <p>Selbstfürsorge ist kein Luxus — sie ist die Voraussetzung dafür, dass Sie langfristig begleiten können. Licht hereinlassen bedeutet nicht, die Schwere zu leugnen. Es bedeutet, sich selbst nicht zu vergessen.</p>
+      <p>Die folgenden drei Dimensionen sind kein Idealzustand, den Sie perfekt erfüllen müssen. Sie sind eher eine praktische Orientierung: Was hilft Beziehungen und Angehörigen, über Zeit nicht nur zu überleben, sondern etwas tragfähiger zu werden?</p>
+      <p>Es geht dabei um die Balance zwischen kurzfristiger Regulation (wie dem Durchatmen oben) und langfristigen strukturellen Veränderungen.</p>
     </div>
     <figure class="module-illustration__figure module-illustration__figure--asset-feather">
-      {# P3 Audit: heroImage-Shortcode — AVIF/WebP/JPEG + responsive srcset #}
-      {% heroImage "/visuals/modul7-licht-lassen.webp", "Illustration: ein geöffnetes Bogenfenster lässt warmes Licht herein, eine Pflanze wächst in Richtung des Lichts — Metapher für Selbstfürsorge und Hoffnung.", "lazy", "", "(max-width: 860px) 100vw, 600px" %}
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 272" style="width:100%;max-width:300px" aria-label="Drei Dimensionen der Tragfähigkeit: Grenzen, Coping und Rückbindung" role="img">
+        <!-- Background circles -->
+        <circle cx="170" cy="136" r="110" fill="rgba(30,101,109,0.03)" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="4,4"/>
+        <circle cx="170" cy="136" r="70" fill="rgba(30,101,109,0.05)" stroke="#cbd5e1" stroke-width="1"/>
+        
+        <!-- Center -->
+        <circle cx="170" cy="136" r="35" fill="white" stroke="#3a9aa3" stroke-width="2"/>
+        <text x="170" y="132" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="11" font-weight="700" fill="#3a9aa3">Trag-</text>
+        <text x="170" y="146" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="11" font-weight="700" fill="#3a9aa3">fähigkeit</text>
+        
+        <!-- Node 1: Grenzen (Top) -->
+        <line x1="170" y1="101" x2="170" y2="50" stroke="#475569" stroke-width="2"/>
+        <circle cx="170" cy="50" r="24" fill="#475569"/>
+        <text x="170" y="55" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="14" font-weight="700" fill="white">1</text>
+        
+        <!-- Node 2: Coping (Bottom Right) -->
+        <line x1="198" y1="156" x2="250" y2="195" stroke="#B45309" stroke-width="2"/>
+        <circle cx="250" cy="195" r="24" fill="#B45309"/>
+        <text x="250" y="200" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="14" font-weight="700" fill="white">2</text>
+        
+        <!-- Node 3: Rückbindung (Bottom Left) -->
+        <line x1="142" y1="156" x2="90" y2="195" stroke="#2D5F8A" stroke-width="2"/>
+        <circle cx="90" cy="195" r="24" fill="#2D5F8A"/>
+        <text x="90" y="200" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="14" font-weight="700" fill="white">3</text>
+      </svg>
     </figure>
   </div>
 
-  <div class="saeulen-pentagon reveal content-wide">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 272" style="width:100%;max-width:300px" aria-label="Fünf-Säulen-Diagramm: fünf verbundene Bereiche für langfristige Stabilität" role="img">
-      <!-- spokes (center to each vertex) -->
-      <line x1="170" y1="153" x2="170" y2="43" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="5,3"/>
-      <line x1="170" y1="153" x2="275" y2="119" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="5,3"/>
-      <line x1="170" y1="153" x2="235" y2="242" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="5,3"/>
-      <line x1="170" y1="153" x2="105" y2="242" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="5,3"/>
-      <line x1="170" y1="153" x2="65" y2="119" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="5,3"/>
-      <!-- pentagon -->
-      <polygon points="170,43 275,119 235,242 105,242 65,119" fill="rgba(30,101,109,0.07)" stroke="#cbd5e1" stroke-width="1.5" stroke-linejoin="round"/>
-      <!-- center -->
-      <circle cx="170" cy="153" r="30" fill="white" stroke="#3a9aa3" stroke-width="1.5"/>
-      <text x="170" y="149" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="9.5" font-weight="700" fill="#3a9aa3">Lang-</text>
-      <text x="170" y="162" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="9.5" font-weight="700" fill="#3a9aa3">fristig</text>
-      <!-- vertex 1 – top: Krankheitsverständnis -->
-      <circle cx="170" cy="43" r="22" fill="#3a9aa3"/>
-      <text x="170" y="48" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="13" font-weight="700" fill="white">1</text>
-      <!-- vertex 2 – upper right: Inseln -->
-      <circle cx="275" cy="119" r="22" fill="#B45309"/>
-      <text x="275" y="124" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="13" font-weight="700" fill="white">2</text>
-      <!-- vertex 3 – lower right: Grenzen -->
-      <circle cx="235" cy="242" r="22" fill="#475569"/>
-      <text x="235" y="247" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="13" font-weight="700" fill="white">3</text>
-      <!-- vertex 4 – lower left: Krisenplan -->
-      <circle cx="105" cy="242" r="22" fill="#7a6f66"/>
-      <text x="105" y="247" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="13" font-weight="700" fill="white">4</text>
-      <!-- vertex 5 – upper left: Entlastung -->
-      <circle cx="65" cy="119" r="22" fill="#2D5F8A"/>
-      <text x="65" y="124" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="13" font-weight="700" fill="white">5</text>
-    </svg>
-    <div class="saeulen-legend">
-      <div class="saeulen-legend-item"><span class="saeulen-legend-dot saeulen-legend-dot--1">1</span>Krankheits&shy;verständnis</div>
-      <div class="saeulen-legend-item"><span class="saeulen-legend-dot saeulen-legend-dot--2">2</span>Krankheits&shy;freie Inseln</div>
-      <div class="saeulen-legend-item"><span class="saeulen-legend-dot saeulen-legend-dot--3">3</span>Grenzen &amp; Lasten</div>
-      <div class="saeulen-legend-item"><span class="saeulen-legend-dot saeulen-legend-dot--4">4</span>Krisenplan</div>
-      <div class="saeulen-legend-item"><span class="saeulen-legend-dot saeulen-legend-dot--5">5</span>Eigene Entlastung</div>
-    </div>
-  </div>
-
   <div class="surface-explain-grid surface-explain-grid--stack reveal content-wide">
-    <div class="surface-explain-card surface-explain-card--with-marker"><div class="surface-explain-card__marker">1</div><div><h3>Gemeinsames Krankheitsverständnis</h3><p>Beide Partner verstehen die Erkrankung — als gemeinsame Grundlage, nicht als Schuldzuweisung.</p></div></div>
-    <div class="surface-explain-card surface-explain-card--with-marker"><div class="surface-explain-card__marker">2</div><div><h3>Krankheitsfreie Inseln + Wertschätzung</h3><p>Bewusste Momente, die nicht von der Erkrankung bestimmt sind. Zeigen Sie Wertschätzung für das, was gelingt. <span class="card-helper">(Konzept aus <a href="/modul/3/">Modul 3</a> — hier als dauerhafte Struktur.)</span></p></div></div>
-    <div class="surface-explain-card surface-explain-card--with-marker"><div class="surface-explain-card__marker">3</div><div><h3>Grenzen + faire Lastverteilung</h3><p>Klare Absprachen, wer was trägt. Grenzen schützen die Beziehung — sie gefährden sie nicht.</p></div></div>
-    <div class="surface-explain-card surface-explain-card--with-marker"><div class="surface-explain-card__marker">4</div><div><h3>Gemeinsamer Krisenplan</h3><p>In stabilen Phasen erstellt, im Notfall genutzt. Gibt beiden Handlungssicherheit.</p></div></div>
-    <div class="surface-explain-card surface-explain-card--with-marker"><div class="surface-explain-card__marker">5</div><div><h3>Eigene Entlastung + Unterstützung</h3><p>Selbsthilfegruppen, eigene Therapie, Fachstelle. Auf der langen Strecke wird Belastung oft nicht durch fehlende Liebe schwerer, sondern durch Erschöpfung und Isolation.</p></div></div>
+    <div class="surface-explain-card surface-explain-card--with-marker"><div class="surface-explain-card__marker" style="background-color: #475569;">1</div><div><h3>Schutz der eigenen Grenzen</h3><p>Grenzen sind kein Liebesentzug, sondern der Schutz Ihrer eigenen Ressourcen. Wer langfristig trägt, muss wissen, was er <em>nicht</em> tragen kann. Das bedeutet auch, Verantwortung dort zu belassen, wo sie hingehört.</p></div></div>
+    <div class="surface-explain-card surface-explain-card--with-marker"><div class="surface-explain-card__marker" style="background-color: #B45309;">2</div><div><h3>Aktives Coping vs. Über-Involvierung</h3><p>Unterstützen heisst nicht Managen. Wenn Sie versuchen, jedes Problem der betroffenen Person aktiv zu lösen (Über-Involvierung), steigt das Risiko für eigene Erschöpfung massiv. Bewusstes Zurücktreten ist eine aktive Bewältigungsstrategie.</p></div></div>
+    <div class="surface-explain-card surface-explain-card--with-marker"><div class="surface-explain-card__marker" style="background-color: #2D5F8A;">3</div><div><h3>Soziale und professionelle Rückbindung</h3><p>Isolation ist der grösste Risikofaktor für Angehörige. Langfristige Stabilität braucht ein Netz: Vertrauenspersonen, die nicht urteilen, Peer-Support (Selbsthilfegruppen) und den Einbezug in den Trialog mit Fachpersonen.</p></div></div>
   </div>
 
   <p class="inline-voice reveal"><span class="inline-voice-attribution">Daniel, 45, Ehemann:</span> «Die Wende kam, als wir aufgehört haben, nur über die Erkrankung zu reden, und angefangen haben, wieder über uns zu reden. Wir haben einen Abend pro Woche eingeführt, an dem Bipolar tabu ist. Das hat mehr für unsere Beziehung getan als die meisten Therapiestunden.» <span class="inline-voice-disclaimer">(typisierte Erfahrungsstimme, anonymisiert)</span></p>
 
-  <!-- ══════════ 3. PARTNER-WÜNSCHE ══════════ -->
-  <div class="tool-embed reveal" data-tool-script="/js/tool-saeulen-check.js">
-    <button type="button" class="tool-embed-toggle" aria-expanded="false" aria-controls="embed-saeulen">
-      <span class="tool-embed-icon tool-embed-icon--blue" aria-hidden="true">🏗️</span>
-      <span class="tool-embed-body">
-        <span class="tool-embed-body-title">Optionale Reflexion zu den fünf Säulen</span>
-        <span class="tool-embed-body-desc">Wenn Sie Ihre aktuelle Stabilität kurz einordnen möchten, können Sie die fünf Säulen hier als ergänzende Orientierung durchgehen.</span>
-      </span>
-      <svg class="tool-embed-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-    </button>
-    <div class="tool-embed-panel" id="embed-saeulen" role="region" aria-label="Optionale Reflexion zu den fünf Säulen" aria-hidden="true" inert>
-      <div class="tool-embed-panel-inner">
-        <div id="app"></div>
+  <!-- ══════════ 3. REFLEXIONS-KOMPASS ══════════ -->
+  <h3 class="reveal">Entlastungs-Kompass: Wo stehen Sie gerade?</h3>
+  <p class="reveal">Statt Ihre Bewältigungsstrategien zu bewerten, laden die folgenden Fragen dazu ein, kurz innezuhalten. Wo verlieren Sie gerade am meisten Energie? Und wo könnten Sie ansetzen, ohne sich sofort mit grossen Veränderungen zu überfordern?</p>
+
+  <div class="accordion-group reveal">
+    <div class="accordion-item">
+      <button type="button" class="accordion-header" aria-expanded="false" aria-controls="accordion-grenzen">
+        <span class="accordion-header-left">
+          <span class="accordion-icon">🛡️</span>
+          <span>
+            <span class="accordion-title">Ihre Grenzen und Verantwortlichkeiten</span>
+            <span class="accordion-sub">Tragen Sie Dinge, die eigentlich nicht Ihre sind?</span>
+          </span>
+        </span>
+        <span class="accordion-toggle">+</span>
+      </button>
+      <div class="accordion-body" id="accordion-grenzen" hidden>
+        <div class="accordion-body-inner">
+          <p><strong>Reflexion:</strong> Übernehmen Sie aktuell Aufgaben (z.B. Termine vereinbaren, Finanzen regeln, Konflikte glätten), die die betroffene Person in stabilen Phasen selbst übernehmen könnte?</p>
+          <p><strong>Kurzfristiger Schritt:</strong> Identifizieren Sie <em>eine</em> kleine Aufgabe, die Sie diese Woche bewusst nicht übernehmen oder kontrollieren. Halten Sie die Spannung aus, wenn sie nicht sofort erledigt wird.</p>
+          <p><strong>Langfristiger Schritt:</strong> Besprechen Sie in einer ruhigen Minute die Lastenverteilung. Klären Sie, welche Verantwortlichkeiten Sie dauerhaft wieder abgeben möchten.</p>
+        </div>
       </div>
     </div>
-    <a href="/tools/saeulen-check/" class="tool-embed-fallback">Auf eigener Seite öffnen →</a>
+
+    <div class="accordion-item">
+      <button type="button" class="accordion-header" aria-expanded="false" aria-controls="accordion-inseln">
+        <span class="accordion-header-left">
+          <span class="accordion-icon">🏝️</span>
+          <span>
+            <span class="accordion-title">Krankheitsfreie Inseln</span>
+            <span class="accordion-sub">Gibt es noch Raum für Sie als Person oder Paar?</span>
+          </span>
+        </span>
+        <span class="accordion-toggle">+</span>
+      </button>
+      <div class="accordion-body" id="accordion-inseln" hidden>
+        <div class="accordion-body-inner">
+          <p><strong>Reflexion:</strong> Wann haben Sie das letzte Mal etwas getan, das absolut nichts mit der Erkrankung, der Pflege oder der Organisation des Alltags zu tun hatte?</p>
+          <p><strong>Kurzfristiger Schritt:</strong> Setzen Sie sich einen nicht-verhandelbaren Termin für sich selbst (z.B. 30 Minuten spazieren, ein Buch lesen). Tragen Sie ihn wie einen Arzttermin ein.</p>
+          <p><strong>Langfristiger Schritt:</strong> Etablieren Sie gemeinsame Rituale ohne Krankheitsthema (z.B. ein gemeinsames Essen pro Woche, bei dem nicht über Symptome oder Ärzte gesprochen wird).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button type="button" class="accordion-header" aria-expanded="false" aria-controls="accordion-netz">
+        <span class="accordion-header-left">
+          <span class="accordion-icon">🤝</span>
+          <span>
+            <span class="accordion-title">Ihr soziales Netz</span>
+            <span class="accordion-sub">Wer stützt Sie, wenn Sie andere stützen?</span>
+          </span>
+        </span>
+        <span class="accordion-toggle">+</span>
+      </button>
+      <div class="accordion-body" id="accordion-netz" hidden>
+        <div class="accordion-body-inner">
+          <p><strong>Reflexion:</strong> Haben Sie jemanden, dem Sie ehrlich sagen können: «Ich bin heute einfach nur erschöpft und wütend», ohne dass diese Person sofort Ratschläge gibt oder urteilt?</p>
+          <p><strong>Kurzfristiger Schritt:</strong> Melden Sie sich bei einer Vertrauensperson, auch wenn Sie sich lange nicht gemeldet haben. Ein kurzes «Ich denke an dich, mir fehlt gerade die Kraft für mehr» reicht oft schon als Brücke.</p>
+          <p><strong>Langfristiger Schritt:</strong> Erwägen Sie den Besuch einer Angehörigengruppe. Der Austausch mit Menschen, die nicht erst lange Erklärungen brauchen, ist eine der wirksamsten Entlastungen überhaupt.</p>
+        </div>
+      </div>
+    </div>
   </div>
 
   <h3 id="sichtbarkeit" class="reveal">Wenn Belastung unterschiedlich sichtbar wird</h3>
@@ -469,7 +519,7 @@ breadcrumbs:
     <div class="action-card"><div class="action-icon">1</div><div><h3>Eine Nachkrise-Bilanz machen</h3><p>Nach einer schwierigeren Phase kurz festhalten: Was hat geholfen? Was hat gefehlt? Was müsste beim nächsten Mal früher oder anders passieren?</p></div></div>
     <div class="action-card"><div class="action-icon">2</div><div><h3>Einen nicht-verhandelbaren Selbstfürsorge-Termin setzen</h3><p>Etwas, das nur Ihnen gehört. Eintragen wie einen Arzttermin. Nicht als Belohnung nach Funktionieren, sondern als fester Teil Ihrer Stabilität.</p></div></div>
     <div class="action-card"><div class="action-icon">3</div><div><h3>Zusammenarbeit aktiv einfordern</h3><p>Bitten Sie um Angehörigengespräche oder wenigstens darum, dass Ihre Beobachtungen gehört und dokumentiert werden. Zusammenarbeit wird selten von allein klar.</p></div></div>
-    <div class="action-card"><div class="action-icon">4</div><div><h3>Fortschritt sichtbar machen</h3><p>Notieren Sie einmal pro Monat, was sich verändert hat — auch Kleines. Nicht um schönzureden, sondern um Rückschläge besser einordnen zu können.</p></div></div>
+    <div class="action-card"><div class="action-icon">4</div><div><h3>Eigene Grenzen prüfen</h3><p>Nutzen Sie den Entlastungs-Kompass, um regelmässig zu prüfen, ob Sie Aufgaben tragen, die Sie eigentlich abgeben müssten.</p></div></div>
   </div>
 
   <div class="resource-box anlaufstellen-box reveal">
@@ -489,7 +539,7 @@ breadcrumbs:
       <h3>Worauf es ankommt</h3>
       <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Die Nachkrise ist ein eigener Zustand</strong> — Erschöpfung, Leere, Wut oder Erleichterung danach sind keine Nebensachen, sondern Teil der Belastung.</p></div>
       <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Selbstfürsorge ist hier eher Schutz als Luxus</strong> — sie verhindert nicht alles, kann aber helfen, dass chronische Belastung nicht alles verschlingt.</p></div>
-      <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Langfristige Tragfähigkeit entsteht meist aus Strukturen</strong> — gemeinsames Verständnis, krankheitsfreie Inseln, Grenzen, die vereinbarten Schritte und eigene Entlastung.</p></div>
+      <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Langfristige Tragfähigkeit entsteht meist aus Strukturen</strong> — Schutz der eigenen Grenzen, bewusstes Coping ohne Über-Involvierung und soziale Rückbindung.</p></div>
       <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Rückschläge sagen wenig über die Richtung</strong> — Fortschritt bleibt oft ungleichmässig und wird eher über Monate sichtbar als im einzelnen Tag.</p></div>
       <div class="takeaway-item"><div class="takeaway-check">✓</div><p><strong>Wachstum darf sein, muss aber nicht</strong> — es ist möglich, gleichzeitig stolz, erschöpft und wütend auf das Erlebte zu sein.</p></div>
     </div>
@@ -499,19 +549,11 @@ breadcrumbs:
   <div class="sources reveal">
     <button type="button" class="sources-toggle" aria-expanded="false" data-sources-toggle><span class="sources-title">Wissenschaftliche Quellen</span></button>
     <ul>
-      <li><strong>Reinares, M. et al. (2016).</strong> Family interventions in bipolar disorder. <em>Clinical Psychology Review, 43</em>, 47–57.</li>
-      <li><strong>Miklowitz, D. J. (2008).</strong> Adjunctive psychotherapy for bipolar disorder. <em>American Journal of Psychiatry, 165</em>(11), 1408–1419.</li>
-      <li><strong>Lawn, S. &amp; McMahon, J. (2015).</strong> Experiences of family carers. <em>J Psychiatric and Mental Health Nursing, 22</em>(3), 222–230.</li>
-      <li><strong>Tedeschi, R. G. &amp; Calhoun, L. G. (2004).</strong> Posttraumatic growth. <em>Psychological Inquiry, 15</em>(1), 1–18.</li>
-      <li><strong>Southwick, S. M. &amp; Charney, D. S. (2012).</strong> <em>Resilience.</em> Cambridge University Press.</li>
-      <li><strong>Neff, K. D. (2011).</strong> <em>Self-Compassion.</em> William Morrow.</li>
-      <li><strong>Perlick, D. A. et al. (2007).</strong> Caregiver burden. <em>Bipolar Disorders, 9</em>(3), 262–273.</li>
-      <li><strong>Perlick, D. A. et al. (2016).</strong> Caregiver burden as a predictor of depression among caregivers of bipolar disorder. <em>Bipolar Disorders, 18</em>(2), 183–191.</li>
-      <li><strong>Chiba, R. et al. (2025).</strong> Benefit Finding bei Angehörigen. <em>Psychiatric Services, 76</em>(1), 45–53.</li>
-      <li><strong>Liu, Y. et al. (2025).</strong> Psychological resilience and caregiver burden: the mediating role of coping styles. <em>BMC Nursing, 24</em>(1), 1035.</li>
-      <li><strong>Stokholm, J. R. et al. (2024).</strong> Group-based psychoeducation for relatives of patients with bipolar disorder — the R-bipolar RCT. <em>Trials, 25</em>(1), 342.</li>
-      <li><strong>Obegu, P. et al. (2025).</strong> Care coordination for people living with serious mental illness: the caregiver's perspective. <em>Frontiers in Health Services, 4</em>, 1473235.</li>
-      <li><strong>Pouchon, A. et al. (2026).</strong> Smartwatch-based detection of depressive relapses in bipolar disorder. <em>Journal of Affective Disorders</em>.</li>
+      <li><strong>Berk, L. et al. (2011).</strong> Development of guidelines for caregivers of people with bipolar disorder: a Delphi expert consensus study. <em>Bipolar Disorders, 13</em>(5-6), 556–570.</li>
+      <li><strong>Liu, Y. et al. (2025).</strong> The relationship between psychological resilience and caregiver burden among caregivers of patients with bipolar disorder: the mediating role of coping styles. <em>BMC Nursing, 24</em>(1), 1035.</li>
+      <li><strong>Perlick, D. A. et al. (2007).</strong> Caregiver burden in bipolar disorder: a review. <em>Bipolar Disorders, 9</em>(3), 262–273.</li>
+      <li><strong>Reinares, M. et al. (2016).</strong> Family interventions in bipolar disorder: A systematic review. <em>Clinical Psychology Review, 43</em>, 47–57.</li>
+      <li><strong>Southwick, S. M. &amp; Charney, D. S. (2012).</strong> <em>Resilience: The Science of Mastering Life's Greatest Challenges.</em> Cambridge University Press.</li>
     </ul>
   </div>
 
@@ -551,4 +593,5 @@ breadcrumbs:
 {% endblock %}
 {% block scripts %}
 <script src="/js/tool-embed.js?v={{ site.assetVersion }}"></script>
+<script src="/js/module-ui.js?v={{ site.assetVersion }}"></script>
 {% endblock %}
