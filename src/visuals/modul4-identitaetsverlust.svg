@@ -1,0 +1,74 @@
+<svg width="720" height="380" viewBox="0 0 720 380" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="id-title id-desc">
+  <title id="id-title">Schleichender Identitätsverlust</title>
+  <desc id="id-desc">Ein Flächendiagramm zeigt, wie der eigene Lebensraum (teal) über die Zeit schrumpft, während die Begleit- und Betreuungsrolle (rose) immer mehr Raum einnimmt. Am Anfang überwiegt das eigene Ich; nach Jahren ist es auf einen schmalen Streifen reduziert.</desc>
+
+  <!-- Background -->
+  <rect width="720" height="380" rx="20" fill="#FAFAF7"/>
+
+  <!-- Title -->
+  <text x="360" y="34" text-anchor="middle" fill="#3d3530" font-family="DM Serif Display, serif" font-size="18" font-weight="700">Schleichender Identitätsverlust</text>
+  <text x="360" y="54" text-anchor="middle" fill="#776c63" font-family="DM Sans, sans-serif" font-size="13">Wie die Begleitrolle den eigenen Lebensraum verdrängen kann</text>
+
+  <!-- Legend -->
+  <rect x="100" y="70" width="16" height="16" rx="3" fill="#3a9aa3" opacity="0.7"/>
+  <text x="122" y="83" fill="#1a6b72" font-family="DM Sans, sans-serif" font-size="13" font-weight="600">Eigenes Ich — Bedürfnisse, Träume, Identität</text>
+  <rect x="430" y="70" width="16" height="16" rx="3" fill="#AF736E" opacity="0.55"/>
+  <text x="452" y="83" fill="#8A504B" font-family="DM Sans, sans-serif" font-size="13" font-weight="600">Begleit- und Betreuungsrolle</text>
+
+  <!-- Chart area: x 70–650, y 100–300, height 200 -->
+
+  <!-- Teal area (eigenes Ich) — schrumpft von oben nach unten -->
+  <!-- At start (x=70): full height (y=100 to y=300, h=200) -->
+  <!-- At end (x=650): thin strip (y=100 to y=140, h=40) -->
+  <path d="M70,100 L650,100 L650,140 C550,145 450,155 350,175 C250,195 150,225 70,300 Z"
+    fill="#3a9aa3" opacity="0.22"/>
+  <!-- Teal border line (top of rose area = bottom of teal area) -->
+  <path d="M70,300 C150,225 250,195 350,175 C450,155 550,145 650,140"
+    fill="none" stroke="#3a9aa3" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Rose area (Begleitrolle) — wächst von unten -->
+  <path d="M70,300 C150,225 250,195 350,175 C450,155 550,145 650,140 L650,300 Z"
+    fill="#AF736E" opacity="0.18"/>
+
+  <!-- Axes -->
+  <line x1="70" y1="100" x2="70" y2="310" stroke="#DDD2BF" stroke-width="1.5"/>
+  <line x1="70" y1="300" x2="660" y2="300" stroke="#DDD2BF" stroke-width="1.5"/>
+
+  <!-- X-axis phase labels -->
+  <text x="70" y="325" fill="#776c63" font-size="12" text-anchor="middle" font-family="DM Sans, sans-serif">Diagnose</text>
+  <text x="215" y="325" fill="#776c63" font-size="12" text-anchor="middle" font-family="DM Sans, sans-serif">1–2 Jahre</text>
+  <text x="360" y="325" fill="#776c63" font-size="12" text-anchor="middle" font-family="DM Sans, sans-serif">3–5 Jahre</text>
+  <text x="505" y="325" fill="#776c63" font-size="12" text-anchor="middle" font-family="DM Sans, sans-serif">5–8 Jahre</text>
+  <text x="650" y="325" fill="#776c63" font-size="12" text-anchor="middle" font-family="DM Sans, sans-serif">Langzeit</text>
+
+  <!-- X-axis tick marks -->
+  <line x1="215" y1="300" x2="215" y2="306" stroke="#DDD2BF" stroke-width="1.5"/>
+  <line x1="360" y1="300" x2="360" y2="306" stroke="#DDD2BF" stroke-width="1.5"/>
+  <line x1="505" y1="300" x2="505" y2="306" stroke="#DDD2BF" stroke-width="1.5"/>
+  <line x1="650" y1="300" x2="650" y2="306" stroke="#DDD2BF" stroke-width="1.5"/>
+
+  <!-- Inline labels inside areas -->
+  <!-- Teal label (top, early) -->
+  <text x="130" y="155" fill="#1a6b72" font-family="DM Sans, sans-serif" font-size="13" font-weight="600" text-anchor="middle">Eigenes Ich</text>
+  <text x="130" y="170" fill="#1a6b72" font-family="DM Sans, sans-serif" font-size="11" text-anchor="middle">Hobbys, Freunde,</text>
+  <text x="130" y="183" fill="#1a6b72" font-family="DM Sans, sans-serif" font-size="11" text-anchor="middle">Träume, Identität</text>
+
+  <!-- Rose label (bottom, late) -->
+  <text x="560" y="230" fill="#8A504B" font-family="DM Sans, sans-serif" font-size="13" font-weight="600" text-anchor="middle">Begleitrolle</text>
+  <text x="560" y="245" fill="#8A504B" font-family="DM Sans, sans-serif" font-size="11" text-anchor="middle">Kontrolle, Sorge,</text>
+  <text x="560" y="258" fill="#8A504B" font-family="DM Sans, sans-serif" font-size="11" text-anchor="middle">Verantwortung</text>
+
+  <!-- Arrow annotation: Umkehrbar -->
+  <line x1="650" y1="120" x2="610" y2="108" stroke="#0d7a5f" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <defs>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#0d7a5f"/>
+    </marker>
+  </defs>
+  <text x="655" y="115" fill="#0d7a5f" font-family="DM Sans, sans-serif" font-size="11" font-weight="600">Umkehrbar</text>
+  <text x="655" y="127" fill="#0d7a5f" font-family="DM Sans, sans-serif" font-size="11">mit Arbeit</text>
+
+  <!-- Caption line -->
+  <text x="360" y="355" text-anchor="middle" fill="#94a3b8" font-family="DM Sans, sans-serif" font-size="12">Konzeptionelles Modell — individuelle Verläufe variieren stark. Dieser Prozess ist nicht unausweichlich.</text>
+
+</svg>
