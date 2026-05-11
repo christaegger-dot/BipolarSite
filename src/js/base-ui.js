@@ -75,7 +75,9 @@
     mobileTocQuery.addListener(syncMobileToc);
   }
 
-  if (window.innerWidth >= 1280) {
+  const allowDesktopTocSidebar = document.body.hasAttribute("data-module-sidebar");
+
+  if (allowDesktopTocSidebar && window.innerWidth >= 1280) {
     const tocOl = document.querySelector(".toc ol");
     const contentEl = document.querySelector("main.content");
 
