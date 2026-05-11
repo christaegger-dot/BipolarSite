@@ -113,5 +113,13 @@ jobs:
         run: npm ci
       - name: Install poppler-utils (provides pdfinfo for PDF manifest checks)
         run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - name: Build site
+        run: npm run build
+      - name: Start local server
+        run: npx http-server _site -p 8080 --silent &
+      - name: Wait for server to be ready
+        run: npx wait-on http://localhost:8080 --timeout 30000
       - name: Run release audit (skip production-only checks)
         run: npm run audit:release:ci
+        env:
+          SITE_URL: http://localhost:8080
