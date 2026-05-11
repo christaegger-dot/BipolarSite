@@ -11,7 +11,7 @@
     "lint:lighthouse": "npx @lhci/cli@0.14.0 autorun --config=lighthouserc.json",
     "lint:a11y": "node scripts/run-a11y-check.mjs",
     "lint": "npm run lint:html && npm run lint:css",
-    "test:e2e": "playwright test",
+    "test:e2e": "npm run test:e2e:preflight && playwright test",
     "test:e2e:ui": "playwright test --ui",
     "audit:release": "node scripts/release-audit/index.mjs",
     "audit:release:ci": "node scripts/release-audit/index.mjs --skip-production --json",
