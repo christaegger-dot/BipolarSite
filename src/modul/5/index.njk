@@ -13,7 +13,7 @@ breadcrumbs:
   - name: "Modul 5: Loyalitätskonflikte und schwierige Entscheidungen"
     url: "/modul/5/"
 ---
-{% block headCSS %}<!-- Module 5 styles migrated to module.css (P2.3) -->{% endblock %}
+{% block headCSS %}<link rel="stylesheet" href="/css/tool-embed.css?v={{ site.assetVersion }}">{% endblock %}
 {% block nav %}
 {% include "nav-full.njk" %}
 {% endblock %}
@@ -161,15 +161,60 @@ breadcrumbs:
   <p class="inline-voice reveal"><span class="inline-voice-attribution">Asel, 52, Ehefrau:</span> «In der Gruppe haben sie erklärt, was ‹Expressed Emotion› bedeutet — und ich dachte: Das bin ich. Nicht weil ich böse bin. Sondern weil ich am Ende bin. Die Erkenntnis hat mich erst erschüttert, dann befreit.» <span class="inline-voice-disclaimer">(typisierte Erfahrungsstimme, anonymisiert)</span></p>
 
   <!-- ══════════ 3. GRENZEN — direkt nach EE als Lösung ══════════ -->
-  
-  <a href="/tools/ee-kreislauf/" class="tool-cta reveal">
-    <div class="tool-cta-icon tool-cta-icon--alert">🔄</div>
-    <div class="tool-cta-body">
-      <h3>EE-Kreislauf — interaktiv</h3>
-      <p>Schuld → Überengagement → Erschöpfung → Kritik: Klicken Sie auf jede Station und entdecken Sie den Ausweg.</p>
-      <span class="tool-cta-btn">EE-Kreislauf öffnen →</span>
+
+  <div class="tool-embed reveal" data-tool-script="/js/tool-ee-kreislauf.js">
+    <button type="button" class="tool-embed-toggle" aria-expanded="false" aria-controls="embed-ee-kreislauf">
+      <span class="tool-embed-icon tool-embed-icon--alert" aria-hidden="true">🔄</span>
+      <span class="tool-embed-body">
+        <span class="tool-embed-body-title">EE-Kreislauf — interaktiv erkunden</span>
+        <span class="tool-embed-body-desc">Schuld → Überengagement → Erschöpfung → Kritik: Klicken Sie auf jede Station und entdecken Sie den Ausweg.</span>
+      </span>
+      <svg class="tool-embed-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="tool-embed-panel" id="embed-ee-kreislauf" role="region" aria-label="EE-Kreislauf interaktiv" aria-hidden="true" inert>
+      <div class="tool-embed-panel-inner">
+        <div class="wrap">
+          <div class="mobile-chart-note">Auf kleinen Screens ist das Diagramm ausgeblendet. Wählen Sie unten direkt eine Station.</div>
+          <div class="svg-wrap" id="svgWrap">
+            <svg viewBox="0 0 400 400" role="group" aria-label="EE-Kreislauf: Schuld, Überengagement, Erschöpfung und Kritik als Teufelskreis">
+              <path class="arrow" d="M200 60 A140 140 0 0 1 340 200" fill="none" stroke="var(--teal-light)" stroke-width="2.5" stroke-linecap="round"/>
+              <path class="arrow" d="M340 200 A140 140 0 0 1 200 340" fill="none" stroke="var(--teal-light)" stroke-width="2.5" stroke-linecap="round"/>
+              <path class="arrow" d="M200 340 A140 140 0 0 1 60 200" fill="none" stroke="var(--teal-light)" stroke-width="2.5" stroke-linecap="round"/>
+              <path class="arrow" d="M60 200 A140 140 0 0 1 200 60" fill="none" stroke="var(--teal-light)" stroke-width="2.5" stroke-linecap="round"/>
+              <polygon class="arrow" points="330,190 340,200 330,210" fill="var(--teal-light)"/>
+              <polygon class="arrow" points="210,330 200,340 190,330" fill="var(--teal-light)"/>
+              <polygon class="arrow" points="70,210 60,200 70,190" fill="var(--teal-light)"/>
+              <polygon class="arrow" points="190,70 200,60 210,70" fill="var(--teal-light)"/>
+              <text x="200" y="194" text-anchor="middle" class="center-text" font-size="14" font-weight="600" fill="var(--navy)" id="centerText1">Chronische</text>
+              <text x="200" y="212" text-anchor="middle" class="center-text" font-size="14" font-weight="600" fill="var(--navy)" id="centerText2">Anspannung</text>
+              <circle id="station0" cx="200" cy="52" r="42" fill="var(--amber-bg)" stroke="var(--amber)" stroke-width="2" role="button" tabindex="0" aria-label="Station 1: Schuld" aria-pressed="false"/>
+              <text x="200" y="46" text-anchor="middle" font-family="DM Sans" font-size="9" font-weight="700" fill="var(--amber)">1</text>
+              <text x="200" y="62" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="600" fill="var(--amber)">Schuld</text>
+              <circle id="station1" cx="348" cy="200" r="42" fill="var(--rose-bg)" stroke="var(--amber-dark-text)" stroke-width="2" role="button" tabindex="0" aria-label="Station 2: Überengagement" aria-pressed="false"/>
+              <text x="348" y="193" text-anchor="middle" font-family="DM Sans" font-size="9" font-weight="700" fill="var(--amber-dark-text)">2</text>
+              <text x="348" y="210" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="600" fill="var(--amber-dark-text)">Über-</text>
+              <text x="348" y="222" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="600" fill="var(--amber-dark-text)">engagement</text>
+              <circle id="station2" cx="200" cy="348" r="42" fill="var(--blue-phase-light)" stroke="var(--blue-phase)" stroke-width="2" role="button" tabindex="0" aria-label="Station 3: Erschöpfung" aria-pressed="false"/>
+              <text x="200" y="342" text-anchor="middle" font-family="DM Sans" font-size="9" font-weight="700" fill="var(--blue-phase)">3</text>
+              <text x="200" y="358" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="600" fill="var(--slate)">Erschöpfung</text>
+              <circle id="station3" cx="52" cy="200" r="42" fill="var(--bg)" stroke="var(--phase-green)" stroke-width="2" role="button" tabindex="0" aria-label="Station 4: Kritik" aria-pressed="false"/>
+              <text x="52" y="194" text-anchor="middle" font-family="DM Sans" font-size="9" font-weight="700" fill="var(--phase-green)">4</text>
+              <text x="52" y="210" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="600" fill="var(--navy)">Kritik</text>
+            </svg>
+          </div>
+          <div class="station-picker" role="group" aria-label="Station direkt auswählen">
+            <button class="station-btn" type="button" data-station-btn="0" aria-pressed="false"><strong>Station 1</strong>Schuld</button>
+            <button class="station-btn" type="button" data-station-btn="1" aria-pressed="false"><strong>Station 2</strong>Überengagement</button>
+            <button class="station-btn" type="button" data-station-btn="2" aria-pressed="false"><strong>Station 3</strong>Erschöpfung</button>
+            <button class="station-btn" type="button" data-station-btn="3" aria-pressed="false"><strong>Station 4</strong>Kritik</button>
+          </div>
+          <div class="detail" id="detail" aria-live="polite"></div>
+          <button class="break-btn" id="breakBtn" type="button" aria-pressed="false">Kreislauf unterbrechen</button>
+        </div>
+      </div>
     </div>
-  </a>
+    <a href="/tools/ee-kreislauf/" class="tool-embed-fallback">Auf eigener Seite öffnen →</a>
+  </div>
 
   <h2 id="grenzen" class="reveal">Warum Grenzen setzen so schwer fällt</h2>
   <p class="reveal">Der Kreislauf zeigt: Ohne Grenzen wird vieles schlimmer. Trotzdem bleiben Grenzen für viele Angehörige eines der schwierigsten Themen überhaupt. Das liegt nicht daran, dass sie unvernünftig wären — sondern daran, dass Grenzen hier nicht nur Verhalten regulieren, sondern Schuld, Moral, Angst und Identität berühren.</p>
