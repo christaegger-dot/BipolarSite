@@ -135,7 +135,7 @@ export async function runSeoLocalCheck(context) {
     metrics: {
       samplePages: samplePages.length,
       noIndexDeploy: site.noIndexDeploy,
-      siteUrl: site.url,
+      siteUrl: context.baseUrl || site.url,
     },
   });
 }

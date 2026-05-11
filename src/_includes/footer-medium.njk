@@ -3,6 +3,7 @@
     <div class="footer-group-title">Fachstelle &amp; Verantwortung</div>
     <p class="footer-credit">Ein Informationsangebot der Fachstelle Angehörigenarbeit der Psychiatrischen Universitätsklinik Zürich (PUK).</p>
     <p class="footer-attribution">{% if footerAttribution %}{{ footerAttribution }}{% else %}Inhaltliche Verantwortung: Ch. Egger · Inhaltlich geprüft: {{ site.contentReviewedDisplay }}{% endif %}</p>
+    <p class="footer-status"><strong>Aktualisierungsstand:</strong> Inhalt {{ site.contentReviewedDisplay }} · Technik {{ build.stand }}</p>
   </section>
 
   <section class="footer-group footer-group--links" aria-label="Rechtliches und Quellen">
@@ -10,6 +11,7 @@
     <div class="footer-links">
       <a href="/impressum/#impressum">Impressum</a>
       <a href="/impressum/#datenschutz">Datenschutz</a>
+      <a href="mailto:{{ site.email }}">Datenschutzkontakt</a>
       <a href="/barrierefreiheit/">Barrierefreiheit</a>
       <a href="{{ site.sourcesPage }}">Quellen</a>
     </div>
