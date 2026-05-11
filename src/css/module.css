@@ -970,7 +970,7 @@ body.pdf-preview-open { overflow: hidden; }
   width: 3rem;
   height: 3px;
   border-radius: 2px;
-  background: currentColor;
+  background: currentcolor;
   opacity: 0.18;
   margin-bottom: var(--space-md);
 }
