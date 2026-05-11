@@ -3,6 +3,7 @@
     "standard": "WCAG2AA",
     "timeout": 60000,
     "wait": 500,
+    "hideElements": ".tool-embed-panel[aria-hidden='true']",
     "chromeLaunchConfig": {
       "args": ["--no-sandbox", "--disable-setuid-sandbox"]
     }
