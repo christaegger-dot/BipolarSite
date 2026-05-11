@@ -38,9 +38,9 @@ const sourceEntries = [
     short: "S3-Leitlinie DGBS/DGPPN",
     title: "S3-Leitlinie zur Diagnostik und Therapie bipolarer Störungen",
     authors: "DGBS e.V. und DGPPN e.V. (Hrsg.)",
-    year: "2019, Langfassung Version 2.0; Aktualisierung in Bearbeitung 2024",
+    year: "2019, Langfassung Version 2.0; Aktualisierung in Bearbeitung (BipolarLiving, geplant 2026)",
     publisher: "Deutsche Gesellschaft für Bipolare Störungen / Deutsche Gesellschaft für Psychiatrie und Psychotherapie",
-    url: "https://www.leitlinien.de/themen/bipolare-stoerungen",
+    url: "https://register.awmf.org/de/leitlinien/detail/038-019",
     note: "Wichtigste deutschsprachige Leitlinie und für den DACH-Raum besonders relevant.",
   },
   {
