@@ -1897,6 +1897,13 @@ textarea { min-height: 80px; resize: vertical; }
   margin: 0;
 }
 
+.footer-status {
+  font-size: var(--text-xs);
+  line-height: 1.65;
+  color: var(--text-soft); /* 5.04:1 on --surface-alt — AA */
+  margin: 0;
+}
+
 .footer-disclaimer {
   font-size: var(--text-xs);
   line-height: 1.65;

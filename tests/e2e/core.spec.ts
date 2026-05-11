@@ -61,7 +61,7 @@ test.describe('core user paths', () => {
 
     await expect(page.getByRole('heading', { level: 1, name: /Barrierefreiheit/i })).toBeVisible();
     await expect(page.locator('main')).toContainText(/WCAG 2\.1/i);
-    await expect(page.locator('a[href="mailto:angehoerigenarbeit@pukzh.ch"]')).toBeVisible();
+    await expect(page.locator('main a[href="mailto:angehoerigenarbeit@pukzh.ch"]')).toBeVisible();
   });
 
   test('module overview links into modul 1 and toc remains reachable', async ({ page }) => {
