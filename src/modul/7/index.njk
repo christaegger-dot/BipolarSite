@@ -15,6 +15,7 @@ breadcrumbs:
 ---
 {% block headCSS %}<link rel="stylesheet" href="/css/tool-embed.css?v={{ site.assetVersion }}">
 <style>
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
   .accordion-group { margin-top: 2rem; }
   .accordion-item { border-bottom: 1px solid var(--border); }
   .accordion-header { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 0; background: none; border: none; cursor: pointer; text-align: left; }
@@ -65,13 +66,10 @@ breadcrumbs:
       <div class="toc">
         <div class="toc-title">In diesem Modul</div>
         <ol>
-          <li><a href="#langstrecke">Wie die lange Strecke tragfähiger werden kann<span class="toc-desc">Worum es nach Notfallvorbereitung und Akuthilfe geht</span></a></li>
-          <li><a href="#danach">Der Tag danach und die Wochen danach<span class="toc-desc">Emotionen, Gesprächsführung und Bilanz nach der Episode</span></a></li>
-          <li><a href="#selbstfuersorge">Selbstfürsorge als Belastungsmanagement<span class="toc-desc">Nicht Kür, sondern Schutz vor Auszehrung</span></a></li>
-          <li><a href="#dimensionen">Was langfristig trägt<span class="toc-desc">Drei Dimensionen und tragende Routinen</span></a></li>
-          <li><a href="#trialog">Trialog und Zusammenarbeit<span class="toc-desc">Wie Angehörige im System sichtbarer werden</span></a></li>
-          <li><a href="#wachstum">Was Wachstum heissen kann — und was nicht<span class="toc-desc">Ohne Pflicht zur positiven Bilanz</span></a></li>
-          <li><a href="#handeln">Was Sie jetzt für die lange Strecke tun können<span class="toc-desc">Vier kleine, wiederholbare Schritte</span></a></li>
+          <li><a href="#nach-der-krise">Nach der Krise<span class="toc-desc">Erschöpfung, Bilanz und das Gespräch danach</span></a></li>
+          <li><a href="#tragfaehigkeit">Langfristig tragfähig bleiben<span class="toc-desc">Drei Dimensionen: Grenzen, Coping, Rückbindung</span></a></li>
+          <li><a href="#zusammenarbeit">Zusammenarbeit und Entwicklung<span class="toc-desc">Trialog, Rückfall nach Jahren und Wachstum</span></a></li>
+          <li><a href="#handeln">Was Sie jetzt tun können<span class="toc-desc">Vier kleine, wiederholbare Schritte</span></a></li>
         </ol>
       </div>
     </div>
@@ -95,13 +93,11 @@ breadcrumbs:
     </figure>
   </div>
 
-  <h2 id="langstrecke" class="reveal">Wie die lange Strecke tragfähiger werden kann</h2>
-  <p class="reveal">Nach Notfallvorbereitung, Kommunikation, Grenzen und Akuthilfe stellt sich oft eine andere Frage: <strong>Wie lebt man mit der Wiederkehr, ohne selbst ganz darin aufzugehen?</strong> Dieses Modul verschiebt den Fokus deshalb weg von der Akutbewältigung und hin zur langen Strecke: Was gibt über Monate und Jahre etwas Boden?</p>
-  <p class="reveal">Tragfähigkeit heisst hier nicht Harmonie oder Krisenfreiheit. Gemeint ist eher: Der Alltag wird über Zeit etwas haltbarer und leichter zu tragen. Etwas weniger allein, etwas weniger unvorbereitet, etwas mehr Routine, Entlastung und eigene Person.</p>
-  <p class="reveal surface-callout surface-callout--context"><strong>Hinweis zur Perspektive:</strong> Auch wenn in diesem Modul oft Paarbeispiele vorkommen, lassen sich viele Muster ebenso auf Eltern, erwachsene Kinder, Geschwister und andere nahestehende Menschen übertragen.</p>
-
   <!-- ══════════ 1. NACHKRISE ══════════ -->
-  <h2 id="danach" class="reveal">Der Tag danach und die Wochen danach</h2>
+  <h2 id="nach-der-krise" class="reveal">Nach der Krise: Der Tag danach und die Wochen danach</h2>
+  <p class="reveal">Nach Notfallvorbereitung, Kommunikation, Grenzen und Akuthilfe stellt sich oft eine andere Frage: <strong>Wie lebt man mit der Wiederkehr, ohne selbst ganz darin aufzugehen?</strong> Dieses Modul verschiebt den Fokus deshalb weg von der Akutbewältigung und hin zur langen Strecke: Was gibt über Monate und Jahre etwas Boden?</p>
+  <p class="reveal surface-callout surface-callout--context"><strong>Hinweis zur Perspektive:</strong> Auch wenn in diesem Modul oft Paarbeispiele vorkommen, lassen sich viele Muster ebenso auf Eltern, erwachsene Kinder, Geschwister und andere nahestehende Menschen übertragen.</p>
+  <p class="reveal">Über Krisen wird viel gesprochen. Über das, was danach kommt, deutlich weniger. Dabei ist die Zeit nach einer Episode oft ein eigener Zustand: Der Alarm lässt nach, aber Erschöpfung, Leere, Wut oder Scham bleiben. Gerade diese Phase entscheidet oft darüber, ob sich etwas stabilisiert oder ob einfach nur die nächste Anspannung beginnt.</p>
   <p class="reveal">Über Krisen wird viel gesprochen. Über das, was danach kommt, deutlich weniger. Dabei ist die Zeit nach einer Episode oft ein eigener Zustand: Der Alarm lässt nach, aber Erschöpfung, Leere, Wut oder Scham bleiben. Gerade diese Phase entscheidet oft darüber, ob sich etwas stabilisiert oder ob einfach nur die nächste Anspannung beginnt.</p>
 
   <ul class="nachkrise-items reveal">
@@ -112,9 +108,10 @@ breadcrumbs:
     <li><strong>Erleichterung — und manchmal Scham darüber:</strong> Erleichterung ist normal. Sie sagt nichts gegen die Bindung.</li>
   </ul>
 
-  <div class="emotion-timeline reveal">
-    <div class="etl-header">Typischer emotionaler Verlauf nach einer Episode — zur Orientierung, nicht als Massstab</div>
-    <div class="etl-track">
+  <div class="emotion-timeline reveal" role="region" aria-label="Typischer emotionaler Verlauf nach einer Episode">
+    <div class="sr-only">Zeitstrahl: Tage 1-3 sind geprägt von Erschöpfung und Taubheit. Woche 1-2 von Leere und Schuldgefühlen. Woche 2-4 von Wut und Erleichterung. Ab Woche 4 ist oft eine Bilanz und ein Gespräch möglich.</div>
+    <div class="etl-header" aria-hidden="true">Typischer emotionaler Verlauf nach einer Episode — zur Orientierung, nicht als Massstab</div>
+    <div class="etl-track" aria-hidden="true">
       <div class="etl-phase">
         <div class="etl-time">Tage 1–3</div>
         <div class="etl-dot etl-dot--high"></div>
@@ -179,13 +176,13 @@ breadcrumbs:
     <cite>— Brigitte, 56 Jahre, Ehefrau seit 22 Jahren (typisierte Erfahrungsstimme, anonymisiert)</cite>
   </div>
 
-  <!-- ══════════ 2. SELBSTFÜRSORGE ══════════ -->
-  <h2 id="selbstfuersorge" class="reveal section-pause">Selbstfürsorge als Belastungsmanagement</h2>
-  <p class="reveal">Selbstfürsorge klingt schnell nach Kür. In Angehörigenrealitäten ist sie oft eher Schadensbegrenzung. Wenn Sie dauerhaft zu viel tragen, zu wenig schlafen, sich sozial zurückziehen und nur noch reagieren, ist sie nicht Optimierung, sondern Schutz vor weiterer Auszehrung.</p>
-  <p class="reveal"><strong>Ihre Gesundheit hat einen Eigenwert.</strong> Nicht erst, wenn Sie zusammenbrechen. Und nicht nur, damit Sie weiter durchhalten können.</p>
+  <!-- ══════════ 2. TRAGFÄHIGKEIT ══════════ -->
+  <h2 id="tragfaehigkeit" class="reveal section-pause">Langfristig tragfähig bleiben: Drei Dimensionen</h2>
+  <p class="reveal">Langfristige Tragfähigkeit entsteht selten aus grossen Durchbrüchen. Gemeint ist: Der Alltag wird Schritt für Schritt etwas stabiler und haltbarer. Die Forschung zu Angehörigenbelastung (Caregiver Burden) zeigt, dass Resilienz nicht einfach «positives Denken» ist. Sie entsteht aus konkreten, wiederholbaren Strukturen, die vor Auszehrung schützen.</p>
+  <p class="reveal">Selbstfürsorge klingt dabei schnell nach Kür. In Angehörigenrealitäten ist sie oft eher Schadensbegrenzung. Wenn Sie dauerhaft zu viel tragen, zu wenig schlafen, sich sozial zurückziehen und nur noch reagieren, ist sie nicht Optimierung, sondern Schutz vor weiterer Auszehrung. <strong>Ihre Gesundheit hat einen Eigenwert.</strong> Nicht erst, wenn Sie zusammenbrechen. Und nicht nur, damit Sie weiter durchhalten können.</p>
 
   <div class="surface-callout-box surface-callout-box--accent-info reveal">
-    <div class="surface-callout-box__icon">📊</div>
+    <div class="surface-callout-box__icon" aria-hidden="true">📊</div>
     <div class="surface-callout-box__body">
       <p><strong>Das ist kein subjektives Gefühl — es ist gut belegt:</strong> Wie in <a href="/modul/2/">Modul 2</a> beschrieben, entwickeln Angehörige von Menschen mit bipolarer Störung überproportional häufig eigene depressive oder Angstsymptome. Die Belastung durch die Pflege verursacht die Symptome — nicht umgekehrt. Entlastung ist deshalb <em>Prävention</em>, nicht Selbstsucht.</p>
     </div>
@@ -215,134 +212,58 @@ breadcrumbs:
     <a href="/tools/durchatmen/" class="tool-embed-fallback">Auf eigener Seite öffnen →</a>
   </div>
 
-  <div class="selfcare-grid reveal content-wide">
-    <div class="selfcare-card body">
-      <h4>Kurzfristige Regulation</h4>
-      <p class="text-soft-sm">Akute Stressbewältigung im Alltag</p>
-      <ul>
-        <li>Atemübungen (wie oben)</li>
-        <li>Kurze Pausen einfordern</li>
-        <li>Bewegung an der frischen Luft</li>
-        <li>Ausreichend Schlaf priorisieren</li>
-      </ul>
-    </div>
-    <div class="selfcare-card soul">
-      <h4>Langfristige Struktur</h4>
-      <p class="text-soft-sm">Schutz vor chronischer Auszehrung</p>
-      <ul>
-        <li>Hobbys ohne Erkrankungsbezug</li>
-        <li>Freundschaften bewusst pflegen</li>
-        <li>Eigene Arztbesuche wahrnehmen</li>
-        <li>Psychologische Unterstützung suchen</li>
-      </ul>
-    </div>
-    <div class="selfcare-card relation">
-      <h4>Beziehungspflege</h4>
-      <p class="text-soft-sm">Stabilität im Miteinander</p>
-      <ul>
-        <li>Gemeinsame Rituale schaffen</li>
-        <li>Notfallabsprachen in stabilen Phasen</li>
-        <li>Paartherapie als Prävention</li>
-        <li>Momente ohne Erkrankungsthema</li>
-      </ul>
-    </div>
-  </div>
+
 
   <h3 class="reveal">Soziale Kontakte nach Co-Isolation wiederaufbauen</h3>
   <p class="reveal">Co-Isolation — der schleichende Rückzug aus dem eigenen sozialen Netz — ist eine der häufigsten Langzeitfolgen für Angehörige (Perlick et al., 2007). Wer sich über Monate erklärt hat, abgesagt hat oder einfach zu müde war, findet den Wiedereinstieg oft schwer.</p>
   <p class="reveal">Was helfen kann: Mit einer einzigen Vertrauensperson beginnen, nicht mit dem ganzen Netz. Erklären, was in der eigenen Sprache stimmig ist — ohne Vollständigkeit. Angehörigengruppen bieten den Vorteil, dass kein Erklärungsbedarf besteht — Kontakte finden Sie unten. <strong>Das Ziel ist nicht das alte Netz zurück, sondern ein neues, das zu Ihrer jetzigen Situation passt.</strong></p>
 
-  <h3 class="reveal">Bewältigungsstrategien — drei Ansätze</h3>
-  <div class="coping-nav reveal content-wide">
-    <div class="coping-nav-item coping-nav-item--problem">
-      <span class="coping-nav-need">«Ich muss etwas tun — die Lage ist konkret»</span>
-      <span class="coping-nav-arrow" aria-hidden="true">→</span>
-      <span class="coping-nav-label">Problemfokussiert</span>
-    </div>
-    <div class="coping-nav-item coping-nav-item--emotion">
-      <span class="coping-nav-need">«Ich bin emotional überwältigt»</span>
-      <span class="coping-nav-arrow" aria-hidden="true">→</span>
-      <span class="coping-nav-label">Emotionsfokussiert</span>
-    </div>
-    <div class="coping-nav-item coping-nav-item--bedeutung">
-      <span class="coping-nav-need">«Ich brauche einen grösseren Rahmen»</span>
-      <span class="coping-nav-arrow" aria-hidden="true">→</span>
-      <span class="coping-nav-label">Bedeutungsfokussiert</span>
-    </div>
-  </div>
-  <div class="surface-explain-grid surface-explain-grid--two reveal content-wide">
-    <div class="surface-explain-card surface-explain-card--list">
-      <h4>Problemfokussiert</h4>
-      <ul>
-        <li>Psychoedukation (wie diese Website)</li>
-        <li>Vorsorgeplan für Krisen anlegen</li>
-        <li>Behandlungsteam kontaktieren</li>
-        <li>Finanzielle Absicherung</li>
-      </ul>
-    </div>
-    <div class="surface-explain-card surface-explain-card--list">
-      <h4>Emotionsfokussiert</h4>
-      <ul>
-        <li>Austausch in Selbsthilfegruppen</li>
-        <li>Entspannung (Atem, Yoga, Natur)</li>
-        <li>Soziale Unterstützung suchen</li>
-        <li>Tagebuch schreiben</li>
-      </ul>
-    </div>
-    <div class="surface-explain-card surface-explain-card--list">
-      <h4>Bedeutungsfokussiert</h4>
-      <ul>
-        <li>Eigene Geschichte neu erzählen — was hat das mit mir gemacht?</li>
-        <li>Wachstum anerkennen, ohne es zu erzwingen</li>
-        <li>Dem Erlebten einen Platz geben (Gespräch, Schreiben, Therapie)</li>
-        <li>Kein frühes Ziel — eher ein späteres</li>
-      </ul>
-    </div>
-  </div>
 
-  <!-- ══════════ 2. DIMENSIONEN DER TRAGFÄHIGKEIT ══════════ -->
-  <h3 class="reveal">Beruf und Angehörigenrolle</h3>
-  <p class="reveal">Arbeit kann ein Schutzfaktor sein — sie gibt Identität, Struktur und Abstand. Gleichzeitig leiden viele Angehörige über Monate unter Konzentrationsproblemen, Fehlzeiten oder reduzierter Leistungsfähigkeit, ohne dass das von aussen sichtbar ist.</p>
-  <p class="reveal">Was helfen kann: Den Hausarzt einbeziehen, wenn die Belastung die Arbeitsfähigkeit beeinträchtigt. Vertrauenspersonen am Arbeitsplatz (z.B. Personalverantwortliche oder Vertrauensärzte) frühzeitig ansprechen — nicht um Details zu erklären, sondern um Spielraum zu schaffen. <strong>Sie sind nicht verpflichtet, Ihrer Arbeitgeberin die Diagnose einer nahestehenden Person mitzuteilen.</strong> Eine Krankschreibung wegen eigener Erschöpfung ist möglich und legitim.</p>
-  <p class="reveal">Ob Sie Ihren Arbeitgeber informieren, hängt stark von Ihrer konkreten Situation ab. Manchmal reicht ein Hinweis: «Ich habe gerade eine belastende Familiensituation» — ohne Details. Wichtiger als die Frage, wie viel Sie sagen, ist die Frage: Welchen Spielraum brauche ich gerade?</p>
+
+  <div class="surface-callout-box surface-callout-box--accent-info reveal">
+    <div class="surface-callout-box__icon" aria-hidden="true">💼</div>
+    <div class="surface-callout-box__body">
+      <h4>Praxisbox: Beruf und Angehörigenrolle</h4>
+      <p>Arbeit kann ein Schutzfaktor sein — sie gibt Identität, Struktur und Abstand. Gleichzeitig leiden viele Angehörige über Monate unter Konzentrationsproblemen, Fehlzeiten oder reduzierter Leistungsfähigkeit, ohne dass das von aussen sichtbar ist.</p>
+      <p>Was helfen kann: Den Hausarzt einbeziehen, wenn die Belastung die Arbeitsfähigkeit beeinträchtigt. Vertrauenspersonen am Arbeitsplatz (z.B. Personalverantwortliche oder Vertrauensärzte) frühzeitig ansprechen — nicht um Details zu erklären, sondern um Spielraum zu schaffen. <strong>Sie sind nicht verpflichtet, Ihrer Arbeitgeberin die Diagnose einer nahestehenden Person mitzuteilen.</strong> Eine Krankschreibung wegen eigener Erschöpfung ist möglich und legitim.</p>
+      <p>Ob Sie Ihren Arbeitgeber informieren, hängt stark von Ihrer konkreten Situation ab. Manchmal reicht ein Hinweis: «Ich habe gerade eine belastende Familiensituation» — ohne Details. Wichtiger als die Frage, wie viel Sie sagen, ist die Frage: Welchen Spielraum brauche ich gerade?</p>
+    </div>
+  </div>
 
   <div class="surface-callout surface-callout--positive reveal">
     <p>Manche Angehörige beschreiben, dass sich die Beziehung mit der Zeit verändert — nicht nur zum Schwereren, sondern auch zum Bewussteren, Ehrlicheren. Das passiert nicht automatisch und nicht bei allen. Aber es passiert.</p>
   </div>
 
-  <h2 id="dimensionen" class="reveal section-pause">Was langfristig trägt: Drei Dimensionen</h2>
-  <p class="reveal">Langfristige Tragfähigkeit entsteht selten aus grossen Durchbrüchen. Gemeint ist: Der Alltag wird Schritt für Schritt etwas stabiler und haltbarer. Die Forschung zu Angehörigenbelastung (Caregiver Burden) zeigt, dass Resilienz nicht einfach «positives Denken» ist. Sie entsteht aus konkreten, wiederholbaren Strukturen, die vor Auszehrung schützen.</p>
-  
   <div class="module-illustration reveal">
     <div class="module-illustration__body">
       <p>Die folgenden drei Dimensionen sind kein Idealzustand, den Sie perfekt erfüllen müssen. Sie sind eher eine praktische Orientierung: Was hilft Beziehungen und Angehörigen, über Zeit nicht nur zu überleben, sondern etwas tragfähiger zu werden?</p>
       <p>Es geht dabei um die Balance zwischen kurzfristiger Regulation (wie dem Durchatmen oben) und langfristigen strukturellen Veränderungen.</p>
     </div>
     <figure class="module-illustration__figure module-illustration__figure--asset-feather">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 272" style="width:100%;max-width:300px" aria-label="Drei Dimensionen der Tragfähigkeit: Grenzen, Coping und Rückbindung" role="img">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 272" style="width:100%;max-width:300px" aria-label="Drei Dimensionen der Tragfähigkeit: 1. Schutz der eigenen Grenzen, 2. Aktives Coping vs. Über-Involvierung, 3. Soziale und professionelle Rückbindung" role="img">
         <!-- Background circles -->
         <circle cx="170" cy="136" r="110" fill="rgba(30,101,109,0.03)" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="4,4"/>
         <circle cx="170" cy="136" r="70" fill="rgba(30,101,109,0.05)" stroke="#cbd5e1" stroke-width="1"/>
         
         <!-- Center -->
         <circle cx="170" cy="136" r="35" fill="white" stroke="#3a9aa3" stroke-width="2"/>
-        <text x="170" y="132" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="11" font-weight="700" fill="#3a9aa3">Trag-</text>
-        <text x="170" y="146" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="11" font-weight="700" fill="#3a9aa3">fähigkeit</text>
+        <text x="170" y="132" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="11" font-weight="700" fill="#3a9aa3" aria-hidden="true">Trag-</text>
+        <text x="170" y="146" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="11" font-weight="700" fill="#3a9aa3" aria-hidden="true">fähigkeit</text>
         
         <!-- Node 1: Grenzen (Top) -->
         <line x1="170" y1="101" x2="170" y2="50" stroke="#475569" stroke-width="2"/>
         <circle cx="170" cy="50" r="24" fill="#475569"/>
-        <text x="170" y="55" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="14" font-weight="700" fill="white">1</text>
+        <text x="170" y="55" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="14" font-weight="700" fill="white" aria-hidden="true">1</text>
         
         <!-- Node 2: Coping (Bottom Right) -->
         <line x1="198" y1="156" x2="250" y2="195" stroke="#B45309" stroke-width="2"/>
         <circle cx="250" cy="195" r="24" fill="#B45309"/>
-        <text x="250" y="200" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="14" font-weight="700" fill="white">2</text>
+        <text x="250" y="200" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="14" font-weight="700" fill="white" aria-hidden="true">2</text>
         
         <!-- Node 3: Rückbindung (Bottom Left) -->
         <line x1="142" y1="156" x2="90" y2="195" stroke="#2D5F8A" stroke-width="2"/>
         <circle cx="90" cy="195" r="24" fill="#2D5F8A"/>
-        <text x="90" y="200" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="14" font-weight="700" fill="white">3</text>
+        <text x="90" y="200" text-anchor="middle" dominant-baseline="middle" font-family="DM Sans,sans-serif" font-size="14" font-weight="700" fill="white" aria-hidden="true">3</text>
       </svg>
     </figure>
   </div>
@@ -363,13 +284,13 @@ breadcrumbs:
     <div class="accordion-item">
       <button type="button" class="accordion-header" aria-expanded="false" aria-controls="accordion-grenzen">
         <span class="accordion-header-left">
-          <span class="accordion-icon">🛡️</span>
+          <span class="accordion-icon" aria-hidden="true">🛡️</span>
           <span>
             <span class="accordion-title">Ihre Grenzen und Verantwortlichkeiten</span>
             <span class="accordion-sub">Tragen Sie Dinge, die eigentlich nicht Ihre sind?</span>
           </span>
         </span>
-        <span class="accordion-toggle">+</span>
+        <span class="accordion-toggle" aria-hidden="true">+</span>
       </button>
       <div class="accordion-body" id="accordion-grenzen" hidden>
         <div class="accordion-body-inner">
@@ -383,13 +304,13 @@ breadcrumbs:
     <div class="accordion-item">
       <button type="button" class="accordion-header" aria-expanded="false" aria-controls="accordion-inseln">
         <span class="accordion-header-left">
-          <span class="accordion-icon">🏝️</span>
+          <span class="accordion-icon" aria-hidden="true">🏝️</span>
           <span>
             <span class="accordion-title">Krankheitsfreie Inseln</span>
             <span class="accordion-sub">Gibt es noch Raum für Sie als Person oder Paar?</span>
           </span>
         </span>
-        <span class="accordion-toggle">+</span>
+        <span class="accordion-toggle" aria-hidden="true">+</span>
       </button>
       <div class="accordion-body" id="accordion-inseln" hidden>
         <div class="accordion-body-inner">
@@ -403,13 +324,13 @@ breadcrumbs:
     <div class="accordion-item">
       <button type="button" class="accordion-header" aria-expanded="false" aria-controls="accordion-netz">
         <span class="accordion-header-left">
-          <span class="accordion-icon">🤝</span>
+          <span class="accordion-icon" aria-hidden="true">🤝</span>
           <span>
             <span class="accordion-title">Ihr soziales Netz</span>
             <span class="accordion-sub">Wer stützt Sie, wenn Sie andere stützen?</span>
           </span>
         </span>
-        <span class="accordion-toggle">+</span>
+        <span class="accordion-toggle" aria-hidden="true">+</span>
       </button>
       <div class="accordion-body" id="accordion-netz" hidden>
         <div class="accordion-body-inner">
@@ -438,8 +359,11 @@ breadcrumbs:
     <p>Wenn Sie merken, dass Sie über längere Zeit mehr tragen, weniger Raum haben oder Ihre Erschöpfung kaum vorkommt: Das ist <strong>kein Zeichen persönlicher Schwäche</strong>. Es kann ein Hinweis darauf sein, dass Belastung und Verantwortung in Ihrer Situation stillschweigend ungleich verteilt sind — und dass es einen Anlass gibt, sie ausdrücklich zu besprechen.</p>
   </div>
 
+  <!-- ══════════ 3. ZUSAMMENARBEIT ══════════ -->
+  <h2 id="zusammenarbeit" class="reveal section-pause">Zusammenarbeit und Entwicklung</h2>
+  
   <h3 id="wuensche" class="reveal">Was betroffene Menschen sich häufig wünschen</h3>
-  <p class="reveal">Ein kurzer Blick auf die andere Seite kann helfen, Missverständnisse zu entschärfen. Nicht, um Ihre Belastung kleiner zu machen, sondern um zu sehen, welche Formen von Unterstützung oft eher tragen als Kontrolle oder Schonhaltung.</p>
+  <p class="reveal">Ein kurzer Blick auf die andere Seite kann helfen, Missverständnisse zu entschärfen. <strong>Dieser Abschnitt soll Ihre Belastung nicht relativieren</strong>, sondern aufzeigen, welche Formen von Unterstützung oft eher tragen als Kontrolle oder Schonhaltung.</p>
 
   <div class="surface-explain-grid surface-explain-grid--two reveal content-wide">
     <div class="surface-explain-card surface-explain-card--quote-accent"><h4>Nicht als Erkrankung behandelt werden</h4><p>«Ich bin mehr als meine Diagnose. Ich bin immer noch ich.»</p></div>
@@ -450,14 +374,13 @@ breadcrumbs:
 
   <p class="reveal">Diese Wünsche decken sich häufig mit dem, was auch für Angehörige entlastend ist: offene Sprache, klare Grenzen, weniger Schonhaltung, mehr abgestimmte Verantwortung. Was gut für Sie ist, ist oft auch für die Beziehung hilfreicher als blosse Anpassung.</p>
 
-  <!-- ══════════ 4. TRIALOG ══════════ -->
-  <h2 id="trialog" class="reveal section-pause">Trialog und Zusammenarbeit</h2>
+  <h3 id="trialog" class="reveal">Trialog und Zusammenarbeit</h3>
   <p class="reveal">Langfristig tragfähiger wird Versorgung oft dann, wenn nicht nur zwischen Betroffenen und Fachpersonen gesprochen wird. Angehörige tragen Alltagswissen, Warnzeichen, Belastungswissen und eigene Bedürfnisse mit hinein. Das macht Zusammenarbeit nicht automatisch leicht, aber oft realistischer.</p>
 
   <div class="trialog-visual reveal content-wide">
-    <div class="trialog-card"><div class="trialog-icon">🏥</div><h3>Fachpersonen</h3><p>Fachwissen, Diagnostik, Behandlung</p></div>
-    <div class="trialog-card"><div class="trialog-icon">🤝</div><h3>Angehörige</h3><p>Alltagswissen, Beobachtungen, eigene Bedürfnisse</p></div>
-    <div class="trialog-card"><div class="trialog-icon">💚</div><h3>Betroffene</h3><p>Erfahrungswissen, Präferenzen, Selbstbestimmung</p></div>
+    <div class="trialog-card"><div class="trialog-icon" aria-hidden="true">🏥</div><h3>Fachpersonen</h3><p>Fachwissen, Diagnostik, Behandlung</p></div>
+    <div class="trialog-card"><div class="trialog-icon" aria-hidden="true">🤝</div><h3>Angehörige</h3><p>Alltagswissen, Beobachtungen, eigene Bedürfnisse</p></div>
+    <div class="trialog-card"><div class="trialog-icon" aria-hidden="true">💚</div><h3>Betroffene</h3><p>Erfahrungswissen, Präferenzen, Selbstbestimmung</p></div>
   </div>
 
   <p class="reveal"><strong>Konkret:</strong> Fragen Sie das Behandlungsteam aktiv nach Angehörigengesprächen — das ist ein legitimes Anliegen, kein Eingriff in die Behandlung. Sie können dem Behandlungsteam jederzeit Beobachtungen mitteilen, auch ohne Schweigepflichtentbindung — Details dazu in <a href="/modul/6/#schweige" class="link-teal">Modul 6</a>.</p>
@@ -474,16 +397,15 @@ breadcrumbs:
 
   <p class="reveal">Wenn Sie das Gefühl haben, dass Ihre Perspektive im Behandlungssystem nicht ankommt — bitten Sie um ein explizites Angehörigengespräch (nicht nur eine kurze Rückfrage am Rand). Bei anhaltender Frustration ist <a href="{{ site.contacts.proMenteSana.url }}" target="_blank" rel="noopener" class="link-teal">Pro Mente Sana</a> eine gute ergänzende Stelle für kostenlose Beratung zu Beschwerde- und Rechtswegen.</p>
 
-  <!-- ══════════ 6. WACHSTUM ══════════ -->
-  <h2 id="wachstum" class="reveal section-pause">Was Wachstum heissen kann — und was nicht</h2>
+  <h3 id="wachstum" class="reveal section-pause">Was Wachstum heissen kann — und was nicht</h3>
   <p class="reveal"><em>Dieser Abschnitt ist für Momente mit etwas Abstand, nicht für akute Erschöpfung.</em></p>
   <p class="reveal">Wenn nach langen Belastungen von Wachstum gesprochen wird, klingt das schnell so, als müsse am Ende etwas Gutes herauskommen. Das ist nicht gemeint. Posttraumatisches Wachstum beschreibt nur, dass manche Menschen mit der Zeit neue Sprache, klarere Grenzen oder veränderte Prioritäten entwickeln. Das Leiden wird dadurch nicht sinnvoller. Und Wachstum ist keine Pflicht.</p>
 
   <div class="ptg-grid reveal content-wide">
-    <div class="ptg-card"><div class="ptg-icon">🫀</div><p>Erhöhte Empathie und tieferes Verständnis für Leiden anderer</p></div>
-    <div class="ptg-card"><div class="ptg-icon">🌱</div><p>Persönliche Reife — Geduld, Toleranz, Bewusstsein für das Wesentliche</p></div>
-    <div class="ptg-card"><div class="ptg-icon">💪</div><p>Entdeckung eigener Ressourcen, die man vorher nicht kannte</p></div>
-    <div class="ptg-card"><div class="ptg-icon">✨</div><p>Tiefere Wertschätzung für Gesundheit, stabile Momente und echte Beziehungen</p></div>
+    <div class="ptg-card"><div class="ptg-icon" aria-hidden="true">🫀</div><p>Erhöhte Empathie und tieferes Verständnis für Leiden anderer</p></div>
+    <div class="ptg-card"><div class="ptg-icon" aria-hidden="true">🌱</div><p>Persönliche Reife — Geduld, Toleranz, Bewusstsein für das Wesentliche</p></div>
+    <div class="ptg-card"><div class="ptg-icon" aria-hidden="true">💪</div><p>Entdeckung eigener Ressourcen, die man vorher nicht kannte</p></div>
+    <div class="ptg-card"><div class="ptg-icon" aria-hidden="true">✨</div><p>Tiefere Wertschätzung für Gesundheit, stabile Momente und echte Beziehungen</p></div>
   </div>
 
   <p class="reveal"><strong>Fortschritt ist wellenförmig, nicht linear.</strong> Drei Schritte vor, zwei zurück — das ist kein Scheitern. Entscheidend ist oft nicht der einzelne Rückfall, sondern ob über Zeit etwas mehr Klarheit, Entlastung oder Boden wächst.</p>
@@ -497,6 +419,7 @@ breadcrumbs:
 
   <h3 id="rueckfall-nach-stabilitaet" class="reveal">Wenn es nach Jahren wieder passiert</h3>
   <p class="reveal">Der Rückfall nach einer langen stabilen Phase gehört zu den schmerzhaftesten Erfahrungen für Angehörige — qualitativ anders als die ersten Episoden oder chronisches Cycling. Denn diesmal hatten Sie angefangen zu glauben, dass es vorbei sein könnte. Pläne, Vertrauen, Normalität — all das bricht nicht zum ersten Mal zusammen, aber <strong>es bricht aus einer Höhe, die Sie sich erst mühsam erarbeitet hatten.</strong></p>
+  <p class="reveal">Wichtig: Ein Rückfall nach Jahren ist kein Beweis dafür, dass Sie etwas falsch gemacht haben oder dass die Stabilität eine Illusion war. Bipolare Störung hat Rückfälle in ihrer Natur — auch bei guter Behandlung und stabiler Umgebung. Sie tragen keine Schuld daran.</p>
 
   <div class="reveal">
     <p>Was diesen Rückfall von früheren unterscheidet:</p>
@@ -512,14 +435,14 @@ breadcrumbs:
 
   <p class="reveal surface-callout surface-callout--positive">Zur Einordnung: Rückfälle sind bei bipolarer Störung häufig — aber mit jeder Episode, die gut begleitet wird, wächst das gemeinsame Wissen darüber, was hilft. Viele Familien berichten, dass spätere Episoden — bei aller Schwere — weniger chaotisch verlaufen, weil Pläne und Erfahrung da sind.</p>
 
-  <!-- ══════════ 7. HANDLUNGSSCHRITTE ══════════ -->
-  <h2 id="handeln" class="reveal section-pause">Was Sie jetzt für die lange Strecke tun können</h2>
+  <!-- ══════════ 4. HANDLUNGSSCHRITTE ══════════ -->
+  <h2 id="handeln" class="reveal section-pause">Was Sie jetzt tun können</h2>
 
   <div class="action-grid reveal content-wide">
-    <div class="action-card"><div class="action-icon">1</div><div><h3>Eine Nachkrise-Bilanz machen</h3><p>Nach einer schwierigeren Phase kurz festhalten: Was hat geholfen? Was hat gefehlt? Was müsste beim nächsten Mal früher oder anders passieren?</p></div></div>
-    <div class="action-card"><div class="action-icon">2</div><div><h3>Einen nicht-verhandelbaren Selbstfürsorge-Termin setzen</h3><p>Etwas, das nur Ihnen gehört. Eintragen wie einen Arzttermin. Nicht als Belohnung nach Funktionieren, sondern als fester Teil Ihrer Stabilität.</p></div></div>
-    <div class="action-card"><div class="action-icon">3</div><div><h3>Zusammenarbeit aktiv einfordern</h3><p>Bitten Sie um Angehörigengespräche oder wenigstens darum, dass Ihre Beobachtungen gehört und dokumentiert werden. Zusammenarbeit wird selten von allein klar.</p></div></div>
-    <div class="action-card"><div class="action-icon">4</div><div><h3>Eigene Grenzen prüfen</h3><p>Nutzen Sie den Entlastungs-Kompass, um regelmässig zu prüfen, ob Sie Aufgaben tragen, die Sie eigentlich abgeben müssten.</p></div></div>
+    <div class="action-card"><div class="action-icon" aria-hidden="true">1</div><div><h3>Eine Nachkrise-Bilanz machen</h3><p>Nach einer schwierigeren Phase kurz festhalten: Was hat geholfen? Was hat gefehlt? Was müsste beim nächsten Mal früher oder anders passieren?</p></div></div>
+    <div class="action-card"><div class="action-icon" aria-hidden="true">2</div><div><h3>Einen nicht-verhandelbaren Selbstfürsorge-Termin setzen</h3><p>Etwas, das nur Ihnen gehört. Eintragen wie einen Arzttermin. Nicht als Belohnung nach Funktionieren, sondern als fester Teil Ihrer Stabilität.</p></div></div>
+    <div class="action-card"><div class="action-icon" aria-hidden="true">3</div><div><h3>Zusammenarbeit aktiv einfordern</h3><p>Bitten Sie um Angehörigengespräche oder wenigstens darum, dass Ihre Beobachtungen gehört und dokumentiert werden. Zusammenarbeit wird selten von allein klar.</p></div></div>
+    <div class="action-card"><div class="action-icon" aria-hidden="true">4</div><div><h3>Eigene Grenzen prüfen</h3><p>Nutzen Sie den Entlastungs-Kompass, um regelmässig zu prüfen, ob Sie Aufgaben tragen, die Sie eigentlich abgeben müssten.</p></div></div>
   </div>
 
   <div class="resource-box anlaufstellen-box reveal">
