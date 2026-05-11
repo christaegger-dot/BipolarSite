@@ -1,0 +1,103 @@
+---
+layout: "base"
+title: "Suche | Bipolare Störung – Psychoedukation für Angehörige"
+navCurrent: ""
+description: "Durchsuchen Sie alle Inhalte: Module, Werkzeuge, Anlaufstellen und Materialien."
+permalink: "/suche/"
+useSharedCSS: true
+useNavJS: true
+bodyClass: "hub-page suche-page"
+breadcrumbs:
+  - name: "Suche"
+    url: "/suche/"
+---
+{% block headCSS %}
+<link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+<style>
+.suche-hero {
+  padding: calc(var(--nav-height) + var(--space-2xl)) 2rem var(--section-standard);
+  background: var(--bg);
+}
+.suche-hero-inner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+.suche-hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: var(--text-3xl);
+  font-weight: 400;
+  color: var(--navy);
+  margin-bottom: var(--space-md);
+}
+.suche-hero p {
+  font-size: var(--text-body);
+  color: var(--text-soft);
+  margin-bottom: var(--space-2xl);
+}
+.suche-container {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--section-standard) 2rem var(--space-4xl);
+}
+/* Pagefind-UI Anpassungen an die Farbpalette */
+:root {
+  --pagefind-ui-scale: 1;
+  --pagefind-ui-primary: var(--teal-text);
+  --pagefind-ui-text: var(--slate);
+  --pagefind-ui-background: var(--card);
+  --pagefind-ui-border: var(--border-warm);
+  --pagefind-ui-tag: var(--surface-alt);
+  --pagefind-ui-border-width: 1px;
+  --pagefind-ui-border-radius: var(--radius-sm);
+  --pagefind-ui-font: 'DM Sans', system-ui, sans-serif;
+}
+.pagefind-ui__search-input {
+  font-size: var(--text-body) !important;
+}
+.pagefind-ui__result-title {
+  color: var(--navy) !important;
+  font-weight: 600 !important;
+}
+.pagefind-ui__result-excerpt mark {
+  background: var(--amber-faint) !important;
+  color: var(--text) !important;
+  border-radius: 2px;
+  padding: 0 2px;
+}
+</style>
+{% endblock %}
+{% block nav %}
+{% include "nav-full.njk" %}
+{% endblock %}
+{% block content %}
+<header class="suche-hero">
+  <div class="suche-hero-inner">
+    <div class="breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><span>Suche</span></div>
+    <h1>Suche</h1>
+    <p>Durchsuchen Sie alle Inhalte: Module, Werkzeuge, Anlaufstellen und Materialien.</p>
+  </div>
+</header>
+<main id="main-content" class="suche-container">
+  <div id="search"></div>
+</main>
+{% endblock %}
+{% block scripts %}
+<script src="/pagefind/pagefind-ui.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', function() {
+    new PagefindUI({
+      element: '#search',
+      showSubResults: true,
+      translations: {
+        placeholder: 'Suche nach Themen, z.B. «Krisenplan» oder «Schlaf»',
+        zero_results: 'Keine Ergebnisse für [SEARCH_TERM]',
+        many_results: '[COUNT] Ergebnisse für [SEARCH_TERM]',
+        one_result: '1 Ergebnis für [SEARCH_TERM]',
+        alt_search: 'Keine Ergebnisse für [SEARCH_TERM]. Ergebnisse für [DIFFERENT_TERM]:',
+        search_suggestion: 'Keine Ergebnisse für [SEARCH_TERM]. Ähnliche Suche:',
+        searching: 'Suche läuft…',
+      }
+    });
+  });
+</script>
+{% endblock %}

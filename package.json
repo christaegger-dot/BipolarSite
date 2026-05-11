@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "eleventy",
+    "build": "eleventy && npx pagefind --site _site",
     "serve": "eleventy --serve",
     "clean": "rm -rf _site",
     "lint:html": "html-validate \"_site/**/*.html\"",
@@ -26,6 +26,7 @@
     "html-validate": "^9.0.0",
     "http-server": "^14.1.1",
     "pa11y-ci": "^4.1.0",
+    "pagefind": "^1.5.2",
     "stylelint": "^16.0.0",
     "stylelint-config-standard": "^36.0.0",
     "wait-on": "^9.0.5"

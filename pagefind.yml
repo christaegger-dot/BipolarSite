@@ -1,0 +1,8 @@
+site: _site
+root_selector: "main"
+exclude_selectors:
+  - "nav"
+  - "footer"
+  - ".module-nav"
+  - ".toc"
+  - ".no-index"
