@@ -2,8 +2,8 @@ const sources = require("./sources");
 
 const primaryUrl = "https://bipolarsite.netlify.app";
 const deployContext = process.env.CONTEXT || "development";
-const contentReviewed = "2026-05-01";
-const contactsReviewed = "2026-05-01";
+const contentReviewed = "2026-05-11";
+const contactsReviewed = "2026-05-11";
 
 const formatReviewedDate = (value) => {
   const [year, month, day] = value.split("-").map(Number);
@@ -17,7 +17,7 @@ const formatReviewedDate = (value) => {
 
 module.exports = {
   url: primaryUrl,
-  assetVersion: "2026-05-10-o1",
+  assetVersion: "2026-05-11-o1",
   buildYear: new Date().getFullYear(),
   title: "Bipolare Störung – Psychoedukation für Angehörige | PUK Zürich",
   org: "Psychiatrische Universitätsklinik Zürich",

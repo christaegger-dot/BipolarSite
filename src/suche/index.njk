@@ -1,0 +1,52 @@
+---
+layout: "base"
+title: "Suche | Bipolare Störung – Psychoedukation für Angehörige"
+navCurrent: ""
+description: "Durchsuchen Sie alle Inhalte: Module, Werkzeuge, Anlaufstellen und Materialien."
+permalink: "/suche/"
+useSharedCSS: true
+useNavJS: true
+bodyClass: "hub-page suche-page"
+breadcrumbs:
+  - name: "Suche"
+    url: "/suche/"
+---
+{% block headCSS %}
+<link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/suche.css?v={{ site.assetVersion }}">
+{% endblock %}
+{% block nav %}
+{% include "nav-full.njk" %}
+{% endblock %}
+{% block content %}
+<header class="suche-hero">
+  <div class="suche-hero-inner">
+    <div class="breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><span>Suche</span></div>
+    <h1>Suche</h1>
+    <p>Durchsuchen Sie alle Inhalte: Module, Werkzeuge, Anlaufstellen und Materialien.</p>
+  </div>
+</header>
+<main id="main-content" class="suche-container">
+  <div id="search"></div>
+</main>
+{% endblock %}
+{% block scripts %}
+<script src="/pagefind/pagefind-ui.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', function() {
+    new PagefindUI({
+      element: '#search',
+      showSubResults: true,
+      translations: {
+        placeholder: 'Suche nach Themen, z.B. «Krisenplan» oder «Schlaf»',
+        zero_results: 'Keine Ergebnisse für [SEARCH_TERM]',
+        many_results: '[COUNT] Ergebnisse für [SEARCH_TERM]',
+        one_result: '1 Ergebnis für [SEARCH_TERM]',
+        alt_search: 'Keine Ergebnisse für [SEARCH_TERM]. Ergebnisse für [DIFFERENT_TERM]:',
+        search_suggestion: 'Keine Ergebnisse für [SEARCH_TERM]. Ähnliche Suche:',
+        searching: 'Suche läuft…',
+      }
+    });
+  });
+</script>
+{% endblock %}
