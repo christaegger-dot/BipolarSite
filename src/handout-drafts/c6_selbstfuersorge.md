@@ -107,7 +107,7 @@ Setzen Sie in dieser Woche **einen nicht verhandelbaren Termin**, der nur Ihrer 
 
 Weiterführend:
 
-- [Modul 7: Langfristige Tragfähigkeit](/modul/7/#selbstfuersorge)
+- [Modul 7: Langfristige Tragfähigkeit](/modul/7/#tragfaehigkeit)
 - [Durchatmen – geführte Atemübung](/tools/durchatmen/)
 - [Anlaufstellen und Ressourcen](/anlaufstellen/)
 - Dargebotene Hand: 143

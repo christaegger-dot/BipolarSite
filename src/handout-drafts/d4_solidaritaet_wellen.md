@@ -98,7 +98,7 @@ Fragen Sie sich heute nicht, ob alle fünf Säulen stark genug sind. Fragen Sie 
 
 Weiterführend:
 
-- [Modul 7: Was langfristig trägt](/modul/7/#saeulen)
+- [Modul 7: Was langfristig trägt](/modul/7/#tragfaehigkeit)
 - [Säulen-Check](/tools/saeulen-check/)
 - [Modul 6: Krisenplan und Vorbereitung](/modul/6/)
 - [Modul 3: Grenzen und Wertschätzung](/modul/3/)
