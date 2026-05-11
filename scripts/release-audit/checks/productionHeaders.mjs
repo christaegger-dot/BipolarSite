@@ -30,36 +30,37 @@ function expectHeader(findings, url, headers, name, expectedFragment, severity =
 export async function runProductionHeadersCheck(context) {
   const requireFromRepo = createRepoRequire(context.repoRoot);
   const site = requireFromRepo("./src/_data/site.js");
+  const baseUrl = context.baseUrl || site.url;
   const findings = [];
 
   try {
-    const home = await fetchTextResponse(site.url);
+    const home = await fetchTextResponse(baseUrl);
     if (!home.response.ok) {
       return createCheckResult({
         id: "production-headers",
         title: "Production headers and metadata",
         status: "fail",
-        summary: `Could not fetch ${site.url} successfully.`,
+        summary: `Could not fetch ${baseUrl} successfully.`,
         findings: [
           {
             severity: "high",
-            message: `${site.url} returned HTTP ${home.response.status}.`,
+            message: `${baseUrl} returned HTTP ${home.response.status}.`,
           },
         ],
-        metrics: { siteUrl: site.url },
+        metrics: { siteUrl: baseUrl },
       });
     }
 
-    expectHeader(findings, site.url, home.response.headers, "x-frame-options", "SAMEORIGIN");
-    expectHeader(findings, site.url, home.response.headers, "x-content-type-options", "nosniff");
-    expectHeader(findings, site.url, home.response.headers, "content-security-policy", "default-src 'self'");
-    expectHeader(findings, site.url, home.response.headers, "cache-control", "max-age=300", "medium");
+    expectHeader(findings, baseUrl, home.response.headers, "x-frame-options", "SAMEORIGIN");
+    expectHeader(findings, baseUrl, home.response.headers, "x-content-type-options", "nosniff");
+    expectHeader(findings, baseUrl, home.response.headers, "content-security-policy", "default-src 'self'");
+    expectHeader(findings, baseUrl, home.response.headers, "cache-control", "max-age=300", "medium");
 
     const canonical = extractCanonical(home.text);
-    if (canonical !== `${site.url}/`) {
+    if (canonical !== `${baseUrl}/`) {
       findings.push({
         severity: "high",
-        message: `Production home canonical should be ${site.url}/ but is ${canonical || "missing"}.`,
+        message: `Production home canonical should be ${baseUrl}/ but is ${canonical || "missing"}.`,
       });
     }
 
@@ -72,14 +73,14 @@ export async function runProductionHeadersCheck(context) {
     }
 
     const ogUrl = extractMetaContent(home.text, "property", "og:url");
-    if (ogUrl !== `${site.url}/`) {
+    if (ogUrl !== `${baseUrl}/`) {
       findings.push({
         severity: "medium",
-        message: `Production home og:url should be ${site.url}/ but is ${ogUrl || "missing"}.`,
+        message: `Production home og:url should be ${baseUrl}/ but is ${ogUrl || "missing"}.`,
       });
     }
 
-    const cleanHtmlUrls = [`${site.url}/module/`, `${site.url}/notfall/`];
+    const cleanHtmlUrls = [`${baseUrl}/module/`, `${baseUrl}/notfall/`];
     for (const url of cleanHtmlUrls) {
       const response = await fetchTextResponse(url);
       if (!response.response.ok) {
@@ -100,8 +101,8 @@ export async function runProductionHeadersCheck(context) {
     }
 
     const staticPdfUrls = [
-      `${site.url}/downloads/notfallkarte-kanton-zuerich-puk.pdf`,
-      `${site.url}/handouts/grenzsetzung.pdf`,
+      `${baseUrl}/downloads/notfallkarte-kanton-zuerich-puk.pdf`,
+      `${baseUrl}/handouts/grenzsetzung.pdf`,
     ];
     for (const url of staticPdfUrls) {
       const response = await fetchResponse(url);
@@ -122,21 +123,21 @@ export async function runProductionHeadersCheck(context) {
       }
     }
 
-    const robotsUrl = `${site.url}/robots.txt`;
+    const robotsUrl = `${baseUrl}/robots.txt`;
     const robots = await fetchTextResponse(robotsUrl);
     if (!robots.response.ok) {
       findings.push({
         severity: "high",
         message: `${robotsUrl} returned HTTP ${robots.response.status}.`,
       });
-    } else if (!robots.text.includes(`${site.url}/sitemap.xml`)) {
+    } else if (!robots.text.includes(`${baseUrl}/sitemap.xml`)) {
       findings.push({
         severity: "high",
         message: "Production robots.txt does not point to the production sitemap URL.",
       });
     }
 
-    const sitemapUrl = `${site.url}/sitemap.xml`;
+    const sitemapUrl = `${baseUrl}/sitemap.xml`;
     const sitemap = await fetchTextResponse(sitemapUrl);
     if (!sitemap.response.ok) {
       findings.push({
@@ -161,7 +162,7 @@ export async function runProductionHeadersCheck(context) {
           message: error.message,
         },
       ],
-      metrics: { siteUrl: site.url },
+      metrics: { siteUrl: baseUrl },
     });
   }
 
@@ -177,7 +178,7 @@ export async function runProductionHeadersCheck(context) {
         : "Production HTML, PDF, cache, robots, sitemap, canonical, and security headers look consistent.",
     findings,
     metrics: {
-      siteUrl: site.url,
+      siteUrl: baseUrl,
       htmlUrls: 3,
       pdfUrls: 2,
     },

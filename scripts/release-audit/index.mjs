@@ -35,7 +35,8 @@ async function main() {
   const scriptDir = path.dirname(fileURLToPath(import.meta.url));
   const repoRoot = path.resolve(scriptDir, "..", "..");
   const siteDir = path.join(repoRoot, "_site");
-  const context = { repoRoot, siteDir, args };
+  const baseUrl = process.env.SITE_URL || null;
+  const context = { repoRoot, siteDir, args, baseUrl };
   const results = [];
 
   if (args.productionOnly) {
