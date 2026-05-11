@@ -5090,3 +5090,22 @@ a.ampel-card{text-decoration:none;display:block}
   box-shadow: 0 12px 40px rgba(26,35,50,11%), 0 2px 8px rgba(26,35,50,6%) !important;
   transform: translateY(-2px) !important;
 }
+
+/* ── Utility: sr-only (screen-reader only) ── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── Modul 7: Accordion-Overrides (icon, toggle, sub-label) ── */
+[data-module-accent="7"] .accordion-icon { font-size: 1.5rem; line-height: 1; }
+[data-module-accent="7"] .accordion-sub { display: block; font-size: 0.875rem; color: var(--text-soft); }
+[data-module-accent="7"] .accordion-toggle { font-size: 1.5rem; color: var(--navy); transition: transform 0.3s ease; }
+[data-module-accent="7"] .accordion-item.open .accordion-toggle { transform: rotate(45deg); }
