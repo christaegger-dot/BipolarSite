@@ -458,7 +458,7 @@ const handouts = {
     key: "d4_solidaritaet_wellen",
     url: "/handouts/d4_solidaritaet_wellen.pdf",
     title: "Was langfristig trägt",
-    subtitle: "Fünf Säulen für die lange Strecke",
+    subtitle: "Praxisstruktur für die lange Strecke",
     assetId: "HO-23",
     version: "web_v02",
     updated: "2026-05-01",
