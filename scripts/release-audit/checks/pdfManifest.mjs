@@ -71,7 +71,6 @@ export async function runPdfManifestCheck(context) {
       id: "pdf-manifest",
       title: "PDF manifest and assets",
       status: "fail",
-      impact: "infra",
       summary: "pdfinfo is required for PDF-QA and is missing in this environment.",
       findings: [
         {

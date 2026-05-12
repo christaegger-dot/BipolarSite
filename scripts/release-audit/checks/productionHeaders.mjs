@@ -27,19 +27,25 @@ function expectHeader(findings, url, headers, name, expectedFragment, severity =
   }
 }
 
-function createUnreachableResult(baseUrl, reason) {
+function createUnreachableResult(baseUrl, reason, { blocking = false } = {}) {
   return createCheckResult({
     id: "production-headers",
     title: "Production headers and metadata",
-    status: "warn",
-    summary: "Production audit could not verify headers because the live site was temporarily unreachable.",
+    status: blocking ? "fail" : "warn",
+    summary: blocking
+      ? "Production-only audit could not complete because the live site was unreachable."
+      : "Production reachability check did not complete; local release checks remain valid.",
     findings: [
       {
-        severity: "medium",
-        message: reason,
+        severity: blocking ? "high" : "medium",
+        message: `Reachability error for ${baseUrl}: ${reason}`,
       },
     ],
-    metrics: { siteUrl: baseUrl, reachable: false },
+    metrics: {
+      siteUrl: baseUrl,
+      reachable: false,
+      mode: blocking ? "production-only" : "full-audit",
+    },
   });
 }
 
@@ -52,7 +58,9 @@ export async function runProductionHeadersCheck(context) {
   try {
     const home = await fetchTextResponse(baseUrl);
     if (!home.response.ok) {
-      return createUnreachableResult(baseUrl, `${baseUrl} returned HTTP ${home.response.status}.`);
+      return createUnreachableResult(baseUrl, `${baseUrl} returned HTTP ${home.response.status}.`, {
+        blocking: context.args?.productionOnly === true,
+      });
     }
 
     expectHeader(findings, baseUrl, home.response.headers, "x-frame-options", "SAMEORIGIN");
@@ -155,7 +163,9 @@ export async function runProductionHeadersCheck(context) {
       });
     }
   } catch (error) {
-    return createUnreachableResult(baseUrl, error.message);
+    return createUnreachableResult(baseUrl, error.message, {
+      blocking: context.args?.productionOnly === true,
+    });
   }
 
   const hasBlockingFindings = findings.some((finding) => finding.severity === "high");
