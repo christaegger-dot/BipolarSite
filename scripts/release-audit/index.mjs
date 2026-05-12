@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import { runBuildLintCheck } from "./checks/buildLint.mjs";
 import { runBrowserHandOffCheck } from "./checks/browserHandOff.mjs";
 import { runConfigDocsCheck } from "./checks/configDocs.mjs";
+import { runCriticalContactsCheck } from "./checks/criticalContacts.mjs";
 import { runInternalLinksCheck } from "./checks/internalLinks.mjs";
 import { runPdfManifestCheck } from "./checks/pdfManifest.mjs";
 import { runProductionHeadersCheck } from "./checks/productionHeaders.mjs";
@@ -49,6 +50,7 @@ async function main() {
 
     if (buildLint.status === "pass") {
       results.push(await runInternalLinksCheck(context));
+      results.push(await runCriticalContactsCheck(context));
       results.push(await runPdfManifestCheck(context));
       results.push(await runSeoLocalCheck(context));
     } else {
@@ -56,6 +58,13 @@ async function main() {
         createSkippedCheck(
           "internal-links",
           "Internal links and anchors",
+          "Skipped because the build/lint gate did not complete successfully."
+        )
+      );
+      results.push(
+        createSkippedCheck(
+          "critical-contacts",
+          "Critical external contacts",
           "Skipped because the build/lint gate did not complete successfully."
         )
       );

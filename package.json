@@ -17,7 +17,8 @@
     "audit:release:ci": "node scripts/release-audit/index.mjs --skip-production --json",
     "audit:release:prod": "node scripts/release-audit/index.mjs --production-only",
     "audit:release:json": "node scripts/release-audit/index.mjs --json",
-    "test:e2e:preflight": "node scripts/check-playwright-browsers.mjs"
+    "test:e2e:preflight": "node scripts/check-playwright-browsers.mjs",
+    "test:release-audit": "node --test \"scripts/release-audit/**/*.test.mjs\""
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",

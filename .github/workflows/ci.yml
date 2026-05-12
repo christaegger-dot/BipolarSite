@@ -110,7 +110,7 @@ jobs:
         run: npm run test:e2e
 
   release-audit:
-    name: Release Audit (PDF manifest, internal links, SEO)
+    name: Release Audit (links, contacts, PDFs, SEO)
     runs-on: ubuntu-latest
     needs: build-and-lint
     steps:
@@ -127,6 +127,8 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y poppler-utils
       - name: Build site
         run: npm run build
+      - name: Run release audit unit tests
+        run: npm run test:release-audit
       - name: Start local server
         run: npx http-server _site -p 8080 --silent &
       - name: Wait for server to be ready
