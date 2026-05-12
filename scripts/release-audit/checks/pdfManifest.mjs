@@ -65,6 +65,7 @@ export async function runPdfManifestCheck(context) {
   const findings = [];
   const assetIds = new Map();
   let pdfInfoAvailable = true;
+  let pdfInfoFailureMessage = null;
 
   for (const asset of assets) {
     const expectedFilename = path.posix.basename(asset.url);
@@ -116,10 +117,7 @@ export async function runPdfManifestCheck(context) {
     const pdfInfoResult = await runCommand("pdfinfo", [sourcePath], { cwd: context.repoRoot });
     if (!pdfInfoResult.ok) {
       pdfInfoAvailable = false;
-      findings.push({
-        severity: "medium",
-        message: `pdfinfo is unavailable, so page-count/title/A4 checks were skipped (${pdfInfoResult.message || "unknown error"}).`,
-      });
+      pdfInfoFailureMessage = pdfInfoResult.message || "unknown error";
       continue;
     }
 
@@ -147,6 +145,13 @@ export async function runPdfManifestCheck(context) {
         message: `${asset.key} is not A4 according to pdfinfo (${pdfInfo["Page size"] || "unknown size"}).`,
       });
     }
+  }
+
+  if (!pdfInfoAvailable) {
+    findings.push({
+      severity: "high",
+      message: `pdfinfo is required by policy for PDF QA, but is unavailable (${pdfInfoFailureMessage}).`,
+    });
   }
 
   const hasBlockingFindings = findings.some((finding) => finding.severity === "high");
