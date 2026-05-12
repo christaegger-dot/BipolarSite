@@ -75,8 +75,11 @@ export async function runPdfManifestCheck(context) {
       findings: [
         {
           severity: "high",
-          message:
-            `Install poppler-utils (provides pdfinfo). PDF page-count/title/A4 checks are mandatory and cannot be skipped (${pdfInfoCheck.message || "unknown error"}).`,
+          message: "Install poppler-utils (provides pdfinfo). PDF page-count/title/A4 checks are mandatory and cannot be skipped.",
+        },
+        {
+          severity: "medium",
+          message: `pdfinfo command failed: ${pdfInfoCheck.message || "unknown error"}.`,
         },
       ],
       metrics: {

@@ -46,8 +46,8 @@ Wie `audit:release`, aber als JSON-Ausgabe.
 
 ## Voraussetzungen
 
-- **`pdfinfo` ist verpflichtend** fuer den Check `PDF manifest and assets` (Seitenzahl, PDF-Titel, A4-Format).
-- In CI wird das ueber `poppler-utils` bereitgestellt.
+- **`pdfinfo` ist verpflichtend** für den Check `PDF manifest and assets` (Seitenzahl, PDF-Titel, A4-Format).
+- In CI wird das über `poppler-utils` bereitgestellt.
 - Lokal bitte ebenfalls `poppler-utils` (oder ein Paket mit `pdfinfo`) installieren; ohne `pdfinfo` endet der Audit mit `FAIL`.
 
 ## Aktuelle Check-Bloecke
@@ -63,12 +63,12 @@ Wie `audit:release`, aber als JSON-Ausgabe.
 ## Statuslogik
 
 - `PASS`: keine Befunde
-- `WARN`: kein technischer Blocker, aber offener Nachlauf oder manuelle Freigabe noetig
-- `FAIL`: bestaetigter Produkt-/Content-/Konfigurations-Blocker
+- `WARN`: kein technischer Blocker, aber offener Nachlauf oder manuelle Freigabe nötig
+- `FAIL`: bestätigter Produkt-/Content-/Konfigurations-Blocker
 
-Infra-Fehler (z. B. fehlende Tooling-Dependency oder temporaere Netzwerkprobleme) koennen auf Check-Ebene weiterhin als `fail` sichtbar sein, werden fuer den **overallStatus** jedoch als `WARN` gewichtet, damit transiente Betriebsprobleme nicht denselben Impact wie Produktregressionen haben.
+Infra-Fehler (z. B. fehlende Tooling-Dependency oder temporäre Netzwerkprobleme) können auf Check-Ebene weiterhin als `fail` sichtbar sein, werden für den **overallStatus** jedoch als `WARN` gewichtet, damit transiente Betriebsprobleme nicht denselben Impact wie Produktregressionen haben.
 
-Der Prozess beendet sich nur bei `FAIL` mit Exit-Code `1`. `WARN` bleibt bewusst nicht-blockierend, damit offene manuelle Gates sichtbar bleiben, ohne lokale oder CI-Laeufe unnoetig zu brechen.
+Der Prozess beendet sich nur bei `FAIL` mit Exit-Code `1`. `WARN` bleibt bewusst nicht-blockierend, damit offene manuelle Gates sichtbar bleiben, ohne lokale oder CI-Läufe unnötig zu brechen.
 
 Reachability-Sonderfall Produktion:
 - Im **Full-Audit** (`npm run audit:release` / `:json`) wird ein reiner Reachability-Ausfall der Live-URL als `WARN` bewertet, damit lokale Qualitätsgates nicht false-negativ blockieren.
