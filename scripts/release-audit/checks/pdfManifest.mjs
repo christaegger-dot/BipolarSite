@@ -7,10 +7,41 @@ import {
   normalizeWhitespace,
   relativeToRepo,
   runCommand,
+  walkFiles,
 } from "../lib/shared.mjs";
+
+const PDF_SOURCE_DIRS = [
+  path.join("src", "downloads"),
+  path.join("src", "handouts"),
+];
+const MIN_EXTRACTABLE_TEXT_CHARS = 250;
 
 function flattenAssets(pdfs) {
   return [...Object.values(pdfs.downloads), ...Object.values(pdfs.handouts)];
+}
+
+function sourcePathFromPdfUrl(repoRoot, url) {
+  return path.join(repoRoot, "src", url.replace(/^\/+/, ""));
+}
+
+export function findUntrackedPdfSourceFiles(repoRoot, sourcePdfFiles, trackedPdfs) {
+  const trackedSourcePaths = new Set(
+    trackedPdfs.map((pdf) => sourcePathFromPdfUrl(repoRoot, pdf.url))
+  );
+
+  return sourcePdfFiles.filter((filePath) => !trackedSourcePaths.has(filePath));
+}
+
+async function findSourcePdfFiles(repoRoot) {
+  const sourcePdfFiles = [];
+
+  for (const relativeDir of PDF_SOURCE_DIRS) {
+    const dir = path.join(repoRoot, relativeDir);
+    const files = await walkFiles(dir, (filePath) => filePath.endsWith(".pdf"));
+    sourcePdfFiles.push(...files);
+  }
+
+  return sourcePdfFiles.sort();
 }
 
 function parseDeclaredPageCount(pagesLabel) {
@@ -55,10 +86,32 @@ function isA4(pageSize) {
   return portrait || landscape;
 }
 
+async function validateExtractableText(context, pdfKey, sourcePath, findings) {
+  const textResult = await runCommand("pdftotext", ["-layout", sourcePath, "-"], { cwd: context.repoRoot });
+
+  if (!textResult.ok) {
+    findings.push({
+      severity: "high",
+      message: `${pdfKey} could not be inspected via pdftotext (${textResult.message || "unknown error"}).`,
+    });
+    return;
+  }
+
+  const textLength = normalizeWhitespace(textResult.stdout).length;
+  if (textLength < MIN_EXTRACTABLE_TEXT_CHARS) {
+    findings.push({
+      severity: "high",
+      message: `${pdfKey} has only ${textLength} extractable text characters; PDFs must not ship as image-only handouts.`,
+    });
+  }
+}
+
 export async function runPdfManifestCheck(context) {
   const requireFromRepo = createRepoRequire(context.repoRoot);
   const pdfs = requireFromRepo("./src/_data/pdfs.js");
   const assets = flattenAssets(pdfs);
+  const legacyPdfAliases = pdfs.legacyPdfAliases || [];
+  const trackedPdfs = [...assets, ...legacyPdfAliases];
   const pages = await loadHtmlPages(context.siteDir);
   const htmlIndex = pages.map((page) => page.html).join("\n");
 
@@ -66,34 +119,66 @@ export async function runPdfManifestCheck(context) {
   const assetIds = new Map();
 
   const pdfInfoCheck = await runCommand("pdfinfo", ["-v"], { cwd: context.repoRoot });
-  if (!pdfInfoCheck.ok) {
+  const pdftotextCheck = await runCommand("pdftotext", ["-v"], { cwd: context.repoRoot });
+  if (!pdfInfoCheck.ok || !pdftotextCheck.ok) {
     return createCheckResult({
       id: "pdf-manifest",
       title: "PDF manifest and assets",
       status: "fail",
-      summary: "pdfinfo is required for PDF-QA and is missing in this environment.",
+      summary: "Poppler PDF tools are required for PDF-QA and are missing in this environment.",
       findings: [
-        {
-          severity: "high",
-          message: "Install poppler-utils (provides pdfinfo). PDF page-count/title/A4 checks are mandatory and cannot be skipped.",
-        },
-        {
-          severity: "medium",
-          message: `pdfinfo command failed: ${pdfInfoCheck.message || "unknown error"}.`,
-        },
+        ...(pdfInfoCheck.ok
+          ? []
+          : [
+              {
+                severity: "high",
+                message:
+                  "Install poppler-utils (provides pdfinfo). PDF page-count/title/A4 checks are mandatory and cannot be skipped.",
+              },
+              {
+                severity: "medium",
+                message: `pdfinfo command failed: ${pdfInfoCheck.message || "unknown error"}.`,
+              },
+            ]),
+        ...(pdftotextCheck.ok
+          ? []
+          : [
+              {
+                severity: "high",
+                message:
+                  "Install poppler-utils (provides pdftotext). Extractable text checks are mandatory and cannot be skipped.",
+              },
+              {
+                severity: "medium",
+                message: `pdftotext command failed: ${pdftotextCheck.message || "unknown error"}.`,
+              },
+            ]),
       ],
       metrics: {
         assets: assets.length,
         pdfinfoRequired: true,
+        pdftotextRequired: true,
         sourceDownloadsDir: relativeToRepo(context.repoRoot, path.join(context.repoRoot, "src", "downloads")),
         sourceHandoutsDir: relativeToRepo(context.repoRoot, path.join(context.repoRoot, "src", "handouts")),
       },
     });
   }
 
+  const sourcePdfFiles = await findSourcePdfFiles(context.repoRoot);
+  const untrackedPdfFiles = findUntrackedPdfSourceFiles(context.repoRoot, sourcePdfFiles, trackedPdfs);
+
+  for (const filePath of untrackedPdfFiles) {
+    findings.push({
+      severity: "high",
+      message: `${relativeToRepo(context.repoRoot, filePath)} is copied into the public site but is not declared in src/_data/pdfs.js as an active PDF or legacy alias.`,
+    });
+  }
+
+  const activeAssetUrls = new Set(assets.map((asset) => asset.url));
+
   for (const asset of assets) {
     const expectedFilename = path.posix.basename(asset.url);
-    const sourcePath = path.join(context.repoRoot, "src", asset.url.replace(/^\/+/, ""));
+    const sourcePath = sourcePathFromPdfUrl(context.repoRoot, asset.url);
     const buildPath = path.join(context.siteDir, asset.url.replace(/^\/+/, ""));
 
     if (asset.filename !== expectedFilename) {
@@ -167,6 +252,71 @@ export async function runPdfManifestCheck(context) {
         message: `${asset.key} is not A4 according to pdfinfo (${pdfInfo["Page size"] || "unknown size"}).`,
       });
     }
+
+    await validateExtractableText(context, asset.key, sourcePath, findings);
+  }
+
+  for (const alias of legacyPdfAliases) {
+    const sourcePath = sourcePathFromPdfUrl(context.repoRoot, alias.url);
+    const buildPath = path.join(context.siteDir, alias.url.replace(/^\/+/, ""));
+
+    if (!activeAssetUrls.has(alias.currentUrl)) {
+      findings.push({
+        severity: "high",
+        message: `${alias.key} points to currentUrl ${alias.currentUrl}, but that URL is not declared as an active PDF asset.`,
+      });
+    }
+
+    if (!(await fileExists(sourcePath))) {
+      findings.push({
+        severity: "high",
+        message: `${alias.key} is missing its legacy source PDF at ${relativeToRepo(context.repoRoot, sourcePath)}.`,
+      });
+      continue;
+    }
+
+    if (!(await fileExists(buildPath))) {
+      findings.push({
+        severity: "high",
+        message: `${alias.key} is missing from the Eleventy output at ${relativeToRepo(context.repoRoot, buildPath)}.`,
+      });
+    }
+
+    const pdfInfoResult = await runCommand("pdfinfo", [sourcePath], { cwd: context.repoRoot });
+    if (!pdfInfoResult.ok) {
+      findings.push({
+        severity: "high",
+        message: `${alias.key} could not be inspected via pdfinfo (${pdfInfoResult.message || "unknown error"}).`,
+      });
+      continue;
+    }
+
+    const pdfInfo = parsePdfInfo(pdfInfoResult.stdout);
+    const declaredPages = parseDeclaredPageCount(alias.pages);
+    const actualPages = Number.parseInt(pdfInfo.Pages || "", 10);
+
+    if (declaredPages && Number.isFinite(actualPages) && declaredPages !== actualPages) {
+      findings.push({
+        severity: "high",
+        message: `${alias.key} declares ${declaredPages} pages but the real legacy PDF has ${actualPages}.`,
+      });
+    }
+
+    if (alias.title && pdfInfo.Title && normalizeWhitespace(pdfInfo.Title) !== normalizeWhitespace(alias.title)) {
+      findings.push({
+        severity: "medium",
+        message: `${alias.key} title drift: metadata says "${pdfInfo.Title}", legacy alias says "${alias.title}".`,
+      });
+    }
+
+    if (!isA4(pdfInfo["Page size"])) {
+      findings.push({
+        severity: "high",
+        message: `${alias.key} is not A4 according to pdfinfo (${pdfInfo["Page size"] || "unknown size"}).`,
+      });
+    }
+
+    await validateExtractableText(context, alias.key, sourcePath, findings);
   }
 
   const hasBlockingFindings = findings.some((finding) => finding.severity === "high");
@@ -177,11 +327,14 @@ export async function runPdfManifestCheck(context) {
     status: hasBlockingFindings ? "fail" : findings.length > 0 ? "warn" : "pass",
     summary:
       findings.length > 0
-        ? `Checked ${assets.length} PDFs and found ${findings.length} manifest or file issues.`
-        : `Checked ${assets.length} PDFs with matching filenames, output files, metadata, and A4 sizes.`,
+        ? `Checked ${assets.length} active PDFs and ${legacyPdfAliases.length} legacy aliases, and found ${findings.length} manifest or file issues.`
+        : `Checked ${assets.length} active PDFs and ${legacyPdfAliases.length} legacy aliases with matching filenames, output files, metadata, A4 sizes, and extractable text.`,
     findings,
     metrics: {
       assets: assets.length,
+      legacyPdfAliases: legacyPdfAliases.length,
+      minimumExtractableTextChars: MIN_EXTRACTABLE_TEXT_CHARS,
+      sourcePdfFiles: sourcePdfFiles.length,
       sourceDownloadsDir: relativeToRepo(context.repoRoot, path.join(context.repoRoot, "src", "downloads")),
       sourceHandoutsDir: relativeToRepo(context.repoRoot, path.join(context.repoRoot, "src", "handouts")),
     },
