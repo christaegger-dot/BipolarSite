@@ -124,6 +124,16 @@ async function expectSequentialHeadings(page: Page) {
   expect(violations).toEqual([]);
 }
 
+async function expectPdfResponse(page: Page, href: string) {
+  const response = await page.request.get(href);
+  expect(response.ok()).toBe(true);
+  expect(response.headers()['content-type']).toContain('application/pdf');
+
+  const body = await response.body();
+  expect(body.length).toBeGreaterThan(1_000);
+  expect(body.subarray(0, 5).toString()).toBe('%PDF-');
+}
+
 function isMobileProject(testInfo: TestInfo) {
   return Boolean(testInfo.project.use?.isMobile);
 }
@@ -362,6 +372,41 @@ test.describe('high-risk content flows', () => {
     expect(resultHrefs.some((href) => /krisenplan|modul\/6|materialien/.test(href))).toBe(true);
   });
 
+  test('site search result links navigate to high-risk content pages', async ({ page }) => {
+    await page.goto('/suche/');
+
+    const searchInput = page.locator('.pagefind-ui__search-input');
+    await expect(searchInput).toBeVisible();
+    await searchInput.fill('Suizidgedanken');
+
+    const resultLinks = page.locator('.pagefind-ui__result-link');
+    await expect(resultLinks.first()).toBeVisible({ timeout: 10_000 });
+    await expect(page.locator('.pagefind-ui__results')).toContainText(/Suizidgedanken/i);
+
+    const targetLink = page.locator('.pagefind-ui__result-link[href="/notfall/"]').first();
+    await expect(targetLink).toBeVisible();
+    const href = await targetLink.getAttribute('href');
+    expect(href).toBe('/notfall/');
+
+    await targetLink.click();
+    await expect(page).toHaveURL(/\/notfall\/$/);
+    await expect(page.locator('main')).toContainText(/Suizidgedanken/i);
+  });
+
+  test('site search clear action resets the query and result list', async ({ page }) => {
+    await page.goto('/suche/');
+
+    const searchInput = page.locator('.pagefind-ui__search-input');
+    await expect(searchInput).toBeVisible();
+    await searchInput.fill('Krisenplan');
+
+    await expect(page.locator('.pagefind-ui__result-link').first()).toBeVisible({ timeout: 10_000 });
+
+    await page.getByRole('button', { name: 'Löschen' }).click();
+    await expect(searchInput).toHaveValue('');
+    await expect(page.locator('.pagefind-ui__result-link')).toHaveCount(0);
+  });
+
   test('materials preview PDFs open an in-page dialog with direct actions', async ({ page }) => {
     await page.goto('/materialien/');
 
@@ -387,6 +432,42 @@ test.describe('high-risk content flows', () => {
     await expect(previewLink).toBeFocused();
   });
 
+  test('module preview PDF links use the same accessible preview dialog', async ({ page }) => {
+    await page.goto('/modul/1/');
+
+    const previewLink = page.locator('a[data-pdf-mode="preview"][href="/handouts/a8_warnsignale.pdf"]').first();
+    await expect(previewLink).toBeVisible();
+
+    await previewLink.click();
+
+    const dialog = page.locator('.pdf-preview-dialog');
+    await expect(dialog).toBeVisible();
+    await expect(page.locator('#pdf-preview-title')).toContainText(/Warnsignale/i);
+    await expect(page.locator('#pdf-preview-close')).toBeFocused();
+    await expect(page.locator('#pdf-preview-frame')).toHaveAttribute('src', '/handouts/a8_warnsignale.pdf#view=FitH');
+    await expect(page.locator('main')).toHaveJSProperty('inert', true);
+
+    await page.locator('#pdf-preview-close').click();
+    await expect(dialog).toBeHidden();
+    await expect(page.locator('main')).toHaveJSProperty('inert', false);
+    await expect(previewLink).toBeFocused();
+  });
+
+  test('download PDF cards are not intercepted by the preview dialog handler', async ({ page }) => {
+    await page.goto('/materialien/');
+
+    const downloadLink = page.locator('a[data-pdf-mode="download"][href="/downloads/notfallkarte-kanton-zuerich-puk.pdf"]').first();
+    await expect(downloadLink).toBeVisible();
+
+    const defaultWasNotPrevented = await downloadLink.evaluate((link) =>
+      link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, button: 0 })),
+    );
+
+    expect(defaultWasNotPrevented).toBe(true);
+    await expect(page.locator('.pdf-preview-dialog')).toBeHidden();
+    await expect(page.locator('body')).not.toHaveClass(/pdf-preview-open/);
+  });
+
   test('materials download PDFs bypass the in-page preview and point to built files', async ({ page }) => {
     await page.goto('/materialien/');
 
@@ -408,9 +489,14 @@ test.describe('high-risk content flows', () => {
     expect(downloadHrefs.every((link) => link.rel.includes('noopener'))).toBe(true);
     expect(downloadHrefs.some((link) => /Notfallkarte Kanton Zürich/.test(link.label))).toBe(true);
 
-    const response = await page.request.get(downloadHrefs[0].href);
-    expect(response.ok()).toBe(true);
-    expect(response.headers()['content-type']).toContain('application/pdf');
+    for (const href of [
+      '/downloads/notfallkarte-kanton-zuerich-puk.pdf',
+      '/downloads/krisenplan-vorlage-bipolare-stoerung-puk-zuerich.pdf',
+      '/downloads/rechtliche-orientierung-angehoerige-puk-zuerich.pdf',
+      '/handouts/c2_suizidgedanken.pdf',
+    ]) {
+      await expectPdfResponse(page, href);
+    }
   });
 });
 
