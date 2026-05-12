@@ -151,18 +151,24 @@ export async function runProductionHeadersCheck(context) {
       });
     }
   } catch (error) {
+    const reachabilityBlocking = context.args?.productionOnly === true;
     return createCheckResult({
       id: "production-headers",
       title: "Production headers and metadata",
-      status: "fail",
-      summary: "Production audit could not complete because the live site was unreachable.",
+      status: reachabilityBlocking ? "fail" : "warn",
+      summary: reachabilityBlocking
+        ? "Production-only audit could not complete because the live site was unreachable."
+        : "Production reachability check did not complete; local release checks remain valid.",
       findings: [
         {
-          severity: "high",
-          message: error.message,
+          severity: reachabilityBlocking ? "high" : "medium",
+          message: `Reachability error for ${baseUrl}: ${error.message}`,
         },
       ],
-      metrics: { siteUrl: baseUrl },
+      metrics: {
+        siteUrl: baseUrl,
+        mode: reachabilityBlocking ? "production-only" : "full-audit",
+      },
     });
   }
 
