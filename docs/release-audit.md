@@ -22,7 +22,7 @@ Fuehrt den kompletten MVP-Audit aus:
 - `npm run build`
 - `npm run lint`
 - lokale Build-Checks
-- Produktions-Header- und Metadaten-Checks
+- Produktions-Header- und Metadaten-Checks (mit resilienter Reachability-Logik im Full-Audit)
 - Browser-Abdeckung plus verbleibender Hand-off-Hinweis
 
 ```bash
@@ -60,6 +60,13 @@ Wie `audit:release`, aber als JSON-Ausgabe.
 - `FAIL`: technischer oder struktureller Blocker
 
 Der Prozess beendet sich nur bei `FAIL` mit Exit-Code `1`. `WARN` bleibt bewusst nicht-blockierend, damit offene manuelle Gates sichtbar bleiben, ohne lokale oder CI-Laeufe unnötig zu brechen.
+
+Reachability-Sonderfall Produktion:
+- Im **Full-Audit** (`npm run audit:release` / `:json`) wird ein reiner Reachability-Ausfall der Live-URL als `WARN` bewertet, damit lokale Qualitätsgates nicht false-negativ blockieren.
+- Im **Production-Only-Audit** (`npm run audit:release:prod`) bleibt Reachability **blocking** (`FAIL`), da dieser Modus explizit die Live-Prüfung darstellt.
+
+PDF-QA-Policy:
+- `pdfinfo` ist verbindlich. Wenn `pdfinfo` fehlt oder nicht ausführbar ist, wird `pdf-manifest` als `FAIL` gewertet (kein stilles Skip von Seitenzahl-/Titel-/A4-Prüfungen).
 
 ## Was die MVP noch nicht automatisiert
 
