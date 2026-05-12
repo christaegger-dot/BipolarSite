@@ -340,8 +340,8 @@ body.ee-kreislauf-page .wrap{max-width:var(--tool-wrap-narrow);padding:var(--spa
 .tag{padding:8px 16px;border-radius:var(--radius-sm);font-size:var(--text-xs);cursor:pointer;font-family:'DM Sans',sans-serif;transition:background-color 0.25s ease,color 0.25s ease,border-color 0.25s ease;appearance:none;line-height:1.3;min-height:44px;display:inline-flex;align-items:center}
 .tv{background:var(--card);color:var(--slate);border:1px solid var(--border);font-weight:600}
 .tv.on{background:var(--blue-phase);color:var(--card);border:2px solid var(--blue-phase)}
-.ti{font-weight:500;background:var(--white-overlay-sm);color:var(--white-text-muted);border:1px solid var(--white-text-dim)}
-.ti.rev{background:var(--white-overlay-sm);color:var(--white-text-secondary);border-color:var(--white-text-dim)}
+.ti{font-weight:600;background:var(--white-overlay-sm);color:#fff;border:1px solid var(--white-text-secondary)}
+.ti.rev{background:var(--white-overlay-sm);color:#fff;border-color:var(--white-text-secondary)}
 .ti.on{background:var(--teal-muted);color:var(--white-text);border:2px solid var(--white-text-secondary);font-weight:700}
 .ctr{text-align:center;margin-top:20px;font-size:var(--text-xs);color:var(--white-text-muted)}
 #dp{width:100%;margin-top:16px;transition:background-color 0.3s ease,opacity 0.3s ease,border-color 0.3s ease}
@@ -529,6 +529,7 @@ body.saeulen-check-page .wrap{width:100%;max-width:var(--tool-wrap-medium);paddi
 .sc button.sel{font-weight:700;color:var(--card)}
 .sc .sv{font-size:var(--text-base)}
 .sc .sl{font-size:var(--text-xs);opacity:0.8}
+.sc button.sel .sl{opacity:1}
 .submit{width:100%;padding:14px;border-radius:var(--radius-md);border:none;background:var(--teal-subtle);color:var(--text-soft);font-size:var(--text-base);font-weight:700;cursor:default;font-family:'DM Sans',sans-serif;margin-top:8px;transition:background 0.3s}
 .submit.ready{background:var(--cta-primary-bg);cursor:pointer}
 .res-card{background:var(--card);border-radius:var(--card-radius);border:1px solid var(--border-warm);box-shadow:var(--card-shadow);padding:32px 28px}

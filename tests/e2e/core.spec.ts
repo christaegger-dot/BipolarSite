@@ -12,6 +12,118 @@ async function expectNoHorizontalScroll(page: Page) {
   expect(maxWidth).toBeLessThanOrEqual(viewportWidth + 1);
 }
 
+async function expectVisibleTextContrast(page: Page, selector: string, minimumRatio = 4.5) {
+  const ratios = await page.locator(selector).evaluateAll((elements) => {
+    const parseColor = (value: string) => {
+      const match = value.match(/rgba?\(([^)]+)\)/);
+      if (!match) return { r: 0, g: 0, b: 0, a: 1 };
+
+      const [r, g, b, a = '1'] = match[1]
+        .split(',')
+        .map((part) => part.trim());
+
+      return {
+        r: Number.parseFloat(r),
+        g: Number.parseFloat(g),
+        b: Number.parseFloat(b),
+        a: Number.parseFloat(a),
+      };
+    };
+
+    const blend = (
+      foreground: { r: number; g: number; b: number; a: number },
+      background: { r: number; g: number; b: number; a: number },
+    ) => {
+      const alpha = foreground.a + background.a * (1 - foreground.a);
+      if (alpha === 0) return { r: 255, g: 255, b: 255, a: 1 };
+
+      return {
+        r: (foreground.r * foreground.a + background.r * background.a * (1 - foreground.a)) / alpha,
+        g: (foreground.g * foreground.a + background.g * background.a * (1 - foreground.a)) / alpha,
+        b: (foreground.b * foreground.a + background.b * background.a * (1 - foreground.a)) / alpha,
+        a: alpha,
+      };
+    };
+
+    const relativeLuminance = ({ r, g, b }: { r: number; g: number; b: number }) => {
+      const toLinear = (channel: number) => {
+        const normalized = channel / 255;
+        return normalized <= 0.03928
+          ? normalized / 12.92
+          : ((normalized + 0.055) / 1.055) ** 2.4;
+      };
+
+      return 0.2126 * toLinear(r) + 0.7152 * toLinear(g) + 0.0722 * toLinear(b);
+    };
+
+    const contrastRatio = (
+      foreground: { r: number; g: number; b: number },
+      background: { r: number; g: number; b: number },
+    ) => {
+      const foregroundLuminance = relativeLuminance(foreground);
+      const backgroundLuminance = relativeLuminance(background);
+      const lighter = Math.max(foregroundLuminance, backgroundLuminance);
+      const darker = Math.min(foregroundLuminance, backgroundLuminance);
+      return (lighter + 0.05) / (darker + 0.05);
+    };
+
+    const effectiveBackground = (element: Element) => {
+      const backgrounds = [];
+      let current: Element | null = element;
+
+      while (current) {
+        backgrounds.push(parseColor(window.getComputedStyle(current).backgroundColor));
+        current = current.parentElement;
+      }
+
+      return backgrounds
+        .reverse()
+        .reduce((background, foreground) => blend(foreground, background), {
+          r: 255,
+          g: 255,
+          b: 255,
+          a: 1,
+        });
+    };
+
+    return elements
+      .filter((element) => element.getClientRects().length > 0)
+      .map((element) => {
+        const style = window.getComputedStyle(element);
+        const textColor = blend(parseColor(style.color), effectiveBackground(element));
+        return contrastRatio(textColor, effectiveBackground(element));
+      });
+  });
+
+  expect(ratios.length).toBeGreaterThan(0);
+  for (const ratio of ratios) {
+    expect(ratio).toBeGreaterThanOrEqual(minimumRatio);
+  }
+}
+
+async function expectSequentialHeadings(page: Page) {
+  const violations = await page.evaluate(() =>
+    [...document.querySelectorAll('h1,h2,h3,h4,h5,h6')]
+      .filter((heading) => heading.getClientRects().length > 0)
+      .map((heading) => ({
+        level: Number(heading.tagName.slice(1)),
+        text: heading.textContent?.trim() || '',
+      }))
+      .reduce<{ previousLevel: number; violations: string[] }>(
+        (state, heading) => {
+          if (heading.level > state.previousLevel + 1) {
+            state.violations.push(`${heading.text} jumped from h${state.previousLevel} to h${heading.level}`);
+          }
+          state.previousLevel = heading.level;
+          return state;
+        },
+        { previousLevel: 0, violations: [] },
+      ).violations,
+  );
+
+  expect(violations).toEqual([]);
+}
+
 function isMobileProject(testInfo: TestInfo) {
   return Boolean(testInfo.project.use?.isMobile);
 }
@@ -195,6 +307,40 @@ test.describe('core user paths', () => {
 
     await page.getByRole('button', { name: 'Mini-Plan löschen' }).click();
     await expect(numberField).toHaveValue('');
+  });
+});
+
+test.describe('lighthouse accessibility regressions', () => {
+  test('module 1 bipolar type badges keep sufficient text contrast', async ({ page }) => {
+    await page.goto('/modul/1/');
+    await expectVisibleTextContrast(page, '.surface-explain-card__badge');
+  });
+
+  test('interactive tool chips keep sufficient text contrast', async ({ page }) => {
+    await page.goto('/tools/eisberg/');
+    await expectVisibleTextContrast(page, '.tag.ti');
+
+    await page.goto('/tools/saeulen-check/');
+    for (const pillarId of ['wissen', 'inseln', 'grenzen', 'krisenplan', 'entlastung']) {
+      await page.locator(`[data-rate="${pillarId}"][data-rv="1"]`).click();
+    }
+    await expectVisibleTextContrast(page, '.sc button.sel .sl');
+  });
+
+  test('mini-plan inline links remain visually distinguishable beyond color', async ({ page }) => {
+    await page.goto('/werkzeuge/mini-plan/');
+
+    const decorations = await page
+      .locator('.text-link-visible a')
+      .evaluateAll((links) => links.map((link) => window.getComputedStyle(link).textDecorationLine));
+
+    expect(decorations.length).toBeGreaterThan(0);
+    expect(decorations.every((decoration) => decoration.includes('underline'))).toBe(true);
+  });
+
+  test('materials page keeps a sequential heading hierarchy', async ({ page }) => {
+    await page.goto('/materialien/');
+    await expectSequentialHeadings(page);
   });
 });
 
