@@ -43,6 +43,13 @@ npm run audit:release:json
 
 Wie `audit:release`, aber als JSON-Ausgabe.
 
+
+## Voraussetzungen
+
+- **`pdfinfo` ist verpflichtend** fuer den Check `PDF manifest and assets` (Seitenzahl, PDF-Titel, A4-Format).
+- In CI wird das ueber `poppler-utils` bereitgestellt.
+- Lokal bitte ebenfalls `poppler-utils` (oder ein Paket mit `pdfinfo`) installieren; ohne `pdfinfo` endet der Audit mit `FAIL`.
+
 ## Aktuelle Check-Bloecke
 
 1. `Config and documentation drift`
@@ -57,9 +64,18 @@ Wie `audit:release`, aber als JSON-Ausgabe.
 
 - `PASS`: keine Befunde
 - `WARN`: kein technischer Blocker, aber offener Nachlauf oder manuelle Freigabe noetig
-- `FAIL`: technischer oder struktureller Blocker
+- `FAIL`: bestaetigter Produkt-/Content-/Konfigurations-Blocker
 
-Der Prozess beendet sich nur bei `FAIL` mit Exit-Code `1`. `WARN` bleibt bewusst nicht-blockierend, damit offene manuelle Gates sichtbar bleiben, ohne lokale oder CI-Laeufe unnötig zu brechen.
+Infra-Fehler (z. B. fehlende Tooling-Dependency oder temporaere Netzwerkprobleme) koennen auf Check-Ebene weiterhin als `fail` sichtbar sein, werden fuer den **overallStatus** jedoch als `WARN` gewichtet, damit transiente Betriebsprobleme nicht denselben Impact wie Produktregressionen haben.
+
+Der Prozess beendet sich nur bei `FAIL` mit Exit-Code `1`. `WARN` bleibt bewusst nicht-blockierend, damit offene manuelle Gates sichtbar bleiben, ohne lokale oder CI-Laeufe unnoetig zu brechen.
+
+Reachability-Sonderfall Produktion:
+- Im **Full-Audit** (`npm run audit:release` / `:json`) wird ein reiner Reachability-Ausfall der Live-URL als `WARN` bewertet, damit lokale Qualitätsgates nicht false-negativ blockieren.
+- Im **Production-Only-Audit** (`npm run audit:release:prod`) bleibt Reachability **blocking** (`FAIL`), da dieser Modus explizit die Live-Prüfung darstellt.
+
+PDF-QA-Policy:
+- `pdfinfo` ist verbindlich. Wenn `pdfinfo` fehlt oder nicht ausführbar ist, wird `pdf-manifest` als `FAIL` gewertet (kein stilles Skip von Seitenzahl-/Titel-/A4-Prüfungen).
 
 Reachability-Sonderfall Produktion:
 - Im **Full-Audit** (`npm run audit:release` / `:json`) wird ein reiner Reachability-Ausfall der Live-URL als `WARN` bewertet, damit lokale Qualitätsgates nicht false-negativ blockieren.

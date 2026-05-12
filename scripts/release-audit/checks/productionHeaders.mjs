@@ -27,6 +27,28 @@ function expectHeader(findings, url, headers, name, expectedFragment, severity =
   }
 }
 
+function createUnreachableResult(baseUrl, reason, { blocking = false } = {}) {
+  return createCheckResult({
+    id: "production-headers",
+    title: "Production headers and metadata",
+    status: blocking ? "fail" : "warn",
+    summary: blocking
+      ? "Production-only audit could not complete because the live site was unreachable."
+      : "Production reachability check did not complete; local release checks remain valid.",
+    findings: [
+      {
+        severity: blocking ? "high" : "medium",
+        message: `Reachability error for ${baseUrl}: ${reason}`,
+      },
+    ],
+    metrics: {
+      siteUrl: baseUrl,
+      reachable: false,
+      mode: blocking ? "production-only" : "full-audit",
+    },
+  });
+}
+
 export async function runProductionHeadersCheck(context) {
   const requireFromRepo = createRepoRequire(context.repoRoot);
   const site = requireFromRepo("./src/_data/site.js");
@@ -36,18 +58,8 @@ export async function runProductionHeadersCheck(context) {
   try {
     const home = await fetchTextResponse(baseUrl);
     if (!home.response.ok) {
-      return createCheckResult({
-        id: "production-headers",
-        title: "Production headers and metadata",
-        status: "fail",
-        summary: `Could not fetch ${baseUrl} successfully.`,
-        findings: [
-          {
-            severity: "high",
-            message: `${baseUrl} returned HTTP ${home.response.status}.`,
-          },
-        ],
-        metrics: { siteUrl: baseUrl },
+      return createUnreachableResult(baseUrl, `${baseUrl} returned HTTP ${home.response.status}.`, {
+        blocking: context.args?.productionOnly === true,
       });
     }
 
@@ -151,24 +163,8 @@ export async function runProductionHeadersCheck(context) {
       });
     }
   } catch (error) {
-    const reachabilityBlocking = context.args?.productionOnly === true;
-    return createCheckResult({
-      id: "production-headers",
-      title: "Production headers and metadata",
-      status: reachabilityBlocking ? "fail" : "warn",
-      summary: reachabilityBlocking
-        ? "Production-only audit could not complete because the live site was unreachable."
-        : "Production reachability check did not complete; local release checks remain valid.",
-      findings: [
-        {
-          severity: reachabilityBlocking ? "high" : "medium",
-          message: `Reachability error for ${baseUrl}: ${error.message}`,
-        },
-      ],
-      metrics: {
-        siteUrl: baseUrl,
-        mode: reachabilityBlocking ? "production-only" : "full-audit",
-      },
+    return createUnreachableResult(baseUrl, error.message, {
+      blocking: context.args?.productionOnly === true,
     });
   }
 

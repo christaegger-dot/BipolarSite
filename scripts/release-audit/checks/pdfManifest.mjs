@@ -64,8 +64,28 @@ export async function runPdfManifestCheck(context) {
 
   const findings = [];
   const assetIds = new Map();
-  let pdfInfoAvailable = true;
-  let pdfInfoFailureMessage = null;
+  const pdfInfoCheck = await runCommand("pdfinfo", ["-v"], { cwd: context.repoRoot });
+  if (!pdfInfoCheck.ok) {
+    return createCheckResult({
+      id: "pdf-manifest",
+      title: "PDF manifest and assets",
+      status: "fail",
+      summary: "pdfinfo is required for PDF-QA and is missing in this environment.",
+      findings: [
+        {
+          severity: "high",
+          message:
+            `Install poppler-utils (provides pdfinfo). PDF page-count/title/A4 checks are mandatory and cannot be skipped (${pdfInfoCheck.message || "unknown error"}).`,
+        },
+      ],
+      metrics: {
+        assets: assets.length,
+        pdfinfoRequired: true,
+        sourceDownloadsDir: relativeToRepo(context.repoRoot, path.join(context.repoRoot, "src", "downloads")),
+        sourceHandoutsDir: relativeToRepo(context.repoRoot, path.join(context.repoRoot, "src", "handouts")),
+      },
+    });
+  }
 
   for (const asset of assets) {
     const expectedFilename = path.posix.basename(asset.url);
@@ -110,14 +130,12 @@ export async function runPdfManifestCheck(context) {
       assetIds.set(asset.assetId, asset.key);
     }
 
-    if (!pdfInfoAvailable) {
-      continue;
-    }
-
     const pdfInfoResult = await runCommand("pdfinfo", [sourcePath], { cwd: context.repoRoot });
     if (!pdfInfoResult.ok) {
-      pdfInfoAvailable = false;
-      pdfInfoFailureMessage = pdfInfoResult.message || "unknown error";
+      findings.push({
+        severity: "high",
+        message: `${asset.key} could not be inspected via pdfinfo (${pdfInfoResult.message || "unknown error"}).`,
+      });
       continue;
     }
 
@@ -145,13 +163,6 @@ export async function runPdfManifestCheck(context) {
         message: `${asset.key} is not A4 according to pdfinfo (${pdfInfo["Page size"] || "unknown size"}).`,
       });
     }
-  }
-
-  if (!pdfInfoAvailable) {
-    findings.push({
-      severity: "high",
-      message: `pdfinfo is required by policy for PDF QA, but is unavailable (${pdfInfoFailureMessage}).`,
-    });
   }
 
   const hasBlockingFindings = findings.some((finding) => finding.severity === "high");

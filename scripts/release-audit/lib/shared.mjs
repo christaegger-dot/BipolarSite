@@ -198,6 +198,7 @@ export function createCheckResult(result) {
     summary: result.summary,
     findings: result.findings || [],
     metrics: result.metrics || {},
+    impact: result.impact || "product",
   };
 }
 
@@ -209,10 +210,12 @@ export function buildReport(results, options) {
 
   let overallStatus = "pass";
   for (const result of results) {
-    const currentPriority = STATUS_PRIORITY[result.status] ?? 0;
+    const normalizedStatus =
+      result.status === "fail" && result.impact === "infra" ? "warn" : result.status;
+    const currentPriority = STATUS_PRIORITY[normalizedStatus] ?? 0;
     const overallPriority = STATUS_PRIORITY[overallStatus] ?? 0;
     if (currentPriority > overallPriority) {
-      overallStatus = result.status === "skip" ? "warn" : result.status;
+      overallStatus = normalizedStatus === "skip" ? "warn" : normalizedStatus;
     }
   }
 
