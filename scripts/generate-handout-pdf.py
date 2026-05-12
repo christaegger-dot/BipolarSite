@@ -20,6 +20,7 @@ from datetime import datetime
 from pathlib import Path
 
 import yaml
+import pikepdf
 from fontTools.ttLib import TTFont as FontToolsTTFont
 from reportlab.lib.colors import HexColor
 from reportlab.lib.enums import TA_CENTER
@@ -147,6 +148,18 @@ styles["help_note"] = ParagraphStyle(
     "HelpNote", fontName="DMSans", fontSize=8.3, leading=11,
     textColor=MUTED, spaceAfter=2 * mm,
 )
+styles["acute_strip_title"] = ParagraphStyle(
+    "AcuteStripTitle", fontName="DMSans", fontSize=8.2, leading=10,
+    textColor=MUTED, spaceAfter=0.8 * mm,
+)
+styles["acute_contact"] = ParagraphStyle(
+    "AcuteContact", fontName="DMSans", fontSize=8.3, leading=10.5,
+    textColor=TEXT_C,
+)
+styles["acute_step"] = ParagraphStyle(
+    "AcuteStep", fontName="DMSans", fontSize=8.4, leading=11,
+    textColor=TEXT_C,
+)
 
 
 # ── Parse Markdown with Frontmatter ───────────────────────────────────
@@ -176,6 +189,11 @@ def md_inline(text):
     text = re.sub(r'\*(.+?)\*', r'<i>\1</i>', text)
     text = re.sub(r'\[(.+?)\]\((.+?)\)', r'\1', text)
     return text
+
+
+def plain_text(value):
+    """Return a lightweight plain-text representation for matching."""
+    return re.sub(r"\s+", " ", str(value or "").replace("&nbsp;", " ")).strip()
 
 
 def format_swiss_date(value):
@@ -225,6 +243,161 @@ def normalize_help_module(meta):
         "note": str(help_module.get("note", "") or "").strip(),
         "items": items,
     }
+
+
+def extract_phone_like_value(text):
+    """Extract a Swiss emergency/contact number from free text when present."""
+    normalized = plain_text(text)
+    match = re.search(r"\b0\d{3}\s\d{2}\s\d{2}\s\d{2}\b|\b1(?:17|42|43|44|47)\b", normalized)
+    return match.group(0) if match else None
+
+
+def normalize_step_icon(icon, idx):
+    """Keep compact emergency markers; fall back from word-icons to numbers."""
+    raw = str(icon)
+    allowed = re.fullmatch(r"\d|1(?:17|42|43|44|47)|24h|[?!]", raw) or raw in {"↑", "↓", "→", "↘", "↔"}
+    if not allowed or not _icon_renderable(raw) or len(raw) > 4:
+        return str(idx)
+    return raw
+
+
+def normalize_acute_contacts(meta):
+    """Return up to three high-signal contacts for the acute top strip."""
+    raw_items = meta.get("emergency_contacts")
+    if not isinstance(raw_items, list):
+        help_module = normalize_help_module(meta)
+        raw_items = help_module["items"] if help_module else []
+
+    contacts = []
+    for raw in raw_items:
+        if not isinstance(raw, dict):
+            continue
+        label = plain_text(raw.get("label", ""))
+        value = plain_text(raw.get("number", raw.get("value", "")))
+        note = plain_text(raw.get("note", ""))
+        tone = plain_text(raw.get("tone", ""))
+        if label or value or note:
+            contacts.append({
+                "label": label or "Kontakt",
+                "value": value or label,
+                "note": note,
+                "tone": tone,
+            })
+
+    if contacts:
+        return contacts[:3]
+
+    quick_steps = meta.get("quick_steps", [])
+    for idx, step in enumerate(quick_steps, start=1):
+        if not isinstance(step, dict):
+            continue
+        text = plain_text(step.get("text", ""))
+        icon = plain_text(step.get("icon", ""))
+        value = extract_phone_like_value(text) or icon or str(idx)
+        contacts.append({
+            "label": "Sofort" if idx == 1 else f"Schritt {idx}",
+            "value": value,
+            "note": text,
+            "tone": "urgent" if value in {"144", "117"} else "",
+        })
+
+    return contacts[:3]
+
+
+def build_acute_contact_strip(meta, content_width):
+    """Build a compact above-the-fold contact strip for acute handouts."""
+    contacts = normalize_acute_contacts(meta)
+    if not contacts:
+        return []
+
+    flowables = [
+        Paragraph("<b>Sofortkontakte</b>", styles["acute_strip_title"]),
+    ]
+
+    cells = []
+    for contact in contacts:
+        tone_color = ALERT if contact.get("tone") == "urgent" else TEAL
+        value_size = "13" if len(contact["value"]) <= 5 else "11"
+        parts = [
+            f'<font size="7" color="#{MUTED.hexval()[2:]}"><b>{md_inline(contact["label"]).upper()}</b></font>',
+            f'<font color="#{tone_color.hexval()[2:]}" size="{value_size}"><b>{md_inline(contact["value"])}</b></font>',
+        ]
+        if contact.get("note"):
+            parts.append(f'<font size="6.8" color="#{MUTED.hexval()[2:]}">{md_inline(contact["note"])}</font>')
+        cells.append(Paragraph("<br/>".join(parts), styles["acute_contact"]))
+
+    col_width = content_width / len(cells)
+    contact_table = Table([cells], colWidths=[col_width] * len(cells))
+    contact_table.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, -1), HexColor("#fff7ed")),
+        ("BOX", (0, 0), (-1, -1), 0.5, HexColor("#e8c4b8")),
+        ("LINEBEFORE", (1, 0), (-1, -1), 0.3, HexColor("#e8c4b8")),
+        ("TOPPADDING", (0, 0), (-1, -1), 1.3 * mm),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 1.3 * mm),
+        ("LEFTPADDING", (0, 0), (-1, -1), 1.8 * mm),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 1.8 * mm),
+        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+    ]))
+    flowables.append(contact_table)
+    flowables.append(Spacer(1, 2.2 * mm))
+    return flowables
+
+
+def build_quick_steps_flowables(quick_steps, content_width, compact=False):
+    """Build quick-step flowables, with a denser horizontal acute variant."""
+    if not quick_steps:
+        return []
+
+    if compact:
+        cells = []
+        for idx, step in enumerate(quick_steps[:3], start=1):
+            icon = step.get("icon", str(idx)) if isinstance(step, dict) else str(idx)
+            text = step.get("text", "") if isinstance(step, dict) else str(step)
+            icon = normalize_step_icon(icon, idx)
+            cells.append(Paragraph(
+                f'<font color="#{TEAL.hexval()[2:]}" size="10"><b>{md_inline(icon)}</b></font><br/>{md_inline(text)}',
+                styles["acute_step"],
+            ))
+
+        col_width = content_width / len(cells)
+        step_table = Table([cells], colWidths=[col_width] * len(cells))
+        step_table.setStyle(TableStyle([
+            ("BACKGROUND", (0, 0), (-1, -1), TEAL_SOFT),
+            ("BOX", (0, 0), (-1, -1), 0.4, HexColor("#b8d8d8")),
+            ("LINEBEFORE", (1, 0), (-1, -1), 0.3, HexColor("#b8d8d8")),
+            ("TOPPADDING", (0, 0), (-1, -1), 1.4 * mm),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 1.4 * mm),
+            ("LEFTPADDING", (0, 0), (-1, -1), 2 * mm),
+            ("RIGHTPADDING", (0, 0), (-1, -1), 2 * mm),
+            ("VALIGN", (0, 0), (-1, -1), "TOP"),
+        ]))
+        return [step_table, Spacer(1, 2.4 * mm)]
+
+    step_data = []
+    for idx, step in enumerate(quick_steps, start=1):
+        icon = step.get("icon", "•") if isinstance(step, dict) else "•"
+        text = step.get("text", "") if isinstance(step, dict) else str(step)
+        icon = normalize_step_icon(icon, idx)
+        step_data.append([
+            Paragraph(
+                f'<font color="#{TEAL.hexval()[2:]}" size="11"><b>{md_inline(icon)}</b></font>',
+                ParagraphStyle("si", fontName="DMSans", fontSize=11, alignment=TA_CENTER, leading=14),
+            ),
+            Paragraph(md_inline(text), styles["quick_step"]),
+        ])
+
+    step_table = Table(step_data, colWidths=[15 * mm, content_width - 15 * mm])
+    step_table.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, -1), TEAL_SOFT),
+        ("TOPPADDING", (0, 0), (-1, -1), 1.5 * mm),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 1.5 * mm),
+        ("LEFTPADDING", (0, 0), (0, -1), 3 * mm),
+        ("LEFTPADDING", (1, 0), (1, -1), 2 * mm),
+        ("RIGHTPADDING", (-1, 0), (-1, -1), 3 * mm),
+        ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
+        ("LINEBELOW", (0, 0), (-1, -2), 0.3, HexColor("#b8d8d8")),
+    ]))
+    return [step_table, Spacer(1, 3 * mm)]
 
 
 def build_help_module_flowables(help_module, content_width):
@@ -303,9 +476,21 @@ def draw_footer(canvas, doc, meta):
     canvas.restoreState()
 
 
+def apply_pdf_metadata(output_path: Path, meta):
+    """Add language metadata that ReportLab does not write by itself."""
+    with pikepdf.Pdf.open(output_path, allow_overwriting_input=True) as pdf:
+        pdf.Root.Lang = pikepdf.String("de-CH")
+        with pdf.open_metadata(set_pikepdf_as_editor=True) as metadata:
+            metadata["dc:language"] = ["de-CH"]
+            metadata["dc:title"] = meta.get("title", "Handout")
+            metadata["dc:creator"] = ["PUK Zürich — Fachstelle Angehörigenarbeit"]
+        pdf.save(output_path)
+
+
 # ── Build PDF ─────────────────────────────────────────────────────────
 def build_pdf(meta, body, output_path: Path):
     """Generate a PDF from parsed markdown content."""
+    is_acute_handout = meta.get("type") == "Akutblatt"
 
     doc = SimpleDocTemplate(
         str(output_path),
@@ -355,39 +540,12 @@ def build_pdf(meta, body, output_path: Path):
             ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
         ]))
         story.append(emergency_table)
-        story.append(Spacer(1, 3 * mm))
+        story.append(Spacer(1, 2.4 * mm))
 
     quick_steps = meta.get("quick_steps", [])
-    if quick_steps:
-        step_data = []
-        for idx, step in enumerate(quick_steps, start=1):
-            icon = step.get("icon", "•") if isinstance(step, dict) else "•"
-            text = step.get("text", "") if isinstance(step, dict) else str(step)
-            # Fallback to step number if glyphs are missing in DM Sans
-            # or if the icon is too wide for the 12mm column (>4 chars).
-            if not _icon_renderable(str(icon)) or len(str(icon)) > 4:
-                icon = str(idx)
-            step_data.append([
-                Paragraph(
-                    f'<font color="#{TEAL.hexval()[2:]}" size="11"><b>{md_inline(icon)}</b></font>',
-                    ParagraphStyle("si", fontName="DMSans", fontSize=11, alignment=TA_CENTER, leading=14),
-                ),
-                Paragraph(md_inline(text), styles["quick_step"]),
-            ])
-
-        step_table = Table(step_data, colWidths=[15 * mm, content_width - 15 * mm])
-        step_table.setStyle(TableStyle([
-            ("BACKGROUND", (0, 0), (-1, -1), TEAL_SOFT),
-            ("TOPPADDING", (0, 0), (-1, -1), 1.5 * mm),
-            ("BOTTOMPADDING", (0, 0), (-1, -1), 1.5 * mm),
-            ("LEFTPADDING", (0, 0), (0, -1), 3 * mm),
-            ("LEFTPADDING", (1, 0), (1, -1), 2 * mm),
-            ("RIGHTPADDING", (-1, 0), (-1, -1), 3 * mm),
-            ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
-            ("LINEBELOW", (0, 0), (-1, -2), 0.3, HexColor("#b8d8d8")),
-        ]))
-        story.append(step_table)
-        story.append(Spacer(1, 3 * mm))
+    if is_acute_handout:
+        story.extend(build_acute_contact_strip(meta, content_width))
+    story.extend(build_quick_steps_flowables(quick_steps, content_width, compact=is_acute_handout))
 
     story.append(HRFlowable(width="100%", thickness=0.5, color=LINE, spaceAfter=2 * mm))
 
@@ -461,7 +619,7 @@ def build_pdf(meta, body, output_path: Path):
         story.append(Paragraph(md_inline(text), styles["body"]))
         i = j
 
-    help_module = normalize_help_module(meta)
+    help_module = None if is_acute_handout else normalize_help_module(meta)
     if help_module:
         story.extend(build_help_module_flowables(help_module, content_width))
 
@@ -470,6 +628,7 @@ def build_pdf(meta, body, output_path: Path):
         onFirstPage=lambda canvas, doc: draw_footer(canvas, doc, meta),
         onLaterPages=lambda canvas, doc: draw_footer(canvas, doc, meta),
     )
+    apply_pdf_metadata(output_path, meta)
     return output_path
 
 
