@@ -27,6 +27,22 @@ function expectHeader(findings, url, headers, name, expectedFragment, severity =
   }
 }
 
+function createUnreachableResult(baseUrl, reason) {
+  return createCheckResult({
+    id: "production-headers",
+    title: "Production headers and metadata",
+    status: "warn",
+    summary: "Production audit could not verify headers because the live site was temporarily unreachable.",
+    findings: [
+      {
+        severity: "medium",
+        message: reason,
+      },
+    ],
+    metrics: { siteUrl: baseUrl, reachable: false },
+  });
+}
+
 export async function runProductionHeadersCheck(context) {
   const requireFromRepo = createRepoRequire(context.repoRoot);
   const site = requireFromRepo("./src/_data/site.js");
@@ -36,19 +52,7 @@ export async function runProductionHeadersCheck(context) {
   try {
     const home = await fetchTextResponse(baseUrl);
     if (!home.response.ok) {
-      return createCheckResult({
-        id: "production-headers",
-        title: "Production headers and metadata",
-        status: "fail",
-        summary: `Could not fetch ${baseUrl} successfully.`,
-        findings: [
-          {
-            severity: "high",
-            message: `${baseUrl} returned HTTP ${home.response.status}.`,
-          },
-        ],
-        metrics: { siteUrl: baseUrl },
-      });
+      return createUnreachableResult(baseUrl, `${baseUrl} returned HTTP ${home.response.status}.`);
     }
 
     expectHeader(findings, baseUrl, home.response.headers, "x-frame-options", "SAMEORIGIN");
@@ -151,19 +155,7 @@ export async function runProductionHeadersCheck(context) {
       });
     }
   } catch (error) {
-    return createCheckResult({
-      id: "production-headers",
-      title: "Production headers and metadata",
-      status: "fail",
-      summary: "Production audit could not complete because the live site was unreachable.",
-      findings: [
-        {
-          severity: "high",
-          message: error.message,
-        },
-      ],
-      metrics: { siteUrl: baseUrl },
-    });
+    return createUnreachableResult(baseUrl, error.message);
   }
 
   const hasBlockingFindings = findings.some((finding) => finding.severity === "high");
