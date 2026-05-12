@@ -25,8 +25,38 @@ const CRITICAL_LANGUAGE_METADATA_KEYS = new Set([
   "c3_psychose_wahn",
   "c4_manie",
   "c5_depression",
+  "krisenplanVorlage",
+  "krisenplanGuide",
+  "rechtlicheOrientierung",
+  "c1_krisenplan",
   "legacy.notfallkarte",
+  "legacy.rechtlicheOrientierung",
 ]);
+const REQUIRED_PDF_TEXT_SNIPPETS = {
+  krisenplanVorlage: [
+    "sensible Gesundheitsdaten",
+    "sicher auf",
+    "digitale Kopien",
+  ],
+  krisenplanGuide: [
+    "zuerst drei Felder",
+    "sensible Gesundheitsdaten",
+  ],
+  c1_krisenplan: [
+    "zuerst drei Felder",
+    "sensible Gesundheitsdaten",
+  ],
+  rechtlicheOrientierung: [
+    "keine Rechtsberatung",
+    "Erst sortieren",
+    "fachliche oder juristische Beratung",
+  ],
+  "legacy.rechtlicheOrientierung": [
+    "keine Rechtsberatung",
+    "Erst sortieren",
+    "fachliche oder juristische Beratung",
+  ],
+};
 
 function flattenAssets(pdfs) {
   return [...Object.values(pdfs.downloads), ...Object.values(pdfs.handouts)];
@@ -106,6 +136,17 @@ export function pdfMetadataDeclaresLanguage(metadata, language = "de-CH") {
   return String(metadata || "").includes(language);
 }
 
+export function requiredPdfTextSnippets(pdfKey) {
+  return REQUIRED_PDF_TEXT_SNIPPETS[pdfKey] || [];
+}
+
+export function findMissingRequiredPdfTextSnippets(pdfKey, pdfText) {
+  const normalizedText = normalizeWhitespace(pdfText).toLowerCase();
+  return requiredPdfTextSnippets(pdfKey).filter(
+    (snippet) => !normalizedText.includes(normalizeWhitespace(snippet).toLowerCase())
+  );
+}
+
 async function validateExtractableText(context, pdfKey, sourcePath, findings) {
   const textResult = await runCommand("pdftotext", ["-layout", sourcePath, "-"], { cwd: context.repoRoot });
 
@@ -117,11 +158,20 @@ async function validateExtractableText(context, pdfKey, sourcePath, findings) {
     return;
   }
 
-  const textLength = normalizeWhitespace(textResult.stdout).length;
+  const normalizedText = normalizeWhitespace(textResult.stdout);
+  const textLength = normalizedText.length;
   if (textLength < MIN_EXTRACTABLE_TEXT_CHARS) {
     findings.push({
       severity: "high",
       message: `${pdfKey} has only ${textLength} extractable text characters; PDFs must not ship as image-only handouts.`,
+    });
+  }
+
+  const missingRequiredSnippets = findMissingRequiredPdfTextSnippets(pdfKey, normalizedText);
+  for (const snippet of missingRequiredSnippets) {
+    findings.push({
+      severity: "high",
+      message: `${pdfKey} is missing required PDF text snippet "${snippet}".`,
     });
   }
 }
@@ -379,6 +429,7 @@ export async function runPdfManifestCheck(context) {
       legacyPdfAliases: legacyPdfAliases.length,
       minimumExtractableTextChars: MIN_EXTRACTABLE_TEXT_CHARS,
       criticalLanguageMetadataAssets: CRITICAL_LANGUAGE_METADATA_KEYS.size,
+      requiredPdfTextSnippetAssets: Object.keys(REQUIRED_PDF_TEXT_SNIPPETS).length,
       sourcePdfFiles: sourcePdfFiles.length,
       sourceDownloadsDir: relativeToRepo(context.repoRoot, path.join(context.repoRoot, "src", "downloads")),
       sourceHandoutsDir: relativeToRepo(context.repoRoot, path.join(context.repoRoot, "src", "handouts")),

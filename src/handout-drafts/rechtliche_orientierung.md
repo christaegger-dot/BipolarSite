@@ -8,20 +8,31 @@ show_priority_badge: false
 type: "Orientierungsblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Rechtliche und systemische Fragen in belastenden Phasen besser ordnen und erste Schritte klären"
-target_format: "A4, 1 Seite"
+target_format: "A4, 2 Seiten"
 priority: "P1"
-last_updated: "2026-05-01"
+last_updated: "2026-05-12"
 emergency_label: "Wenn Schutz nicht warten kann"
 emergency_callout: "Bei akuter Selbst- oder Fremdgefährdung, schwerer Psychose oder Gewalt geht Schutz vor juristischer Klärung. Dann zuerst Notfallwege nutzen."
 emergency_note: "Rechtliche Orientierung soll entlasten, nicht überfordern. Viele Fragen lassen sich besser in ruhigen Phasen vorbereiten als mitten in der Eskalation."
 quick_steps:
   - icon: "1"
-    text: "Schweigepflicht: Erlaubnis, nicht Vollmacht"
+    text: "Akute Gefahr zuerst absichern"
   - icon: "2"
-    text: "Vorsorge in ruhigen Phasen klären"
+    text: "Information und Mitsprache trennen"
   - icon: "3"
     wide: true
-    text: "Bei Blockaden gezielt Beratung holen"
+    text: "Vorsorge und Beratung früh klären"
+focus_box:
+  title: "Erst sortieren: Welches Problem liegt gerade vor?"
+  items:
+    - label: "Schutz"
+      text: "Akute Gefahr, schwere Psychose oder Gewalt: Notfallwege nutzen, nicht juristisch warten."
+    - label: "Information"
+      text: "Sie dürfen Beobachtungen weitergeben; Rückmeldungen braucht meist Einwilligung."
+    - label: "Vorsorge"
+      text: "Schweigepflichtentbindung, Vorsorgeauftrag und Patientenverfügung ruhig vorbereiten."
+    - label: "Blockade"
+      text: "Bei FU, KESB, Versicherung oder Fristen gezielt externe Beratung holen."
 emergency_contacts:
   - label: "Pro Mente Sana"
     number: "0848&nbsp;800&nbsp;858"
@@ -37,14 +48,15 @@ emergency_contacts:
 
 ## Wozu rechtliche Orientierung dient
 
-Rechtliche Fragen tauchen für Angehörige oft genau dann auf, wenn ohnehin schon zu viel gleichzeitig läuft. Es geht deshalb nicht um juristische Perfektion, sondern um drei Dinge: Was darf ich? Was sollte früh geklärt werden? Und wohin kann ich mich wenden, wenn das System zusätzlich belastet?
+Rechtliche Fragen tauchen für Angehörige oft genau dann auf, wenn ohnehin schon zu viel gleichzeitig läuft. Dieses Blatt bietet Orientierung und ersetzt keine Rechtsberatung. Es hilft, die nächste Frage sauberer zu stellen: Geht es gerade um Schutz, Information, Vorsorge oder eine externe Stelle?
 
-## Vier Bereiche, die oft wichtig werden
+## Vier Bereiche, die oft verwechselt werden
 
-- Schweigepflicht: Sie dürfen Informationen an das Behandlungsteam weitergeben, erhalten aber ohne Einwilligung meist keine zurück
-- Vorsorge: Schweigepflichtentbindung, Vorsorgeauftrag und Patientenverfügung möglichst in stabilen Phasen besprechen
+- Schutz: Wenn Gefahr besteht, zählen Notfallwege vor juristischer Klärung
+- Schweigepflicht: Sie dürfen Informationen an das Behandlungsteam weitergeben, erhalten ohne Einwilligung aber meist keine zurück
+- Mitsprache: Eine Information ans Team ist noch keine Vertretung und keine Behandlungsentscheidung
+- Vorsorge: Schweigepflichtentbindung, Vorsorgeauftrag und Patientenverfügung möglichst in stabilen Phasen vorbereiten
 - Finanzen: Ausgabenlimiten, Bankabsprachen oder ein Vorsorgeauftrag können in Krisenzeiten schützen
-- Systemfragen: Bei FU, KESB, Versicherung oder Beschwerdewegen früh Beratung holen statt allein festhängen
 
 ## Schweigepflicht richtig einordnen
 
@@ -54,15 +66,13 @@ Nur die erkrankte Person kann sie erteilen. Sie kann festlegen, wer informiert w
 
 Wichtig für viele Angehörige: Die Schweigepflicht bedeutet nicht, dass Sie still bleiben müssen. Sie dürfen dem Behandlungsteam jederzeit mitteilen, was Sie beobachten. Gesperrt ist vor allem die Gegenrichtung: Ohne Einwilligung darf das Team Ihnen oft nichts Konkretes zurückmelden.
 
-## Was Sie damit praktisch klären können
+## Was eine Freigabe praktisch klären kann
 
 - Wer mit wem sprechen darf
 - Welche Themen geteilt werden dürfen
 - Wie lange die Erlaubnis gelten soll
 - Ob die Entbindung schriftlich bei der behandelnden Stelle vorliegt
 - Ob bei Wechsel von Klinik oder Therapeutin neu geprüft werden muss
-
-Je klarer diese Punkte sind, desto weniger müssen Sie in einer späteren Eskalation improvisieren.
 
 ## Vorsorge nicht verwechseln
 
@@ -85,13 +95,14 @@ Besonders hilfreich ist: Diese Punkte nicht erst im Streit oder in der Krise anz
 - wenn unklar ist, welche Vorsorgeregelung realistisch ist
 - wenn Finanzierung, Kostengutsprache oder Krankenkasse zum Problem werden
 - wenn eine FU, KESB-Frage oder andere behördliche Schritte im Raum stehen
+- wenn Fristen laufen oder Sie eine rechtliche Einschätzung brauchen
 - wenn Sie das Gefühl haben, viel mitzutragen und trotzdem nirgends richtig gehört zu werden
 
-Gerade in solchen Situationen ist zusätzliche Beratung kein Zeichen von Hilflosigkeit. Sie hilft, Frust nicht mit persönlichem Versagen zu verwechseln.
+Gerade in solchen Situationen ist zusätzliche psychosoziale oder juristische Beratung kein Zeichen von Hilflosigkeit. Sie hilft, Frust nicht mit persönlichem Versagen zu verwechseln.
 
 ## Nächster sinnvoller Schritt
 
-Wenn die Lage gerade ruhig genug ist, wählen Sie **einen** Vorsorgepunkt aus: Schweigepflichtentbindung ansprechen, Konten ordnen oder eine Beratung zu Vorsorgeauftrag und Patientenverfügung einholen. Wenn Klinik oder Therapeutin wechseln, prüfen Sie bestehende Freigaben erneut. Wenn die Lage bereits blockiert ist, holen Sie sich gezielt juristische oder psychosoziale Orientierung statt endlos allein weiterzusuchen.
+Wenn die Lage gerade ruhig genug ist, wählen Sie **einen** Vorsorgepunkt aus: Schweigepflichtentbindung ansprechen, Konten ordnen oder eine Beratung zu Vorsorgeauftrag und Patientenverfügung einholen. Wenn Klinik oder Therapeutin wechseln, prüfen Sie bestehende Freigaben erneut. Wenn die Lage blockiert ist, holen Sie sich gezielt fachliche oder juristische Beratung statt endlos allein weiterzusuchen.
 
 Rechtliche Klarheit ersetzt keine Beziehung und keine Behandlung. Aber sie kann Überforderung reduzieren und in kritischen Momenten Handlungsspielraum schaffen.
 

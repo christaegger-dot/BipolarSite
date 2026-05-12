@@ -160,6 +160,14 @@ styles["acute_step"] = ParagraphStyle(
     "AcuteStep", fontName="DMSans", fontSize=8.4, leading=11,
     textColor=TEXT_C,
 )
+styles["focus_title"] = ParagraphStyle(
+    "FocusTitle", fontName="DMSans", fontSize=8.6, leading=10.5,
+    textColor=MUTED, spaceAfter=1 * mm,
+)
+styles["focus_item"] = ParagraphStyle(
+    "FocusItem", fontName="DMSans", fontSize=8.2, leading=10.5,
+    textColor=TEXT_C,
+)
 
 
 # ── Parse Markdown with Frontmatter ───────────────────────────────────
@@ -400,6 +408,67 @@ def build_quick_steps_flowables(quick_steps, content_width, compact=False):
     return [step_table, Spacer(1, 3 * mm)]
 
 
+def build_focus_box_flowables(meta, content_width):
+    """Build a compact highlighted scan aid for key worksheet/orientation steps."""
+    focus_box = meta.get("focus_box")
+    if not isinstance(focus_box, dict):
+        return []
+
+    raw_items = focus_box.get("items", [])
+    if not isinstance(raw_items, list):
+        return []
+
+    items = []
+    for raw in raw_items:
+        if not isinstance(raw, dict):
+            continue
+        label = plain_text(raw.get("label", ""))
+        text = plain_text(raw.get("text", ""))
+        if label or text:
+            items.append({"label": label, "text": text})
+
+    if not items:
+        return []
+
+    title = plain_text(focus_box.get("title", "Merken"))
+    flowables = [Paragraph(f"<b>{md_inline(title)}</b>", styles["focus_title"])]
+
+    cells = []
+    for item in items:
+        parts = []
+        if item["label"]:
+            parts.append(
+                f'<font color="#{TEAL.hexval()[2:]}" size="8"><b>{md_inline(item["label"])}</b></font>'
+            )
+        if item["text"]:
+            parts.append(md_inline(item["text"]))
+        cells.append(Paragraph("<br/>".join(parts), styles["focus_item"]))
+
+    columns = 2 if len(cells) == 4 else min(3, len(cells))
+    rows = []
+    for start in range(0, len(cells), columns):
+        row = cells[start:start + columns]
+        while len(row) < columns:
+            row.append(Paragraph("", styles["focus_item"]))
+        rows.append(row)
+
+    col_width = content_width / columns
+    focus_table = Table(rows, colWidths=[col_width] * columns)
+    focus_table.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, -1), HexColor("#f8fbfb")),
+        ("BOX", (0, 0), (-1, -1), 0.45, HexColor("#b8d8d8")),
+        ("INNERGRID", (0, 0), (-1, -1), 0.25, HexColor("#cfe2e2")),
+        ("TOPPADDING", (0, 0), (-1, -1), 1.7 * mm),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 1.7 * mm),
+        ("LEFTPADDING", (0, 0), (-1, -1), 2 * mm),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 2 * mm),
+        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+    ]))
+    flowables.append(focus_table)
+    flowables.append(Spacer(1, 2.4 * mm))
+    return flowables
+
+
 def build_help_module_flowables(help_module, content_width):
     """Create flowables for the optional help module.
     Horizontal 3-column grid (matches HTML preview); saves ~25mm vs.
@@ -546,6 +615,8 @@ def build_pdf(meta, body, output_path: Path):
     if is_acute_handout:
         story.extend(build_acute_contact_strip(meta, content_width))
     story.extend(build_quick_steps_flowables(quick_steps, content_width, compact=is_acute_handout))
+    if not is_acute_handout:
+        story.extend(build_focus_box_flowables(meta, content_width))
 
     story.append(HRFlowable(width="100%", thickness=0.5, color=LINE, spaceAfter=2 * mm))
 
