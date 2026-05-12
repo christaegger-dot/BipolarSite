@@ -344,6 +344,76 @@ test.describe('lighthouse accessibility regressions', () => {
   });
 });
 
+test.describe('high-risk content flows', () => {
+  test('site search returns relevant Pagefind results', async ({ page }) => {
+    await page.goto('/suche/');
+
+    const searchInput = page.locator('.pagefind-ui__search-input');
+    await expect(searchInput).toBeVisible();
+    await searchInput.fill('Krisenplan');
+
+    const resultLinks = page.locator('.pagefind-ui__result-link');
+    await expect(resultLinks.first()).toBeVisible({ timeout: 10_000 });
+    await expect(page.locator('.pagefind-ui__results')).toContainText(/Krisenplan/i);
+
+    const resultHrefs = await resultLinks.evaluateAll((links) =>
+      links.map((link) => link.getAttribute('href') || ''),
+    );
+    expect(resultHrefs.some((href) => /krisenplan|modul\/6|materialien/.test(href))).toBe(true);
+  });
+
+  test('materials preview PDFs open an in-page dialog with direct actions', async ({ page }) => {
+    await page.goto('/materialien/');
+
+    const previewLink = page.locator('a[data-pdf-mode="preview"][href^="/handouts/"]').first();
+    await expect(previewLink).toBeVisible();
+    const previewHref = await previewLink.getAttribute('href');
+    expect(previewHref).toMatch(/^\/handouts\/.+\.pdf$/);
+
+    await previewLink.click();
+
+    const dialog = page.locator('.pdf-preview-dialog');
+    await expect(dialog).toBeVisible();
+    await expect(page.locator('#pdf-preview-title')).not.toHaveText('PDF-Vorschau auf dieser Seite');
+    await expect(page.locator('body')).toHaveClass(/pdf-preview-open/);
+    await expect(page.locator('#pdf-preview-frame')).toHaveAttribute('src', `${previewHref}#view=FitH`);
+    await expect(page.locator('#pdf-preview-open')).toHaveAttribute('href', previewHref || '');
+    await expect(page.locator('#pdf-preview-download')).toHaveAttribute('href', previewHref || '');
+    await expect(page.locator('#pdf-preview-download')).toHaveAttribute('download', '');
+
+    await page.keyboard.press('Escape');
+    await expect(dialog).toBeHidden();
+    await expect(page.locator('#pdf-preview-frame')).toHaveAttribute('src', 'about:blank');
+    await expect(previewLink).toBeFocused();
+  });
+
+  test('materials download PDFs bypass the in-page preview and point to built files', async ({ page }) => {
+    await page.goto('/materialien/');
+
+    const downloadLinks = page.locator('a[data-pdf-mode="download"][href^="/downloads/"]');
+    await expect(downloadLinks.first()).toBeVisible();
+
+    const downloadHrefs = await downloadLinks.evaluateAll((links) =>
+      links.map((link) => ({
+        href: link.getAttribute('href') || '',
+        target: link.getAttribute('target') || '',
+        rel: link.getAttribute('rel') || '',
+        label: link.textContent?.replace(/\s+/g, ' ').trim() || '',
+      })),
+    );
+
+    expect(downloadHrefs.length).toBeGreaterThanOrEqual(5);
+    expect(downloadHrefs.every((link) => link.href.startsWith('/downloads/') && link.href.endsWith('.pdf'))).toBe(true);
+    expect(downloadHrefs.every((link) => link.target === '_blank')).toBe(true);
+    expect(downloadHrefs.every((link) => link.rel.includes('noopener'))).toBe(true);
+    expect(downloadHrefs.some((link) => /Notfallkarte Kanton Zürich/.test(link.label))).toBe(true);
+
+    const response = await page.request.get(downloadHrefs[0].href);
+    expect(response.ok()).toBe(true);
+    expect(response.headers()['content-type']).toContain('application/pdf');
+  });
+});
+
 test.describe('mobile navigation', () => {
   test.use({ viewport: { width: 390, height: 844 } });
 
