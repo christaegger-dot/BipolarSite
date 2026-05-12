@@ -8,19 +8,28 @@ show_priority_badge: false
 type: "Arbeitsblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Eine gemeinsame, schriftliche Orientierung für belastende Phasen vorbereiten"
-target_format: "A4, 1 Seite"
+target_format: "A4, 2 Seiten"
 priority: "P1"
-last_updated: "2026-04-30"
+last_updated: "2026-05-12"
 emergency_label: "Wenn die Lage bereits kippt"
 emergency_callout: "Wenn akute Selbst- oder Fremdgefährdung im Raum steht, nicht erst planen: 144 oder 0800 33 66 55 anrufen und den Notfallpfad aktivieren."
 emergency_note: "Ein Krisenplan wird in einer stabilen Phase erstellt. In der akuten Krise zählt Schutz vor Perfektion."
 quick_steps:
   - icon: "1"
-    text: "In ruhiger Phase gemeinsam ausfüllen"
+    text: "Zuerst nur drei Felder ausfüllen"
   - icon: "2"
-    text: "Frühwarnzeichen und Kontakte konkret festhalten"
+    text: "Plan sicher ablegen und teilen"
   - icon: "3"
-    text: "Ausdrucken, ablegen, regelmässig prüfen"
+    text: "Nach jeder Episode kurz prüfen"
+focus_box:
+  title: "Wenn die Vorlage zu gross wirkt: zuerst drei Felder"
+  items:
+    - label: "1 · Frühwarnzeichen"
+      text: "Woran merken wir früh, dass etwas kippt?"
+    - label: "2 · Erste Kontakte"
+      text: "Wer wird zuerst angerufen, wenn es ernst wird?"
+    - label: "3 · Eine Massnahme"
+      text: "Was hat beim letzten Mal am meisten geholfen?"
 emergency_contacts:
   - label: "Notfalldienst Zürich"
     number: "0800&nbsp;33&nbsp;66&nbsp;55"
@@ -42,16 +51,18 @@ Ein Krisenplan soll in belastenden Situationen Entscheidungslast reduzieren. Er 
 
 Die beste Zeit für einen Krisenplan ist eine stabile Phase. Dann kann die erkrankte Person klarer denken, abwägen und mitentscheiden. Gerade Themen wie Frühwarnzeichen, Kontakte, Medikamente, Klinikwünsche oder Grenzen lassen sich dann viel besser besprechen als mitten in einer Krise.
 
-## Was unbedingt hinein sollte
+## Was zuerst hinein sollte
 
-- persönliche Frühwarnzeichen aus zwei Perspektiven
-- was beim letzten Mal geholfen hat und was nicht
-- wer im Ernstfall kontaktiert werden soll
+Beginnen Sie nicht mit dem perfekten Gesamtplan. Füllen Sie zuerst drei Felder aus: Frühwarnzeichen, erste Kontakte und die eine Massnahme, die beim letzten Mal am meisten geholfen hat. Das reicht oft, um den nächsten Schritt in einer Krise schneller zu finden.
+
+Danach können Sie ergänzen:
+
 - behandelnde Stellen mit Telefonnummern
-- welche Schritte zuerst versucht werden sollen
+- Medikamente und was bei Absetzen vereinbart ist
 - ab wann Schutz vor Gespräch geht
-- wo der ausgedruckte Plan liegt und wer ihn im Ernstfall schnell hervornehmen kann
-- wichtige Grenzen, Zuständigkeiten und Wünsche für eine mögliche Klinikphase
+- Klinik- oder Aufnahme-Wünsche
+- Kinderbetreuung, Alltag, Finanzen und Grenzen
+- wo der ausgedruckte Plan liegt
 
 Je konkreter die Formulierungen sind, desto hilfreicher wird der Plan später.
 
@@ -67,16 +78,18 @@ Das gibt der anderen Person Kontrolle über den Zeitpunkt zurück. Sinnvoll ist 
 - einen ruhigen, bewusst gewählten Moment nutzen
 - Beobachtungen statt Vorwürfe einbringen
 - schriftlich festhalten, was beide Seiten meinen
-- den Plan nach jeder Episode kurz überprüfen
 - die ausgedruckte Version so ablegen, dass sie im Notfall auffindbar ist
+- vereinbaren, wer den Plan im Ernstfall hervornehmen darf
+
+## Datenschutz und Aufbewahrung
+
+Ein ausgefüllter Krisenplan enthält sensible Gesundheitsdaten. Teilen Sie ihn nur mit Personen, denen beide vertrauen. Bewahren Sie Ausdrucke sicher und auffindbar auf. Speichern Sie digitale Kopien bewusst, nicht ungeschützt auf gemeinsam genutzten Geräten.
 
 ## Was eher nicht hilft
 
 - den Plan erst in der Krise erstellen wollen
 - alles in einem einzigen Gespräch lösen wollen
 - unklare Formulierungen wie „irgendwann Hilfe holen“
-- zu glauben, dass einmalige Absprachen für immer gelten
-- wichtige Informationen nur im Kopf zu behalten
 
 ## Wenn Medikamente abgesetzt wurden oder die Lage unsicher wird
 
@@ -84,7 +97,7 @@ Gerade dann lohnt sich ein aktualisierter Krisenplan besonders. Halten Sie fest,
 
 ## Nächster sinnvoller Schritt
 
-Öffnen Sie das Krisenplan-Werkzeug oder nehmen Sie die PDF-Vorlage zur Hand und füllen Sie zuerst nur drei Felder aus: Frühwarnzeichen, erste Kontakte und die eine Massnahme, die beim letzten Mal am meisten geholfen hat. Wenn bereits Warnzeichen da sind, öffnen Sie zuerst den vorhandenen Plan, statt in der Akutsituation einen neuen perfekt schreiben zu wollen.
+Öffnen Sie das Krisenplan-Werkzeug oder nehmen Sie die PDF-Vorlage zur Hand. Wenn bereits Warnzeichen da sind, öffnen Sie zuerst den vorhandenen Plan, statt in der Akutsituation einen neuen perfekt schreiben zu wollen.
 
 Weiterführend:
 
