@@ -15,6 +15,18 @@ const PDF_SOURCE_DIRS = [
   path.join("src", "handouts"),
 ];
 const MIN_EXTRACTABLE_TEXT_CHARS = 250;
+const CRITICAL_LANGUAGE_METADATA_KEYS = new Set([
+  "notfallkarte",
+  "suizidgedanken",
+  "psychoseWahn",
+  "manie",
+  "depression",
+  "c2_suizidgedanken",
+  "c3_psychose_wahn",
+  "c4_manie",
+  "c5_depression",
+  "legacy.notfallkarte",
+]);
 
 function flattenAssets(pdfs) {
   return [...Object.values(pdfs.downloads), ...Object.values(pdfs.handouts)];
@@ -86,6 +98,14 @@ function isA4(pageSize) {
   return portrait || landscape;
 }
 
+export function requiresCriticalLanguageMetadata(pdfKey) {
+  return CRITICAL_LANGUAGE_METADATA_KEYS.has(pdfKey);
+}
+
+export function pdfMetadataDeclaresLanguage(metadata, language = "de-CH") {
+  return String(metadata || "").includes(language);
+}
+
 async function validateExtractableText(context, pdfKey, sourcePath, findings) {
   const textResult = await runCommand("pdftotext", ["-layout", sourcePath, "-"], { cwd: context.repoRoot });
 
@@ -102,6 +122,28 @@ async function validateExtractableText(context, pdfKey, sourcePath, findings) {
     findings.push({
       severity: "high",
       message: `${pdfKey} has only ${textLength} extractable text characters; PDFs must not ship as image-only handouts.`,
+    });
+  }
+}
+
+async function validateCriticalLanguageMetadata(context, pdfKey, sourcePath, findings) {
+  if (!requiresCriticalLanguageMetadata(pdfKey)) {
+    return;
+  }
+
+  const metadataResult = await runCommand("pdfinfo", ["-meta", sourcePath], { cwd: context.repoRoot });
+  if (!metadataResult.ok) {
+    findings.push({
+      severity: "medium",
+      message: `${pdfKey} could not be inspected for PDF language metadata (${metadataResult.message || "unknown error"}).`,
+    });
+    return;
+  }
+
+  if (!pdfMetadataDeclaresLanguage(metadataResult.stdout)) {
+    findings.push({
+      severity: "medium",
+      message: `${pdfKey} is a critical acute PDF but does not expose de-CH language metadata.`,
     });
   }
 }
@@ -254,6 +296,7 @@ export async function runPdfManifestCheck(context) {
     }
 
     await validateExtractableText(context, asset.key, sourcePath, findings);
+    await validateCriticalLanguageMetadata(context, asset.key, sourcePath, findings);
   }
 
   for (const alias of legacyPdfAliases) {
@@ -317,6 +360,7 @@ export async function runPdfManifestCheck(context) {
     }
 
     await validateExtractableText(context, alias.key, sourcePath, findings);
+    await validateCriticalLanguageMetadata(context, alias.key, sourcePath, findings);
   }
 
   const hasBlockingFindings = findings.some((finding) => finding.severity === "high");
@@ -334,6 +378,7 @@ export async function runPdfManifestCheck(context) {
       assets: assets.length,
       legacyPdfAliases: legacyPdfAliases.length,
       minimumExtractableTextChars: MIN_EXTRACTABLE_TEXT_CHARS,
+      criticalLanguageMetadataAssets: CRITICAL_LANGUAGE_METADATA_KEYS.size,
       sourcePdfFiles: sourcePdfFiles.length,
       sourceDownloadsDir: relativeToRepo(context.repoRoot, path.join(context.repoRoot, "src", "downloads")),
       sourceHandoutsDir: relativeToRepo(context.repoRoot, path.join(context.repoRoot, "src", "handouts")),
