@@ -64,9 +64,11 @@ Wie `audit:release`, aber als JSON-Ausgabe.
 
 - `PASS`: keine Befunde
 - `WARN`: kein technischer Blocker, aber offener Nachlauf oder manuelle Freigabe noetig
-- `FAIL`: technischer oder struktureller Blocker
+- `FAIL`: bestaetigter Produkt-/Content-/Konfigurations-Blocker
 
-Der Prozess beendet sich nur bei `FAIL` mit Exit-Code `1`. `WARN` bleibt bewusst nicht-blockierend, damit offene manuelle Gates sichtbar bleiben, ohne lokale oder CI-Laeufe unnötig zu brechen.
+Infra-Fehler (z. B. fehlende Tooling-Dependency oder temporaere Netzwerkprobleme) koennen auf Check-Ebene weiterhin als `fail` sichtbar sein, werden fuer den **overallStatus** jedoch als `WARN` gewichtet, damit transiente Betriebsprobleme nicht denselben Impact wie Produktregressionen haben.
+
+Der Prozess beendet sich nur bei `FAIL` mit Exit-Code `1`. `WARN` bleibt bewusst nicht-blockierend, damit offene manuelle Gates sichtbar bleiben, ohne lokale oder CI-Laeufe unnoetig zu brechen.
 
 ## Was die MVP noch nicht automatisiert
 
