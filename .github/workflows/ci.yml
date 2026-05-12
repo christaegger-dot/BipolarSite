@@ -46,6 +46,8 @@ jobs:
         run: npm ci
       - name: Build site
         run: npm run build
+      - name: Install Playwright Chromium + Linux deps for pa11y
+        run: npx playwright install --with-deps chromium
       - name: Start local server
         run: npx http-server _site -p 8080 --silent &
       - name: Wait for server to be ready
