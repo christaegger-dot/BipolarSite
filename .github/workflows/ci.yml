@@ -44,13 +44,9 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: npm ci
-      - name: Build site
-        run: npm run build
-      - name: Start local server
-        run: npx http-server _site -p 8080 --silent &
-      - name: Wait for server to be ready
-        run: npx wait-on http://localhost:8080 --timeout 30000
-      - name: Run accessibility checks
+      - name: Install Playwright Chromium + Linux deps for pa11y
+        run: npx playwright install --with-deps chromium
+      - name: Run accessibility checks (self-hosted by script)
         run: npm run lint:a11y
 
   lighthouse:
