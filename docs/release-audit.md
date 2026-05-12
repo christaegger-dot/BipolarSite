@@ -43,6 +43,13 @@ npm run audit:release:json
 
 Wie `audit:release`, aber als JSON-Ausgabe.
 
+
+## Voraussetzungen
+
+- **`pdfinfo` ist verpflichtend** fuer den Check `PDF manifest and assets` (Seitenzahl, PDF-Titel, A4-Format).
+- In CI wird das ueber `poppler-utils` bereitgestellt.
+- Lokal bitte ebenfalls `poppler-utils` (oder ein Paket mit `pdfinfo`) installieren; ohne `pdfinfo` endet der Audit mit `FAIL`.
+
 ## Aktuelle Check-Bloecke
 
 1. `Config and documentation drift`
