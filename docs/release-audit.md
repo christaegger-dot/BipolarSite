@@ -77,13 +77,6 @@ Reachability-Sonderfall Produktion:
 PDF-QA-Policy:
 - `pdfinfo` ist verbindlich. Wenn `pdfinfo` fehlt oder nicht ausführbar ist, wird `pdf-manifest` als `FAIL` gewertet (kein stilles Skip von Seitenzahl-/Titel-/A4-Prüfungen).
 
-Reachability-Sonderfall Produktion:
-- Im **Full-Audit** (`npm run audit:release` / `:json`) wird ein reiner Reachability-Ausfall der Live-URL als `WARN` bewertet, damit lokale Qualitätsgates nicht false-negativ blockieren.
-- Im **Production-Only-Audit** (`npm run audit:release:prod`) bleibt Reachability **blocking** (`FAIL`), da dieser Modus explizit die Live-Prüfung darstellt.
-
-PDF-QA-Policy:
-- `pdfinfo` ist verbindlich. Wenn `pdfinfo` fehlt oder nicht ausführbar ist, wird `pdf-manifest` als `FAIL` gewertet (kein stilles Skip von Seitenzahl-/Titel-/A4-Prüfungen).
-
 ## Was die MVP noch nicht automatisiert
 
 - reale iPhone-Safari- und iPhone-Chrome-Freigabe
