@@ -546,8 +546,44 @@ const groups = {
   notfall: [downloads.suizidgedanken, downloads.manie, downloads.depression, downloads.psychoseWahn],
 };
 
+const legacyPdfAliases = [
+  {
+    key: "legacy.notfallkarte",
+    url: "/handouts/notfallkarte.pdf",
+    currentUrl: downloads.notfallkarte.url,
+    title: downloads.notfallkarte.title,
+    pages: downloads.notfallkarte.pages,
+    reason: "Promoted to a curated download; old /handouts/ URL stays available for direct bookmarks.",
+  },
+  {
+    key: "legacy.kurzblattStabilisiert",
+    url: "/handouts/kurzblatt_stabilisiert.pdf",
+    currentUrl: downloads.kurzblattStabilisiert.url,
+    title: downloads.kurzblattStabilisiert.title,
+    pages: downloads.kurzblattStabilisiert.pages,
+    reason: "Promoted to a curated download; old /handouts/ URL stays available for direct bookmarks.",
+  },
+  {
+    key: "legacy.kritischeZeitpunkte",
+    url: "/handouts/b3_kritische_zeitpunkte.pdf",
+    currentUrl: downloads.kritischeZeitpunkte.url,
+    title: downloads.kritischeZeitpunkte.title,
+    pages: downloads.kritischeZeitpunkte.pages,
+    reason: "Promoted to a curated download; old /handouts/ URL stays available for direct bookmarks.",
+  },
+  {
+    key: "legacy.rechtlicheOrientierung",
+    url: "/handouts/rechtliche_orientierung.pdf",
+    currentUrl: downloads.rechtlicheOrientierung.url,
+    title: downloads.rechtlicheOrientierung.title,
+    pages: downloads.rechtlicheOrientierung.pages,
+    reason: "Promoted to a curated download; old /handouts/ URL stays available for direct bookmarks.",
+  },
+];
+
 module.exports = {
   downloads,
   handouts,
   groups,
+  legacyPdfAliases,
 };
