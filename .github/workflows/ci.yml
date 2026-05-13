@@ -129,6 +129,15 @@ jobs:
         run: npm run build
       - name: Run release audit unit tests
         run: npm run test:release-audit
+      - name: Run acute PDF layout QA
+        run: npm run check:acute-pdfs -- --no-generate
+      - name: Upload acute PDF QA screenshots
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: acute-pdf-qa-screenshots
+          path: .acute-pdf-qa/screenshots
+          if-no-files-found: warn
       - name: Start local server
         run: npx http-server _site -p 8080 --silent &
       - name: Wait for server to be ready

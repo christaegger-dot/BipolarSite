@@ -33,6 +33,24 @@ acute_visual:
     - label: "Konkret/unsicher"
       text: "144: Schutz vor Gespräch"
       cue: "Schutz"
+acute_page2_boxes:
+  - title: "Präsenz statt Druck"
+    items:
+      - "kurz da sein"
+      - "Gefühl stehen lassen"
+      - "keine schnellen Lösungen fordern"
+  - title: "Direkt fragen"
+    items:
+      - "Suizidgedanken ruhig ansprechen"
+      - "bei Plan, Mitteln oder Unsicherheit 144"
+  - title: "Alltag entlasten"
+    items:
+      - "kleine Einheiten denken"
+      - "Essen, Ruhe und Behandlungsteam mittragen"
+  - title: "Für Kinder"
+    items:
+      - "altersgerecht erklären: es ist eine Krankheit"
+      - "Schuldgefühle nicht verstärken"
 help_module:
   enabled: true
   title: "Sofort Hilfe dazunehmen"
@@ -79,13 +97,14 @@ Entscheidend sind Dauer, Tiefe und Veränderung gegenüber dem üblichen Zustand
 - kurz präsent sein: «Ich bin da. Du musst nichts sagen.»
 - Druck rausnehmen, in kleinen Einheiten denken
 - Gefühl stehen lassen statt korrigieren
+
+<!-- pagebreak -->
+
 - zur Kontaktaufnahme mit dem Behandlungsteam ermutigen — gemeinsam anrufen
 - an vereinbarte Medikamenten-Einnahme erinnern, ohne Dosierungen zu ändern
 - Kindern altersgerecht erklären: es ist eine Krankheit
 
 Hilfreich oft: **«Ich kann das nicht lösen, aber ich bin hier.»**
-
-<!-- pagebreak -->
 
 ## Was eher schadet
 

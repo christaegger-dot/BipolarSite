@@ -37,7 +37,7 @@ const downloads = {
     version: "core_v01",
     updated: "2026-05-13",
     filename: "notfallkarte-kanton-zuerich-puk.pdf",
-    pages: "PDF · 2 Seiten A4",
+    pages: "PDF · 1 Seite A4",
     mode: "download",
     quality: "core",
   }),

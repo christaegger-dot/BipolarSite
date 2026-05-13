@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import path from "node:path";
 import { describe, it } from "node:test";
 import {
+  findSparseNonFinalPdfPages,
   findMissingRequiredPdfTextSnippets,
   findUntrackedPdfSourceFiles,
   minRequiredPdfPages,
@@ -49,9 +50,9 @@ describe("PDF manifest audit helpers", () => {
     assert.equal(pdfMetadataDeclaresLanguage("<dc:language><rdf:Seq><rdf:li>en-US</rdf:li></rdf:Seq></dc:language>"), false);
   });
 
-  it("keeps acute clinical handouts at two pages or more for readable visuals and sources", () => {
-    assert.equal(minRequiredPdfPages("notfallkarte"), 2);
-    assert.equal(minRequiredPdfPages("legacy.notfallkarte"), 2);
+  it("keeps full acute clinical handouts at two pages or more while allowing the notfall card to be one balanced page", () => {
+    assert.equal(minRequiredPdfPages("notfallkarte"), null);
+    assert.equal(minRequiredPdfPages("legacy.notfallkarte"), null);
     assert.equal(minRequiredPdfPages("suizidgedanken"), 2);
     assert.equal(minRequiredPdfPages("psychoseWahn"), 2);
     assert.equal(minRequiredPdfPages("manie"), 2);
@@ -61,6 +62,29 @@ describe("PDF manifest audit helpers", () => {
     assert.equal(minRequiredPdfPages("c4_manie"), 2);
     assert.equal(minRequiredPdfPages("c5_depression"), 2);
     assert.equal(minRequiredPdfPages("a8_warnsignale"), null);
+  });
+
+  it("flags non-final PDF pages whose main content ends too early while ignoring the footer", () => {
+    const bboxText = `
+      <page width="595.3" height="841.9">
+        <word xMin="40" yMin="120" xMax="90" yMax="132">Title</word>
+        <word xMin="40" yMin="420" xMax="90" yMax="435">Content</word>
+        <word xMin="240" yMin="806" xMax="340" yMax="816">Footer</word>
+      </page>
+      <page width="595.3" height="841.9">
+        <word xMin="40" yMin="700" xMax="90" yMax="715">Later</word>
+      </page>
+    `;
+
+    assert.deepEqual(findSparseNonFinalPdfPages(bboxText), [
+      {
+        page: 1,
+        contentBottom: 435,
+        pageHeight: 841.9,
+        contentBottomRatio: 0.517,
+        minContentBottomRatio: 0.65,
+      },
+    ]);
   });
 
   it("requires content guardrails for updated legal and worksheet PDFs", () => {
