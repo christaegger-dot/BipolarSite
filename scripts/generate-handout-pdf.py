@@ -31,7 +31,7 @@ from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.units import mm
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
-from reportlab.platypus import Flowable, HRFlowable, PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
+from reportlab.platypus import Flowable, HRFlowable, KeepTogether, PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 
 # ── Paths ──────────────────────────────────────────────────────────────
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -111,7 +111,7 @@ PAGE_W, PAGE_H = A4
 MARGIN_L = 22 * mm
 MARGIN_R = 22 * mm
 MARGIN_T = 12 * mm
-MARGIN_B = 5 * mm
+MARGIN_B = 12 * mm
 
 # ── Paragraph Styles ──────────────────────────────────────────────────
 styles = {}
@@ -179,8 +179,16 @@ styles["focus_item"] = ParagraphStyle(
     textColor=TEXT_C,
 )
 styles["visual_title"] = ParagraphStyle(
-    "VisualTitle", fontName="DMSans", fontSize=8.8, leading=10.8,
+    "VisualTitle", fontName="DMSans", fontSize=9.4, leading=11.4,
     textColor=MUTED, spaceAfter=1 * mm,
+)
+styles["acute_visual_label"] = ParagraphStyle(
+    "AcuteVisualLabel", fontName="DMSans", fontSize=8.2, leading=9.6,
+    textColor=TEAL, alignment=TA_CENTER,
+)
+styles["acute_visual_text"] = ParagraphStyle(
+    "AcuteVisualText", fontName="DMSans", fontSize=7.8, leading=9.2,
+    textColor=TEXT_C, alignment=TA_CENTER,
 )
 styles["visual_cell"] = ParagraphStyle(
     "VisualCell", fontName="DMSans", fontSize=7.9, leading=10,
@@ -213,6 +221,14 @@ styles["source_title"] = ParagraphStyle(
 styles["source_text"] = ParagraphStyle(
     "SourceText", fontName="DMSans", fontSize=5.9, leading=7.1,
     textColor=MUTED, spaceAfter=0.8 * mm,
+)
+styles["source_title_acute"] = ParagraphStyle(
+    "SourceTitleAcute", fontName="DMSans", fontSize=8.0, leading=9.4,
+    textColor=MUTED, spaceAfter=0.8 * mm,
+)
+styles["source_text_acute"] = ParagraphStyle(
+    "SourceTextAcute", fontName="DMSans", fontSize=7.1, leading=8.8,
+    textColor=MUTED, spaceAfter=1.0 * mm,
 )
 styles["source_title_compact"] = ParagraphStyle(
     "SourceTitleCompact", fontName="DMSans", fontSize=6.2, leading=6.8,
@@ -1122,7 +1138,7 @@ class AcuteVisualDiagram(ModelDiagram):
         self.title = plain_text(title)
 
     def _height_for_kind(self):
-        return 19 * mm
+        return 42 * mm
 
     def _urgent_item(self, item):
         joined = plain_text(" ".join([
@@ -1142,15 +1158,10 @@ class AcuteVisualDiagram(ModelDiagram):
         elif self.kind == "gauge":
             self._draw_acute_gauge()
         elif self.kind in {"signpost", "flowchart", "sequence"}:
-            self._draw_acute_signpost()
+            self._draw_acute_path()
         else:
             self._draw_acute_triage()
         self.canv.restoreState()
-
-    def _draw_acute_title(self, x, y_top, width):
-        if self.title:
-            return self._draw_para(self.title, x, y_top, width, "diagram_center", limit=24, color=TEAL, bold=True, align="center")
-        return 0
 
     def _acute_card(self, x, y, w, h, item, idx, fill):
         c = self.canv
@@ -1160,16 +1171,39 @@ class AcuteVisualDiagram(ModelDiagram):
         c.setLineWidth(0.45)
         c.roundRect(x, y, w, h, 3, fill=1, stroke=1)
         label = f"{idx} · {item.get('label', '')}"
-        label_h = self._draw_para(label, x + 1.5 * mm, y + h - 1.4 * mm, w - 3 * mm, "diagram_micro", limit=30, color=accent, bold=True, align="center")
+        label_h = self._draw_para(
+            label,
+            x + 2 * mm,
+            y + h - 3 * mm,
+            w - 4 * mm,
+            "acute_visual_label",
+            limit=36,
+            color=accent,
+            bold=True,
+            align="center",
+        )
         if item.get("text"):
-            self._draw_para(item.get("text", ""), x + 1.5 * mm, y + h - 1.8 * mm - label_h, w - 3 * mm, "diagram_micro", limit=36, align="center")
+            self._draw_para(
+                item.get("text", ""),
+                x + 2 * mm,
+                y + h - 4 * mm - label_h,
+                w - 4 * mm,
+                "acute_visual_text",
+                limit=52,
+                align="center",
+            )
+        if item.get("cue"):
+            cue_color = ALERT if self._urgent_item(item) else TEAL
+            c.setFillColor(HexColor("#ffffff"))
+            c.setStrokeColor(cue_color)
+            c.roundRect(x + w / 2 - 9 * mm, y + 2.2 * mm, 18 * mm, 4.5 * mm, 2, fill=1, stroke=1)
+            self._draw_para(item.get("cue", ""), x + w / 2 - 8 * mm, y + 5.8 * mm, 16 * mm, "diagram_micro", limit=16, color=cue_color, bold=True, align="center")
 
-    def _draw_acute_cards(self, x, fills):
+    def _draw_acute_cards(self, x, fills, pad=5 * mm):
         items = self.items[:3]
         if not items:
             return
-        pad = 2.6 * mm
-        gap = 1.5 * mm
+        gap = 2.5 * mm
         w = (self.width - x - pad - gap * (len(items) - 1)) / len(items)
         h = self.height - 2 * pad
         for idx, item in enumerate(items, start=1):
@@ -1181,70 +1215,75 @@ class AcuteVisualDiagram(ModelDiagram):
 
     def _draw_acute_traffic_light(self):
         c = self.canv
-        pad = 4 * mm
-        light_w = 14 * mm
+        pad = 5 * mm
+        light_w = 18 * mm
         c.setFillColor(HexColor("#f3f0ec"))
         c.setStrokeColor(MUTED)
         c.roundRect(pad, pad, light_w, self.height - 2 * pad, 5, fill=1, stroke=1)
         for color, cy in [
-            (ALERT, self.height - pad - 4 * mm),
+            (ALERT, self.height - pad - 5 * mm),
             (DIAGRAM_AMBER, self.height / 2),
-            (HexColor("#3f8f65"), pad + 4 * mm),
+            (HexColor("#3f8f65"), pad + 5 * mm),
         ]:
             c.setFillColor(color)
-            c.circle(pad + light_w / 2, cy, 3.2 * mm, fill=1, stroke=0)
-        self._draw_acute_cards(pad + light_w + 5 * mm, [DIAGRAM_GREEN, DIAGRAM_AMBER, DIAGRAM_ALERT])
+            c.circle(pad + light_w / 2, cy, 4.1 * mm, fill=1, stroke=0)
+        self._draw_acute_cards(pad + light_w + 7 * mm, [DIAGRAM_GREEN, DIAGRAM_AMBER, DIAGRAM_ALERT], pad=5 * mm)
 
     def _draw_acute_thermometer(self):
         c = self.canv
-        pad = 4 * mm
-        x = pad + 6 * mm
+        pad = 5 * mm
+        x = pad + 9 * mm
+        tube_top = self.height - pad - 3 * mm
+        bulb_y = pad + 6 * mm
+        c.setStrokeColor(HexColor("#b8d8d8"))
+        c.setLineWidth(7)
+        c.line(x, bulb_y, x, tube_top)
         c.setStrokeColor(ALERT)
-        c.setLineWidth(3.2)
-        c.line(x, pad + 5 * mm, x, self.height - pad - 1 * mm)
+        c.setLineWidth(4.2)
+        c.line(x, bulb_y, x, tube_top - 7 * mm)
         c.setFillColor(DIAGRAM_ALERT)
-        c.circle(x, pad + 4 * mm, 4.2 * mm, fill=1, stroke=1)
-        c.setLineWidth(0.5)
-        for i in range(3):
-            y = pad + 10 * mm + i * 4 * mm
-            c.line(x + 3.5 * mm, y, x + 8 * mm, y)
-        self._draw_acute_cards(pad + 20 * mm, [DIAGRAM_GREEN, DIAGRAM_AMBER, DIAGRAM_ALERT])
+        c.setStrokeColor(ALERT)
+        c.circle(x, bulb_y, 5.8 * mm, fill=1, stroke=1)
+        c.setStrokeColor(MUTED)
+        c.setLineWidth(0.55)
+        for i in range(4):
+            y = bulb_y + 7 * mm + i * 6 * mm
+            c.line(x + 5 * mm, y, x + 10 * mm, y)
+        self._draw_para("Schwere", x - 9 * mm, self.height - pad - 1 * mm, 18 * mm, "diagram_center", limit=12, color=MUTED, bold=True, align="center")
+        self._draw_acute_cards(pad + 25 * mm, [DIAGRAM_GREEN, DIAGRAM_AMBER, DIAGRAM_ALERT], pad=5 * mm)
 
     def _draw_acute_gauge(self):
         c = self.canv
-        pad = 4 * mm
-        cx = pad + 10 * mm
-        cy = pad + 8 * mm
+        pad = 5 * mm
+        cx = pad + 15 * mm
+        cy = pad + 14 * mm
+        radius = 14 * mm
         c.setStrokeColor(TEAL)
-        c.setLineWidth(2)
-        c.arc(cx - 9 * mm, cy - 8 * mm, cx + 9 * mm, cy + 10 * mm, 25, 140)
+        c.setLineWidth(2.8)
+        c.arc(cx - radius, cy - radius, cx + radius, cy + radius, 20, 55)
+        c.setStrokeColor(DIAGRAM_AMBER)
+        c.arc(cx - radius, cy - radius, cx + radius, cy + radius, 58, 98)
         c.setStrokeColor(ALERT)
-        c.line(cx, cy, cx + 6.5 * mm, cy + 5 * mm)
+        c.arc(cx - radius, cy - radius, cx + radius, cy + radius, 101, 140)
+        c.setStrokeColor(ALERT)
+        c.setLineWidth(1.3)
+        c.line(cx, cy, cx + 9 * mm, cy + 9 * mm)
         c.setFillColor(ALERT)
-        c.circle(cx, cy, 1.5 * mm, fill=1, stroke=0)
-        self._draw_acute_cards(pad + 23 * mm, [DIAGRAM_GREEN, DIAGRAM_AMBER, DIAGRAM_ALERT])
+        c.circle(cx, cy, 2 * mm, fill=1, stroke=0)
+        self._draw_para("Tempo", cx - 10 * mm, cy + 8 * mm, 20 * mm, "diagram_center", limit=10, color=MUTED, bold=True, align="center")
+        self._draw_para("Schutz erhöhen", cx - 14 * mm, cy - 8 * mm, 28 * mm, "diagram_center", limit=18, color=ALERT, bold=True, align="center")
+        self._draw_acute_cards(pad + 34 * mm, [DIAGRAM_GREEN, DIAGRAM_AMBER, DIAGRAM_ALERT], pad=5 * mm)
 
-    def _draw_acute_signpost(self):
-        c = self.canv
-        pad = 4 * mm
-        x = pad + 11 * mm
-        c.setStrokeColor(TEAL)
-        c.setLineWidth(1)
-        c.line(x, pad + 1 * mm, x, self.height - pad - 1 * mm)
-        c.setFillColor(DIAGRAM_SOFT)
-        flag_h = 3.2 * mm
-        flag_w = 15 * mm
-        c.rect(x, self.height - pad - 4.5 * mm, flag_w, flag_h, fill=1, stroke=1)
-        c.rect(x - flag_w, self.height / 2 - flag_h / 2, flag_w, flag_h, fill=1, stroke=1)
-        c.rect(x, pad + 1.2 * mm, flag_w, flag_h, fill=1, stroke=1)
-        self._draw_acute_cards(pad + 25 * mm, [DIAGRAM_GREEN, DIAGRAM_AMBER, DIAGRAM_ALERT])
+    def _draw_acute_path(self):
+        pad = 5 * mm
+        self._draw_acute_cards(pad, [DIAGRAM_GREEN, DIAGRAM_AMBER, DIAGRAM_ALERT], pad=pad)
 
     def _draw_acute_triage(self):
         c = self.canv
-        pad = 4 * mm
-        cx = pad + 11 * mm
+        pad = 5 * mm
+        cx = pad + 14 * mm
         cy = self.height / 2
-        r = 8 * mm
+        r = 11 * mm
         path = c.beginPath()
         path.moveTo(cx, cy + r)
         path.lineTo(cx + r, cy)
@@ -1254,8 +1293,8 @@ class AcuteVisualDiagram(ModelDiagram):
         c.setFillColor(DIAGRAM_ALERT)
         c.setStrokeColor(ALERT)
         c.drawPath(path, fill=1, stroke=1)
-        self._draw_para("Triage", cx - 7 * mm, cy + 2.3 * mm, 14 * mm, "diagram_center", limit=10, color=ALERT, bold=True, align="center")
-        self._draw_acute_cards(pad + 24 * mm, [DIAGRAM_ALERT, DIAGRAM_ALERT, DIAGRAM_AMBER])
+        self._draw_para("Triage", cx - 9 * mm, cy + 3.0 * mm, 18 * mm, "diagram_center", limit=10, color=ALERT, bold=True, align="center")
+        self._draw_acute_cards(pad + 33 * mm, [DIAGRAM_ALERT, DIAGRAM_ALERT, DIAGRAM_AMBER], pad=5 * mm)
 
 
 class SemanticBlockDiagram(ModelDiagram):
@@ -1388,7 +1427,7 @@ def build_visual_model_flowables(meta, content_width):
 
 
 def build_acute_visual_flowables(meta, content_width):
-    """Build one compact visual decision aid for acute one-page handouts."""
+    """Build one visible visual decision aid for acute handouts."""
     acute_visual = meta.get("acute_visual")
     if not isinstance(acute_visual, dict):
         return build_quick_steps_flowables(meta.get("quick_steps", []), content_width, compact=True)
@@ -1425,9 +1464,9 @@ def build_acute_visual_flowables(meta, content_width):
     title = plain_text(acute_visual.get("title", "Schnellentscheidung"))
     kind = canonical_visual_kind(acute_visual.get("kind", "triage"))
     return [
-        Paragraph(f"<b>{md_inline(title)}</b>", styles["acute_strip_title"]),
+        Paragraph(f"<b>{md_inline(title)}</b>", styles["visual_title"]),
         AcuteVisualDiagram(kind, items, content_width),
-        Spacer(1, 1.2 * mm),
+        Spacer(1, 2.4 * mm),
     ]
 
 
@@ -1507,16 +1546,20 @@ def build_source_flowables(meta):
         return []
 
     compact = meta.get("type") == "Akutblatt"
-    title_style = styles["source_title_compact"] if compact else styles["source_title"]
-    text_style = styles["source_text_compact"] if compact else styles["source_text"]
-    source_space = 0.45 * mm if compact else 0.8 * mm
+    title_style = styles["source_title_acute"] if compact else styles["source_title"]
+    text_style = styles["source_text_acute"] if compact else styles["source_text"]
+    source_space = 1.4 * mm if compact else 0.8 * mm
     flowables = [
         HRFlowable(width="100%", thickness=0.35, color=LINE, spaceBefore=source_space, spaceAfter=source_space),
         Paragraph("<b>Quellen (Auswahl)</b>", title_style),
     ]
-    source_lines = [f"{idx}. {md_inline(reference)}" for idx, reference in enumerate(references, start=1)]
-    flowables.append(Paragraph(" · ".join(source_lines), text_style))
-    return flowables
+    if compact:
+        for idx, reference in enumerate(references, start=1):
+            flowables.append(Paragraph(f"{idx}. {md_inline(reference)}", text_style))
+    else:
+        source_lines = [f"{idx}. {md_inline(reference)}" for idx, reference in enumerate(references, start=1)]
+        flowables.append(Paragraph(" · ".join(source_lines), text_style))
+    return [KeepTogether(flowables)]
 
 
 def build_footer_line(meta):
@@ -1532,6 +1575,14 @@ def build_footer_line(meta):
 def draw_footer(canvas, doc, meta):
     """Draw the footer in the page margin so it does not create extra pages."""
     canvas.saveState()
+    if doc.page > 1:
+        canvas.setFont("DMSans", 7.2)
+        canvas.setFillColor(MUTED)
+        continuation = f'{meta.get("type", "Handout")} · {meta.get("title", "Handout")} · Fortsetzung'
+        canvas.drawString(MARGIN_L, PAGE_H - 7 * mm, continuation)
+        canvas.setStrokeColor(LINE)
+        canvas.setLineWidth(0.3)
+        canvas.line(MARGIN_L, PAGE_H - 9 * mm, PAGE_W - MARGIN_R, PAGE_H - 9 * mm)
     canvas.setFont("DMSans", 7)
     canvas.setFillColor(MUTED)
     canvas.drawCentredString(PAGE_W / 2, 4 * mm, build_footer_line(meta))

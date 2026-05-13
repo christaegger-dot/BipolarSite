@@ -8,7 +8,7 @@ show_priority_badge: false
 type: "Akutblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Schnelle Orientierung bei akuten oder eskalierenden manischen Zuständen"
-target_format: "A4, 1 Seite"
+target_format: "A4, 2 Seiten"
 priority: "P1"
 last_updated: "2026-05-13"
 emergency_label: "Wenn Schutz vorgeht"
@@ -24,14 +24,14 @@ quick_steps:
     text: "Bei Gefahr 144 oder 117"
 acute_visual:
   kind: "tacho"
-  title: "Manie-Tacho: Tempo senken, Schutz erhöhen"
+  title: "Manie-Tacho: Tempo steigt, Schutz erhöhen"
   items:
     - label: "Ansprechbar"
-      text: "Reize senken"
+      text: "Reize senken, kurz sprechen"
     - label: "Kippend"
-      text: "Hilfe früh dazu"
+      text: "Notfalldienst oder Team früh dazu"
     - label: "Gefahr"
-      text: "144 oder 117"
+      text: "144/117: Schutz vor Gespräch"
       cue: "Schutz"
 help_module:
   enabled: true
@@ -85,6 +85,8 @@ Entscheidend ist nicht ein einzelnes Zeichen, sondern Kombination, Dauer und deu
 - Risiken wie Autofahren, grosse Ausgaben oder Grenzverletzungen ansprechen; nichts körperlich oder rechtlich erzwingen, sondern bei Gefahr Hilfe holen
 
 Hilfreich oft: **«Ich möchte es gerade einfach halten. Wir holen jetzt Unterstützung dazu.»**
+
+<!-- pagebreak -->
 
 ## Was eher schadet
 

@@ -8,7 +8,7 @@ show_priority_badge: false
 type: "Akutblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Klare Orientierung, wenn die erkrankte Person in einer depressiven Phase kaum erreichbar ist"
-target_format: "A4, 1 Seite"
+target_format: "A4, 2 Seiten"
 priority: "P1"
 last_updated: "2026-05-13"
 emergency_label: "Wenn Suizidgefahr dazukommt"
@@ -24,14 +24,14 @@ quick_steps:
     text: "Bei akuter Suizidgefahr sofort handeln"
 acute_visual:
   kind: "thermometer"
-  title: "Depressions-Thermometer: Schwere einschätzen"
+  title: "Depressions-Thermometer: Schwere und Suizidgefahr"
   items:
     - label: "Schwere Phase"
-      text: "präsent sein"
+      text: "Druck senken, präsent bleiben"
     - label: "Suizidhinweise"
-      text: "direkt fragen"
+      text: "direkt und ruhig fragen"
     - label: "Konkret/unsicher"
-      text: "144"
+      text: "144: Schutz vor Gespräch"
       cue: "Schutz"
 help_module:
   enabled: true
@@ -84,6 +84,8 @@ Entscheidend sind Dauer, Tiefe und Veränderung gegenüber dem üblichen Zustand
 - Kindern altersgerecht erklären: es ist eine Krankheit
 
 Hilfreich oft: **«Ich kann das nicht lösen, aber ich bin hier.»**
+
+<!-- pagebreak -->
 
 ## Was eher schadet
 

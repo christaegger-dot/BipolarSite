@@ -4,6 +4,7 @@ import { describe, it } from "node:test";
 import {
   findMissingRequiredPdfTextSnippets,
   findUntrackedPdfSourceFiles,
+  minRequiredPdfPages,
   pdfMetadataDeclaresLanguage,
   pdfTextHasSourceReferences,
   requiredPdfTextSnippets,
@@ -46,6 +47,20 @@ describe("PDF manifest audit helpers", () => {
       true
     );
     assert.equal(pdfMetadataDeclaresLanguage("<dc:language><rdf:Seq><rdf:li>en-US</rdf:li></rdf:Seq></dc:language>"), false);
+  });
+
+  it("keeps acute clinical handouts at two pages or more for readable visuals and sources", () => {
+    assert.equal(minRequiredPdfPages("notfallkarte"), 2);
+    assert.equal(minRequiredPdfPages("legacy.notfallkarte"), 2);
+    assert.equal(minRequiredPdfPages("suizidgedanken"), 2);
+    assert.equal(minRequiredPdfPages("psychoseWahn"), 2);
+    assert.equal(minRequiredPdfPages("manie"), 2);
+    assert.equal(minRequiredPdfPages("depression"), 2);
+    assert.equal(minRequiredPdfPages("c2_suizidgedanken"), 2);
+    assert.equal(minRequiredPdfPages("c3_psychose_wahn"), 2);
+    assert.equal(minRequiredPdfPages("c4_manie"), 2);
+    assert.equal(minRequiredPdfPages("c5_depression"), 2);
+    assert.equal(minRequiredPdfPages("a8_warnsignale"), null);
   });
 
   it("requires content guardrails for updated legal and worksheet PDFs", () => {

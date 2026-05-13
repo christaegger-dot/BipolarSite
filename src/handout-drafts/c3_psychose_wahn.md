@@ -8,7 +8,7 @@ show_priority_badge: false
 type: "Akutblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Schnelle Orientierung bei psychotischer Zuspitzung, Wahn oder Paranoia"
-target_format: "A4, 1 Seite"
+target_format: "A4, 2 Seiten"
 priority: "P1"
 last_updated: "2026-05-13"
 emergency_label: "Wenn Sicherheit kippt"
@@ -23,15 +23,15 @@ quick_steps:
     wide: true
     text: "Bei Bedrohung sofort Schutz holen"
 acute_visual:
-  kind: "wegweiser"
+  kind: "flowchart"
   title: "Schutzpfad: Kontakt, Einschätzung, Sicherheit"
   items:
     - label: "Kontakt möglich"
       text: "ruhig, kurz"
     - label: "Realität entgleitet"
-      text: "Notfalldienst / Team"
+      text: "Notfalldienst oder Team"
     - label: "Bedrohung"
-      text: "117 oder 144"
+      text: "117/144: Schutz holen"
       cue: "Schutz"
 help_module:
   enabled: true
@@ -83,6 +83,8 @@ Wahnideen fühlen sich für die Person real an und lassen sich meist nicht wegdi
 - Behandlungsteam oder Notfalldienst früh informieren
 
 Hilfreich oft: **«Ich sehe es anders. Wir holen jetzt Unterstützung dazu.»**
+
+<!-- pagebreak -->
 
 ## Was eher schadet
 
