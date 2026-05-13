@@ -15,6 +15,8 @@ const PDF_SOURCE_DIRS = [
   path.join("src", "handouts"),
 ];
 const MIN_EXTRACTABLE_TEXT_CHARS = 250;
+const PDF_CONTENT_FILL_MIN_RATIO = 0.65;
+const PDF_FOOTER_IGNORE_POINTS = 46;
 const CRITICAL_LANGUAGE_METADATA_KEYS = new Set([
   "notfallkarte",
   "suizidgedanken",
@@ -265,8 +267,6 @@ const REQUIRED_PDF_TEXT_SNIPPETS = {
   ],
 };
 const MIN_PAGE_COUNT_BY_KEY = {
-  notfallkarte: 2,
-  "legacy.notfallkarte": 2,
   suizidgedanken: 2,
   psychoseWahn: 2,
   manie: 2,
@@ -276,6 +276,11 @@ const MIN_PAGE_COUNT_BY_KEY = {
   c4_manie: 2,
   c5_depression: 2,
 };
+const ACUTE_LAYOUT_BALANCE_KEYS = new Set([
+  "notfallkarte",
+  "legacy.notfallkarte",
+  ...Object.keys(MIN_PAGE_COUNT_BY_KEY),
+]);
 const SOURCE_REFERENCE_MARKERS = [
   "doi:",
   "https://doi.org/",
@@ -393,6 +398,82 @@ export function pdfTextHasSourceReferences(pdfText) {
   );
 }
 
+function xmlAttr(tag, attributeName) {
+  const match = tag.match(new RegExp(`\\b${attributeName}="([^"]*)"`, "i"));
+  return match ? match[1] : null;
+}
+
+export function parsePdfBboxLayout(bboxText) {
+  const pages = [];
+  const pageRegex = /<page\b([^>]*)>([\s\S]*?)<\/page>/gi;
+  let pageMatch;
+
+  while ((pageMatch = pageRegex.exec(bboxText))) {
+    const pageTag = pageMatch[1];
+    const pageBody = pageMatch[2];
+    const width = Number.parseFloat(xmlAttr(pageTag, "width") || "0");
+    const height = Number.parseFloat(xmlAttr(pageTag, "height") || "0");
+    const words = [];
+    const wordRegex = /<word\b([^>]*)>/gi;
+    let wordMatch;
+
+    while ((wordMatch = wordRegex.exec(pageBody))) {
+      const wordTag = wordMatch[1];
+      const xMin = Number.parseFloat(xmlAttr(wordTag, "xMin") || "0");
+      const yMin = Number.parseFloat(xmlAttr(wordTag, "yMin") || "0");
+      const xMax = Number.parseFloat(xmlAttr(wordTag, "xMax") || "0");
+      const yMax = Number.parseFloat(xmlAttr(wordTag, "yMax") || "0");
+      if ([xMin, yMin, xMax, yMax].every(Number.isFinite)) {
+        words.push({ xMin, yMin, xMax, yMax });
+      }
+    }
+
+    pages.push({ width, height, words });
+  }
+
+  return pages;
+}
+
+export function findSparsePdfPages(bboxText, options = {}) {
+  const {
+    includeFinalPage = false,
+    minContentBottomRatio = PDF_CONTENT_FILL_MIN_RATIO,
+    footerIgnorePoints = PDF_FOOTER_IGNORE_POINTS,
+  } = options;
+  const pages = parsePdfBboxLayout(bboxText);
+  const inspectedPages = includeFinalPage ? pages : pages.slice(0, -1);
+
+  return inspectedPages.flatMap((page, index) => {
+    if (!page.height || !page.words.length) {
+      return [];
+    }
+
+    const footerLimit = page.height - footerIgnorePoints;
+    const contentWords = page.words.filter((word) => word.yMin < footerLimit);
+    if (!contentWords.length) {
+      return [];
+    }
+
+    const contentBottom = Math.max(...contentWords.map((word) => word.yMax));
+    const contentBottomRatio = contentBottom / page.height;
+    if (contentBottomRatio >= minContentBottomRatio) {
+      return [];
+    }
+
+    return [{
+      page: index + 1,
+      contentBottom: Number(contentBottom.toFixed(1)),
+      pageHeight: Number(page.height.toFixed(1)),
+      contentBottomRatio: Number(contentBottomRatio.toFixed(3)),
+      minContentBottomRatio,
+    }];
+  });
+}
+
+export function findSparseNonFinalPdfPages(bboxText, options = {}) {
+  return findSparsePdfPages(bboxText, { ...options, includeFinalPage: false });
+}
+
 async function validateExtractableText(context, pdfKey, sourcePath, findings) {
   const textResult = await runCommand("pdftotext", ["-layout", sourcePath, "-"], { cwd: context.repoRoot });
 
@@ -425,6 +506,29 @@ async function validateExtractableText(context, pdfKey, sourcePath, findings) {
     findings.push({
       severity: "high",
       message: `${pdfKey} is missing visible source references ("Quellen").`,
+    });
+  }
+}
+
+async function validateAcutePdfLayoutBalance(context, pdfKey, sourcePath, findings) {
+  if (!ACUTE_LAYOUT_BALANCE_KEYS.has(pdfKey)) {
+    return;
+  }
+
+  const bboxResult = await runCommand("pdftotext", ["-bbox-layout", sourcePath, "-"], { cwd: context.repoRoot });
+  if (!bboxResult.ok) {
+    findings.push({
+      severity: "medium",
+      message: `${pdfKey} could not be inspected for page-fill layout balance (${bboxResult.message || "unknown error"}).`,
+    });
+    return;
+  }
+
+  const sparsePages = findSparseNonFinalPdfPages(bboxResult.stdout);
+  for (const page of sparsePages) {
+    findings.push({
+      severity: "high",
+      message: `${pdfKey} page ${page.page} ends at ${(page.contentBottomRatio * 100).toFixed(0)}% of A4 height before a following page; acute PDFs must not leave large unused page areas.`,
     });
   }
 }
@@ -607,6 +711,7 @@ export async function runPdfManifestCheck(context) {
     }
 
     await validateExtractableText(context, asset.key, sourcePath, findings);
+    await validateAcutePdfLayoutBalance(context, asset.key, sourcePath, findings);
     await validateCriticalLanguageMetadata(context, asset.key, sourcePath, findings);
   }
 
@@ -679,6 +784,7 @@ export async function runPdfManifestCheck(context) {
     }
 
     await validateExtractableText(context, alias.key, sourcePath, findings);
+    await validateAcutePdfLayoutBalance(context, alias.key, sourcePath, findings);
     await validateCriticalLanguageMetadata(context, alias.key, sourcePath, findings);
   }
 

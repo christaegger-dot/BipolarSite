@@ -3,6 +3,7 @@ _site/
 .lighthouseci/
 .netlify/
 .playwright-artifacts/
+.acute-pdf-qa/
 .playwright/
 playwright-report/
 .auth/

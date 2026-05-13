@@ -125,18 +125,18 @@ styles["h2"] = ParagraphStyle(
     textColor=NAVY, spaceAfter=1.5 * mm, spaceBefore=3 * mm,
 )
 styles["body"] = ParagraphStyle(
-    "Body", fontName="DMSans", fontSize=9, leading=11.5,
-    textColor=TEXT_C, spaceAfter=1.2 * mm,
+    "Body", fontName="DMSans", fontSize=9.3, leading=13,
+    textColor=TEXT_C, spaceAfter=1.5 * mm,
 )
 styles["bullet"] = ParagraphStyle(
-    "Bullet", fontName="DMSans", fontSize=9, leading=11.5,
+    "Bullet", fontName="DMSans", fontSize=9.15, leading=12.7,
     textColor=TEXT_C, leftIndent=5 * mm, bulletIndent=0,
-    spaceAfter=0.6 * mm,
+    spaceAfter=0.9 * mm,
 )
 styles["sub_bullet"] = ParagraphStyle(
-    "SubBullet", fontName="DMSans", fontSize=8.5, leading=11.5,
+    "SubBullet", fontName="DMSans", fontSize=8.6, leading=12,
     textColor=MUTED, leftIndent=10 * mm, bulletIndent=5 * mm,
-    spaceAfter=0.6 * mm,
+    spaceAfter=0.8 * mm,
 )
 styles["footer"] = ParagraphStyle(
     "Footer", fontName="DMSans", fontSize=7, leading=8.5,
@@ -163,7 +163,7 @@ styles["acute_strip_title"] = ParagraphStyle(
     textColor=MUTED, spaceAfter=0.8 * mm,
 )
 styles["acute_contact"] = ParagraphStyle(
-    "AcuteContact", fontName="DMSans", fontSize=8.3, leading=10.5,
+    "AcuteContact", fontName="DMSans", fontSize=8.5, leading=11.4,
     textColor=TEXT_C,
 )
 styles["acute_step"] = ParagraphStyle(
@@ -178,16 +178,24 @@ styles["focus_item"] = ParagraphStyle(
     "FocusItem", fontName="DMSans", fontSize=8.2, leading=10.5,
     textColor=TEXT_C,
 )
+styles["practice_box_item"] = ParagraphStyle(
+    "PracticeBoxItem", fontName="DMSans", fontSize=7.9, leading=10.3,
+    textColor=TEXT_C,
+)
+styles["acute_note"] = ParagraphStyle(
+    "AcuteNote", fontName="DMSans", fontSize=8.4, leading=11.2,
+    textColor=TEXT_C,
+)
 styles["visual_title"] = ParagraphStyle(
     "VisualTitle", fontName="DMSans", fontSize=9.4, leading=11.4,
     textColor=MUTED, spaceAfter=1 * mm,
 )
 styles["acute_visual_label"] = ParagraphStyle(
-    "AcuteVisualLabel", fontName="DMSans", fontSize=8.2, leading=9.6,
+    "AcuteVisualLabel", fontName="DMSans", fontSize=8.7, leading=10.4,
     textColor=TEAL, alignment=TA_CENTER,
 )
 styles["acute_visual_text"] = ParagraphStyle(
-    "AcuteVisualText", fontName="DMSans", fontSize=7.8, leading=9.2,
+    "AcuteVisualText", fontName="DMSans", fontSize=8.25, leading=10.1,
     textColor=TEXT_C, alignment=TA_CENTER,
 )
 styles["visual_cell"] = ParagraphStyle(
@@ -227,7 +235,7 @@ styles["source_title_acute"] = ParagraphStyle(
     textColor=MUTED, spaceAfter=0.8 * mm,
 )
 styles["source_text_acute"] = ParagraphStyle(
-    "SourceTextAcute", fontName="DMSans", fontSize=7.1, leading=8.8,
+    "SourceTextAcute", fontName="DMSans", fontSize=7.2, leading=9.2,
     textColor=MUTED, spaceAfter=1.0 * mm,
 )
 styles["source_title_compact"] = ParagraphStyle(
@@ -696,8 +704,8 @@ class ModelDiagram(Flowable):
             inner = f"<{tag}>{content}</{tag}>" if bold else content
             content = f"<font {' '.join(attrs)}>{inner}</font>"
         style = styles[style_name]
-        if align == "center":
-            style = styles["diagram_center"]
+        if align == "center" and getattr(style, "alignment", None) != TA_CENTER:
+            style = ParagraphStyle(f"{style.name}Center", parent=style, alignment=TA_CENTER)
         return Paragraph(content, style)
 
     def _draw_para(self, text, x, y_top, width, style_name="diagram_text", limit=82, color=None, size=None, bold=False, align=None):
@@ -1138,7 +1146,7 @@ class AcuteVisualDiagram(ModelDiagram):
         self.title = plain_text(title)
 
     def _height_for_kind(self):
-        return 42 * mm
+        return 34 * mm
 
     def _urgent_item(self, item):
         joined = plain_text(" ".join([
@@ -1171,39 +1179,27 @@ class AcuteVisualDiagram(ModelDiagram):
         c.setLineWidth(0.45)
         c.roundRect(x, y, w, h, 3, fill=1, stroke=1)
         label = f"{idx} · {item.get('label', '')}"
-        label_h = self._draw_para(
-            label,
-            x + 2 * mm,
-            y + h - 3 * mm,
-            w - 4 * mm,
-            "acute_visual_label",
-            limit=36,
-            color=accent,
-            bold=True,
-            align="center",
-        )
-        if item.get("text"):
-            self._draw_para(
-                item.get("text", ""),
-                x + 2 * mm,
-                y + h - 4 * mm - label_h,
-                w - 4 * mm,
-                "acute_visual_text",
-                limit=52,
-                align="center",
-            )
-        if item.get("cue"):
-            cue_color = ALERT if self._urgent_item(item) else TEAL
-            c.setFillColor(HexColor("#ffffff"))
-            c.setStrokeColor(cue_color)
-            c.roundRect(x + w / 2 - 9 * mm, y + 2.2 * mm, 18 * mm, 4.5 * mm, 2, fill=1, stroke=1)
-            self._draw_para(item.get("cue", ""), x + w / 2 - 8 * mm, y + 5.8 * mm, 16 * mm, "diagram_micro", limit=16, color=cue_color, bold=True, align="center")
+        label_para = self._para(shortened(label, 36), "acute_visual_label", color=accent, bold=True, align="center")
+        _, label_h = label_para.wrap(w - 4.4 * mm, 18 * mm)
 
-    def _draw_acute_cards(self, x, fills, pad=5 * mm):
+        text_para = None
+        text_h = 0
+        if item.get("text"):
+            text_para = self._para(shortened(item.get("text", ""), 52), "acute_visual_text", align="center")
+            _, text_h = text_para.wrap(w - 4.4 * mm, 18 * mm)
+
+        gap = 0.9 * mm if text_para else 0
+        block_h = label_h + gap + text_h
+        block_top = y + h / 2 + block_h / 2
+        label_para.drawOn(c, x + 2.2 * mm, block_top - label_h)
+        if text_para:
+            text_para.drawOn(c, x + 2.2 * mm, block_top - label_h - gap - text_h)
+
+    def _draw_acute_cards(self, x, fills, pad=4.2 * mm):
         items = self.items[:3]
         if not items:
             return
-        gap = 2.5 * mm
+        gap = 2.2 * mm
         w = (self.width - x - pad - gap * (len(items) - 1)) / len(items)
         h = self.height - 2 * pad
         for idx, item in enumerate(items, start=1):
@@ -1215,8 +1211,8 @@ class AcuteVisualDiagram(ModelDiagram):
 
     def _draw_acute_traffic_light(self):
         c = self.canv
-        pad = 5 * mm
-        light_w = 18 * mm
+        pad = 4.2 * mm
+        light_w = 16 * mm
         c.setFillColor(HexColor("#f3f0ec"))
         c.setStrokeColor(MUTED)
         c.roundRect(pad, pad, light_w, self.height - 2 * pad, 5, fill=1, stroke=1)
@@ -1226,13 +1222,13 @@ class AcuteVisualDiagram(ModelDiagram):
             (HexColor("#3f8f65"), pad + 5 * mm),
         ]:
             c.setFillColor(color)
-            c.circle(pad + light_w / 2, cy, 4.1 * mm, fill=1, stroke=0)
-        self._draw_acute_cards(pad + light_w + 7 * mm, [DIAGRAM_GREEN, DIAGRAM_AMBER, DIAGRAM_ALERT], pad=5 * mm)
+            c.circle(pad + light_w / 2, cy, 3.8 * mm, fill=1, stroke=0)
+        self._draw_acute_cards(pad + light_w + 6 * mm, [DIAGRAM_GREEN, DIAGRAM_AMBER, DIAGRAM_ALERT], pad=pad)
 
     def _draw_acute_thermometer(self):
         c = self.canv
-        pad = 5 * mm
-        x = pad + 9 * mm
+        pad = 4.2 * mm
+        x = pad + 8 * mm
         tube_top = self.height - pad - 3 * mm
         bulb_y = pad + 6 * mm
         c.setStrokeColor(HexColor("#b8d8d8"))
@@ -1249,15 +1245,15 @@ class AcuteVisualDiagram(ModelDiagram):
         for i in range(4):
             y = bulb_y + 7 * mm + i * 6 * mm
             c.line(x + 5 * mm, y, x + 10 * mm, y)
-        self._draw_para("Schwere", x - 9 * mm, self.height - pad - 1 * mm, 18 * mm, "diagram_center", limit=12, color=MUTED, bold=True, align="center")
-        self._draw_acute_cards(pad + 25 * mm, [DIAGRAM_GREEN, DIAGRAM_AMBER, DIAGRAM_ALERT], pad=5 * mm)
+        self._draw_para("Schwere", x - 8 * mm, self.height - pad - 1 * mm, 16 * mm, "diagram_center", limit=12, color=MUTED, bold=True, align="center")
+        self._draw_acute_cards(pad + 23 * mm, [DIAGRAM_GREEN, DIAGRAM_AMBER, DIAGRAM_ALERT], pad=pad)
 
     def _draw_acute_gauge(self):
         c = self.canv
-        pad = 5 * mm
-        cx = pad + 15 * mm
-        cy = pad + 14 * mm
-        radius = 14 * mm
+        pad = 4.2 * mm
+        cx = pad + 13 * mm
+        cy = pad + 12 * mm
+        radius = 12 * mm
         c.setStrokeColor(TEAL)
         c.setLineWidth(2.8)
         c.arc(cx - radius, cy - radius, cx + radius, cy + radius, 20, 55)
@@ -1270,20 +1266,32 @@ class AcuteVisualDiagram(ModelDiagram):
         c.line(cx, cy, cx + 9 * mm, cy + 9 * mm)
         c.setFillColor(ALERT)
         c.circle(cx, cy, 2 * mm, fill=1, stroke=0)
-        self._draw_para("Tempo", cx - 10 * mm, cy + 8 * mm, 20 * mm, "diagram_center", limit=10, color=MUTED, bold=True, align="center")
-        self._draw_para("Schutz erhöhen", cx - 14 * mm, cy - 8 * mm, 28 * mm, "diagram_center", limit=18, color=ALERT, bold=True, align="center")
-        self._draw_acute_cards(pad + 34 * mm, [DIAGRAM_GREEN, DIAGRAM_AMBER, DIAGRAM_ALERT], pad=5 * mm)
+        self._draw_para("Tempo", cx - 10 * mm, cy + 7.5 * mm, 20 * mm, "diagram_center", limit=10, color=MUTED, bold=True, align="center")
+        self._draw_acute_cards(pad + 31 * mm, [DIAGRAM_GREEN, DIAGRAM_AMBER, DIAGRAM_ALERT], pad=pad)
 
     def _draw_acute_path(self):
-        pad = 5 * mm
-        self._draw_acute_cards(pad, [DIAGRAM_GREEN, DIAGRAM_AMBER, DIAGRAM_ALERT], pad=pad)
+        pad = 4.2 * mm
+        c = self.canv
+        icon_x = pad + 12 * mm
+        y_mid = self.height / 2
+        c.setStrokeColor(TEAL)
+        c.setLineWidth(1.0)
+        c.line(icon_x, y_mid - 11 * mm, icon_x, y_mid + 11 * mm)
+        c.setFillColor(DIAGRAM_SOFT)
+        c.roundRect(icon_x - 10 * mm, y_mid + 3 * mm, 20 * mm, 6 * mm, 2, fill=1, stroke=1)
+        c.setFillColor(DIAGRAM_ALERT)
+        c.setStrokeColor(ALERT)
+        c.roundRect(icon_x - 5 * mm, y_mid - 7 * mm, 20 * mm, 6 * mm, 2, fill=1, stroke=1)
+        self._draw_para("Pfad", icon_x - 9 * mm, y_mid + 7.2 * mm, 18 * mm, "diagram_center", limit=8, color=TEAL, bold=True, align="center")
+        self._draw_para("Schutz", icon_x - 4 * mm, y_mid - 2.8 * mm, 18 * mm, "diagram_center", limit=10, color=ALERT, bold=True, align="center")
+        self._draw_acute_cards(pad + 25 * mm, [DIAGRAM_GREEN, DIAGRAM_AMBER, DIAGRAM_ALERT], pad=pad)
 
     def _draw_acute_triage(self):
         c = self.canv
-        pad = 5 * mm
-        cx = pad + 14 * mm
+        pad = 4.2 * mm
+        cx = pad + 12 * mm
         cy = self.height / 2
-        r = 11 * mm
+        r = 9 * mm
         path = c.beginPath()
         path.moveTo(cx, cy + r)
         path.lineTo(cx + r, cy)
@@ -1293,8 +1301,8 @@ class AcuteVisualDiagram(ModelDiagram):
         c.setFillColor(DIAGRAM_ALERT)
         c.setStrokeColor(ALERT)
         c.drawPath(path, fill=1, stroke=1)
-        self._draw_para("Triage", cx - 9 * mm, cy + 3.0 * mm, 18 * mm, "diagram_center", limit=10, color=ALERT, bold=True, align="center")
-        self._draw_acute_cards(pad + 33 * mm, [DIAGRAM_ALERT, DIAGRAM_ALERT, DIAGRAM_AMBER], pad=5 * mm)
+        self._draw_para("Triage", cx - 8 * mm, cy + 3.0 * mm, 16 * mm, "diagram_center", limit=10, color=ALERT, bold=True, align="center")
+        self._draw_acute_cards(pad + 28 * mm, [DIAGRAM_ALERT, DIAGRAM_ALERT, DIAGRAM_AMBER], pad=pad)
 
 
 class SemanticBlockDiagram(ModelDiagram):
@@ -1468,6 +1476,95 @@ def build_acute_visual_flowables(meta, content_width):
         AcuteVisualDiagram(kind, items, content_width),
         Spacer(1, 2.4 * mm),
     ]
+
+
+def normalize_acute_practice_boxes(meta, field_name="acute_practice_boxes"):
+    """Return optional compact action boxes for acute one-page cards."""
+    raw_boxes = meta.get(field_name)
+    if not isinstance(raw_boxes, list):
+        return []
+
+    boxes = []
+    for raw_box in raw_boxes:
+        if not isinstance(raw_box, dict):
+            continue
+        title = plain_text(raw_box.get("title", ""))
+        raw_items = raw_box.get("items", [])
+        if not isinstance(raw_items, list):
+            raw_items = []
+        items = [plain_text(item) for item in raw_items if plain_text(item)]
+        if title and items:
+            boxes.append({"title": title, "items": items[:5]})
+    return boxes[:6]
+
+
+def build_acute_practice_box_flowables(meta, content_width, field_name="acute_practice_boxes", title="Praxis in den ersten Minuten"):
+    """Build compact clinical action boxes without decorative empty area."""
+    boxes = normalize_acute_practice_boxes(meta, field_name)
+    if not boxes:
+        return []
+
+    rows = []
+    for row_start in range(0, len(boxes), 2):
+        row = []
+        for box in boxes[row_start:row_start + 2]:
+            item_lines = "<br/>".join(f"&bull;&nbsp;{md_inline(item)}" for item in box["items"])
+            row.append(Paragraph(
+                f'<b>{md_inline(box["title"])}</b><br/>{item_lines}',
+                ParagraphStyle(
+                    f"PracticeBox-{row_start}-{len(row)}",
+                    parent=styles["practice_box_item"],
+                    leading=10.6,
+                    spaceAfter=0,
+                ),
+            ))
+        if len(row) == 1:
+            row.append(Paragraph("", styles["practice_box_item"]))
+        rows.append(row)
+
+    box_table = Table(rows, colWidths=[content_width / 2 - 1.5 * mm] * 2, hAlign="LEFT")
+    box_table.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, -1), HexColor("#fbf8f3")),
+        ("BOX", (0, 0), (-1, -1), 0.45, LINE),
+        ("INNERGRID", (0, 0), (-1, -1), 0.3, LINE),
+        ("TOPPADDING", (0, 0), (-1, -1), 2.0 * mm),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 2.0 * mm),
+        ("LEFTPADDING", (0, 0), (-1, -1), 2.4 * mm),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 2.4 * mm),
+        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+    ]))
+    return [
+        Paragraph(f"<b>{md_inline(title)}</b>", styles["visual_title"]),
+        KeepTogether([box_table]),
+        Spacer(1, 2.4 * mm),
+    ]
+
+
+def build_acute_note_flowables(meta, content_width):
+    """Show the existing safety note as a compact clinical reminder."""
+    note = plain_text(meta.get("emergency_note", ""))
+    if not note:
+        return []
+
+    note_table = Table(
+        [[
+            Paragraph(
+                f'<font color="#{ALERT.hexval()[2:]}"><b>Merken</b></font><br/>{md_inline(note)}',
+                styles["acute_note"],
+            )
+        ]],
+        colWidths=[content_width],
+    )
+    note_table.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, -1), HexColor("#fff7ed")),
+        ("BOX", (0, 0), (-1, -1), 0.45, HexColor("#e8c4b8")),
+        ("TOPPADDING", (0, 0), (-1, -1), 2.0 * mm),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 2.0 * mm),
+        ("LEFTPADDING", (0, 0), (-1, -1), 2.8 * mm),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 2.8 * mm),
+        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+    ]))
+    return [note_table, Spacer(1, 2.4 * mm)]
 
 
 def build_help_module_flowables(help_module, content_width):
@@ -1660,6 +1757,7 @@ def build_pdf(meta, body, output_path: Path):
     if is_acute_handout:
         story.extend(build_acute_contact_strip(meta, content_width))
         story.extend(build_acute_visual_flowables(meta, content_width))
+        story.extend(build_acute_practice_box_flowables(meta, content_width))
     else:
         story.extend(build_quick_steps_flowables(quick_steps, content_width))
         story.extend(build_visual_model_flowables(meta, content_width))
@@ -1669,6 +1767,7 @@ def build_pdf(meta, body, output_path: Path):
 
     lines = body.split("\n")
     i = 0
+    inserted_acute_page2_boxes = False
     while i < len(lines):
         line = lines[i].rstrip()
 
@@ -1690,6 +1789,15 @@ def build_pdf(meta, body, output_path: Path):
 
         if line.strip() == "<!-- pagebreak -->":
             story.append(PageBreak())
+            if is_acute_handout and not inserted_acute_page2_boxes:
+                story.extend(build_acute_practice_box_flowables(
+                    meta,
+                    content_width,
+                    field_name="acute_page2_boxes",
+                    title="Auf einen Blick",
+                ))
+                story.extend(build_acute_note_flowables(meta, content_width))
+                inserted_acute_page2_boxes = True
             i += 1
             continue
 

@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import {
   comparableSwissPhone,
+  fetchExternalUrl,
   isAllowedExternalStatus,
   isValidEmail,
 } from "./criticalContacts.mjs";
@@ -26,5 +27,48 @@ describe("critical contact audit helpers", () => {
     assert.equal(isValidEmail("angehoerigenarbeit@pukzh.ch"), true);
     assert.equal(isValidEmail("angehoerigenarbeit@pukzh"), false);
     assert.equal(isValidEmail("not an email"), false);
+  });
+
+  it("falls back to GET when HEAD fails for a critical contact URL", async () => {
+    const calls = [];
+    const fetchImpl = async (url, options) => {
+      calls.push(options.method);
+      if (options.method === "HEAD") {
+        throw new Error("transient HEAD failure");
+      }
+      return { status: 200, url };
+    };
+
+    const result = await fetchExternalUrl("https://example.test/contact", {
+      fetchImpl,
+      retryDelayMs: 0,
+    });
+
+    assert.equal(result.ok, true);
+    assert.equal(result.status, 200);
+    assert.equal(result.attempts, 1);
+    assert.deepEqual(calls, ["HEAD", "GET"]);
+  });
+
+  it("retries transient contact fetch failures before failing the release gate", async () => {
+    let callCount = 0;
+    const fetchImpl = async (url) => {
+      callCount += 1;
+      if (callCount <= 2) {
+        throw new Error("fetch failed");
+      }
+      return { status: 200, url };
+    };
+
+    const result = await fetchExternalUrl("https://example.test/contact", {
+      attempts: 2,
+      fetchImpl,
+      retryDelayMs: 0,
+    });
+
+    assert.equal(result.ok, true);
+    assert.equal(result.status, 200);
+    assert.equal(result.attempts, 2);
+    assert.equal(callCount, 3);
   });
 });

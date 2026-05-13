@@ -8,6 +8,8 @@ import {
 
 const ACCEPTED_EXTERNAL_STATUSES = new Set([403, 429]);
 const REQUEST_TIMEOUT_MS = 10_000;
+const REQUEST_ATTEMPTS = 3;
+const RETRY_DELAY_MS = 750;
 
 function normalizePhoneDigits(value) {
   return value.replace(/[^\d+]/g, "");
@@ -32,7 +34,21 @@ export function isAllowedExternalStatus(status) {
   return (status >= 200 && status < 400) || ACCEPTED_EXTERNAL_STATUSES.has(status);
 }
 
-async function fetchExternalUrl(url) {
+function shouldRetryResult(result) {
+  if (result.ok) {
+    return false;
+  }
+  if (result.status === null) {
+    return true;
+  }
+  return result.status >= 500;
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function fetchExternalUrlOnce(url, fetchImpl = fetch) {
   const requestOptions = {
     redirect: "follow",
     signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
@@ -41,26 +57,60 @@ async function fetchExternalUrl(url) {
     },
   };
 
+  let headError = null;
   try {
-    const headResponse = await fetch(url, { ...requestOptions, method: "HEAD" });
+    const headResponse = await fetchImpl(url, { ...requestOptions, method: "HEAD" });
     if (isAllowedExternalStatus(headResponse.status)) {
       return { ok: true, status: headResponse.status, finalUrl: headResponse.url };
     }
+  } catch (error) {
+    headError = error instanceof Error ? error.message : String(error);
+  }
 
-    const getResponse = await fetch(url, { ...requestOptions, method: "GET" });
+  try {
+    const getResponse = await fetchImpl(url, { ...requestOptions, method: "GET" });
     return {
       ok: isAllowedExternalStatus(getResponse.status),
       status: getResponse.status,
       finalUrl: getResponse.url,
+      message: headError ? `HEAD failed (${headError}); GET returned HTTP ${getResponse.status}` : undefined,
     };
   } catch (error) {
+    const getError = error instanceof Error ? error.message : String(error);
     return {
       ok: false,
       status: null,
       finalUrl: url,
-      message: error instanceof Error ? error.message : String(error),
+      message: headError ? `HEAD failed (${headError}); GET failed (${getError})` : getError,
     };
   }
+}
+
+export async function fetchExternalUrl(url, options = {}) {
+  const {
+    attempts = REQUEST_ATTEMPTS,
+    retryDelayMs = RETRY_DELAY_MS,
+    fetchImpl = fetch,
+  } = options;
+  let lastResult = null;
+
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    lastResult = await fetchExternalUrlOnce(url, fetchImpl);
+    if (!shouldRetryResult(lastResult) || attempt === attempts) {
+      return { ...lastResult, attempts: attempt };
+    }
+    if (retryDelayMs > 0) {
+      await sleep(retryDelayMs);
+    }
+  }
+
+  return lastResult ? { ...lastResult, attempts } : {
+    ok: false,
+    status: null,
+    finalUrl: url,
+    message: "No request attempts were made.",
+    attempts: 0,
+  };
 }
 
 function createHtmlHrefSet(pages) {
