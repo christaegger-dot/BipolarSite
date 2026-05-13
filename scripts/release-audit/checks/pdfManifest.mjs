@@ -60,6 +60,7 @@ const CRITICAL_LANGUAGE_METADATA_KEYS = new Set([
 ]);
 const REQUIRED_PDF_TEXT_SNIPPETS = {
   notfallkarte: [
+    "Triage: welcher Weg jetzt?",
     "ersetzt keine Diagnostik",
     "Lebensgefahr: 144",
     "Psychiatrische Krise ohne unmittelbare Lebensgefahr",
@@ -86,6 +87,7 @@ const REQUIRED_PDF_TEXT_SNIPPETS = {
     "Bei konkreter Gefahr: 144",
   ],
   c2_suizidgedanken: [
+    "Suizid-Ampel",
     "nicht versuchen, mit einem Risiko-Score",
     "Bei konkreter Gefahr: 144",
   ],
@@ -95,6 +97,7 @@ const REQUIRED_PDF_TEXT_SNIPPETS = {
     "Sicherheit von Kindern",
   ],
   c3_psychose_wahn: [
+    "Schutzpfad",
     "ersetzt keine fachliche Abklärung",
     "professionelle Einschätzung",
     "Sicherheit von Kindern",
@@ -105,6 +108,7 @@ const REQUIRED_PDF_TEXT_SNIPPETS = {
     "nicht auf volle Eskalation warten",
   ],
   c4_manie: [
+    "Manie-Tacho",
     "ersetzt keine Diagnose",
     "nichts körperlich oder rechtlich erzwingen",
     "nicht auf volle Eskalation warten",
@@ -115,6 +119,7 @@ const REQUIRED_PDF_TEXT_SNIPPETS = {
     "Bei konkreter Suizidgefahr: 144",
   ],
   c5_depression: [
+    "Depressions-Thermometer",
     "ersetzt keine fachliche Einschätzung",
     "ohne Dosierungen zu ändern",
     "Bei konkreter Suizidgefahr: 144",
@@ -259,6 +264,18 @@ const REQUIRED_PDF_TEXT_SNIPPETS = {
     "Angehörige",
   ],
 };
+const MIN_PAGE_COUNT_BY_KEY = {
+  notfallkarte: 2,
+  "legacy.notfallkarte": 2,
+  suizidgedanken: 2,
+  psychoseWahn: 2,
+  manie: 2,
+  depression: 2,
+  c2_suizidgedanken: 2,
+  c3_psychose_wahn: 2,
+  c4_manie: 2,
+  c5_depression: 2,
+};
 const SOURCE_REFERENCE_MARKERS = [
   "doi:",
   "https://doi.org/",
@@ -355,6 +372,10 @@ export function pdfMetadataDeclaresLanguage(metadata, language = "de-CH") {
 
 export function requiredPdfTextSnippets(pdfKey) {
   return REQUIRED_PDF_TEXT_SNIPPETS[pdfKey] || [];
+}
+
+export function minRequiredPdfPages(pdfKey) {
+  return MIN_PAGE_COUNT_BY_KEY[pdfKey] || null;
 }
 
 export function findMissingRequiredPdfTextSnippets(pdfKey, pdfText) {
@@ -563,6 +584,14 @@ export async function runPdfManifestCheck(context) {
       });
     }
 
+    const minRequiredPages = minRequiredPdfPages(asset.key);
+    if (minRequiredPages && Number.isFinite(actualPages) && actualPages < minRequiredPages) {
+      findings.push({
+        severity: "high",
+        message: `${asset.key} is an acute clinical handout and must stay at least ${minRequiredPages} pages so the core visual and sources remain readable; real PDF has ${actualPages}.`,
+      });
+    }
+
     if (pdfInfo.Title && normalizeWhitespace(pdfInfo.Title) !== normalizeWhitespace(asset.title)) {
       findings.push({
         severity: "medium",
@@ -624,6 +653,14 @@ export async function runPdfManifestCheck(context) {
       findings.push({
         severity: "high",
         message: `${alias.key} declares ${declaredPages} pages but the real legacy PDF has ${actualPages}.`,
+      });
+    }
+
+    const minRequiredPages = minRequiredPdfPages(alias.key);
+    if (minRequiredPages && Number.isFinite(actualPages) && actualPages < minRequiredPages) {
+      findings.push({
+        severity: "high",
+        message: `${alias.key} is an acute clinical handout and must stay at least ${minRequiredPages} pages so the core visual and sources remain readable; real legacy PDF has ${actualPages}.`,
       });
     }
 

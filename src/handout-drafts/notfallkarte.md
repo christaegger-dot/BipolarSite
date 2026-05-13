@@ -8,7 +8,7 @@ show_priority_badge: false
 type: "Akutblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Kompakte Triage für akute Gefahr, psychiatrische Krise und erste Schutzschritte im Kanton Zürich"
-target_format: "A4, 1 Seite"
+target_format: "A4, 2 Seiten"
 priority: "P1"
 last_updated: "2026-05-13"
 emergency_label: "Zuerst klären"
@@ -21,6 +21,18 @@ quick_steps:
     text: "Bei Gewalt, Bedrohung oder wenn Sie selbst nicht mehr sicher sind"
   - icon: "24h"
     text: "Psychiatrische Krise ohne unmittelbare Lebensgefahr: 0800 33 66 55"
+acute_visual:
+  kind: "triage"
+  title: "Triage: welcher Weg jetzt?"
+  items:
+    - label: "Lebensgefahr"
+      text: "144 sofort"
+      cue: "Schutz"
+    - label: "Bedrohung"
+      text: "117 sofort"
+      cue: "Schutz"
+    - label: "Dringende Krise"
+      text: "0800 33 66 55"
 ---
 
 ## 1. Unmittelbare Gefahr
@@ -37,6 +49,8 @@ Wenn Kinder dabei sind: zuerst in Sicherheit bringen.
 - **0800 33 66 55** Ärztefon - Notfalldienst Zürich bei nicht lebensbedrohlicher, aber dringlicher medizinischer oder psychiatrischer Einschätzung
 - **058 384 20 00** PUK Zürich - Notfall Erwachsene
 - **058 384 66 66** PUK Zürich - Notfall Kinder und Jugendliche
+
+<!-- pagebreak -->
 
 ## 3. Wenn Sie Gespräch, Schutz oder Entlastung brauchen
 

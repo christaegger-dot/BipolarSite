@@ -4,6 +4,7 @@ import { describe, it } from "node:test";
 import {
   findMissingRequiredPdfTextSnippets,
   findUntrackedPdfSourceFiles,
+  minRequiredPdfPages,
   pdfMetadataDeclaresLanguage,
   pdfTextHasSourceReferences,
   requiredPdfTextSnippets,
@@ -48,18 +49,32 @@ describe("PDF manifest audit helpers", () => {
     assert.equal(pdfMetadataDeclaresLanguage("<dc:language><rdf:Seq><rdf:li>en-US</rdf:li></rdf:Seq></dc:language>"), false);
   });
 
+  it("keeps acute clinical handouts at two pages or more for readable visuals and sources", () => {
+    assert.equal(minRequiredPdfPages("notfallkarte"), 2);
+    assert.equal(minRequiredPdfPages("legacy.notfallkarte"), 2);
+    assert.equal(minRequiredPdfPages("suizidgedanken"), 2);
+    assert.equal(minRequiredPdfPages("psychoseWahn"), 2);
+    assert.equal(minRequiredPdfPages("manie"), 2);
+    assert.equal(minRequiredPdfPages("depression"), 2);
+    assert.equal(minRequiredPdfPages("c2_suizidgedanken"), 2);
+    assert.equal(minRequiredPdfPages("c3_psychose_wahn"), 2);
+    assert.equal(minRequiredPdfPages("c4_manie"), 2);
+    assert.equal(minRequiredPdfPages("c5_depression"), 2);
+    assert.equal(minRequiredPdfPages("a8_warnsignale"), null);
+  });
+
   it("requires content guardrails for updated legal and worksheet PDFs", () => {
     assert.ok(requiredPdfTextSnippets("a8_warnsignale").includes("Ampel für Frühwarnzeichen"));
     assert.ok(requiredPdfTextSnippets("a3_ambivalente_loyalitaet").includes("Vier innere Kräfte"));
     assert.ok(requiredPdfTextSnippets("a4_ambiguous_loss").includes("Verlust ohne klaren Abschied"));
     assert.ok(requiredPdfTextSnippets("a5_affiliate_stigma").includes("Wie Stigma Angehörige enger macht"));
-    assert.ok(requiredPdfTextSnippets("notfallkarte").includes("ersetzt keine Diagnostik"));
+    assert.ok(requiredPdfTextSnippets("notfallkarte").includes("Triage: welcher Weg jetzt?"));
     assert.ok(requiredPdfTextSnippets("krisenplanVorlage").includes("sensible Gesundheitsdaten"));
     assert.ok(requiredPdfTextSnippets("c1_krisenplan").includes("keine Dosierungen ohne Behandlungsteam"));
-    assert.ok(requiredPdfTextSnippets("c2_suizidgedanken").includes("nicht versuchen, mit einem Risiko-Score"));
-    assert.ok(requiredPdfTextSnippets("c3_psychose_wahn").includes("ersetzt keine fachliche Abklärung"));
-    assert.ok(requiredPdfTextSnippets("c4_manie").includes("nichts körperlich oder rechtlich erzwingen"));
-    assert.ok(requiredPdfTextSnippets("c5_depression").includes("ohne Dosierungen zu ändern"));
+    assert.ok(requiredPdfTextSnippets("c2_suizidgedanken").includes("Suizid-Ampel"));
+    assert.ok(requiredPdfTextSnippets("c3_psychose_wahn").includes("Schutzpfad"));
+    assert.ok(requiredPdfTextSnippets("c4_manie").includes("Manie-Tacho"));
+    assert.ok(requiredPdfTextSnippets("c5_depression").includes("Depressions-Thermometer"));
     assert.ok(requiredPdfTextSnippets("rechtlicheOrientierung").includes("keine Rechtsberatung"));
     assert.ok(requiredPdfTextSnippets("rechtlicheOrientierung").includes("Beobachtungen mitteilen"));
     assert.ok(requiredPdfTextSnippets("b1_18_belastungen").includes("Vier Belastungsfelder"));

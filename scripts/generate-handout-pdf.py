@@ -31,7 +31,7 @@ from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.units import mm
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
-from reportlab.platypus import Flowable, HRFlowable, PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
+from reportlab.platypus import Flowable, HRFlowable, KeepTogether, PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 
 # ── Paths ──────────────────────────────────────────────────────────────
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -111,7 +111,7 @@ PAGE_W, PAGE_H = A4
 MARGIN_L = 22 * mm
 MARGIN_R = 22 * mm
 MARGIN_T = 12 * mm
-MARGIN_B = 5 * mm
+MARGIN_B = 12 * mm
 
 # ── Paragraph Styles ──────────────────────────────────────────────────
 styles = {}
@@ -179,8 +179,16 @@ styles["focus_item"] = ParagraphStyle(
     textColor=TEXT_C,
 )
 styles["visual_title"] = ParagraphStyle(
-    "VisualTitle", fontName="DMSans", fontSize=8.8, leading=10.8,
+    "VisualTitle", fontName="DMSans", fontSize=9.4, leading=11.4,
     textColor=MUTED, spaceAfter=1 * mm,
+)
+styles["acute_visual_label"] = ParagraphStyle(
+    "AcuteVisualLabel", fontName="DMSans", fontSize=8.2, leading=9.6,
+    textColor=TEAL, alignment=TA_CENTER,
+)
+styles["acute_visual_text"] = ParagraphStyle(
+    "AcuteVisualText", fontName="DMSans", fontSize=7.8, leading=9.2,
+    textColor=TEXT_C, alignment=TA_CENTER,
 )
 styles["visual_cell"] = ParagraphStyle(
     "VisualCell", fontName="DMSans", fontSize=7.9, leading=10,
@@ -213,6 +221,22 @@ styles["source_title"] = ParagraphStyle(
 styles["source_text"] = ParagraphStyle(
     "SourceText", fontName="DMSans", fontSize=5.9, leading=7.1,
     textColor=MUTED, spaceAfter=0.8 * mm,
+)
+styles["source_title_acute"] = ParagraphStyle(
+    "SourceTitleAcute", fontName="DMSans", fontSize=8.0, leading=9.4,
+    textColor=MUTED, spaceAfter=0.8 * mm,
+)
+styles["source_text_acute"] = ParagraphStyle(
+    "SourceTextAcute", fontName="DMSans", fontSize=7.1, leading=8.8,
+    textColor=MUTED, spaceAfter=1.0 * mm,
+)
+styles["source_title_compact"] = ParagraphStyle(
+    "SourceTitleCompact", fontName="DMSans", fontSize=6.2, leading=6.8,
+    textColor=MUTED, spaceAfter=0.3 * mm,
+)
+styles["source_text_compact"] = ParagraphStyle(
+    "SourceTextCompact", fontName="DMSans", fontSize=5.35, leading=5.95,
+    textColor=MUTED, spaceAfter=0.4 * mm,
 )
 
 
@@ -398,14 +422,14 @@ def build_acute_contact_strip(meta, content_width):
         ("BACKGROUND", (0, 0), (-1, -1), HexColor("#fff7ed")),
         ("BOX", (0, 0), (-1, -1), 0.5, HexColor("#e8c4b8")),
         ("LINEBEFORE", (1, 0), (-1, -1), 0.3, HexColor("#e8c4b8")),
-        ("TOPPADDING", (0, 0), (-1, -1), 1.3 * mm),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 1.3 * mm),
+        ("TOPPADDING", (0, 0), (-1, -1), 1.0 * mm),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 1.0 * mm),
         ("LEFTPADDING", (0, 0), (-1, -1), 1.8 * mm),
         ("RIGHTPADDING", (0, 0), (-1, -1), 1.8 * mm),
         ("VALIGN", (0, 0), (-1, -1), "TOP"),
     ]))
     flowables.append(contact_table)
-    flowables.append(Spacer(1, 2.2 * mm))
+    flowables.append(Spacer(1, 1.2 * mm))
     return flowables
 
 
@@ -1106,6 +1130,173 @@ class ModelDiagram(Flowable):
             self._card(x, y, w, h, item, idx=idx, fill=fills[(idx - 1) % len(fills)])
 
 
+class AcuteVisualDiagram(ModelDiagram):
+    """Draw compact crisis visuals that can replace dense quick-step tables."""
+
+    def __init__(self, kind, items, width, title=""):
+        super().__init__(kind, items, width)
+        self.title = plain_text(title)
+
+    def _height_for_kind(self):
+        return 42 * mm
+
+    def _urgent_item(self, item):
+        joined = plain_text(" ".join([
+            item.get("label", ""),
+            item.get("text", ""),
+            item.get("cue", ""),
+        ])).lower()
+        return any(token in joined for token in ("144", "117", "gefahr", "schutz", "sofort"))
+
+    def draw(self):
+        self.canv.saveState()
+        self._draw_frame()
+        if self.kind == "traffic_light":
+            self._draw_acute_traffic_light()
+        elif self.kind == "thermometer":
+            self._draw_acute_thermometer()
+        elif self.kind == "gauge":
+            self._draw_acute_gauge()
+        elif self.kind in {"signpost", "flowchart", "sequence"}:
+            self._draw_acute_path()
+        else:
+            self._draw_acute_triage()
+        self.canv.restoreState()
+
+    def _acute_card(self, x, y, w, h, item, idx, fill):
+        c = self.canv
+        accent = ALERT if self._urgent_item(item) else TEAL
+        c.setFillColor(fill)
+        c.setStrokeColor(HexColor("#b8d8d8"))
+        c.setLineWidth(0.45)
+        c.roundRect(x, y, w, h, 3, fill=1, stroke=1)
+        label = f"{idx} · {item.get('label', '')}"
+        label_h = self._draw_para(
+            label,
+            x + 2 * mm,
+            y + h - 3 * mm,
+            w - 4 * mm,
+            "acute_visual_label",
+            limit=36,
+            color=accent,
+            bold=True,
+            align="center",
+        )
+        if item.get("text"):
+            self._draw_para(
+                item.get("text", ""),
+                x + 2 * mm,
+                y + h - 4 * mm - label_h,
+                w - 4 * mm,
+                "acute_visual_text",
+                limit=52,
+                align="center",
+            )
+        if item.get("cue"):
+            cue_color = ALERT if self._urgent_item(item) else TEAL
+            c.setFillColor(HexColor("#ffffff"))
+            c.setStrokeColor(cue_color)
+            c.roundRect(x + w / 2 - 9 * mm, y + 2.2 * mm, 18 * mm, 4.5 * mm, 2, fill=1, stroke=1)
+            self._draw_para(item.get("cue", ""), x + w / 2 - 8 * mm, y + 5.8 * mm, 16 * mm, "diagram_micro", limit=16, color=cue_color, bold=True, align="center")
+
+    def _draw_acute_cards(self, x, fills, pad=5 * mm):
+        items = self.items[:3]
+        if not items:
+            return
+        gap = 2.5 * mm
+        w = (self.width - x - pad - gap * (len(items) - 1)) / len(items)
+        h = self.height - 2 * pad
+        for idx, item in enumerate(items, start=1):
+            card_x = x + (idx - 1) * (w + gap)
+            fill = fills[(idx - 1) % len(fills)]
+            self._acute_card(card_x, pad, w, h, item, idx, fill)
+            if idx < len(items):
+                self._arrow(card_x + w + 0.5 * mm, pad + h / 2, card_x + w + gap - 0.5 * mm, pad + h / 2, MUTED)
+
+    def _draw_acute_traffic_light(self):
+        c = self.canv
+        pad = 5 * mm
+        light_w = 18 * mm
+        c.setFillColor(HexColor("#f3f0ec"))
+        c.setStrokeColor(MUTED)
+        c.roundRect(pad, pad, light_w, self.height - 2 * pad, 5, fill=1, stroke=1)
+        for color, cy in [
+            (ALERT, self.height - pad - 5 * mm),
+            (DIAGRAM_AMBER, self.height / 2),
+            (HexColor("#3f8f65"), pad + 5 * mm),
+        ]:
+            c.setFillColor(color)
+            c.circle(pad + light_w / 2, cy, 4.1 * mm, fill=1, stroke=0)
+        self._draw_acute_cards(pad + light_w + 7 * mm, [DIAGRAM_GREEN, DIAGRAM_AMBER, DIAGRAM_ALERT], pad=5 * mm)
+
+    def _draw_acute_thermometer(self):
+        c = self.canv
+        pad = 5 * mm
+        x = pad + 9 * mm
+        tube_top = self.height - pad - 3 * mm
+        bulb_y = pad + 6 * mm
+        c.setStrokeColor(HexColor("#b8d8d8"))
+        c.setLineWidth(7)
+        c.line(x, bulb_y, x, tube_top)
+        c.setStrokeColor(ALERT)
+        c.setLineWidth(4.2)
+        c.line(x, bulb_y, x, tube_top - 7 * mm)
+        c.setFillColor(DIAGRAM_ALERT)
+        c.setStrokeColor(ALERT)
+        c.circle(x, bulb_y, 5.8 * mm, fill=1, stroke=1)
+        c.setStrokeColor(MUTED)
+        c.setLineWidth(0.55)
+        for i in range(4):
+            y = bulb_y + 7 * mm + i * 6 * mm
+            c.line(x + 5 * mm, y, x + 10 * mm, y)
+        self._draw_para("Schwere", x - 9 * mm, self.height - pad - 1 * mm, 18 * mm, "diagram_center", limit=12, color=MUTED, bold=True, align="center")
+        self._draw_acute_cards(pad + 25 * mm, [DIAGRAM_GREEN, DIAGRAM_AMBER, DIAGRAM_ALERT], pad=5 * mm)
+
+    def _draw_acute_gauge(self):
+        c = self.canv
+        pad = 5 * mm
+        cx = pad + 15 * mm
+        cy = pad + 14 * mm
+        radius = 14 * mm
+        c.setStrokeColor(TEAL)
+        c.setLineWidth(2.8)
+        c.arc(cx - radius, cy - radius, cx + radius, cy + radius, 20, 55)
+        c.setStrokeColor(DIAGRAM_AMBER)
+        c.arc(cx - radius, cy - radius, cx + radius, cy + radius, 58, 98)
+        c.setStrokeColor(ALERT)
+        c.arc(cx - radius, cy - radius, cx + radius, cy + radius, 101, 140)
+        c.setStrokeColor(ALERT)
+        c.setLineWidth(1.3)
+        c.line(cx, cy, cx + 9 * mm, cy + 9 * mm)
+        c.setFillColor(ALERT)
+        c.circle(cx, cy, 2 * mm, fill=1, stroke=0)
+        self._draw_para("Tempo", cx - 10 * mm, cy + 8 * mm, 20 * mm, "diagram_center", limit=10, color=MUTED, bold=True, align="center")
+        self._draw_para("Schutz erhöhen", cx - 14 * mm, cy - 8 * mm, 28 * mm, "diagram_center", limit=18, color=ALERT, bold=True, align="center")
+        self._draw_acute_cards(pad + 34 * mm, [DIAGRAM_GREEN, DIAGRAM_AMBER, DIAGRAM_ALERT], pad=5 * mm)
+
+    def _draw_acute_path(self):
+        pad = 5 * mm
+        self._draw_acute_cards(pad, [DIAGRAM_GREEN, DIAGRAM_AMBER, DIAGRAM_ALERT], pad=pad)
+
+    def _draw_acute_triage(self):
+        c = self.canv
+        pad = 5 * mm
+        cx = pad + 14 * mm
+        cy = self.height / 2
+        r = 11 * mm
+        path = c.beginPath()
+        path.moveTo(cx, cy + r)
+        path.lineTo(cx + r, cy)
+        path.lineTo(cx, cy - r)
+        path.lineTo(cx - r, cy)
+        path.close()
+        c.setFillColor(DIAGRAM_ALERT)
+        c.setStrokeColor(ALERT)
+        c.drawPath(path, fill=1, stroke=1)
+        self._draw_para("Triage", cx - 9 * mm, cy + 3.0 * mm, 18 * mm, "diagram_center", limit=10, color=ALERT, bold=True, align="center")
+        self._draw_acute_cards(pad + 33 * mm, [DIAGRAM_ALERT, DIAGRAM_ALERT, DIAGRAM_AMBER], pad=5 * mm)
+
+
 class SemanticBlockDiagram(ModelDiagram):
     """Draw semantic content blocks as visibly distinct containers."""
 
@@ -1235,6 +1426,50 @@ def build_visual_model_flowables(meta, content_width):
     return flowables
 
 
+def build_acute_visual_flowables(meta, content_width):
+    """Build one visible visual decision aid for acute handouts."""
+    acute_visual = meta.get("acute_visual")
+    if not isinstance(acute_visual, dict):
+        return build_quick_steps_flowables(meta.get("quick_steps", []), content_width, compact=True)
+
+    raw_items = acute_visual.get("items", [])
+    if not isinstance(raw_items, list):
+        raw_items = []
+
+    items = []
+    for raw in raw_items:
+        if not isinstance(raw, dict):
+            continue
+        label = plain_text(raw.get("label", ""))
+        text = plain_text(raw.get("text", ""))
+        cue = plain_text(raw.get("cue", ""))
+        if label or text or cue:
+            items.append({"label": label, "text": text, "cue": cue})
+
+    if not items:
+        quick_items = []
+        for idx, step in enumerate(meta.get("quick_steps", [])[:3], start=1):
+            if not isinstance(step, dict):
+                continue
+            quick_items.append({
+                "label": normalize_step_icon(step.get("icon", idx), idx),
+                "text": plain_text(step.get("text", "")),
+                "cue": "",
+            })
+        items = quick_items
+
+    if not items:
+        return []
+
+    title = plain_text(acute_visual.get("title", "Schnellentscheidung"))
+    kind = canonical_visual_kind(acute_visual.get("kind", "triage"))
+    return [
+        Paragraph(f"<b>{md_inline(title)}</b>", styles["visual_title"]),
+        AcuteVisualDiagram(kind, items, content_width),
+        Spacer(1, 2.4 * mm),
+    ]
+
+
 def build_help_module_flowables(help_module, content_width):
     """Create flowables for the optional help module.
     Horizontal 3-column grid (matches HTML preview); saves ~25mm vs.
@@ -1310,13 +1545,21 @@ def build_source_flowables(meta):
     if not references:
         return []
 
+    compact = meta.get("type") == "Akutblatt"
+    title_style = styles["source_title_acute"] if compact else styles["source_title"]
+    text_style = styles["source_text_acute"] if compact else styles["source_text"]
+    source_space = 1.4 * mm if compact else 0.8 * mm
     flowables = [
-        HRFlowable(width="100%", thickness=0.35, color=LINE, spaceBefore=0.8 * mm, spaceAfter=0.8 * mm),
-        Paragraph("<b>Quellen (Auswahl)</b>", styles["source_title"]),
+        HRFlowable(width="100%", thickness=0.35, color=LINE, spaceBefore=source_space, spaceAfter=source_space),
+        Paragraph("<b>Quellen (Auswahl)</b>", title_style),
     ]
-    source_lines = [f"{idx}. {md_inline(reference)}" for idx, reference in enumerate(references, start=1)]
-    flowables.append(Paragraph(" · ".join(source_lines), styles["source_text"]))
-    return flowables
+    if compact:
+        for idx, reference in enumerate(references, start=1):
+            flowables.append(Paragraph(f"{idx}. {md_inline(reference)}", text_style))
+    else:
+        source_lines = [f"{idx}. {md_inline(reference)}" for idx, reference in enumerate(references, start=1)]
+        flowables.append(Paragraph(" · ".join(source_lines), text_style))
+    return [KeepTogether(flowables)]
 
 
 def build_footer_line(meta):
@@ -1332,6 +1575,14 @@ def build_footer_line(meta):
 def draw_footer(canvas, doc, meta):
     """Draw the footer in the page margin so it does not create extra pages."""
     canvas.saveState()
+    if doc.page > 1:
+        canvas.setFont("DMSans", 7.2)
+        canvas.setFillColor(MUTED)
+        continuation = f'{meta.get("type", "Handout")} · {meta.get("title", "Handout")} · Fortsetzung'
+        canvas.drawString(MARGIN_L, PAGE_H - 7 * mm, continuation)
+        canvas.setStrokeColor(LINE)
+        canvas.setLineWidth(0.3)
+        canvas.line(MARGIN_L, PAGE_H - 9 * mm, PAGE_W - MARGIN_R, PAGE_H - 9 * mm)
     canvas.setFont("DMSans", 7)
     canvas.setFillColor(MUTED)
     canvas.drawCentredString(PAGE_W / 2, 4 * mm, build_footer_line(meta))
@@ -1380,6 +1631,7 @@ def build_pdf(meta, body, output_path: Path):
     story.append(Paragraph(title, styles["h1"]))
 
     if meta.get("emergency_callout"):
+        emergency_y_padding = 1.5 * mm if is_acute_handout else 2 * mm
         emergency_data = [[
             Paragraph(
                 f'<b>{md_inline(meta.get("emergency_label", "Notfall"))}</b>',
@@ -1395,20 +1647,21 @@ def build_pdf(meta, body, output_path: Path):
         emergency_table.setStyle(TableStyle([
             ("BACKGROUND", (0, 0), (-1, -1), HexColor("#fef2f2")),
             ("BOX", (0, 0), (-1, -1), 0.5, HexColor("#e8c4b8")),
-            ("TOPPADDING", (0, 0), (-1, -1), 2 * mm),
-            ("BOTTOMPADDING", (0, 0), (-1, -1), 2 * mm),
+            ("TOPPADDING", (0, 0), (-1, -1), emergency_y_padding),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), emergency_y_padding),
             ("LEFTPADDING", (0, 0), (-1, -1), 4 * mm),
             ("RIGHTPADDING", (0, 0), (-1, -1), 4 * mm),
             ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
         ]))
         story.append(emergency_table)
-        story.append(Spacer(1, 2.4 * mm))
+        story.append(Spacer(1, 1.4 * mm if is_acute_handout else 2.4 * mm))
 
     quick_steps = meta.get("quick_steps", [])
     if is_acute_handout:
         story.extend(build_acute_contact_strip(meta, content_width))
-    story.extend(build_quick_steps_flowables(quick_steps, content_width, compact=is_acute_handout))
-    if not is_acute_handout:
+        story.extend(build_acute_visual_flowables(meta, content_width))
+    else:
+        story.extend(build_quick_steps_flowables(quick_steps, content_width))
         story.extend(build_visual_model_flowables(meta, content_width))
         story.extend(build_focus_box_flowables(meta, content_width))
 

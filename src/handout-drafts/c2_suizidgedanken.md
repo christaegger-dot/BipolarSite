@@ -8,7 +8,7 @@ show_priority_badge: false
 type: "Akutblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Klare Orientierung bei Suizidgedanken, Suizidäusserungen oder konkreter Sorge"
-target_format: "A4, 1 Seite"
+target_format: "A4, 2 Seiten"
 priority: "P1"
 last_updated: "2026-05-13"
 emergency_label: "Wenn es konkret wird"
@@ -22,6 +22,18 @@ quick_steps:
   - icon: "144"
     wide: true
     text: "Bei konkreter Gefahr 144"
+acute_visual:
+  kind: "ampel"
+  title: "Suizid-Ampel: Sorge, konkret, Notfall"
+  items:
+    - label: "Sorge"
+      text: "direkt fragen, Nähe halten"
+    - label: "Konkret"
+      text: "bleiben, Mittel sichern, Hilfe rufen"
+      cue: "Schutz"
+    - label: "Notfall"
+      text: "144: Schutz vor Gespräch"
+      cue: "Schutz"
 help_module:
   enabled: true
   title: "Sofort Hilfe dazunehmen"
@@ -74,6 +86,8 @@ Direkt zu fragen ist erlaubt und hilft, die aktuelle Gefahr besser einzuschätze
 - mögliche Mittel nur sichern, wenn das ohne Eigengefährdung oder Eskalation möglich ist
 - früh Hilfe dazuholen — auch bei Ablehnung selbst Beratung holen
 - nicht versuchen, mit einem Risiko-Score zu entscheiden; konkrete Hinweise und Sicherheit im Moment zählen
+
+<!-- pagebreak -->
 
 ## Was eher schadet
 
