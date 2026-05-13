@@ -10,10 +10,10 @@ audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Kompakte Triage für akute Gefahr, psychiatrische Krise und erste Schutzschritte im Kanton Zürich"
 target_format: "A4, 1 Seite"
 priority: "P1"
-last_updated: "2026-05-12"
+last_updated: "2026-05-13"
 emergency_label: "Zuerst klären"
 emergency_callout: "Unmittelbare Gefahr, konkrete Suizidabsicht, Gewalt oder Bewusstlosigkeit: sofort 144 oder 117. Nicht erst alles ordnen wollen."
-emergency_note: "Diese Karte ist für die erste Einordnung gedacht. Wenn Sie unsicher sind, wählen Sie lieber die akutere Option."
+emergency_note: "Diese Karte ist für die erste Einordnung gedacht und ersetzt keine Diagnostik. Wenn Sie unsicher sind, wählen Sie lieber die akutere Option."
 quick_steps:
   - icon: "144"
     text: "Bei Lebensgefahr, Suizidversuch oder Bewusstlosigkeit"
@@ -25,6 +25,8 @@ quick_steps:
 
 ## 1. Unmittelbare Gefahr
 
+Diese Karte ersetzt keine Diagnostik. Sie soll helfen, in den ersten Minuten den passenden Notfallweg zu wählen.
+
 - **144** bei Suizidversuch, konkreter Lebensgefahr, Bewusstlosigkeit oder schwerem medizinischem Notfall
 - **117** bei Gewalt, Drohung, Fremdgefährdung oder wenn Sie den Raum verlassen und Schutz holen müssen
 
@@ -32,7 +34,7 @@ Wenn Kinder dabei sind: zuerst in Sicherheit bringen.
 
 ## 2. Psychiatrische Krise ohne unmittelbare Lebensgefahr
 
-- **0800 33 66 55** Ärztefon - Notfalldienst Zürich bei schwerer Manie, psychotischer Zuspitzung, rascher Eskalation oder starker Unsicherheit
+- **0800 33 66 55** Ärztefon - Notfalldienst Zürich bei nicht lebensbedrohlicher, aber dringlicher medizinischer oder psychiatrischer Einschätzung
 - **058 384 20 00** PUK Zürich - Notfall Erwachsene
 - **058 384 66 66** PUK Zürich - Notfall Kinder und Jugendliche
 
@@ -44,7 +46,7 @@ Wenn Kinder dabei sind: zuerst in Sicherheit bringen.
 
 ## Kurzregel
 
-**Lieber einmal zu früh Hilfe dazunehmen als zu lange allein sortieren.** Wenn die Akutlage vorbei ist: Krisenplan öffnen oder die Fachstelle Angehörigenarbeit PUK unter **058 384 38 00** kontaktieren.
+**Lebensgefahr: 144. Bedrohung/Gewalt: 117. Psychiatrische Krise ohne unmittelbare Lebensgefahr: 0800 33 66 55.** Wenn die Akutlage vorbei ist: Krisenplan öffnen oder die Fachstelle Angehörigenarbeit PUK unter **058 384 38 00** kontaktieren.
 
 Weiterführend:
 

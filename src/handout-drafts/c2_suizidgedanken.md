@@ -10,9 +10,9 @@ audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Klare Orientierung bei Suizidgedanken, Suizidäusserungen oder konkreter Sorge"
 target_format: "A4, 1 Seite"
 priority: "P1"
-last_updated: "2026-05-12"
+last_updated: "2026-05-13"
 emergency_label: "Wenn es konkret wird"
-emergency_callout: "Bei konkretem Plan, vorhandenen Mitteln oder wenn die Person nicht mehr sicher allein ist: sofort 144."
+emergency_callout: "Bei konkretem Plan, verfügbaren Mitteln oder wenn die Person nicht mehr sicher allein ist: sofort 144."
 emergency_note: "Nicht erst alles ordnen wollen. Direkt fragen ist erlaubt. Wenn die Gefahr konkret ist, Hilfe sofort dazunehmen."
 quick_steps:
   - icon: "?"
@@ -51,7 +51,7 @@ emergency_contacts:
 
 ## Suizidgedanken ernst nehmen
 
-Direkt zu fragen ist erlaubt — und löst Suizidgedanken nicht aus. Bei konkretem Plan oder vorhandenen Mitteln: nicht allein tragen, sofort Hilfe holen.
+Direkt zu fragen ist erlaubt und hilft, die aktuelle Gefahr besser einzuschätzen. Bei konkretem Plan, verfügbaren Mitteln oder fehlender Sicherheit: nicht allein tragen, sofort Notfallhilfe holen.
 
 ## Woran Sie aufmerksam werden
 
@@ -65,13 +65,15 @@ Direkt zu fragen ist erlaubt — und löst Suizidgedanken nicht aus. Bei konkret
 - **«Denkst du daran, dir etwas anzutun?»**
 - **«Hast du einen Plan, wie du das tun würdest?»**
 - **«Gibt es etwas, womit du es tun könntest?»**
+- **«Bist du im Moment sicher, wenn ich kurz Hilfe organisiere?»**
 
 ## Was jetzt hilft
 
 - ruhig bleiben, zuhören, direkt fragen
 - bei der Person bleiben, bis professionelle Hilfe da ist
-- Mittel sichern, wo es ohne Eskalation möglich ist
+- mögliche Mittel nur sichern, wenn das ohne Eigengefährdung oder Eskalation möglich ist
 - früh Hilfe dazuholen — auch bei Ablehnung selbst Beratung holen
+- nicht versuchen, mit einem Risiko-Score zu entscheiden; konkrete Hinweise und Sicherheit im Moment zählen
 
 ## Was eher schadet
 
@@ -84,7 +86,7 @@ Direkt zu fragen ist erlaubt — und löst Suizidgedanken nicht aus. Bei konkret
 
 Nicht weiter allein tragen, sondern sofort handeln, wenn ein konkreter Plan da ist, Mittel verfügbar sind, die Person nicht mehr sicher allein ist, der Kontakt abbricht oder die Lage kippt.
 
-**Bei konkretem Plan oder vorhandenen Mitteln: sofort 144.**
+**Bei konkreter Gefahr: 144.** Wenn keine unmittelbare Lebensgefahr besteht, aber Sie fachliche Einschätzung brauchen: Notfalldienst Zürich 0800 33 66 55.
 
 ## Nächster Schritt
 

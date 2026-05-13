@@ -10,7 +10,7 @@ audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Schnelle Orientierung bei akuten oder eskalierenden manischen Zuständen"
 target_format: "A4, 1 Seite"
 priority: "P1"
-last_updated: "2026-05-12"
+last_updated: "2026-05-13"
 emergency_label: "Wenn Schutz vorgeht"
 emergency_callout: "Bei Gewalt, Selbstgefährdung, massivem Kontrollverlust oder wenn niemand mehr sicher ist: sofort 144 oder 117."
 emergency_note: "Nicht diskutieren. Reize reduzieren, kurz sprechen, Risiko begrenzen und früh Hilfe dazunehmen."
@@ -53,25 +53,25 @@ emergency_contacts:
 
 ## Orientierung in der Manie
 
-Wenn eine manische Episode kippt, helfen Diskussion und Druck nicht mehr. Wichtiger: Ruhe, kurze Sätze, Schutz, frühes Dazunehmen professioneller Hilfe.
+Wenn eine manische Episode kippt, helfen Diskussion und Druck oft nicht mehr. Dieses Blatt ersetzt keine Diagnose. Wichtiger: Ruhe, kurze Sätze, Schutz, reduzierte Reize und frühes Dazunehmen professioneller Hilfe.
 
 ## Woran Sie Manie erkennen
 
-- seit ≥ 2 Nächten kaum Schlaf, ohne sich müde zu fühlen
+- mehrere Nächte deutlich weniger Schlaf oder kaum Müdigkeit trotz wenig Schlaf
 - stark gesteigertes Tempo oder Rededrang
 - Selbstüberschätzung oder Grössenideen
 - Gereiztheit bei Widerspruch
 - unkontrollierte Ausgaben oder riskante Entscheidungen
 - fahriges, grenzüberschreitendes oder bedrohliches Verhalten
 
-Entscheidend ist die Kombination und die Veränderung gegenüber dem üblichen Zustand.
+Entscheidend ist nicht ein einzelnes Zeichen, sondern Kombination, Dauer und deutliche Veränderung gegenüber dem üblichen Zustand.
 
 ## Im ersten Gespräch
 
 - ein Satz, ein Anliegen — strukturieren statt diskutieren
 - Reize senken (weniger Menschen, Lärm, Diskussion)
 - Krisenplan aktivieren — sonst Notfalldienst früh anrufen
-- Finanzen, Autofahren, Schutz mitdenken: Karten, Konten, Autoschlüssel notfalls sichern
+- Risiken wie Autofahren, grosse Ausgaben oder Grenzverletzungen ansprechen; nichts körperlich oder rechtlich erzwingen, sondern bei Gefahr Hilfe holen
 
 Hilfreich oft: **«Ich möchte es gerade einfach halten. Wir holen jetzt Unterstützung dazu.»**
 
@@ -91,6 +91,6 @@ Nicht weiter diskutieren, sondern sofort Hilfe einschalten, wenn die Person nich
 
 ## Nächster Schritt
 
-Wenn ansprechbar, aber instabil: Hilfe früh einschalten — nicht auf volle Eskalation warten. Auch bei Ablehnung der Person dürfen Sie selbst den Notfalldienst oder das Behandlungsteam kontaktieren.
+Wenn ansprechbar, aber instabil: Hilfe früh einschalten — nicht auf volle Eskalation warten. Auch bei Ablehnung der Person können Sie selbst den Notfalldienst oder das Behandlungsteam um Einschätzung bitten.
 
 Weiterführend: [Notfallseite](/notfall/) · [Modul 6: Kommunikation, Grenzen, Krisenplan](/modul/6/)

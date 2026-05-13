@@ -10,7 +10,7 @@ audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Rechtliche und systemische Fragen in belastenden Phasen besser ordnen und erste Schritte klären"
 target_format: "A4, 2 Seiten"
 priority: "P1"
-last_updated: "2026-05-12"
+last_updated: "2026-05-13"
 emergency_label: "Wenn Schutz nicht warten kann"
 emergency_callout: "Bei akuter Selbst- oder Fremdgefährdung, schwerer Psychose oder Gewalt geht Schutz vor juristischer Klärung. Dann zuerst Notfallwege nutzen."
 emergency_note: "Rechtliche Orientierung soll entlasten, nicht überfordern. Viele Fragen lassen sich besser in ruhigen Phasen vorbereiten als mitten in der Eskalation."
@@ -62,9 +62,9 @@ Rechtliche Fragen tauchen für Angehörige oft genau dann auf, wenn ohnehin scho
 
 Eine Schweigepflichtentbindung ist eine Erlaubnis, keine Vollmacht. Sie erlaubt, dass Behandelnde mit Ihnen sprechen dürfen. Sie gibt Ihnen aber nicht das Recht, über Behandlung zu entscheiden oder die erkrankte Person zu vertreten.
 
-Nur die erkrankte Person kann sie erteilen. Sie kann festlegen, wer informiert werden darf, zu welchen Themen und für welchen Zeitraum. Eine spätere Rücknahme bleibt möglich.
+In der Regel erteilt sie die urteilsfähige Person selbst. Sie kann festlegen, wer informiert werden darf, zu welchen Themen und für welchen Zeitraum. Eine spätere Rücknahme bleibt möglich. Wenn Urteilsfähigkeit, Vertretung oder akute Schutzpflichten eine Rolle spielen, sollte das rechtlich oder klinikintern geklärt werden.
 
-Wichtig für viele Angehörige: Die Schweigepflicht bedeutet nicht, dass Sie still bleiben müssen. Sie dürfen dem Behandlungsteam jederzeit mitteilen, was Sie beobachten. Gesperrt ist vor allem die Gegenrichtung: Ohne Einwilligung darf das Team Ihnen oft nichts Konkretes zurückmelden.
+Wichtig für viele Angehörige: Die Schweigepflicht bedeutet nicht, dass Sie still bleiben müssen. Sie können dem Behandlungsteam Beobachtungen mitteilen. Ob und wie das Team antworten darf, hängt aber von Einwilligung, Berufsgeheimnis, Datenschutz und der konkreten Gefahrenlage ab.
 
 ## Was eine Freigabe praktisch klären kann
 
@@ -76,7 +76,7 @@ Wichtig für viele Angehörige: Die Schweigepflicht bedeutet nicht, dass Sie sti
 
 ## Vorsorge nicht verwechseln
 
-Ein Vorsorgeauftrag ersetzt die Schweigepflichtentbindung nicht. Er wird erst relevant, wenn die betroffene Person urteilsunfähig ist und die Regelung geprüft oder aktiviert werden kann. Auch Patientenverfügung und Schweigepflichtentbindung haben unterschiedliche Funktionen.
+Ein Vorsorgeauftrag ersetzt die Schweigepflichtentbindung nicht. Er wird erst relevant, wenn die betroffene Person urteilsunfähig ist und die zuständige Stelle die Regelung prüfen oder wirksam werden lassen kann. Auch Patientenverfügung und Schweigepflichtentbindung haben unterschiedliche Funktionen.
 
 Darum ist es oft sinnvoll, Schweigepflichtentbindung, Vorsorgeauftrag und Patientenverfügung in derselben ruhigen Phase gemeinsam zu besprechen, aber inhaltlich sauber auseinanderzuhalten.
 
@@ -102,7 +102,7 @@ Gerade in solchen Situationen ist zusätzliche psychosoziale oder juristische Be
 
 ## Nächster sinnvoller Schritt
 
-Wenn die Lage gerade ruhig genug ist, wählen Sie **einen** Vorsorgepunkt aus: Schweigepflichtentbindung ansprechen, Konten ordnen oder eine Beratung zu Vorsorgeauftrag und Patientenverfügung einholen. Wenn Klinik oder Therapeutin wechseln, prüfen Sie bestehende Freigaben erneut. Wenn die Lage blockiert ist, holen Sie sich gezielt fachliche oder juristische Beratung statt endlos allein weiterzusuchen.
+Wenn die Lage gerade ruhig genug ist, wählen Sie **einen** Vorsorgepunkt aus: Schweigepflichtentbindung ansprechen, Konten ordnen oder eine Beratung zu Vorsorgeauftrag und Patientenverfügung einholen. Wenn Klinik oder Therapeutin wechseln, prüfen Sie bestehende Freigaben erneut. Bei FU, KESB, Fristen oder unklarer Vertretung holen Sie gezielt fachliche oder juristische Beratung statt endlos allein weiterzusuchen.
 
 Rechtliche Klarheit ersetzt keine Beziehung und keine Behandlung. Aber sie kann Überforderung reduzieren und in kritischen Momenten Handlungsspielraum schaffen.
 

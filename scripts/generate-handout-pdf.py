@@ -104,7 +104,7 @@ PAGE_W, PAGE_H = A4
 MARGIN_L = 22 * mm
 MARGIN_R = 22 * mm
 MARGIN_T = 12 * mm
-MARGIN_B = 8 * mm
+MARGIN_B = 5 * mm
 
 # ── Paragraph Styles ──────────────────────────────────────────────────
 styles = {}
@@ -184,11 +184,11 @@ styles["visual_note"] = ParagraphStyle(
     textColor=MUTED, spaceBefore=1 * mm,
 )
 styles["source_title"] = ParagraphStyle(
-    "SourceTitle", fontName="DMSans", fontSize=7.2, leading=8.5,
+    "SourceTitle", fontName="DMSans", fontSize=6.8, leading=8,
     textColor=MUTED, spaceAfter=0.8 * mm,
 )
 styles["source_text"] = ParagraphStyle(
-    "SourceText", fontName="DMSans", fontSize=6.5, leading=8,
+    "SourceText", fontName="DMSans", fontSize=5.9, leading=7.1,
     textColor=MUTED, spaceAfter=0.8 * mm,
 )
 
@@ -655,11 +655,11 @@ def build_source_flowables(meta):
         return []
 
     flowables = [
-        HRFlowable(width="100%", thickness=0.35, color=LINE, spaceBefore=1.2 * mm, spaceAfter=1.2 * mm),
+        HRFlowable(width="100%", thickness=0.35, color=LINE, spaceBefore=0.8 * mm, spaceAfter=0.8 * mm),
         Paragraph("<b>Quellen (Auswahl)</b>", styles["source_title"]),
     ]
     source_lines = [f"{idx}. {md_inline(reference)}" for idx, reference in enumerate(references, start=1)]
-    flowables.append(Paragraph("<br/>".join(source_lines), styles["source_text"]))
+    flowables.append(Paragraph(" · ".join(source_lines), styles["source_text"]))
     return flowables
 
 
@@ -678,7 +678,7 @@ def draw_footer(canvas, doc, meta):
     canvas.saveState()
     canvas.setFont("DMSans", 7)
     canvas.setFillColor(MUTED)
-    canvas.drawCentredString(PAGE_W / 2, 6.5 * mm, build_footer_line(meta))
+    canvas.drawCentredString(PAGE_W / 2, 4 * mm, build_footer_line(meta))
     canvas.restoreState()
 
 
