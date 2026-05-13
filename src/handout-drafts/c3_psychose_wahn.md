@@ -8,7 +8,7 @@ show_priority_badge: false
 type: "Akutblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Schnelle Orientierung bei psychotischer Zuspitzung, Wahn oder Paranoia"
-target_format: "A4, 2 Seiten"
+target_format: "A4, 1 Seite"
 priority: "P1"
 last_updated: "2026-05-13"
 emergency_label: "Wenn Sicherheit kippt"
@@ -33,25 +33,6 @@ acute_visual:
     - label: "Bedrohung"
       text: "117/144: Schutz holen"
       cue: "Schutz"
-acute_page2_boxes:
-  - title: "Kontakt halten"
-    items:
-      - "ruhig, langsam, kurze Sätze"
-      - "Gefühl anerkennen, Inhalt nicht bestätigen"
-      - "nicht mit Beweisen diskutieren"
-  - title: "Reize senken"
-    items:
-      - "weniger Licht, Lärm, Menschen"
-      - "eigenen Ausweg offenhalten"
-  - title: "Schutz vor Gespräch"
-    items:
-      - "bei Bedrohung nicht weiter diskutieren"
-      - "Kinder zuerst in Sicherheit bringen"
-  - title: "Hilfe dazunehmen"
-    items:
-      - "Notfalldienst oder Behandlungsteam früh informieren"
-      - "117 oder 144 bei akuter Gefahr"
-      - "professionelle Einschätzung nicht aufschieben"
 help_module:
   enabled: true
   title: "Sofort Hilfe dazunehmen"
@@ -98,9 +79,6 @@ Wahnideen fühlen sich für die Person real an und lassen sich meist nicht wegdi
 - ruhig, langsam, kurze Sätze
 - nicht widersprechen und nicht bestätigen: «Ich sehe es anders.»
 - Gefühle anerkennen, nicht den Inhalt bestätigen — bei Paranoia: «Ich höre, dass du dir Sorgen machst.»
-
-<!-- pagebreak -->
-
 - Reize senken (weniger Licht, Lärm, Menschen), eigenen Ausweg offenhalten, Kinder in Sicherheit bringen
 - Behandlungsteam oder Notfalldienst früh informieren
 

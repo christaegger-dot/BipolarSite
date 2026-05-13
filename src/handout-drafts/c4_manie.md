@@ -8,7 +8,7 @@ show_priority_badge: false
 type: "Akutblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Schnelle Orientierung bei akuten oder eskalierenden manischen Zuständen"
-target_format: "A4, 2 Seiten"
+target_format: "A4, 1 Seite"
 priority: "P1"
 last_updated: "2026-05-13"
 emergency_label: "Wenn Schutz vorgeht"
@@ -33,23 +33,6 @@ acute_visual:
     - label: "Gefahr"
       text: "144/117: Schutz vor Gespräch"
       cue: "Schutz"
-acute_page2_boxes:
-  - title: "Tempo senken"
-    items:
-      - "ein Satz, ein Anliegen"
-      - "weniger Menschen, Lärm und Diskussion"
-  - title: "Risiko begrenzen"
-    items:
-      - "Autofahren, Ausgaben und Grenzverletzungen ansprechen"
-      - "nichts körperlich oder rechtlich erzwingen"
-  - title: "Nicht kämpfen"
-    items:
-      - "keine Machtkämpfe oder Logik-Argumente"
-      - "nicht beweisen wollen, wer recht hat"
-  - title: "Gefahr"
-    items:
-      - "bei Gewalt, Selbstgefährdung oder Kontrollverlust 144 oder 117"
-      - "Schutz vor Gespräch"
 help_module:
   enabled: true
   title: "Sofort Hilfe dazunehmen"
@@ -98,9 +81,6 @@ Entscheidend ist nicht ein einzelnes Zeichen, sondern Kombination, Dauer und deu
 
 - ein Satz, ein Anliegen — strukturieren statt diskutieren
 - Reize senken (weniger Menschen, Lärm, Diskussion)
-
-<!-- pagebreak -->
-
 - Krisenplan aktivieren — sonst Notfalldienst früh anrufen
 - Risiken wie Autofahren, grosse Ausgaben oder Grenzverletzungen ansprechen; nichts körperlich oder rechtlich erzwingen, sondern bei Gefahr Hilfe holen
 

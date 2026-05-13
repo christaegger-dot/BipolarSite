@@ -15,7 +15,7 @@ const PDF_SOURCE_DIRS = [
   path.join("src", "handouts"),
 ];
 const MIN_EXTRACTABLE_TEXT_CHARS = 250;
-const PDF_CONTENT_FILL_MIN_RATIO = 0.65;
+const PDF_CONTENT_FILL_MIN_RATIO = 0.70;
 const PDF_FOOTER_IGNORE_POINTS = 46;
 const CRITICAL_LANGUAGE_METADATA_KEYS = new Set([
   "notfallkarte",
@@ -266,20 +266,18 @@ const REQUIRED_PDF_TEXT_SNIPPETS = {
     "Angehörige",
   ],
 };
-const MIN_PAGE_COUNT_BY_KEY = {
-  suizidgedanken: 2,
-  psychoseWahn: 2,
-  manie: 2,
-  depression: 2,
-  c2_suizidgedanken: 2,
-  c3_psychose_wahn: 2,
-  c4_manie: 2,
-  c5_depression: 2,
-};
+const MIN_PAGE_COUNT_BY_KEY = {};
 const ACUTE_LAYOUT_BALANCE_KEYS = new Set([
   "notfallkarte",
   "legacy.notfallkarte",
-  ...Object.keys(MIN_PAGE_COUNT_BY_KEY),
+  "suizidgedanken",
+  "psychoseWahn",
+  "manie",
+  "depression",
+  "c2_suizidgedanken",
+  "c3_psychose_wahn",
+  "c4_manie",
+  "c5_depression",
 ]);
 const SOURCE_REFERENCE_MARKERS = [
   "doi:",
@@ -476,6 +474,7 @@ export function findSparseNonFinalPdfPages(bboxText, options = {}) {
 
 async function validateExtractableText(context, pdfKey, sourcePath, findings) {
   const textResult = await runCommand("pdftotext", ["-layout", sourcePath, "-"], { cwd: context.repoRoot });
+  const rawTextResult = await runCommand("pdftotext", ["-raw", sourcePath, "-"], { cwd: context.repoRoot });
 
   if (!textResult.ok) {
     findings.push({
@@ -486,6 +485,9 @@ async function validateExtractableText(context, pdfKey, sourcePath, findings) {
   }
 
   const normalizedText = normalizeWhitespace(textResult.stdout);
+  const searchableText = normalizeWhitespace(
+    rawTextResult.ok ? `${textResult.stdout}\n${rawTextResult.stdout}` : textResult.stdout
+  );
   const textLength = normalizedText.length;
   if (textLength < MIN_EXTRACTABLE_TEXT_CHARS) {
     findings.push({
@@ -494,7 +496,7 @@ async function validateExtractableText(context, pdfKey, sourcePath, findings) {
     });
   }
 
-  const missingRequiredSnippets = findMissingRequiredPdfTextSnippets(pdfKey, normalizedText);
+  const missingRequiredSnippets = findMissingRequiredPdfTextSnippets(pdfKey, searchableText);
   for (const snippet of missingRequiredSnippets) {
     findings.push({
       severity: "high",
@@ -502,7 +504,7 @@ async function validateExtractableText(context, pdfKey, sourcePath, findings) {
     });
   }
 
-  if (!pdfTextHasSourceReferences(normalizedText)) {
+  if (!pdfTextHasSourceReferences(searchableText)) {
     findings.push({
       severity: "high",
       message: `${pdfKey} is missing visible source references ("Quellen").`,

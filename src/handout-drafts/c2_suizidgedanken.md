@@ -8,7 +8,7 @@ show_priority_badge: false
 type: "Akutblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Klare Orientierung bei Suizidgedanken, Suizidäusserungen oder konkreter Sorge"
-target_format: "A4, 2 Seiten"
+target_format: "A4, 1 Seite"
 priority: "P1"
 last_updated: "2026-05-13"
 emergency_label: "Wenn es konkret wird"
@@ -34,25 +34,6 @@ acute_visual:
     - label: "Notfall"
       text: "144: Schutz vor Gespräch"
       cue: "Schutz"
-acute_page2_boxes:
-  - title: "Wenn es konkret wird"
-    items:
-      - "bei der Person bleiben, wenn sicher möglich"
-      - "144 rufen"
-      - "nicht weiter allein entscheiden"
-  - title: "Mittel sichern?"
-    items:
-      - "nur wenn es gefahrlos möglich ist"
-      - "keine Eigengefährdung eingehen"
-      - "bei Eskalation Abstand und Hilfe"
-  - title: "Direktheit hilft"
-    items:
-      - "Plan, Mittel und aktuelle Sicherheit ruhig fragen"
-      - "keinen Risiko-Score verhandeln"
-  - title: "Für Angehörige"
-    items:
-      - "auch bei Ablehnung selbst Beratung holen"
-      - "Notfalldienst nutzen, wenn unklar"
 help_module:
   enabled: true
   title: "Sofort Hilfe dazunehmen"
@@ -102,9 +83,6 @@ Direkt zu fragen ist erlaubt und hilft, die aktuelle Gefahr besser einzuschätze
 
 - ruhig bleiben, zuhören, direkt fragen
 - bei der Person bleiben, bis professionelle Hilfe da ist
-
-<!-- pagebreak -->
-
 - mögliche Mittel nur sichern, wenn das ohne Eigengefährdung oder Eskalation möglich ist
 - früh Hilfe dazuholen — auch bei Ablehnung selbst Beratung holen
 - nicht versuchen, mit einem Risiko-Score zu entscheiden; konkrete Hinweise und Sicherheit im Moment zählen
