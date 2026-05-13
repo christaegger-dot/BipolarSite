@@ -22,6 +22,17 @@ quick_steps:
   - icon: "144"
     wide: true
     text: "Bei akuter Suizidgefahr sofort handeln"
+acute_visual:
+  kind: "thermometer"
+  title: "Depressions-Thermometer: Schwere einschätzen"
+  items:
+    - label: "Schwere Phase"
+      text: "präsent sein"
+    - label: "Suizidhinweise"
+      text: "direkt fragen"
+    - label: "Konkret/unsicher"
+      text: "144"
+      cue: "Schutz"
 help_module:
   enabled: true
   title: "Sofort Hilfe dazunehmen"

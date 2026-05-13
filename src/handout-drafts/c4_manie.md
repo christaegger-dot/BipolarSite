@@ -22,6 +22,17 @@ quick_steps:
   - icon: "144"
     wide: true
     text: "Bei Gefahr 144 oder 117"
+acute_visual:
+  kind: "tacho"
+  title: "Manie-Tacho: Tempo senken, Schutz erhöhen"
+  items:
+    - label: "Ansprechbar"
+      text: "Reize senken"
+    - label: "Kippend"
+      text: "Hilfe früh dazu"
+    - label: "Gefahr"
+      text: "144 oder 117"
+      cue: "Schutz"
 help_module:
   enabled: true
   title: "Sofort Hilfe dazunehmen"

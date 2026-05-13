@@ -21,6 +21,18 @@ quick_steps:
     text: "Bei Gewalt, Bedrohung oder wenn Sie selbst nicht mehr sicher sind"
   - icon: "24h"
     text: "Psychiatrische Krise ohne unmittelbare Lebensgefahr: 0800 33 66 55"
+acute_visual:
+  kind: "triage"
+  title: "Triage: welcher Weg jetzt?"
+  items:
+    - label: "Lebensgefahr"
+      text: "144"
+      cue: "Schutz"
+    - label: "Bedrohung"
+      text: "117"
+      cue: "Schutz"
+    - label: "Dringende Krise"
+      text: "0800 33 66 55"
 ---
 
 ## 1. Unmittelbare Gefahr

@@ -22,6 +22,18 @@ quick_steps:
   - icon: "144"
     wide: true
     text: "Bei konkreter Gefahr 144"
+acute_visual:
+  kind: "ampel"
+  title: "Suizid-Ampel: Sorge, konkret, Notfall"
+  items:
+    - label: "Sorge"
+      text: "direkt fragen"
+    - label: "Konkret"
+      text: "bleiben, Mittel sichern"
+      cue: "Schutz"
+    - label: "Notfall"
+      text: "144"
+      cue: "Schutz"
 help_module:
   enabled: true
   title: "Sofort Hilfe dazunehmen"

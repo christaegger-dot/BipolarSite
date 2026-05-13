@@ -22,6 +22,17 @@ quick_steps:
   - icon: "117"
     wide: true
     text: "Bei Bedrohung sofort Schutz holen"
+acute_visual:
+  kind: "wegweiser"
+  title: "Schutzpfad: Kontakt, Einschätzung, Sicherheit"
+  items:
+    - label: "Kontakt möglich"
+      text: "ruhig, kurz"
+    - label: "Realität entgleitet"
+      text: "Notfalldienst / Team"
+    - label: "Bedrohung"
+      text: "117 oder 144"
+      cue: "Schutz"
 help_module:
   enabled: true
   title: "Sofort Hilfe dazunehmen"

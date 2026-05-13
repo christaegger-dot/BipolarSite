@@ -60,6 +60,7 @@ const CRITICAL_LANGUAGE_METADATA_KEYS = new Set([
 ]);
 const REQUIRED_PDF_TEXT_SNIPPETS = {
   notfallkarte: [
+    "Triage: welcher Weg jetzt?",
     "ersetzt keine Diagnostik",
     "Lebensgefahr: 144",
     "Psychiatrische Krise ohne unmittelbare Lebensgefahr",
@@ -86,6 +87,7 @@ const REQUIRED_PDF_TEXT_SNIPPETS = {
     "Bei konkreter Gefahr: 144",
   ],
   c2_suizidgedanken: [
+    "Suizid-Ampel",
     "nicht versuchen, mit einem Risiko-Score",
     "Bei konkreter Gefahr: 144",
   ],
@@ -95,6 +97,7 @@ const REQUIRED_PDF_TEXT_SNIPPETS = {
     "Sicherheit von Kindern",
   ],
   c3_psychose_wahn: [
+    "Schutzpfad",
     "ersetzt keine fachliche Abklärung",
     "professionelle Einschätzung",
     "Sicherheit von Kindern",
@@ -105,6 +108,7 @@ const REQUIRED_PDF_TEXT_SNIPPETS = {
     "nicht auf volle Eskalation warten",
   ],
   c4_manie: [
+    "Manie-Tacho",
     "ersetzt keine Diagnose",
     "nichts körperlich oder rechtlich erzwingen",
     "nicht auf volle Eskalation warten",
@@ -115,6 +119,7 @@ const REQUIRED_PDF_TEXT_SNIPPETS = {
     "Bei konkreter Suizidgefahr: 144",
   ],
   c5_depression: [
+    "Depressions-Thermometer",
     "ersetzt keine fachliche Einschätzung",
     "ohne Dosierungen zu ändern",
     "Bei konkreter Suizidgefahr: 144",
