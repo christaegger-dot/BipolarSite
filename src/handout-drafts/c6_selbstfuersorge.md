@@ -8,9 +8,9 @@ show_priority_badge: false
 type: "Orientierungsblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Angehörige darin entlasten, Selbstfürsorge als Schutz vor Auszehrung und nicht als Egoismus einzuordnen"
-target_format: "A4, 1 Seite"
+target_format: "A4, 2 Seiten"
 priority: "P1"
-last_updated: "2026-05-12"
+last_updated: "2026-05-13"
 emergency_label: "Wenn Sie selbst an eine Grenze kommen"
 emergency_callout: "Wenn Sie merken, dass Sie nicht mehr sicher, nicht mehr handlungsfähig oder völlig erschöpft sind: holen Sie früh Unterstützung dazu und bleiben Sie damit nicht allein."
 emergency_note: "Selbstfürsorge ist hier keine Kür, sondern Schutz vor weiterer Auszehrung."
@@ -22,6 +22,18 @@ quick_steps:
   - icon: "3"
     wide: true
     text: "Einen festen Entlastungstermin setzen"
+focus_box:
+  kind: "anker"
+  title: "Mini-Plan für diese Woche"
+  items:
+    - label: "Körper"
+      text: "Eine Mahlzeit, einen Schlafanker oder einen kurzen Weg konkret schützen."
+    - label: "Seele"
+      text: "Ein Gespräch, eine Notiz oder eine ruhige Pause fest einplanen."
+    - label: "Beziehung"
+      text: "Eine krankheitsfreie Insel oder klare Absprache klein halten."
+    - label: "Entlastung"
+      text: "Eine Person oder Stelle benennen, die nicht erst im Zusammenbruch dazukommt."
 emergency_contacts:
   - label: "Dargebotene Hand"
     number: "143"

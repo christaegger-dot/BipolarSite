@@ -8,9 +8,9 @@ show_priority_badge: false
 type: "Orientierungsblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Angehörige entlasten, indem das Spannungsfeld zwischen Verpflichtung und Selbstschutz als nachvollziehbarer Loyalitätskonflikt eingeordnet wird"
-target_format: "A4, 1 Seite"
+target_format: "A4, 2 Seiten"
 priority: "P1"
-last_updated: "2026-05-12"
+last_updated: "2026-05-13"
 emergency_label: "Wenn der innere Druck zu gross wird"
 emergency_callout: "Wenn Sie merken, dass Sie nur noch aus Pflicht handeln, kaum noch schlafen oder sich in der Situation völlig verfangen fühlen: holen Sie Unterstützung dazu und bleiben Sie mit diesem Konflikt nicht allein."
 emergency_note: "Loyalitätskonflikte sind kein Zeichen mangelnder Liebe. Sie entstehen oft dort, wo Bindung, Verantwortung und Erschöpfung gleichzeitig an Ihnen ziehen."
@@ -22,6 +22,19 @@ quick_steps:
   - icon: "🗣"
     wide: true
     text: "Die ganze Lage einmal offen aussprechen"
+visual_model:
+  kind: "venn"
+  title: "Loyalität hat mehr als eine Richtung"
+  note: "Der Konflikt wird oft klarer, wenn Pflicht, Selbstschutz und Mitbetroffene getrennt sichtbar werden."
+  items:
+    - label: "Zur Person"
+      text: "Bindung, Sorge und gemeinsame Geschichte bleiben real."
+    - label: "Zu sich selbst"
+      text: "Eigene Gesundheit, Grenzen und Würde brauchen ebenfalls Schutz."
+    - label: "Zu Kindern oder Familie"
+      text: "Weitere Betroffene dürfen nicht unsichtbar werden."
+    - label: "Zur Realität"
+      text: "Nicht alles ist steuerbar; manche Last braucht Unterstützung von aussen."
 emergency_contacts:
   - label: "Dargebotene Hand"
     number: "143"

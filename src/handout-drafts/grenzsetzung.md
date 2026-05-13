@@ -8,9 +8,9 @@ show_priority_badge: false
 type: "Praxisblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Konkrete Formulierungen und Schutzlogik für Grenzen, die tragen statt eskalieren"
-target_format: "A4, 1 Seite"
+target_format: "A4, 2 Seiten"
 priority: "P1"
-last_updated: "2026-05-12"
+last_updated: "2026-05-13"
 emergency_label: "Wenn Worte nicht mehr reichen"
 emergency_callout: "Wenn Schutz, Gewalt, akute Psychose oder unmittelbare Gefahr im Vordergrund stehen, ist die Grenze nicht mehr das Gespräch, sondern der Wechsel auf den Notfallpfad."
 emergency_note: "Hilfreiche Grenzen benennen Verhalten, markieren Konsequenzen und schützen, ohne unnötig zu eskalieren."
@@ -22,6 +22,18 @@ quick_steps:
   - icon: "+"
     wide: true
     text: "Wenn möglich Rückkehr-Signal geben"
+focus_box:
+  kind: "werkzeugkasten"
+  title: "Formulierungsbaukasten"
+  items:
+    - label: "Ich"
+      text: "Ich lasse mich nicht anschreien."
+    - label: "Konsequenz"
+      text: "Ich gehe jetzt ins Nebenzimmer."
+    - label: "Rückkehr"
+      text: "Wenn wir ruhig reden können, komme ich zurück."
+    - label: "Schutz"
+      text: "Wenn Gefahr entsteht, wechsle ich auf den Notfallpfad."
 emergency_contacts:
   - label: "Notfallseite"
     number: "/notfall/"

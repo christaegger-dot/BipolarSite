@@ -8,9 +8,9 @@ show_priority_badge: false
 type: "Orientierungsblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Angehörigen helfen zu verstehen, wie wiederholte Belastung Solidarität, Vertrauen und Alltag schleichend erodieren kann"
-target_format: "A4, 1 Seite"
+target_format: "A4, 2 Seiten"
 priority: "P1"
-last_updated: "2026-05-12"
+last_updated: "2026-05-13"
 emergency_label: "Wenn Beziehung nur noch aus Alarm besteht"
 emergency_callout: "Wenn Sie das Gefühl haben, dass nur noch Überwachung, Sorge und Funktionieren übrig sind: holen Sie Entlastung dazu, bevor die Beziehung ganz im Krisenmodus aufgeht."
 emergency_note: "Dass eine Beziehung unter Dauerbelastung ihre Leichtigkeit verliert, ist kein persönliches Versagen. Es beschreibt eine nachvollziehbare Folge wiederholter Überforderung."
@@ -22,6 +22,19 @@ quick_steps:
   - icon: "🧩"
     wide: true
     text: "Kleine Gegensteuerung wieder einbauen"
+visual_model:
+  kind: "zeitstrahl"
+  title: "Erosion als Verlauf sehen"
+  note: "Die Phasen sind keine Diagnose. Sie helfen, schleichende Verluste von Gegenseitigkeit früher zu benennen."
+  items:
+    - label: "Frühphase"
+      text: "Notfallmodus, viel Funktionieren, eigene Erschöpfung wirkt zweitrangig."
+    - label: "Wiederkehr"
+      text: "Jede neue Episode hinterlässt weniger Reserve und mehr Wachsamkeit."
+    - label: "Chronische Belastung"
+      text: "Alarmbereitschaft, Gereiztheit und Rückzug bleiben zwischen Krisen spürbar."
+    - label: "Gegensteuerung"
+      text: "Krankheitsfreie Momente, Entlastung und klare Zuständigkeiten bewusst einbauen."
 emergency_contacts:
   - label: "Dargebotene Hand"
     number: "143"

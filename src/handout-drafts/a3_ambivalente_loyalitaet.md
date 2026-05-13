@@ -8,9 +8,9 @@ show_priority_badge: false
 type: "Orientierungsblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Angehörige entlasten, indem widersprüchliche Bindungsgefühle als normale Form ambivalenter Loyalität verständlich werden"
-target_format: "A4, 1 Seite"
+target_format: "A4, 2 Seiten"
 priority: "P1"
-last_updated: "2026-05-12"
+last_updated: "2026-05-13"
 emergency_label: "Wenn die Gefühle Sie zerreissen"
 emergency_callout: "Wenn Sie zwischen Liebe, Wut, Mitleid, Rückzug und Schuld kaum noch Luft bekommen: holen Sie Unterstützung dazu und bleiben Sie mit dieser Ambivalenz nicht allein."
 emergency_note: "Ambivalenz bedeutet nicht, dass Ihre Beziehung unecht ist. Sie zeigt oft, wie viel Sie gleichzeitig tragen und fühlen."
@@ -22,6 +22,19 @@ quick_steps:
   - icon: "🌫"
     wide: true
     text: "Widersprüche benennen statt wegdrücken"
+visual_model:
+  kind: "mindmap"
+  title: "Vier innere Kräfte gleichzeitig"
+  note: "Die Felder müssen sich nicht auflösen. Oft hilft zuerst, sie nebeneinander sehen zu dürfen."
+  items:
+    - label: "Bindung"
+      text: "Liebe, Geschichte, Sorge und Hoffnung bleiben real."
+    - label: "Erschöpfung"
+      text: "Daueranspannung und wiederholte Krisen begrenzen die eigene Kraft."
+    - label: "Schuld"
+      text: "Eigene Grenzen fühlen sich schnell wie Verrat an."
+    - label: "Verlust"
+      text: "Leichtigkeit, Gegenseitigkeit und frühere Nähe fehlen spürbar."
 emergency_contacts:
   - label: "Dargebotene Hand"
     number: "143"

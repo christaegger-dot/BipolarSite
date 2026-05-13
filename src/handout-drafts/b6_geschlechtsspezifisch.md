@@ -8,7 +8,7 @@ show_priority_badge: false
 type: "Orientierungsblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Angehörige darin entlasten, ungleiche Sichtbarkeit von Belastung, Rollenbilder und Erwartungsdruck ohne stereotype Zuschreibungen einzuordnen"
-target_format: "A4, 2 Seiten"
+target_format: "A4, 3 Seiten"
 priority: "P2"
 last_updated: "2026-05-12"
 emergency_label: "Wenn Ihre Belastung kaum noch sichtbar bleibt"

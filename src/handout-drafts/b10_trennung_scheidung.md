@@ -8,9 +8,9 @@ show_priority_badge: false
 type: "Orientierungsblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Angehörige entlasten, indem Trennung, Abstand und Neuordnung als legitime Schutzfragen ohne Drängen eingeordnet werden"
-target_format: "A4, 1 Seite"
+target_format: "A4, 2 Seiten"
 priority: "P1"
-last_updated: "2026-05-12"
+last_updated: "2026-05-13"
 emergency_label: "Wenn Schutz sofort Vorrang hat"
 emergency_callout: "Wenn Gewalt, akute Bedrohung, massive Entgrenzung oder konkrete Gefährdung im Raum stehen: holen Sie sofort Hilfe und organisieren Sie Schutz, statt die Beziehungsfrage allein weiterzutragen."
 emergency_note: "Nicht jede Grenze ist eine Trennung. Aber wenn Sicherheit fehlt, geht Schutz vor Beziehungsklärung."
@@ -22,6 +22,20 @@ quick_steps:
   - icon: "🧭"
     wide: true
     text: "Nicht nur fragen: gehen oder bleiben?"
+visual_model:
+  kind: "entscheidungsbaum"
+  title: "Schutz- und Abstandspfade sortieren"
+  note: "Die Frage ist nicht sofort endgültig. Zuerst wird sichtbar, was geschützt, entlastet oder neu geordnet werden muss."
+  items:
+    - label: "Sofort schützen"
+      text: "Bei Gewalt, Bedrohung oder konkreter Gefahr geht Sicherheit vor Beziehungsklärung."
+      cue: "Schutz"
+    - label: "Bewusst bleiben"
+      text: "Wenn Behandlung, Entlastung und klare Verantwortung mitgetragen werden."
+    - label: "Bewusst Abstand"
+      text: "Wenn Schlaf, Luft, Sicherheit oder innere Sortierung zuerst nötig sind."
+    - label: "Bewusst gehen"
+      text: "Wenn Gesundheit, Würde oder Schutz dauerhaft zu stark unter Druck geraten."
 emergency_contacts:
   - label: "Sanität"
     number: "144"

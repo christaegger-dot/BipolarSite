@@ -8,9 +8,9 @@ show_priority_badge: false
 type: "Orientierungsblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Angehörige entlasten, indem depressive oder ängstliche Mitbelastung als verständliche Folge chronischer Überforderung eingeordnet und frühe Hilfe legitimiert wird"
-target_format: "A4, 1 Seite"
+target_format: "A4, 2 Seiten"
 priority: "P1"
-last_updated: "2026-05-12"
+last_updated: "2026-05-13"
 emergency_label: "Wenn Sie selbst nicht mehr können"
 emergency_callout: "Wenn Sie kaum noch aufstehen, nichts mehr spüren, nur noch funktionieren oder Suizidgedanken gegen sich selbst auftauchen: holen Sie sofort Unterstützung und bleiben Sie damit nicht allein."
 emergency_note: "Eigene depressive Symptome sind kein Zeichen von Schwäche. Sie können eine Folge langer Überlastung, Angst und Einsamkeit sein."
@@ -22,6 +22,19 @@ quick_steps:
   - icon: "✚"
     wide: true
     text: "Früh Hilfe holen statt zu warten"
+visual_model:
+  kind: "thermometer"
+  title: "Von Überlastung zu eigener Abklärung"
+  note: "Das Modell soll vorsichtig unterscheiden, ohne aus jeder Erschöpfung eine Depression zu machen."
+  items:
+    - label: "Normale Überlastung"
+      text: "Erschöpfung ist spürbar, kurze Entlastung erreicht Sie aber noch etwas."
+    - label: "Anhaltende Mitbelastung"
+      text: "Erholung gelingt kaum; Angst, Leere oder Rückzug bleiben auch ohne akute Krise."
+    - label: "Mögliche Depression"
+      text: "Hoffnung, Antrieb und Zugang zu sich selbst werden deutlich weniger."
+    - label: "Hilfe holen"
+      text: "Früh ärztlich oder psychologisch abklären lassen statt weiter auszuhalten."
 emergency_contacts:
   - label: "Dargebotene Hand"
     number: "143"

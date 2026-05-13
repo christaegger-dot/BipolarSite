@@ -8,9 +8,9 @@ show_priority_badge: false
 type: "Orientierungsblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Angehörige entlasten, indem Scham, Schweigen und sozialer Rückzug als nachvollziehbare Folgen von Belastung und fehlender Anerkennung eingeordnet werden"
-target_format: "A4, 1 Seite"
+target_format: "A4, 2 Seiten"
 priority: "P1"
-last_updated: "2026-05-12"
+last_updated: "2026-05-13"
 emergency_label: "Wenn Sie nur noch schweigen"
 emergency_callout: "Wenn Sie merken, dass Sie niemandem mehr von Ihrer Lage erzählen, sich immer stärker zurückziehen oder sich für Ihre Realität schämen: holen Sie Unterstützung dazu und bleiben Sie mit dieser Last nicht allein."
 emergency_note: "Scham ist kein Beweis, dass Sie etwas falsch machen. Sie entsteht oft dort, wo Menschen mit ihrer Not zu lange ungesehen bleiben."
@@ -22,6 +22,19 @@ quick_steps:
   - icon: "☉"
     wide: true
     text: "Unsichtbarkeit nicht mit Unwichtigkeit verwechseln"
+visual_model:
+  kind: "trichter"
+  title: "Wie Stigma Angehörige enger macht"
+  note: "Der Kreis beschreibt eine Belastungslogik, keine persönliche Schwäche."
+  items:
+    - label: "Schweigen"
+      text: "Die Lage wird nur in Ausschnitten erzählt."
+    - label: "Selbstzweifel"
+      text: "Eigene Erschöpfung wirkt weniger berechtigt."
+    - label: "Rückzug"
+      text: "Erklären und Rechtfertigen kosten zu viel Kraft."
+    - label: "Scham"
+      text: "Wut, Distanz oder Überforderung erscheinen unzulässig."
 emergency_contacts:
   - label: "Dargebotene Hand"
     number: "143"

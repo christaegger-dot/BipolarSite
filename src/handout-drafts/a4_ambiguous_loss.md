@@ -8,9 +8,9 @@ show_priority_badge: false
 type: "Orientierungsblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Angehörige entlasten, indem Ambiguous Loss als reale und berechtigte Form von Trauer verständlich eingeordnet wird"
-target_format: "A4, 1 Seite"
+target_format: "A4, 2 Seiten"
 priority: "P1"
-last_updated: "2026-05-12"
+last_updated: "2026-05-13"
 emergency_label: "Wenn die Trauer Sie ganz überrollt"
 emergency_callout: "Wenn Sie merken, dass Sie nur noch funktionieren, kaum schlafen oder sich völlig allein fühlen: holen Sie Unterstützung dazu und bleiben Sie mit dieser Trauer nicht isoliert."
 emergency_note: "Diese Form von Trauer ist real, auch wenn die erkrankte Person noch da ist. Sie brauchen sich dafür nicht zu rechtfertigen."
@@ -22,6 +22,21 @@ quick_steps:
   - icon: "🤝"
     wide: true
     text: "Mit einer vertrauten Person darüber sprechen"
+visual_model:
+  kind: "schichten"
+  title: "Verlust ohne klaren Abschied"
+  note: "Ambiguous Loss meint keinen einzelnen Abschied, sondern mehrere schwer greifbare Verluste gleichzeitig."
+  items:
+    - label: "Zukunft"
+      text: "Pläne werden verschoben, verändert oder unsicher."
+    - label: "Vertrautheit"
+      text: "Die Person ist da, wirkt aber zeitweise weniger erreichbar."
+    - label: "Soziales Leben"
+      text: "Rückzug, Erklärungsnot und dünnere Kontakte verstärken Isolation."
+    - label: "Eigenes Leben"
+      text: "Eigene Wünsche, Reisen oder Routinen bleiben auf später verschoben."
+    - label: "Nähe"
+      text: "Sorge und Vorsicht überlagern emotionale oder körperliche Intimität."
 emergency_contacts:
   - label: "Dargebotene Hand"
     number: "143"
