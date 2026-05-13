@@ -5,6 +5,7 @@ import {
   findMissingRequiredPdfTextSnippets,
   findUntrackedPdfSourceFiles,
   pdfMetadataDeclaresLanguage,
+  pdfTextHasSourceReferences,
   requiredPdfTextSnippets,
   requiresCriticalLanguageMetadata,
 } from "./pdfManifest.mjs";
@@ -31,6 +32,8 @@ describe("PDF manifest audit helpers", () => {
     assert.equal(requiresCriticalLanguageMetadata("c2_suizidgedanken"), true);
     assert.equal(requiresCriticalLanguageMetadata("krisenplanVorlage"), true);
     assert.equal(requiresCriticalLanguageMetadata("rechtlicheOrientierung"), true);
+    assert.equal(requiresCriticalLanguageMetadata("b1_18_belastungen"), true);
+    assert.equal(requiresCriticalLanguageMetadata("legacy.kritischeZeitpunkte"), true);
     assert.equal(requiresCriticalLanguageMetadata("legacy.notfallkarte"), true);
     assert.equal(requiresCriticalLanguageMetadata("a8_warnsignale"), false);
   });
@@ -47,6 +50,9 @@ describe("PDF manifest audit helpers", () => {
     assert.deepEqual(requiredPdfTextSnippets("a8_warnsignale"), []);
     assert.ok(requiredPdfTextSnippets("krisenplanVorlage").includes("sensible Gesundheitsdaten"));
     assert.ok(requiredPdfTextSnippets("rechtlicheOrientierung").includes("keine Rechtsberatung"));
+    assert.ok(requiredPdfTextSnippets("b1_18_belastungen").includes("Vier Belastungsfelder"));
+    assert.ok(requiredPdfTextSnippets("kritischeZeitpunkte").includes("Zeitpunkt-Landkarte"));
+    assert.ok(requiredPdfTextSnippets("sichtbarkeitBelastung").includes("Sichtbare Last"));
   });
 
   it("reports missing required PDF text snippets after normalized matching", () => {
@@ -61,5 +67,18 @@ describe("PDF manifest audit helpers", () => {
       findMissingRequiredPdfTextSnippets("krisenplanVorlage", "Ausgefüllte Blätter enthalten sensible Gesundheitsdaten."),
       ["sicher auf", "digitale Kopien"]
     );
+  });
+
+  it("requires visible source references with at least one credible marker", () => {
+    assert.equal(
+      pdfTextHasSourceReferences("Quellen (Auswahl) NICE CG185 https://www.nice.org.uk/guidance/cg185"),
+      true
+    );
+    assert.equal(
+      pdfTextHasSourceReferences("Quellen (Auswahl) Miklowitz et al. https://doi.org/10.1111/famp.12237"),
+      true
+    );
+    assert.equal(pdfTextHasSourceReferences("Dieses Handout hat noch keine Quellen."), false);
+    assert.equal(pdfTextHasSourceReferences("NICE CG185 ohne sichtbaren Abschnitt"), false);
   });
 });

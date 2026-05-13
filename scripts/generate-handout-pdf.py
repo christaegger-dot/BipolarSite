@@ -14,10 +14,12 @@ Design tokens match the website's "warm-editorial" palette.
 Fonts: DM Sans (body) + DM Serif Display (headings).
 """
 
+import json
 import re
 import sys
 from datetime import datetime
 from pathlib import Path
+from xml.sax.saxutils import escape
 
 import yaml
 import pikepdf
@@ -29,7 +31,7 @@ from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.units import mm
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
-from reportlab.platypus import HRFlowable, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
+from reportlab.platypus import HRFlowable, PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 
 # ── Paths ──────────────────────────────────────────────────────────────
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -37,6 +39,7 @@ DRAFTS_DIR = PROJECT_ROOT / "src" / "handout-drafts"
 OUTPUT_DIR = PROJECT_ROOT / "src" / "handouts"
 FONT_DIR = Path("/tmp/fonts_ttf")
 WEBFONT_DIR = PROJECT_ROOT / "src" / "fonts"
+REFERENCES_PATH = PROJECT_ROOT / "src" / "_data" / "handoutReferences.json"
 
 # ── Font bootstrap ─────────────────────────────────────────────────────
 def ensure_pdf_fonts():
@@ -168,9 +171,40 @@ styles["focus_item"] = ParagraphStyle(
     "FocusItem", fontName="DMSans", fontSize=8.2, leading=10.5,
     textColor=TEXT_C,
 )
+styles["visual_title"] = ParagraphStyle(
+    "VisualTitle", fontName="DMSans", fontSize=8.8, leading=10.8,
+    textColor=MUTED, spaceAfter=1 * mm,
+)
+styles["visual_cell"] = ParagraphStyle(
+    "VisualCell", fontName="DMSans", fontSize=7.9, leading=10,
+    textColor=TEXT_C,
+)
+styles["visual_note"] = ParagraphStyle(
+    "VisualNote", fontName="DMSans", fontSize=7.6, leading=9.4,
+    textColor=MUTED, spaceBefore=1 * mm,
+)
+styles["source_title"] = ParagraphStyle(
+    "SourceTitle", fontName="DMSans", fontSize=7.2, leading=8.5,
+    textColor=MUTED, spaceAfter=0.8 * mm,
+)
+styles["source_text"] = ParagraphStyle(
+    "SourceText", fontName="DMSans", fontSize=6.5, leading=8,
+    textColor=MUTED, spaceAfter=0.8 * mm,
+)
 
 
 # ── Parse Markdown with Frontmatter ───────────────────────────────────
+def load_handout_references():
+    """Load curated source references used by the generated PDFs."""
+    if not REFERENCES_PATH.exists():
+        return {"references": {}, "bySlug": {}}
+    with REFERENCES_PATH.open(encoding="utf-8") as source_file:
+        return json.load(source_file)
+
+
+HANDOUT_REFERENCES = load_handout_references()
+
+
 def parse_draft(path: Path):
     """Parse a markdown file with YAML frontmatter."""
     content = path.read_text(encoding="utf-8")
@@ -192,7 +226,8 @@ def parse_draft(path: Path):
 
 def md_inline(text):
     """Convert inline markdown to reportlab XML."""
-    text = "" if text is None else str(text)
+    text = "" if text is None else str(text).replace("&nbsp;", " ")
+    text = escape(text)
     text = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', text)
     text = re.sub(r'\*(.+?)\*', r'<i>\1</i>', text)
     text = re.sub(r'\[(.+?)\]\((.+?)\)', r'\1', text)
@@ -469,6 +504,81 @@ def build_focus_box_flowables(meta, content_width):
     return flowables
 
 
+def build_visual_model_flowables(meta, content_width):
+    """Build a compact diagram-like block for orientation handouts."""
+    visual_model = meta.get("visual_model")
+    if not isinstance(visual_model, dict):
+        return []
+
+    raw_items = visual_model.get("items", [])
+    if not isinstance(raw_items, list):
+        return []
+
+    items = []
+    for raw in raw_items:
+        if not isinstance(raw, dict):
+            continue
+        label = plain_text(raw.get("label", ""))
+        text = plain_text(raw.get("text", ""))
+        cue = plain_text(raw.get("cue", ""))
+        if label or text or cue:
+            items.append({"label": label, "text": text, "cue": cue})
+
+    if not items:
+        return []
+
+    kind = plain_text(visual_model.get("kind", "grid"))
+    title = plain_text(visual_model.get("title", "Orientierung"))
+    note = plain_text(visual_model.get("note", ""))
+
+    if kind == "timeline":
+        columns = min(4, len(items))
+        background = HexColor("#f8fbfb")
+    elif len(items) == 4:
+        columns = 2
+        background = HexColor("#fafaf7")
+    else:
+        columns = min(3, len(items))
+        background = HexColor("#fafaf7")
+
+    cells = []
+    for idx, item in enumerate(items, start=1):
+        tone_color = ALERT if item.get("cue") == "Schutz" else TEAL
+        parts = [
+            f'<font color="#{tone_color.hexval()[2:]}" size="7.8"><b>{idx} · {md_inline(item["label"])}</b></font>'
+        ]
+        if item["text"]:
+            parts.append(md_inline(item["text"]))
+        if item["cue"] and item["cue"] != "Schutz":
+            parts.append(f'<font color="#{MUTED.hexval()[2:]}" size="7.2">{md_inline(item["cue"])}</font>')
+        cells.append(Paragraph("<br/>".join(parts), styles["visual_cell"]))
+
+    rows = []
+    for start in range(0, len(cells), columns):
+        row = cells[start:start + columns]
+        while len(row) < columns:
+            row.append(Paragraph("", styles["visual_cell"]))
+        rows.append(row)
+
+    flowables = [Paragraph(f"<b>{md_inline(title)}</b>", styles["visual_title"])]
+    visual_table = Table(rows, colWidths=[content_width / columns] * columns)
+    visual_table.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, -1), background),
+        ("BOX", (0, 0), (-1, -1), 0.45, HexColor("#b8d8d8")),
+        ("INNERGRID", (0, 0), (-1, -1), 0.25, HexColor("#cfe2e2")),
+        ("TOPPADDING", (0, 0), (-1, -1), 1.7 * mm),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 1.7 * mm),
+        ("LEFTPADDING", (0, 0), (-1, -1), 2 * mm),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 2 * mm),
+        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+    ]))
+    flowables.append(visual_table)
+    if note:
+        flowables.append(Paragraph(md_inline(note), styles["visual_note"]))
+    flowables.append(Spacer(1, 2.4 * mm))
+    return flowables
+
+
 def build_help_module_flowables(help_module, content_width):
     """Create flowables for the optional help module.
     Horizontal 3-column grid (matches HTML preview); saves ~25mm vs.
@@ -523,6 +633,33 @@ def build_help_module_flowables(help_module, content_width):
         ("LINEBEFORE", (1, 0), (-1, -1), 0.3, LINE),
     ]))
     flowables.append(help_table)
+    return flowables
+
+
+def references_for_meta(meta):
+    """Return source reference strings for a handout slug."""
+    slug = str(meta.get("slug", "") or "").strip()
+    source_ids = HANDOUT_REFERENCES.get("bySlug", {}).get(slug, [])
+    references = HANDOUT_REFERENCES.get("references", {})
+    return [
+        references[source_id]
+        for source_id in source_ids
+        if isinstance(source_id, str) and source_id in references
+    ]
+
+
+def build_source_flowables(meta):
+    """Build the mandatory compact source block shown in every PDF."""
+    references = references_for_meta(meta)
+    if not references:
+        return []
+
+    flowables = [
+        HRFlowable(width="100%", thickness=0.35, color=LINE, spaceBefore=1.2 * mm, spaceAfter=1.2 * mm),
+        Paragraph("<b>Quellen (Auswahl)</b>", styles["source_title"]),
+    ]
+    source_lines = [f"{idx}. {md_inline(reference)}" for idx, reference in enumerate(references, start=1)]
+    flowables.append(Paragraph("<br/>".join(source_lines), styles["source_text"]))
     return flowables
 
 
@@ -616,6 +753,7 @@ def build_pdf(meta, body, output_path: Path):
         story.extend(build_acute_contact_strip(meta, content_width))
     story.extend(build_quick_steps_flowables(quick_steps, content_width, compact=is_acute_handout))
     if not is_acute_handout:
+        story.extend(build_visual_model_flowables(meta, content_width))
         story.extend(build_focus_box_flowables(meta, content_width))
 
     story.append(HRFlowable(width="100%", thickness=0.5, color=LINE, spaceAfter=2 * mm))
@@ -638,6 +776,11 @@ def build_pdf(meta, body, output_path: Path):
         if line.strip() == "---":
             story.append(Spacer(1, 2 * mm))
             story.append(HRFlowable(width="100%", thickness=0.3, color=LINE, spaceAfter=2 * mm))
+            i += 1
+            continue
+
+        if line.strip() == "<!-- pagebreak -->":
+            story.append(PageBreak())
             i += 1
             continue
 
@@ -693,6 +836,8 @@ def build_pdf(meta, body, output_path: Path):
     help_module = None if is_acute_handout else normalize_help_module(meta)
     if help_module:
         story.extend(build_help_module_flowables(help_module, content_width))
+
+    story.extend(build_source_flowables(meta))
 
     doc.build(
         story,

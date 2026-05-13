@@ -8,20 +8,33 @@ show_priority_badge: false
 type: "Orientierungsblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Angehörige darin entlasten, ungleiche Sichtbarkeit von Belastung, Rollenbilder und Erwartungsdruck ohne stereotype Zuschreibungen einzuordnen"
-target_format: "A4, 1 Seite"
+target_format: "A4, 2 Seiten"
 priority: "P2"
-last_updated: "2026-04-23"
+last_updated: "2026-05-12"
 emergency_label: "Wenn Ihre Belastung kaum noch sichtbar bleibt"
 emergency_callout: "Wenn Sie merken, dass Sie über längere Zeit still mittragen, kaum mehr Raum haben oder innerlich erschöpft sind: holen Sie früh Unterstützung dazu und sprechen Sie Belastung ausdrücklich an."
 emergency_note: "Nicht jede Überlastung wird laut. Gerade stille, funktional verdeckte Erschöpfung braucht Worte, bevor sie chronisch wird."
 quick_steps:
   - icon: "1"
-    text: "Unsichtbare Lasten benennen"
+    text: "Sichtbare und stille Lasten trennen"
   - icon: "2"
-    text: "Verantwortung neu prüfen"
+    text: "Rollenbilder nicht mit Eignung verwechseln"
   - icon: "3"
     wide: true
     text: "Belastung früh besprechbar machen"
+visual_model:
+  kind: "matrix"
+  title: "Sichtbar oder still: vier Belastungsmuster"
+  note: "Die Felder beschreiben Muster, keine Geschlechter. Entscheidend ist, was in Ihrer konkreten Situation sichtbar wird und was verborgen bleibt."
+  items:
+    - label: "Sichtbare Last"
+      text: "Konflikte, Müdigkeit, Tränen oder Überforderung sind erkennbar und werden eher ernst genommen."
+    - label: "Stille Last"
+      text: "Planen, Scannen, Erinnern, Abfedern und Funktionieren bleiben oft unsichtbar."
+    - label: "Falsch gelesene Last"
+      text: "Rückzug oder Sachlichkeit wirkt wie Kontrolle, kann aber Scham oder Überforderung verdecken."
+    - label: "Abgeschnittene Last"
+      text: "Eigene Bedürfnisse haben kaum Platz; Hilfe fühlt sich unberechtigt an."
 emergency_contacts:
   - label: "Dargebotene Hand"
     number: "143"
@@ -37,63 +50,47 @@ emergency_contacts:
 
 ## Worum es hier geht
 
-Bipolare Störungen belasten Angehörige nicht nur durch Krisen, Rückfälle oder dauernde Wachsamkeit. Auch die Frage, **wer wie viel trägt, wer früh über Überforderung spricht und wessen Erschöpfung lange unsichtbar bleibt**, kann eine grosse Rolle spielen. Diese Unterschiede haben nicht nur mit Persönlichkeit zu tun. Sie können auch damit zusammenhängen, welche Erwartungen Menschen in Beziehungen, Familien und im Alltag an sich selbst und von aussen spüren.
+Bipolare Störungen belasten Angehörige nicht nur durch Krisen, Rückfälle oder dauernde Wachsamkeit. Auch die Frage, **wer wie viel trägt, wer früh über Überforderung spricht und wessen Erschöpfung lange unsichtbar bleibt**, kann eine grosse Rolle spielen.
 
-Geschlechtsspezifische Nuancen bedeuten dabei **nicht**, dass Frauen und Männer festgelegt reagieren. Gemeint ist vielmehr: Rollenbilder, soziale Zuschreibungen und ungleich verteilte Verantwortung können mitprägen, **wie Belastung erlebt, gezeigt oder verborgen wird**. Was in einer Beziehung als selbstverständlich gilt, ist oft nicht neutral. Es beeinflusst, wer organisiert, wer ausgleicht, wer Rücksicht nimmt, wer schweigt und wer überhaupt das Gefühl hat, Hilfe in Anspruch nehmen zu dürfen.
+Geschlechtsspezifische Nuancen bedeuten dabei **nicht**, dass Frauen und Männer festgelegt reagieren. Gemeint ist: Rollenbilder, soziale Zuschreibungen und ungleich verteilte Verantwortung können mitprägen, **wie Belastung erlebt, gezeigt oder verborgen wird**.
 
-## Was damit gemeint ist
+## Nicht einordnen nach Geschlecht, sondern nach Last
 
-Manche Angehörige erleben starken Druck, zuverlässig, ruhig, fürsorglich und jederzeit mittragend zu bleiben. Andere erleben eher den Druck, nicht schwach zu wirken, Kontrolle zu behalten oder Probleme möglichst allein zu lösen. Beides kann dazu führen, dass eigene Grenzen spät wahrgenommen werden. Nicht weil jemand versagt, sondern weil Belastung unter bestimmten Erwartungen **lange funktional überdeckt** werden kann.
+Hilfreicher als die Frage „Wer reagiert typischerweise wie?“ ist die Frage: **Welche Erwartungen wirken in unserer Situation, und was machen sie mit unserer Belastung?** Manche Menschen spüren den Druck, ruhig, fürsorglich und jederzeit mittragend zu bleiben. Andere spüren den Druck, stark zu wirken, Kontrolle zu behalten oder Probleme allein zu lösen.
 
-Gerade in Partnerschaften bleibt viel oft unsichtbar: emotionale Wachsamkeit, organisatorisches Mitdenken, das ständige Prüfen von Frühzeichen, Terminorganisation, finanzielle Mitverantwortung oder die Frage, wie nach aussen Stabilität aufrechterhalten werden kann. Solche Lasten sind nicht immer sofort erkennbar. Trotzdem können sie auf Dauer stark erschöpfen.
+Beides kann dazu führen, dass eigene Grenzen spät wahrgenommen werden. Nicht weil jemand versagt, sondern weil Belastung unter Erwartungen lange funktional überdeckt werden kann.
 
-## Woran sich unterschiedliche Belastungsmuster zeigen können
+## Was in Partnerschaften oft unsichtbar bleibt
 
-## Wenn Belastung eher still wird
+Unsichtbar sind häufig emotionale Wachsamkeit, Terminorganisation, das Prüfen von Frühzeichen, finanzielle Mitverantwortung oder das Aufrechterhalten von Stabilität nach aussen. Diese Aufgaben wirken einzeln klein. Zusammen können sie aber zur Dauerlast werden.
 
-Bei manchen Angehörigen zeigt sich Überlastung weniger in offenen Konflikten als in **ständiger Anpassung, stiller Erschöpfung oder dem Gefühl, immer mitdenken zu müssen**. Nach aussen wirkt vieles weiterhin geordnet. Innerlich nehmen Anspannung, Müdigkeit, Gereiztheit oder emotionale Leere jedoch zu. Solche Muster bleiben oft lange unerkannt, gerade wenn viel Verantwortung zuverlässig übernommen wird.
+Wenn eine Person organisiert, beruhigt, erinnert und abfedert, während die andere erst spät merkt, wie viel mitgetragen wird, ist das kein Beweis für bessere Eignung. Es zeigt eher, dass Verantwortung in belasteten Systemen still verteilt werden kann.
 
-## Wenn Belastung eher verborgen wird
+## Warum Sichtbarkeit wichtig ist
 
-Andere Angehörige reagieren eher mit Rückzug, Funktionieren oder dem Versuch, Probleme allein zu lösen. Nach aussen wirkt das manchmal kontrolliert oder sachlich. Innen kann es jedoch mit Scham, Überforderung oder dem Gefühl verbunden sein, für die eigene Belastung keinen legitimen Platz zu haben. Wer gelernt hat, Probleme eher mit sich selbst auszumachen, sucht häufig später Unterstützung.
+Die lautere Erschöpfung wirkt oft dringlicher. Die stillere gerät leichter aus dem Blick. Wer viel aushält, freundlich bleibt oder weiter funktioniert, bekommt deshalb nicht automatisch Entlastung.
 
-## Wenn Lasten ungleich verteilt bleiben
-
-In manchen Beziehungen schleichen sich Zuständigkeiten ein, über die kaum noch gesprochen wird. Eine Person organisiert, beobachtet, erinnert, beruhigt und hält vieles zusammen. Die andere merkt oft erst spät, wie viel unsichtbar mitgetragen wird. Solche Muster sind kein Beweis dafür, dass jemand "besser geeignet" oder "weniger belastet" wäre. Sie zeigen eher, dass Verantwortung in belasteten Systemen leicht stillschweigend verteilt wird.
-
-## Warum das wichtig ist
-
-Wenn Belastung unterschiedlich sichtbar wird, entsteht leicht ein Missverständnis: Die lautere Erschöpfung wirkt dringlicher, die stillere gerät aus dem Blick. Wer viel aushält, freundlich bleibt oder weiter funktioniert, bekommt deshalb nicht automatisch mehr Entlastung. Gerade Menschen, deren Belastung wenig sichtbar ist, hören innerlich oft Sätze wie: "Ich darf mich jetzt nicht auch noch wichtig machen" oder "Andere haben es gerade schwerer als ich." Auf Dauer verstärkt das die Isolation.
-
-Darum kann es entlastend sein, Belastung nicht nur als individuelles Problem zu sehen, sondern auch als **Frage von Rolle, Erwartung und Sichtbarkeit**. Das nimmt niemandem Verantwortung ab, hilft aber zu verstehen, warum Erschöpfung ungleich verteilt oder unterschiedlich ernst genommen werden kann.
+Darum hilft es, Belastung nicht nur als individuelles Problem zu sehen, sondern auch als **Frage von Rolle, Erwartung und Sichtbarkeit**. Das nimmt niemandem Verantwortung ab. Es macht aber verhandelbar, was bisher kaum Sprache hatte.
 
 ## Was häufig hilft
 
-- sich fragen: Was trage ich sichtbar — und was eher still?
+- sich fragen: Was trage ich sichtbar, und was eher still?
 - unsichtbare Organisations- und Beziehungsarbeit ausdrücklich benennen
-- Erwartungen und Zuständigkeiten in der Beziehung oder Familie besprechbar machen
+- Zuständigkeiten in Beziehung oder Familie neu prüfen
 - Unterstützung suchen, bevor nur noch Funktionieren übrig bleibt
-- Unterschiede in Belastung nicht als persönliches Versagen deuten
 
-Hilfreich ist oft nicht die Frage, wer typischerweise wie reagiert, sondern die Frage: **Welche Erwartungen wirken in unserer Situation — und was machen sie mit unserer Belastung?**
+<!-- pagebreak -->
 
 ## Was eher nicht hilft
 
 - Frauen oder Männer gedanklich auf feste Muster festlegen
 - stille Erschöpfung übersehen, nur weil nach aussen noch viel funktioniert
 - ungleiche Lastverteilung als selbstverständlich behandeln
-- Hilfe erst dann erlauben, wenn gar nichts mehr geht
-- Belastung mit Scham oder persönlicher Schwäche verwechseln
-
-## Was Sie sich selbst sagen dürfen
-
-Wenn Sie merken, dass Sie über längere Zeit mehr tragen, weniger Raum haben oder Ihre Erschöpfung kaum vorkommt, ist das **kein Zeichen persönlicher Schwäche**. Es kann ein Hinweis darauf sein, dass Belastung und Verantwortung in Ihrer Situation stillschweigend ungleich verteilt sind.
-
-Wenn Sie sich in den beschriebenen Mustern nicht wiederfinden, ist auch das stimmig. Dieses Handout will keine Menschen einteilen. Es soll vielmehr Worte dafür anbieten, dass Belastung nicht bei allen gleich sichtbar wird — und dass soziale Erwartungen mitprägen können, wie Angehörige tragen, schweigen, funktionieren oder um Hilfe bitten.
+- Hilfe erst erlauben, wenn gar nichts mehr geht
 
 ## Nächster sinnvoller Schritt
 
-Nehmen Sie sich in den nächsten Tagen **ein klärendes Gespräch oder einen eigenen Reflexionsmoment** vor: Was trage ich im Moment sichtbar, was eher im Stillen, und was müsste benannt werden, damit Belastung fairer gesehen werden kann? Gerade unsichtbare Verantwortung wird erst verhandelbar, wenn sie Sprache bekommt.
+Nehmen Sie sich einen eigenen Reflexionsmoment oder ein ruhiges Gespräch vor: **Was trage ich sichtbar, was eher im Stillen, und was müsste benannt werden, damit Belastung fairer gesehen werden kann?** Unsichtbare Verantwortung wird erst verhandelbar, wenn sie Sprache bekommt.
 
 Weiterführend:
 
