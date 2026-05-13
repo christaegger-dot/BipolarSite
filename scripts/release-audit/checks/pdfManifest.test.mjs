@@ -33,9 +33,11 @@ describe("PDF manifest audit helpers", () => {
     assert.equal(requiresCriticalLanguageMetadata("krisenplanVorlage"), true);
     assert.equal(requiresCriticalLanguageMetadata("rechtlicheOrientierung"), true);
     assert.equal(requiresCriticalLanguageMetadata("b1_18_belastungen"), true);
+    assert.equal(requiresCriticalLanguageMetadata("a3_ambivalente_loyalitaet"), true);
+    assert.equal(requiresCriticalLanguageMetadata("grenzsetzungPraxis"), true);
+    assert.equal(requiresCriticalLanguageMetadata("legacy.kurzblattStabilisiert"), true);
     assert.equal(requiresCriticalLanguageMetadata("legacy.kritischeZeitpunkte"), true);
     assert.equal(requiresCriticalLanguageMetadata("legacy.notfallkarte"), true);
-    assert.equal(requiresCriticalLanguageMetadata("a8_warnsignale"), false);
   });
 
   it("detects de-CH language metadata in an XMP metadata stream", () => {
@@ -47,7 +49,10 @@ describe("PDF manifest audit helpers", () => {
   });
 
   it("requires content guardrails for updated legal and worksheet PDFs", () => {
-    assert.deepEqual(requiredPdfTextSnippets("a8_warnsignale"), []);
+    assert.ok(requiredPdfTextSnippets("a8_warnsignale").includes("Ampel für Frühwarnzeichen"));
+    assert.ok(requiredPdfTextSnippets("a3_ambivalente_loyalitaet").includes("Vier innere Kräfte"));
+    assert.ok(requiredPdfTextSnippets("a4_ambiguous_loss").includes("Verlust ohne klaren Abschied"));
+    assert.ok(requiredPdfTextSnippets("a5_affiliate_stigma").includes("Wie Stigma Angehörige enger macht"));
     assert.ok(requiredPdfTextSnippets("notfallkarte").includes("ersetzt keine Diagnostik"));
     assert.ok(requiredPdfTextSnippets("krisenplanVorlage").includes("sensible Gesundheitsdaten"));
     assert.ok(requiredPdfTextSnippets("c1_krisenplan").includes("keine Dosierungen ohne Behandlungsteam"));
@@ -58,8 +63,21 @@ describe("PDF manifest audit helpers", () => {
     assert.ok(requiredPdfTextSnippets("rechtlicheOrientierung").includes("keine Rechtsberatung"));
     assert.ok(requiredPdfTextSnippets("rechtlicheOrientierung").includes("Beobachtungen mitteilen"));
     assert.ok(requiredPdfTextSnippets("b1_18_belastungen").includes("Vier Belastungsfelder"));
+    assert.ok(requiredPdfTextSnippets("b10_trennung_scheidung").includes("Schutz- und Abstandspfade"));
+    assert.ok(requiredPdfTextSnippets("b2_erosion_solidaritaet").includes("Erosion als Verlauf"));
+    assert.ok(requiredPdfTextSnippets("b4_mechanismen_erosion").includes("Co-Isolation"));
+    assert.ok(requiredPdfTextSnippets("b5_loyalitaetskonflikte").includes("Loyalität hat mehr als eine Richtung"));
+    assert.ok(requiredPdfTextSnippets("b7_behandlung_ambivalenz").includes("Gesprächsspielraum oder Notfallpfad"));
+    assert.ok(requiredPdfTextSnippets("b9_depression_partner").includes("Von Überlastung zu eigener Abklärung"));
+    assert.ok(requiredPdfTextSnippets("c6_selbstfuersorge").includes("Mini-Plan für diese Woche"));
+    assert.ok(requiredPdfTextSnippets("d4_solidaritaet_wellen").includes("Fünf Säulen langfristiger Tragfähigkeit"));
+    assert.ok(requiredPdfTextSnippets("expressed_emotions").includes("Der EE-Kreislauf"));
+    assert.ok(requiredPdfTextSnippets("grenzsetzungPraxis").includes("Formulierungsbaukasten"));
+    assert.ok(requiredPdfTextSnippets("legacy.kurzblattStabilisiert").includes("Alltagskompass"));
     assert.ok(requiredPdfTextSnippets("kritischeZeitpunkte").includes("Zeitpunkt-Landkarte"));
     assert.ok(requiredPdfTextSnippets("sichtbarkeitBelastung").includes("Sichtbare Last"));
+    assert.ok(requiredPdfTextSnippets("transformationsreise").includes("Veränderung verläuft in Wellen"));
+    assert.ok(requiredPdfTextSnippets("trialog").includes("Drei Perspektiven im Trialog"));
   });
 
   it("reports missing required PDF text snippets after normalized matching", () => {

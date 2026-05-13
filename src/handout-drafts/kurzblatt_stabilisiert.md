@@ -10,7 +10,7 @@ audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Knappe Orientierung für Kommunikation, Selbstfürsorge, Grenzen und Frühwarnzeichen im Alltag"
 target_format: "A4, 2 Seiten"
 priority: "P1"
-last_updated: "2026-05-12"
+last_updated: "2026-05-13"
 emergency_label: "Wenn es kippt"
 emergency_callout: "Bei konkreter Gefahr, Suizidabsicht, Gewalt oder wenn niemand mehr sicher ist: nicht weiter diskutieren, sondern 144 oder 117 anrufen."
 emergency_note: "Das Kurzblatt ist für den Alltag gedacht. In der Akutlage gilt zuerst die Sicherheitslogik."
@@ -22,6 +22,18 @@ quick_steps:
   - icon: "3"
     wide: true
     text: "Warnzeichen früh ernst nehmen"
+focus_box:
+  kind: "was-hilft-was-schadet"
+  title: "Alltagskompass"
+  items:
+    - label: "Stabilisiert"
+      text: "Ruhige Sprache, Schlafschutz, klare Grenzen und frühe Beobachtung."
+    - label: "Schadet eher"
+      text: "Vorwürfe, Dauer-Diskussionen, Kontrollfragen und eigene Selbstaufgabe."
+    - label: "Frühzeichen"
+      text: "Schlaf, Tempo, Rückzug und Hoffnungslosigkeit als Muster prüfen."
+    - label: "Akut"
+      text: "Bei konkreter Gefahr nicht weiter diskutieren, sondern 144 oder 117 nutzen."
 ---
 
 ## Kommunikation

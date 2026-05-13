@@ -8,9 +8,9 @@ show_priority_badge: false
 type: "Orientierungsblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Veränderung, Rückschläge und mögliches Wachstum so einordnen, dass weder Hoffnungspflicht noch Entwertung des Leidens entsteht"
-target_format: "A4, 1 Seite"
+target_format: "A4, 2 Seiten"
 priority: "P2"
-last_updated: "2026-05-12"
+last_updated: "2026-05-13"
 emergency_label: "Wenn ein Rückfall nach langer Stabilität alles erschüttert"
 emergency_callout: "Ein Rückfall nach guten Jahren kann sich besonders schmerzhaft anfühlen. Das bedeutet nicht, dass die stabilen Jahre wertlos waren oder Sie etwas verhindert haben müssten."
 emergency_note: "Wachstum ist möglich, aber nie Pflicht. Fortschritt verläuft meist wellenförmig und nicht linear."
@@ -22,6 +22,19 @@ quick_steps:
   - icon: "✍"
     wide: true
     text: "Kleinen Fortschritt sichtbar machen"
+visual_model:
+  kind: "spirale"
+  title: "Veränderung verläuft in Wellen"
+  note: "Wachstum ist möglich, aber nie Pflicht. Rückschläge entwerten stabile Zeiten nicht."
+  items:
+    - label: "Belastung"
+      text: "Krisen, Erschütterung und Verlust werden nicht schöngeredet."
+    - label: "Sprache"
+      text: "Warnzeichen, Grenzen und Bedürfnisse werden klarer benennbar."
+    - label: "Stabilere Phasen"
+      text: "Kleine Fortschritte, Beziehungen und Routinen werden wieder sichtbar."
+    - label: "Rückschlag"
+      text: "Krisenplan aktivieren, ohne alles Gelernte als verloren zu werten."
 emergency_contacts:
   - label: "Dargebotene Hand"
     number: "143"

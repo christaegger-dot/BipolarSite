@@ -23,7 +23,7 @@ quick_steps:
     wide: true
     text: "Früh Hilfe holen statt spät zusammenbrechen"
 visual_model:
-  kind: "clusters"
+  kind: "mindmap"
   title: "Vier Belastungsfelder statt 18 Einzelpunkte"
   note: "Schon wenige Punkte können reichen, um dauerhaft zu erschöpfen. Die Landkarte soll sortieren, nicht beweisen, dass es schlimm genug ist."
   items:

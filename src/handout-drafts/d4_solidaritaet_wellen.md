@@ -8,9 +8,9 @@ show_priority_badge: false
 type: "Orientierungsblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Langfristige Tragfähigkeit über wenige tragende Säulen konkret und alltagsnah erklärbar machen"
-target_format: "A4, 1 Seite"
+target_format: "A4, 2 Seiten"
 priority: "P1"
-last_updated: "2026-05-12"
+last_updated: "2026-05-13"
 emergency_label: "Wenn alles nur noch auf Reaktion läuft"
 emergency_callout: "Wenn der Alltag nur noch aus Krisenabwehr besteht, braucht es nicht mehr Härte, sondern wieder Strukturen, Entlastung und klare Absprachen."
 emergency_note: "Tragfähigkeit entsteht meist nicht aus grossen Durchbrüchen, sondern aus wiederholbaren Strukturen."
@@ -22,6 +22,21 @@ quick_steps:
   - icon: "📄"
     wide: true
     text: "Krisenplan in ruhiger Phase prüfen"
+visual_model:
+  kind: "säulen"
+  title: "Fünf Säulen langfristiger Tragfähigkeit"
+  note: "Nicht alle Säulen müssen gleichzeitig stark sein. Der nächste Schritt liegt oft bei der schwächsten Säule."
+  items:
+    - label: "Krankheitsverständnis"
+      text: "Symptome werden weniger als Schuldfrage gelesen."
+    - label: "Krankheitsfreie Inseln"
+      text: "Beziehung darf punktuell mehr sein als Sorge und Organisation."
+    - label: "Grenzen"
+      text: "Lasten und Zuständigkeiten werden klarer verteilt."
+    - label: "Krisenplan"
+      text: "Schritte werden in ruhigen Phasen vereinbart."
+    - label: "Eigene Entlastung"
+      text: "Beratung, Selbsthilfe oder Therapie gelten als Teil der Stabilität."
 emergency_contacts:
   - label: "Ärztefon Zürich"
     number: "0800&nbsp;33&nbsp;66&nbsp;55"

@@ -8,9 +8,9 @@ show_priority_badge: false
 type: "Orientierungsblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Angehörigen eine klare und legitime Rolle in der Zusammenarbeit mit Betroffenen und Fachpersonen aufzeigen"
-target_format: "A4, 1 Seite"
+target_format: "A4, 2 Seiten"
 priority: "P1"
-last_updated: "2026-05-12"
+last_updated: "2026-05-13"
 emergency_label: "Wenn Sie im System nicht gehört werden"
 emergency_callout: "Sie dürfen Beobachtungen, Warnzeichen und Ihre Belastung benennen. Ein Angehörigengespräch ist ein legitimes Anliegen und kein Stören der Behandlung."
 emergency_note: "Zusammenarbeit wird oft realistischer, wenn Betroffene, Angehörige und Fachpersonen je ihren eigenen Beitrag einbringen."
@@ -22,6 +22,19 @@ quick_steps:
   - icon: "📞"
     wide: true
     text: "Angehörigengespräch aktiv verlangen"
+visual_model:
+  kind: "venn"
+  title: "Drei Perspektiven im Trialog"
+  note: "Keine Perspektive ersetzt die andere. Zusammenarbeit wird tragfähiger, wenn Beiträge und Grenzen klarer sind."
+  items:
+    - label: "Betroffene"
+      text: "Erfahrungswissen, Präferenzen, Selbstbestimmung."
+    - label: "Angehörige"
+      text: "Alltagsbeobachtungen, Warnzeichen, Belastungswissen und praktische Hürden."
+    - label: "Fachpersonen"
+      text: "Diagnostik, Behandlung, Einschätzung und Struktur."
+    - label: "Gemeinsamer Fokus"
+      text: "Eine Hauptfrage, konkrete Beobachtungen und nächste Schritte."
 emergency_contacts:
   - label: "Pro Mente Sana"
     number: "promentesana.ch"

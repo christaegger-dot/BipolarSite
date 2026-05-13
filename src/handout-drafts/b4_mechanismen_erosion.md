@@ -8,9 +8,9 @@ show_priority_badge: false
 type: "Orientierungsblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Angehörige entlasten, indem schleichende Muster von Schonhaltung, Rückzug und Identitätsverlust erkennbar und besprechbar werden"
-target_format: "A4, 1 Seite"
+target_format: "A4, 2 Seiten"
 priority: "P1"
-last_updated: "2026-05-12"
+last_updated: "2026-05-13"
 emergency_label: "Wenn Sie sich selbst kaum noch spüren"
 emergency_callout: "Wenn Sie nur noch funktionieren, innerlich abstumpfen oder gar nicht mehr wissen, was Sie selbst brauchen: holen Sie früh Unterstützung dazu."
 emergency_note: "Dass Sie sich verändert haben, ist nicht automatisch ein Zeichen fehlender Liebe. Oft zeigt es, wie lange Sie schon zu viel getragen haben."
@@ -22,6 +22,19 @@ quick_steps:
   - icon: "🧭"
     wide: true
     text: "Die eigene Person wieder mitdenken"
+visual_model:
+  kind: "treppe"
+  title: "Vom Schutzmuster zur Gegenbewegung"
+  note: "Schonhaltung und Co-Isolation beginnen oft aus Fürsorge. Kritisch wird es, wenn die eigene Person verschwindet."
+  items:
+    - label: "Schonhaltung"
+      text: "Eigene Sorgen werden verschwiegen, um niemanden zusätzlich zu belasten."
+    - label: "Co-Isolation"
+      text: "Rückzug, Absagen und Scham machen das soziale Netz kleiner."
+    - label: "Identitätsverlust"
+      text: "Die Betreuerrolle verdrängt eigene Wünsche, Themen und Routinen."
+    - label: "Gegenbewegung"
+      text: "Ein eigenes Thema, ein Kontakt oder ein Termin wird bewusst geschützt."
 emergency_contacts:
   - label: "Dargebotene Hand"
     number: "143"
