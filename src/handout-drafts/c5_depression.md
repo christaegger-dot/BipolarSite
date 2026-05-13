@@ -10,9 +10,9 @@ audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Klare Orientierung, wenn die erkrankte Person in einer depressiven Phase kaum erreichbar ist"
 target_format: "A4, 1 Seite"
 priority: "P1"
-last_updated: "2026-05-12"
+last_updated: "2026-05-13"
 emergency_label: "Wenn Suizidgefahr dazukommt"
-emergency_callout: "Bei Suizidgedanken, Verabschiedungen oder konkreten Hinweisen: direkt fragen und sofort 144 oder 0800 33 66 55 anrufen."
+emergency_callout: "Bei konkretem Plan, verfügbaren Mitteln oder fehlender Sicherheit: sofort 144. Bei ernster Sorge ohne unmittelbare Lebensgefahr: 0800 33 66 55."
 emergency_note: "Depression braucht weniger Druck und mehr tragfähige Präsenz. Wenn die Gefahr akut wird, endet der Gesprächsrahmen und Schutz geht vor."
 quick_steps:
   - icon: "Da"
@@ -51,7 +51,7 @@ emergency_contacts:
 
 ## Orientierung in der Depression
 
-Depression ist nicht bloss Traurigkeit, sondern oft Leere, Schwere und tatsächliches Nicht-Können. Was hilft: weniger Druck, weniger Lösungen, mehr tragfähige Präsenz.
+Depression ist nicht bloss Traurigkeit, sondern oft Leere, Schwere und tatsächliches Nicht-Können. Dieses Blatt ersetzt keine fachliche Einschätzung. Was Angehörige meist tun können: weniger Druck, weniger Lösungen, mehr tragfähige Präsenz und frühes Einbeziehen des Behandlungsteams.
 
 ## Woran Sie eine schwere Phase erkennen
 
@@ -69,7 +69,7 @@ Entscheidend sind Dauer, Tiefe und Veränderung gegenüber dem üblichen Zustand
 - Druck rausnehmen, in kleinen Einheiten denken
 - Gefühl stehen lassen statt korrigieren
 - zur Kontaktaufnahme mit dem Behandlungsteam ermutigen — gemeinsam anrufen
-- Medikamenten-Einnahme sanft begleiten («Ich erinnere dich gern»)
+- an vereinbarte Medikamenten-Einnahme erinnern, ohne Dosierungen zu ändern
 - Kindern altersgerecht erklären: es ist eine Krankheit
 
 Hilfreich oft: **«Ich kann das nicht lösen, aber ich bin hier.»**
@@ -85,7 +85,7 @@ Hilfreich oft: **«Ich kann das nicht lösen, aber ich bin hier.»**
 
 Nicht weiter allein tragen, sondern sofort Hilfe holen, wenn Suizidgedanken oder Todeswünsche geäussert werden, Verabschiedungen oder konkrete Hinweise da sind, ein Plan oder Mittel vorhanden sind oder die Person nicht mehr sicher allein ist.
 
-**Direkt fragen ist erlaubt:** «Denkst du daran, dir etwas anzutun?»
+**Direkt fragen ist erlaubt:** «Denkst du daran, dir etwas anzutun?» Bei konkreter Suizidgefahr: 144.
 
 ## Nächster Schritt
 

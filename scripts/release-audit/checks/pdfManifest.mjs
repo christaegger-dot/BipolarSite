@@ -38,6 +38,11 @@ const CRITICAL_LANGUAGE_METADATA_KEYS = new Set([
   "legacy.rechtlicheOrientierung",
 ]);
 const REQUIRED_PDF_TEXT_SNIPPETS = {
+  notfallkarte: [
+    "ersetzt keine Diagnostik",
+    "Lebensgefahr: 144",
+    "Psychiatrische Krise ohne unmittelbare Lebensgefahr",
+  ],
   krisenplanVorlage: [
     "sensible Gesundheitsdaten",
     "sicher auf",
@@ -46,20 +51,66 @@ const REQUIRED_PDF_TEXT_SNIPPETS = {
   krisenplanGuide: [
     "zuerst drei Felder",
     "sensible Gesundheitsdaten",
+    "ergänzt Behandlung und Notfallwege",
+    "keine Dosierungen ohne Behandlungsteam",
   ],
   c1_krisenplan: [
     "zuerst drei Felder",
     "sensible Gesundheitsdaten",
+    "ergänzt Behandlung und Notfallwege",
+    "keine Dosierungen ohne Behandlungsteam",
+  ],
+  suizidgedanken: [
+    "nicht versuchen, mit einem Risiko-Score",
+    "Bei konkreter Gefahr: 144",
+  ],
+  c2_suizidgedanken: [
+    "nicht versuchen, mit einem Risiko-Score",
+    "Bei konkreter Gefahr: 144",
+  ],
+  psychoseWahn: [
+    "ersetzt keine fachliche Abklärung",
+    "professionelle Einschätzung",
+    "Sicherheit von Kindern",
+  ],
+  c3_psychose_wahn: [
+    "ersetzt keine fachliche Abklärung",
+    "professionelle Einschätzung",
+    "Sicherheit von Kindern",
+  ],
+  manie: [
+    "ersetzt keine Diagnose",
+    "nichts körperlich oder rechtlich erzwingen",
+    "nicht auf volle Eskalation warten",
+  ],
+  c4_manie: [
+    "ersetzt keine Diagnose",
+    "nichts körperlich oder rechtlich erzwingen",
+    "nicht auf volle Eskalation warten",
+  ],
+  depression: [
+    "ersetzt keine fachliche Einschätzung",
+    "ohne Dosierungen zu ändern",
+    "Bei konkreter Suizidgefahr: 144",
+  ],
+  c5_depression: [
+    "ersetzt keine fachliche Einschätzung",
+    "ohne Dosierungen zu ändern",
+    "Bei konkreter Suizidgefahr: 144",
   ],
   rechtlicheOrientierung: [
     "keine Rechtsberatung",
     "Erst sortieren",
     "fachliche oder juristische Beratung",
+    "In der Regel erteilt",
+    "Beobachtungen mitteilen",
   ],
   "legacy.rechtlicheOrientierung": [
     "keine Rechtsberatung",
     "Erst sortieren",
     "fachliche oder juristische Beratung",
+    "In der Regel erteilt",
+    "Beobachtungen mitteilen",
   ],
   b1_18_belastungen: [
     "Vier Belastungsfelder",

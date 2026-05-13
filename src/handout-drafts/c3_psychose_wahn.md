@@ -10,10 +10,10 @@ audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Schnelle Orientierung bei psychotischer Zuspitzung, Wahn oder Paranoia"
 target_format: "A4, 1 Seite"
 priority: "P1"
-last_updated: "2026-05-12"
+last_updated: "2026-05-13"
 emergency_label: "Wenn Sicherheit kippt"
 emergency_callout: "Wenn die Lage bedrohlich wird, kein ruhiger Kontakt mehr möglich ist oder Kinder gefährdet sind: sofort 117 oder 144."
-emergency_note: "Wahnideen lassen sich nicht wegdiskutieren. Ruhige Sprache, Reizreduktion und professionelle Hilfe sind wichtiger als Überzeugungsversuche."
+emergency_note: "Wahnideen lassen sich meist nicht wegdiskutieren. Ruhige Sprache, Reizreduktion und professionelle Einschätzung sind wichtiger als Überzeugungsversuche."
 quick_steps:
   - icon: "ruhig"
     text: "Langsam, kurz und einfach sprechen"
@@ -53,7 +53,7 @@ emergency_contacts:
 
 ## Orientierung bei Psychose oder Wahn
 
-Wahnideen fühlen sich für die Person real an und lassen sich nicht wegdiskutieren. Was hilft: Ruhe, Reizreduktion, Schutz und frühes Dazunehmen professioneller Hilfe.
+Wahnideen fühlen sich für die Person real an und lassen sich meist nicht wegdiskutieren. Dieses Blatt ersetzt keine fachliche Abklärung. Was Angehörige tun können: Ruhe herstellen, Reize senken, Sicherheit prüfen und professionelle Hilfe früh dazunehmen.
 
 ## Woran Sie aufmerksam werden
 
@@ -61,13 +61,14 @@ Wahnideen fühlen sich für die Person real an und lassen sich nicht wegdiskutie
 - Sprache, Denken oder Verhalten werden sprunghaft und schwer nachvollziehbar
 - starke Angst, Misstrauen oder Abwehr; kaum Schlaf oder massive Überdrehtheit
 - Kinder oder Umfeld werden mit in die Verunsicherung gezogen
+- neu auftretende oder deutlich zunehmende psychotische Symptome brauchen zeitnahe professionelle Einschätzung
 
 ## Im Kontakt
 
 - ruhig, langsam, kurze Sätze
 - nicht widersprechen und nicht bestätigen: «Ich sehe es anders.»
 - Gefühle anerkennen, nicht den Inhalt bestätigen — bei Paranoia: «Ich höre, dass du dir Sorgen machst.»
-- Reize senken (weniger Licht, Lärm, Menschen), Fluchtweg offenhalten, Kinder in Sicherheit bringen
+- Reize senken (weniger Licht, Lärm, Menschen), eigenen Ausweg offenhalten, Kinder in Sicherheit bringen
 - Behandlungsteam oder Notfalldienst früh informieren
 
 Hilfreich oft: **«Ich sehe es anders. Wir holen jetzt Unterstützung dazu.»**
@@ -83,10 +84,10 @@ Hilfreich oft: **«Ich sehe es anders. Wir holen jetzt Unterstützung dazu.»**
 
 Nicht mehr diskutieren, sondern sofort Schutz holen, wenn die Lage bedrohlich wird, kein ruhiger Kontakt mehr möglich ist, Kinder gefährdet sind oder Flucht/Gewalt im Raum stehen.
 
-**Dann: 117 oder 144. Ihre Sicherheit geht vor.**
+**Dann: 117 oder 144. Ihre Sicherheit und die Sicherheit von Kindern gehen vor Gespräch.**
 
 ## Nächster Schritt
 
-Wenn noch Kontakt möglich ist, aber Realität entgleitet: Notfalldienst oder Behandlungsteam einbeziehen — nicht allein tragen. Wenn Schutz vorgeht, endet der Gesprächsrahmen.
+Wenn noch Kontakt möglich ist, aber Realität entgleitet: Notfalldienst oder Behandlungsteam einbeziehen — nicht allein tragen. Wenn Schutz vorgeht, endet der Gesprächsrahmen und wird zur Notfallsituation.
 
 Weiterführend: [Notfallseite](/notfall/) · [Modul 6: Kommunikation, Grenzen, Krisenplan](/modul/6/)

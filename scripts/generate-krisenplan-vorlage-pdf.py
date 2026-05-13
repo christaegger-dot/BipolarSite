@@ -32,7 +32,7 @@ REFERENCES_PATH = PROJECT_ROOT / "src" / "_data" / "handoutReferences.json"
 
 TITLE = "Krisenplan-Vorlage – Bipolare Störung"
 AUTHOR = "PUK Zürich — Fachstelle Angehörigenarbeit"
-STAND = "12.05.2026"
+STAND = "13.05.2026"
 
 
 def ensure_pdf_fonts():
@@ -114,11 +114,11 @@ styles = {
         textColor=MUTED, alignment=TA_CENTER,
     ),
     "source_title": ParagraphStyle(
-        "SourceTitle", fontName="DMSans", fontSize=7.2, leading=8.5,
+        "SourceTitle", fontName="DMSans", fontSize=6.8, leading=8,
         textColor=MUTED, spaceAfter=0.8 * mm,
     ),
     "source_text": ParagraphStyle(
-        "SourceText", fontName="DMSans", fontSize=6.5, leading=8,
+        "SourceText", fontName="DMSans", fontSize=5.9, leading=7.1,
         textColor=MUTED,
     ),
 }
@@ -193,9 +193,9 @@ def source_block():
         for idx, reference in enumerate(source_references(), start=1)
     ]
     return [
-        HRFlowable(width="100%", thickness=0.4, color=LINE, spaceBefore=1 * mm, spaceAfter=1.2 * mm),
+        HRFlowable(width="100%", thickness=0.4, color=LINE, spaceBefore=0.8 * mm, spaceAfter=0.8 * mm),
         p("<b>Quellen (Auswahl)</b>", "source_title"),
-        p("<br/>".join(source_lines), "source_text"),
+        p(" · ".join(source_lines), "source_text"),
     ]
 
 

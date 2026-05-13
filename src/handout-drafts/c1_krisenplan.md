@@ -10,7 +10,7 @@ audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Eine gemeinsame, schriftliche Orientierung für belastende Phasen vorbereiten"
 target_format: "A4, 2 Seiten"
 priority: "P1"
-last_updated: "2026-05-12"
+last_updated: "2026-05-13"
 emergency_label: "Wenn die Lage bereits kippt"
 emergency_callout: "Wenn akute Selbst- oder Fremdgefährdung im Raum steht, nicht erst planen: 144 oder 0800 33 66 55 anrufen und den Notfallpfad aktivieren."
 emergency_note: "Ein Krisenplan wird in einer stabilen Phase erstellt. In der akuten Krise zählt Schutz vor Perfektion."
@@ -45,7 +45,7 @@ emergency_contacts:
 
 ## Wofür ein Krisenplan da ist
 
-Ein Krisenplan soll in belastenden Situationen Entscheidungslast reduzieren. Er hilft nicht, jede Krise zu verhindern. Aber er macht oft früher sichtbar, wann etwas kippt, wer was übernimmt und welche Schritte dann nicht erst unter Druck erfunden werden müssen.
+Ein Krisenplan soll in belastenden Situationen Entscheidungslast reduzieren. Er ergänzt Behandlung und Notfallwege, ersetzt sie aber nicht. Er hilft nicht, jede Krise zu verhindern. Aber er macht oft früher sichtbar, wann etwas kippt, wer was übernimmt und welche Schritte dann nicht erst unter Druck erfunden werden müssen.
 
 ## Wann Sie ihn erstellen sollten
 
@@ -58,7 +58,7 @@ Beginnen Sie nicht mit dem perfekten Gesamtplan. Füllen Sie zuerst drei Felder 
 Danach können Sie ergänzen:
 
 - behandelnde Stellen mit Telefonnummern
-- Medikamente und was bei Absetzen vereinbart ist
+- Medikamente, zuständige Behandlungspersonen und was bei Absetzen vereinbart ist; keine Dosierungen ohne Behandlungsteam ändern
 - ab wann Schutz vor Gespräch geht
 - Klinik- oder Aufnahme-Wünsche
 - Kinderbetreuung, Alltag, Finanzen und Grenzen
@@ -93,7 +93,7 @@ Ein ausgefüllter Krisenplan enthält sensible Gesundheitsdaten. Teilen Sie ihn 
 
 ## Wenn Medikamente abgesetzt wurden oder die Lage unsicher wird
 
-Gerade dann lohnt sich ein aktualisierter Krisenplan besonders. Halten Sie fest, wer informiert wird, welche Warnzeichen ernst genommen werden und ab welchem Punkt nicht mehr diskutiert, sondern gehandelt wird. Das ist kein Misstrauen, sondern ein Sicherheitsnetz.
+Gerade dann lohnt sich ein aktualisierter Krisenplan besonders. Halten Sie fest, wer informiert wird, welche Warnzeichen ernst genommen werden und ab welchem Punkt nicht mehr diskutiert, sondern gehandelt wird. Medikamentenfragen gehören ans Behandlungsteam. Der Plan ist kein Misstrauen, sondern ein Sicherheitsnetz.
 
 ## Nächster sinnvoller Schritt
 

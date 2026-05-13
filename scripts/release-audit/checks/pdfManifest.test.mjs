@@ -48,8 +48,15 @@ describe("PDF manifest audit helpers", () => {
 
   it("requires content guardrails for updated legal and worksheet PDFs", () => {
     assert.deepEqual(requiredPdfTextSnippets("a8_warnsignale"), []);
+    assert.ok(requiredPdfTextSnippets("notfallkarte").includes("ersetzt keine Diagnostik"));
     assert.ok(requiredPdfTextSnippets("krisenplanVorlage").includes("sensible Gesundheitsdaten"));
+    assert.ok(requiredPdfTextSnippets("c1_krisenplan").includes("keine Dosierungen ohne Behandlungsteam"));
+    assert.ok(requiredPdfTextSnippets("c2_suizidgedanken").includes("nicht versuchen, mit einem Risiko-Score"));
+    assert.ok(requiredPdfTextSnippets("c3_psychose_wahn").includes("ersetzt keine fachliche Abklärung"));
+    assert.ok(requiredPdfTextSnippets("c4_manie").includes("nichts körperlich oder rechtlich erzwingen"));
+    assert.ok(requiredPdfTextSnippets("c5_depression").includes("ohne Dosierungen zu ändern"));
     assert.ok(requiredPdfTextSnippets("rechtlicheOrientierung").includes("keine Rechtsberatung"));
+    assert.ok(requiredPdfTextSnippets("rechtlicheOrientierung").includes("Beobachtungen mitteilen"));
     assert.ok(requiredPdfTextSnippets("b1_18_belastungen").includes("Vier Belastungsfelder"));
     assert.ok(requiredPdfTextSnippets("kritischeZeitpunkte").includes("Zeitpunkt-Landkarte"));
     assert.ok(requiredPdfTextSnippets("sichtbarkeitBelastung").includes("Sichtbare Last"));
@@ -59,7 +66,7 @@ describe("PDF manifest audit helpers", () => {
     assert.deepEqual(
       findMissingRequiredPdfTextSnippets(
         "rechtlicheOrientierung",
-        "Dieses Blatt bietet Orientierung und ersetzt keine Rechtsberatung. Erst sortieren. Holen Sie fachliche oder juristische Beratung."
+        "Dieses Blatt bietet Orientierung und ersetzt keine Rechtsberatung. Erst sortieren. In der Regel erteilt die urteilsfähige Person selbst. Angehörige können Beobachtungen mitteilen. Holen Sie fachliche oder juristische Beratung."
       ),
       []
     );
