@@ -124,9 +124,31 @@ styles["h2"] = ParagraphStyle(
     "H2", fontName="DMSerif", fontSize=11.5, leading=14,
     textColor=NAVY, spaceAfter=1.5 * mm, spaceBefore=3 * mm,
 )
+styles["acute_h2"] = ParagraphStyle(
+    "AcuteH2", fontName="DMSerif", fontSize=10.2, leading=12.2,
+    textColor=NAVY, spaceAfter=0.8 * mm, spaceBefore=1.6 * mm,
+)
+styles["acute_column_h2"] = ParagraphStyle(
+    "AcuteColumnH2", fontName="DMSerif", fontSize=9.4, leading=11.2,
+    textColor=NAVY, spaceAfter=0.7 * mm, spaceBefore=1.1 * mm,
+)
 styles["body"] = ParagraphStyle(
     "Body", fontName="DMSans", fontSize=9.3, leading=13,
     textColor=TEXT_C, spaceAfter=1.5 * mm,
+)
+styles["acute_body"] = ParagraphStyle(
+    "AcuteBody", fontName="DMSans", fontSize=8.45, leading=10.9,
+    textColor=TEXT_C, spaceAfter=0.95 * mm,
+)
+styles["acute_bullet"] = ParagraphStyle(
+    "AcuteBullet", fontName="DMSans", fontSize=8.25, leading=10.35,
+    textColor=TEXT_C, leftIndent=4.2 * mm, bulletIndent=0,
+    spaceAfter=0.45 * mm,
+)
+styles["acute_sub_bullet"] = ParagraphStyle(
+    "AcuteSubBullet", fontName="DMSans", fontSize=7.9, leading=9.9,
+    textColor=MUTED, leftIndent=8.2 * mm, bulletIndent=4 * mm,
+    spaceAfter=0.35 * mm,
 )
 styles["bullet"] = ParagraphStyle(
     "Bullet", fontName="DMSans", fontSize=9.15, leading=12.7,
@@ -1567,6 +1589,201 @@ def build_acute_note_flowables(meta, content_width):
     return [note_table, Spacer(1, 2.4 * mm)]
 
 
+ACUTE_COMPOSED_LAYOUTS = {
+    "c2_suizidgedanken": {
+        "left": ["Woran Sie aufmerksam werden", "Direkt fragen", "Was jetzt hilft"],
+        "right": ["Was eher schadet", "Wann sofort handeln", "Nächster Schritt"],
+    },
+    "c3_psychose_wahn": {
+        "left": ["Woran Sie aufmerksam werden", "Im Kontakt"],
+        "right": ["Was eher schadet", "Wann sofort handeln", "Nächster Schritt"],
+    },
+    "c4_manie": {
+        "left": ["Woran Sie Manie erkennen", "Im ersten Gespräch"],
+        "right": ["Was eher schadet", "Wann sofort handeln", "Nächster Schritt"],
+    },
+    "c5_depression": {
+        "left": ["Woran Sie eine schwere Phase erkennen", "Wie Kontakt gelingt"],
+        "right": ["Was eher schadet", "Wann sofort handeln", "Nächster Schritt"],
+    },
+}
+
+
+def uses_composed_acute_layout(meta):
+    """Use a print-composed A4 layout for dense acute handouts."""
+    return str(meta.get("slug", "") or "") in ACUTE_COMPOSED_LAYOUTS
+
+
+def parse_body_sections(body):
+    """Parse the draft body into h2 sections while ignoring manual page breaks."""
+    sections = []
+    current = None
+    for raw_line in body.split("\n"):
+        line = raw_line.rstrip()
+        if line.strip() == "<!-- pagebreak -->":
+            continue
+        if line.startswith("## "):
+            current = {"heading": line[3:].strip(), "lines": []}
+            sections.append(current)
+            continue
+        if current is not None:
+            current["lines"].append(line)
+    return sections
+
+
+def flowables_from_markdown_lines(lines, body_style, bullet_style, sub_bullet_style):
+    """Render a compact subset of markdown lines into ReportLab flowables."""
+    flowables = []
+    i = 0
+    while i < len(lines):
+        line = lines[i].rstrip()
+
+        if line.strip() == "---":
+            flowables.append(Spacer(1, 1.2 * mm))
+            flowables.append(HRFlowable(width="100%", thickness=0.3, color=LINE, spaceAfter=1.2 * mm))
+            i += 1
+            continue
+
+        if not line.strip():
+            i += 1
+            continue
+
+        if line.startswith("- "):
+            bullet_text = line[2:].strip()
+            sub_items = []
+            j = i + 1
+            while j < len(lines) and lines[j].startswith("  - "):
+                sub_items.append(lines[j].strip()[2:])
+                j += 1
+
+            flowables.append(Paragraph(
+                f'<bullet>&bull;</bullet>{md_inline(bullet_text)}',
+                bullet_style,
+            ))
+
+            for sub in sub_items:
+                flowables.append(Paragraph(
+                    f'<bullet>–</bullet>{md_inline(sub)}',
+                    sub_bullet_style,
+                ))
+
+            i = j
+            continue
+
+        if line.startswith("*") and line.endswith("*") and not line.startswith("**"):
+            inner = line.strip("*").strip()
+            flowables.append(Paragraph(f'<i>{md_inline(inner)}</i>', body_style))
+            i += 1
+            continue
+
+        para_lines = [line]
+        j = i + 1
+        while (
+            j < len(lines)
+            and lines[j].strip()
+            and not lines[j].startswith("#")
+            and not lines[j].startswith("- ")
+            and not lines[j].startswith("*")
+            and lines[j].strip() != "---"
+            and lines[j].strip() != "<!-- pagebreak -->"
+        ):
+            para_lines.append(lines[j].rstrip())
+            j += 1
+
+        flowables.append(Paragraph(md_inline(" ".join(para_lines)), body_style))
+        i = j
+
+    return flowables
+
+
+def section_stack_flowables(sections, heading_style, body_style, bullet_style, sub_bullet_style):
+    flowables = []
+    for section in sections:
+        flowables.append(Paragraph(md_inline(section["heading"]), heading_style))
+        flowables.extend(flowables_from_markdown_lines(
+            section["lines"],
+            body_style,
+            bullet_style,
+            sub_bullet_style,
+        ))
+    return flowables
+
+
+def build_acute_composed_body_flowables(meta, body, content_width):
+    """Compose acute body sections as a deliberate A4 print layout."""
+    layout = ACUTE_COMPOSED_LAYOUTS.get(str(meta.get("slug", "") or ""), {})
+    sections = parse_body_sections(body)
+    if not sections:
+        return []
+
+    section_by_heading = {section["heading"]: section for section in sections}
+    rendered_headings = set()
+    flowables = []
+
+    intro = sections[0]
+    rendered_headings.add(intro["heading"])
+    flowables.append(Paragraph(md_inline(intro["heading"]), styles["acute_h2"]))
+    flowables.extend(flowables_from_markdown_lines(
+        intro["lines"],
+        styles["acute_body"],
+        styles["acute_bullet"],
+        styles["acute_sub_bullet"],
+    ))
+
+    def select_sections(side):
+        selected = []
+        for heading in layout.get(side, []):
+            section = section_by_heading.get(heading)
+            if section:
+                selected.append(section)
+                rendered_headings.add(heading)
+        return selected
+
+    left_sections = select_sections("left")
+    right_sections = select_sections("right")
+    leftovers = [section for section in sections if section["heading"] not in rendered_headings]
+    if leftovers:
+        if len(left_sections) <= len(right_sections):
+            left_sections.extend(leftovers)
+        else:
+            right_sections.extend(leftovers)
+
+    column_gap = 5 * mm
+    col_width = (content_width - column_gap) / 2
+    left_flowables = section_stack_flowables(
+        left_sections,
+        styles["acute_column_h2"],
+        styles["acute_body"],
+        styles["acute_bullet"],
+        styles["acute_sub_bullet"],
+    )
+    right_flowables = section_stack_flowables(
+        right_sections,
+        styles["acute_column_h2"],
+        styles["acute_body"],
+        styles["acute_bullet"],
+        styles["acute_sub_bullet"],
+    )
+
+    column_table = Table(
+        [[left_flowables, "", right_flowables]],
+        colWidths=[col_width, column_gap, col_width],
+        hAlign="LEFT",
+    )
+    column_table.setStyle(TableStyle([
+        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+        ("LEFTPADDING", (0, 0), (-1, -1), 0),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 0),
+        ("TOPPADDING", (0, 0), (-1, -1), 0),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 0),
+        ("LINEBEFORE", (2, 0), (2, 0), 0.3, LINE),
+        ("LEFTPADDING", (2, 0), (2, 0), 2.5 * mm),
+    ]))
+    flowables.append(Spacer(1, 0.8 * mm))
+    flowables.append(column_table)
+    return flowables
+
+
 def build_help_module_flowables(help_module, content_width):
     """Create flowables for the optional help module.
     Horizontal 3-column grid (matches HTML preview); saves ~25mm vs.
@@ -1764,6 +1981,17 @@ def build_pdf(meta, body, output_path: Path):
         story.extend(build_focus_box_flowables(meta, content_width))
 
     story.append(HRFlowable(width="100%", thickness=0.5, color=LINE, spaceAfter=2 * mm))
+
+    if is_acute_handout and uses_composed_acute_layout(meta):
+        story.extend(build_acute_composed_body_flowables(meta, body, content_width))
+        story.extend(build_source_flowables(meta))
+        doc.build(
+            story,
+            onFirstPage=lambda canvas, doc: draw_footer(canvas, doc, meta),
+            onLaterPages=lambda canvas, doc: draw_footer(canvas, doc, meta),
+        )
+        apply_pdf_metadata(output_path, meta)
+        return output_path
 
     lines = body.split("\n")
     i = 0

@@ -16,30 +16,73 @@ const acutePdfs = [
     key: "notfallkarte",
     pdfPath: path.join(repoRoot, "src", "downloads", "notfallkarte-kanton-zuerich-puk.pdf"),
     generatedPath: path.join(repoRoot, "src", "handouts", "notfallkarte.pdf"),
+    expectedText: [
+      "Triage: welcher Weg jetzt?",
+      "Praxis in den ersten Minuten",
+      "Kurzregel",
+      "Quellen (Auswahl)",
+    ],
   },
   {
     slug: "c2_suizidgedanken",
     key: "c2_suizidgedanken",
     pdfPath: path.join(repoRoot, "src", "handouts", "c2_suizidgedanken.pdf"),
     copyTo: [path.join(repoRoot, "src", "downloads", "umgang-mit-suizidgedanken-puk-zuerich.pdf")],
+    expectedText: [
+      "Suizidgedanken ernst nehmen",
+      "Woran Sie aufmerksam werden",
+      "Direkt fragen",
+      "Was jetzt hilft",
+      "Was eher schadet",
+      "Wann sofort handeln",
+      "Nächster Schritt",
+      "Quellen (Auswahl)",
+    ],
   },
   {
     slug: "c3_psychose_wahn",
     key: "c3_psychose_wahn",
     pdfPath: path.join(repoRoot, "src", "handouts", "c3_psychose_wahn.pdf"),
     copyTo: [path.join(repoRoot, "src", "downloads", "umgang-mit-psychose-wahn-puk-zuerich.pdf")],
+    expectedText: [
+      "Orientierung bei Psychose oder Wahn",
+      "Woran Sie aufmerksam werden",
+      "Im Kontakt",
+      "Was eher schadet",
+      "Wann sofort handeln",
+      "Nächster Schritt",
+      "Quellen (Auswahl)",
+    ],
   },
   {
     slug: "c4_manie",
     key: "c4_manie",
     pdfPath: path.join(repoRoot, "src", "handouts", "c4_manie.pdf"),
     copyTo: [path.join(repoRoot, "src", "downloads", "umgang-mit-manie-puk-zuerich.pdf")],
+    expectedText: [
+      "Orientierung in der Manie",
+      "Woran Sie Manie erkennen",
+      "Im ersten Gespräch",
+      "Was eher schadet",
+      "Wann sofort handeln",
+      "Nächster Schritt",
+      "Quellen (Auswahl)",
+    ],
   },
   {
     slug: "c5_depression",
     key: "c5_depression",
     pdfPath: path.join(repoRoot, "src", "handouts", "c5_depression.pdf"),
     copyTo: [path.join(repoRoot, "src", "downloads", "umgang-mit-depression-puk-zuerich.pdf")],
+    expectedText: [
+      "Orientierung in der Depression",
+      "Woran Sie eine schwere Phase erkennen",
+      "Wie Kontakt gelingt",
+      "Was eher schadet",
+      "Wann sofort handeln",
+      "Nächster Schritt",
+      "Quellen (Auswahl)",
+    ],
   },
 ];
 
@@ -69,6 +112,15 @@ function parsePdfInfo(stdout) {
     }
   }
   return info;
+}
+
+function normalizeText(value) {
+  return value.replace(/\s+/g, " ").trim().toLowerCase();
+}
+
+function findMissingExpectedText(pdfText, expectedText) {
+  const normalizedPdfText = normalizeText(pdfText);
+  return expectedText.filter((snippet) => !normalizedPdfText.includes(normalizeText(snippet)));
 }
 
 async function inspectGeneratorRules(errors, warnings) {
@@ -118,7 +170,7 @@ async function generateAcutePdfs(errors) {
 }
 
 async function renderScreenshots(pdf, errors) {
-  const outputPrefix = path.join(screenshotDir, pdf.slug);
+  const outputPrefix = path.join(screenshotDir, `${pdf.slug}-page`);
   const result = await run("pdftoppm", ["-png", "-r", "120", pdf.pdfPath, outputPrefix]);
   if (!result.ok) {
     errors.push(`${pdf.key}: PNG-Reviewshot konnte nicht erzeugt werden (${result.message || result.stderr || "unknown error"}).`);
@@ -137,6 +189,17 @@ async function inspectPdf(pdf, errors, warnings) {
   if (!Number.isFinite(pageCount) || pageCount < 1) {
     errors.push(`${pdf.key}: Seitenzahl konnte nicht gelesen werden.`);
     return;
+  }
+
+  const textResult = await run("pdftotext", ["-layout", pdf.pdfPath, "-"]);
+  if (!textResult.ok) {
+    errors.push(`${pdf.key}: pdftotext -layout fehlgeschlagen (${textResult.message || textResult.stderr || "unknown error"}).`);
+    return;
+  }
+
+  const missingExpectedText = findMissingExpectedText(textResult.stdout, pdf.expectedText || []);
+  for (const snippet of missingExpectedText) {
+    errors.push(`${pdf.key}: erwartete Überschrift/Textstelle fehlt im PDF: "${snippet}".`);
   }
 
   const bboxResult = await run("pdftotext", ["-bbox-layout", pdf.pdfPath, "-"]);

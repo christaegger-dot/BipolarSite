@@ -50,17 +50,17 @@ describe("PDF manifest audit helpers", () => {
     assert.equal(pdfMetadataDeclaresLanguage("<dc:language><rdf:Seq><rdf:li>en-US</rdf:li></rdf:Seq></dc:language>"), false);
   });
 
-  it("keeps full acute clinical handouts at two pages or more while allowing the notfall card to be one balanced page", () => {
+  it("lets acute PDFs choose one or two pages while layout QA checks balance and completeness", () => {
     assert.equal(minRequiredPdfPages("notfallkarte"), null);
     assert.equal(minRequiredPdfPages("legacy.notfallkarte"), null);
-    assert.equal(minRequiredPdfPages("suizidgedanken"), 2);
-    assert.equal(minRequiredPdfPages("psychoseWahn"), 2);
-    assert.equal(minRequiredPdfPages("manie"), 2);
-    assert.equal(minRequiredPdfPages("depression"), 2);
-    assert.equal(minRequiredPdfPages("c2_suizidgedanken"), 2);
-    assert.equal(minRequiredPdfPages("c3_psychose_wahn"), 2);
-    assert.equal(minRequiredPdfPages("c4_manie"), 2);
-    assert.equal(minRequiredPdfPages("c5_depression"), 2);
+    assert.equal(minRequiredPdfPages("suizidgedanken"), null);
+    assert.equal(minRequiredPdfPages("psychoseWahn"), null);
+    assert.equal(minRequiredPdfPages("manie"), null);
+    assert.equal(minRequiredPdfPages("depression"), null);
+    assert.equal(minRequiredPdfPages("c2_suizidgedanken"), null);
+    assert.equal(minRequiredPdfPages("c3_psychose_wahn"), null);
+    assert.equal(minRequiredPdfPages("c4_manie"), null);
+    assert.equal(minRequiredPdfPages("c5_depression"), null);
     assert.equal(minRequiredPdfPages("a8_warnsignale"), null);
   });
 
@@ -82,7 +82,7 @@ describe("PDF manifest audit helpers", () => {
         contentBottom: 435,
         pageHeight: 841.9,
         contentBottomRatio: 0.517,
-        minContentBottomRatio: 0.65,
+        minContentBottomRatio: 0.7,
       },
     ]);
   });
