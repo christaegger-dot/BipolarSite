@@ -29,7 +29,12 @@ const CRITICAL_LANGUAGE_METADATA_KEYS = new Set([
   "krisenplanGuide",
   "rechtlicheOrientierung",
   "c1_krisenplan",
+  "kritischeZeitpunkte",
+  "sichtbarkeitBelastung",
+  "b1_18_belastungen",
+  "b6_geschlechtsspezifisch",
   "legacy.notfallkarte",
+  "legacy.kritischeZeitpunkte",
   "legacy.rechtlicheOrientierung",
 ]);
 const REQUIRED_PDF_TEXT_SNIPPETS = {
@@ -56,7 +61,47 @@ const REQUIRED_PDF_TEXT_SNIPPETS = {
     "Erst sortieren",
     "fachliche oder juristische Beratung",
   ],
+  b1_18_belastungen: [
+    "Vier Belastungsfelder",
+    "Wissen und Unsicherheit",
+    "Körper und Alarm",
+  ],
+  kritischeZeitpunkte: [
+    "Zeitpunkt-Landkarte",
+    "Vorboten",
+    "Fragile Ruhe",
+  ],
+  "legacy.kritischeZeitpunkte": [
+    "Zeitpunkt-Landkarte",
+    "Vorboten",
+    "Fragile Ruhe",
+  ],
+  sichtbarkeitBelastung: [
+    "Sichtbare Last",
+    "Stille Last",
+    "Nicht einordnen",
+  ],
+  b6_geschlechtsspezifisch: [
+    "Sichtbare Last",
+    "Stille Last",
+    "Nicht einordnen",
+  ],
 };
+const SOURCE_REFERENCE_MARKERS = [
+  "doi:",
+  "https://doi.org/",
+  "isbn",
+  "pmid",
+  "nice",
+  "who",
+  "dgbs",
+  "awmf",
+  "fedlex",
+  "pro mente sana",
+  "puk",
+  "ärztefon",
+  "dargebotene hand",
+];
 
 function flattenAssets(pdfs) {
   return [...Object.values(pdfs.downloads), ...Object.values(pdfs.handouts)];
@@ -147,6 +192,14 @@ export function findMissingRequiredPdfTextSnippets(pdfKey, pdfText) {
   );
 }
 
+export function pdfTextHasSourceReferences(pdfText) {
+  const normalizedText = normalizeWhitespace(pdfText).toLowerCase();
+  return (
+    /\bquellen\b/.test(normalizedText) &&
+    SOURCE_REFERENCE_MARKERS.some((marker) => normalizedText.includes(marker))
+  );
+}
+
 async function validateExtractableText(context, pdfKey, sourcePath, findings) {
   const textResult = await runCommand("pdftotext", ["-layout", sourcePath, "-"], { cwd: context.repoRoot });
 
@@ -172,6 +225,13 @@ async function validateExtractableText(context, pdfKey, sourcePath, findings) {
     findings.push({
       severity: "high",
       message: `${pdfKey} is missing required PDF text snippet "${snippet}".`,
+    });
+  }
+
+  if (!pdfTextHasSourceReferences(normalizedText)) {
+    findings.push({
+      severity: "high",
+      message: `${pdfKey} is missing visible source references ("Quellen").`,
     });
   }
 }
@@ -430,6 +490,7 @@ export async function runPdfManifestCheck(context) {
       minimumExtractableTextChars: MIN_EXTRACTABLE_TEXT_CHARS,
       criticalLanguageMetadataAssets: CRITICAL_LANGUAGE_METADATA_KEYS.size,
       requiredPdfTextSnippetAssets: Object.keys(REQUIRED_PDF_TEXT_SNIPPETS).length,
+      sourceReferenceMarkers: SOURCE_REFERENCE_MARKERS.length,
       sourcePdfFiles: sourcePdfFiles.length,
       sourceDownloadsDir: relativeToRepo(context.repoRoot, path.join(context.repoRoot, "src", "downloads")),
       sourceHandoutsDir: relativeToRepo(context.repoRoot, path.join(context.repoRoot, "src", "handouts")),

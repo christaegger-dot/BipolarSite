@@ -8,20 +8,33 @@ show_priority_badge: false
 type: "Orientierungsblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Angehörige entlasten, indem typische Belastungsmuster sichtbar, verständlich und als nachvollziehbare Folgen chronischer Anspannung eingeordnet werden"
-target_format: "A4, 1 Seite"
+target_format: "A4, 2 Seiten"
 priority: "P1"
-last_updated: "2026-04-30"
+last_updated: "2026-05-12"
 emergency_label: "Wenn die Belastung kippt"
 emergency_callout: "Wenn Sie merken, dass Sie kaum noch schlafen, innerlich nur noch im Alarmzustand sind oder selbst zusammenbrechen könnten: holen Sie Unterstützung dazu und tragen Sie diese Lage nicht länger allein."
 emergency_note: "Viele Belastungen von Angehörigen bleiben lange unsichtbar. Unsichtbar heisst aber nicht klein."
 quick_steps:
-  - icon: "≡"
-    text: "Belastung benennen"
-  - icon: "◔"
-    text: "Unsichtbares ernst nehmen"
-  - icon: "↗"
+  - icon: "1"
+    text: "Belastung als Landkarte sehen"
+  - icon: "2"
+    text: "Drei stärkste Lasten markieren"
+  - icon: "3"
     wide: true
     text: "Früh Hilfe holen statt spät zusammenbrechen"
+visual_model:
+  kind: "clusters"
+  title: "Vier Belastungsfelder statt 18 Einzelpunkte"
+  note: "Schon wenige Punkte können reichen, um dauerhaft zu erschöpfen. Die Landkarte soll sortieren, nicht beweisen, dass es schlimm genug ist."
+  items:
+    - label: "Wissen und Unsicherheit"
+      text: "Symptom oder Persönlichkeit? Rückfallzeichen, Behandlung, nächste Schritte."
+    - label: "Körper und Alarm"
+      text: "Anspannung, Schlafmangel, Hypervigilanz, Angst vor Eskalation."
+    - label: "Beziehung und Alleinsein"
+      text: "Scham, Rückzug, Einsamkeit, Ambivalenz zwischen Nähe und Distanz."
+    - label: "Verantwortung und Verlust"
+      text: "Alltag, Finanzen, Organisation, Trauer um Leichtigkeit und eigene Bedürfnisse."
 emergency_contacts:
   - label: "Dargebotene Hand"
     number: "143"
@@ -37,68 +50,53 @@ emergency_contacts:
 
 ## Worum es hier geht
 
-Viele Angehörige merken erst spät, wie viel sie längst mittragen. Nicht nur Termine, Krisen oder Gespräche kosten Kraft. Auch das ständige Mitdenken, Beobachten, Absichern, Hoffen, Sich-Sorgen und Funktionieren wird zu einer eigenen Last. Dieses Blatt ordnet typische Belastungen, damit aus diffusem Druck eine verständliche Lage wird statt nur das Gefühl, es sei «einfach alles zu viel».
+Viele Angehörige merken erst spät, wie viel sie längst mittragen. Nicht nur Termine, Krisen oder Gespräche kosten Kraft. Auch das ständige Mitdenken, Beobachten, Absichern, Hoffen und Funktionieren wird zu einer eigenen Last.
 
-## Warum Belastung oft unsichtbar bleibt
+Ein grosser Teil davon ist von aussen kaum erkennbar. Innerlich laufen aber Alarmbereitschaft, Schlafmangel, Schuldgefühle, Einsamkeit und ständiges Vorausdenken mit. Dieses Blatt ordnet 18 typische Belastungen in vier Felder, damit aus diffusem Druck eine verständlichere Lage wird.
 
-Ein grosser Teil der Angehörigenbelastung ist von aussen kaum erkennbar. Man funktioniert, begleitet, organisiert und sagt oft noch, es gehe schon. Innerlich laufen aber häufig Alarmbereitschaft, Schlafmangel, Schuldgefühle, Einsamkeit und ständiges Vorausdenken mit. Gerade deshalb unterschätzen viele ihre Belastung lange — auch sich selbst gegenüber. Unsichtbar heisst nicht klein.
+## Die 18 Belastungen als Landkarte
 
-## Typische Belastungen von Angehörigen
+**Wissen und Unsicherheit**
 
-- Unsicherheit, was gerade Symptom und was Persönlichkeit ist
-- dauernde Anspannung und inneres Beobachten
-- Schlafprobleme durch Wachsamkeit und Sorgen
+- Unsicherheit, was Symptom und was Persönlichkeit ist
+- Informationsmangel rund um Behandlung, Rückfälle und Krisen
 - Angst vor Rückfall, Eskalation oder Kontrollverlust
 - Hilflosigkeit, weil nicht alles beeinflussbar ist
+
+**Körper und Alarm**
+
+- dauernde Anspannung und inneres Beobachten
+- Schlafprobleme durch Wachsamkeit und Sorgen
+- Belastung durch Suizidangst oder Krisenwissen
+- Reizbarkeit oder innere Härte als Zeichen von Überlastung
+
+**Beziehung und Alleinsein**
+
 - Einsamkeit, obwohl andere Menschen da sind
-- Alleinverantwortung im Alltag oder in Krisen
-- Schuldgefühle, wenn eigene Grenzen spürbar werden
 - Scham oder das Gefühl, die Lage erklären zu müssen
 - Rückzug aus dem sozialen Umfeld
-- Überforderung durch Information, Behandlung und Organisation
-- Erschöpfung durch ständiges Mitdenken
 - innere Ambivalenz zwischen Nähe und Distanz
 - Trauer um Leichtigkeit, Gegenseitigkeit und Normalität
-- Reizbarkeit oder innere Härte als Zeichen von Überlastung
+
+**Verantwortung und Verlust**
+
+- Alleinverantwortung im Alltag oder in Krisen
+- Schuldgefühle, wenn eigene Grenzen spürbar werden
+- Überforderung durch Information, Behandlung und Organisation
 - finanzielle Sorgen oder praktische Dauerlast
-- Belastung durch Suizidangst oder Krisenwissen
 - das Gefühl, selbst kaum mehr vorzukommen
 
-Nicht jede Person erlebt alle diese Punkte. Aber schon wenige davon reichen, um den Alltag dauerhaft zu erschweren.
-
-## Belastung lässt sich grob ordnen
-
-## Wissen und Unsicherheit
-
-- Informationsmangel und fehlende Einordnung verstärken Angst
-- unklare Signale machen dauerndes Beobachten wahrscheinlicher
-- Unsicherheit rund um Behandlung, Rückfälle und Krisen kostet viel Kraft
-
-## Innere Daueranspannung
-
-- Hypervigilanz, Schlafmangel und Alarmbereitschaft erschöpfen den Körper
-- Entlastung gelingt schlechter, wenn man jederzeit mit dem Nächsten rechnet
-
-## Soziale und emotionale Last
-
-- Einsamkeit, Scham und Rückzug machen Belastung schwerer tragbar
-- viele Angehörige fühlen sich nicht gesehen, obwohl sie viel leisten
-
-## Verlust und Überforderung
-
-- nicht nur Krisen selbst schmerzen, sondern auch das, was mit der Zeit verloren geht
-- Leichtigkeit, Spontaneität und Gegenseitigkeit werden oft weniger erreichbar
+<!-- pagebreak -->
 
 ## Was häufig hilft
 
 - die eigene Belastung als reale Folge der Situation einordnen, nicht als persönliches Versagen
 - einzelne Belastungen benennen, statt nur zu sagen: „Es ist alles zu viel“
-- zwischen akuter Gefahr, chronischer Anspannung und allgemeiner Erschöpfung unterscheiden
 - Unterstützung früher einbeziehen, bevor Überlastung zur Normalität wird
-- sich fragen, was derzeit am meisten Kraft frisst: Unsicherheit, Verantwortung, Schlafmangel, Einsamkeit oder Angst
+- fragen: Was frisst gerade am meisten Kraft – Unsicherheit, Verantwortung, Schlafmangel, Einsamkeit oder Angst?
 
 Ein hilfreicher Satz kann sein:
-**„Was ich trage, ist nicht eingebildet — es ist eine reale Belastung.“**
+**„Was ich trage, ist nicht eingebildet – es ist eine reale Belastung.“**
 
 ## Was eher nicht hilft
 
@@ -106,11 +104,10 @@ Ein hilfreicher Satz kann sein:
 - nur das Sichtbare gelten zu lassen und das innere Mittragen kleinzureden
 - sich mit anderen zu vergleichen, die scheinbar besser funktionieren
 - anzunehmen, gute Angehörige müssten alles still aushalten
-- Hilfe erst zu erlauben, wenn eine Krise vollständig eskaliert ist
 
 ## Nächster sinnvoller Schritt
 
-Schreiben Sie in den nächsten Tagen **die drei Belastungen auf, die Sie im Moment am meisten Kraft kosten**. Markieren Sie dabei, was davon für andere sichtbar ist und was fast nur innerlich mitläuft. Nicht, um alles sofort zu lösen, sondern um die Last erstmals klarer zu sortieren. Was benannt ist, lässt sich eher teilen, begrenzen und entlasten.
+Schreiben Sie **die drei Belastungen auf, die Sie im Moment am meisten Kraft kosten**. Markieren Sie, was davon für andere sichtbar ist und was fast nur innerlich mitläuft. Nicht, um alles sofort zu lösen, sondern um die Last erstmals klarer zu sortieren.
 
 Weiterführend:
 

@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Generate the printable crisis-plan worksheet PDF."""
 
+import json
 from pathlib import Path
+from xml.sax.saxutils import escape
 
 import pikepdf
 from fontTools.ttLib import TTFont as FontToolsTTFont
@@ -26,6 +28,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_PATH = PROJECT_ROOT / "src" / "downloads" / "krisenplan-vorlage-bipolare-stoerung-puk-zuerich.pdf"
 FONT_DIR = Path("/tmp/fonts_ttf")
 WEBFONT_DIR = PROJECT_ROOT / "src" / "fonts"
+REFERENCES_PATH = PROJECT_ROOT / "src" / "_data" / "handoutReferences.json"
 
 TITLE = "Krisenplan-Vorlage – Bipolare Störung"
 AUTHOR = "PUK Zürich — Fachstelle Angehörigenarbeit"
@@ -110,7 +113,19 @@ styles = {
         "Footer", fontName="DMSans", fontSize=7, leading=8.5,
         textColor=MUTED, alignment=TA_CENTER,
     ),
+    "source_title": ParagraphStyle(
+        "SourceTitle", fontName="DMSans", fontSize=7.2, leading=8.5,
+        textColor=MUTED, spaceAfter=0.8 * mm,
+    ),
+    "source_text": ParagraphStyle(
+        "SourceText", fontName="DMSans", fontSize=6.5, leading=8,
+        textColor=MUTED,
+    ),
 }
+
+
+def inline(text):
+    return escape(str(text or "").replace("&nbsp;", " "))
 
 
 def p(text, style="body"):
@@ -162,6 +177,26 @@ def callout(text, color=TEAL_SOFT, border=HexColor("#b8d8d8")):
         ("RIGHTPADDING", (0, 0), (-1, -1), 3 * mm),
     ]))
     return table
+
+
+def source_references():
+    with REFERENCES_PATH.open(encoding="utf-8") as source_file:
+        source_data = json.load(source_file)
+    refs = source_data.get("references", {})
+    source_ids = source_data.get("bySlug", {}).get("krisenplan_vorlage", [])
+    return [refs[source_id] for source_id in source_ids if source_id in refs]
+
+
+def source_block():
+    source_lines = [
+        f"{idx}. {inline(reference)}"
+        for idx, reference in enumerate(source_references(), start=1)
+    ]
+    return [
+        HRFlowable(width="100%", thickness=0.4, color=LINE, spaceBefore=1 * mm, spaceAfter=1.2 * mm),
+        p("<b>Quellen (Auswahl)</b>", "source_title"),
+        p("<br/>".join(source_lines), "source_text"),
+    ]
 
 
 def footer(canvas, doc):
@@ -285,6 +320,7 @@ def build_pdf(output_path: Path):
             "In akuter Selbst- oder Fremdgefährdung nicht weiter ausfüllen, sondern Notfallwege nutzen.",
             "small",
         ),
+        *source_block(),
     ]
 
     doc.build(story, onFirstPage=footer, onLaterPages=footer)
