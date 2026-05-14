@@ -403,7 +403,7 @@ const handouts = {
   c4_manie: asset({
     key: "c4_manie",
     url: "/handouts/c4_manie.pdf",
-    title: "Umgang mit Manie",
+    title: "Bipolare Störung – Manie: Orientierung für Angehörige",
     subtitle: "Praktische Strategien",
     assetId: "HO-17",
     version: "web_v03",

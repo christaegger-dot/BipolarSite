@@ -110,10 +110,11 @@ const REQUIRED_PDF_TEXT_SNIPPETS = {
     "nicht auf volle Eskalation warten",
   ],
   c4_manie: [
-    "Manie-Tacho",
-    "ersetzt keine Diagnose",
-    "nichts körperlich oder rechtlich erzwingen",
-    "nicht auf volle Eskalation warten",
+    "Wenn die Manie kommt",
+    "Tempo steigt",
+    "TEMPO SENKEN",
+    "RISIKO BEGRENZEN",
+    "SICH SELBST SCHÜTZEN",
   ],
   depression: [
     "ersetzt keine fachliche Einschätzung",
