@@ -50,7 +50,8 @@
 
 ## Skills
 - `.claude/skills/bipolarsite-frontend/SKILL.md` — Frontend-Gestaltungsrichtlinien (Design-Haltung, Tokens, Komponenten, A11y). **Canonical source.**
-- `.agents/skills/pdf-handout-production/SKILL.md` — Audit/Refactor/Replace workflow for PDF handouts and drafts
+- `.agents/skills/fachstelle-handout/SKILL.md` — **Canonical source for all Fachstelle A4 handouts.** Read its `references/HANDOUT_TEMPLATE.md` before handout review, migration, content drafting, visual briefing, or PDF replacement.
+- `.agents/skills/pdf-handout-production/SKILL.md` — subordinate technical repo workflow for PDF file locations, preview/download handling, archive framing, and release QA after the Fachstelle handout rules have classified the document.
 - `/audit-homepage [focus-area]` — UX/Content/A11y-Audit der Startseite (runs in subagent)
 - `/audit-accessibility [pages]` — WCAG AA Audit (Kontrast, Focus, ARIA, Headings)
 - `/deploy-check [url]` — Build prüfen, Deployment verifizieren

@@ -128,6 +128,20 @@ Für den gebündelten technischen Release-Check steht zusätzlich zur Verfügung
 npm run audit:release
 ```
 
+## Handout-Regelbasis
+
+Für alle A4-Handouts der Fachstelle ist
+`.agents/skills/fachstelle-handout/SKILL.md` die kanonische Regelbasis. Vor
+Inhalts-, Layout-, Migrations- oder Review-Arbeit immer zuerst die zugehörige
+Spec `.agents/skills/fachstelle-handout/references/HANDOUT_TEMPLATE.md` lesen.
+
+Wichtigste Konsequenz: Dokumenttyp vor Layout. `ORIENTIERUNGSBLATT`,
+`PRAXISBLATT` und `KRISEN-HANDOUT` haben unterschiedliche Regeln für
+Krisennummern, Cross-References, Quellen/Footer und Visualisierung. Der ältere
+Skill `.agents/skills/pdf-handout-production/SKILL.md` bleibt als technischer
+Repo-Workflow für Dateiablage, Preview-/Download-Logik und QA erhalten, ist aber
+dem Fachstelle-Handout-Skill nachgeordnet.
+
 ## Deployment
 
 Die Website wird automatisch über **Netlify** aus dem `main`-Branch deployt. Konfiguration: `netlify.toml`.

@@ -2,6 +2,19 @@
 
 This repository currently has two different PDF quality tiers.
 
+## Canonical rulebase as of 2026-05-14
+
+All future handout work must start from
+`../fachstelle-handout/SKILL.md` and
+`../fachstelle-handout/references/HANDOUT_TEMPLATE.md`.
+
+That Fachstelle skill supersedes the older ad-hoc `Akutblatt`/archive migration
+logic whenever there is a conflict. In particular, document type comes first:
+`ORIENTIERUNGSBLATT`, `PRAXISBLATT`, and `KRISEN-HANDOUT` have different rules
+for crisis numbers, cross-references, footer/source treatment, and visual
+metaphors. This file only describes the current repo state and technical
+promotion/QA workflow.
+
 ## Production reference
 
 These files are the quality benchmark:
