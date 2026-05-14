@@ -98,6 +98,7 @@ describe("PDF manifest audit helpers", () => {
     assert.ok(requiredPdfTextSnippets("c2_suizidgedanken").includes("Suizid-Ampel"));
     assert.ok(requiredPdfTextSnippets("c3_psychose_wahn").includes("Schutzpfad"));
     assert.ok(requiredPdfTextSnippets("c4_manie").includes("Manie-Tacho"));
+    assert.ok(requiredPdfTextSnippets("c4_manie").includes("Orientierung in der Manie"));
     assert.ok(requiredPdfTextSnippets("c5_depression").includes("Depressions-Thermometer"));
     assert.ok(requiredPdfTextSnippets("rechtlicheOrientierung").includes("keine Rechtsberatung"));
     assert.ok(requiredPdfTextSnippets("rechtlicheOrientierung").includes("Beobachtungen mitteilen"));
