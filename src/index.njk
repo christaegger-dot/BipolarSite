@@ -55,18 +55,6 @@ useNavJS: true
 
 <main id="main-content">
 
-<!-- ══════════ EINLADUNG — früh sichtbar nach dem Pfad-Picker ══════════ -->
-<section class="invitation-section reveal">
-  <div class="invitation-inner">
-    <h2>Reden, ohne wissen zu müssen, was Sie sagen wollen</h2>
-    <p>Diese Beratung ist für Sie selbst gedacht, nicht für die erkrankte Person. Sie sind hier richtig, auch wenn Sie unsicher sind, ob Sie Hilfe brauchen.</p>
-    <div class="invitation-contacts">
-      <a href="{{ site.tel.fachstelle.href }}" class="invitation-phone">{{ site.tel.fachstelle.display }}</a>
-      <a href="mailto:{{ site.email }}" class="invitation-email">{{ site.email }}</a>
-    </div>
-  </div>
-</section>
-
 <!-- ══════════ MODULES ══════════ -->
 <section id="module">
   <h2 class="section-title reveal">Sieben Module für Angehörige</h2>
@@ -128,7 +116,7 @@ useNavJS: true
       </div>
     </a>
 
-    <a href="/modul/5/" aria-label="Modul 5: Loyalitätskonflikte und schwierige Entscheidungen — 14 bis 16 Minuten" class="module-card reveal" data-accent="amber" data-quote="Ich darf ihn nicht im Stich lassen — aber ich verliere mich dabei selbst.">
+    <a href="/modul/5/" aria-label="Modul 5: Loyalitätskonflikte und schwierige Entscheidungen — 14 bis 16 Minuten" class="module-card reveal" data-accent="purple" data-quote="Ich darf ihn nicht im Stich lassen — aber ich verliere mich dabei selbst.">
       <span class="module-number">
         <svg class="module-accent-icon" aria-hidden="true" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="8" y1="2" x2="8" y2="14" stroke="currentColor" stroke-width="1.5"/><line x1="2" y1="5.5" x2="14" y2="5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M2 5.5l2 5" stroke="currentColor" stroke-width="1"/><path d="M14 5.5l-2 5" stroke="currentColor" stroke-width="1"/></svg>
         Modul 5
@@ -141,7 +129,7 @@ useNavJS: true
       </div>
     </a>
 
-    <a href="/modul/6/" aria-label="Modul 6: Was Sie konkret tun können — 12 bis 22 Minuten" class="module-card reveal" data-accent="green" data-quote="Beim nächsten Mal habe ich den Krisenplan einfach aufgeschlagen. Ich musste nicht mehr denken — ich musste nur noch handeln.">
+    <a href="/modul/6/" aria-label="Modul 6: Was Sie konkret tun können — Kerntext rund 12 Minuten, mit Vertiefungen rund 22 Minuten" class="module-card reveal" data-accent="green" data-quote="Beim nächsten Mal habe ich den Krisenplan einfach aufgeschlagen. Ich musste nicht mehr denken — ich musste nur noch handeln.">
       <span class="module-number">
         <svg class="module-accent-icon" aria-hidden="true" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 3a3.5 3.5 0 01-1 6.5L5.5 14a1.5 1.5 0 01-2-2L8 7A3.5 3.5 0 0111 3z" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/><circle cx="11" cy="5.5" r="1.25" stroke="currentColor" stroke-width="1" opacity="0.5"/></svg>
         Modul 6
@@ -149,7 +137,7 @@ useNavJS: true
       <h3>Was Sie konkret tun können</h3>
       <p>Gesprächsführung, Grenzsetzung, Krisenplanung und Expressed Emotions — die praktischen Bausteine im Alltag.</p>
       <div class="module-card-footer">
-        <span class="module-time">⏱ 12–22 Min.</span>
+        <span class="module-time">⏱ ca. 12 Min. + Vertiefungen</span>
         <span class="module-arrow">→</span>
       </div>
     </a>
@@ -175,7 +163,7 @@ useNavJS: true
 <section class="story-section reveal">
   <div class="story-inner story-split">
     <div class="story-split-text">
-      <div class="story-label">Erfahrungsbericht</div>
+      <div class="story-label">Aus der Praxis</div>
       <h2>«Ich dachte, ich müsse einfach funktionieren»</h2>
       <div class="story-body">
         <p>Als mein Partner vor sechs Jahren die Diagnose bekam, habe ich zuerst alles gelesen, was ich finden konnte. Meistens stand da, was <em>er</em> braucht. Selten, was mit <em>mir</em> passiert.</p>
@@ -187,6 +175,18 @@ useNavJS: true
     <div class="story-split-visual">
       {# P3 Audit: heroImage-Shortcode — AVIF/WebP/JPEG + responsive srcset #}
       {% heroImage "/visuals/modul-einstieg.webp", "Illustration einer Person, die nachdenklich in einem Sessel am Fenster sitzt — stille Szene der Selbstreflexion.", "lazy" %}
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ EINLADUNG — nach dem Erfahrungsbericht als praktische Brücke ══════════ -->
+<section class="invitation-section reveal">
+  <div class="invitation-inner">
+    <h2>Reden, ohne wissen zu müssen, was Sie sagen wollen</h2>
+    <p>Diese Beratung ist für Sie selbst gedacht, nicht für die erkrankte Person. Sie sind hier richtig, auch wenn Sie unsicher sind, ob Sie Hilfe brauchen.</p>
+    <div class="invitation-contacts">
+      <a href="{{ site.tel.fachstelle.href }}" class="invitation-phone">{{ site.tel.fachstelle.display }}</a>
+      <a href="mailto:{{ site.email }}" class="invitation-email">{{ site.email }}</a>
     </div>
   </div>
 </section>
