@@ -17,10 +17,21 @@ const acutePdfs = [
     pdfPath: path.join(repoRoot, "src", "downloads", "notfallkarte-kanton-zuerich-puk.pdf"),
     generatedPath: path.join(repoRoot, "src", "handouts", "notfallkarte.pdf"),
     expectedText: [
-      "Triage: welcher Weg jetzt?",
+      "KRISEN-HANDOUT",
+      "Rettungsring: welcher Weg jetzt?",
       "Praxis in den ersten Minuten",
+      "Was zuerst tun?",
+      "Was am Telefon sagen?",
+      "Bis Hilfe da ist",
+      "Wenn nicht lebensbedrohlich",
       "Kurzregel",
       "Quellen (Auswahl)",
+    ],
+    forbiddenText: [
+      "Weiterführend",
+      "Modul 6",
+      "Anlaufstellen und Ressourcen",
+      "058 384 38 00",
     ],
   },
   {
@@ -200,6 +211,12 @@ async function inspectPdf(pdf, errors, warnings) {
   const missingExpectedText = findMissingExpectedText(textResult.stdout, pdf.expectedText || []);
   for (const snippet of missingExpectedText) {
     errors.push(`${pdf.key}: erwartete Überschrift/Textstelle fehlt im PDF: "${snippet}".`);
+  }
+  const presentForbiddenText = (pdf.forbiddenText || []).filter((snippet) => {
+    return normalizeText(textResult.stdout).includes(normalizeText(snippet));
+  });
+  for (const snippet of presentForbiddenText) {
+    errors.push(`${pdf.key}: verbotene Alt-Textstelle ist noch im PDF sichtbar: "${snippet}".`);
   }
 
   const bboxResult = await run("pdftotext", ["-bbox-layout", pdf.pdfPath, "-"]);

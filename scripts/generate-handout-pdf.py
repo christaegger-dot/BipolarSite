@@ -326,6 +326,17 @@ def format_swiss_date(value):
         return str(value)
 
 
+def normalized_handout_type(meta):
+    """Normalize legacy and canonical handout type labels for layout decisions."""
+    raw_type = plain_text(meta.get("type", ""))
+    return raw_type.lower().replace("_", "-").replace(" ", "-")
+
+
+def is_crisis_handout(meta):
+    """Return True for legacy acute PDFs and the canonical Krisen-Handout type."""
+    return normalized_handout_type(meta) in {"akutblatt", "krisen-handout", "krisenhandout"}
+
+
 def normalize_help_module(meta):
     """Return a normalized help module or None when disabled / absent."""
     help_module = meta.get("help_module")
@@ -1189,6 +1200,8 @@ class AcuteVisualDiagram(ModelDiagram):
             self._draw_acute_gauge()
         elif self.kind in {"signpost", "flowchart", "sequence"}:
             self._draw_acute_path()
+        elif self.kind == "lifebuoy":
+            self._draw_acute_lifebuoy()
         else:
             self._draw_acute_triage()
         self.canv.restoreState()
@@ -1324,6 +1337,27 @@ class AcuteVisualDiagram(ModelDiagram):
         c.setStrokeColor(ALERT)
         c.drawPath(path, fill=1, stroke=1)
         self._draw_para("Triage", cx - 8 * mm, cy + 3.0 * mm, 16 * mm, "diagram_center", limit=10, color=ALERT, bold=True, align="center")
+        self._draw_acute_cards(pad + 28 * mm, [DIAGRAM_ALERT, DIAGRAM_ALERT, DIAGRAM_AMBER], pad=pad)
+
+    def _draw_acute_lifebuoy(self):
+        c = self.canv
+        pad = 4.2 * mm
+        cx = pad + 12 * mm
+        cy = self.height / 2
+        r = 9.2 * mm
+        inner_r = 4.6 * mm
+        c.setFillColor(DIAGRAM_ALERT)
+        c.setStrokeColor(ALERT)
+        c.circle(cx, cy, r, fill=1, stroke=1)
+        c.setFillColor(HexColor("#fffaf3"))
+        c.circle(cx, cy, inner_r, fill=1, stroke=0)
+        c.setStrokeColor(HexColor("#fffaf3"))
+        c.setLineWidth(3.0)
+        c.line(cx - r, cy, cx - inner_r, cy)
+        c.line(cx + inner_r, cy, cx + r, cy)
+        c.line(cx, cy - r, cx, cy - inner_r)
+        c.line(cx, cy + inner_r, cx, cy + r)
+        self._draw_para("Hilfe", cx - 8 * mm, cy + 2.8 * mm, 16 * mm, "diagram_center", limit=8, color=ALERT, bold=True, align="center")
         self._draw_acute_cards(pad + 28 * mm, [DIAGRAM_ALERT, DIAGRAM_ALERT, DIAGRAM_AMBER], pad=pad)
 
 
@@ -1859,7 +1893,7 @@ def build_source_flowables(meta):
     if not references:
         return []
 
-    compact = meta.get("type") == "Akutblatt"
+    compact = is_crisis_handout(meta)
     title_style = styles["source_title_acute"] if compact else styles["source_title"]
     text_style = styles["source_text_acute"] if compact else styles["source_text"]
     source_space = 1.4 * mm if compact else 0.8 * mm
@@ -1878,7 +1912,7 @@ def build_source_flowables(meta):
 
 def build_footer_line(meta):
     """Return a professional footer line without contact content."""
-    parts = ["PUK Zürich · Fachstelle Angehörigenarbeit"]
+    parts = ["Fachstelle Angehörigenarbeit · Psychiatrische Universitätsklinik Zürich"]
     formatted_date = format_swiss_date(meta.get("last_updated"))
     if formatted_date:
         parts.append(f"Stand: {formatted_date}")
@@ -1917,7 +1951,7 @@ def apply_pdf_metadata(output_path: Path, meta):
 # ── Build PDF ─────────────────────────────────────────────────────────
 def build_pdf(meta, body, output_path: Path):
     """Generate a PDF from parsed markdown content."""
-    is_acute_handout = meta.get("type") == "Akutblatt"
+    is_acute_handout = is_crisis_handout(meta)
 
     doc = SimpleDocTemplate(
         str(output_path),
