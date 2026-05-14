@@ -7,6 +7,18 @@ description: "Use when auditing, reframing, migrating, previewing, or replacing 
 
 Project-specific workflow for PDFs and handouts in this repository.
 
+## Canonical editorial rulebase
+
+For every new, reviewed, migrated, or visually rebuilt Fachstelle handout, read
+`../fachstelle-handout/SKILL.md` first. That skill and its
+`references/HANDOUT_TEMPLATE.md` are the canonical editorial and visual
+rulebase for document types, crisis-number policy, standalone rules,
+visualization choice, footer/source treatment, and migration order.
+
+This `pdf-handout-production` skill is now the subordinate technical repo
+workflow: use it for file locations, archive/download handling, preview QA, and
+release safety after the Fachstelle handout rules have classified the document.
+
 Use this skill when you need to:
 - audit the current PDF system
 - improve download / preview / archive framing
