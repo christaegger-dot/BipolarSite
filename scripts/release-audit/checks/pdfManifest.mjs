@@ -110,9 +110,10 @@ const REQUIRED_PDF_TEXT_SNIPPETS = {
     "nicht auf volle Eskalation warten",
   ],
   c4_manie: [
+    // Stable, high-signal phrases from the current one-page acute layout (verified 2026-05-14)
     "Manie-Tacho",
+    "Orientierung in der Manie",
     "ersetzt keine Diagnose",
-    "nichts körperlich oder rechtlich erzwingen",
     "nicht auf volle Eskalation warten",
   ],
   depression: [
