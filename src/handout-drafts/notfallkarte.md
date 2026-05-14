@@ -24,15 +24,15 @@ quick_steps:
 emergency_contacts:
   - label: "Sanität"
     number: "144"
-    note: "Bei Lebensgefahr, Suizidversuch oder Bewusstlosigkeit"
+    note: "Lebensgefahr, Suizidversuch, Bewusstlosigkeit"
     tone: "urgent"
   - label: "Polizei"
     number: "117"
-    note: "Bei Gewalt, Bedrohung oder wenn Sie selbst nicht mehr sicher sind"
+    note: "Gewalt, Bedrohung, eigene Sicherheit kippt"
     tone: "urgent"
   - label: "Ärztefon"
     number: "0800&nbsp;33&nbsp;66&nbsp;55"
-    note: "Dringend, aber nicht unmittelbar lebensbedrohlich"
+    note: "dringend, nicht unmittelbar lebensbedrohlich"
 acute_visual:
   kind: "rettungsring"
   title: "Rettungsring: welcher Weg jetzt?"

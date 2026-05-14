@@ -31,6 +31,7 @@ from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.units import mm
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.pdfgen import canvas as pdf_canvas
 from reportlab.platypus import Flowable, HRFlowable, KeepTogether, PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 
 # ── Paths ──────────────────────────────────────────────────────────────
@@ -267,6 +268,30 @@ styles["source_title_compact"] = ParagraphStyle(
 styles["source_text_compact"] = ParagraphStyle(
     "SourceTextCompact", fontName="DMSans", fontSize=5.35, leading=5.95,
     textColor=MUTED, spaceAfter=0.4 * mm,
+)
+styles["template_lead"] = ParagraphStyle(
+    "TemplateLead", fontName="DMSans", fontSize=10.5, leading=14.2,
+    textColor=TEXT_C, spaceAfter=0,
+)
+styles["template_body"] = ParagraphStyle(
+    "TemplateBody", fontName="DMSans", fontSize=8.9, leading=12.2,
+    textColor=TEXT_C, spaceAfter=0,
+)
+styles["template_small"] = ParagraphStyle(
+    "TemplateSmall", fontName="DMSans", fontSize=7.6, leading=9.8,
+    textColor=MUTED, spaceAfter=0,
+)
+styles["template_box_title"] = ParagraphStyle(
+    "TemplateBoxTitle", fontName="DMSerif", fontSize=9.6, leading=11.4,
+    textColor=NAVY, spaceAfter=1.0 * mm,
+)
+styles["template_box_body"] = ParagraphStyle(
+    "TemplateBoxBody", fontName="DMSans", fontSize=7.1, leading=8.8,
+    textColor=TEXT_C, spaceAfter=0,
+)
+styles["template_source"] = ParagraphStyle(
+    "TemplateSource", fontName="DMSans", fontSize=6.2, leading=7.6,
+    textColor=MUTED, spaceAfter=0,
 )
 
 
@@ -1948,10 +1973,287 @@ def apply_pdf_metadata(output_path: Path, meta):
         pdf.save(output_path)
 
 
+def draw_template_paragraph(c, text, x, y_top, width, style):
+    """Draw a wrapped paragraph with a top-left coordinate."""
+    paragraph = Paragraph(md_inline(text), style)
+    _, height = paragraph.wrap(width, PAGE_H)
+    paragraph.drawOn(c, x, y_top - height)
+    return height
+
+
+def draw_template_badge(c, x, y, text, fill_color, stroke_color, text_color, width=None):
+    """Draw the rounded eyebrow/format badges used by the canonical template."""
+    c.saveState()
+    c.setFont("DMSans", 6.2)
+    badge_w = width or max(20 * mm, c.stringWidth(text, "DMSans", 6.2) + 7 * mm)
+    badge_h = 6.2 * mm
+    c.setFillColor(fill_color)
+    c.setStrokeColor(stroke_color)
+    c.setLineWidth(0.35)
+    c.roundRect(x, y, badge_w, badge_h, 3.1 * mm, fill=1, stroke=1)
+    c.setFillColor(text_color)
+    c.drawCentredString(x + badge_w / 2, y + 2.05 * mm, text)
+    c.restoreState()
+    return badge_w
+
+
+def draw_template_section_heading(c, x, y, width, text):
+    """Draw teal section eyebrow plus rule, returning the next y position."""
+    c.saveState()
+    c.setFont("DMSans", 7.4)
+    c.setFillColor(TEAL)
+    c.drawString(x, y, text.upper())
+    c.setStrokeColor(HexColor("#a9c9ca"))
+    c.setLineWidth(0.45)
+    c.line(x, y - 3.4 * mm, x + width, y - 3.4 * mm)
+    c.restoreState()
+    return y - 7.3 * mm
+
+
+def draw_template_lifebuoy(c, cx, cy, radius=10 * mm):
+    """Draw a simple, stress-readable lifebuoy symbol."""
+    inner = radius * 0.48
+    c.saveState()
+    c.setFillColor(ALERT)
+    c.setStrokeColor(ALERT)
+    c.circle(cx, cy, radius, fill=1, stroke=1)
+    c.setFillColor(HexColor("#fffdf9"))
+    c.circle(cx, cy, inner, fill=1, stroke=0)
+    c.setStrokeColor(HexColor("#fffdf9"))
+    c.setLineWidth(4)
+    c.line(cx - radius, cy, cx - inner, cy)
+    c.line(cx + inner, cy, cx + radius, cy)
+    c.line(cx, cy - radius, cx, cy - inner)
+    c.line(cx, cy + inner, cx, cy + radius)
+    c.restoreState()
+
+
+def draw_notfallkarte_contact_card(c, x, y, w, h, contact, idx):
+    """Draw one emergency option card inside the lifebuoy decision block."""
+    urgent = contact.get("tone") == "urgent" or contact.get("value") in {"144", "117"}
+    bg = HexColor("#fff4ee") if urgent else HexColor("#fff4d8")
+    accent = ALERT if urgent else TEAL
+    c.saveState()
+    c.setFillColor(bg)
+    c.setStrokeColor(HexColor("#dbcfc4"))
+    c.setLineWidth(0.45)
+    c.roundRect(x, y, w, h, 3.5, fill=1, stroke=1)
+    c.setFillColor(accent)
+    c.setFont("DMSans", 6.4)
+    c.drawString(x + 4 * mm, y + h - 6.0 * mm, f"{idx} · {contact['label'].upper()}")
+    c.setFont("DMSerif", 19 if len(contact["value"]) <= 5 else 14)
+    c.drawString(x + 4 * mm, y + h - 14.2 * mm, contact["value"].replace("&nbsp;", " "))
+    note_style = ParagraphStyle(
+        f"EmergencyNote-{idx}",
+        parent=styles["template_small"],
+        fontSize=6.8,
+        leading=8.6,
+        textColor=TEXT_C,
+    )
+    draw_template_paragraph(c, contact.get("note", ""), x + 4 * mm, y + h - 18.2 * mm, w - 8 * mm, note_style)
+    c.restoreState()
+
+
+def draw_notfallkarte_practice_box(c, x, y, w, h, box):
+    """Draw one compact practice card, modelled after the reference handout."""
+    c.saveState()
+    c.setFillColor(HexColor("#f4f0eb"))
+    c.setStrokeColor(HexColor("#c28a52"))
+    c.setLineWidth(0.8)
+    c.roundRect(x, y, w, h, 3.5, fill=1, stroke=0)
+    c.setStrokeColor(HexColor("#c28a52"))
+    c.line(x, y + 1.5, x, y + h - 1.5)
+
+    title_h = draw_template_paragraph(
+        c,
+        f"**{box['title']}**",
+        x + 4.4 * mm,
+        y + h - 3.0 * mm,
+        w - 8.8 * mm,
+        styles["template_box_title"],
+    )
+    item_text = "<br/>".join(f"&bull;&nbsp;{md_inline(item)}" for item in box["items"])
+    body_style = ParagraphStyle(
+        f"PracticeCard-{box['title']}",
+        parent=styles["template_box_body"],
+        leading=8.5,
+    )
+    paragraph = Paragraph(item_text, body_style)
+    _, body_h = paragraph.wrap(w - 8.8 * mm, h - title_h - 6 * mm)
+    paragraph.drawOn(c, x + 4.4 * mm, y + h - 4.0 * mm - title_h - body_h)
+    c.restoreState()
+
+
+def draw_notfallkarte_pdf(meta, body, output_path: Path):
+    """Render the Notfallkarte as the first canonical Fachstelle Krisen-Handout."""
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    c = pdf_canvas.Canvas(str(output_path), pagesize=A4)
+    c.setTitle(meta.get("title", "Handout"))
+    c.setAuthor("PUK Zürich — Fachstelle Angehörigenarbeit")
+    c.setSubject(meta.get("goal", ""))
+
+    # Page background and canonical content box.
+    c.setFillColor(HexColor("#fffdf9"))
+    c.rect(0, 0, PAGE_W, PAGE_H, fill=1, stroke=0)
+
+    x = 17 * mm
+    content_width = PAGE_W - 34 * mm
+    y = PAGE_H - 19 * mm
+
+    badge_w = draw_template_badge(
+        c,
+        x,
+        y,
+        "KRISEN-HANDOUT",
+        TEAL_SOFT,
+        HexColor("#d9ecec"),
+        HexColor("#18727a"),
+        width=33 * mm,
+    )
+    draw_template_badge(
+        c,
+        x + badge_w + 3 * mm,
+        y,
+        "A4 · 1 Seite",
+        HexColor("#fffdf9"),
+        LINE,
+        MUTED,
+        width=25 * mm,
+    )
+    c.setFillColor(MUTED)
+    c.setFont("DMSans", 6.8)
+    c.drawRightString(x + content_width, y + 2.3 * mm, f"Stand {format_swiss_date(meta.get('last_updated'))}")
+
+    title_top = y - 8.0 * mm
+    title_h = draw_template_paragraph(
+        c,
+        meta.get("title", "Notfallkarte"),
+        x,
+        title_top,
+        content_width,
+        ParagraphStyle("TemplateH1", fontName="DMSerif", fontSize=25, leading=29, textColor=NAVY),
+    )
+    title_rule_y = title_top - title_h - 3.5 * mm
+    c.setStrokeColor(TEAL)
+    c.setLineWidth(1.1)
+    c.line(x, title_rule_y, x + 16 * mm, title_rule_y)
+
+    callout_top = title_rule_y - 5 * mm
+    callout_h = 22 * mm
+    c.setFillColor(HexColor("#fff1ed"))
+    c.setStrokeColor(HexColor("#e8c4b8"))
+    c.setLineWidth(0.45)
+    c.roundRect(x, callout_top - callout_h, content_width, callout_h, 4, fill=1, stroke=1)
+    draw_template_paragraph(
+        c,
+        f"**{meta.get('emergency_label', 'Zuerst klären')}**",
+        x + 5 * mm,
+        callout_top - 5.4 * mm,
+        37 * mm,
+        ParagraphStyle("CalloutLabel", fontName="DMSans", fontSize=8.0, leading=10.4, textColor=ALERT),
+    )
+    draw_template_paragraph(
+        c,
+        meta.get("emergency_callout", ""),
+        x + 46 * mm,
+        callout_top - 4.8 * mm,
+        content_width - 51 * mm,
+        ParagraphStyle("CalloutBody", fontName="DMSans", fontSize=9.3, leading=12.1, textColor=ALERT),
+    )
+
+    y = callout_top - callout_h - 8 * mm
+    y = draw_template_section_heading(c, x, y, content_width, "Rettungsring: welcher Weg jetzt?")
+
+    visual_h = 34 * mm
+    c.setFillColor(HexColor("#fbfaf8"))
+    c.setStrokeColor(LINE)
+    c.setLineWidth(0.45)
+    c.roundRect(x, y - visual_h, content_width, visual_h, 4, fill=1, stroke=1)
+    draw_template_lifebuoy(c, x + 23 * mm, y - visual_h / 2 + 1 * mm, radius=10.4 * mm)
+
+    contacts = normalize_acute_contacts(meta)
+    card_gap = 4 * mm
+    card_x = x + 49 * mm
+    card_w = (content_width - 55 * mm - 2 * card_gap) / 3
+    card_h = visual_h - 10 * mm
+    card_y = y - visual_h + 5 * mm
+    for idx, contact in enumerate(contacts[:3], start=1):
+        current_x = card_x + (idx - 1) * (card_w + card_gap)
+        draw_notfallkarte_contact_card(c, current_x, card_y, card_w, card_h, contact, idx)
+        if idx < 3:
+            c.setFillColor(MUTED)
+            c.setFont("DMSans", 11)
+            c.drawCentredString(current_x + card_w + card_gap / 2, card_y + card_h / 2 - 2, "›")
+
+    y = y - visual_h - 10 * mm
+    y = draw_template_section_heading(c, x, y, content_width, "Praxis in den ersten Minuten")
+
+    boxes = normalize_acute_practice_boxes(meta)
+    box_gap_x = 5 * mm
+    box_gap_y = 4 * mm
+    box_w = (content_width - box_gap_x) / 2
+    box_h = 27 * mm
+    for idx, box in enumerate(boxes[:4]):
+        col = idx % 2
+        row = idx // 2
+        box_x = x + col * (box_w + box_gap_x)
+        box_y = y - (row + 1) * box_h - row * box_gap_y
+        draw_notfallkarte_practice_box(c, box_x, box_y, box_w, box_h, box)
+
+    y = y - 2 * box_h - box_gap_y - 10 * mm
+    y = draw_template_section_heading(c, x, y, content_width, "Kurzregel")
+
+    sections = parse_body_sections(body)
+    kurzregel_lines = sections[0]["lines"] if sections else []
+    paragraphs = []
+    current = []
+    for line in kurzregel_lines:
+        if line.strip():
+            current.append(line.strip())
+        elif current:
+            paragraphs.append(" ".join(current))
+            current = []
+    if current:
+        paragraphs.append(" ".join(current))
+    kurzregel_text = "<br/><br/>".join(md_inline(paragraph) for paragraph in paragraphs)
+
+    note_h = 36 * mm
+    c.setFillColor(HexColor("#edf7f6"))
+    c.setStrokeColor(TEAL)
+    c.setLineWidth(0.8)
+    c.roundRect(x, y - note_h, content_width, note_h, 4, fill=1, stroke=0)
+    c.line(x, y - note_h + 1.5, x, y - 1.5)
+    note_para = Paragraph(kurzregel_text, styles["template_body"])
+    _, note_text_h = note_para.wrap(content_width - 12 * mm, note_h - 9 * mm)
+    note_para.drawOn(c, x + 6 * mm, y - 6 * mm - note_text_h)
+
+    footer_rule_y = 27 * mm
+    c.setStrokeColor(LINE)
+    c.setLineWidth(0.45)
+    c.line(x, footer_rule_y + 18 * mm, x + content_width, footer_rule_y + 18 * mm)
+
+    references = references_for_meta(meta)
+    source_prefix = "Quellen (Auswahl): "
+    source_text = source_prefix + " · ".join(f"{idx}. {reference}" for idx, reference in enumerate(references, start=1))
+    draw_template_paragraph(c, source_text, x, footer_rule_y + 14 * mm, content_width, styles["template_source"])
+
+    c.setFont("DMSans", 6.7)
+    c.setFillColor(MUTED)
+    c.drawString(x, 15.0 * mm, "Fachstelle Angehörigenarbeit · Psychiatrische Universitätsklinik Zürich")
+    c.drawString(x, 10.4 * mm, f"notfallkarte · Stand {format_swiss_date(meta.get('last_updated'))}")
+    c.drawRightString(x + content_width, 10.4 * mm, "Seite 1 von 1")
+    c.save()
+    apply_pdf_metadata(output_path, meta)
+    return output_path
+
+
 # ── Build PDF ─────────────────────────────────────────────────────────
 def build_pdf(meta, body, output_path: Path):
     """Generate a PDF from parsed markdown content."""
     is_acute_handout = is_crisis_handout(meta)
+
+    if str(meta.get("slug", "") or "") == "notfallkarte":
+        return draw_notfallkarte_pdf(meta, body, output_path)
 
     doc = SimpleDocTemplate(
         str(output_path),
