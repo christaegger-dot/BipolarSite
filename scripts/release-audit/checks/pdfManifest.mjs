@@ -62,10 +62,13 @@ const CRITICAL_LANGUAGE_METADATA_KEYS = new Set([
 ]);
 const REQUIRED_PDF_TEXT_SNIPPETS = {
   notfallkarte: [
-    "Triage: welcher Weg jetzt?",
+    "KRISEN-HANDOUT",
+    "Rettungsring: welcher Weg jetzt?",
     "ersetzt keine Diagnostik",
-    "Lebensgefahr: 144",
+    "Lebensgefahr oder Bewusstlosigkeit: 144",
     "Psychiatrische Krise ohne unmittelbare Lebensgefahr",
+    "Was zuerst tun?",
+    "Was am Telefon sagen?",
   ],
   krisenplanVorlage: [
     "sensible Gesundheitsdaten",

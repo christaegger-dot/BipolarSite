@@ -18,6 +18,7 @@
     "fedlex_stgb": "Fedlex: Schweizerisches Strafgesetzbuch, SR 311.0, Art. 321 Berufsgeheimnis. https://www.fedlex.admin.ch/eli/cc/54/757_781_799/de",
     "promente_beratung": "Pro Mente Sana: psychosoziale und juristische Beratung, 0848 800 858. https://promentesana.ch/angebote/beratung/beratung-fuer-betroffene-nahestehende",
     "promente_patientenverfuegung": "Pro Mente Sana: Psychiatrische Patientenverfügung und Selbstbestimmung. https://promentesana.ch",
+    "kanton_zh_notfall": "Kanton Zürich: Notfall und Rettung; 144 bei Lebensgefahr, Polizei 117, Ärztefon 0800 33 66 55. https://www.zh.ch/de/gesundheit/notfall-rettung.html",
     "aerztefon": "Ärztefon Zürich: 0800 33 66 55; bei akuter Lebensgefahr 144. https://www.aerztefon.ch/kontakt/",
     "puk_notfall": "Psychiatrische Universitätsklinik Zürich: Notfallkontakte Erwachsene/Kinder und Jugendliche. https://www.pukzh.ch/ueber-uns/kontakt/notfall/",
     "dargebotene_hand": "Die Dargebotene Hand: Telefon 143, Beratung in Krisen. https://www.143.ch",
@@ -49,7 +50,7 @@
     "grenzsetzung": ["family_focused", "caregiver_burden", "nice_bipolar"],
     "kurzblatt_stabilisiert": ["nice_bipolar", "s3_bipolar", "family_focused"],
     "krisenplan_vorlage": ["nice_bipolar", "nice_selfharm", "promente_patientenverfuegung"],
-    "notfallkarte": ["aerztefon", "puk_notfall", "dargebotene_hand", "pro_juventute", "zh_opferhilfe"],
+    "notfallkarte": ["kanton_zh_notfall", "aerztefon", "puk_notfall"],
     "rechtliche_orientierung": ["fedlex_zgb", "fedlex_stgb", "promente_beratung", "promente_patientenverfuegung"],
     "transformationsreise": ["caregiver_burden", "ambiguous_loss", "family_focused"],
     "trialog": ["family_focused", "promente_beratung", "nice_bipolar"]

@@ -5,12 +5,12 @@ source_pdf: "/downloads/notfallkarte-kanton-zuerich-puk.pdf"
 status: "promoted"
 show_status_badge: false
 show_priority_badge: false
-type: "Akutblatt"
+type: "Krisen-Handout"
 audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Kompakte Triage für akute Gefahr, psychiatrische Krise und erste Schutzschritte im Kanton Zürich"
 target_format: "A4, 1 Seite"
 priority: "P1"
-last_updated: "2026-05-13"
+last_updated: "2026-05-14"
 emergency_label: "Zuerst klären"
 emergency_callout: "Unmittelbare Gefahr, konkrete Suizidabsicht, Gewalt oder Bewusstlosigkeit: sofort 144 oder 117. Nicht erst alles ordnen wollen."
 emergency_note: "Diese Karte ist für die erste Einordnung gedacht und ersetzt keine Diagnostik. Wenn Sie unsicher sind, wählen Sie lieber die akutere Option."
@@ -21,9 +21,21 @@ quick_steps:
     text: "Bei Gewalt, Bedrohung oder wenn Sie selbst nicht mehr sicher sind"
   - icon: "24h"
     text: "Psychiatrische Krise ohne unmittelbare Lebensgefahr: 0800 33 66 55"
+emergency_contacts:
+  - label: "Sanität"
+    number: "144"
+    note: "Lebensgefahr, Suizidversuch, Bewusstlosigkeit"
+    tone: "urgent"
+  - label: "Polizei"
+    number: "117"
+    note: "Gewalt, Bedrohung, eigene Sicherheit kippt"
+    tone: "urgent"
+  - label: "Ärztefon"
+    number: "0800&nbsp;33&nbsp;66&nbsp;55"
+    note: "dringend, nicht unmittelbar lebensbedrohlich"
 acute_visual:
-  kind: "triage"
-  title: "Triage: welcher Weg jetzt?"
+  kind: "rettungsring"
+  title: "Rettungsring: welcher Weg jetzt?"
   items:
     - label: "Lebensgefahr"
       text: "144 sofort"
@@ -59,12 +71,6 @@ acute_practice_boxes:
 
 Diese Karte ersetzt keine Diagnostik. Sie soll helfen, in den ersten Minuten den passenden Notfallweg zu wählen.
 
-**Lebensgefahr: 144. Bedrohung/Gewalt: 117. Psychiatrische Krise ohne unmittelbare Lebensgefahr: 0800 33 66 55.**
+**Lebensgefahr oder Bewusstlosigkeit: 144. Gewalt, Bedrohung oder akuter Schutzbedarf: 117. Dringende medizinisch-psychiatrische Krise ohne unmittelbare Lebensgefahr: 0800 33 66 55.**
 
-Wenn die Akutlage vorbei ist: Krisenplan öffnen oder die Fachstelle Angehörigenarbeit PUK unter **058 384 38 00** kontaktieren.
-
-Weiterführend:
-
-- [Notfallseite](/notfall/)
-- [Modul 6: Kommunikation, Grenzen, Krisenplan](/modul/6/)
-- [Anlaufstellen und Ressourcen](/anlaufstellen/)
+Wenn Sie unsicher sind, wählen Sie lieber die akutere Option. Eigene Sicherheit und die Sicherheit von Kindern gehen vor Gespräch.
