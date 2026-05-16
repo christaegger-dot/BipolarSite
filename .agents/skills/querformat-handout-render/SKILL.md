@@ -388,3 +388,115 @@ Ursachenanalyse, keine optimistische Statusmeldung.
   Seitenzahl == erwartet, Seitenzuordnung (pageN-must / -must-not),
   Mess-Gate (delegiert an verify_pdf.py). Ersetzt die früher verstreuten
   Einzel-Snippets; Exit-Code 0 nur wenn ALLE Stufen bestehen.
+
+---
+## Verbindliche Design-Token — Fachstellen-Linie (ab 2026-05-16)
+
+Diese Token sind das Ergebnis einer forensischen Analyse des freigegebenen
+Referenz-Handouts «Schlaf als Frühwarnsystem» (Mai 2026). Sie sind für
+**alle** neuen und überarbeiteten Querformat-Handouts dieser Linie verbindlich.
+Abweichungen erfordern eine explizite Begründung.
+
+### Farb-Palette
+
+| Token-Name          | Hex       | Verwendung                                      |
+|---------------------|-----------|-------------------------------------------------|
+| `color-teal`        | `#4A7C7E` | H2-Überschriften, Eyebrow, Info-Box-Titel, Icons |
+| `color-terracotta`  | `#A64D3C` | Warn-Box-Titel, Warn-Icon, Kipppunkt-Kreis       |
+| `color-dark`        | `#3D3530` | H1-Titel, Fliesstext, Episode-Kreis              |
+| `color-mid`         | `#5A5550` | Lead-Text, H2 (Fallback)                         |
+| `color-grey-node`   | `#B0A898` | «Erste Risse»-Kreis in Verlaufsgrafik            |
+| `bg-page`           | `#FAF8F5` | Seitenhintergrund (warmes Off-White)             |
+| `bg-warn`           | `#FDF5F2` | Hintergrund Warn-Box                            |
+| `border-warn`       | `#E8D5CE` | Rahmen Warn-Box                                 |
+| `bg-info`           | `#F2F7F7` | Hintergrund Info-Box («Grenzen»)                |
+| `border-info`       | `#DCE8E8` | Rahmen Info-Box                                 |
+| `color-footer`      | `#555555` | Footer Zeile 1 (Institution/Stand)              |
+| `color-footer-src`  | `#888888` | Footer Zeile 2 (Quellen)                        |
+| `border-divider`    | `#E0E0E0` | Footer-Trennlinie, Grafik-Rahmen                |
+
+### Typografie
+
+| Element       | Schrift                          | Grösse | Gewicht | Farbe           | Besonderheit                  |
+|---------------|----------------------------------|--------|---------|-----------------|-------------------------------|
+| Eyebrow       | Helvetica Neue, serifenlos       | 8pt    | normal  | `color-teal`    | uppercase, letter-spacing 1px |
+| H1 Titel      | Helvetica Neue, serifenlos       | 30pt   | bold    | `color-dark`    | letter-spacing -0.5px         |
+| Lead          | Helvetica Neue, serifenlos       | 10.5pt | normal  | `color-mid`     | kursiv, margin-bottom 8mm     |
+| H2            | Helvetica Neue, serifenlos       | 11pt   | bold    | `color-teal`    | margin-top 4mm, -bottom 2mm   |
+| Fliesstext    | Helvetica Neue, serifenlos       | 9.5pt  | normal  | `color-dark`    | line-height 1.5               |
+| Bullet-Label  | Helvetica Neue, serifenlos       | 9.5pt  | bold    | `color-dark`    | gefolgt von normalem Text     |
+| Box-Titel     | Helvetica Neue, serifenlos       | 10pt   | bold    | je Box-Farbe    |                               |
+| Box-Text      | Helvetica Neue, serifenlos       | 9.5pt  | normal  | `color-dark`    |                               |
+| Footer Z1     | Helvetica Neue, serifenlos       | 8pt    | normal  | `color-footer`  |                               |
+| Footer Z2     | Helvetica Neue, serifenlos       | 7.5pt  | normal  | `color-footer-src` |                            |
+
+**Kein Google-Font-Import** (WeasyPrint hängt bei Netzwerkzugriffen).
+System-Fallback-Stack: `'Helvetica Neue', Helvetica, Arial, sans-serif`.
+
+### Eyebrow-Zeile (Pflicht)
+
+Jedes Handout beginnt mit einer zweizeiligen Eyebrow-Zeile:
+```
+FACHSTELLE ANGEHÖRIGENARBEIT · ORIENTIERUNGSBLATT
+```
+Farbe `color-teal`, 8pt, uppercase, letter-spacing 1px, margin-bottom 3mm.
+
+### Layout-Struktur
+
+Zweispaltig via `<table class="layout">` (WeasyPrint-Invariante):
+- Linke Spalte: **127 mm** (inkl. 10 mm Gutter als `padding-right`)
+- Rechte Spalte: **142 mm**
+- Summe: 127 + 142 = **269 mm** = bedruckbare Breite ✓
+- Kein CSS Grid, kein Flex auf Spaltenebene.
+
+### Boxen (Warn-Box und Info-Box)
+
+**Warn-Box** (z. B. «Ein wichtiges Warnsignal für Manie»):
+- Hintergrund `bg-warn`, Rahmen `border-warn`, border-radius 4px, padding 4mm
+- Flex-Layout: Icon links (24px, `color-terracotta`), Text rechts
+- Icon: Unicode ⚠ oder SVG-Dreieck in `color-terracotta`
+- Titel: bold, `color-terracotta`, 10pt
+- Haupttext: bold, 10.5pt, `color-dark`
+- Erklärtext: normal, 9.5pt, `color-dark`
+
+**Info-Box** (z. B. «Grenzen der Verantwortung»):
+- Hintergrund `bg-info`, Rahmen `border-info`, border-radius 4px, padding 4mm
+- Flex-Layout: Icon links (24px, `color-teal`), Text rechts
+- Icon: Herz-in-Händen SVG oder Unicode ♡ in `color-teal`
+- Titel: bold, `color-teal`, 10pt
+- Text: normal, 9.5pt, `color-dark`
+
+### Verlaufsgrafik (Sequence-Typ)
+
+Standard-SVG-Vorlage für «Rhythmus → Erste Risse → Kipppunkt → Episode»:
+- Hintergrund weiss, Rahmen `border-divider`, border-radius 4px, padding 4mm
+- Horizontale Linie: `#E0E0E0`, Pfeilspitze rechts
+- Stationen als Kreise (r=12):
+  - Rhythmus: fill `color-teal`
+  - Erste Risse: fill `color-grey-node`
+  - Kipppunkt: fill `color-terracotta`
+  - Episode: fill `color-dark`
+- Labels: bold, 11pt, `color-dark`; Sublabels: 9pt, `#888888`
+- Interventions-Box: kleines Rechteck über Erste-Risse→Kipppunkt-Bereich,
+  Rahmen `color-terracotta`, Text «Intervention», 8pt
+- Gestrichelte Verbindungslinie (stroke-dasharray 3,3) von Box zur Linie
+
+### Footer (Pflicht, zweizeilig)
+
+```
+Fachstelle Angehörigenarbeit, Psychiatrische Universitätsklinik Zürich  |  Stand: [Monat Jahr]
+Quellen: [Autor (Jahr). Titel. Zeitschrift, Band(Nr.), Seiten.]  ·  [weitere Quellen]
+```
+- Trennlinie: 1px solid `border-divider`, volle Druckbreite
+- Zeile 1: 8pt, `color-footer`
+- Zeile 2: 7.5pt, `color-footer-src`
+- Kein Netlify-Link, kein bipolarsite.netlify.app im Footer
+- Quellen vollständig (Autor, Jahr, Titel, Zeitschrift, Band, Seiten oder URL)
+
+### Schweizer Schreibweise (Pflicht)
+
+Konsequent «ss» statt «ß» im gesamten Text:
+- «äussern» (nicht «äußern»)
+- «Strasse» (nicht «Straße»)
+- «heissen» (nicht «heißen»)
+- «weiss» (nicht «weiß»)
