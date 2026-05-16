@@ -500,3 +500,149 @@ Konsequent «ss» statt «ß» im gesamten Text:
 - «Strasse» (nicht «Straße»)
 - «heissen» (nicht «heißen»)
 - «weiss» (nicht «weiß»)
+
+---
+## Forensischer Vergleich: Referenz vs. eigener Output (2026-05-16)
+
+Dieser Abschnitt dokumentiert die präzisen Unterschiede zwischen dem
+freigegebenen Referenz-Handout und dem eigenen WeasyPrint-Output (v3).
+Er ist verbindliche Korrekturanweisung für alle künftigen Handouts.
+
+### 1. H1-Titel: Serif vs. Serifenlos — der wichtigste Unterschied
+
+**Referenz:** Der Titel «Schlaf als Frühwarnsystem» ist in einer eleganten
+**Serif-Schrift** gesetzt (Garamond- oder Georgia-ähnlich), normal weight
+(nicht bold), sehr gross (~36–40pt). Die Serifen erzeugen optische Ruhe,
+Gewicht ohne Masse, und eine editoriale Qualität, die an Buchcover oder
+Fachzeitschriften erinnert.
+
+**Eigener Output:** Helvetica Neue bold 30pt — technisch korrekt, aber
+**zu kompakt und zu technisch**. Der Titel wirkt wie eine Broschüre, nicht
+wie ein Fachblatt.
+
+**Korrektur im Skill:**
+```css
+h1 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 38pt;
+  font-weight: normal;   /* NICHT bold — Serifen tragen das Gewicht */
+  color: #3D3530;
+  letter-spacing: -0.5px;
+  margin: 0 0 4mm 0;
+}
+```
+WeasyPrint rendert Georgia zuverlässig (System-Font auf Linux via
+`fonts-liberation` oder `ttf-mscorefonts`). Fallback: `'Times New Roman'`.
+**Kein Google-Font-Import** (Netzwerk-Hang). Alternativ: Liberation Serif.
+
+### 2. Weissraum unter dem Titel — zu wenig Luft
+
+**Referenz:** Zwischen H1 und Lead-Text ist ein deutlicher Weissraum
+(~6–8 mm). Der Titel «atmet» — er steht allein, bevor der Inhalt beginnt.
+
+**Eigener Output:** Der Abstand ist zu klein, der Titel klebt am Lead.
+
+**Korrektur:** `h1 { margin-bottom: 7mm; }` — grosszügiger als bisher.
+
+### 3. Lead-Text: Schriftgrösse und Gewicht
+
+**Referenz:** Der Lead ist in einer **Serif-Kursiv** gesetzt (~11–12pt),
+etwas grösser als Fliesstext. Er wirkt wie ein Untertitel in einem
+Sachbuch — einladend, nicht technisch.
+
+**Eigener Output:** Helvetica Neue kursiv 10.5pt — korrekt kursiv, aber
+die serifenlose Kursive hat weniger Eleganz als eine Serif-Kursive.
+
+**Korrektur:**
+```css
+.lead {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 11.5pt;
+  color: #5A5550;
+  margin-bottom: 9mm;
+}
+```
+
+### 4. Warn-Box: Icon-Grösse und Proportionen
+
+**Referenz:** Das Warn-Icon (Dreieck ⚠) ist **deutlich grösser** (~36–40px),
+hat einen **runden Hintergrundkreis** in hellem Terracotta-Ton (#F5DDD8 oder
+ähnlich), und ist damit ein eigenständiges visuelles Element — kein
+Inline-Zeichen.
+
+**Eigener Output:** Das SVG-Icon ist 24px, kein Hintergrundkreis, wirkt
+als reines Inline-Symbol neben dem Text.
+
+**Korrektur:**
+```html
+<!-- Icon mit Hintergrundkreis -->
+<div style="width:40px; height:40px; border-radius:50%;
+            background:#F5DDD8; display:flex; align-items:center;
+            justify-content:center; flex-shrink:0; margin-right:4mm;">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+       stroke="#A64D3C" stroke-width="2">
+    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94..."/>
+    ...
+  </svg>
+</div>
+```
+
+### 5. Info-Box: Icon ist ein «Herz in Händen» — nicht ein einfaches Herz
+
+**Referenz:** Das Icon in der Info-Box zeigt **zwei Hände, die ein Herz
+halten** — ein spezifischeres, emotionaleres Symbol als ein einfaches Herz.
+Ebenfalls mit rundem Hintergrundkreis in hellem Teal-Ton (#D6E8E8).
+
+**Eigener Output:** Einfaches Herz-SVG ohne Hintergrundkreis.
+
+**Korrektur:** Hände-Herz-SVG verwenden (Unicode hat kein passendes Zeichen,
+daher SVG-Pfad nötig) + Hintergrundkreis `background:#D6E8E8`.
+
+### 6. Verlaufsgrafik: Kreisgrössen und Proportionen
+
+**Referenz:** Die Kreise sind **grösser** (~r=16–18px), die Labels stehen
+**deutlich unterhalb** der Linie (nicht direkt darunter), und die Sublabels
+sind mehrzeilig und gut lesbar. Die Grafik hat mehr vertikale Luft.
+
+**Eigener Output:** Kreise r=12, Labels zu nah an der Linie, Grafik wirkt
+komprimiert.
+
+**Korrektur:** SVG viewBox auf `0 0 800 180` erhöhen, Kreise auf r=16,
+Labels bei y=120, Sublabels bei y=138 (mehrzeilig).
+
+### 7. Spaltenbreiten-Verhältnis
+
+**Referenz:** Die linke Spalte ist **schmaler** als die rechte. Das Verhältnis
+wirkt wie ~44:56 (ca. 118mm links, 151mm rechts). Die rechte Spalte hat
+mehr Platz für die Grafik und die Bullet-Liste.
+
+**Eigener Output:** 127mm:142mm = ~47:53 — zu ausgeglichen. Die Grafik
+wirkt dadurch enger.
+
+**Korrektur:** `col-left: 118mm` (inkl. 10mm Gutter), `col-right: 151mm`.
+Summe: 118 + 151 = 269mm ✓
+
+### 8. Hintergrundfarbe: Creme-Ton der Seite
+
+**Referenz:** Der Seitenhintergrund ist ein **wärmeres, satteres Creme**
+(~#F7F4EF oder #F5F2EC) — deutlich wärmer als ein neutrales Off-White.
+
+**Eigener Output:** #FAF8F5 — zu hell, zu neutral, wirkt fast weiss.
+
+**Korrektur:** `background-color: #F5F2EC` auf `body` und `@page`.
+
+### Zusammenfassung der Skill-Korrekturen
+
+| Element | Bisher | Soll |
+|---|---|---|
+| H1 Schrift | Helvetica Neue bold 30pt | Georgia normal 38pt |
+| Lead Schrift | Helvetica kursiv 10.5pt | Georgia kursiv 11.5pt |
+| Weissraum H1→Lead | 6mm | 7mm |
+| Weissraum Lead→Inhalt | 8mm | 9mm |
+| Warn-Icon | SVG 24px, kein Kreis | SVG 22px + Kreis 40px, bg #F5DDD8 |
+| Info-Icon | Herz SVG 24px, kein Kreis | Hände-Herz SVG + Kreis 40px, bg #D6E8E8 |
+| SVG-Kreise | r=12 | r=16 |
+| SVG viewBox Höhe | 160 | 180 |
+| Spalten | 127mm + 142mm | 118mm + 151mm |
+| Seitenhintergrund | #FAF8F5 | #F5F2EC |
