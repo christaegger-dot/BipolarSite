@@ -83,8 +83,15 @@ def main():
             x0, x1 = mm(r["x0"]), mm(r["x1"])
             y0, y1 = mm(r["top"]), mm(r["bottom"])
             w = x1 - x0
-            if w < 8 and (y1 - y0) < 8:
+            h = y1 - y0
+            if w < 8 and h < 8:
                 continue  # ignore hairlines / tiny artefacts
+            # Ignore full-page background rects (WeasyPrint @page background artefact)
+            # A rect is considered a full-page background if it covers ≥95% of page area
+            page_area = pw_mm * ph_mm
+            rect_area = w * h
+            if rect_area >= 0.95 * page_area:
+                continue  # full-page background — not a content overflow
             if x1 > right_edge + tol:
                 problems.append(
                     f"  [box] right edge x1={x1:.1f}mm exceeds page right "
