@@ -1,0 +1,35 @@
+LIEFERPAKET — Skill-konsolidierte Lieferung
+Stand: 16.05.2026
+
+Korrekturhinweis: Der enthaltene Skill definiert neu verbindlich den
+symmetrischen 14-mm-Standard (14/14/14/14; 182 mm Höhe). Die beiden
+mitgelieferten PDFs stammen noch aus dem früheren asymmetrischen
+Randmodell (12/14/11/14; 187 mm Höhe) und sind deshalb als
+Altauslieferungen/Referenzstände zu verstehen, nicht als Nachweis des
+neuen 14-mm-Standards.
+
+1. family-accommodation-v01.pdf  (+ -preview.png)
+   Querformat-Handout «Family Accommodation bei Zwangsstörungen».
+   Einseitig, nach bisherigem asymmetrischem Randmodell geprüft;
+   muss für den neuen 14-mm-Standard neu gerendert werden.
+
+2. ambivalente-loyalitaet-v01.pdf  (+ -preview.png)
+   Querformat-Handout «Ambivalente Loyalität».
+   Einseitig, Quellen verifiziert (Boss 1999/2006), Footer-
+   Pflichtinhalte per Textextraktion bestätigt; nach bisherigem
+   asymmetrischem Randmodell geprüft; muss für den neuen 14-mm-Standard
+   neu gerendert werden.
+
+3. querformat-handout-render.skill
+   Konsolidierter Rendering-Skill. Scope, Margin-Standard, Diagramm-
+   Dokumentation, zentrale Prüfkette und Top-Overflow-Prüfung sind auf
+   den neuen 14-mm-Standard abgestimmt; Skripte kompilieren.
+
+NICHT enthalten (bewusst, da kein fertiger Auslieferungsstand):
+- belastung-verstehen-v01 (Erosions-VORversion, ohne Handlungsbox/
+  Merksatz — verifizierter Zwischenstand, nicht das Zielblatt)
+- erosion-zweiseiter-ARBEITSSTAND-* (Inhalt vollständig, Seiten-
+  geometrie ungelöst — Werkstattmaterial)
+- NAECHSTER-SCHRITT-erosion-zweiseiter.md (Auftrag für den noch
+  ausstehenden mess-geführten Zweiseiter-Aufbau)
+Diese liegen weiterhin einzeln im Output-Ordner.
