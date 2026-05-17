@@ -229,6 +229,19 @@ const handouts = {
     mode: "preview",
     quality: "new",
   }),
+  a6_bipolar_i_ii_mischzustaende: asset({
+    key: "a6_bipolar_i_ii_mischzustaende",
+    url: "/handouts/a6_bipolar_i_ii_mischzustaende.pdf",
+    title: "Bipolar I, II und Mischbilder verstehen",
+    subtitle: "Hochphase, Depression und gemischte Merkmale unterscheiden",
+    assetId: "HO-31",
+    version: "web_v01",
+    updated: "2026-05-17",
+    filename: "a6_bipolar_i_ii_mischzustaende.pdf",
+    pages: "A4 quer · 1 Seite",
+    mode: "preview",
+    quality: "new",
+  }),
   a8_warnsignale: asset({
     key: "a8_warnsignale",
     url: "/handouts/a8_warnsignale.pdf",
@@ -561,7 +574,7 @@ const handouts = {
 };
 
 const groups = {
-  modul1: [handouts.a1_bipolare_stoerung_verstehen, handouts.a2_phasenverlauf, handouts.a9_schlaf_fruehwarnsystem, handouts.a8_warnsignale, handouts.c4_manie, handouts.c5_depression, handouts.b7_behandlung_ambivalenz],
+  modul1: [handouts.a1_bipolare_stoerung_verstehen, handouts.a2_phasenverlauf, handouts.a6_bipolar_i_ii_mischzustaende, handouts.a9_schlaf_fruehwarnsystem, handouts.a8_warnsignale, handouts.c4_manie, handouts.c5_depression, handouts.b7_behandlung_ambivalenz],
   modul2: [handouts.b11_hypervigilanz_erschoepfung, handouts.b1_18_belastungen, handouts.a5_affiliate_stigma, handouts.b9_depression_partner],
   modul3: [handouts.b10_trennung_scheidung, downloads.kritischeZeitpunkte],
   modul4: [handouts.a4_ambiguous_loss, handouts.b2_erosion_solidaritaet, handouts.b4_mechanismen_erosion],
@@ -573,6 +586,7 @@ const groups = {
   modul8ArchiveEntries: [
     { badge: "M1", asset: handouts.a1_bipolare_stoerung_verstehen },
     { badge: "M1", asset: handouts.a2_phasenverlauf },
+    { badge: "M1", asset: handouts.a6_bipolar_i_ii_mischzustaende },
     { badge: "M1", asset: handouts.a8_warnsignale },
     { badge: "M2", asset: handouts.b1_18_belastungen },
     { badge: "M6", asset: handouts.c4_manie },

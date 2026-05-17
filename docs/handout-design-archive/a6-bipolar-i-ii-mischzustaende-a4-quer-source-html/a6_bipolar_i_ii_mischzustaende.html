@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bipolar I, II und Mischbilder verstehen</title>
+  <style>
+    :root {
+      --page-w: 297mm;
+      --page-h: 210mm;
+      --margin-x: 14mm;
+      --margin-y: 14mm;
+      --ink: #2d2823;
+      --muted: #6d645d;
+      --line: rgba(45, 40, 35, 0.15);
+      --teal: #287f87;
+      --aubergine: #6e4964;
+      --rose: #9a4f45;
+      --green: #47735b;
+      --amber: #8a650f;
+      --blue: #3f6f8f;
+      --violet: #705279;
+      --paper: #fff;
+      --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+      --sans: "DM Sans", Arial, Helvetica, sans-serif;
+    }
+
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+
+    html,
+    body {
+      width: var(--page-w);
+      min-height: var(--page-h);
+      margin: 0;
+      background: #fff;
+      color: var(--ink);
+      font-family: var(--serif);
+    }
+
+    body {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .handout {
+      width: var(--page-w);
+      min-height: var(--page-h);
+    }
+
+    .print-page {
+      width: var(--page-w);
+      height: var(--page-h);
+      box-sizing: border-box;
+      overflow: hidden;
+      background: var(--paper);
+      padding: var(--margin-y) var(--margin-x);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 5mm;
+    }
+
+    .sheet-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 11mm;
+      align-items: start;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 4mm;
+    }
+
+    .eyebrow {
+      margin: 0 0 3mm;
+      font-family: var(--sans);
+      font-size: 9px;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 18ch;
+      font-size: 33px;
+      line-height: 0.98;
+      font-weight: 700;
+      letter-spacing: 0;
+      color: #746a62;
+    }
+
+    .lead {
+      margin: 4mm 0 0;
+      max-width: 70ch;
+      font-size: 13.7px;
+      line-height: 1.32;
+      font-style: italic;
+      color: #4d463f;
+    }
+
+    .tag {
+      justify-self: end;
+      padding: 2mm 3mm;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      font-family: var(--sans);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal);
+      background: #fff;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 0.78fr 1.36fr;
+      gap: 8mm;
+      min-height: 0;
+    }
+
+    section {
+      min-width: 0;
+    }
+
+    h2 {
+      margin: 0 0 2.15mm;
+      font-family: var(--sans);
+      font-size: 9.45px;
+      line-height: 1.18;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    p {
+      margin: 0 0 2.25mm;
+      font-size: 10.65px;
+      line-height: 1.31;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 1.25mm;
+    }
+
+    li {
+      position: relative;
+      padding-left: 4mm;
+      font-size: 9.8px;
+      line-height: 1.22;
+    }
+
+    li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.47em;
+      width: 1.35mm;
+      height: 1.35mm;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+
+    .relief {
+      margin-top: 3mm;
+      border-left: 3px solid var(--aubergine);
+      border-radius: 5px;
+      padding: 2.55mm 3.25mm;
+      box-shadow: inset 0 0 0 1px rgba(110, 73, 100, 0.17);
+      background: #fff;
+    }
+
+    .relief strong,
+    .note strong {
+      display: block;
+      margin-bottom: 1mm;
+      font-family: var(--sans);
+      font-size: 9px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .relief strong {
+      color: var(--aubergine);
+    }
+
+    .relief p,
+    .note p {
+      margin-bottom: 0;
+      font-size: 10px;
+      line-height: 1.27;
+    }
+
+    .visual-card {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 4mm;
+      display: grid;
+      grid-template-rows: auto auto auto;
+      gap: 2.8mm;
+      background: #fff;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .visual-title {
+      margin: 0;
+      font-family: var(--sans);
+      font-size: 10px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+
+    .a6-model-grid {
+      display: grid;
+      grid-template-columns: 1.02fr 1fr 43mm;
+      gap: 3mm;
+      align-items: stretch;
+    }
+
+    .a6-panel {
+      border: 1px solid rgba(45, 40, 35, 0.13);
+      border-radius: 6px;
+      padding: 2.8mm;
+      background: #fff;
+      min-width: 0;
+    }
+
+    .a6-panel h3 {
+      margin: 0 0 2mm;
+      font-family: var(--sans);
+      font-size: 8.2px;
+      line-height: 1.25;
+      font-weight: 800;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .a6-threshold-scale {
+      display: grid;
+      gap: 1.4mm;
+    }
+
+    .a6-scale-row {
+      display: grid;
+      grid-template-columns: 18mm 1fr;
+      gap: 2mm;
+      align-items: center;
+      min-height: 10mm;
+      border-radius: 5px;
+      padding: 1.7mm 2mm;
+    }
+
+    .a6-scale-row--mania {
+      background: rgba(138, 101, 15, 0.11);
+    }
+
+    .a6-scale-row--hypomania {
+      background: rgba(154, 79, 69, 0.09);
+    }
+
+    .a6-scale-row--stable {
+      background: rgba(40, 127, 135, 0.09);
+    }
+
+    .a6-row-label,
+    .a6-signal-label {
+      font-family: var(--sans);
+      font-size: 8.2px;
+      line-height: 1.15;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .a6-row-content {
+      display: flex;
+      align-items: center;
+      gap: 1.6mm;
+      min-width: 0;
+    }
+
+    .a6-row-text {
+      font-size: 8.55px;
+      line-height: 1.16;
+      color: var(--muted);
+    }
+
+    .a6-threshold-line {
+      position: relative;
+      height: 4.2mm;
+      border-top: 1.5px dashed var(--amber);
+      margin: 0.4mm 0;
+    }
+
+    .a6-threshold-line span {
+      position: absolute;
+      top: -2.5mm;
+      left: 1.8mm;
+      padding: 0 1.2mm;
+      background: #fff;
+      font-family: var(--sans);
+      font-size: 7.7px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: var(--amber);
+    }
+
+    .a6-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      min-width: 8.5mm;
+      height: 5.5mm;
+      padding: 0 1.8mm;
+      border: 1.35px solid currentColor;
+      border-radius: 999px;
+      background: #fff;
+      font-family: var(--sans);
+      font-size: 8px;
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+
+    .a6-chip--bi {
+      color: var(--amber);
+    }
+
+    .a6-chip--bii {
+      color: var(--rose);
+    }
+
+    .a6-chip--m {
+      color: var(--blue);
+    }
+
+    .a6-signal-bars {
+      display: grid;
+      gap: 2.5mm;
+      margin-top: 1mm;
+    }
+
+    .a6-signal-row {
+      display: grid;
+      gap: 1.2mm;
+    }
+
+    .a6-signal-label {
+      color: var(--muted);
+    }
+
+    .a6-signal-track {
+      height: 7mm;
+      border-radius: 999px;
+      background: rgba(45, 40, 35, 0.08);
+      overflow: hidden;
+    }
+
+    .a6-signal-fill {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 2mm;
+      font-family: var(--sans);
+      font-size: 7.8px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    .a6-signal-fill--activation {
+      width: 82%;
+      background: var(--rose);
+    }
+
+    .a6-signal-fill--depression {
+      width: 78%;
+      background: var(--blue);
+    }
+
+    .a6-mixed-result {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 2mm;
+      align-items: flex-start;
+      margin-top: 3mm;
+      padding: 2.3mm;
+      border: 1px solid rgba(63, 111, 142, 0.24);
+      border-radius: 6px;
+      background: rgba(63, 111, 142, 0.08);
+    }
+
+    .a6-mixed-result strong {
+      display: block;
+      margin-bottom: 0.7mm;
+      font-family: var(--sans);
+      font-size: 8.3px;
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .a6-mixed-result p {
+      margin: 0;
+      font-size: 8.8px;
+      line-height: 1.18;
+      color: var(--muted);
+    }
+
+    .a6-callout-stack {
+      display: grid;
+      gap: 1.8mm;
+    }
+
+    .a6-callout {
+      border-left: 3px solid var(--teal);
+      border-radius: 5px;
+      padding: 2mm 2.3mm;
+      background: #fff;
+      box-shadow: inset 0 0 0 1px rgba(45, 40, 35, 0.12);
+    }
+
+    .a6-callout--bi {
+      border-left-color: var(--amber);
+    }
+
+    .a6-callout--bii {
+      border-left-color: var(--rose);
+    }
+
+    .a6-callout--m {
+      border-left-color: var(--blue);
+    }
+
+    .a6-callout h3 {
+      margin: 0 0 0.8mm;
+      font-family: var(--sans);
+      font-size: 8px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .a6-callout p {
+      margin: 0;
+      font-size: 8.8px;
+      line-height: 1.16;
+    }
+
+    .a6-model-note {
+      margin: 2.3mm 0 0;
+      text-align: center;
+      font-family: var(--sans);
+      font-size: 7.7px;
+      line-height: 1.2;
+      color: var(--muted);
+    }
+
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: 0.88fr 0.88fr 1.24fr;
+      gap: 3mm;
+      align-items: stretch;
+    }
+
+    .mini-block {
+      border-top: 2px solid var(--teal);
+      padding-top: 2mm;
+    }
+
+    .mini-block p {
+      font-size: 9.2px;
+      line-height: 1.21;
+      margin-bottom: 0;
+    }
+
+    .note {
+      border-left: 3px solid var(--teal);
+      border-radius: 5px;
+      padding: 2.3mm 3mm;
+      background: #fff;
+      box-shadow: inset 0 0 0 1px rgba(40, 127, 135, 0.18);
+    }
+
+    .note strong {
+      color: var(--teal);
+    }
+
+    .footer {
+      display: grid;
+      gap: 1.2mm;
+      padding-top: 2.4mm;
+      border-top: 1px solid var(--line);
+      font-family: var(--sans);
+      font-size: 8.1px;
+      line-height: 1.25;
+      color: var(--muted);
+    }
+
+    .footer-main {
+      display: flex;
+      justify-content: space-between;
+      gap: 8mm;
+    }
+
+    .sources {
+      font-size: 7.15px;
+      line-height: 1.2;
+      color: #7c746d;
+    }
+
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="handout">
+    <article class="print-page" aria-label="Bipolar I, II und Mischbilder verstehen">
+      <header class="sheet-header">
+        <div>
+          <p class="eyebrow">Fachstelle Angehörigenarbeit · Orientierungsblatt</p>
+          <h1>Bipolar I, II und Mischbilder verstehen</h1>
+          <p class="lead">Die Begriffe klingen technisch, beschreiben aber eine häufige Verwirrung: Wie stark ist die Hochphase? Wie belastend sind Tiefphasen? Und können Tempo, Unruhe und Verzweiflung gleichzeitig auftreten? Dieses Blatt ersetzt keine fachliche Abklärung, Diagnose oder Behandlung.</p>
+        </div>
+        <div class="tag">A4 quer · Schwelle + Mischbild</div>
+      </header>
+
+      <div class="content-grid">
+        <section aria-labelledby="worum-es-geht">
+          <h2 id="worum-es-geht">Worum es geht</h2>
+          <p>Angehörige sehen meist keine Diagnosekriterien, sondern Alltag: wenig Schlaf, mehr Tempo, Rückzug, Gereiztheit, Risikoverhalten, Scham oder Verzweiflung. Die Begriffe Bipolar I, Bipolar II und Mischbilder helfen, solche Muster vorsichtiger einzuordnen.</p>
+          <p>Bipolar I, Bipolar II und Mischbilder sind keine Rangliste von «leicht» bis «schwer». Entscheidend ist, welche Muster zusammenkommen: Schlaf, Tempo, Stimmung, Risiko, Rückzug, Verzweiflung — und wie stark sie Alltag, Beziehung und Sicherheit verändern.</p>
+
+          <h2>Drei Unterscheidungen</h2>
+          <ul>
+            <li><strong>Bipolar I:</strong> Mindestens eine Manie verändert Alltag, Urteil, Schlaf, Risiko oder Realitätsbezug deutlich.</li>
+            <li><strong>Bipolar II:</strong> Hypomanien erreichen keine Manie. Depressive Episoden können trotzdem schwer, lang und alltagsprägend sein.</li>
+            <li><strong>Mischbild:</strong> Aktivierung und depressive Belastung treten gleichzeitig auf: Unruhe, Schlafverlust, dunkle Stimmung, Gereiztheit oder Verzweiflung.</li>
+          </ul>
+
+          <div class="relief">
+            <strong>Entlastender Kernsatz</strong>
+            <p>Weniger sichtbar bedeutet nicht weniger ernst. Für Angehörige zählt zuerst: Was verändert sich, was kommt zusammen, wie lange hält es an — und braucht es Unterstützung?</p>
+          </div>
+        </section>
+
+        <section class="visual-card" aria-labelledby="model-title">
+          <h2 class="visual-title" id="model-title">Schwelle und Mischbild · drei Dinge getrennt sehen</h2>
+          <div class="a6-model-grid">
+            <div class="a6-panel a6-threshold-panel">
+              <h3>1 · Wie hoch geht die Hochphase?</h3>
+              <div class="a6-threshold-scale">
+                <div class="a6-scale-row a6-scale-row--mania">
+                  <div class="a6-row-label">Manie</div>
+                  <div class="a6-row-content">
+                    <span class="a6-chip a6-chip--bi">B I</span>
+                    <span class="a6-row-text">Schwelle überschritten</span>
+                  </div>
+                </div>
+
+                <div class="a6-threshold-line">
+                  <span>Manie-Schwelle · Orientierung</span>
+                </div>
+
+                <div class="a6-scale-row a6-scale-row--hypomania">
+                  <div class="a6-row-label">Hypomanie</div>
+                  <div class="a6-row-content">
+                    <span class="a6-chip a6-chip--bii">B II</span>
+                    <span class="a6-row-text">beschleunigt oder riskanter, aber keine Manie</span>
+                  </div>
+                </div>
+
+                <div class="a6-scale-row a6-scale-row--stable">
+                  <div class="a6-row-label">Stabiler Bereich</div>
+                  <div class="a6-row-content">
+                    <span class="a6-row-text">Erholung, Planung und Absprachen möglich</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="a6-panel a6-mixed-panel">
+              <h3>2 · Können zwei Signale gleichzeitig da sein?</h3>
+              <div class="a6-signal-bars">
+                <div class="a6-signal-row">
+                  <div class="a6-signal-label">Aktivierung / Tempo / Risiko</div>
+                  <div class="a6-signal-track">
+                    <div class="a6-signal-fill a6-signal-fill--activation">hoch</div>
+                  </div>
+                </div>
+
+                <div class="a6-signal-row">
+                  <div class="a6-signal-label">Depressive Belastung</div>
+                  <div class="a6-signal-track">
+                    <div class="a6-signal-fill a6-signal-fill--depression">hoch</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="a6-mixed-result">
+                <span class="a6-chip a6-chip--m">M</span>
+                <div>
+                  <strong>Mischbild</strong>
+                  <p>Gleichzeitig: Unruhe, Schlafverlust, dunkle Stimmung, Gereiztheit oder Verzweiflung.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="a6-callout-stack">
+              <div class="a6-callout a6-callout--bi">
+                <h3>B I · Bipolar I</h3>
+                <p>Mindestens eine Manie verändert Alltag, Urteil, Schlaf, Risiko oder Realitätsbezug deutlich.</p>
+              </div>
+              <div class="a6-callout a6-callout--bii">
+                <h3>B II · Bipolar II</h3>
+                <p>Hypomanien erreichen keine Manie. Depressive Episoden können dennoch schwer, lang oder alltagsprägend sein.</p>
+              </div>
+              <div class="a6-callout a6-callout--m">
+                <h3>M · Mischbild</h3>
+                <p>Aktivierung und depressive Belastung treten gleichzeitig auf.</p>
+              </div>
+            </div>
+          </div>
+          <p class="a6-model-note">vereinfachtes Modell — keine diagnostische Einordnung</p>
+
+          <div class="bottom-grid">
+            <div class="mini-block">
+              <h2>Nicht diagnostizieren</h2>
+              <p>Die Begriffe helfen beim Sortieren. Ob Kriterien erfüllt sind, gehört in die fachliche Abklärung.</p>
+            </div>
+            <div class="mini-block">
+              <h2>Nicht verharmlosen</h2>
+              <p>Weniger sichtbare Hochphasen können täuschen, besonders wenn depressive Phasen dominieren.</p>
+            </div>
+            <div class="note" data-required="next-action">
+              <strong>Konkreter nächster Schritt</strong>
+              <p>Bei einer verwirrenden Veränderung getrennt notieren: Schlaf, Tempo, Stimmung, Risiko und Rückzug. So wird sichtbarer, ob mehrere Muster gleichzeitig kippen.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <footer class="footer">
+        <div class="footer-main">
+          <span>Fachstelle Angehörigenarbeit · Psychiatrische Universitätsklinik Zürich</span>
+          <span>a6-bipolar-i-ii-mischzustaende v01 · Stand 17. Mai 2026 · Seite 1 von 1</span>
+        </div>
+        <div class="sources">
+          Quellen: NICE CG185, Bipolar disorder: assessment and management, aktualisiert 2025 · DGBS/DGPPN S3-Leitlinie Bipolare Störungen, 2019/2020 · CANMAT/ISBD Guidelines Bipolar Disorder, 2018 · APA DSM-5-TR-Informationen zu Bipolar Disorders und Mixed Features
+        </div>
+      </footer>
+    </article>
+  </main>
+</body>
+</html>
