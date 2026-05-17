@@ -41,6 +41,7 @@ const CRITICAL_LANGUAGE_METADATA_KEYS = new Set([
   "a1_bipolare_stoerung_verstehen",
   "a2_phasenverlauf",
   "a6_bipolar_i_ii_mischzustaende",
+  "absprachen_bevor_es_kippt",
   "a3_ambivalente_loyalitaet",
   "a4_ambiguous_loss",
   "a5_affiliate_stigma",
@@ -180,6 +181,12 @@ const REQUIRED_PDF_TEXT_SNIPPETS = {
     "Ampel für Frühwarnzeichen",
     "Vereinbarten Schritt nutzen",
     "Nicht jedes Zeichen",
+  ],
+  absprachen_bevor_es_kippt: [
+    "Die Absprachekarte",
+    "Wenn-dann-Abmachung",
+    "Eine Absprache ist kein Misstrauen",
+    "Konkreter nächster Schritt",
   ],
   a3_ambivalente_loyalitaet: [
     "Vier innere Kräfte",

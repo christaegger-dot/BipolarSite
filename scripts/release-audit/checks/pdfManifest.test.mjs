@@ -110,6 +110,8 @@ describe("PDF manifest audit helpers", () => {
     assert.ok(requiredPdfTextSnippets("a2_phasenverlauf").includes("Konkreter nächster Schritt"));
     assert.ok(requiredPdfTextSnippets("a6_bipolar_i_ii_mischzustaende").includes("Schwelle und Mischbild"));
     assert.ok(requiredPdfTextSnippets("a6_bipolar_i_ii_mischzustaende").includes("Konkreter nächster Schritt"));
+    assert.ok(requiredPdfTextSnippets("absprachen_bevor_es_kippt").includes("Die Absprachekarte"));
+    assert.ok(requiredPdfTextSnippets("absprachen_bevor_es_kippt").includes("Wenn-dann-Abmachung"));
     assert.ok(requiredPdfTextSnippets("b10_trennung_scheidung").includes("Schutz- und Abstandspfade"));
     assert.ok(requiredPdfTextSnippets("b2_erosion_solidaritaet").includes("Erosion als Verlauf"));
     assert.ok(requiredPdfTextSnippets("b4_mechanismen_erosion").includes("Co-Isolation"));

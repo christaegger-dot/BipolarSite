@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Absprachen, bevor es kippt</title>
+  <style>
+    :root {
+      --page-w: 297mm;
+      --page-h: 210mm;
+      --margin-x: 14mm;
+      --margin-y: 14mm;
+      --ink: #2d2823;
+      --muted: #6d645d;
+      --line: rgba(45, 40, 35, 0.15);
+      --teal: #287f87;
+      --teal-soft: #eef6f5;
+      --sand: #f6f0e6;
+      --amber: #8a650f;
+      --rose: #9a4f45;
+      --green: #3f7357;
+      --blue: #3f6f8f;
+      --paper: #fff;
+      --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+      --sans: "DM Sans", Arial, Helvetica, sans-serif;
+    }
+
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+
+    html,
+    body {
+      width: var(--page-w);
+      min-height: var(--page-h);
+      margin: 0;
+      background: #fff;
+      color: var(--ink);
+      font-family: var(--serif);
+    }
+
+    body {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .handout {
+      width: var(--page-w);
+      min-height: var(--page-h);
+    }
+
+    .print-page {
+      width: var(--page-w);
+      height: var(--page-h);
+      box-sizing: border-box;
+      overflow: hidden;
+      background: var(--paper);
+      padding: var(--margin-y) var(--margin-x);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 5mm;
+    }
+
+    .sheet-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12mm;
+      align-items: start;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 4mm;
+    }
+
+    .eyebrow {
+      margin: 0 0 3.5mm;
+      font-family: var(--sans);
+      font-size: 9px;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 16ch;
+      font-size: 34px;
+      line-height: 0.98;
+      font-weight: 700;
+      letter-spacing: 0;
+      color: #746a62;
+    }
+
+    .lead {
+      margin: 4.5mm 0 0;
+      max-width: 61ch;
+      font-size: 14.4px;
+      line-height: 1.34;
+      font-style: italic;
+      color: #4d463f;
+    }
+
+    .tag {
+      justify-self: end;
+      padding: 2mm 3mm;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      font-family: var(--sans);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal);
+      background: #fff;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.22fr;
+      gap: 9mm;
+      min-height: 0;
+    }
+
+    section {
+      min-width: 0;
+    }
+
+    h2 {
+      margin: 0 0 2.4mm;
+      font-family: var(--sans);
+      font-size: 9.6px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    p {
+      margin: 0 0 2.8mm;
+      font-size: 11.2px;
+      line-height: 1.31;
+    }
+
+    ul {
+      margin: 0 0 3.2mm 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 1.45mm;
+    }
+
+    li {
+      position: relative;
+      padding-left: 4.2mm;
+      font-size: 10.4px;
+      line-height: 1.22;
+    }
+
+    li::before {
+      content: "";
+      position: absolute;
+      top: 1.4mm;
+      left: 0;
+      width: 1.35mm;
+      height: 1.35mm;
+      border-radius: 999px;
+      background: var(--teal);
+    }
+
+    .relief {
+      margin-top: 3.2mm;
+      border-left: 3px solid #8a5578;
+      border-radius: 5px;
+      padding: 2.6mm 3.4mm;
+      background: #fff;
+      box-shadow: inset 0 0 0 1px rgba(110, 73, 100, 0.17);
+    }
+
+    .relief strong,
+    .formula strong,
+    .next-action strong {
+      display: block;
+      margin-bottom: 1mm;
+      font-family: var(--sans);
+      font-size: 9px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: #8a5578;
+    }
+
+    .relief p,
+    .formula p,
+    .next-action p {
+      margin: 0;
+      font-size: 10.7px;
+      line-height: 1.25;
+    }
+
+    .visual-card {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 4mm;
+      display: grid;
+      gap: 3mm;
+      background: #fff;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .visual-title {
+      margin: 0;
+      font-family: var(--sans);
+      font-size: 10px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+
+    .map-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2.4mm;
+    }
+
+    .map-card {
+      min-height: 34mm;
+      border: 1px solid rgba(45, 40, 35, 0.13);
+      border-radius: 6px;
+      padding: 2.6mm;
+      background: #fff;
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+      gap: 1.6mm;
+    }
+
+    .map-card:nth-child(1) {
+      background: rgba(40, 127, 135, 0.07);
+      border-top: 3px solid var(--teal);
+    }
+
+    .map-card:nth-child(2) {
+      background: rgba(138, 101, 15, 0.08);
+      border-top: 3px solid var(--amber);
+    }
+
+    .map-card:nth-child(3) {
+      background: rgba(63, 111, 142, 0.08);
+      border-top: 3px solid var(--blue);
+    }
+
+    .map-card:nth-child(4) {
+      background: rgba(154, 79, 69, 0.08);
+      border-top: 3px solid var(--rose);
+    }
+
+    .number {
+      width: 7mm;
+      height: 7mm;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--teal);
+      font-family: var(--sans);
+      font-size: 9px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .map-card:nth-child(2) .number {
+      background: var(--amber);
+    }
+
+    .map-card:nth-child(3) .number {
+      background: var(--blue);
+    }
+
+    .map-card:nth-child(4) .number {
+      background: var(--rose);
+    }
+
+    .map-card h3 {
+      margin: 0;
+      font-family: var(--sans);
+      font-size: 9.3px;
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .map-card p {
+      margin: 0;
+      font-size: 9.4px;
+      line-height: 1.18;
+      color: var(--muted);
+    }
+
+    .formula {
+      border-radius: 6px;
+      padding: 3mm;
+      background: var(--sand);
+      box-shadow: inset 0 0 0 1px rgba(45, 40, 35, 0.12);
+    }
+
+    .formula-text {
+      display: grid;
+      grid-template-columns: auto 1fr auto 1fr auto 1fr;
+      gap: 1.6mm;
+      align-items: center;
+      font-family: var(--sans);
+      font-size: 9px;
+      line-height: 1.2;
+      color: var(--ink);
+    }
+
+    .blank {
+      min-height: 6.5mm;
+      border-bottom: 1.5px solid rgba(45, 40, 35, 0.45);
+      background: rgba(255, 255, 255, 0.42);
+    }
+
+    .lower-grid {
+      display: grid;
+      grid-template-columns: 0.88fr 0.88fr 1.24fr;
+      gap: 3mm;
+      align-items: stretch;
+    }
+
+    .mini-block {
+      border-top: 2px solid var(--teal);
+      padding-top: 2mm;
+    }
+
+    .mini-block h2 {
+      margin-bottom: 1.6mm;
+    }
+
+    .mini-block p {
+      margin: 0;
+      font-size: 9.2px;
+      line-height: 1.2;
+    }
+
+    .next-action {
+      border-left: 3px solid var(--teal);
+      border-radius: 5px;
+      padding: 2.3mm 3mm;
+      background: #fff;
+      box-shadow: inset 0 0 0 1px rgba(40, 127, 135, 0.18);
+    }
+
+    .next-action strong {
+      color: var(--teal);
+    }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      padding-top: 2.4mm;
+      color: var(--muted);
+      font-size: 7px;
+      line-height: 1.25;
+    }
+
+    .footer-main {
+      display: flex;
+      justify-content: space-between;
+      gap: 8mm;
+      margin-bottom: 1mm;
+      white-space: nowrap;
+    }
+
+    .sources {
+      max-width: 100%;
+    }
+
+    @media screen {
+      body {
+        padding: 18px;
+      }
+
+      .print-page {
+        box-shadow: 0 10px 28px rgba(28, 43, 58, 0.12);
+      }
+    }
+
+    @media print {
+      html,
+      body,
+      .handout,
+      .print-page {
+        width: var(--page-w);
+        height: var(--page-h);
+        margin: 0;
+        background: #fff;
+      }
+
+      .print-page {
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="handout">
+    <article class="print-page" aria-label="Absprachen, bevor es kippt">
+      <header class="sheet-header">
+        <div>
+          <p class="eyebrow">Fachstelle Angehörigenarbeit · Praxisblatt</p>
+          <h1>Absprachen, bevor es kippt</h1>
+          <p class="lead">Wenn sich Warnzeichen verdichten, ist es oft zu spät für ruhiges Verhandeln. Absprachen in stabileren Phasen helfen, im schwierigen Moment nicht alles neu entscheiden zu müssen. Dieses Blatt ersetzt keine Behandlung oder persönliche Beratung.</p>
+        </div>
+        <div class="tag">A4 quer · Absprachekarte</div>
+      </header>
+
+      <div class="content-grid">
+        <section aria-labelledby="worum-es-geht">
+          <h2 id="worum-es-geht">Worum es geht</h2>
+          <p>Viele Angehörige merken rückblickend: Es gab frühe Zeichen. Schlaf wurde kürzer, Tempo nahm zu, Rückzug wurde stärker, Hoffnungslosigkeit dichter, Risiko grösser oder Gespräche kippten schneller.</p>
+          <p>Eine Absprache ist deshalb keine Kontrolle. Sie hält fest: Welche Zeichen zählen? Wie darf Sorge angesprochen werden? Wer wird wann einbezogen? Und was gilt, wenn Sicherheit, Schlaf, Geld, Beziehung oder Alltag spürbar gefährdet sind?</p>
+
+          <h2>Wenn Absprachen fehlen</h2>
+          <ul>
+            <li>Alle warten, bis es «eindeutig genug» ist.</li>
+            <li>Gespräche drehen sich darum, wer recht hat, statt was als Nächstes hilft.</li>
+            <li>Angehörige wissen nicht, ob sie jemanden informieren dürfen.</li>
+            <li>Schlaf, Geld, Autofahren, Termine, Medikamente, Kinderbetreuung oder Social Media werden erst in der Zuspitzung verhandelt.</li>
+            <li>Nach einer Krise bleibt unklar, was beim nächsten Mal früher geschehen soll.</li>
+          </ul>
+
+          <div class="relief">
+            <strong>Entlastender Kernsatz</strong>
+            <p>Eine Absprache ist kein Misstrauen. Sie hilft, in schwierigen Momenten nicht alles neu entscheiden zu müssen.</p>
+          </div>
+        </section>
+
+        <section class="visual-card" aria-labelledby="visualisierung">
+          <h2 id="visualisierung" class="visual-title">Die Absprachekarte · vier Dinge vorher klären</h2>
+
+          <div class="map-grid">
+            <div class="map-card">
+              <span class="number">1</span>
+              <h3>Frühzeichen</h3>
+              <p>Welche drei Veränderungen zählen bei uns besonders: Schlaf, Tempo, Rückzug, Hoffnung, Risiko oder Erreichbarkeit?</p>
+            </div>
+            <div class="map-card">
+              <span class="number">2</span>
+              <h3>Satz</h3>
+              <p>Wie darf Sorge ruhig, konkret und kurz angesprochen werden, ohne Diagnose oder Vorwurf?</p>
+            </div>
+            <div class="map-card">
+              <span class="number">3</span>
+              <h3>Einbeziehen</h3>
+              <p>Wer darf früh dazukommen, und welche Informationen dürfen weitergegeben werden?</p>
+            </div>
+            <div class="map-card">
+              <span class="number">4</span>
+              <h3>Schutzweg</h3>
+              <p>Was wird bei deutlicher Verdichtung nicht erst neu verhandelt: Schlafschutz, Geld, Fahren oder Unterstützung?</p>
+            </div>
+          </div>
+
+          <div class="formula">
+            <strong>Wenn-dann-Abmachung</strong>
+            <div class="formula-text">
+              <span>Wenn</span>
+              <span class="blank" aria-hidden="true"></span>
+              <span>dann</span>
+              <span class="blank" aria-hidden="true"></span>
+              <span>mit</span>
+              <span class="blank" aria-hidden="true"></span>
+            </div>
+          </div>
+
+          <div class="lower-grid">
+            <div class="mini-block">
+              <h2>Was hilft</h2>
+              <p>Schriftlich, kurz und in stabileren Zeiten klären. «Gelb» und «Rot» unterscheiden: Was tun wir früh, was bei deutlicher Verdichtung?</p>
+            </div>
+            <div class="mini-block">
+              <h2>Was eher nicht hilft</h2>
+              <p>Erst reden, wenn alle erschöpft sind, heimlich kontrollieren oder medizinische Schritte ohne Behandlungsteam improvisieren.</p>
+            </div>
+            <div class="next-action" data-required="next-action">
+              <strong>Konkreter nächster Schritt</strong>
+              <p>Wählen Sie heute eine schwierige Situation. Formulieren Sie eine kleine Absprache: Wenn Schlaf und Tempo deutlich kippen, dann sprechen wir es ruhig an und beziehen die vereinbarte Fachperson ein.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <footer class="footer">
+        <div class="footer-main">
+          <span>Fachstelle Angehörigenarbeit · Psychiatrische Universitätsklinik Zürich</span>
+          <span>absprachen-bevor-es-kippt v01 · Stand 17. Mai 2026 · Seite 1 von 1</span>
+        </div>
+        <div class="sources">
+          Quellen: NICE CG185, zuletzt aktualisiert 2025 · Perry et al., BMJ 1999 · DGBS/DGPPN S3-Leitlinie Bipolare Störungen, Langversion 2.1, 2019/2020
+        </div>
+      </footer>
+    </article>
+  </main>
+</body>
+</html>
