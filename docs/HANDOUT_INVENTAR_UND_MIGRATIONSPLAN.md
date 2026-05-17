@@ -36,7 +36,7 @@ visuelle Linie bringen:
 | Aktive Web-Handouts | 28 | Hauptquelle für die Migration. |
 | Legacy-Aliasse | 4 | Behalten, solange alte Direktlinks existieren. |
 | Markdown-Drafts | 31 | Inhaltliche Rohquelle, nicht ungeprüft übernehmen. |
-| Neue A4-quer-Referenzen | 11 | `a1_bipolare_stoerung_verstehen`, `a2_phasenverlauf`, `a6_bipolar_i_ii_mischzustaende`, `a8_warnsignale`, `absprachen_bevor_es_kippt`, `schwieriges_ruhig_ansprechen`, `a3_ambivalente_loyalitaet`, `a4_ambiguous_loss`, `a9_schlaf_fruehwarnsystem`, `b11_hypervigilanz_erschoepfung`, `c6_selbstfuersorge`. |
+| Neue A4-quer-Referenzen | 13 | `a1_bipolare_stoerung_verstehen`, `a2_phasenverlauf`, `a6_bipolar_i_ii_mischzustaende`, `behandlung_verstehen`, `a8_warnsignale`, `absprachen_bevor_es_kippt`, `schwieriges_ruhig_ansprechen`, `wenn_behandlung_abgelehnt_wird`, `a3_ambivalente_loyalitaet`, `a4_ambiguous_loss`, `a9_schlaf_fruehwarnsystem`, `b11_hypervigilanz_erschoepfung`, `c6_selbstfuersorge`. |
 
 Die lokalen HTML-Vorläufer zu HO-27/HO-28 sind als Herkunftsmaterial unter
 `docs/handout-design-archive/ho-27-ho-28-source-html/` archiviert. Sie sind
@@ -84,9 +84,11 @@ offen bleibt nur der separate PDF/UA-Finalschritt.
 | `a1_bipolare_stoerung_verstehen` | neu gebaut | Referenz für Grund-Psychoedukation und Phasenwellen-Logik. |
 | `a2_phasenverlauf` | neu gebaut | Referenz für Phasen-/Kurvenlogik und Kühlschrank-taugliche Verlaufsmodelle. |
 | `a6_bipolar_i_ii_mischzustaende` | neu gebaut | Referenz für Schwellen-/Mischbild-Logik und diagnostiknahe Psychoedukation ohne Angehörigen-Diagnostik. |
+| `behandlung_verstehen` | neu gebaut | Referenz für phasenorientierte Behandlungslogik ohne Medikamenten-Spickzettel. |
 | `a8_warnsignale` | neu gebaut und gemerged | Referenz für Ampel-/Handlungslogik. |
 | `absprachen_bevor_es_kippt` | neu gebaut und gemerged | Referenz für handlungsnahe Absprachekarten zwischen Warnsignalen und Krisenplan. |
 | `schwieriges_ruhig_ansprechen` | neu gebaut und gemerged | Referenz für Drei-Satz-Kommunikation: Beobachtung, Sorge und nächster kleiner Schritt. |
+| `wenn_behandlung_abgelehnt_wird` | neu gebaut | Referenz für Praxisblätter an der Grenze von Selbstbestimmung, Vorsorge und akutem Sicherheitsweg. |
 | `a3_ambivalente_loyalitaet` | neu gebaut und gemerged | Referenz für Spannungsfeld-Metaphern und warme Entlastungssprache. |
 | `a4_ambiguous_loss` | neu gebaut und gemerged | Referenz für Zwischenlage-/Verlustlogik und vorsichtige Moralwort-Reduktion. |
 | `a9_schlaf_fruehwarnsystem` | aktiv im Repo, Source-Vorläufer archiviert | Fachlich wertvoll, aber bei späterer Überarbeitung erst gegen neue Starter-/Verifier-Kette prüfen. |

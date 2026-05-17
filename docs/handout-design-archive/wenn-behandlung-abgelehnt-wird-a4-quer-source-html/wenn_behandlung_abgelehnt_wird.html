@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wenn Behandlung abgelehnt wird</title>
+  <style>
+    :root {
+      --page-w: 297mm;
+      --page-h: 210mm;
+      --margin-x: 14mm;
+      --margin-y: 14mm;
+      --ink: #2d2823;
+      --muted: #6d645d;
+      --line: rgba(45, 40, 35, 0.15);
+      --teal: #287f87;
+      --teal-text: #1f676d;
+      --sand: #f6f0e6;
+      --amber: #8a650f;
+      --rose: #9a4f45;
+      --blue: #3f6f8e;
+      --paper: #fff;
+      --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+      --sans: "DM Sans", Arial, Helvetica, sans-serif;
+    }
+
+    @page { size: A4 landscape; margin: 0; }
+
+    html,
+    body {
+      width: var(--page-w);
+      min-height: var(--page-h);
+      margin: 0;
+      background: #fff;
+      color: var(--ink);
+      font-family: var(--serif);
+    }
+
+    body {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .handout { width: var(--page-w); min-height: var(--page-h); }
+
+    .print-page {
+      width: var(--page-w);
+      height: var(--page-h);
+      box-sizing: border-box;
+      overflow: hidden;
+      background: var(--paper);
+      padding: var(--margin-y) var(--margin-x);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 5mm;
+    }
+
+    .sheet-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12mm;
+      align-items: start;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 4mm;
+    }
+
+    .eyebrow {
+      margin: 0 0 3.5mm;
+      font-family: var(--sans);
+      font-size: 9px;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 17ch;
+      font-size: 33px;
+      line-height: 0.98;
+      font-weight: 700;
+      letter-spacing: 0;
+      color: #746a62;
+    }
+
+    .lead {
+      margin: 4.5mm 0 0;
+      max-width: 62ch;
+      font-size: 14.2px;
+      line-height: 1.34;
+      font-style: italic;
+      color: #4d463f;
+    }
+
+    .tag {
+      justify-self: end;
+      padding: 2mm 3mm;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      font-family: var(--sans);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal-text);
+      background: #fff;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.2fr;
+      gap: 9mm;
+      min-height: 0;
+    }
+
+    section { min-width: 0; }
+
+    h2 {
+      margin: 0 0 2.3mm;
+      font-family: var(--sans);
+      font-size: 9.6px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    p {
+      margin: 0 0 2.7mm;
+      font-size: 10.95px;
+      line-height: 1.3;
+    }
+
+    ul {
+      margin: 0 0 3mm 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 1.25mm;
+    }
+
+    li {
+      position: relative;
+      padding-left: 4.2mm;
+      font-size: 10px;
+      line-height: 1.18;
+    }
+
+    li::before {
+      content: "";
+      position: absolute;
+      top: 1.28mm;
+      left: 0;
+      width: 1.35mm;
+      height: 1.35mm;
+      border-radius: 999px;
+      background: var(--teal);
+    }
+
+    .relief {
+      margin-top: 3mm;
+      border-left: 3px solid #8a5578;
+      border-radius: 5px;
+      padding: 2.5mm 3.2mm;
+      background: #fff;
+      box-shadow: inset 0 0 0 1px rgba(110, 73, 100, 0.17);
+    }
+
+    .relief strong,
+    .next-action strong,
+    .doc-note strong {
+      display: block;
+      margin-bottom: 1mm;
+      font-family: var(--sans);
+      font-size: 9px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: #8a5578;
+    }
+
+    .relief p,
+    .next-action p,
+    .doc-note p {
+      margin: 0;
+      font-size: 10.35px;
+      line-height: 1.24;
+    }
+
+    .visual-card {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 4mm;
+      display: grid;
+      grid-template-rows: auto auto auto;
+      gap: 3mm;
+      background: #fff;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .visual-title {
+      margin: 0;
+      font-family: var(--sans);
+      font-size: 10px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal-text);
+    }
+
+    .tracks {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3mm;
+    }
+
+    .track-card {
+      min-height: 54mm;
+      border: 1px solid rgba(45, 40, 35, 0.13);
+      border-radius: 6px;
+      padding: 3mm;
+      background: #fff;
+      display: grid;
+      grid-template-rows: auto auto auto 1fr;
+      gap: 1.6mm;
+    }
+
+    .track-card:nth-child(1) { border-top: 3px solid var(--teal); background: rgba(40, 127, 135, 0.07); }
+    .track-card:nth-child(2) { border-top: 3px solid var(--amber); background: rgba(138, 101, 15, 0.08); }
+    .track-card:nth-child(3) { border-top: 3px solid var(--rose); background: rgba(154, 79, 69, 0.08); }
+
+    .step {
+      width: 6.8mm;
+      height: 6.8mm;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--teal);
+      font-family: var(--sans);
+      font-size: 9px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .track-card:nth-child(2) .step { background: var(--amber); }
+    .track-card:nth-child(3) .step { background: var(--rose); }
+
+    .track-card h3 {
+      margin: 0;
+      font-family: var(--sans);
+      font-size: 9.7px;
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .starter {
+      display: block;
+      padding: 2mm;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.72);
+      font-size: 11.4px;
+      line-height: 1.2;
+      font-style: italic;
+      color: var(--ink);
+    }
+
+    .track-card p {
+      margin: 0;
+      font-size: 9.45px;
+      line-height: 1.18;
+      color: var(--muted);
+    }
+
+    .doc-note {
+      padding: 2.4mm 3mm;
+      border-radius: 6px;
+      background: var(--sand);
+      box-shadow: inset 0 0 0 1px rgba(45, 40, 35, 0.12);
+    }
+
+    .doc-note strong { color: var(--teal-text); }
+
+    .lower-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 3mm;
+      align-items: stretch;
+    }
+
+    .mini-block {
+      border-top: 2px solid var(--teal);
+      padding-top: 2mm;
+    }
+
+    .mini-block h2 { margin-bottom: 1.5mm; }
+
+    .mini-block p {
+      margin: 0;
+      font-size: 9.25px;
+      line-height: 1.2;
+    }
+
+    .next-action {
+      border-left: 3px solid var(--teal);
+      border-radius: 5px;
+      padding: 2.4mm 3mm;
+      background: #fff;
+      box-shadow: inset 0 0 0 1px rgba(40, 127, 135, 0.18);
+    }
+
+    .next-action strong { color: var(--teal-text); }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      padding-top: 2.4mm;
+      color: var(--muted);
+      font-size: 7px;
+      line-height: 1.25;
+    }
+
+    .footer-main {
+      display: flex;
+      justify-content: space-between;
+      gap: 8mm;
+      margin-bottom: 1mm;
+      white-space: nowrap;
+    }
+
+    @media screen {
+      body { padding: 18px; }
+      .print-page { box-shadow: 0 10px 28px rgba(28, 43, 58, 0.12); }
+    }
+
+    @media print {
+      html, body, .handout, .print-page {
+        width: var(--page-w);
+        height: var(--page-h);
+        margin: 0;
+        background: #fff;
+      }
+      .print-page { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="handout">
+    <article class="print-page" aria-label="Wenn Behandlung abgelehnt wird">
+      <header class="sheet-header">
+        <div>
+          <p class="eyebrow">Fachstelle Angehörigenarbeit · Praxisblatt</p>
+          <h1>Wenn Behandlung abgelehnt wird</h1>
+          <p class="lead">Wenn jemand Hilfe nicht will, geraten Angehörige schnell zwischen Sorge, Respekt und Druck. Dieses Blatt ersetzt keine rechtliche, medizinische oder persönliche Beratung.</p>
+        </div>
+        <div class="tag">A4 quer · Drei-Spuren-Karte</div>
+      </header>
+
+      <div class="content-grid">
+        <section aria-labelledby="worum-es-geht">
+          <h2 id="worum-es-geht">Worum es geht</h2>
+          <p>Selbstbestimmung bleibt der Ausgangspunkt. Eine Behandlung gegen den Willen einer Person ist in der Schweiz nur unter engen Voraussetzungen möglich und nie eine Abkürzung für schwierige Gespräche.</p>
+          <p>Trotzdem müssen Angehörige nicht passiv bleiben. Hilfreich ist, freiwillige Hilfe, vorsorgliche Absprachen und akute Sicherheit sauber zu trennen.</p>
+
+          <h2>Woran die Lage ernster wird</h2>
+          <ul>
+            <li>Schlaf fällt über mehrere Nächte deutlich weg.</li>
+            <li>Tempo, Gereiztheit, Enthemmung oder Risikoverhalten nehmen stark zu.</li>
+            <li>Rückzug, Verzweiflung oder Hoffnungslosigkeit verdichten sich.</li>
+            <li>Geld, Autofahren, Substanzen, Gewalt, Kinderbetreuung oder Selbstversorgung werden unsicher.</li>
+            <li>Die Person wirkt kaum erreichbar, psychotisch, massiv verwirrt oder nicht mehr ausreichend versorgt.</li>
+            <li>Frühere Absprachen greifen nicht mehr oder werden nicht mehr erinnert.</li>
+          </ul>
+
+          <div class="relief">
+            <strong>Entlastender Kernsatz</strong>
+            <p>Respekt vor Selbstbestimmung heisst nicht, Gefahr zu übersehen. Es heisst, Sorge konkret zu dokumentieren und den passenden Weg zu wählen.</p>
+          </div>
+        </section>
+
+        <section class="visual-card" aria-labelledby="visualisierung">
+          <h2 id="visualisierung" class="visual-title">Drei Spuren · freiwillig, vorsorglich, akut</h2>
+
+          <div class="tracks">
+            <div class="track-card">
+              <span class="step">1</span>
+              <h3>Freiwillig anbieten</h3>
+              <span class="starter">„Mir fällt auf …“</span>
+              <p>Kurz, konkret und ohne Diagnose sprechen. Nicht beweisen, dass Sie recht haben; lieber einen kleinen nächsten Schritt anbieten.</p>
+            </div>
+            <div class="track-card">
+              <span class="step">2</span>
+              <h3>Stabil vorsorgen</h3>
+              <span class="starter">Was gilt in ruhigen Zeiten?</span>
+              <p>Patientenverfügung, Vertretungsperson, Informationsweitergabe und Frühwarnzeichen klären, bevor alles unter Druck steht.</p>
+            </div>
+            <div class="track-card">
+              <span class="step">3</span>
+              <h3>Akut schützen</h3>
+              <span class="starter">Sicherheit vor Diskussion</span>
+              <p>Wenn Sicherheit gefährdet ist, gilt der Notfallweg. Dann ist nicht der Moment für lange Verhandlungen.</p>
+            </div>
+          </div>
+
+          <div class="doc-note">
+            <strong>Was dokumentierbar hilft</strong>
+            <p>Datum, Dauer, Schlaf, konkrete Aussagen, Risiken, Ausgaben, Substanzen, Termine, Selbstversorgung und wer bereits einbezogen wurde.</p>
+          </div>
+
+          <div class="lower-grid">
+            <div class="mini-block">
+              <h2>Was eher nicht hilft</h2>
+              <p>Grundsatzkampf, Diagnosen als Einstieg, heimliches Kontrollieren oder Zwang als Beziehungsersatz.</p>
+            </div>
+            <div class="next-action" data-required="next-action">
+              <strong>Konkreter nächster Schritt</strong>
+              <p>Erstellen Sie heute eine kurze Ereignisnotiz: Datum · Was war sichtbar? · Was macht Sorge? · Was wurde versucht? · Wer könnte fachlich mitbeurteilen?</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <footer class="footer">
+        <div class="footer-main">
+          <span>Fachstelle Angehörigenarbeit · Psychiatrische Universitätsklinik Zürich</span>
+          <span>wenn-behandlung-abgelehnt-wird v01 · Stand 17. Mai 2026 · Seite 1 von 1</span>
+        </div>
+        <div>Quellen: NICE CG185, zuletzt aktualisiert 2025 · Fedlex ZGB Art. 426 ff. · Pro Mente Sana, Psychiatrische Patientenverfügung</div>
+      </footer>
+    </article>
+  </main>
+</body>
+</html>

@@ -1,6 +1,7 @@
 {
   "references": {
     "nice_bipolar": "NICE (CG185): Bipolar disorder: assessment and management. Updated 2025-09-02. https://www.nice.org.uk/guidance/cg185",
+    "sgpp_sgbs_bipolar": "SGBS/SGPP (2019): Behandlungsempfehlungen Bipolare Störungen, Revision 2019. https://www.psychiatrie.ch",
     "s3_bipolar": "DGBS, DGPPN und AWMF (2019/2020): S3-Leitlinie Diagnostik und Therapie Bipolarer Störungen. https://dgbs.de/verein/s3-leitlinie/",
     "canmat_isbd": "Yatham et al. (2018): CANMAT/ISBD guidelines for bipolar disorder. Bipolar Disorders. https://doi.org/10.1111/bdi.12609",
     "apa_bipolar_mixed": "American Psychiatric Association: Bipolar Disorders patient information, including DSM-5-TR terminology for mixed features. https://www.psychiatry.org/patients-families/bipolar-disorders",
@@ -33,6 +34,8 @@
     "a6_bipolar_i_ii_mischzustaende": ["nice_bipolar", "s3_bipolar", "canmat_isbd", "apa_bipolar_mixed"],
     "absprachen_bevor_es_kippt": ["nice_bipolar", "perry_early_warning", "s3_bipolar"],
     "schwieriges_ruhig_ansprechen": ["nice_bipolar", "perry_early_warning", "family_focused"],
+    "behandlung_verstehen": ["nice_bipolar", "sgpp_sgbs_bipolar", "family_focused"],
+    "wenn_behandlung_abgelehnt_wird": ["nice_bipolar", "fedlex_zgb", "promente_patientenverfuegung"],
     "a3_ambivalente_loyalitaet": ["nice_bipolar", "caregiver_burden", "family_focused"],
     "a4_ambiguous_loss": ["nice_bipolar", "ambiguous_loss", "caregiver_burden"],
     "a5_affiliate_stigma": ["stigma", "affiliate_stigma", "caregiver_burden"],

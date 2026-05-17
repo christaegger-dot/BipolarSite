@@ -114,6 +114,8 @@ describe("PDF manifest audit helpers", () => {
     assert.ok(requiredPdfTextSnippets("absprachen_bevor_es_kippt").includes("Wenn-dann-Absprache"));
     assert.ok(requiredPdfTextSnippets("schwieriges_ruhig_ansprechen").includes("Drei-Satz-Modell"));
     assert.ok(requiredPdfTextSnippets("schwieriges_ruhig_ansprechen").includes("Mir fällt auf, dass"));
+    assert.ok(requiredPdfTextSnippets("behandlung_verstehen").includes("Behandlungskompass"));
+    assert.ok(requiredPdfTextSnippets("wenn_behandlung_abgelehnt_wird").includes("Drei Spuren"));
     assert.ok(requiredPdfTextSnippets("b10_trennung_scheidung").includes("Schutz- und Abstandspfade"));
     assert.ok(requiredPdfTextSnippets("b2_erosion_solidaritaet").includes("Erosion als Verlauf"));
     assert.ok(requiredPdfTextSnippets("b4_mechanismen_erosion").includes("Co-Isolation"));
