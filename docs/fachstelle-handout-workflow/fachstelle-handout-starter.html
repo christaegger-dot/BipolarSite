@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fachstelle Handout Starter</title>
+  <!-- FINAL-GATE: Freigabe-PDF muss PDF/UA-tauglich sein: pdfinfo Tagged: yes, sinnvolle Lesereihenfolge, verstaendliche Textextraktion. Playwright/Chromium erzeugt hier typischerweise Tagged: no und reicht nur fuer Layout-Drafts. -->
+  <!-- SOURCES-GATE: Alle Platzhalterquellen muessen ersetzt und fachlich/formal geprueft werden. Vollbibliographie nur ergaenzen, wenn die korrekte URL verifiziert und von Christa freigegeben ist. Keine URL rekonstruieren oder raten. -->
+  <style>
+    :root {
+      --page-w: 297mm;
+      --page-h: 210mm;
+      --margin-x: 14mm;
+      --margin-y: 14mm;
+      --ink: #2d2823;
+      --muted: #6f665f;
+      --line: rgba(45, 40, 35, 0.14);
+      --teal: #287f87;
+      --teal-soft: #eef6f5;
+      --sand: #ddd2bf;
+      --rose: #9a4f45;
+      --paper: #fff;
+      --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+      --sans: "DM Sans", Arial, Helvetica, sans-serif;
+    }
+
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+
+    html,
+    body {
+      width: var(--page-w);
+      min-height: var(--page-h);
+      margin: 0;
+      background: #fff;
+      color: var(--ink);
+      font-family: var(--serif);
+    }
+
+    body {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .handout {
+      width: var(--page-w);
+      min-height: var(--page-h);
+    }
+
+    .print-page {
+      width: var(--page-w);
+      height: var(--page-h);
+      box-sizing: border-box;
+      overflow: hidden;
+      background: var(--paper);
+      padding: var(--margin-y) var(--margin-x);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 6mm;
+    }
+
+    .sheet-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12mm;
+      align-items: start;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 4mm;
+    }
+
+    .eyebrow {
+      margin: 0 0 4mm;
+      font-family: var(--sans);
+      font-size: 9px;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 18ch;
+      font-size: 34px;
+      line-height: 0.98;
+      font-weight: 700;
+      letter-spacing: 0;
+      color: #746a62;
+    }
+
+    .lead {
+      margin: 5mm 0 0;
+      max-width: 48ch;
+      font-size: 15px;
+      line-height: 1.36;
+      font-style: italic;
+      color: #4d463f;
+    }
+
+    .tag {
+      justify-self: end;
+      padding: 2mm 3mm;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      font-family: var(--sans);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal);
+      background: #fff;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.2fr;
+      gap: 11mm;
+      min-height: 0;
+    }
+
+    section {
+      min-width: 0;
+    }
+
+    h2 {
+      margin: 0 0 3mm;
+      font-family: var(--sans);
+      font-size: 10px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    p {
+      margin: 0 0 3.2mm;
+      font-size: 12px;
+      line-height: 1.42;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 2.4mm;
+    }
+
+    li {
+      position: relative;
+      padding-left: 4mm;
+      font-size: 11.5px;
+      line-height: 1.35;
+    }
+
+    li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.48em;
+      width: 1.4mm;
+      height: 1.4mm;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+
+    .visual-card {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 6mm;
+      min-height: 88mm;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 5mm;
+      background: #fff;
+    }
+
+    .visual-title {
+      margin: 0;
+      font-family: var(--sans);
+      font-size: 10px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+
+    .visual-pattern {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4mm;
+      align-items: stretch;
+    }
+
+    .visual-node {
+      border-left: 3px solid var(--teal);
+      padding: 3.5mm;
+      background: #fff;
+      box-shadow: inset 0 0 0 1px rgba(40, 127, 135, 0.16);
+      border-radius: 5px;
+    }
+
+    .visual-node.next-action {
+      border-left-color: var(--rose);
+      box-shadow: inset 0 0 0 1px rgba(154, 79, 69, 0.18);
+    }
+
+    .visual-node strong {
+      display: block;
+      margin-bottom: 1.5mm;
+      font-family: var(--sans);
+      font-size: 10px;
+      color: var(--teal);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .visual-node.next-action strong {
+      color: var(--rose);
+    }
+
+    .visual-node span {
+      display: block;
+      font-size: 12px;
+      line-height: 1.32;
+    }
+
+    .note {
+      border-left: 3px solid var(--rose);
+      border-radius: 5px;
+      padding: 4mm 5mm;
+      background: #fff;
+      box-shadow: inset 0 0 0 1px rgba(154, 79, 69, 0.18);
+    }
+
+    .note strong {
+      display: block;
+      margin-bottom: 1.5mm;
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--rose);
+    }
+
+    .note-spaced {
+      margin-top: 5mm;
+    }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      padding-top: 3mm;
+      display: grid;
+      gap: 1.6mm;
+      font-family: var(--sans);
+      font-size: 8.2px;
+      line-height: 1.35;
+      color: var(--muted);
+    }
+
+    .footer-main {
+      display: flex;
+      justify-content: space-between;
+      gap: 8mm;
+    }
+
+    .sources {
+      font-size: 7.4px;
+      color: #7d746c;
+    }
+
+    @media screen {
+      body {
+        padding: 18px;
+      }
+
+      .print-page {
+        box-shadow: 0 10px 28px rgba(28, 43, 58, 0.12);
+      }
+    }
+
+    @media print {
+      html,
+      body,
+      .handout,
+      .print-page {
+        width: var(--page-w);
+        height: var(--page-h);
+        margin: 0;
+        background: #fff;
+      }
+
+      .print-page {
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="handout">
+    <article class="print-page" aria-label="Handout Titel">
+      <header class="sheet-header">
+        <div>
+          <p class="eyebrow">Fachstelle Angehörigenarbeit · Orientierungsblatt</p>
+          <h1>Handout Titel</h1>
+          <p class="lead">Ein kurzer Leitsatz, der das Thema für Angehörige unter Belastung sofort einordnet.</p>
+        </div>
+        <div class="tag">A4 quer · visueller Anker</div>
+      </header>
+
+      <div class="content-grid">
+        <section aria-labelledby="worum-es-geht">
+          <h2 id="worum-es-geht">Worum es geht</h2>
+          <p>Hier steht der kurze Textkern. Er erklärt ein Phänomen, ohne in lange Theorie auszuweichen.</p>
+          <p>Neue Handouts enthalten mindestens eine Visualisierung, damit sie schnell erfassbar und druckfreundlich bleiben.</p>
+
+          <h2>Woran Angehörige es merken</h2>
+          <ul>
+            <li>Ein erster konkret beobachtbarer Punkt.</li>
+            <li>Ein zweiter Punkt, kurz und alltagsnah formuliert.</li>
+            <li>Ein dritter Punkt, ohne Krisennummern und ohne Cross-Reference.</li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="visualisierung">
+          <div class="visual-card">
+            <h2 id="visualisierung" class="visual-title">Zentrale Visualisierung</h2>
+            <div class="visual-pattern" role="img" aria-label="Die Visualisierung macht die Dynamik sichtbar und zeigt einen konkreten nächsten Schritt.">
+              <div class="visual-node">
+                <strong>Dynamik zeigen</strong>
+                <span>Kreislauf, Kurve, Tacho, Eisberg oder Metapher: Was sieht man auf einen Blick?</span>
+              </div>
+              <div class="visual-node">
+                <strong>Einordnen</strong>
+                <span>Welche Logik hilft, das Verhalten oder die Belastung weniger persönlich zu nehmen?</span>
+              </div>
+              <div class="visual-node next-action" data-required="next-action">
+                <strong>Konkreter nächster Schritt</strong>
+                <span>Was kann die angehörige Person jetzt tun, vorbereiten oder vereinbaren?</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="note note-spaced">
+            <strong>Entlastender Kernsatz</strong>
+            <p>Eine schuldentlastende Aussage, die hängen bleibt: «Dass dieses Muster auftaucht, bedeutet nicht, dass jemand versagt hat.»</p>
+          </div>
+        </section>
+      </div>
+
+      <footer class="footer">
+        <div class="footer-main">
+          <span>Fachstelle Angehörigenarbeit · Psychiatrische Universitätsklinik Zürich</span>
+          <span>handout-slug v01 · Stand 17. Mai 2026 · Seite 1 von 1</span>
+        </div>
+        <div class="sources">
+          Quellen: Leitlinie oder Kernquelle 1 · Kernquelle 2
+          <!-- Optional nach Verifikation: · Vollbibliographie: {verifizierte URL} -->
+        </div>
+      </footer>
+    </article>
+  </main>
+</body>
+</html>

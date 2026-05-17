@@ -6,6 +6,10 @@ _site/
 .acute-pdf-qa/
 .playwright/
 playwright-report/
+.handout-cache/
+_handout_build/
+_handout_work/
+.venv-handout/
 .auth/
 .claude/settings.local.json
 .claude/worktrees/

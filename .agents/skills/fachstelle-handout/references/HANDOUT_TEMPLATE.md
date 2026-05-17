@@ -2,8 +2,8 @@
 
 **Site:** bipolarsite.netlify.app (übertragbar auf weitere thematische Sites der Fachstelle: borderline, zwangsstörungen, etc.)
 **Verantwortung:** Ch. Egger, Fachstelle Angehörigenarbeit, PUK Zürich
-**Stand:** 14.05.2026
-**Status:** Draft v03 — Migrations-Reihenfolge in 7 Wellen konkretisiert, Briefing-Template ins SKILL.md aufgenommen
+**Stand:** 17.05.2026
+**Status:** Draft v15 — Erweiterte lokale Prüfwerkzeugkette integriert
 
 Anwendungsbereich: Alle druckbaren A4-Handouts für Angehörige von Menschen mit psychiatrischen Erkrankungen, herausgegeben von der Fachstelle Angehörigenarbeit der PUK Zürich.
 
@@ -18,13 +18,16 @@ Drei Typen, jeder mit eigenem Zweck, eigenen Regeln, eigenem Eyebrow. Strikte Tr
 **Zweck:** Psychoedukation. Verständnis vermitteln über ein klinisches Konzept, ein Phänomen, eine Belastungsdynamik. Lesendes Format.
 
 **Eyebrow:** `ORIENTIERUNGSBLATT`
-**Format:** A4 hoch, 1 oder 2 Seiten
+**Format:** Für neue Orientierungsblätter ist A4 quer der erwartbare Standard, wenn mindestens eine zentrale Visualisierung, ein Diagramm oder eine Metapher das Blatt trägt. A4 hoch bleibt zulässig, wenn die Visualisierung eindeutig vertikal funktioniert oder der Inhalt bewusst als kompaktes Leseblatt angelegt ist.
+
+**Format-Änderung 17.05.2026:** Die frühere Regel «Orientierungsblatt = A4 hoch» ist abgelöst. A4 quer ist für neue visuelle Orientierungsblätter ausdrücklich erwünscht, weil Angehörige unter Belastung schnell erfassbare, attraktive Blätter brauchen, die auch als Kühlschrank-/Pinnwand-Handout funktionieren. Beispiele sind Ambivalente Loyalität, Family Accommodation, Erosion/Hypervigilanz und vergleichbare Mechanismus-Blätter. Querformat ist damit kein Hinweis auf einen Dokumenttyp-Wechsel zum Krisen-Handout.
+
 **Zielgruppe:** Angehörige, die etwas verstehen wollen
 
 **Enthält:**
 - Konzept- und Phänomen-Erklärung
 - Definitionen
-- Diagramme zur Visualisierung der Dynamik
+- mindestens eine zentrale Visualisierung, Metapher oder ein Diagramm als schneller Erfassungsanker
 - Reflexionsfragen
 - Quellen (Leitlinien-Niveau wo möglich)
 
@@ -110,6 +113,8 @@ Handouts sind standalone. Keine Cross-Refs zu:
 
 **Einzige erlaubte externe URL:** Vollbibliographie im Quellen-Footer.
 
+Footer-Zusätze wie `weiterführend: Anlaufstellen & Ressourcen`, Kontakt-Hinweise, Site-Navigation oder thematische Empfehlungen sind Cross-References und nicht zulässig. Die Fachstelle-Footer-Konstante darf nicht um solche Hinweise erweitert werden.
+
 **Rationale:** Gedruckte URLs altern; Cross-Refs machen das Handout abhängig von einer Site-Architektur, die sich ändern kann; das Handout muss aus sich selbst verständlich sein.
 
 ### 2.4 Institutionelle Verankerung
@@ -122,6 +127,8 @@ Psychiatrische Universitätsklinik Zürich
 ```
 
 Diese Zeile ist nicht editierbar pro Handout. Kontaktdaten (Telefon, E-Mail) der Fachstelle stehen nicht auf dem Handout — die Verankerung ist institutionell, nicht funktional.
+
+Die institutionelle Zeile bleibt exakt institutionell. Sie darf nicht um `weiterführend`, `Anlaufstellen`, `Ressourcen`, Website-Navigation, Kontaktwege oder thematische Hinweise ergänzt werden. Solche Inhalte gehören nicht in den Footer eines standalone Handouts.
 
 ### 2.5 Disclaimer
 
@@ -249,13 +256,114 @@ Auf Seite 2 (oder bei 1-Seite-Handouts: einzige Seite) zusätzlich eingeschoben:
 Quellen: ... · Vollbibliographie: ...
 ```
 
+Pflicht: Die Identifier-Zeile enthält immer Identifier, Stand-Datum und Seitenzählung. Die Fachstelle-Zeile enthält ausschliesslich die institutionelle Verankerung und keine Cross-References.
+
 ### 4.10 Druckspezifikation
 
-- A4 hoch (210×297mm) Standard, A4 quer (297×210mm) optional für Krisen-Handouts
-- Randmargen: Mindestens 15mm allseitig
+- A4 quer (297×210mm) ist für neue visuelle Handouts der erwartbare Standard. A4 hoch (210×297mm) bleibt möglich, wenn die Visualisierung vertikal trägt oder der Anwendungsfall dies klar begründet.
+- Jedes Handout enthält mindestens eine zentrale Visualisierung, Metapher oder ein Diagramm. Reine Textblätter sind nur als bewusst begründete Ausnahme zulässig.
+- Druckgrund ist weiss (`#fff`). Keine vollflächigen Off-White-, Sand-, Creme- oder Farbhintergründe auf der Seite; solche Tönungen kosten beim privaten Ausdruck unnötig Tinte.
+- Farbe wird sparsam als Akzent eingesetzt: Linien, Icons, kleine Badges, kleine Diagrammflächen, Warn-/Hinweisboxen. Grossflächige Füllungen nur, wenn sie fachlich zwingend sind und die Tintenlast bewusst akzeptiert wird.
+- Randmargen: 14mm symmetrisch allseitig. Bei A4 quer ergibt das eine nutzbare Inhaltsfläche von 269×182mm. Frühere asymmetrische Varianten (15mm horizontal / 12mm oben / 9mm unten) sind historisch und nicht mehr Standard.
 - Kein Beschnitt
-- PDF/UA-konform für Barrierefreiheit
-- WeasyPrint-kompatibles `@media print` definieren
+- PDF/UA-konform für Barrierefreiheit: PDF muss getaggt sein (`pdfinfo`: `Tagged: yes`), eine sinnvolle Lesereihenfolge haben und darf in der Textextraktion keine unverständliche Spaltenvermischung erzeugen. `Tagged: no` ist ein Freigabe-Blocker.
+- Verbindliche Print-CSS definieren. Für A4 quer mindestens:
+
+```css
+@page { size: A4 landscape; margin: 0; }
+
+html,
+body {
+  width: 297mm;
+  min-height: 210mm;
+  margin: 0;
+  background: #fff;
+}
+
+.print-page {
+  width: 297mm;
+  height: 210mm;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: #fff;
+}
+
+@media print {
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+```
+
+Für A4 hoch entsprechend `@page { size: A4 portrait; margin: 0; }`, `width: 210mm`, `height: 297mm`.
+
+### 4.11 Produktions-HTML für neue Handouts
+
+Neue Handouts werden nicht aus einem reparierten Canvas-/Claude-Export als kanonischer Quelle geführt. Der Export darf als visuelle Referenz dienen; die kanonische Produktionsdatei ist ein wartbares HTML/CSS-Artefakt.
+
+Mindeststruktur:
+
+```html
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <title>{Handout-Titel}</title>
+  </head>
+  <body>
+    <main class="handout" role="main">
+      <article class="print-page" aria-label="{Handout-Titel}">
+        <header>...</header>
+        <section>...</section>
+        <footer>...</footer>
+      </article>
+    </main>
+  </body>
+</html>
+```
+
+Pflicht:
+- `<html lang="de">`
+- eine sichtbare semantische Hauptstruktur: `main`, `article`, `header`, `section`, `footer`
+- genau eine `.print-page` pro PDF-Seite
+- mindestens ein sichtbares Pflicht-Strukturelement für den konkreten nächsten Schritt (`data-required="next-action"` oder äquivalente Produktionsmarkierung): Was kann die angehörige Person jetzt tun, vorbereiten oder vereinbaren?
+- Entlastung bleibt als ausformulierte schuldentlastende Aussage erhalten, nicht nur als offene Reflexionsfrage.
+- CSS in klaren Klassen oder Custom Properties, nicht als massenhaft computed Inline-Styles
+- dekorative SVGs mit `aria-hidden="true" focusable="false"`
+- informative SVGs mit `role="img"`, `title`, `desc` und schriftlicher Textalternative
+- keine `data-om-id`, keine Canvas-/Design-Tool-Spuren in finalen Produktionsdateien
+- keine externen CDN-Fonts im finalen Renderpfad; Fonts lokal, eingebettet oder dokumentiert verfügbar
+
+Toleriert nur als Übergang:
+- eingebettete Font-Blobs aus einem Export
+- viele Inline-Styles
+- einseitige Export-Zeile
+
+Solche Dateien dürfen ausgeliefert werden, wenn der A4-/Inhaltscheck bestanden ist, gelten aber nicht als optimale Vorlage für neue Handouts.
+
+### 4.12 New-Handout-Workflow
+
+Für neue Handouts gilt diese Reihenfolge:
+
+1. **Briefing:** Thema, Dokumenttyp, Zielgruppe, erlaubtes Format, Quellenlage, Krisen-/Standalone-Regeln klären.
+2. **Textkern:** Markdown- oder strukturierter Textentwurf vor Layout; keine Layoutarbeit, solange Dokumenttyp und Inhalt instabil sind.
+3. **Visualisierungsentscheidung:** Sektion 6.4 und Diagramm-Bibliothek prüfen; Diagramm nur mit Registry-/Alt-Text-/Lesereihenfolge-Eintrag verwenden.
+4. **Produktions-HTML:** Semantische HTML/CSS-Quelle erstellen, A4-Masse und Print-CSS zuerst setzen.
+5. **Render:** PDF aus der Produktionsquelle erzeugen, nicht aus einem Screenshot.
+6. **Prüfkette:** Seitenzahl, A4-Mass, Inhalt, Footer, Cross-Reference, Krisenregeln, Textauszug, PDF/UA, visuelle Gegenprüfung.
+7. **Lieferung:** Lieferübersicht nur mit tatsächlich durchgeführten Checks.
+
+Starter-Datei und Prüfgate:
+- Paket-Quickstart: `README-FACHSTELLE-HANDOUT-PAKET.md`.
+- Neues Produktions-HTML kann aus `fachstelle-handout-starter.html` abgeleitet werden.
+- Vor Review läuft `render_measure_verify.py` oder mindestens `verify_fachstelle_handout.py` gegen HTML und, wenn vorhanden, gegen das gerenderte PDF.
+- `render_measure_verify.py` erzeugt Layout-PDF, Screenshot, Messreport und startet den Verifier. Das Layout-PDF ist ein Draft und typischerweise nicht getaggt.
+- Das Komfortkommando bindet verfügbare Zusatzwerkzeuge ein: `html-validate`, `axe`, `qpdf`, `mutool`, `exiftool`, `pdftotext`, optional `pdfplumber`, `weasyprint` und `ghostscript`. Diese Checks verbessern HTML-, Accessibility-, PDF-Struktur-, Metadaten- und Textextraktionsdiagnostik, ersetzen aber kein PDF/UA-Remediation-Gate.
+- Finale PDF/UA-Freigabe erfolgt nur mit einem extern remediated/tagged PDF via `render_measure_verify.py --final-pdf ...`; ohne `Tagged: yes` keine finale Freigabe.
+- Das Starter-HTML enthält Quellen- und PDF/UA-Kommentare als Produktionswarnungen; sie sind keine sichtbaren Handout-Inhalte.
+- Sichtbare Starter-Platzhalter (`Handout Titel`, `handout-slug`, `Kernquelle 1` usw.) dürfen in finalen Handouts nicht verbleiben. Nur die unveränderte Starter-Vorlage darf mit `--allow-template-placeholders` geprüft werden.
+- Für frühe Layout-Drafts darf `--allow-untagged-pdf` verwendet werden. Für finale Freigabe bleibt `Tagged: no` ein Blocker.
 
 ---
 
@@ -267,7 +375,9 @@ Im Footer-Bereich von Seite 2, eingeschoben zwischen Fachstelle-Zeile und Identi
 
 ### 5.2 Format
 
-Kursives Label `Quellen:` gefolgt von kompakter Liste mit Punkt-Separator, plus Vollbibliographie-URL.
+Kursives Label `Quellen:` gefolgt von kompakter Liste mit Punkt-Separator, plus Vollbibliographie-URL, sofern die korrekte site-spezifische URL bekannt und verifiziert ist.
+
+Keine URL wird rekonstruiert oder geraten. Wenn die korrekte Vollbibliographie-URL unbekannt ist, bleibt `Vollbibliographie:` weg, bis Christa die URL freigibt. Innerhalb eines Lieferpakets muss die Behandlung konsistent sein: entweder alle Blätter mit verifizierter Vollbibliographie-URL oder alle betroffenen Blätter ohne URL.
 
 Beispiel:
 ```
@@ -296,7 +406,15 @@ Liste darf auf zwei Zeilen brechen — Footer-Chrome, kein Bauelement.
 
 ## 6. Visualisierung
 
-### 6.0 Heuristik
+### 6.0 Grundsatz
+
+Jedes Handout braucht mindestens einen visuellen Anker: eine Metapher, ein Diagramm, eine Verlaufskurve, ein Spannungsfeld, eine Skala, ein strukturierender Container oder eine andere schnell erfassbare Visualisierung.
+
+Rationale: Angehörige lesen diese Handouts oft unter Stress. Das Blatt soll auf den ersten Blick erfassbar und attraktiv genug sein, dass es ausgedruckt, aufgehängt oder wiederholt angesehen werden kann. Die Visualisierung ist deshalb kein Schmuck, sondern der Einstieg ins Verständnis.
+
+Für neue Handouts ist A4 quer meist die bevorzugte Grundfläche, weil sie mehr Raum für Diagramm-, Kurven-, Vergleichs- und Metapherlogik bietet. Hochformat ist eine Ausnahme mit Begründung, kein Defizit, aber auch nicht mehr der Default.
+
+### 6.0a Heuristik
 
 **Metapher schlägt Diagramm schlägt Container.**
 
@@ -308,9 +426,21 @@ Lesezeiten für Angehörige unter Belastung:
 Pro Dokumenttyp gewichtet:
 - **Krisen-Handout** — Metapher quasi obligatorisch. Maximalstress, minimale Lesezeit.
 - **Praxisblatt** — Metapher + Container kombinieren (Diagramm-Metapher als Anker, Container für konkrete Inhalte).
-- **Orientierungsblatt** — Strukturdiagramm zulässig, wenn Beziehungslogik komplex ist. Wo Metapher trägt: trotzdem Metapher bevorzugen.
+- **Orientierungsblatt** — mindestens ein visueller Anker. Strukturdiagramm zulässig, wenn Beziehungslogik komplex ist. Wo Metapher trägt: trotzdem Metapher bevorzugen.
 
 Pro Handout zuerst fragen: «Gibt es eine Metapher, die das trägt?» Erst wenn nein, weiter zum Strukturdiagramm.
+
+### 6.0b Diagramm-Bibliothek
+
+Die lokale Diagramm-Bibliothek (`docs/fachstelle-handout-workflow/diagram-library/`) ist eine erweiterbare Entwurfs- und Review-Bibliothek. Sie ist nicht automatisch eine Produktionsfreigabe.
+
+Regeln:
+- Aufnahme in die Bibliothek bedeutet: als Muster sichtbar, nicht automatisch freigegeben.
+- Die Bibliothek folgt der `ink-light`-Policy: weisser Grund, keine vollflächigen getönten Karten/Diagrammträger, Farbe primär über Linien, Konturen, Icons, Labels und kleine Akzentflächen.
+- Jedes Diagramm braucht einen Registry-Eintrag mit Status, geeigneten Dokumenttypen, Krisenhinweis, Alt-Text, Lesereihenfolge, WeasyPrint-Status und PDF/UA-Status.
+- Beispiel-Daten der Bibliothek dürfen nicht ungeprüft in finale Handouts übernommen werden; finale Handouts liefern eigene, handout-spezifische Daten.
+- `approvalStatus: approved` ist erst zulässig, wenn Rendercheck, Mess-Gate, visuelle Gegenprüfung, Inhaltsprüfung und PDF/UA-Gate bestanden sind.
+- Browser-Canvas, Screenshot oder PNG-Export gelten nicht als finale PDF-Prüfkette.
 
 ### 6.1 Visuelle Metaphern (gegenständlich, ~0.3s)
 
@@ -411,17 +541,36 @@ Pro Handout in dieser Reihenfolge:
 ### 7.1 Generell (alle Typen)
 
 - [ ] Schweizer Orthografie durchgehend (ss, «», em-Strich mit Leerzeichen)
+- [ ] Mindestens eine zentrale Visualisierung, Metapher oder ein Diagramm vorhanden
+- [ ] Formatwahl unterstützt den visuellen Anker; bei neuen Handouts ist A4 quer geprüft und nur mit Begründung verworfen
+- [ ] Druckgrund ist weiss; keine vollflächigen getönten Seitenhintergründe
+- [ ] Farbflächen sind tintensparsam und fachlich begründet
+- [ ] Starter-Struktur oder gleichwertige Produktionsstruktur verwendet
+- [ ] `verify_fachstelle_handout.py` gegen HTML und PDF gelaufen; Warnungen/Gaps sind in der Lieferung ehrlich benannt
+- [ ] Keine sichtbaren Starter-Platzhalter mehr vorhanden (`Handout Titel`, `handout-slug`, `Kernquelle 1`, Beispiel-Bullets usw.)
+- [ ] Kanonische Produktionsquelle ist wartbares HTML/CSS, nicht bloss reparierter Canvas-Export
+- [ ] `<html lang="de">` gesetzt
+- [ ] Semantik vorhanden: `main`, `article`, `header`, sinnvolle `section`s, `footer`
+- [ ] Exakte Print-CSS vorhanden: `@page`, A4-Format, `.print-page` in mm, `print-color-adjust: exact`
+- [ ] Chrome/Playwright-PDF oder WeasyPrint-PDF zeigt korrekte Seitengrösse (`pdfinfo`: A4 hoch/quer, nicht Letter)
+- [ ] Keine finalen `data-om-id` oder Design-Tool-Spuren
+- [ ] Inline-Styles und Font-Blobs sind minimiert oder ausdrücklich als Übergangsstatus markiert
+- [ ] SVGs korrekt behandelt: dekorativ versteckt, informativ beschriftet
 - [ ] Fachstelle-Footer-Konstante auf jeder Seite
 - [ ] Identifier in einfacher Slug-Form
 - [ ] Stand-Datum aktuell
-- [ ] Vollbibliographie-URL korrekt und erreichbar
+- [ ] Identifier-Zeile enthält Identifier, Stand-Datum und Seite X von Y
+- [ ] Keine Footer-Erweiterung der Fachstelle-Konstante, insbesondere kein `weiterführend`, `Anlaufstellen`, `Ressourcen`, Kontaktweg oder Site-Navigationshinweis
+- [ ] Vollbibliographie-URL korrekt und erreichbar — oder bewusst weggelassen, wenn die korrekte URL noch nicht freigegeben ist
 - [ ] Print-Test bestanden: A4, kein Beschnittverlust, keine grossen toten Räume
+- [ ] PDF/UA-Gate bestanden: PDF getaggt (`Tagged: yes`) und Lesereihenfolge/Textextraktion geprüft
 - [ ] WCAG AA Kontraste validiert
 - [ ] Visualisierungs-Kategorie passend gewählt (Metapher / Strukturdiagramm / Inhalts-Block) gemäss Sektion 6.4 Workflow
 
 ### 7.2 Orientierungsblatt
 
 - [ ] Eyebrow `ORIENTIERUNGSBLATT`
+- [ ] A4 quer als Standard geprüft; Hochformat nur bei klarer vertikaler Visualisierungs- oder Leselogik
 - [ ] Keine Krisennummern
 - [ ] Keine konkreten Akutaktionen
 - [ ] Keine Cross-Refs
@@ -445,6 +594,14 @@ Pro Handout in dieser Reihenfolge:
 - [ ] Aktionsorientierter Text, keine ausgedehnte Theorie
 - [ ] Visuelle Signatur distinkt von Orientierung/Praxis
 - [ ] Format-Wahl für schnelle Erfassung optimiert
+
+### 7.5 Lieferpaket / Verifikationsaussagen
+
+- [ ] Lieferübersicht nennt nur Prüfungen, die tatsächlich in der Ziel- oder Build-Umgebung gelaufen sind
+- [ ] Wenn Verifikation von Zusatzabhängigkeiten abhängt (z. B. `pdfplumber`, WeasyPrint, Poppler), sind diese Abhängigkeiten und der Installationshinweis explizit genannt
+- [ ] Keine Formulierung wie «volle Prüfkette bestanden», wenn die Nachprüfung in Christas Umgebung ohne zusätzliche Installation nicht reproduzierbar ist
+- [ ] Zulässige Formulierung: «in der Build-Umgebung verifiziert; lokale Nachprüfung erfordert ...»
+- [ ] Bekannte offene Gaps (z. B. PDF/UA) werden als Status benannt und nicht als bestanden ausgegeben
 
 ---
 
@@ -545,10 +702,11 @@ Konsolidierungs-Kandidaten. Pro Thema entscheiden: bleibt Handout, wird Modul-Te
 
 1. **Editorial-Pass** (vor Layout): Krisennummern raus, Cross-Refs raus, Quellen-Format harmonisieren, Sprachregeln-Check, Dokumenttyp bestätigen
 2. **Markdown-Freigabe** durch Christa
-3. **Visual-Migration** durch Claude design (Briefing-Template aus Skill verwenden)
-4. **Akzeptanz-Checkliste** durch Claude design selbst
-5. **Final-Review** (Print-Test, visuelle Stimmigkeit, Konsistenz)
-6. **Ablage** in Repo + Site-Integration, alter Pfad → Redirect
+3. **Visual-Migration / Design-Review** durch Claude design oder Diagramm-Bibliothek; Ergebnis ist Referenz, nicht automatisch Produktionsquelle
+4. **Produktions-HTML erstellen** gemäss Sektion 4.11/4.12
+5. **Akzeptanz-Checkliste** inklusive A4-Print-CSS, PDF-Mass, Semantik und PDF/UA-Gate
+6. **Final-Review** (Print-Test, visuelle Stimmigkeit, Konsistenz)
+7. **Ablage** in Repo + Site-Integration, alter Pfad → Redirect
 
 ### 10.3 Konsolidierungs-Entscheidungen während Migration
 
@@ -593,3 +751,15 @@ Bei jedem Migrations-Schritt: nicht 1:1 das aktuelle Diagramm übernehmen. Erst 
 | v01-draft | 14.05.2026 | Erstentwurf nach Audit Phase 1 | Ch. Egger / Claude |
 | v02-draft | 14.05.2026 | Visualisierungs-Taxonomie eingeführt: Sektion 6 dreigeteilt nach Metapher / Strukturdiagramm / Inhalts-Block, Heuristik dokumentiert, Migration-Kandidaten markiert, Auswahl-Workflow in 6.4. Akzeptanz-Check (Sektion 7) und Migration (10.4) entsprechend ergänzt. | Ch. Egger / Claude |
 | v03-draft | 14.05.2026 | Migrations-Reihenfolge in 7 Wellen konkretisiert (Sektion 10.1): Welle 1 Template-Pioniere, Welle 2 hochfrequente Orientierungsblätter, Welle 3 krisennahe Orientierungsblätter, Welle 4 Beziehung & Loyalität, Welle 5 Belastungs-Konsolidierung, Welle 6 spezielle Themen, Welle 7 Konzept-Erklärer. Briefing-Template für Claude design in SKILL.md aufgenommen. | Claude |
+| v04-draft | 17.05.2026 | Querformat für begründete diagramm- und kurvenlogische Orientierungsblätter legitimiert; Footer-Cross-References, Identifier-Zeile, Vollbibliographie-URL-Policy und PDF/UA-Gates präzisiert. | Ch. Egger / Codex |
+| v05-draft | 17.05.2026 | Lokale Diagramm-Bibliothek als erweiterbare Entwurfsbibliothek angebunden: Registry-/Statuspflicht, Trennung von Beispiel- und Handout-Daten, Produktionsadapter- und PDF/UA-Gates präzisiert. | Ch. Egger / Codex |
+| v06-draft | 17.05.2026 | New-Handout-Workflow optimiert: kanonisches Produktions-HTML, semantische Mindeststruktur, exakte A4-Print-CSS, Verbot finaler Design-Tool-Spuren und stärkere Print-/PDF-Gates ergänzt. | Ch. Egger / Codex |
+| v07-draft | 17.05.2026 | Christas Visualisierungsprinzip festgeschrieben: jedes Handout braucht mindestens einen schnellen visuellen Anker; A4 quer ist für neue visuelle Handouts der erwartbare Standard, Hochformat nur mit Begründung. | Ch. Egger / Codex |
+| v08-draft | 17.05.2026 | Druckökonomie ergänzt: Seite/Print-Page weiss als Standard, keine vollflächigen getönten Hintergründe; Farbe nur als sparsamer fachlicher Akzent. | Ch. Egger / Codex |
+| v09-draft | 17.05.2026 | Starter-HTML und automatisches Prüfskript als New-Handout-Gate ergänzt; frühe Layout-Drafts dürfen ungetaggte PDFs warnend passieren, finale Freigabe nicht. | Ch. Egger / Codex |
+| v10-draft | 17.05.2026 | Diagramm-Bibliothek auf `ink-light` festgelegt: weisser Diagrammgrund, keine vollflächigen getönten Karten/Diagrammträger, Farbe über Linien, Konturen, Labels und kleine Akzente. | Ch. Egger / Codex |
+| v11-draft | 17.05.2026 | Starter-Template ergänzt: Handlungsausgang als Pflicht-Strukturelement; Entlastung als ausformulierte schuldentlastende Aussage statt offener Einsichtsfrage. | Ch. Egger / Codex |
+| v12-draft | 17.05.2026 | Starter-Template und Prüfgate ergänzt: PDF/UA- und Quellenverifikationshinweise im Quelltemplate; sichtbare Starter-Platzhalter werden im finalen Verify-Lauf blockiert. | Ch. Egger / Codex |
+| v13-draft | 17.05.2026 | Randnorm festgelegt: A4-Handouts verwenden symmetrisch 14mm allseitig; A4 quer hat damit 269×182mm nutzbare Inhaltsfläche. Asymmetrische Starter-Ränder sind historisch, nicht Standard. | Ch. Egger / Codex |
+| v14-draft | 17.05.2026 | Paket-Quickstart und Komfortkommando ergänzt; PDF/UA-Produktionsweg zweistufig festgelegt: Layout-Draft aus HTML, finale Freigabe nur mit extern remediated/tagged PDF via `--final-pdf`. | Ch. Egger / Codex |
+| v15-draft | 17.05.2026 | Erweiterte lokale Prüfwerkzeugkette in `render_measure_verify.py` integriert: HTML-Validate, Axe, qpdf, mutool, exiftool, pdftotext/pdfplumber, WeasyPrint-Vergleich und Ghostscript-Normalisierung. | Ch. Egger / Codex |
