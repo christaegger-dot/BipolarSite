@@ -235,6 +235,36 @@
       overflow: visible;
     }
 
+    .diagram-marker-chip {
+      pointer-events: none;
+    }
+
+    .diagram-marker-chip rect {
+      fill: var(--paper);
+      stroke: currentColor;
+      stroke-width: 1.2;
+    }
+
+    .diagram-marker-chip text {
+      font-family: var(--sans);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      fill: currentColor;
+    }
+
+    .marker-bipolar-i {
+      color: var(--amber);
+    }
+
+    .marker-bipolar-ii {
+      color: var(--teal);
+    }
+
+    .marker-mixed {
+      color: var(--blue);
+    }
+
     .side-stack {
       display: grid;
       gap: 1.8mm;
@@ -392,24 +422,32 @@
               <circle cx="298" cy="80" r="6.8" fill="#9a4f45" stroke="#fff" stroke-width="2"/>
               <circle cx="357" cy="177" r="6.8" fill="#3f6f8f" stroke="#fff" stroke-width="2"/>
               <circle cx="363" cy="73" r="6.8" fill="#9a4f45" stroke="#fff" stroke-width="2"/>
-              <text x="97" y="121" font-family="DM Sans, Arial, sans-serif" font-size="10" font-weight="700" fill="#8a650f">Bipolar I</text>
-              <text x="88" y="134" font-family="DM Sans, Arial, sans-serif" font-size="8.4" fill="#6d645d">Manie fachlich abklärungsbedürftig</text>
-              <text x="255" y="121" font-family="DM Sans, Arial, sans-serif" font-size="10" font-weight="700" fill="#287f87">Bipolar II</text>
-              <text x="232" y="134" font-family="DM Sans, Arial, sans-serif" font-size="8.4" fill="#6d645d">Hypomanie, Depression oft prägend</text>
+              <g class="diagram-marker-chip marker-bipolar-i" transform="translate(173 38)">
+                <rect x="-16" y="-11" width="32" height="21" rx="10.5"/>
+                <text x="0" y="4" text-anchor="middle">B I</text>
+              </g>
+              <g class="diagram-marker-chip marker-bipolar-ii" transform="translate(293 107)">
+                <rect x="-18" y="-11" width="36" height="21" rx="10.5"/>
+                <text x="0" y="4" text-anchor="middle">B II</text>
+              </g>
+              <g class="diagram-marker-chip marker-mixed" transform="translate(363 131)">
+                <rect x="-14" y="-11" width="28" height="21" rx="10.5"/>
+                <text x="0" y="4" text-anchor="middle">M</text>
+              </g>
               <text x="315" y="257" font-family="DM Sans, Arial, sans-serif" font-size="8.8" fill="#6d645d">vereinfachtes Orientierungsmodell — keine diagnostische Einordnung</text>
             </svg>
 
             <div class="side-stack">
               <div class="side-card amber">
-                <strong>Bipolar I</strong>
+                <strong>B I · Bipolar I</strong>
                 <span>Mindestens eine Manie verändert Alltag, Urteil, Schlaf, Risiko oder Realitätsbezug deutlich.</span>
               </div>
               <div class="side-card rose">
-                <strong>Bipolar II</strong>
+                <strong>B II · Bipolar II</strong>
                 <span>Hypomanien erreichen keine Manie. Depressionen können dennoch schwer und lang sein.</span>
               </div>
               <div class="side-card blue">
-                <strong>Mischbild</strong>
+                <strong>M · Mischbild</strong>
                 <span>Aktivierung und depressive Belastung treten gleichzeitig auf.</span>
               </div>
             </div>
