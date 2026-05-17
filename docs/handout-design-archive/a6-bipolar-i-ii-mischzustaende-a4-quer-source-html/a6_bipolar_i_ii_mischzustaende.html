@@ -231,7 +231,7 @@
 
     .model-svg {
       width: 100%;
-      height: 78mm;
+      height: 72mm;
       overflow: visible;
     }
 
@@ -263,6 +263,13 @@
 
     .marker-mixed {
       color: var(--blue);
+    }
+
+    .marker-leader {
+      fill: none;
+      stroke: rgba(45, 40, 35, 0.33);
+      stroke-width: 1;
+      stroke-dasharray: 3 3;
     }
 
     .side-stack {
@@ -401,40 +408,38 @@
         <section class="visual-card" aria-labelledby="model-title">
           <h2 class="visual-title" id="model-title">Zwei Signale · Aktivierung und depressive Belastung getrennt sehen</h2>
           <div class="model-grid">
-            <svg class="model-svg" viewBox="0 0 500 285" role="img" aria-labelledby="model-svg-title model-svg-desc">
+            <svg class="model-svg" viewBox="0 0 500 260" role="img" aria-labelledby="model-svg-title model-svg-desc">
               <title id="model-svg-title">Zwei-Signal-Modell zu Bipolar I, Bipolar II und Mischbildern</title>
               <desc id="model-svg-desc">Das Modell zeigt Aktivierung und depressive Belastung als zwei getrennte Signale. Mischbilder werden sichtbar, wenn Aktivierung und depressive Belastung gleichzeitig hoch sind.</desc>
-              <rect x="0" y="0" width="500" height="285" rx="10" fill="#fff"/>
-              <rect x="52" y="29" width="398" height="99" rx="9" fill="#fffaf0"/>
-              <rect x="52" y="147" width="398" height="94" rx="9" fill="#eef5f8"/>
-              <rect x="321" y="29" width="86" height="212" rx="9" fill="#f3eff2" opacity="0.72"/>
+              <rect x="0" y="0" width="500" height="260" rx="10" fill="#fff"/>
+              <rect x="52" y="19" width="398" height="88" rx="9" fill="#fffaf0"/>
+              <rect x="52" y="126" width="398" height="88" rx="9" fill="#eef5f8"/>
+              <rect x="321" y="19" width="86" height="195" rx="9" fill="#f3eff2" opacity="0.72"/>
               <line x1="52" y1="63" x2="450" y2="63" stroke="#8a650f" stroke-width="2" stroke-dasharray="7 5"/>
-              <line x1="52" y1="181" x2="450" y2="181" stroke="#3f6f8f" stroke-width="2" stroke-dasharray="7 5"/>
-              <text x="62" y="49" font-family="DM Sans, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#8a650f">Orientierung: Manie-Schwelle</text>
+              <line x1="52" y1="160" x2="450" y2="160" stroke="#3f6f8f" stroke-width="2" stroke-dasharray="7 5"/>
+              <text x="62" y="42" font-family="DM Sans, Arial, sans-serif" font-size="9.6" font-weight="700" fill="#8a650f">Manie-Schwelle · Orientierung</text>
               <text x="62" y="77" font-family="DM Sans, Arial, sans-serif" font-size="9" fill="#6d645d">Aktivierung / Tempo / Risiko</text>
-              <text x="62" y="167" font-family="DM Sans, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#3f6f8f">Depressive Belastung</text>
-              <text x="62" y="195" font-family="DM Sans, Arial, sans-serif" font-size="9" fill="#6d645d">Rückzug / Verzweiflung / Schwere</text>
-              <text x="337" y="42" font-family="DM Sans, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#6e4964">MISCHBILD</text>
+              <text x="62" y="146" font-family="DM Sans, Arial, sans-serif" font-size="10.2" font-weight="700" fill="#3f6f8f">Depressive Belastung</text>
+              <text x="62" y="174" font-family="DM Sans, Arial, sans-serif" font-size="9" fill="#6d645d">Rückzug / Verzweiflung / Schwere</text>
+              <text x="337" y="34" font-family="DM Sans, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#6e4964">MISCHBILD</text>
 
-              <path d="M 72 103 C 104 99, 111 42, 142 42 C 177 42, 184 105, 217 102 C 253 99, 268 78, 298 80 C 326 82, 334 70, 363 73 C 392 76, 397 111, 428 103" fill="none" stroke="#9a4f45" stroke-width="4" stroke-linecap="round"/>
-              <path d="M 72 213 C 107 215, 138 207, 169 211 C 207 216, 237 221, 271 203 C 305 185, 326 176, 357 177 C 388 178, 398 209, 430 217" fill="none" stroke="#3f6f8f" stroke-width="4" stroke-linecap="round"/>
-              <circle cx="142" cy="42" r="6.8" fill="#8a650f" stroke="#fff" stroke-width="2"/>
-              <circle cx="298" cy="80" r="6.8" fill="#9a4f45" stroke="#fff" stroke-width="2"/>
-              <circle cx="357" cy="177" r="6.8" fill="#3f6f8f" stroke="#fff" stroke-width="2"/>
-              <circle cx="363" cy="73" r="6.8" fill="#9a4f45" stroke="#fff" stroke-width="2"/>
-              <g class="diagram-marker-chip marker-bipolar-i" transform="translate(173 38)">
+              <path d="M 72 91 C 104 87, 111 36, 142 36 C 177 36, 184 93, 217 90 C 253 87, 268 70, 298 72 C 326 74, 334 64, 363 66 C 392 69, 397 99, 428 91" fill="none" stroke="#9a4f45" stroke-width="4" stroke-linecap="round"/>
+              <path d="M 72 193 C 107 195, 138 187, 169 191 C 207 196, 237 201, 271 184 C 305 166, 326 155, 357 156 C 388 157, 398 189, 430 197" fill="none" stroke="#3f6f8f" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="142" cy="36" r="6.8" fill="#8a650f" stroke="#fff" stroke-width="2"/>
+              <circle cx="298" cy="72" r="6.8" fill="#9a4f45" stroke="#fff" stroke-width="2"/>
+              <circle cx="357" cy="156" r="6.8" fill="#3f6f8f" stroke="#fff" stroke-width="2"/>
+              <circle cx="363" cy="66" r="6.8" fill="#9a4f45" stroke="#fff" stroke-width="2"/>
+              <path class="marker-leader" d="M 205 29 L 151 34"/>
+              <path class="marker-leader" d="M 296 103 L 298 81"/>
+              <g class="diagram-marker-chip marker-bipolar-i" transform="translate(221 27)">
                 <rect x="-16" y="-11" width="32" height="21" rx="10.5"/>
                 <text x="0" y="4" text-anchor="middle">B I</text>
               </g>
-              <g class="diagram-marker-chip marker-bipolar-ii" transform="translate(293 107)">
+              <g class="diagram-marker-chip marker-bipolar-ii" transform="translate(294 107)">
                 <rect x="-18" y="-11" width="36" height="21" rx="10.5"/>
                 <text x="0" y="4" text-anchor="middle">B II</text>
               </g>
-              <g class="diagram-marker-chip marker-mixed" transform="translate(363 131)">
-                <rect x="-14" y="-11" width="28" height="21" rx="10.5"/>
-                <text x="0" y="4" text-anchor="middle">M</text>
-              </g>
-              <text x="315" y="257" font-family="DM Sans, Arial, sans-serif" font-size="8.8" fill="#6d645d">vereinfachtes Orientierungsmodell — keine diagnostische Einordnung</text>
+              <text x="251" y="235" text-anchor="middle" font-family="DM Sans, Arial, sans-serif" font-size="8.5" fill="#6d645d">vereinfachtes Modell — keine diagnostische Einordnung</text>
             </svg>
 
             <div class="side-stack">
