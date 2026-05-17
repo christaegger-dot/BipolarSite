@@ -88,6 +88,11 @@ Das automatisch erzeugte Playwright-PDF ist ein Layout-Draft. Es darf nicht als
 barrierefreies Freigabe-PDF ausgegeben werden, solange kein extern
 remediated/tagged PDF via `--final-pdf` geprüft wurde.
 
+GitHub/Copilot-Umgebungen sollen `.github/workflows/copilot-setup-steps.yml`
+verwenden. Dort werden Node, Playwright, Poppler, qpdf, Ghostscript, MuPDF,
+ExifTool, `pdfplumber` und WeasyPrint vorinstalliert, damit die lokale
+Handout-Prüfkette ohne ad-hoc Werkzeugnachrüstung läuft.
+
 ---
 
 ## Weitere Skills

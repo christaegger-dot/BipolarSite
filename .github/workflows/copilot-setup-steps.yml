@@ -1,0 +1,58 @@
+name: Copilot Setup Steps
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/copilot-setup-steps.yml
+      - package-lock.json
+      - package.json
+  pull_request:
+    paths:
+      - .github/workflows/copilot-setup-steps.yml
+      - package-lock.json
+      - package.json
+
+jobs:
+  copilot-setup-steps:
+    runs-on: ubuntu-latest
+    timeout-minutes: 59
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install system tools for site and handout QA
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            ghostscript \
+            libimage-exiftool-perl \
+            libpango-1.0-0 \
+            libpangoft2-1.0-0 \
+            mupdf-tools \
+            poppler-utils \
+            python3-pip \
+            python3-venv \
+            qpdf
+
+      - name: Install JavaScript dependencies
+        run: npm ci
+
+      - name: Install Python handout QA tools
+        run: |
+          python3 -m venv .venv-handout
+          . .venv-handout/bin/activate
+          python -m pip install --upgrade pip
+          python -m pip install pdfplumber weasyprint
+          echo "$PWD/.venv-handout/bin" >> "$GITHUB_PATH"
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium firefox webkit

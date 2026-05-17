@@ -156,6 +156,11 @@ npm run handout:render -- _handout_work/mein-handout.html --type orientierung --
 Die automatisch gerenderten PDFs sind Layout-Drafts. Finale Freigabe braucht
 ein extern remediated/getaggtes PDF, das mit `--final-pdf` geprüft wird.
 
+Für Codex-/Copilot-Umgebungen ist zusätzlich
+`.github/workflows/copilot-setup-steps.yml` hinterlegt. Der Setup-Workflow
+installiert die Handout-QA-Werkzeuge vor, damit neue Agent-Sitzungen dieselbe
+Prüfkette nutzen können.
+
 ## Deployment
 
 Die Website wird automatisch über **Netlify** aus dem `main`-Branch deployt. Konfiguration: `netlify.toml`.
