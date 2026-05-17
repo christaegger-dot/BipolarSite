@@ -1,5 +1,5 @@
 ---
-title: "Selbstfürsorge als Belastungsmanagement"
+title: "Eigene Mittel schützen"
 slug: "c6_selbstfuersorge"
 source_pdf: "/handouts/c6_selbstfuersorge.pdf"
 status: "draft"
@@ -7,120 +7,77 @@ show_status_badge: false
 show_priority_badge: false
 type: "Orientierungsblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
-goal: "Angehörige darin entlasten, Selbstfürsorge als Schutz vor Auszehrung und nicht als Egoismus einzuordnen"
-target_format: "A4, 2 Seiten"
+goal: "Angehörige entlasten und Selbstfürsorge als Belastungsmanagement statt als Egoismus einordnen"
+target_format: "A4 quer, 1 Seite"
 priority: "P1"
-last_updated: "2026-05-13"
-emergency_label: "Wenn Sie selbst an eine Grenze kommen"
-emergency_callout: "Wenn Sie merken, dass Sie nicht mehr sicher, nicht mehr handlungsfähig oder völlig erschöpft sind: holen Sie früh Unterstützung dazu und bleiben Sie damit nicht allein."
-emergency_note: "Selbstfürsorge ist hier keine Kür, sondern Schutz vor weiterer Auszehrung."
-quick_steps:
-  - icon: "1"
-    text: "Schlaf und Mahlzeiten mit schützen"
-  - icon: "2"
-    text: "Nicht alles allein tragen"
-  - icon: "3"
-    wide: true
-    text: "Einen festen Entlastungstermin setzen"
-focus_box:
-  kind: "anker"
-  title: "Mini-Plan für diese Woche"
-  items:
-    - label: "Körper"
-      text: "Eine Mahlzeit, einen Schlafanker oder einen kurzen Weg konkret schützen."
-    - label: "Seele"
-      text: "Ein Gespräch, eine Notiz oder eine ruhige Pause fest einplanen."
-    - label: "Beziehung"
-      text: "Eine krankheitsfreie Insel oder klare Absprache klein halten."
-    - label: "Entlastung"
-      text: "Eine Person oder Stelle benennen, die nicht erst im Zusammenbruch dazukommt."
-emergency_contacts:
-  - label: "Dargebotene Hand"
-    number: "143"
-    note: "Wenn Sie selbst sofort mit jemandem sprechen müssen"
-  - label: "Ärztefon Zürich"
-    number: "0800&nbsp;33&nbsp;66&nbsp;55"
-    note: "Wenn Sie fachliche Einschätzung brauchen und nicht mehr gut sortieren können"
-  - label: "Sanität"
-    number: "144"
-    note: "Wenn akute Gefahr im Raum steht oder niemand mehr sicher ist"
-    tone: "urgent"
+last_updated: "2026-05-17"
+visual_metaphor: "Akku / eigene Mittel"
+document_decision: "Orientierungsblatt, weil die Kernaufgabe Einordnung und Entlastung ist; der konkrete Schritt bleibt Pflicht, macht das Blatt aber nicht zum Praxisblatt."
 ---
 
-## Worum es hier geht
+# Eigene Mittel schützen
 
-Selbstfürsorge klingt schnell nach Luxus. In Angehörigenrealitäten ist sie oft eher Schadensbegrenzung. Wenn Sie dauerhaft zu viel tragen, zu wenig schlafen, sich sozial zurückziehen und nur noch reagieren, schützt Selbstfürsorge nicht vor jeder Krise — aber sie kann verhindern, dass die Belastung auch Sie vollständig auszehrt.
+Wenn Sorge lange dauert, geraten die eigenen Reserven leicht aus dem Blick. Dieses Blatt ersetzt keine Behandlung oder persönliche Beratung.
 
-**Ihre Gesundheit hat einen Eigenwert.** Nicht erst, wenn Sie zusammenbrechen. Und nicht nur, damit Sie weiter funktionieren können.
+## Worum es geht
 
-## Woran Sie merken können, dass es zu viel wird
+Selbstfürsorge klingt schnell nach Luxus. In Angehörigenrealitäten ist sie oft eher Belastungsmanagement: Wenn Sie dauerhaft zu viel tragen, zu wenig schlafen, sich sozial zurückziehen und nur noch reagieren, wird nicht nur die Situation schwerer — auch Ihre eigenen Mittel werden knapper.
 
-- Sie schlafen schlecht oder nur noch unter Alarm
-- Sie sagen Kontakte immer wieder ab und ziehen sich zurück
+Ihre Gesundheit hat einen Eigenwert. Nicht erst, wenn Sie zusammenbrechen. Und nicht nur, damit Sie weiter funktionieren können.
+
+## Woran Sie merken können, dass eigene Mittel knapp werden
+
+- Schlaf und Mahlzeiten geraten immer wieder weg
+- Kontakte werden abgesagt, weil Erklären zu viel Kraft braucht
 - Sie funktionieren nach aussen, fühlen sich innen aber leer oder gereizt
-- Sie essen unregelmässig oder vergessen eigene Arzttermine
-- Ihr Alltag besteht fast nur noch aus Reagieren auf die Erkrankung
-- Sie haben das Gefühl, für eigene Bedürfnisse sei kein Platz mehr
+- eigene Arzttermine, Pausen oder Bedürfnisse rutschen nach hinten
+- der Alltag besteht fast nur noch aus Reagieren auf die Erkrankung
+- Entlastung fühlt sich erst erlaubt an, wenn gar nichts mehr geht
 
-Diese Zeichen bedeuten nicht, dass Sie versagt haben. Sie zeigen eher, dass Belastung gerade mehr Raum einnimmt, als ein Mensch auf Dauer tragen kann.
+Diese Zeichen bedeuten nicht, dass Sie versagt haben. Sie zeigen, dass Belastung gerade mehr Raum einnimmt, als ein Mensch auf Dauer tragen kann.
 
-## Drei Bereiche, die Schutz geben können
+## Der Akku: vier Stellen, an denen Kraft verloren geht oder zurückkommen kann
 
-## Körper
+**Körper**
 
-- den eigenen Schlafrhythmus möglichst mit schützen
-- regelmässig essen, auch wenn die Lage angespannt ist
-- Bewegung klein denken: ein kurzer Weg zählt bereits
-- eigene medizinische Termine nicht auf unbestimmt verschieben
+Schlaf, Essen, Bewegung und eigene medizinische Termine sind keine Nebensache. Sie sind Basisversorgung.
 
-## Seele
+**Seele**
 
-- etwas pflegen, das nichts mit der Erkrankung zu tun hat
-- Freundschaften nicht nur im Notfall aktivieren
-- Gefühle aufschreiben oder mit einer vertrauten Person besprechen
-- psychologische Unterstützung nutzen, bevor Erschöpfung kippt
+Ein Gespräch, eine Notiz oder eine ruhige Pause helfen, Gefühle nicht nur im Inneren kreisen zu lassen.
 
-## Beziehung
+**Beziehung**
 
-- gemeinsame Rituale erhalten oder neu schaffen
-- Absprachen für Krisen in ruhigen Phasen treffen
-- kleine krankheitsfreie Inseln bewusst schützen
-- Hilfe auch als Prävention verstehen, nicht erst als letzte Lösung
+Kleine krankheitsfreie Inseln schützen, dass die Beziehung nicht nur aus Sorge, Kontrolle und Reaktion besteht.
 
-Langfristige Tragfähigkeit entsteht oft aus Strukturen: gemeinsames Verständnis, krankheitsfreie Inseln, Grenzen, vereinbarte Schritte für Krisen und eigene Entlastung.
+**Entlastung**
 
-## Was häufig hilft
+Eine Person oder Stelle früh einbeziehen ist Prävention, nicht Scheitern. Entlastung muss nicht erst im Zusammenbruch beginnen.
 
-- mit einer einzigen Vertrauensperson wieder beginnen statt gleich mit allen
+## Was eher hilft
+
+- eine einzige verlässliche Person wieder kontaktieren
 - Entlastung konkret terminieren, nicht nur vage vornehmen
-- kleine krankheitsfreie Inseln im Alltag wieder bewusst einplanen
 - kleine Routinen ernst nehmen: Schlaf, Essen, frische Luft, Pause
-- Unterstützung suchen, bevor Sie nur noch funktionieren
-- sich sagen: Entlastung ist Prävention, nicht Selbstsucht
-
-Ein hilfreicher Satz kann sein:
-**„Ich muss nicht erst ganz am Ende sein, um Hilfe zu brauchen.“**
+- krankheitsfreie Inseln klein halten und wirklich schützen
+- sich sagen: Unterstützung ist nicht erst dann erlaubt, wenn alles kippt
 
 ## Was eher nicht hilft
 
-- Selbstfürsorge immer auf „später“ verschieben
-- glauben, Erschöpfung sei der Beweis von Liebe
-- Kontakte abbrechen, weil Erklären zu mühsam ist
-- nur noch stark sein wollen und Warnzeichen übergehen
-- Entlastung erst dann erlauben, wenn alles zusammenbricht
+- Selbstfürsorge immer auf «später» verschieben
+- Erschöpfung als Beweis von Liebe verstehen
+- Kontakte abbrechen, weil die Lage schwer zu erklären ist
+- nur noch stark sein wollen und eigene Warnzeichen übergehen
+- Entlastung als Belohnung nach genug Funktionieren behandeln
 
-## Wenn soziale Kontakte weggebrochen sind
+## Konkreter nächster Schritt
 
-Viele Angehörige ziehen sich mit der Zeit zurück, weil sie abgesagt, erklärt oder einfach keine Kraft mehr hatten. Diese Co-Isolation ist häufig. Der Wiedereinstieg muss nicht gross sein. Oft reicht es, mit **einer** verlässlichen Person zu beginnen. Das Ziel ist nicht, das frühere Netz exakt zurückzubekommen, sondern ein Netz, das zu Ihrer jetzigen Situation passt.
+Setzen Sie heute einen nicht verhandelbaren Termin in dieser Woche, der nur Ihrer Stabilität dient: Schlaf nachholen, ein kurzer Weg, ein Gespräch, eine Mahlzeit in Ruhe oder eine Pause ohne Erklärung. Behandeln Sie ihn wie einen Arzttermin.
 
-## Nächster sinnvoller Schritt
+## Entlastender Kernsatz
 
-Setzen Sie in dieser Woche **einen nicht verhandelbaren Termin**, der nur Ihrer Stabilität dient. Behandeln Sie ihn wie einen Arzttermin. Nicht als Belohnung nach genug Funktionieren, sondern als Teil davon, dass Ihre Belastung tragbar bleibt.
+Selbstfürsorge ist kein Rückzug aus der Beziehung. Sie schützt die eigenen Mittel, damit Belastung nicht alles auffrisst.
 
-Weiterführend:
+## Quellenbasis für die Umsetzung
 
-- [Modul 7: Langfristige Tragfähigkeit](/modul/7/#tragfaehigkeit)
-- [Durchatmen – geführte Atemübung](/tools/durchatmen/)
-- [Anlaufstellen und Ressourcen](/anlaufstellen/)
-- Dargebotene Hand: 143
-- Ärztefon Zürich: 0800&nbsp;33&nbsp;66&nbsp;55
+Karambelas et al. 2022 · Cham et al. 2022 · NICE CG185
