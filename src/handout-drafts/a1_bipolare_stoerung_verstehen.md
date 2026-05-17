@@ -17,11 +17,11 @@ visual_model:
 
 # Die bipolare Störung verstehen
 
-Bipolarität ist nicht einfach «hoch und tief». Die Erkrankung kann Schlaf, Energie, Tempo, Stimmung, Selbstwahrnehmung, Urteilsvermögen und Beziehungen verändern. Dieses Blatt ersetzt keine Diagnose oder Behandlung.
+Bipolarität ist nicht einfach «hoch und tief». Die Erkrankung kann Schlaf, Energie, Tempo, Stimmung, Selbstwahrnehmung, Urteilsvermögen und Beziehungen verändern. Dieses Blatt ersetzt keine fachliche Abklärung, Diagnose oder Behandlung.
 
 ## Worum es geht
 
-Für Angehörige ist die bipolare Störung oft deshalb so schwer einzuordnen, weil sie nicht nur Symptome sehen, sondern mit den Folgen leben: mit Rückzug, Gereiztheit, Risikoverhalten, Hoffnungslosigkeit, Scham oder Phasen scheinbarer Normalität.
+Für Angehörige ist die bipolare Störung oft schwer einzuordnen, weil sie nicht Diagnosekriterien sehen, sondern Veränderungen im Alltag: Rückzug, Gereiztheit, Risikoverhalten, Hoffnungslosigkeit, Scham oder scheinbare Normalität.
 
 Entscheidend ist meist nicht ein einzelnes Zeichen, sondern ein Muster: Was verändert sich gleichzeitig, wie deutlich weicht es vom üblichen Zustand ab und wie lange bleibt es bestehen?
 
@@ -36,11 +36,11 @@ Entscheidend ist meist nicht ein einzelnes Zeichen, sondern ein Muster: Was ver�
 
 Verstehen schafft keine Kontrolle. Aber es kann helfen, Verhalten weniger persönlich zu nehmen, Warnmuster früher zu erkennen und in ruhigeren Phasen bessere Absprachen zu treffen.
 
-**Entlastender Kernsatz:** Die Erkrankung erklärt nicht alles — aber sie kann erklären, warum vertrautes Verhalten zeitweise nicht mehr vertraut wirkt.
+**Entlastender Kernsatz:** Die Erkrankung erklärt nicht alles. Aber sie kann helfen, Veränderungen als Verlaufsmuster zu sehen — nicht vorschnell als Absicht, Charakter oder Beziehungsbotschaft.
 
 ## Konkreter nächster Schritt
 
-Denken Sie an die letzte deutliche Veränderung. Notieren Sie drei frühe Muster, die zuerst sichtbar wurden: Schlaf, Tempo, Rückzug, Gereiztheit, Ausgaben, Hoffnungslosigkeit oder etwas anderes. Noch nicht als Diagnose — nur als Orientierung.
+Denken Sie an eine deutliche Veränderung, die Sie rückblickend besser einordnen möchten. Notieren Sie drei frühe Muster, die zuerst sichtbar wurden: Schlaf, Tempo, Rückzug, Gereiztheit, Aussagen, Hoffnungslosigkeit oder etwas anderes. Noch nicht als Diagnose — nur als Orientierung.
 
 ## Quellen
 
