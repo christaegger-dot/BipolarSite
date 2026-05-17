@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trauer ohne klaren Abschied</title>
+  <style>
+    :root {
+      --page-w: 297mm;
+      --page-h: 210mm;
+      --margin-x: 14mm;
+      --margin-y: 14mm;
+      --ink: #2d2823;
+      --muted: #6d645d;
+      --line: rgba(45, 40, 35, 0.15);
+      --teal: #287f87;
+      --aubergine: #6e4964;
+      --rose: #9a4f45;
+      --green: #47735b;
+      --amber: #76540d;
+      --paper: #fff;
+      --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+      --sans: "DM Sans", Arial, Helvetica, sans-serif;
+    }
+
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+
+    html,
+    body {
+      width: var(--page-w);
+      min-height: var(--page-h);
+      margin: 0;
+      background: #fff;
+      color: var(--ink);
+      font-family: var(--serif);
+    }
+
+    body {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .handout {
+      width: var(--page-w);
+      min-height: var(--page-h);
+    }
+
+    .print-page {
+      width: var(--page-w);
+      height: var(--page-h);
+      box-sizing: border-box;
+      overflow: hidden;
+      background: var(--paper);
+      padding: var(--margin-y) var(--margin-x);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 5.3mm;
+    }
+
+    .sheet-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12mm;
+      align-items: start;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 4mm;
+    }
+
+    .eyebrow {
+      margin: 0 0 3.5mm;
+      font-family: var(--sans);
+      font-size: 9px;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 16ch;
+      font-size: 34px;
+      line-height: 0.98;
+      font-weight: 700;
+      letter-spacing: 0;
+      color: #746a62;
+    }
+
+    .lead {
+      margin: 4.5mm 0 0;
+      max-width: 62ch;
+      font-size: 14.5px;
+      line-height: 1.35;
+      font-style: italic;
+      color: #4d463f;
+    }
+
+    .tag {
+      justify-self: end;
+      padding: 2mm 3mm;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      font-family: var(--sans);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal);
+      background: #fff;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.24fr;
+      gap: 10mm;
+      min-height: 0;
+    }
+
+    section {
+      min-width: 0;
+    }
+
+    h2 {
+      margin: 0 0 2.5mm;
+      font-family: var(--sans);
+      font-size: 10px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    p {
+      margin: 0 0 2.9mm;
+      font-size: 11.7px;
+      line-height: 1.39;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 2.05mm;
+    }
+
+    li {
+      position: relative;
+      padding-left: 4mm;
+      font-size: 11.2px;
+      line-height: 1.31;
+    }
+
+    li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.46em;
+      width: 1.35mm;
+      height: 1.35mm;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+
+    .mini-note {
+      margin-top: 3.8mm;
+      border-left: 3px solid var(--aubergine);
+      border-radius: 5px;
+      padding: 3.2mm 4mm;
+      box-shadow: inset 0 0 0 1px rgba(110, 73, 100, 0.17);
+      background: #fff;
+    }
+
+    .mini-note strong,
+    .note strong {
+      display: block;
+      margin-bottom: 1.2mm;
+      font-family: var(--sans);
+      font-size: 9.6px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .mini-note strong {
+      color: var(--aubergine);
+    }
+
+    .mini-note p,
+    .note p {
+      margin-bottom: 0;
+      font-size: 11px;
+      line-height: 1.36;
+    }
+
+    .visual-card {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 5.5mm;
+      min-height: 84mm;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 3.6mm;
+      background: #fff;
+    }
+
+    .visual-title {
+      margin: 0;
+      font-family: var(--sans);
+      font-size: 10px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+
+    .glass-visual {
+      display: grid;
+      grid-template-columns: 1fr 16mm 1fr;
+      align-items: stretch;
+      gap: 4mm;
+      min-height: 48mm;
+    }
+
+    .presence-side {
+      display: grid;
+      align-content: center;
+      border-radius: 5px;
+      padding: 4mm;
+      box-shadow: inset 0 0 0 1px rgba(40, 127, 135, 0.16);
+      border-left: 3px solid var(--teal);
+      background: #fff;
+    }
+
+    .presence-side.absent {
+      border-left-color: var(--rose);
+      box-shadow: inset 0 0 0 1px rgba(154, 79, 69, 0.17);
+    }
+
+    .presence-side strong {
+      display: block;
+      margin-bottom: 1.8mm;
+      font-family: var(--sans);
+      font-size: 10.3px;
+      color: var(--teal);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .presence-side.absent strong {
+      color: var(--rose);
+    }
+
+    .presence-side span {
+      display: block;
+      font-size: 11.4px;
+      line-height: 1.3;
+    }
+
+    .glass-wall {
+      position: relative;
+      display: grid;
+      place-items: center;
+      border-left: 1px solid rgba(40, 127, 135, 0.32);
+      border-right: 1px solid rgba(40, 127, 135, 0.32);
+    }
+
+    .glass-wall::before {
+      content: "";
+      position: absolute;
+      inset: 0 6mm;
+      border-left: 1px solid rgba(40, 127, 135, 0.24);
+      border-right: 1px solid rgba(40, 127, 135, 0.24);
+    }
+
+    .glass-wall span {
+      position: relative;
+      z-index: 1;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-family: var(--sans);
+      font-size: 8.7px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal);
+      background: #fff;
+      padding: 2mm 0;
+    }
+
+    .loss-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2.6mm;
+    }
+
+    .loss-chip {
+      border-top: 2px solid var(--teal);
+      padding-top: 2mm;
+    }
+
+    .loss-chip:nth-child(2) {
+      border-top-color: var(--green);
+    }
+
+    .loss-chip:nth-child(3) {
+      border-top-color: var(--amber);
+    }
+
+    .loss-chip:nth-child(4) {
+      border-top-color: var(--aubergine);
+    }
+
+    .loss-chip strong {
+      display: block;
+      margin-bottom: 1mm;
+      font-family: var(--sans);
+      font-size: 9.2px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .loss-chip span {
+      display: block;
+      font-size: 10.3px;
+      line-height: 1.28;
+    }
+
+    .note {
+      margin-top: 3mm;
+      border-left: 3px solid var(--rose);
+      border-radius: 5px;
+      padding: 2.8mm 4mm;
+      background: #fff;
+      box-shadow: inset 0 0 0 1px rgba(154, 79, 69, 0.18);
+    }
+
+    .note strong {
+      color: var(--rose);
+    }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      padding-top: 3mm;
+      display: grid;
+      gap: 1.6mm;
+      font-family: var(--sans);
+      font-size: 8.2px;
+      line-height: 1.35;
+      color: var(--muted);
+    }
+
+    .footer-main {
+      display: flex;
+      justify-content: space-between;
+      gap: 8mm;
+    }
+
+    .sources {
+      font-size: 7.4px;
+      color: #7d746c;
+    }
+
+    @media screen {
+      body {
+        padding: 18px;
+      }
+
+      .print-page {
+        box-shadow: 0 10px 28px rgba(28, 43, 58, 0.12);
+      }
+    }
+
+    @media print {
+      html,
+      body,
+      .handout,
+      .print-page {
+        width: var(--page-w);
+        height: var(--page-h);
+        margin: 0;
+        background: #fff;
+      }
+
+      .print-page {
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="handout">
+    <article class="print-page" aria-label="Trauer ohne klaren Abschied">
+      <header class="sheet-header">
+        <div>
+          <p class="eyebrow">Fachstelle Angehörigenarbeit · Orientierungsblatt</p>
+          <h1>Trauer ohne klaren Abschied</h1>
+          <p class="lead">Wenn ein Mensch körperlich da ist, vertraute Nähe aber zeitweise fehlt, entsteht oft ein Schmerz, der schwer zu benennen ist. Dieses Blatt ersetzt keine Behandlung oder persönliche Beratung.</p>
+        </div>
+        <div class="tag">A4 quer · Zwischenlage</div>
+      </header>
+
+      <div class="content-grid">
+        <section aria-labelledby="worum-es-geht">
+          <h2 id="worum-es-geht">Worum es geht</h2>
+          <p>Manche Verluste haben keinen klaren Abschied. Ein solcher Verlust ohne klaren Abschied bedeutet: Der Mensch ist noch da — und gleichzeitig ist vieles nicht mehr so, wie es einmal war. Pauline Boss nennt diese Zwischenlage «Ambiguous Loss».</p>
+          <p>Diese Reaktion ist nicht undankbar und nicht unloyal. Sie wird oft stärker, weil Hoffnung, Sorge, Erschöpfung und Verbundenheit nebeneinander bestehen.</p>
+
+          <h2>Woran es spürbar wird</h2>
+          <ul>
+            <li>Sie fühlen sich verbunden und gleichzeitig sehr allein.</li>
+            <li>Sie vermissen Nähe, Verlässlichkeit oder gemeinsame Zukunft.</li>
+            <li>Sie denken: «Die Person ist da, aber vieles ist nicht mehr wie früher.»</li>
+            <li>Sie schämen sich für den Schmerz, weil niemand gestorben ist.</li>
+            <li>Hoffnung und Erschöpfung wechseln sich immer wieder ab.</li>
+          </ul>
+
+          <div class="mini-note" data-required="next-action">
+            <strong>Konkreter nächster Schritt</strong>
+            <p>Benennen Sie heute einen Verlust, um den Sie gerade trauern: Nähe, Leichtigkeit, Zukunft, Vertrauen oder Zeit für das eigene Leben. Nicht um Schuld zuzuweisen, sondern um die Lage ehrlich einzuordnen.</p>
+          </div>
+        </section>
+
+        <section aria-labelledby="visualisierung">
+          <div class="visual-card">
+            <h2 id="visualisierung" class="visual-title">Da und doch nicht da</h2>
+            <div class="glass-visual" role="img" aria-label="Zwischenlage bei ambiguous loss: Die Person ist körperlich da, vertraute Nähe ist zeitweise nicht erreichbar.">
+              <div class="presence-side">
+                <strong>Da</strong>
+                <span>Körperliche Nähe, gemeinsame Geschichte, Erinnerung und Hoffnung bleiben real.</span>
+              </div>
+              <div class="glass-wall" aria-hidden="true"><span>Zwischenlage</span></div>
+              <div class="presence-side absent">
+                <strong>Nicht erreichbar</strong>
+                <span>Vertraute Reaktionen, Gegenseitigkeit oder Leichtigkeit fehlen zeitweise spürbar.</span>
+              </div>
+            </div>
+            <div class="loss-grid" role="group" aria-label="Vier typische Verlustbereiche">
+              <div class="loss-chip">
+                <strong>Zukunft</strong>
+                <span>Pläne werden unsicher oder immer wieder verschoben.</span>
+              </div>
+              <div class="loss-chip">
+                <strong>Vertrautheit</strong>
+                <span>Bekannte Seiten wirken zeitweise fremd oder fern.</span>
+              </div>
+              <div class="loss-chip">
+                <strong>Soziales Leben</strong>
+                <span>Rückzug und Erklärungsnot machen einsamer.</span>
+              </div>
+              <div class="loss-chip">
+                <strong>Eigenes Leben</strong>
+                <span>Wünsche und Routinen bleiben auf später verschoben.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="note">
+            <strong>Entlastender Kernsatz</strong>
+            <p>Diese Trauer widerspricht der Liebe nicht. Sie zeigt, dass etwas Wertvolles fehlt — auch wenn der Mensch noch da ist.</p>
+          </div>
+        </section>
+      </div>
+
+      <footer class="footer">
+        <div class="footer-main">
+          <span>Fachstelle Angehörigenarbeit · Psychiatrische Universitätsklinik Zürich</span>
+          <span>a4-ambiguous-loss v03 · Stand 17. Mai 2026 · Seite 1 von 1</span>
+        </div>
+        <div class="sources">
+          Quellen: NICE CG185 · Boss 1999 · Doka 2002 · Karambelas et al. 2022, DOI: 10.1186/s12888-022-04069-w
+        </div>
+      </footer>
+    </article>
+  </main>
+</body>
+</html>
