@@ -25,7 +25,7 @@ Selbstfürsorge klingt schnell nach Luxus. In Angehörigenrealitäten ist sie of
 
 Ihre Gesundheit hat einen Eigenwert. Nicht erst, wenn Sie zusammenbrechen. Und nicht nur, damit Sie weiter funktionieren können.
 
-## Woran Sie merken können, dass eigene Kräfte knapp werden
+## Wenn die Kräfte knapp werden
 
 - Schlaf, Essen und Pausen kommen immer wieder zu kurz
 - Kontakte werden abgesagt, weil Erklären zu viel Kraft braucht
@@ -44,7 +44,7 @@ Schlaf, Essen, Bewegung und eigene medizinische Termine sind keine Nebensache. S
 
 **Seele**
 
-Ein Gespräch, eine Notiz oder eine ruhige Pause helfen, Gefühle nicht nur im Inneren kreisen zu lassen.
+Ein Gespräch, eine Notiz oder eine ruhige Pause helfen, Gefühle nicht nur innerlich kreisen zu lassen.
 
 **Beziehung**
 
@@ -54,7 +54,7 @@ Kleine krankheitsfreie Inseln schützen, dass die Beziehung nicht nur aus Sorge,
 
 Eine Person oder Stelle früh einbeziehen ist Prävention, nicht Scheitern. Entlastung muss nicht erst im Zusammenbruch beginnen.
 
-## Was eher hilft
+## Was hilft
 
 - eine einzige verlässliche Person wieder kontaktieren
 - Entlastung konkret terminieren, nicht nur vage vornehmen
