@@ -156,7 +156,7 @@ const REQUIRED_PDF_TEXT_SNIPPETS = {
   ],
   a8_warnsignale: [
     "Ampel für Frühwarnzeichen",
-    "Krisenplan prüfen",
+    "Vereinbarten Schritt nutzen",
     "Nicht jedes Zeichen",
   ],
   a3_ambivalente_loyalitaet: [

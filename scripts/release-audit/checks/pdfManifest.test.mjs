@@ -89,6 +89,7 @@ describe("PDF manifest audit helpers", () => {
 
   it("requires content guardrails for updated legal and worksheet PDFs", () => {
     assert.ok(requiredPdfTextSnippets("a8_warnsignale").includes("Ampel für Frühwarnzeichen"));
+    assert.ok(requiredPdfTextSnippets("a8_warnsignale").includes("Vereinbarten Schritt nutzen"));
     assert.ok(requiredPdfTextSnippets("a3_ambivalente_loyalitaet").includes("Vier innere Kräfte"));
     assert.ok(requiredPdfTextSnippets("a4_ambiguous_loss").includes("Verlust ohne klaren Abschied"));
     assert.ok(requiredPdfTextSnippets("a5_affiliate_stigma").includes("Wie Stigma Angehörige enger macht"));
