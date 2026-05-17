@@ -148,6 +148,10 @@ visualisierungsgeführte Orientierungsblätter, 14 mm symmetrische Ränder,
 weissen Druckgrund, mindestens eine Visualisierung, einen konkreten nächsten
 Schritt und ein ehrliches PDF/UA-Gate.
 
+Der aktuelle Bestand und die empfohlene Reihenfolge für Migration,
+Konsolidierung und neue Handouts sind in
+`docs/HANDOUT_INVENTAR_UND_MIGRATIONSPLAN.md` dokumentiert.
+
 ```bash
 npm run handout:starter
 npm run handout:render -- _handout_work/mein-handout.html --type orientierung --orientation landscape
