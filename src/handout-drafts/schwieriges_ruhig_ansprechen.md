@@ -63,6 +63,8 @@ Schreiben Sie heute einen Satz auf, der nur beschreibt: «Mir fällt auf, dass �
 
 Dann ergänzen Sie: «Ich mache mir Sorgen, weil …» und «Können wir als nächsten kleinen Schritt …?»
 
+Bei akuter Gefahr gilt der Notfallweg, nicht das Gespräch.
+
 ## Entlastender Kernsatz
 
 Ruhig ansprechen heisst nicht, alles richtig sagen zu müssen. Es heisst, Sorge konkret zu machen, ohne sofort zu urteilen.
