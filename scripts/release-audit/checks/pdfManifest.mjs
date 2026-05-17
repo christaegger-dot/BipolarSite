@@ -43,6 +43,8 @@ const CRITICAL_LANGUAGE_METADATA_KEYS = new Set([
   "a6_bipolar_i_ii_mischzustaende",
   "absprachen_bevor_es_kippt",
   "schwieriges_ruhig_ansprechen",
+  "behandlung_verstehen",
+  "wenn_behandlung_abgelehnt_wird",
   "a3_ambivalente_loyalitaet",
   "a4_ambiguous_loss",
   "a5_affiliate_stigma",
@@ -193,6 +195,18 @@ const REQUIRED_PDF_TEXT_SNIPPETS = {
     "Drei-Satz-Modell",
     "Mir fällt auf, dass",
     "Ich mache mir Sorgen",
+    "Konkreter nächster Schritt",
+  ],
+  behandlung_verstehen: [
+    "Behandlungskompass",
+    "Nicht nur Medikation",
+    "Behandlung ist kein Entweder-oder",
+    "Konkreter nächster Schritt",
+  ],
+  wenn_behandlung_abgelehnt_wird: [
+    "Drei Spuren",
+    "Stabil vorsorgen",
+    "Was dokumentierbar hilft",
     "Konkreter nächster Schritt",
   ],
   a3_ambivalente_loyalitaet: [
