@@ -232,8 +232,8 @@ const handouts = {
   a6_bipolar_i_ii_mischzustaende: asset({
     key: "a6_bipolar_i_ii_mischzustaende",
     url: "/handouts/a6_bipolar_i_ii_mischzustaende.pdf",
-    title: "Bipolar I, II und Mischzustände",
-    subtitle: "Manie-Schwelle, Hypomanie und Mischbilder unterscheiden",
+    title: "Bipolar I, II und Mischbilder verstehen",
+    subtitle: "Hochphase, Depression und gemischte Merkmale unterscheiden",
     assetId: "HO-31",
     version: "web_v01",
     updated: "2026-05-17",
