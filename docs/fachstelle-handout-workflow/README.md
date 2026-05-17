@@ -97,6 +97,85 @@ In dieser Umgebung erzeugt Playwright/Chromium kein finales PDF/UA-PDF. Der loka
 
 Wichtig: Das Paket markiert `Tagged: no` als Blocker fuer finale Freigabe. Es behauptet keine Barrierefreiheit, die nicht nachweisbar ist.
 
+## Erkenntnisse aus den ersten Neubau-PRs
+
+Die ersten produktiven A4-quer-PRs haben ein paar Regeln geschaerft, die fuer
+weitere Handouts verbindlich als Arbeitsgewohnheit gelten sollten.
+
+### Inhalt zuerst, Modell danach
+
+Neue Handouts funktionieren am besten, wenn die inhaltliche Aufgabe vor der
+Visualisierung eindeutig ist:
+
+- Orientierungsblatt: Was soll verstanden und entlastet werden?
+- Praxisblatt: Welche kleine Handlung, Formulierung oder Absprache wird
+  erleichtert?
+- Krisen-Handout: Welcher Akutpfad muss schnell und eindeutig greifen?
+
+Die Visualisierung wird danach gewaehlt. Wenn eine Grafik trotz Micro-Layout-
+Passes unruhig bleibt, ist das oft kein reines Gestaltungsproblem, sondern ein
+semantisches Problem. Beim Blatt `a6_bipolar_i_ii_mischzustaende` war die
+Kurve nicht ideal, weil Bipolar I, Bipolar II und Mischbild keine Punkte auf
+derselben Verlaufslinie sind. Die bessere Loesung war ein neues Schwellen- und
+Mischbild-Modell. Merksatz: nicht endlos Labels verschieben, sondern pruefen,
+ob das Diagramm die richtige Frage beantwortet.
+
+### Serienlogik bewusst nutzen
+
+Einzelne Handouts werden staerker, wenn sie eine klare Rolle in einer kleinen
+Serie haben. Fuer Modul 6 hat sich diese Reihenfolge bewaehrt:
+
+- `a8_warnsignale`: Was wird frueh sichtbar?
+- `absprachen_bevor_es_kippt`: Was wird in ruhigeren Phasen vereinbart?
+- `schwieriges_ruhig_ansprechen`: Wie wird Sorge kurz, konkret und ohne
+  Diagnose angesprochen?
+
+Neue Themen sollten deshalb gegen bestehende Referenzblaetter abgegrenzt
+werden, bevor Text oder Layout entstehen. Ein neues Blatt soll nicht dieselbe
+Kernbotschaft anders dekorieren, sondern eine eigene Aufgabe im Set haben.
+
+### Akutlogik ohne Krisennummern
+
+Orientierungs- und Praxisblaetter duerfen weiterhin auf den Notfallweg
+verweisen, aber ohne explizite Krisennummern und ohne Website-Crossrefs.
+Bewaehrte Formulierung fuer Praxisblaetter:
+
+```text
+Bei akuter Gefahr gilt der Notfallweg, nicht das Gespraech.
+```
+
+Das trennt die normale Handlungs- oder Gespraechslogik sauber vom Akutfall,
+ohne das Blatt zu einem Krisen-Handout zu machen.
+
+### Jede Textaenderung am PDF neu pruefen
+
+Auch kleine Textglattungen koennen Zeilenhoehen, Umbruch und Next-Action-Box
+veraendern. Deshalb gilt nach jeder sichtbaren Textaenderung:
+
+1. Source-HTML anpassen.
+2. Layout-PDF neu rendern.
+3. PDF nach `src/handouts/` kopieren und Metadaten setzen.
+4. `handout:verify` erneut laufen lassen.
+5. Build, HTML-Lint und Release-Audit pruefen.
+
+Kein PDF im Repo soll hinter dem Source-HTML zurueckbleiben.
+
+### PR-Abschluss nicht vor Lighthouse
+
+Der lokale Gate ist noetig, aber nicht der letzte Schritt. Ein Handout-PR wird
+erst gemerged, wenn auch die Remote-Kette gruen ist:
+
+- Netlify Deploy Preview
+- Build, Lint & HTML Validate
+- Security Audit
+- Release Audit
+- pa11y
+- Playwright Smoke Tests
+- Lighthouse CI
+
+Lighthouse ist oft der langsamste Check. Nicht vorher mergen, auch wenn alle
+anderen Checks bereits gruen sind.
+
 ## Entscheidungslogik Quellen
 
 Pro Handout wird entschieden:
