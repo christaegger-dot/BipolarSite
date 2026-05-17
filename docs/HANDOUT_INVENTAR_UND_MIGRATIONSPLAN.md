@@ -85,8 +85,8 @@ offen bleibt nur der separate PDF/UA-Finalschritt.
 | `a2_phasenverlauf` | neu gebaut | Referenz für Phasen-/Kurvenlogik und Kühlschrank-taugliche Verlaufsmodelle. |
 | `a6_bipolar_i_ii_mischzustaende` | neu gebaut | Referenz für Schwellen-/Mischbild-Logik und diagnostiknahe Psychoedukation ohne Angehörigen-Diagnostik. |
 | `a8_warnsignale` | neu gebaut und gemerged | Referenz für Ampel-/Handlungslogik. |
-| `absprachen_bevor_es_kippt` | neu gebaut | Referenz für handlungsnahe Absprachekarten zwischen Warnsignalen und Krisenplan. |
-| `schwieriges_ruhig_ansprechen` | neu gebaut | Referenz für Drei-Satz-Kommunikation: Beobachtung, Sorge und nächster kleiner Schritt. |
+| `absprachen_bevor_es_kippt` | neu gebaut und gemerged | Referenz für handlungsnahe Absprachekarten zwischen Warnsignalen und Krisenplan. |
+| `schwieriges_ruhig_ansprechen` | neu gebaut und gemerged | Referenz für Drei-Satz-Kommunikation: Beobachtung, Sorge und nächster kleiner Schritt. |
 | `a3_ambivalente_loyalitaet` | neu gebaut und gemerged | Referenz für Spannungsfeld-Metaphern und warme Entlastungssprache. |
 | `a4_ambiguous_loss` | neu gebaut und gemerged | Referenz für Zwischenlage-/Verlustlogik und vorsichtige Moralwort-Reduktion. |
 | `a9_schlaf_fruehwarnsystem` | aktiv im Repo, Source-Vorläufer archiviert | Fachlich wertvoll, aber bei späterer Überarbeitung erst gegen neue Starter-/Verifier-Kette prüfen. |
@@ -100,11 +100,10 @@ Nutzen, Visualisierbarkeit und geringe technische Risiken verbindet.
 
 | Rang | Ziel | Ausgangsmaterial | Visualisierung | Vor Start klären |
 |---:|---|---|---|---|
-| 1 | `c6_selbstfuersorge` neu bauen | HO-22, Draft `c6_selbstfuersorge.md` | Werkzeugkasten, Akku oder Wochen-Mini-Plan | Orientierungsblatt oder Praxisblatt? Empfehlung: Praxisblatt, wenn Formulierungen/Minischritte dominieren; sonst Orientierungsblatt. |
-| 2 | `expressed_emotions` neu bauen | HO-11, Draft `expressed_emotions.md` | Kreislauf Sorge - Kontrolle - Stress - Symptomdruck | Schuldentlastende Formulierung besonders sorgfältig setzen; keine Schuldspirale visualisieren, ohne Ausstiegspunkt. |
-| 3 | Erosion-Familie ordnen | HO-07, HO-08, HO-28 | Beziehungserosion, Schonhaltung, Co-Isolation | Erst Cluster-Entscheid: ein Familien-Set aus 2-3 Blättern statt ein überladenes Sammelblatt. |
-| 4 | `a5_affiliate_stigma` neu bauen | HO-03, Draft `a5_affiliate_stigma.md` | Stigma-Schichten, Scham-Mantel oder Schweigespirale | Sensible Sprache: Beschämung benennen, ohne Angehörige erneut zu beschämen. |
-| 5 | `b7_behandlung_ambivalenz` neu bauen | HO-19, Draft `b7_behandlung_ambivalenz.md` | Waage, Türschwelle oder Annäherungs-/Vermeidungskurve | Dokumenttyp klären: Orientierungsblatt zu Ambivalenz oder Praxisblatt für Gesprächsvorbereitung. |
+| 1 | `expressed_emotions` neu bauen | HO-11, Draft `expressed_emotions.md` | Kreislauf Sorge - Kontrolle - Stress - Symptomdruck | Schuldentlastende Formulierung besonders sorgfältig setzen; keine Schuldspirale visualisieren, ohne Ausstiegspunkt. |
+| 2 | Erosion-Familie ordnen | HO-07, HO-08, HO-28 | Beziehungserosion, Schonhaltung, Co-Isolation | Erst Cluster-Entscheid: ein Familien-Set aus 2-3 Blättern statt ein überladenes Sammelblatt. |
+| 3 | `a5_affiliate_stigma` neu bauen | HO-03, Draft `a5_affiliate_stigma.md` | Stigma-Schichten, Scham-Mantel oder Schweigespirale | Sensible Sprache: Beschämung benennen, ohne Angehörige erneut zu beschämen. |
+| 4 | `b7_behandlung_ambivalenz` neu bauen | HO-19, Draft `b7_behandlung_ambivalenz.md` | Waage, Türschwelle oder Annäherungs-/Vermeidungskurve | Dokumenttyp klären: Orientierungsblatt zu Ambivalenz oder Praxisblatt für Gesprächsvorbereitung. |
 
 ### Spur E: Danach Migrieren
 
@@ -149,22 +148,22 @@ Ein Migrations-PR ist erst fertig, wenn:
 
 ## Empfohlener Nächster PR
 
-**PR: Selbstfürsorge / Eigene Mittel**
+**PR: Expressed Emotions / Sorge, Kontrolle und Stress**
 
-Ziel: `c6_selbstfuersorge` aus dem regenerierten 2-Seiten-Bestand in ein
-neues, einseitiges A4-quer-Handout überführen. Das Blatt soll nicht als
-allgemeiner Appell «achten Sie auf sich» funktionieren, sondern als konkrete
-Orientierung: Woran merke ich, dass eigene Mittel knapp werden, und welcher
-kleine nächste Schritt schützt mich heute?
+Ziel: `expressed_emotions` als neues A4-quer-Handout bauen. Das Blatt soll
+nicht Schuld zuschreiben, sondern einen Kreislauf sichtbar machen: Sorge fuehrt
+zu mehr Kontrolle oder Kritik, das erhoeht Stress, Stress kann Symptomdruck und
+Konflikte verstaerken, und genau dadurch steigt die Sorge wieder.
 
 Arbeitsfolge:
 
-1. `src/handout-drafts/c6_selbstfuersorge.md` und das aktive PDF HO-22
+1. `src/handout-drafts/expressed_emotions.md` und das aktive PDF HO-11
    redaktionell vergleichen.
-2. Dokumenttyp festlegen: Orientierungsblatt, wenn die Kernlogik
-   Belastungsmanagement ist; Praxisblatt, wenn Formulierungen und konkrete
-   Wochenplanung dominieren.
-3. Visualisierung wählen: Akku, Werkzeugkasten oder Wochen-Mini-Plan.
+2. Dokumenttyp festlegen: vermutlich Orientierungsblatt, falls der Kreislauf
+   psychoedukativ erklaert wird; Praxisblatt nur, wenn Formulierungen und
+   konkrete Gespraechsschritte dominieren.
+3. Visualisierung waehlen: ruhiger Kreislauf mit Ausstiegspunkt, nicht
+   Schuldspirale ohne Entlastung.
 4. Inhalt zuerst als freigegebenen Markdown-Draft straffen.
 5. Einseitiges HTML aus der aktuellen Starter-/Workflow-Vorlage bauen.
 6. Render-/Measure-/Verify-Kette laufen lassen und PDF/UA-Status ehrlich
@@ -172,12 +171,11 @@ Arbeitsfolge:
 
 Warum dieser PR jetzt:
 
-- Er ergänzt die bereits gebauten Belastungsblätter logisch.
-- Das Thema ist für Angehörige unmittelbar handlungsrelevant.
-- Die Visualisierung ist gut lösbar, ohne Spezialwissen oder akute
-  Krisenlogik zu berühren.
-- Er testet, ob der neue Workflow nicht nur reine Orientierungs-, sondern
-  auch handlungsnähere Blätter sauber trägt.
+- Er ergaenzt die Kommunikations- und Abspracheblaetter logisch.
+- Das Thema ist fachlich zentral, aber sprachlich heikel; der neue Workflow
+  kann hier die schuldentlastende Tonalitaet bewusst absichern.
+- Die Visualisierung ist gut loesbar, wenn der Ausstieg aus dem Kreislauf
+  sichtbar gemacht wird.
 
 ## Nicht Löschen Ohne Eigenen PR
 
