@@ -25,7 +25,7 @@ Für Angehörige wirkt Behandlung manchmal unübersichtlich: Medikamente, Psycho
 
 Hilfreicher ist eine phasenorientierte Sicht. Nicht jede Massnahme zielt auf dasselbe — und nicht alles ist gleichzeitig dran. Wenn klar ist, welche Phase gerade trägt und welches Ziel sie hat, lässt sich im Behandlungsgespräch mitdenken, statt nur zuzusehen.
 
-## Behandlungskompass
+## Behandlungskompass · vier Phasen, kein Endpunkt
 
 Die vier Phasen sind kein Weg mit Ziellinie, sondern ein Kreis. Vorbeugen ist nie «erledigt», und früh reagieren führt bei Bedarf zurück in die akute Behandlung. Der Kompass zeigt, was gerade im Vordergrund steht — nicht eine feste Reihenfolge.
 
@@ -62,4 +62,4 @@ Behandlung ist kein Entweder-oder. Sie ist ein Zusammenspiel aus fachlicher Ther
 
 ## Quellenbasis
 
-SGPP/SGBS Behandlungsempfehlungen Bipolare Störungen, Revision 2019 · NICE CG185 · Miklowitz et al. 2021 · Miklowitz & Chung 2016
+SGPP/SGBS Behandlungsempfehlungen Bipolare Störungen, Revision 2019 · NICE CG185, zuletzt aktualisiert 2025 · Adjunctive Psychotherapy for Bipolar Disorder, JAMA Psychiatry 2021 · Miklowitz & Chung 2016
