@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<title>Schlaf als Frühwarnsystem</title>
+<style>
+@page {
+  size: A4 landscape;
+  margin: 14mm 14mm 14mm 14mm;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #3D3530;
+  font-size: 9.5pt;
+  line-height: 1.5;
+  /* Hintergrundfarbe nur auf Wrapper, nicht auf body — sonst Geisterfläche */
+}
+
+/* ── Seiten-Wrapper mit Creme-Hintergrund ── */
+.page-wrapper {
+  background-color: #F5F2EC;
+  position: absolute;
+  top: -14mm;
+  left: -14mm;
+  width: 297mm;
+  height: 210mm;
+  z-index: -1;
+}
+
+/* ── Eyebrow ── */
+.eyebrow {
+  font-size: 8pt;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #4A7C7E;
+  margin-bottom: 3mm;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* ── Titel: Serif, normal weight, gross ── */
+h1 {
+  font-family: 'Liberation Serif', Georgia, 'Times New Roman', serif;
+  font-size: 38pt;
+  font-weight: normal;
+  color: #3D3530;
+  margin: 0 0 7mm 0;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+
+/* ── Lead: Serif-Kursiv ── */
+.lead {
+  font-family: 'Liberation Serif', Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 11.5pt;
+  color: #5A5550;
+  margin-bottom: 5mm;
+  line-height: 1.4;
+}
+
+/* ── H2 ── */
+h2 {
+  font-size: 11pt;
+  color: #4A7C7E;
+  margin: 4mm 0 2mm 0;
+  font-weight: bold;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* ── Fliesstext ── */
+p {
+  margin: 0 0 3mm 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* ── Layout-Tabelle ── */
+table.layout {
+  width: 269mm;
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+table.layout td {
+  vertical-align: top;
+  padding: 0;
+}
+.col-left {
+  width: 118mm;
+  padding-right: 10mm;
+}
+.col-right {
+  width: 151mm;
+}
+
+/* ── Warn-Box ── */
+.box-warn {
+  background-color: #FDF5F2;
+  border: 1px solid #E8D5CE;
+  padding: 4mm;
+  margin-bottom: 4mm;
+  border-radius: 4px;
+  display: flex;
+  align-items: flex-start;
+}
+.box-icon-circle-warn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #F5DDD8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-right: 4mm;
+}
+.box-warn-content {}
+.box-warn-title {
+  font-weight: bold;
+  color: #A64D3C;
+  margin-bottom: 1mm;
+  font-size: 10pt;
+}
+.box-warn-main {
+  font-weight: bold;
+  font-size: 10.5pt;
+  margin-bottom: 2mm;
+}
+
+/* ── Info-Box ── */
+.box-info {
+  background-color: #F2F7F7;
+  border: 1px solid #DCE8E8;
+  padding: 4mm;
+  margin-bottom: 4mm;
+  border-radius: 4px;
+  display: flex;
+  align-items: flex-start;
+}
+.box-icon-circle-info {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #D6E8E8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-right: 4mm;
+}
+.box-info-content {}
+.box-info-title {
+  font-weight: bold;
+  color: #4A7C7E;
+  margin-bottom: 1mm;
+  font-size: 10pt;
+}
+
+/* ── Verlaufsgrafik ── */
+.svg-container {
+  width: 100%;
+  margin-bottom: 6mm;
+  background-color: #ffffff;
+  border: 1px solid #E0E0E0;
+  border-radius: 4px;
+  padding: 4mm;
+}
+
+/* ── Bullet-Liste ── */
+ul {
+  margin: 0 0 3mm 0;
+  padding-left: 4mm;
+}
+li {
+  margin-bottom: 2mm;
+}
+
+/* ── Footer ── */
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 269mm;
+  border-top: 1px solid #E0E0E0;
+  padding-top: 2mm;
+}
+.footer-z1 {
+  font-size: 8pt;
+  color: #555555;
+  margin-bottom: 1mm;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.footer-z2 {
+  font-size: 7.5pt;
+  color: #888888;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+</style>
+</head>
+<body>
+<!-- Hintergrundfarbe als Wrapper, nicht als @page background -->
+
+<div class="eyebrow">FACHSTELLE ANGEHÖRIGENARBEIT · ORIENTIERUNGSBLATT</div>
+<h1>Schlaf als Frühwarnsystem</h1>
+
+<table class="layout">
+  <tr>
+    <td class="col-left">
+      <p class="lead">Warum der Schlafrhythmus bei der bipolaren Störung oft das erste und wichtigste Warnzeichen für eine neue Episode ist.</p>
+
+      <h2 style="margin-top: 0;">Der Taktgeber des Gehirns</h2>
+      <p>Für Menschen mit einer bipolaren Störung ist Schlaf nicht nur Erholung, sondern ein zentraler Stabilisator. Der Schlaf-Wach-Rhythmus ist eng mit der Stimmungsregulation verknüpft. Veränderungen im Schlafverhalten treten oft Tage oder sogar Wochen vor den eigentlichen Stimmungsschwankungen auf.</p>
+
+      <div class="box-warn">
+        <div class="box-icon-circle-warn">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A64D3C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+            <line x1="12" y1="9" x2="12" y2="13"></line>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+        </div>
+        <div class="box-warn-content">
+          <div class="box-warn-title">Ein wichtiges Warnsignal für Manie</div>
+          <div class="box-warn-main">2 Nächte &lt; 6 Stunden oder 1 Nacht &lt; 4 Stunden — und trotzdem energiegeladen.</div>
+          <p style="margin-bottom: 0;">Wenn die erkrankte Person deutlich weniger schläft, sich am nächsten Tag aber nicht müde, sondern leistungsfähig fühlt, ist dies ein hochgradiges Warnsignal für eine beginnende Manie.</p>
+        </div>
+      </div>
+
+      <h2>Schlaf und Depression</h2>
+      <p>Auch vor einer depressiven Episode verändert sich der Schlaf oft drastisch. Dies kann sich als extremes Schlafbedürfnis (Hypersomnie) äussern, bei dem die Person 10–14 Stunden schläft und trotzdem erschöpft bleibt, oder als quälende Schlaflosigkeit (Insomnie) mit frühem Erwachen und Grübeln.</p>
+    </td>
+    <td class="col-right">
+      <h2 style="margin-top: 0;">Der typische Verlauf</h2>
+      <div class="svg-container">
+        <svg viewBox="0 0 820 180" width="100%" height="100%">
+          <!-- Hauptlinie -->
+          <path d="M 55 90 L 750 90" stroke="#E0E0E0" stroke-width="4" fill="none"/>
+          <polygon points="750,84 762,90 750,96" fill="#E0E0E0"/>
+
+          <!-- Station 1: Rhythmus -->
+          <circle cx="110" cy="90" r="16" fill="#4A7C7E"/>
+          <text x="110" y="122" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#3D3530" font-weight="bold">Rhythmus</text>
+          <text x="110" y="138" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="9" fill="#888888">Schlaf ist stabil</text>
+
+          <!-- Station 2: Erste Risse -->
+          <circle cx="310" cy="90" r="16" fill="#B0A898"/>
+          <text x="310" y="122" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#3D3530" font-weight="bold">Erste Risse</text>
+          <text x="310" y="138" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="9" fill="#888888">Schlaf verändert sich</text>
+
+          <!-- Interventions-Box -->
+          <rect x="272" y="22" width="76" height="22" rx="3" fill="#ffffff" stroke="#A64D3C" stroke-width="1.2"/>
+          <text x="310" y="37" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="8.5" fill="#A64D3C">Intervention</text>
+          <line x1="310" y1="44" x2="310" y2="74" stroke="#A64D3C" stroke-width="1.2" stroke-dasharray="3,3"/>
+
+          <!-- Station 3: Kipppunkt -->
+          <circle cx="530" cy="90" r="16" fill="#A64D3C"/>
+          <text x="530" y="122" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#3D3530" font-weight="bold">Kipppunkt</text>
+          <text x="530" y="138" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="9" fill="#888888">Energie &amp; Stimmung</text>
+          <text x="530" y="150" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="9" fill="#888888">folgen</text>
+
+          <!-- Station 4: Episode -->
+          <circle cx="720" cy="90" r="16" fill="#3D3530"/>
+          <text x="720" y="122" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#3D3530" font-weight="bold">Episode</text>
+          <text x="720" y="138" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="9" fill="#888888">Manie oder</text>
+          <text x="720" y="150" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="9" fill="#888888">Depression</text>
+        </svg>
+      </div>
+
+      <h2>Was Sie als Angehörige tun können</h2>
+      <p>Als Angehörige bemerken Sie Schlafveränderungen oft als Erste. Das Problem: Wenn Sie dies in der beginnenden Manie ansprechen, stossen Sie oft auf Unverständnis ("Mir geht es doch super!").</p>
+      <ul>
+        <li><strong>Vorab klären:</strong> Besprechen Sie in einer stabilen Phase, dass Sie auf den Schlaf achten werden. Vereinbaren Sie, was passiert, wenn das Warnsignal eintritt (z. B. Arzt anrufen, Notfallmedikation).</li>
+        <li><strong>Beobachten, nicht kontrollieren:</strong> Teilen Sie Ihre Beobachtung sachlich mit ("Mir fällt auf, dass du seit zwei Nächten kaum schläfst"), ohne Vorwürfe zu machen.</li>
+        <li><strong>Reize reduzieren:</strong> Helfen Sie, abends Ruhe einkehren zu lassen (weniger Licht, keine aufregenden Diskussionen).</li>
+      </ul>
+
+      <div class="box-info">
+        <div class="box-icon-circle-info">
+          <!-- Herz-in-Händen SVG -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A7C7E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Herz oben -->
+            <path d="M12 7 C12 7 9 4 6.5 5.5 C4 7 4 10 6.5 12 L12 17 L17.5 12 C20 10 20 7 17.5 5.5 C15 4 12 7 12 7Z" fill="none"/>
+            <!-- Hände unten -->
+            <path d="M5 17 C5 17 3 17.5 3 19 L3 21 L21 21 L21 19 C21 17.5 19 17 19 17 L15 15 L12 17 L9 15 Z" fill="none"/>
+          </svg>
+        </div>
+        <div class="box-info-content">
+          <div class="box-info-title">Grenzen der Verantwortung</div>
+          <p style="margin-bottom: 0;">Sie können warnen und unterstützen, aber Sie können niemanden zum Schlafen zwingen. Wenn die Situation eskaliert, greift der Krisenplan.</p>
+        </div>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<div class="footer">
+  <div class="footer-z1">Fachstelle Angehörigenarbeit, Psychiatrische Universitätsklinik Zürich &nbsp;|&nbsp; Stand: Mai 2026</div>
+  <div class="footer-z2">Quellen: Harvey, A. G., et al. (2015). Interventions for Sleep Disturbance in Bipolar Disorder. Sleep Medicine Clinics, 10(1), 101–105. &nbsp;·&nbsp; Schärer, L. (2015). Frühwarnsysteme ohne Krampf. DGBS.</div>
+</div>
+
+</body>
+</html>

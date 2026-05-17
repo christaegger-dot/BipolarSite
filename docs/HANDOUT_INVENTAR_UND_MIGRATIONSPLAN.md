@@ -80,6 +80,10 @@ Blatt bewusst ersetzen.
 | HO-27 | `a9_schlaf_fruehwarnsystem` | Schlaf als Frühwarnsystem | A4 quer, neu | Behalten; Referenz für neue visuelle Orientierungsblätter. |
 | HO-28 | `b11_hypervigilanz_erschoepfung` | Ständige Wachsamkeit und Erschöpfung | A4 quer, neu | Behalten; Referenz für neue visuelle Orientierungsblätter. |
 
+Hinweis zu HO-27/HO-28: Lokale HTML-Vorläufer sind im Designarchiv abgelegt
+unter `docs/handout-design-archive/ho-27-ho-28-source-html/`. Sie sind
+Herkunfts-/Referenzmaterial, aber keine Produktionsquelle für neue Handouts.
+
 ## Dubletten und Konsolidierungscluster
 
 Diese Cluster sollten vor Neuproduktion entschieden werden:
@@ -182,4 +186,3 @@ Arbeitsblock 3: **Selbstschutz**
 7. `src/_data/pdfs.js` erst aktualisieren, wenn Ersatz und Audit grün sind.
 8. Alte Datei nur nach Konsolidierungsentscheidung archivieren oder als Alias
    erhalten.
-
