@@ -142,6 +142,20 @@ Skill `.agents/skills/pdf-handout-production/SKILL.md` bleibt als technischer
 Repo-Workflow für Dateiablage, Preview-/Download-Logik und QA erhalten, ist aber
 dem Fachstelle-Handout-Skill nachgeordnet.
 
+Für neue visuelle Fachstelle-Handouts liegt ein Starter- und Prüfpaket unter
+`docs/fachstelle-handout-workflow/`. Es setzt A4 quer als Regelfall für
+visualisierungsgeführte Orientierungsblätter, 14 mm symmetrische Ränder,
+weissen Druckgrund, mindestens eine Visualisierung, einen konkreten nächsten
+Schritt und ein ehrliches PDF/UA-Gate.
+
+```bash
+npm run handout:starter
+npm run handout:render -- _handout_work/mein-handout.html --type orientierung --orientation landscape
+```
+
+Die automatisch gerenderten PDFs sind Layout-Drafts. Finale Freigabe braucht
+ein extern remediated/getaggtes PDF, das mit `--final-pdf` geprüft wird.
+
 ## Deployment
 
 Die Website wird automatisch über **Netlify** aus dem `main`-Branch deployt. Konfiguration: `netlify.toml`.

@@ -18,12 +18,16 @@
     "audit:release:prod": "node scripts/release-audit/index.mjs --production-only",
     "audit:release:json": "node scripts/release-audit/index.mjs --json",
     "check:acute-pdfs": "node scripts/check-acute-pdfs.mjs",
+    "handout:starter": "python3 scripts/fachstelle-handout/render_measure_verify.py docs/fachstelle-handout-workflow/fachstelle-handout-starter.html --type orientierung --orientation landscape --allow-template-placeholders",
+    "handout:render": "python3 scripts/fachstelle-handout/render_measure_verify.py",
+    "handout:verify": "python3 scripts/fachstelle-handout/verify_fachstelle_handout.py",
     "test:e2e:preflight": "node scripts/check-playwright-browsers.mjs",
     "test:release-audit": "node --test \"scripts/release-audit/**/*.test.mjs\""
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
     "@11ty/eleventy-img": "^4.0.2",
+    "@axe-core/cli": "^4.11.3",
     "@playwright/test": "^1.59.1",
     "html-validate": "^9.0.0",
     "http-server": "^14.1.1",
