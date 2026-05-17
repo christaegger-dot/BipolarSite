@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Schwieriges ruhig ansprechen</title>
+  <style>
+    :root {
+      --page-w: 297mm;
+      --page-h: 210mm;
+      --margin-x: 14mm;
+      --margin-y: 14mm;
+      --ink: #2d2823;
+      --muted: #6d645d;
+      --line: rgba(45, 40, 35, 0.15);
+      --teal: #287f87;
+      --sand: #f6f0e6;
+      --amber: #8a650f;
+      --rose: #9a4f45;
+      --blue: #3f6f8e;
+      --paper: #fff;
+      --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+      --sans: "DM Sans", Arial, Helvetica, sans-serif;
+    }
+
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+
+    html,
+    body {
+      width: var(--page-w);
+      min-height: var(--page-h);
+      margin: 0;
+      background: #fff;
+      color: var(--ink);
+      font-family: var(--serif);
+    }
+
+    body {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .handout {
+      width: var(--page-w);
+      min-height: var(--page-h);
+    }
+
+    .print-page {
+      width: var(--page-w);
+      height: var(--page-h);
+      box-sizing: border-box;
+      overflow: hidden;
+      background: var(--paper);
+      padding: var(--margin-y) var(--margin-x);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 5mm;
+    }
+
+    .sheet-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12mm;
+      align-items: start;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 4mm;
+    }
+
+    .eyebrow {
+      margin: 0 0 3.5mm;
+      font-family: var(--sans);
+      font-size: 9px;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 17ch;
+      font-size: 34px;
+      line-height: 0.98;
+      font-weight: 700;
+      letter-spacing: 0;
+      color: #746a62;
+    }
+
+    .lead {
+      margin: 4.5mm 0 0;
+      max-width: 55ch;
+      font-size: 14.6px;
+      line-height: 1.36;
+      font-style: italic;
+      color: #4d463f;
+    }
+
+    .tag {
+      justify-self: end;
+      padding: 2mm 3mm;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      font-family: var(--sans);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #1f676d;
+      background: #fff;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 0.88fr 1.24fr;
+      gap: 9.5mm;
+      min-height: 0;
+    }
+
+    section {
+      min-width: 0;
+    }
+
+    h2 {
+      margin: 0 0 2.4mm;
+      font-family: var(--sans);
+      font-size: 9.8px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    p {
+      margin: 0 0 2.8mm;
+      font-size: 11.1px;
+      line-height: 1.31;
+    }
+
+    ul {
+      margin: 0 0 3mm 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 1.45mm;
+    }
+
+    li {
+      position: relative;
+      padding-left: 4.2mm;
+      font-size: 10.2px;
+      line-height: 1.22;
+    }
+
+    li::before {
+      content: "";
+      position: absolute;
+      top: 1.4mm;
+      left: 0;
+      width: 1.35mm;
+      height: 1.35mm;
+      border-radius: 999px;
+      background: var(--teal);
+    }
+
+    .relief {
+      margin-top: 3mm;
+      border-left: 3px solid #8a5578;
+      border-radius: 5px;
+      padding: 2.6mm 3.4mm;
+      background: #fff;
+      box-shadow: inset 0 0 0 1px rgba(110, 73, 100, 0.17);
+    }
+
+    .relief strong,
+    .next-action strong,
+    .script-card strong {
+      display: block;
+      margin-bottom: 1mm;
+      font-family: var(--sans);
+      font-size: 9px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: #8a5578;
+    }
+
+    .relief p,
+    .next-action p,
+    .script-card p {
+      margin: 0;
+      font-size: 10.5px;
+      line-height: 1.25;
+    }
+
+    .visual-card {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 4mm;
+      display: grid;
+      gap: 3mm;
+      background: #fff;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .visual-title {
+      margin: 0;
+      font-family: var(--sans);
+      font-size: 10px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #1f676d;
+    }
+
+    .sentence-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3mm;
+    }
+
+    .sentence-card {
+      min-height: 45mm;
+      border: 1px solid rgba(45, 40, 35, 0.13);
+      border-radius: 6px;
+      padding: 3mm;
+      background: #fff;
+      display: grid;
+      grid-template-rows: auto auto auto 1fr;
+      gap: 1.7mm;
+    }
+
+    .sentence-card:nth-child(1) {
+      background: rgba(40, 127, 135, 0.07);
+      border-top: 3px solid var(--teal);
+    }
+
+    .sentence-card:nth-child(2) {
+      background: rgba(138, 101, 15, 0.08);
+      border-top: 3px solid var(--amber);
+    }
+
+    .sentence-card:nth-child(3) {
+      background: rgba(63, 111, 142, 0.08);
+      border-top: 3px solid var(--blue);
+    }
+
+    .number {
+      width: 7mm;
+      height: 7mm;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--teal);
+      font-family: var(--sans);
+      font-size: 9px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .sentence-card:nth-child(2) .number {
+      background: var(--amber);
+    }
+
+    .sentence-card:nth-child(3) .number {
+      background: var(--blue);
+    }
+
+    .sentence-card h3 {
+      margin: 0;
+      font-family: var(--sans);
+      font-size: 9.6px;
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .starter {
+      display: block;
+      padding: 2mm;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.72);
+      font-size: 12px;
+      line-height: 1.22;
+      font-style: italic;
+      color: var(--ink);
+    }
+
+    .sentence-card p {
+      margin: 0;
+      font-size: 9.8px;
+      line-height: 1.2;
+      color: var(--muted);
+    }
+
+    .rule-line {
+      display: flex;
+      justify-content: center;
+      gap: 2mm;
+      align-items: center;
+      padding: 2.4mm 3mm;
+      border-radius: 6px;
+      background: var(--sand);
+      box-shadow: inset 0 0 0 1px rgba(45, 40, 35, 0.12);
+      font-family: var(--sans);
+      font-size: 10px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: #1f676d;
+    }
+
+    .dot {
+      width: 1.2mm;
+      height: 1.2mm;
+      border-radius: 999px;
+      background: currentColor;
+    }
+
+    .lower-grid {
+      display: grid;
+      grid-template-columns: 0.88fr 0.88fr 1.24fr;
+      gap: 3mm;
+      align-items: stretch;
+    }
+
+    .mini-block {
+      border-top: 2px solid var(--teal);
+      padding-top: 2mm;
+    }
+
+    .mini-block h2 {
+      margin-bottom: 1.6mm;
+    }
+
+    .mini-block p {
+      margin: 0;
+      font-size: 9.1px;
+      line-height: 1.2;
+    }
+
+    .next-action {
+      border-left: 3px solid var(--teal);
+      border-radius: 5px;
+      padding: 2.3mm 3mm;
+      background: #fff;
+      box-shadow: inset 0 0 0 1px rgba(40, 127, 135, 0.18);
+    }
+
+    .next-action strong {
+      color: var(--teal);
+    }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      padding-top: 2.4mm;
+      color: var(--muted);
+      font-size: 7px;
+      line-height: 1.25;
+    }
+
+    .footer-main {
+      display: flex;
+      justify-content: space-between;
+      gap: 8mm;
+      margin-bottom: 1mm;
+      white-space: nowrap;
+    }
+
+    .sources {
+      max-width: 100%;
+    }
+
+    @media screen {
+      body {
+        padding: 18px;
+      }
+
+      .print-page {
+        box-shadow: 0 10px 28px rgba(28, 43, 58, 0.12);
+      }
+    }
+
+    @media print {
+      html,
+      body,
+      .handout,
+      .print-page {
+        width: var(--page-w);
+        height: var(--page-h);
+        margin: 0;
+        background: #fff;
+      }
+
+      .print-page {
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="handout">
+    <article class="print-page" aria-label="Schwieriges ruhig ansprechen">
+      <header class="sheet-header">
+        <div>
+          <p class="eyebrow">Fachstelle Angehörigenarbeit · Praxisblatt</p>
+          <h1>Schwieriges ruhig ansprechen</h1>
+          <p class="lead">Wenn Sorge da ist, hilft oft nicht mehr Druck, sondern ein Satz, der beobachtet statt bewertet. Dieses Blatt ersetzt keine Behandlung oder persönliche Beratung.</p>
+        </div>
+        <div class="tag">A4 quer · Drei-Satz-Karte</div>
+      </header>
+
+      <div class="content-grid">
+        <section aria-labelledby="worum-es-geht">
+          <h2 id="worum-es-geht">Worum es geht</h2>
+          <p>Angehörige sprechen schwierige Veränderungen selten leichtfertig an. Oft geht es um Schlaf, Tempo, Rückzug, Gereiztheit, Risiko, Hoffnungslosigkeit oder Aussagen, die beunruhigen.</p>
+          <p>Gespräche kippen schneller, wenn Sorge wie Kontrolle klingt oder wenn aus einer Beobachtung sofort eine Diagnose, ein Vorwurf oder eine Grundsatzdiskussion wird.</p>
+
+          <h2>Woran Gespräche oft kippen</h2>
+          <ul>
+            <li>Es werden fünf Themen gleichzeitig angesprochen.</li>
+            <li>Aus einer Beobachtung wird sofort eine Deutung: «Du bist wieder …»</li>
+            <li>Der Zeitpunkt ist ungünstig: mitten in Streit, Übermüdung, Aktivierung oder Rückzug.</li>
+            <li>Angehörige versuchen zu beweisen, dass ihre Wahrnehmung stimmt.</li>
+            <li>Die betroffene Person hört vor allem Kontrolle, Kritik oder Misstrauen.</li>
+            <li>Sorgen werden so lange wiederholt, bis beide Seiten gereizt oder erschöpft sind.</li>
+          </ul>
+
+          <div class="relief">
+            <strong>Entlastender Kernsatz</strong>
+            <p>Ruhig ansprechen heisst nicht, alles richtig sagen zu müssen. Es heisst, Sorge konkret zu machen, ohne sofort zu urteilen.</p>
+          </div>
+        </section>
+
+        <section class="visual-card" aria-labelledby="visualisierung">
+          <h2 id="visualisierung" class="visual-title">Drei-Satz-Modell · kurz, konkret, ohne Diagnose</h2>
+
+          <div class="sentence-grid">
+            <div class="sentence-card">
+              <span class="number">1</span>
+              <h3>Beobachten</h3>
+              <span class="starter">„Mir fällt auf, dass …“</span>
+              <p>Nur sagen, was sichtbar ist: Schlaf, Tempo, Rückzug, Termine, Ausgaben, Erreichbarkeit oder Aussagen.</p>
+            </div>
+            <div class="sentence-card">
+              <span class="number">2</span>
+              <h3>Sorge benennen</h3>
+              <span class="starter">„Ich mache mir Sorgen, weil …“</span>
+              <p>Kurz erklären, warum es relevant ist. Nicht beweisen, nicht diagnostizieren, nicht alles auf einmal.</p>
+            </div>
+            <div class="sentence-card">
+              <span class="number">3</span>
+              <h3>Kleinen Schritt anbieten</h3>
+              <span class="starter">„Können wir als Nächstes …?“</span>
+              <p>Einen machbaren Schritt vorschlagen: Absprache anschauen, Schlaf sortieren, Termin klären oder Hilfe dazunehmen.</p>
+            </div>
+          </div>
+
+          <div class="rule-line" aria-hidden="true">
+            <span>Kurz</span><span class="dot"></span><span>Konkret</span><span class="dot"></span><span>Ohne Diagnose</span>
+          </div>
+
+          <div class="lower-grid">
+            <div class="mini-block">
+              <h2>Was hilft</h2>
+              <p>Ein Thema, kurzer Satz, ruhiger Zeitpunkt. Beobachtung statt Diagnose. Bei Unsicherheit auf frühere Absprachen zurückkommen.</p>
+            </div>
+            <div class="mini-block">
+              <h2>Was eher nicht hilft</h2>
+              <p>Vorwurf, Beweis-Diskussion, lange Liste, lauter werden oder «du bist wieder …» als Einstieg.</p>
+            </div>
+            <div class="next-action" data-required="next-action">
+              <strong>Konkreter nächster Schritt</strong>
+              <p>Schreiben Sie heute nur drei Satzanfänge auf: „Mir fällt auf, dass …“ „Ich mache mir Sorgen, weil …“ „Können wir als nächsten kleinen Schritt …?“ Bei akuter Gefahr gilt der Notfallweg.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <footer class="footer">
+        <div class="footer-main">
+          <span>Fachstelle Angehörigenarbeit · Psychiatrische Universitätsklinik Zürich</span>
+          <span>schwieriges-ruhig-ansprechen v01 · Stand 17. Mai 2026 · Seite 1 von 1</span>
+        </div>
+        <div class="sources">
+          Quellen: NICE CG185, zuletzt aktualisiert 2025 · Perry et al., BMJ 1999 · DGBS/DGPPN S3-Leitlinie Bipolare Störungen, Langversion 2.1, 2019/2020
+        </div>
+      </footer>
+    </article>
+  </main>
+</body>
+</html>

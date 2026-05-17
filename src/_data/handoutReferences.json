@@ -32,6 +32,7 @@
     "a2_phasenverlauf": ["nice_bipolar", "s3_bipolar", "canmat_isbd"],
     "a6_bipolar_i_ii_mischzustaende": ["nice_bipolar", "s3_bipolar", "canmat_isbd", "apa_bipolar_mixed"],
     "absprachen_bevor_es_kippt": ["nice_bipolar", "perry_early_warning", "s3_bipolar"],
+    "schwieriges_ruhig_ansprechen": ["nice_bipolar", "perry_early_warning", "family_focused"],
     "a3_ambivalente_loyalitaet": ["nice_bipolar", "caregiver_burden", "family_focused"],
     "a4_ambiguous_loss": ["nice_bipolar", "ambiguous_loss", "caregiver_burden"],
     "a5_affiliate_stigma": ["stigma", "affiliate_stigma", "caregiver_burden"],
