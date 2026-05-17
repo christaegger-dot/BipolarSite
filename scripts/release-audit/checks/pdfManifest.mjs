@@ -206,7 +206,7 @@ const REQUIRED_PDF_TEXT_SNIPPETS = {
   wenn_behandlung_abgelehnt_wird: [
     "Drei Spuren",
     "Stabil vorsorgen",
-    "Was dokumentierbar hilft",
+    "Was sich zu dokumentieren lohnt",
     "Konkreter nächster Schritt",
   ],
   a3_ambivalente_loyalitaet: [
