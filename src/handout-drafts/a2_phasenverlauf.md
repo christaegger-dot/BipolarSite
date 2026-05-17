@@ -17,24 +17,24 @@ visual_model:
 
 # Bipolarer Phasenverlauf
 
-Manie, Hypomanie, Depression und stabilere Phasen wirken selten wie saubere Schubladen. Eine Kurve hilft, Veränderungen über Zeit einzuordnen. Dieses Blatt ersetzt keine fachliche Abklärung, Diagnose oder Behandlung.
+Manie, Hypomanie, Depression und stabilere Phasen sind im Alltag oft nicht klar voneinander getrennt. Eine Kurve hilft, Veränderungen über Zeit einzuordnen. Dieses Blatt ersetzt keine fachliche Abklärung, Diagnose oder Behandlung.
 
 ## Worum es geht
 
 Bipolare Verläufe sind für Angehörige oft schwer lesbar, weil Veränderungen schleichend beginnen können: Schlaf wird kürzer, Tempo steigt, Kontakt bricht ab, Hoffnung kippt oder scheinbare Normalität kehrt zurück.
 
-Wichtig ist nicht nur, ob jemand «oben» oder «unten» wirkt. Entscheidend ist die Bewegung über Zeit: Was verändert sich, wie deutlich, wie lange und im Vergleich zu welchem üblichen Zustand?
+Wichtig ist nicht nur, ob jemand gehobener, gereizter, gedrückter oder erschöpfter wirkt. Entscheidend ist die Bewegung über Zeit: Was verändert sich, wie deutlich, wie lange und im Vergleich zu welchem üblichen Zustand?
 
 ## Vier Phasen im Alltag
 
 - **Manie:** Tempo, Ideen, Rededrang oder Risikobereitschaft nehmen deutlich zu. Der Schlafbedarf sinkt oft stark, Einsicht kann fehlen.
-- **Hypomanie:** abgeschwächter als Manie und nach aussen manchmal produktiv oder charmant. Trotzdem kann sie ein Kipppunkt im Verlauf sein.
-- **Stabilere Phase:** nicht automatisch «alles gelöst», aber meist der beste Moment für Erholung, Behandlung, Absprachen und gemeinsame Orientierung.
+- **Hypomanie:** abgeschwächter als Manie und nach aussen manchmal produktiv, charmant oder energiegeladen. Trotzdem kann sie ein Kipppunkt im Verlauf sein.
+- **Stabile Phase:** nicht automatisch «alles gelöst», aber meist der beste Moment für Erholung, Behandlung, Absprachen und gemeinsame Orientierung.
 - **Depression:** Antrieb, Hoffnung, Kontakt und Alltag können schwer erreichbar werden. Es geht oft nicht um Wollen, sondern um echtes Nicht-Können.
 
 ## Entlastender Kernsatz
 
-Eine Phase ist kein Charakterurteil. Sie beschreibt, was sich im Verlauf verdichtet, abklingt oder stabilisiert.
+Eine Phase ist kein Charakterurteil. Sie beschreibt, was sich über Zeit verdichtet, abklingt oder wieder stabilisiert.
 
 ## Konkreter nächster Schritt
 
