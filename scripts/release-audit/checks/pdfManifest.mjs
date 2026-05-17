@@ -38,6 +38,7 @@ const CRITICAL_LANGUAGE_METADATA_KEYS = new Set([
   "warnsignale",
   "kurzblattStabilisiert",
   "grenzsetzungPraxis",
+  "a1_bipolare_stoerung_verstehen",
   "a3_ambivalente_loyalitaet",
   "a4_ambiguous_loss",
   "a5_affiliate_stigma",
@@ -148,6 +149,12 @@ const REQUIRED_PDF_TEXT_SNIPPETS = {
     "Vier Belastungsfelder",
     "Wissen und Unsicherheit",
     "Körper und Alarm",
+  ],
+  a1_bipolare_stoerung_verstehen: [
+    "Phasenwelle",
+    "Verlauf statt Charakterfrage",
+    "Vier wichtige Einordnungen",
+    "Konkreter nächster Schritt",
   ],
   warnsignale: [
     "Ampel für Frühwarnzeichen",

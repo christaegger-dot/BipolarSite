@@ -33,10 +33,10 @@ visuelle Linie bringen:
 | Bereich | Bestand | Neubau-Relevanz |
 |---|---:|---|
 | Kuratierte Downloads | 13 | Stabil halten; nur mit Redirect-/Alias-Plan ersetzen. |
-| Aktive Web-Handouts | 25 | Hauptquelle für die Migration. |
+| Aktive Web-Handouts | 26 | Hauptquelle für die Migration. |
 | Legacy-Aliasse | 4 | Behalten, solange alte Direktlinks existieren. |
-| Markdown-Drafts | 28 | Inhaltliche Rohquelle, nicht ungeprüft übernehmen. |
-| Neue A4-quer-Referenzen | 5 | `a8_warnsignale`, `a3_ambivalente_loyalitaet`, `a4_ambiguous_loss`, `a9_schlaf_fruehwarnsystem`, `b11_hypervigilanz_erschoepfung`. |
+| Markdown-Drafts | 29 | Inhaltliche Rohquelle, nicht ungeprüft übernehmen. |
+| Neue A4-quer-Referenzen | 7 | `a1_bipolare_stoerung_verstehen`, `a8_warnsignale`, `a3_ambivalente_loyalitaet`, `a4_ambiguous_loss`, `a9_schlaf_fruehwarnsystem`, `b11_hypervigilanz_erschoepfung`, `c6_selbstfuersorge`. |
 
 Die lokalen HTML-Vorläufer zu HO-27/HO-28 sind als Herkunftsmaterial unter
 `docs/handout-design-archive/ho-27-ho-28-source-html/` archiviert. Sie sind
@@ -81,11 +81,13 @@ offen bleibt nur der separate PDF/UA-Finalschritt.
 
 | Handout | Status | Rolle für weitere Arbeit |
 |---|---|---|
+| `a1_bipolare_stoerung_verstehen` | neu gebaut | Referenz für Grund-Psychoedukation und Phasenwellen-Logik. |
 | `a8_warnsignale` | neu gebaut und gemerged | Referenz für Ampel-/Handlungslogik. |
 | `a3_ambivalente_loyalitaet` | neu gebaut und gemerged | Referenz für Spannungsfeld-Metaphern und warme Entlastungssprache. |
 | `a4_ambiguous_loss` | neu gebaut und gemerged | Referenz für Zwischenlage-/Verlustlogik und vorsichtige Moralwort-Reduktion. |
 | `a9_schlaf_fruehwarnsystem` | aktiv im Repo, Source-Vorläufer archiviert | Fachlich wertvoll, aber bei späterer Überarbeitung erst gegen neue Starter-/Verifier-Kette prüfen. |
 | `b11_hypervigilanz_erschoepfung` | aktiv im Repo, Source-Vorläufer archiviert | Stilanker für Erschöpfungs-/Erosionsfamilie, aber noch nicht kanonische Produktionsquelle. |
+| `c6_selbstfuersorge` | neu gebaut und gemerged | Referenz für Akku-Metapher, Selbstfürsorge und handlungsnahe Orientierungsblätter. |
 
 ### Spur D: Jetzt Bauen
 
