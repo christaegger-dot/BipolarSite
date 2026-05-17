@@ -2,125 +2,70 @@
 title: "Trauer ohne klaren Abschied"
 slug: "a4_ambiguous_loss"
 source_pdf: "/handouts/a4_ambiguous_loss.pdf"
-status: "draft"
-show_status_badge: false
+status: "promoted"
+show_status_badge: true
 show_priority_badge: false
 type: "Orientierungsblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
-goal: "Angehörige entlasten, indem Ambiguous Loss als reale und berechtigte Form von Trauer verständlich eingeordnet wird"
-target_format: "A4, 2 Seiten"
+goal: "Ambiguous Loss als reale, berechtigte Form von Trauer einordnen, ohne Schuld oder Illoyalität daraus zu machen"
+target_format: "A4 quer, 1 Seite"
 priority: "P1"
-last_updated: "2026-05-13"
-emergency_label: "Wenn die Trauer Sie ganz überrollt"
-emergency_callout: "Wenn Sie merken, dass Sie nur noch funktionieren, kaum schlafen oder sich völlig allein fühlen: holen Sie Unterstützung dazu und bleiben Sie mit dieser Trauer nicht isoliert."
-emergency_note: "Diese Form von Trauer ist real, auch wenn die erkrankte Person noch da ist. Sie brauchen sich dafür nicht zu rechtfertigen."
+last_updated: "2026-05-17"
 quick_steps:
-  - icon: "↔"
-    text: "Beides gleichzeitig gelten lassen"
-  - icon: "🕯"
-    text: "Den Verlust innerlich benennen"
-  - icon: "🤝"
+  - icon: "1"
+    text: "Zwischenlage erkennen"
+  - icon: "2"
+    text: "Konkreten Verlust benennen"
+  - icon: "3"
     wide: true
-    text: "Mit einer vertrauten Person darüber sprechen"
+    text: "Mitgefühl statt Schuldsuche finden"
 visual_model:
-  kind: "schichten"
-  title: "Verlust ohne klaren Abschied"
-  note: "Ambiguous Loss meint keinen einzelnen Abschied, sondern mehrere schwer greifbare Verluste gleichzeitig."
+  kind: "metapher"
+  title: "Da und doch nicht da"
+  note: "Die Glaswand-/Zwischenlage-Metapher zeigt: Der Mensch ist körperlich da, während vertraute Nähe zeitweise nicht erreichbar ist."
   items:
     - label: "Zukunft"
-      text: "Pläne werden verschoben, verändert oder unsicher."
+      text: "Pläne werden unsicher oder verschoben."
     - label: "Vertrautheit"
-      text: "Die Person ist da, wirkt aber zeitweise weniger erreichbar."
+      text: "Bekannte Seiten wirken zeitweise fremd oder fern."
     - label: "Soziales Leben"
-      text: "Rückzug, Erklärungsnot und dünnere Kontakte verstärken Isolation."
+      text: "Rückzug und Erklärungsnot machen einsamer."
     - label: "Eigenes Leben"
-      text: "Eigene Wünsche, Reisen oder Routinen bleiben auf später verschoben."
-    - label: "Nähe"
-      text: "Sorge und Vorsicht überlagern emotionale oder körperliche Intimität."
-emergency_contacts:
-  - label: "Dargebotene Hand"
-    number: "143"
-    note: "Wenn Sie selbst sofort mit jemandem sprechen müssen"
-  - label: "Ärztefon Zürich"
-    number: "0800&nbsp;33&nbsp;66&nbsp;55"
-    note: "Wenn Sie fachliche Orientierung oder Entlastung brauchen"
-  - label: "Sanität"
-    number: "144"
-    note: "Wenn akute Gefahr im Raum steht oder niemand mehr sicher ist"
-    tone: "urgent"
+      text: "Wünsche und Routinen bleiben auf später verschoben."
 ---
 
 ## Worum es hier geht
 
-Manchmal ist ein Mensch noch da und zugleich nicht mehr so erreichbar, verlässlich oder vertraut wie früher. Genau diese Zwischenlage beschreibt der Begriff **Ambiguous Loss**: ein Verlust ohne klaren Abschied. Für Angehörige heisst das oft, dass Trauer entsteht, obwohl niemand gestorben ist.
+Manche Verluste haben keinen klaren Abschied. Ein solcher Verlust ohne klaren Abschied bedeutet: Der Mensch ist noch da — und gleichzeitig ist vieles nicht mehr so, wie es einmal war. Pauline Boss nennt diese Zwischenlage «Ambiguous Loss».
 
-Diese Trauer ist nicht übertrieben und nicht unloyal. Sie ist eine verständliche Reaktion auf etwas, das schwer einzuordnen ist. Oft bleibt sie zudem an chronische Erschöpfung gebunden und verschwindet nicht einfach zwischen Episoden.
+Diese Reaktion ist nicht undankbar und nicht unloyal. Sie wird oft stärker, weil Hoffnung, Sorge, Erschöpfung und Verbundenheit nebeneinander bestehen.
 
-## Woran diese Form von Trauer erkennbar wird
+## Woran es spürbar wird
 
-- Sie fühlen sich verbunden und gleichzeitig sehr allein
-- Sie trauern um Nähe, Verlässlichkeit oder gemeinsame Zukunft
-- Sie denken: „Die Person ist da, aber vieles ist nicht mehr wie früher“
-- Sie schämen sich für die Trauer, weil die Person noch lebt
-- Sie haben das Gefühl, dass niemand diesen Verlust richtig versteht
-- Hoffnung und Erschöpfung wechseln sich ständig ab
-
-Gerade weil der Verlust nicht eindeutig ist, kommt die Trauer oft nicht zu einem klaren Abschluss. Das macht sie so zäh und kräftezehrend.
+- Sie fühlen sich verbunden und gleichzeitig sehr allein.
+- Sie vermissen Nähe, Verlässlichkeit oder gemeinsame Zukunft.
+- Sie denken: «Die Person ist da, aber vieles ist nicht mehr wie früher.»
+- Sie schämen sich für den Schmerz, weil niemand gestorben ist.
+- Hoffnung und Erschöpfung wechseln sich immer wieder ab.
 
 ## Was dabei oft betrauert wird
 
-## Gemeinsame Zukunft
+**Zukunft:** Pläne werden unsicher oder immer wieder verschoben.
 
-- Pläne müssen verschoben, verändert oder aufgegeben werden
-- Sicherheit über das gemeinsame Leben geht verloren
+**Vertrautheit:** Bekannte Seiten wirken zeitweise fremd oder fern.
 
-## Die vertraute Person
+**Soziales Leben:** Rückzug und Erklärungsnot machen einsamer.
 
-- Sie erkennen Wesenszüge, Reaktionen oder Gewohnheiten nicht mehr wieder
-- die Beziehung fühlt sich weniger nach Partnerschaft und mehr nach Krisenmodus an
+**Eigenes Leben:** Wünsche, Routinen oder Entlastung bleiben auf später verschoben.
 
-## Soziales Leben
+## Konkreter nächster Schritt
 
-- Freundschaften brechen weg oder werden dünner
-- Rückzug und Erklärungsnot verstärken das Gefühl von Isolation
+Benennen Sie heute einen Verlust, um den Sie gerade trauern: Nähe, Leichtigkeit, Zukunft, Vertrauen oder Zeit für das eigene Leben. Nicht um Schuld zuzuweisen, sondern um die Lage ehrlich einzuordnen.
 
-## Das eigene Leben auf später
+## Entlastender Kernsatz
 
-- Reisen, Routinen oder Pläne werden immer wieder verschoben
-- Sie spüren die Kosten des Nicht-Gelebten, ohne sie leicht benennen zu können
+**Diese Trauer widerspricht der Liebe nicht. Sie zeigt, dass etwas Wertvolles fehlt — auch wenn der Mensch noch da ist.**
 
-## Nähe und Intimität
+## Quellen
 
-- emotionale und körperliche Nähe leiden unter Angst, Erschöpfung und Rollenverschiebung
-- Zärtlichkeit wird leichter von Sorge oder Vorsicht überlagert
-
-## Was häufig hilft
-
-- die Trauer innerlich beim Namen nennen, statt sie wegzudrücken
-- sich erlauben, widersprüchliche Gefühle gleichzeitig zu haben
-- mit einer vertrauten Person oder Fachperson über diesen Verlust sprechen
-- kleine Inseln von Verbindung wahrnehmen, ohne den Schmerz kleinzureden
-- diese Trauer nicht mit Undankbarkeit verwechseln
-- Unterstützung nutzen, wenn die Trauer feststeckt oder immer schwerer wird
-
-Ein hilfreicher Satz kann sein:
-**„Ich darf trauern, auch wenn dieser Mensch noch lebt.“**
-
-## Was eher nicht hilft
-
-- sich einreden, diese Trauer sei nicht legitim
-- nur dankbar sein zu wollen und den Schmerz wegzuschieben
-- Loyalität mit Schweigen verwechseln
-- sich mit Menschen zu vergleichen, deren Verlust eindeutiger ist
-- so lange zu warten, bis Erschöpfung oder Verbitterung alles überdecken
-
-## Nächster sinnvoller Schritt
-
-Versuchen Sie in den nächsten Tagen, **einen Verlust konkret zu benennen**, um den Sie gerade trauern: zum Beispiel Nähe, Leichtigkeit, Zukunft oder Vertrauen. Nicht als Anklage, sondern als ehrliche Einordnung. Erst was einen Namen bekommt, kann auch Mitgefühl und Unterstützung bekommen.
-
-Weiterführend:
-
-- [Modul 4: Ambiguous Loss](/modul/4/#ambiguous)
-- [Anlaufstellen und Ressourcen](/anlaufstellen/)
-- Dargebotene Hand: 143
-- Ärztefon Zürich: 0800&nbsp;33&nbsp;66&nbsp;55
+Boss 1999 · Doka 2002 · NICE CG185 · Karambelas et al. 2022, DOI: 10.1186/s12888-022-04069-w
