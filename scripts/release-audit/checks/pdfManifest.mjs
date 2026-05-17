@@ -165,7 +165,7 @@ const REQUIRED_PDF_TEXT_SNIPPETS = {
     "Konkreter nächster Schritt",
   ],
   a6_bipolar_i_ii_mischzustaende: [
-    "Zwei Signale",
+    "Schwelle und Mischbild",
     "Bipolar I",
     "Bipolar II",
     "Mischbild",

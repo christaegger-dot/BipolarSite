@@ -11,8 +11,8 @@ priority: "P1"
 last_updated: "2026-05-17"
 visual_model:
   kind: "schwellen-und-mischmodell"
-  title: "Zwei Signale: Aktivierung/Tempo und depressive Belastung"
-  note: "Die Visualisierung trennt Aktivierung und depressive Belastung, damit Mischbilder nicht als einfache Hoch/Tief-Kurve erscheinen."
+  title: "Schwelle und Mischbild: Hochphase-Schwelle und gleichzeitige Signale"
+  note: "Die Visualisierung trennt Bipolar-I/II-Sortierhilfe und Mischbild, statt Verlaufstypen als Punkte auf einer Kurve darzustellen."
 ---
 
 # Bipolar I, II und Mischbilder verstehen
