@@ -214,8 +214,8 @@
       min-height: 0;
       overflow: hidden;
       display: grid;
-      grid-template-rows: auto auto auto auto auto;
-      gap: 1.35mm;
+      grid-template-rows: auto auto auto 1fr;
+      gap: 1.6mm;
       padding: 2.7mm;
       border: 1px solid var(--line);
       border-radius: 7px;
@@ -245,14 +245,14 @@
 
     .compass-grid {
       display: grid;
-      grid-template-columns: 37mm 1fr;
-      gap: 2.4mm;
+      grid-template-columns: 45mm 1fr;
+      gap: 2.7mm;
       align-items: stretch;
     }
 
     .compass-graphic {
       position: relative;
-      min-height: 40mm;
+      min-height: 50mm;
       display: grid;
       place-items: center;
       border-radius: 7px;
@@ -261,13 +261,13 @@
     }
 
     .compass-svg {
-      width: 35.5mm;
-      height: 35.5mm;
+      width: 42mm;
+      height: 42mm;
       overflow: visible;
     }
 
     .compass-center {
-      font-size: 6.2px;
+      font-size: 6.8px;
       font-weight: 900;
       letter-spacing: 0.08em;
       fill: var(--teal-dark);
@@ -279,12 +279,6 @@
       letter-spacing: 0.05em;
     }
 
-    .compass-small {
-      font-family: var(--serif);
-      font-size: 5.5px;
-      fill: var(--muted);
-    }
-
     .phase-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -292,8 +286,8 @@
     }
 
     .phase-card {
-      min-height: 18mm;
-      padding: 1.55mm 1.75mm;
+      min-height: 22mm;
+      padding: 1.8mm 2mm;
       border: 1px solid rgba(47, 42, 38, 0.13);
       border-left: 3px solid var(--teal);
       border-radius: 6px;
@@ -312,8 +306,8 @@
     .phase-card p {
       margin: 0;
       color: var(--muted);
-      font-size: 7.05px;
-      line-height: 1.08;
+      font-size: 7.65px;
+      line-height: 1.1;
     }
 
     .phase-card.acute { border-left-color: var(--rose); background: rgba(154, 79, 69, 0.055); }
@@ -328,7 +322,7 @@
     .phase-card.react { border-left-color: var(--blue); background: rgba(63, 111, 142, 0.055); }
 
     .knowledge-box {
-      padding: 1.8mm 2.3mm;
+      padding: 2.4mm 2.9mm;
       border-radius: 6px;
       background: var(--soft);
       box-shadow: inset 0 0 0 1px rgba(47, 42, 38, 0.12);
@@ -337,7 +331,7 @@
     .kicker {
       margin: 0 0 1.2mm;
       color: var(--teal-dark);
-      font-size: 8.8px;
+      font-size: 9.2px;
       font-weight: 900;
       letter-spacing: 0.1em;
     }
@@ -345,30 +339,25 @@
     .knowledge-box p {
       margin: 0 0 1.4mm;
       color: var(--muted);
-      font-size: 8.25px;
-      line-height: 1.14;
+      font-size: 9px;
+      line-height: 1.18;
     }
 
     .knowledge-box ul {
-      gap: 0.56mm;
+      gap: 0.85mm;
     }
 
     .knowledge-box li {
-      font-size: 7.7px;
-      line-height: 1.08;
+      font-size: 8.55px;
+      line-height: 1.14;
     }
 
     .knowledge-box b {
       color: var(--ink);
     }
 
-    .bottom-row {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2mm;
-    }
-
     .next-action {
+      margin-top: 3.2mm;
       padding: 1.7mm 2.5mm;
       border-left: 3px solid var(--teal);
       border-radius: 6px;
@@ -446,6 +435,11 @@
               <li>Woran würden wir gemeinsam merken, dass nachjustiert werden sollte?</li>
             </ul>
           </div>
+
+          <div class="next-action" data-required="next-action">
+            <strong>Konkreter nächster Schritt</strong>
+            <p>Bestimmen Sie für heute nur eines: Welche Phase steht gerade im Vordergrund? Notieren Sie eine sichtbare Veränderung mit Datum — und nehmen Sie die vier Fragen ins nächste Behandlungsgespräch mit.</p>
+          </div>
         </section>
 
         <section class="visual-card" aria-labelledby="behandlungskompass">
@@ -468,17 +462,11 @@
                 <path d="M164 78 A78 78 0 0 1 132 151" fill="none" stroke="#8a650f" stroke-width="15" stroke-linecap="round"></path>
                 <path d="M122 157 A78 78 0 0 1 25 128 A78 78 0 0 1 28 50" fill="none" stroke="#3f7357" stroke-width="18" stroke-linecap="round"></path>
                 <path d="M37 39 A78 78 0 0 1 78 13" fill="none" stroke="#3f6f8e" stroke-width="15" stroke-linecap="round"></path>
-                <path d="M35 35 C51 10 70 5 89 13" fill="none" stroke="#3f6f8e" stroke-width="3.2" stroke-linecap="round" marker-end="url(#return-arrow-head)"></path>
+                <path d="M25 31 C47 3 74 -2 98 13" fill="none" stroke="#3f6f8e" stroke-width="4.2" stroke-linecap="round" marker-end="url(#return-arrow-head)"></path>
                 <circle cx="90" cy="90" r="39" fill="#fff" stroke="rgba(47,42,38,0.16)" stroke-width="1.2"></circle>
                 <text x="90" y="82" text-anchor="middle" class="compass-center">Was steht</text>
                 <text x="90" y="91" text-anchor="middle" class="compass-center">gerade im</text>
                 <text x="90" y="100" text-anchor="middle" class="compass-center">Vordergrund?</text>
-                <text x="118" y="31" text-anchor="middle" class="compass-label" fill="#9a4f45">Akut</text>
-                <text x="141" y="126" text-anchor="middle" class="compass-label" fill="#8a650f">Stabilisieren</text>
-                <text x="61" y="154" text-anchor="middle" class="compass-label" fill="#3f7357">Vorbeugen</text>
-                <text x="41" y="45" text-anchor="middle" class="compass-label" fill="#3f6f8e">Früh reagieren</text>
-                <text x="62" y="18" text-anchor="middle" class="compass-small" fill="#3f6f8e">zurück zu akut</text>
-                <text x="61" y="164" text-anchor="middle" class="compass-small">längste Phase · grösster Beitrag</text>
               </svg>
             </div>
 
@@ -511,13 +499,6 @@
               <li><b>Anpassungen brauchen Zeit und Begleitung.</b> Ein abruptes Absetzen einer stabilisierenden Medikation ist ungünstig; Veränderungen werden begleitet, nicht erzwungen.</li>
               <li><b>Schlaf und Rhythmus sind ein eigener Hebel</b> — und der, den Angehörige am ehesten beobachten können. Verlauf, Schlaf, Nebenwirkungen, Absprachen und frühe Veränderungen sichtbar zu halten, ist ein realer Beitrag.</li>
             </ul>
-          </div>
-
-          <div class="bottom-row">
-            <div class="next-action" data-required="next-action">
-              <strong>Konkreter nächster Schritt</strong>
-              <p>Bestimmen Sie für heute nur eines: Welche Phase steht gerade im Vordergrund? Notieren Sie eine sichtbare Veränderung mit Datum — und nehmen Sie die vier Fragen ins nächste Behandlungsgespräch mit.</p>
-            </div>
           </div>
         </section>
       </div>
