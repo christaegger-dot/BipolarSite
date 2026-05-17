@@ -35,10 +35,10 @@ Eine Absprache ist deshalb keine Kontrolle und kein Misstrauen. Sie hält kurz f
 
 ## Die Absprachekarte: vier Dinge vorher klären
 
-1. **Frühzeichen:** Welche drei Veränderungen sind bei uns besonders wichtig?
+1. **Frühzeichen:** Welche drei Veränderungen sind bei uns besonders wichtig? Schlaf, Tempo, Rückzug, Hoffnungslosigkeit, Risiko oder Erreichbarkeit.
 2. **Satz:** Wie darf Sorge ruhig, konkret und kurz angesprochen werden?
 3. **Einbeziehen:** Wer darf früh dazukommen, und welche Informationen dürfen geteilt werden?
-4. **Schutzweg:** Was wird bei deutlicher Verdichtung nicht erst neu verhandelt?
+4. **Schutzweg:** Was wird bei deutlicher Verdichtung nicht erst neu verhandelt: Schlafschutz, Geld, Autofahren, Unterstützung oder Notfallweg?
 
 ## Konkreter nächster Schritt
 
@@ -46,7 +46,7 @@ Wählen Sie heute eine Situation, die beim letzten Mal schwierig war. Formuliere
 
 Wenn **[Frühzeichen]** an **[mehreren Tagen / deutlich]** sichtbar wird, dann machen wir **[konkreter Schritt]** und beziehen **[Person oder Stelle]** ein.
 
-Beispiel: Wenn Schlaf und Tempo drei Tage deutlich kippen, sprechen wir es ruhig an und kontaktieren die vereinbarte Fachperson, bevor wir weiter diskutieren.
+Beispiel: Wenn Schlaf und Tempo drei Tage deutlich kippen, sprechen wir es ruhig an und beziehen die Fachperson ein. Bei akuter Gefahr gilt der Notfallweg, nicht Verhandeln.
 
 ## Entlastender Kernsatz
 

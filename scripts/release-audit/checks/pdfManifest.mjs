@@ -184,7 +184,7 @@ const REQUIRED_PDF_TEXT_SNIPPETS = {
   ],
   absprachen_bevor_es_kippt: [
     "Die Absprachekarte",
-    "Wenn-dann-Abmachung",
+    "Wenn-dann-Absprache",
     "Eine Absprache ist kein Misstrauen",
     "Konkreter nächster Schritt",
   ],
