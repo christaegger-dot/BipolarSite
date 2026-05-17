@@ -84,6 +84,7 @@ def main() -> int:
     parser.add_argument("--pdf", type=Path, help="Optional rendered PDF to verify")
     parser.add_argument("--type", choices=["orientierung", "praxis", "krise"], default="orientierung")
     parser.add_argument("--orientation", choices=["landscape", "portrait"], default="landscape")
+    parser.add_argument("--pages", type=int, default=1, help="Expected PDF page count.")
     parser.add_argument("--allow-untagged-pdf", action="store_true", help="Warn instead of failing when pdfinfo reports Tagged: no.")
     parser.add_argument("--allow-template-placeholders", action="store_true", help="Allow starter-template placeholder text such as Handout Titel or Kernquelle 1.")
     args = parser.parse_args()
@@ -189,7 +190,13 @@ def main() -> int:
 
     if args.pdf:
         info = run_pdfinfo(args.pdf)
-        check("Pages:" in info and re.search(r"Pages:\s+1\b", info) is not None, "PDF has one page", "PDF page count is not one", failures)
+        expected_pages_pattern = rf"Pages:\s+{args.pages}\b"
+        check(
+            "Pages:" in info and re.search(expected_pages_pattern, info) is not None,
+            f"PDF has {args.pages} page{'s' if args.pages != 1 else ''}",
+            f"PDF page count is not {args.pages}",
+            failures,
+        )
         check(page_size_is_a4(info, args.orientation), "PDF page size is expected A4 orientation", "PDF page size/orientation is wrong", failures)
         if "Tagged:" in info:
             tagged = "Tagged:          yes" in info

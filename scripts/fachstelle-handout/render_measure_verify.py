@@ -163,25 +163,57 @@ const [html, pdf, screenshot, orientation] = process.argv.slice(2);
   const page = await browser.newPage({ viewport: { width: 1200, height: 900 }, deviceScaleFactor: 1 });
   await page.goto('file://' + html, { waitUntil: 'load' });
   await page.emulateMedia({ media: 'print' });
-  const metrics = await page.evaluate(() => {
+  const metrics = await page.evaluate((orientation) => {
     const mm = 96 / 25.4;
     const pxToMm = (n) => +(n / mm).toFixed(2);
-    const pageEl = document.querySelector('.print-page');
+    const pageEls = [...document.querySelectorAll('.print-page')];
+    const pageEl = pageEls[0];
     if (!pageEl) return { error: 'missing .print-page' };
     const pageRect = pageEl.getBoundingClientRect();
     const style = getComputedStyle(pageEl);
-    const pick = (sel) => {
-      const el = document.querySelector(sel);
+    const expectedWidth = orientation === 'landscape' ? 297 : 210;
+    const expectedHeight = orientation === 'landscape' ? 210 : 297;
+    const pick = (sel, root = document) => {
+      const el = root.querySelector(sel);
       if (!el) return null;
       const r = el.getBoundingClientRect();
+      const rootRect = root.classList && root.classList.contains('print-page')
+        ? root.getBoundingClientRect()
+        : pageRect;
       return {
-        topMm: pxToMm(r.top - pageRect.top),
-        bottomMm: pxToMm(r.bottom - pageRect.top),
+        topMm: pxToMm(r.top - rootRect.top),
+        bottomMm: pxToMm(r.bottom - rootRect.top),
         heightMm: pxToMm(r.height),
         text: (el.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 120),
       };
     };
+    const pages = pageEls.map((el, index) => {
+      const rect = el.getBoundingClientRect();
+      const computed = getComputedStyle(el);
+      return {
+        index: index + 1,
+        pageMm: {
+          width: pxToMm(rect.width),
+          height: pxToMm(rect.height),
+        },
+        paddingMm: {
+          top: pxToMm(parseFloat(computed.paddingTop)),
+          right: pxToMm(parseFloat(computed.paddingRight)),
+          bottom: pxToMm(parseFloat(computed.paddingBottom)),
+          left: pxToMm(parseFloat(computed.paddingLeft)),
+        },
+        scrollHeightMm: pxToMm(el.scrollHeight),
+        clientHeightMm: pxToMm(el.clientHeight),
+        noOverflow: el.scrollHeight <= el.clientHeight + 1,
+        header: pick('.sheet-header', el),
+        contentGrid: pick('.content-grid', el),
+        visualCard: pick('.visual-card', el),
+        nextAction: pick('[data-required="next-action"]', el),
+        footer: pick('.footer', el),
+      };
+    });
     return {
+      pageCount: pageEls.length,
       pageMm: {
         width: pxToMm(pageRect.width),
         height: pxToMm(pageRect.height),
@@ -193,12 +225,13 @@ const [html, pdf, screenshot, orientation] = process.argv.slice(2);
         left: pxToMm(parseFloat(style.paddingLeft)),
       },
       contentBudgetMm: {
-        width: +(297 - 14 - 14).toFixed(2),
-        height: +(210 - 14 - 14).toFixed(2),
+        width: +(expectedWidth - 14 - 14).toFixed(2),
+        height: +(expectedHeight - 14 - 14).toFixed(2),
       },
+      pages,
       scrollHeightMm: pxToMm(pageEl.scrollHeight),
       clientHeightMm: pxToMm(pageEl.clientHeight),
-      noOverflow: pageEl.scrollHeight <= pageEl.clientHeight + 1,
+      noOverflow: pages.every((page) => page.noOverflow),
       visibleNextAction: !!document.querySelector('[data-required="next-action"]'),
       visibleTextHasNextAction:
         (document.body.textContent || '').includes('Konkreter nächster Schritt'),
@@ -211,7 +244,7 @@ const [html, pdf, screenshot, orientation] = process.argv.slice(2);
         footer: pick('.footer'),
       },
     };
-  });
+  }, orientation);
   await page.screenshot({ path: screenshot, fullPage: true });
   await page.pdf({ path: pdf, printBackground: true, preferCSSPageSize: true, landscape: orientation === 'landscape' });
   await browser.close();
@@ -239,6 +272,7 @@ def verify_html_pdf(
     pdf: Path | None,
     doc_type: str,
     orientation: str,
+    pages: int,
     allow_template_placeholders: bool,
     allow_untagged_pdf: bool,
 ) -> int:
@@ -250,6 +284,8 @@ def verify_html_pdf(
         doc_type,
         "--orientation",
         orientation,
+        "--pages",
+        str(pages),
     ]
     if pdf:
         cmd.extend(["--pdf", str(pdf)])
@@ -323,6 +359,7 @@ def main() -> int:
     parser.add_argument("html", type=Path)
     parser.add_argument("--type", choices=["orientierung", "praxis", "krise"], default="orientierung")
     parser.add_argument("--orientation", choices=["landscape", "portrait"], default="landscape")
+    parser.add_argument("--pages", type=int, default=1)
     parser.add_argument("--out-dir", type=Path, default=REPO_ROOT / "_handout_build")
     parser.add_argument("--allow-template-placeholders", action="store_true")
     parser.add_argument(
@@ -366,6 +403,7 @@ def main() -> int:
         layout_pdf,
         args.type,
         args.orientation,
+        args.pages,
         args.allow_template_placeholders,
         allow_untagged_pdf=True,
     )
@@ -386,6 +424,7 @@ def main() -> int:
             final_pdf,
             args.type,
             args.orientation,
+            args.pages,
             args.allow_template_placeholders,
             allow_untagged_pdf=False,
         )

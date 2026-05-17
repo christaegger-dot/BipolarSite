@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eltern bleiben - auch mit bipolarer Erkrankung</title>
+  <style>
+    :root {
+      --page-w: 210mm;
+      --page-h: 297mm;
+      --margin-x: 14mm;
+      --margin-y: 14mm;
+      --ink: #2f2925;
+      --muted: #6f655d;
+      --line: rgba(47, 41, 37, 0.16);
+      --teal: #287f87;
+      --teal-text: #1f676d;
+      --aubergine: #7f5271;
+      --green: #3f7c5a;
+      --blue: #3f6f8e;
+      --amber: #8a650f;
+      --sand: #f7f0e6;
+      --sand-soft: #fbf7f1;
+      --paper: #fff;
+      --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+      --sans: "DM Sans", Arial, Helvetica, sans-serif;
+    }
+
+    @page { size: A4 portrait; margin: 0; }
+
+    html,
+    body {
+      width: var(--page-w);
+      min-height: var(--page-h);
+      margin: 0;
+      background: #fff;
+      color: var(--ink);
+      font-family: var(--serif);
+    }
+
+    body {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .handout {
+      width: var(--page-w);
+      background: #fff;
+    }
+
+    .print-page {
+      width: var(--page-w);
+      height: var(--page-h);
+      box-sizing: border-box;
+      overflow: hidden;
+      background: var(--paper);
+      padding: var(--margin-y) var(--margin-x);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 5mm;
+      break-after: page;
+    }
+
+    .print-page:last-child { break-after: auto; }
+
+    .sheet-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8mm;
+      align-items: start;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 4mm;
+    }
+
+    .eyebrow {
+      margin: 0 0 3mm;
+      font-family: var(--sans);
+      font-size: 8.3px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 15ch;
+      font-size: 31px;
+      line-height: 0.96;
+      letter-spacing: 0;
+      color: #746a62;
+    }
+
+    .page-2 h1 {
+      max-width: 20ch;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .lead {
+      margin: 4mm 0 0;
+      max-width: 76ch;
+      font-size: 12.3px;
+      line-height: 1.27;
+      font-style: italic;
+      color: #4d463f;
+    }
+
+    .tag {
+      justify-self: end;
+      padding: 1.8mm 2.7mm;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      font-family: var(--sans);
+      font-size: 7.7px;
+      line-height: 1.1;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal-text);
+      background: #fff;
+      white-space: nowrap;
+    }
+
+    .page-content {
+      min-height: 0;
+    }
+
+    .page-grid {
+      display: grid;
+      grid-template-columns: 0.96fr 1.04fr;
+      gap: 5mm;
+      min-height: 0;
+      height: 100%;
+    }
+
+    .page-grid.page-2-grid {
+      grid-template-columns: 0.98fr 1.02fr;
+      gap: 4.5mm;
+    }
+
+    .page-1 .page-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr;
+      gap: 4mm;
+    }
+
+    .page-1 .tight {
+      display: grid;
+      grid-template-columns: 1.03fr 0.97fr;
+      gap: 5mm;
+      align-items: start;
+    }
+
+    .page-1 .visual-card {
+      align-self: stretch;
+      min-height: 112mm;
+      grid-template-rows: auto 1fr auto;
+    }
+
+    section,
+    .panel,
+    .visual-card {
+      min-width: 0;
+    }
+
+    h2,
+    h3 {
+      margin: 0;
+      font-family: var(--sans);
+      font-weight: 800;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin-bottom: 2mm;
+      font-size: 8.7px;
+      line-height: 1.2;
+      color: var(--muted);
+    }
+
+    h3 {
+      margin-bottom: 1.3mm;
+      font-size: 8px;
+      line-height: 1.2;
+      color: var(--teal-text);
+    }
+
+    p {
+      margin: 0 0 2.45mm;
+      font-size: 9.6px;
+      line-height: 1.26;
+    }
+
+    .tight p { margin-bottom: 1.7mm; }
+
+    .quote-reframe {
+      margin: 2.2mm 0 2.8mm;
+      padding: 2.2mm 2.7mm;
+      border-left: 3px solid var(--teal);
+      border-radius: 5px;
+      background: #fff;
+      box-shadow: inset 0 0 0 1px rgba(40, 127, 135, 0.16);
+      font-size: 9.4px;
+      line-height: 1.22;
+    }
+
+    .subtle-box,
+    .relief,
+    .next-action {
+      border-radius: 6px;
+      background: #fff;
+      box-shadow: inset 0 0 0 1px var(--line);
+    }
+
+    .subtle-box {
+      padding: 2.4mm 2.8mm;
+    }
+
+    .relief,
+    .next-action {
+      padding: 2.6mm 3mm;
+      border-left: 3px solid var(--teal);
+      background: rgba(40, 127, 135, 0.045);
+    }
+
+    .relief {
+      margin-top: 2.6mm;
+    }
+
+    .relief strong,
+    .next-action strong,
+    .script-card strong,
+    .mini-label {
+      display: block;
+      margin-bottom: 1mm;
+      font-family: var(--sans);
+      font-size: 7.9px;
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal-text);
+    }
+
+    .relief p,
+    .next-action p {
+      margin: 0;
+      font-size: 9.45px;
+      line-height: 1.22;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 1.25mm;
+    }
+
+    li {
+      position: relative;
+      padding-left: 4mm;
+      font-size: 9.1px;
+      line-height: 1.18;
+    }
+
+    li::before {
+      content: "";
+      position: absolute;
+      top: 1.15mm;
+      left: 0;
+      width: 1.3mm;
+      height: 1.3mm;
+      border-radius: 999px;
+      background: var(--teal);
+    }
+
+    .visual-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 3mm;
+      background: #fff;
+      display: grid;
+      gap: 2.6mm;
+    }
+
+    .visual-title {
+      margin: 0;
+      font-family: var(--sans);
+      font-size: 8.6px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal-text);
+    }
+
+    .protection-visual {
+      display: grid;
+      grid-template-columns: 68mm 1fr;
+      gap: 5mm;
+      align-items: center;
+    }
+
+    .protection-svg {
+      width: 68mm;
+      height: 68mm;
+      display: block;
+    }
+
+    .protection-list {
+      display: grid;
+      gap: 2.4mm;
+    }
+
+    .protection-item {
+      padding: 2.5mm 2.8mm;
+      border-radius: 5px;
+      background: var(--sand-soft);
+      border-left: 3px solid var(--teal);
+    }
+
+    .protection-item:nth-child(2) { border-left-color: var(--green); }
+    .protection-item:nth-child(3) { border-left-color: var(--blue); }
+    .protection-item:nth-child(4) { border-left-color: var(--amber); }
+    .protection-item:nth-child(5) { border-left-color: var(--aubergine); }
+
+    .protection-item b {
+      display: block;
+      margin-bottom: 0.5mm;
+      font-family: var(--sans);
+      font-size: 8.5px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .protection-item span {
+      display: block;
+      font-size: 9.1px;
+      line-height: 1.18;
+      color: var(--muted);
+    }
+
+    .visual-foot {
+      margin: 0;
+      padding-top: 1.8mm;
+      border-top: 1px solid var(--line);
+      font-size: 8.65px;
+      line-height: 1.2;
+      color: var(--muted);
+    }
+
+    .script-stack {
+      display: grid;
+      gap: 2.2mm;
+    }
+
+    .script-card {
+      padding: 2.4mm 2.7mm;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+    }
+
+    .script-card p {
+      margin: 0;
+      font-size: 9px;
+      line-height: 1.2;
+    }
+
+    .plan-box {
+      padding: 2.5mm 2.8mm;
+      border-radius: 7px;
+      background: var(--sand-soft);
+      border: 1px solid rgba(138, 101, 15, 0.18);
+    }
+
+    .plan-box ul {
+      grid-template-columns: 1fr 1fr;
+      gap: 1.3mm 2mm;
+    }
+
+    .plan-box li {
+      font-size: 8.5px;
+      line-height: 1.16;
+    }
+
+    .child-signs {
+      margin-top: 2mm;
+      padding-top: 2mm;
+      border-top: 1px solid rgba(138, 101, 15, 0.16);
+      font-size: 8.75px;
+      line-height: 1.22;
+      color: var(--ink);
+    }
+
+    .support-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.4mm 2mm;
+    }
+
+    .support-list li {
+      font-size: 8.1px;
+      line-height: 1.15;
+    }
+
+    .pm-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3mm;
+    }
+
+    .pm-card {
+      border-radius: 7px;
+      padding: 2.4mm 2.6mm;
+      background: #fff;
+      box-shadow: inset 0 0 0 1px var(--line);
+    }
+
+    .pm-head {
+      display: flex;
+      align-items: center;
+      gap: 1.6mm;
+      margin-bottom: 1.5mm;
+      font-family: var(--sans);
+      font-size: 7.6px;
+      font-weight: 800;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .marker {
+      display: inline-flex;
+      width: 4.2mm;
+      height: 4.2mm;
+      border-radius: 999px;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 900;
+      background: var(--teal);
+    }
+
+    .minus .marker { background: var(--aubergine); }
+
+    .pm-card li {
+      font-size: 8px;
+      line-height: 1.14;
+    }
+
+    .next-action {
+      margin-top: 2.4mm;
+    }
+
+    .name-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.1mm;
+      margin: 1.5mm 0 2mm;
+    }
+
+    .name-grid div {
+      padding: 1.45mm 2mm;
+      border-radius: 5px;
+      background: #fff;
+      box-shadow: inset 0 0 0 1px rgba(40, 127, 135, 0.16);
+      font-size: 8.6px;
+      line-height: 1.15;
+    }
+
+    .kid-sentence {
+      margin: 1.7mm 0 0;
+      padding: 1.9mm 2.2mm;
+      border-radius: 5px;
+      background: #fff;
+      font-size: 8.8px;
+      line-height: 1.18;
+    }
+
+    .footer {
+      display: grid;
+      gap: 1mm;
+      border-top: 1px solid var(--line);
+      padding-top: 2mm;
+      font-size: 6.7px;
+      line-height: 1.15;
+      color: var(--muted);
+    }
+
+    .footer-top,
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 4mm;
+    }
+
+    .sources {
+      font-size: 6.25px;
+      line-height: 1.12;
+    }
+
+    b,
+    strong { font-weight: 700; }
+  </style>
+</head>
+<body>
+  <main class="handout" aria-label="Eltern bleiben - auch mit bipolarer Erkrankung">
+  <article>
+    <section class="print-page page-1" aria-label="Seite 1 - Verstehen">
+      <header class="sheet-header">
+        <div>
+          <p class="eyebrow">Fachstelle Angehörigenarbeit · Praxisblatt</p>
+          <h1>Eltern bleiben - auch mit bipolarer Erkrankung</h1>
+          <p class="lead">Eine bipolare Erkrankung eines Elternteils betrifft oft die ganze Familie - das heisst nicht, dass Eltern versagen oder Kinder zwangsläufig Schaden nehmen. Es heisst: Kinder brauchen Orientierung, verlässliche Erwachsene und einen Plan für schwierige Phasen. Dieses Blatt ersetzt keine fachliche Abklärung, Diagnose oder persönliche Beratung.</p>
+        </div>
+        <div class="tag">A4 hoch · 2 Seiten<br>Stand 17. Mai 2026</div>
+      </header>
+
+      <div class="page-content page-grid">
+        <div class="tight">
+          <section>
+            <h2>Worum es geht</h2>
+            <p>Viele Eltern mit bipolarer Erkrankung nehmen ihre Rolle sehr ernst - und sorgen sich, ob sie ihren Kindern schaden. Hilfreich ist, die Frage zu drehen:</p>
+            <div class="quote-reframe">Nicht: «Ist dieser Elternteil als Mutter oder Vater ungeeignet?» - sondern: «Was braucht dieses Kind, damit es sich trotz Belastung sicher, gesehen und altersgerecht begleitet fühlt?»</div>
+            <p>Für Kinder ist meist nicht die Diagnose entscheidend, sondern der Alltag: verlässliche Routinen, jemand, der erklärt, was los ist, und Erwachsene, die Verantwortung übernehmen, wenn ein Elternteil gerade nicht genug Kraft oder Übersicht hat.</p>
+            <p>Depressive, hypomane, manische oder gemischte Phasen können Schlaf, Geduld, Verlässlichkeit und Organisation zeitweise verschieben - ausserhalb akuter Phasen gelingt Elternschaft oft deutlich stabiler.</p>
+          </section>
+
+          <section class="subtle-box">
+            <h2>Risiko heisst nicht Schicksal</h2>
+            <p>Kinder von Eltern mit bipolarer Erkrankung haben ein erhöhtes Risiko für eigene psychische Belastungen. Das heisst aber nicht, dass sie selbst bipolar erkranken - die grosse Mehrheit entwickelt keine bipolare Störung.</p>
+            <p>Viele Kinder bleiben unauffällig, und Schutzfaktoren wie Erklärung, Routinen, stabile Bezugspersonen und frühe Unterstützung erhöhen diese Chancen zusätzlich.</p>
+          </section>
+        </div>
+
+        <div>
+          <section class="visual-card">
+            <p class="visual-title">Schutzkreis · was Kinder trägt</p>
+            <div class="protection-visual">
+              <svg class="protection-svg" viewBox="0 0 180 180" role="img" aria-label="Schutzkreis mit fünf Bereichen: Erklärung, Routine, Bezugsperson, Krisenplan und Entlastung">
+                <circle cx="90" cy="90" r="66" fill="none" stroke="#f1e8dc" stroke-width="18"></circle>
+                <circle cx="90" cy="90" r="66" fill="none" stroke="#287f87" stroke-width="18" stroke-linecap="round" stroke-dasharray="34 100" transform="rotate(-90 90 90)"></circle>
+                <circle cx="90" cy="90" r="66" fill="none" stroke="#3f7c5a" stroke-width="18" stroke-linecap="round" stroke-dasharray="34 100" stroke-dashoffset="-37" transform="rotate(-90 90 90)"></circle>
+                <circle cx="90" cy="90" r="66" fill="none" stroke="#3f6f8e" stroke-width="18" stroke-linecap="round" stroke-dasharray="34 100" stroke-dashoffset="-74" transform="rotate(-90 90 90)"></circle>
+                <circle cx="90" cy="90" r="66" fill="none" stroke="#8a650f" stroke-width="18" stroke-linecap="round" stroke-dasharray="34 100" stroke-dashoffset="-111" transform="rotate(-90 90 90)"></circle>
+                <circle cx="90" cy="90" r="66" fill="none" stroke="#7f5271" stroke-width="18" stroke-linecap="round" stroke-dasharray="34 100" stroke-dashoffset="-148" transform="rotate(-90 90 90)"></circle>
+                <circle cx="90" cy="90" r="43" fill="#fff" stroke="#ddd7cf" stroke-width="2"></circle>
+                <text x="90" y="78" text-anchor="middle" font-family="DM Sans, Arial, sans-serif" font-size="9" font-weight="800" letter-spacing="1.3" fill="#1f676d">KINDER</text>
+                <text x="90" y="92" text-anchor="middle" font-family="DM Sans, Arial, sans-serif" font-size="9" font-weight="800" letter-spacing="1.3" fill="#1f676d">TRAGEN ES</text>
+                <text x="90" y="106" text-anchor="middle" font-family="DM Sans, Arial, sans-serif" font-size="9" font-weight="800" letter-spacing="1.3" fill="#1f676d">NICHT ALLEIN</text>
+              </svg>
+              <div class="protection-list">
+                <div class="protection-item"><b>Erklärung</b><span>einfache, ehrliche Worte: krank, nicht schuld, Erwachsene kümmern sich</span></div>
+                <div class="protection-item"><b>Routinen</b><span>Schlaf, Schule, Essen, Hausaufgaben und vertraute Abläufe</span></div>
+                <div class="protection-item"><b>Bezugsperson</b><span>mindestens ein stabiler erwachsener Mensch ausserhalb der Krise</span></div>
+                <div class="protection-item"><b>Krisenplan</b><span>wer bringt, kocht, erklärt, abends erreichbar ist</span></div>
+                <div class="protection-item"><b>Entlastung</b><span>Unterstützung für Eltern schützt auch das Kind</span></div>
+              </div>
+            </div>
+            <p class="visual-foot">Nicht perfekte Kontrolle schützt Kinder, sondern frühe, verlässliche Unterstützung.</p>
+          </section>
+
+          <section class="relief">
+            <strong>Entlastender Kernsatz</strong>
+            <p>Kinder brauchen keine perfekten Eltern. Sie brauchen ehrliche Erklärungen, verlässliche Erwachsene und einen Plan, wenn es schwierig wird.</p>
+          </section>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="footer-top"><span>Fachstelle Angehörigenarbeit · Psychiatrische Universitätsklinik Zürich</span></div>
+        <div class="footer-bottom"><span>eltern-mit-bipolarer-stoerung v02 · Stand 17. Mai 2026</span><span>Seite 1 von 2</span></div>
+      </footer>
+    </section>
+
+    <section class="print-page page-2" aria-label="Seite 2 - Konkret handeln">
+      <header class="sheet-header">
+        <div>
+          <p class="eyebrow">Fachstelle Angehörigenarbeit · Praxisblatt</p>
+          <h1>Konkret handeln</h1>
+          <p class="lead">Kinder brauchen keine Diagnosebegriffe. Sie brauchen altersgerechte Worte, zuständige Erwachsene und eine kleine, klare Absprache für schwierige Phasen.</p>
+        </div>
+        <div class="tag">A4 hoch · 2 Seiten<br>Stand 17. Mai 2026</div>
+      </header>
+
+      <div class="page-content page-grid page-2-grid">
+        <div>
+          <section>
+            <h2>Wie man mit Kindern sprechen kann</h2>
+            <div class="script-stack">
+              <div class="script-card">
+                <strong>Jüngere Kinder</strong>
+                <p>„Mama/Papa hat eine Krankheit, die manchmal die Stimmung, den Schlaf und die Kraft durcheinanderbringt. Du hast nichts falsch gemacht. Erwachsene helfen.“</p>
+              </div>
+              <div class="script-card">
+                <strong>Schulkinder</strong>
+                <p>„Die bipolare Erkrankung kann machen, dass Mama/Papa manchmal sehr wenig Kraft hat oder sehr viel Tempo. Das ist nicht deine Aufgabe zu lösen. Wir haben einen Plan, wer hilft.“</p>
+              </div>
+              <div class="script-card">
+                <strong>Jugendliche</strong>
+                <p>„Du darfst Fragen stellen. Du musst nicht die erwachsene Rolle übernehmen. Es gibt Fachpersonen und andere Erwachsene, die Verantwortung tragen.“</p>
+              </div>
+            </div>
+            <p style="margin-top: 2mm;">Kinder sollen wissen, dass sie reden dürfen - mit Eltern, Angehörigen oder einer vertrauten Fachperson.</p>
+          </section>
+
+          <section class="plan-box">
+            <h2>Der Kinder-Plan für schwierige Phasen</h2>
+            <ul>
+              <li>Wer übernimmt Betreuung, Schule, Essen und Abendroutine?</li>
+              <li>Wer erklärt dem Kind, was los ist?</li>
+              <li>Wer ist erreichbar, wenn das Kind Angst bekommt?</li>
+              <li>Wer darf Schule, Kita oder Hort informieren?</li>
+              <li>Was soll das Kind ausdrücklich nicht übernehmen müssen?</li>
+            </ul>
+            <div class="child-signs"><b>Worauf beim Kind achten:</b> Wird das Kind unruhiger, stiller oder klammernder? Übernimmt es zu viel Verantwortung? Geraten Schule oder Schlaf durcheinander? Das sind keine automatischen Zeichen einer Kindeswohlgefährdung - aber Hinweise, dass ein Kind Erklärung oder Entlastung braucht.</div>
+          </section>
+        </div>
+
+        <div>
+          <section class="tight">
+            <h2>Wann es um Kindeswohl geht</h2>
+            <p>Eine psychische Erkrankung bedeutet nicht automatisch, dass ein Kind gefährdet ist. Entscheidend ist die konkrete Lage: Ist das Kind versorgt und sicher? Gibt es eine verlässliche erwachsene Person? Sind Aufsicht, Schutz und emotionale Begleitung ausreichend gesichert?</p>
+            <p>Wenn Betreuung, Sicherheit oder Versorgung nicht mehr zuverlässig gewährleistet sind, braucht es Hilfe - möglichst früh und möglichst einvernehmlich. Unterstützung beginnt deutlich vor einschneidenden Schritten. Kindesschutz soll nicht stigmatisieren, sondern sicherstellen, dass Kinder geschützt sind und Eltern passende Unterstützung bekommen.</p>
+            <p>Bei akuter Gefahr oder wenn die Betreuung nicht mehr sicher ist, soll nicht abgewartet werden - dann braucht es sofort eine geeignete Notfall- oder Fachstelle.</p>
+          </section>
+
+          <section class="subtle-box">
+            <h2>Beratungsstellen im Kanton Zürich</h2>
+            <ul class="support-list">
+              <li><b>PUK Fachstelle Angehörigenarbeit / Elternberatung</b> - Beratung für erkrankte Eltern, Kinder und Angehörige.</li>
+              <li><b>Institut Kinderseele Schweiz</b> - kostenlose Beratung für Eltern, Kinder und Angehörige.</li>
+              <li><b>Kinder- und Jugendhilfezentren Kanton Zürich (kjz)</b> - regionale Beratung zu Familienalltag und Notlagen.</li>
+              <li><b>Elternnotruf</b> - Beratung bei Krise und Überforderung.</li>
+              <li><b>PUK KJPP</b> - Abklärung und Behandlung, wenn ein Kind selbst deutlich belastet ist.</li>
+            </ul>
+          </section>
+
+          <section class="pm-grid">
+            <div class="pm-card">
+              <div class="pm-head"><span class="marker">+</span><span>Was Kindern guttut</span></div>
+              <ul>
+                <li>altersgerecht informieren</li>
+                <li>Schuld klar entlasten</li>
+                <li>Stärken ansprechen</li>
+                <li>Schule oder Betreuung behutsam einbeziehen</li>
+              </ul>
+            </div>
+            <div class="pm-card minus">
+              <div class="pm-head"><span class="marker">−</span><span>Was zusätzlich belastet</span></div>
+              <ul>
+                <li>so tun, als würden Kinder nichts merken</li>
+                <li>Kinder zur Vertrauensperson der Erwachsenen machen</li>
+                <li>Scham und Schweigen als Schutz verwechseln</li>
+                <li>erst in der Krise organisieren, wer sich kümmert</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="next-action" data-required="next-action">
+            <strong>Konkreter nächster Schritt</strong>
+            <p>Schreiben Sie heute drei Namen auf:</p>
+            <div class="name-grid">
+              <div>eine Person, die das Kind kennt und kurzfristig helfen könnte</div>
+              <div>eine Fachstelle, die Eltern oder Angehörige beraten kann</div>
+              <div>eine Person in Schule, Kita oder Betreuung, die bei Bedarf informiert werden dürfte</div>
+            </div>
+            <p>Und ergänzen Sie einen Satz für das Kind:</p>
+            <div class="kid-sentence">„Wenn es Mama/Papa schlechter geht, bist du nicht schuld. Erwachsene kümmern sich. Du darfst fragen und Hilfe holen.“</div>
+          </section>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="footer-top"><span>Fachstelle Angehörigenarbeit · Psychiatrische Universitätsklinik Zürich</span></div>
+        <div class="sources">Quellen: WHO-Leitlinie Parenting-Interventionen · Zürcher Leitfaden Kindeswohlgefährdung 2019 · NICE CG185 (Families and carers) · systematische Reviews zu Kindern psychisch erkrankter Eltern und parentaler Bipolarität · Family-Talk-Metaanalyse 2024</div>
+        <div class="footer-bottom"><span>eltern-mit-bipolarer-stoerung v02 · Stand 17. Mai 2026</span><span>Seite 2 von 2</span></div>
+      </footer>
+    </section>
+  </article>
+  </main>
+</body>
+</html>
