@@ -31,17 +31,17 @@ Die vier Phasen sind kein Weg mit Ziellinie, sondern ein Kreis. Vorbeugen ist ni
 
 - **Akut behandeln:** Sicherheit, Schlaf, Risiko und deutliche Symptomverdichtung brauchen fachliche Einschätzung. Hier geht es ums Beruhigen und Schützen, nicht ums Vorbeugen.
 - **Stabilisieren:** Was in der akuten Phase gewirkt hat, wird weitergeführt. Nebenwirkungen, Schlaf und Alltag werden mitbeobachtet, bis Tragfähigkeit zurückkehrt.
-- **Vorbeugen:** Rückfallprophylaxe, Psychoedukation, Psychotherapie, Schlaf- und Rhythmusstabilisierung und Angehörigeneinbezug greifen zusammen. Das ist die längste Phase — und die, in der Angehörige viel beitragen können.
+- **Vorbeugen:** Rückfallprophylaxe, Psychoedukation, Psychotherapie, Schlaf- und Rhythmusstabilisierung und Angehörigeneinbezug greifen zusammen. Das ist die längste Phase — und die, in der Angehörige am meisten beitragen können.
 - **Früh reagieren:** Warnzeichen werden nicht dramatisiert, aber rechtzeitig und konkret besprochen. Eine kleine frühe Anpassung erspart oft eine grosse späte.
 
 ## Nicht nur Medikation
 
 Wahl und Dosierung der Medikamente gehören in fachliche Hände. Verstehen hilft trotzdem:
 
-- **Behandlung ist phasengerecht.** Was in der Manie sinnvoll ist, ist es in der Depression oder Vorbeugung nicht zwingend.
-- **Antidepressiva spielen bei Bipolarität eine vorsichtigere Rolle** als bei unipolarer Depression. «Mehr» oder «ein anderes» Antidepressivum ist keine Standardantwort.
+- **Behandlung ist phasengerecht.** Was in der Manie sinnvoll ist, ist es in der Depression oder Vorbeugung nicht zwingend — unterschiedliche Mittel und Ziele sind kein Widerspruch, sondern die Logik.
+- **Antidepressiva spielen bei Bipolarität eine andere, vorsichtigere Rolle** als bei einer unipolaren Depression. «Mehr» oder «ein anderes» Antidepressivum ist keine Standardantwort — das ist kein Versäumnis der Behandlung, sondern Teil der phasengerechten Vorsicht.
 - **Anpassungen brauchen Zeit und Begleitung.** Ein abruptes Absetzen einer stabilisierenden Medikation ist ungünstig; Veränderungen werden begleitet, nicht erzwungen.
-- **Schlaf und Rhythmus sind ein eigener Hebel** — und der, den Angehörige am ehesten beobachten können.
+- **Schlaf und Rhythmus sind ein eigener Hebel** — und der, den Angehörige am ehesten beobachten können. Verlauf, Schlaf, Nebenwirkungen, Absprachen und frühe Veränderungen sichtbar zu halten, ist ein realer Beitrag.
 
 ## Fragen fürs nächste Behandlungsgespräch
 
