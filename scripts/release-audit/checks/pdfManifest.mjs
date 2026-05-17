@@ -42,6 +42,7 @@ const CRITICAL_LANGUAGE_METADATA_KEYS = new Set([
   "a2_phasenverlauf",
   "a6_bipolar_i_ii_mischzustaende",
   "absprachen_bevor_es_kippt",
+  "schwieriges_ruhig_ansprechen",
   "a3_ambivalente_loyalitaet",
   "a4_ambiguous_loss",
   "a5_affiliate_stigma",
@@ -186,6 +187,12 @@ const REQUIRED_PDF_TEXT_SNIPPETS = {
     "Die Absprachekarte",
     "Wenn-dann-Absprache",
     "Eine Absprache ist kein Misstrauen",
+    "Konkreter nächster Schritt",
+  ],
+  schwieriges_ruhig_ansprechen: [
+    "Drei-Satz-Modell",
+    "Mir fällt auf, dass",
+    "Ich mache mir Sorgen",
     "Konkreter nächster Schritt",
   ],
   a3_ambivalente_loyalitaet: [
