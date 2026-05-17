@@ -200,6 +200,8 @@ const REQUIRED_PDF_TEXT_SNIPPETS = {
   behandlung_verstehen: [
     "Behandlungskompass",
     "Nicht nur Medikation",
+    "Antidepressiva",
+    "Fragen fürs nächste Behandlungsgespräch",
     "Behandlung ist kein Entweder-oder",
     "Konkreter nächster Schritt",
   ],

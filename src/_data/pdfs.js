@@ -287,7 +287,7 @@ const handouts = {
     title: "Behandlung gemeinsam verstehen",
     subtitle: "Behandlungskompass für Phase, Ziel und Rückfallvorbeugung",
     assetId: "HO-34",
-    version: "web_v01",
+    version: "web_v02",
     updated: "2026-05-17",
     filename: "behandlung_verstehen.pdf",
     pages: "A4 quer · 1 Seite",

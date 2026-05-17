@@ -84,7 +84,7 @@ offen bleibt nur der separate PDF/UA-Finalschritt.
 | `a1_bipolare_stoerung_verstehen` | neu gebaut | Referenz für Grund-Psychoedukation und Phasenwellen-Logik. |
 | `a2_phasenverlauf` | neu gebaut | Referenz für Phasen-/Kurvenlogik und Kühlschrank-taugliche Verlaufsmodelle. |
 | `a6_bipolar_i_ii_mischzustaende` | neu gebaut | Referenz für Schwellen-/Mischbild-Logik und diagnostiknahe Psychoedukation ohne Angehörigen-Diagnostik. |
-| `behandlung_verstehen` | neu gebaut | Referenz für phasenorientierte Behandlungslogik ohne Medikamenten-Spickzettel. |
+| `behandlung_verstehen` | v02 geschärft | Referenz für phasenorientierte Behandlungslogik ohne Medikamenten-Spickzettel. |
 | `a8_warnsignale` | neu gebaut und gemerged | Referenz für Ampel-/Handlungslogik. |
 | `absprachen_bevor_es_kippt` | neu gebaut und gemerged | Referenz für handlungsnahe Absprachekarten zwischen Warnsignalen und Krisenplan. |
 | `schwieriges_ruhig_ansprechen` | neu gebaut und gemerged | Referenz für Drei-Satz-Kommunikation: Beobachtung, Sorge und nächster kleiner Schritt. |

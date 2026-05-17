@@ -17,36 +17,44 @@ document_decision: "Orientierungsblatt, weil das Blatt die Behandlungslogik erkl
 
 # Behandlung gemeinsam verstehen
 
-Bipolare Behandlung ist selten nur eine einzelne Massnahme. Je nach Phase geht es um Sicherheit, Stabilisierung, Vorbeugung und frühes Reagieren. Dieses Blatt ersetzt keine fachliche Abklärung, Diagnose oder Behandlung.
+Wer die Logik dahinter kennt — welche Phase, welches Ziel, woran sich etwas zeigt — kann mitdenken und mitsprechen, ohne fachliche Entscheidungen übernehmen zu müssen. Dieses Blatt ersetzt keine fachliche Abklärung, Diagnose oder Behandlung.
 
 ## Worum es geht
 
 Für Angehörige wirkt Behandlung manchmal unübersichtlich: Medikamente, Psychotherapie, Schlaf, Blutkontrollen, Frühwarnzeichen, Angehörigengespräche und Krisenwege stehen nebeneinander.
 
-Hilfreicher ist eine phasenorientierte Sicht. In akuten Phasen steht zuerst Sicherheit und Entlastung im Vordergrund. Danach geht es um Stabilisierung, Rückfallprophylaxe, Schlaf- und Rhythmusarbeit, Psychoedukation und einen Plan für erste Warnzeichen.
-
-## Was Angehörige einordnen können
-
-- Welche Phase steht gerade im Vordergrund: Hochphase, Depression, Stabilisierung oder Vorbeugung?
-- Welche Veränderung ist konkret sichtbar: Schlaf, Tempo, Rückzug, Risiko, Hoffnungslosigkeit oder Medikamentenstopp?
-- Was ist Behandlungsziel: beruhigen, aktivieren, stabilisieren, vorbeugen oder Nebenwirkungen prüfen?
-- Welche Kontrollen sind vereinbart: Blutwerte, Gewicht, Stoffwechsel, Nieren, Schilddrüse oder Medikamentenspiegel?
-- Wer darf einbezogen werden, wenn mehrere Warnzeichen zusammenkommen?
+Hilfreicher ist eine phasenorientierte Sicht. Nicht jede Massnahme zielt auf dasselbe — und nicht alles ist gleichzeitig dran. Wenn klar ist, welche Phase gerade trägt und welches Ziel sie hat, lässt sich im Behandlungsgespräch mitdenken, statt nur zuzusehen.
 
 ## Behandlungskompass
 
-1. **Akut behandeln:** Sicherheit, Schlaf, Risiko und deutliche Symptomverdichtung brauchen fachliche Einschätzung.
-2. **Stabilisieren:** Wirksame Schritte werden weitergeführt, Nebenwirkungen und Alltag werden mitbeobachtet.
-3. **Vorbeugen:** Rückfallprophylaxe, Psychoedukation, Psychotherapie, Rhythmus und Angehörigeneinbezug greifen zusammen.
-4. **Früh reagieren:** Warnzeichen werden nicht dramatisiert, aber rechtzeitig und konkret besprochen.
+Die vier Phasen sind kein Weg mit Ziellinie, sondern ein Kreis. Vorbeugen ist nie «erledigt», und früh reagieren führt bei Bedarf zurück in die akute Behandlung. Der Kompass zeigt, was gerade im Vordergrund steht — nicht eine feste Reihenfolge.
+
+- **Akut behandeln:** Sicherheit, Schlaf, Risiko und deutliche Symptomverdichtung brauchen fachliche Einschätzung. Hier geht es ums Beruhigen und Schützen, nicht ums Vorbeugen.
+- **Stabilisieren:** Was in der akuten Phase gewirkt hat, wird weitergeführt. Nebenwirkungen, Schlaf und Alltag werden mitbeobachtet, bis Tragfähigkeit zurückkehrt.
+- **Vorbeugen:** Rückfallprophylaxe, Psychoedukation, Psychotherapie, Schlaf- und Rhythmusstabilisierung und Angehörigeneinbezug greifen zusammen. Das ist die längste Phase — und die, in der Angehörige viel beitragen können.
+- **Früh reagieren:** Warnzeichen werden nicht dramatisiert, aber rechtzeitig und konkret besprochen. Eine kleine frühe Anpassung erspart oft eine grosse späte.
+
+## Nicht nur Medikation
+
+Wahl und Dosierung der Medikamente gehören in fachliche Hände. Verstehen hilft trotzdem:
+
+- **Behandlung ist phasengerecht.** Was in der Manie sinnvoll ist, ist es in der Depression oder Vorbeugung nicht zwingend.
+- **Antidepressiva spielen bei Bipolarität eine vorsichtigere Rolle** als bei unipolarer Depression. «Mehr» oder «ein anderes» Antidepressivum ist keine Standardantwort.
+- **Anpassungen brauchen Zeit und Begleitung.** Ein abruptes Absetzen einer stabilisierenden Medikation ist ungünstig; Veränderungen werden begleitet, nicht erzwungen.
+- **Schlaf und Rhythmus sind ein eigener Hebel** — und der, den Angehörige am ehesten beobachten können.
+
+## Fragen fürs nächste Behandlungsgespräch
+
+Vier Fragen, die im gemeinsamen Gespräch mit der behandelnden Person Orientierung geben:
+
+- Welche Phase steht gerade im Vordergrund — Hochphase, Depression, Stabilisierung oder Vorbeugung?
+- Was ist das Behandlungsziel dieser Phase — beruhigen, aktivieren, stabilisieren oder vorbeugen?
+- Welche Kontrollen sind vereinbart — Blutwerte, Gewicht, Stoffwechsel, Nieren, Schilddrüse oder Spiegel?
+- Woran würden wir gemeinsam merken, dass nachjustiert werden sollte?
 
 ## Konkreter nächster Schritt
 
-Notieren Sie vor dem nächsten Gespräch mit der betroffenen Person oder Fachperson drei Fragen:
-
-1. In welcher Phase sind wir?
-2. Was soll Behandlung jetzt erreichen?
-3. Woran merken wir, dass nachjustiert werden sollte?
+Bestimmen Sie für heute nur eines: Welche Phase steht gerade im Vordergrund? Notieren Sie eine sichtbare Veränderung mit Datum — und nehmen Sie die vier Fragen ins nächste Behandlungsgespräch mit.
 
 ## Entlastender Kernsatz
 
@@ -54,4 +62,4 @@ Behandlung ist kein Entweder-oder. Sie ist ein Zusammenspiel aus fachlicher Ther
 
 ## Quellenbasis
 
-NICE CG185 · SGPP/SGBS Behandlungsempfehlungen Bipolare Störungen, Revision 2019 · Miklowitz & Chung 2016
+SGPP/SGBS Behandlungsempfehlungen Bipolare Störungen, Revision 2019 · NICE CG185 · Miklowitz et al. 2021 · Miklowitz & Chung 2016
