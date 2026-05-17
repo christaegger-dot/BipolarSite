@@ -88,7 +88,7 @@ offen bleibt nur der separate PDF/UA-Finalschritt.
 | `a8_warnsignale` | neu gebaut und gemerged | Referenz für Ampel-/Handlungslogik. |
 | `absprachen_bevor_es_kippt` | neu gebaut und gemerged | Referenz für handlungsnahe Absprachekarten zwischen Warnsignalen und Krisenplan. |
 | `schwieriges_ruhig_ansprechen` | neu gebaut und gemerged | Referenz für Drei-Satz-Kommunikation: Beobachtung, Sorge und nächster kleiner Schritt. |
-| `wenn_behandlung_abgelehnt_wird` | neu gebaut | Referenz für Praxisblätter an der Grenze von Selbstbestimmung, Vorsorge und akutem Sicherheitsweg. |
+| `wenn_behandlung_abgelehnt_wird` | v02 geschärft | Referenz für Praxisblätter an der Grenze von Selbstbestimmung, Vorsorge und akutem Sicherheitsweg. |
 | `a3_ambivalente_loyalitaet` | neu gebaut und gemerged | Referenz für Spannungsfeld-Metaphern und warme Entlastungssprache. |
 | `a4_ambiguous_loss` | neu gebaut und gemerged | Referenz für Zwischenlage-/Verlustlogik und vorsichtige Moralwort-Reduktion. |
 | `a9_schlaf_fruehwarnsystem` | aktiv im Repo, Source-Vorläufer archiviert | Fachlich wertvoll, aber bei späterer Überarbeitung erst gegen neue Starter-/Verifier-Kette prüfen. |

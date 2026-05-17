@@ -300,7 +300,7 @@ const handouts = {
     title: "Wenn Behandlung abgelehnt wird",
     subtitle: "Drei-Spuren-Karte für Sorge, Vorsorge und akute Sicherheit",
     assetId: "HO-35",
-    version: "web_v01",
+    version: "web_v02",
     updated: "2026-05-17",
     filename: "wenn_behandlung_abgelehnt_wird.pdf",
     pages: "A4 quer · 1 Seite",

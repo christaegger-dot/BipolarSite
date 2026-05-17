@@ -17,13 +17,13 @@ document_decision: "Praxisblatt, weil das Blatt eine konkrete Sortierhilfe und D
 
 # Wenn Behandlung abgelehnt wird
 
-Wenn jemand Hilfe nicht will, geraten Angehörige schnell zwischen Sorge, Respekt und Druck. Dieses Blatt ersetzt keine rechtliche, medizinische oder persönliche Beratung.
+Zwischen Sorge, Respekt und Druck bleibt Handlungsspielraum — sobald freiwillige Hilfe, Vorsorge und akute Sicherheit getrennt werden. Dieses Blatt ersetzt keine rechtliche, medizinische oder persönliche Beratung.
 
 ## Worum es geht
 
-Selbstbestimmung bleibt der Ausgangspunkt. Eine Behandlung gegen den Willen einer Person ist in der Schweiz nur unter engen Voraussetzungen möglich und nie eine Abkürzung für schwierige Gespräche.
+Selbstbestimmung bleibt der Ausgangspunkt. Eine Behandlung gegen den Willen einer Person ist in der Schweiz nur unter engen gesetzlichen Voraussetzungen und durch zuständige fachliche bzw. behördliche Wege möglich. Sie ist nie eine Abkürzung für ein schwieriges Gespräch.
 
-Trotzdem müssen Angehörige nicht passiv bleiben. Hilfreich ist, drei Dinge zu trennen: freiwillige Hilfe anbieten, in stabileren Zeiten vorsorgen und bei akuter Gefahr den Notfallweg nutzen.
+Trotzdem müssen Angehörige nicht passiv bleiben. Hilfreich ist, freiwillige Hilfe, vorsorgliche Absprachen und akute Sicherheit sauber zu trennen — und zu wissen, welche Spur gerade trägt.
 
 ## Woran die Lage ernster wird
 
@@ -34,19 +34,39 @@ Trotzdem müssen Angehörige nicht passiv bleiben. Hilfreich ist, drei Dinge zu 
 - Die Person wirkt kaum erreichbar, psychotisch, massiv verwirrt oder nicht mehr ausreichend versorgt.
 - Frühere Absprachen greifen nicht mehr oder werden nicht mehr erinnert.
 
-## Drei Spuren statt Grundsatzkampf
+## Drei Spuren
 
-1. **Freiwillig anbieten:** kurz, konkret, ohne Diagnose sprechen. Nicht beweisen, dass Sie recht haben.
-2. **Stabil vorsorgen:** Patientenverfügung, Vertretungsperson, Informationsweitergabe und Frühwarnzeichen in ruhigen Zeiten klären.
-3. **Akut schützen:** Wenn Sicherheit gefährdet ist, gilt der Notfallweg. Dann ist nicht der Moment für lange Verhandlungen.
+Welche Spur trägt, hängt von der Lage ab, nicht von einer festen Reihenfolge. In ruhigen Zeiten vorsorgen; bei wachsender Sorge freiwillig anbieten; bei akuter Gefahr schützen.
 
-## Was Angehörige dokumentieren können
+**Stabil vorsorgen:** In ruhigen Phasen klären, solange nichts unter Druck steht: Psychiatrische Patientenverfügung, Vorsorgeauftrag, Vertretungsperson, Informationsweitergabe und Frühwarnzeichen. Die Patientenverfügung kann bei der Klinik, der Hausärztin oder beim behandelnden Psychiater hinterlegt werden, damit sie im Ernstfall greifbar ist.
 
-Schreiben Sie beobachtbar und knapp: Datum, Dauer, Schlaf, konkrete Aussagen, Risiken, Ausgaben, Substanzen, Termine, Selbstversorgung und wer bereits einbezogen wurde.
+**Freiwillig anbieten:** Kurz, konkret und ohne Diagnose. Ein Thema, nicht fünf. Ruhiger Zeitpunkt, kurze Sätze. Nicht beweisen, dass Sie recht haben — einen klaren, kleinen nächsten Schritt anbieten.
+
+> „Mir fällt auf, dass du seit ein paar Nächten kaum schläfst und heute sehr angespannt wirkst. Mir wäre wichtig, dass wir heute einen nächsten sicheren Schritt vereinbaren — zum Beispiel gemeinsam einen Termin organisieren.“
+
+**Akut schützen:** Wenn Sicherheit gefährdet ist, gilt der Notfallweg. Dann ist nicht der Moment für lange Verhandlungen — Sicherheit kommt vor Diskussion.
+
+## Was eher hilft
+
+- Beobachten statt diagnostizieren
+- Ein Thema statt fünf, ruhiger Zeitpunkt
+- Kurze Sätze, ein klarer nächster Schritt
+- Sorge benennen, ohne recht behalten zu wollen
+
+## Was eher schadet
+
+- Grundsatzkampf, Diagnose als Einstieg
+- Heimliches Kontrollieren
+- Zwang als Ersatz für eine tragfähige Absprache
+- Fünf Themen gleichzeitig im aufgeladenen Moment
+
+## Was sich zu dokumentieren lohnt
+
+Datum, Dauer, Schlaf, konkrete Aussagen, Risiken, Ausgaben, Substanzen, Termine, Selbstversorgung — und wer bereits einbezogen wurde. Notizen mit Datum und Beispielen helfen bei der fachlichen Einschätzung und, wenn es nötig wird, bei weiteren Schritten.
 
 ## Konkreter nächster Schritt
 
-Erstellen Sie heute eine kurze Ereignisnotiz:
+Sie müssen nicht alles auf einmal. Beginnen Sie heute mit einer kurzen Ereignisnotiz:
 
 > Datum · Was war sichtbar? · Was macht Sorge? · Was wurde versucht? · Wer könnte fachlich mitbeurteilen?
 
@@ -56,4 +76,4 @@ Respekt vor Selbstbestimmung heisst nicht, Gefahr zu übersehen. Es heisst, Sorg
 
 ## Quellenbasis
 
-NICE CG185 · Fedlex ZGB Art. 426 ff. · Pro Mente Sana, Psychiatrische Patientenverfügung
+SGPP/SGBS Behandlungsempfehlungen Bipolare Störungen, Revision 2019 · NICE CG185 · ZGB Art. 426 ff. zur fürsorgerischen Unterbringung und Art. 434 zur Behandlung ohne Zustimmung · Pro Mente Sana, Psychiatrische Patientenverfügung
