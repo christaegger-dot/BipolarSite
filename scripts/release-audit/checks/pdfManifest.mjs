@@ -40,6 +40,7 @@ const CRITICAL_LANGUAGE_METADATA_KEYS = new Set([
   "grenzsetzungPraxis",
   "a1_bipolare_stoerung_verstehen",
   "a2_phasenverlauf",
+  "a6_bipolar_i_ii_mischzustaende",
   "a3_ambivalente_loyalitaet",
   "a4_ambiguous_loss",
   "a5_affiliate_stigma",
@@ -161,6 +162,13 @@ const REQUIRED_PDF_TEXT_SNIPPETS = {
     "Phasenwelle",
     "Manie",
     "Hypomanie",
+    "Konkreter nächster Schritt",
+  ],
+  a6_bipolar_i_ii_mischzustaende: [
+    "Schwelle und Mischbild",
+    "Bipolar I",
+    "Bipolar II",
+    "Mischzustände",
     "Konkreter nächster Schritt",
   ],
   warnsignale: [
