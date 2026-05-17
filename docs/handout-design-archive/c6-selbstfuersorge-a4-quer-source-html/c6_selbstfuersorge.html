@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Die eigenen Kräfte schützen</title>
+  <style>
+    :root {
+      --page-w: 297mm;
+      --page-h: 210mm;
+      --margin-x: 14mm;
+      --margin-y: 14mm;
+      --ink: #2d2823;
+      --muted: #6d645d;
+      --line: rgba(45, 40, 35, 0.15);
+      --teal: #287f87;
+      --aubergine: #6e4964;
+      --rose: #9a4f45;
+      --green: #47735b;
+      --amber: #76540d;
+      --paper: #fff;
+      --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+      --sans: "DM Sans", Arial, Helvetica, sans-serif;
+    }
+
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+
+    html,
+    body {
+      width: var(--page-w);
+      min-height: var(--page-h);
+      margin: 0;
+      background: #fff;
+      color: var(--ink);
+      font-family: var(--serif);
+    }
+
+    body {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .handout {
+      width: var(--page-w);
+      min-height: var(--page-h);
+    }
+
+    .print-page {
+      width: var(--page-w);
+      height: var(--page-h);
+      box-sizing: border-box;
+      overflow: hidden;
+      background: var(--paper);
+      padding: var(--margin-y) var(--margin-x);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 5.2mm;
+    }
+
+    .sheet-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12mm;
+      align-items: start;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 4mm;
+    }
+
+    .eyebrow {
+      margin: 0 0 3.3mm;
+      font-family: var(--sans);
+      font-size: 9px;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 16ch;
+      font-size: 34px;
+      line-height: 0.98;
+      font-weight: 700;
+      letter-spacing: 0;
+      color: #746a62;
+    }
+
+    .lead {
+      margin: 4.4mm 0 0;
+      max-width: 63ch;
+      font-size: 14.4px;
+      line-height: 1.35;
+      font-style: italic;
+      color: #4d463f;
+    }
+
+    .tag {
+      justify-self: end;
+      padding: 2mm 3mm;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      font-family: var(--sans);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal);
+      background: #fff;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 0.88fr 1.24fr;
+      gap: 9mm;
+      min-height: 0;
+    }
+
+    section {
+      min-width: 0;
+    }
+
+    h2 {
+      margin: 0 0 2.4mm;
+      font-family: var(--sans);
+      font-size: 10px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    p {
+      margin: 0 0 2.65mm;
+      font-size: 11.25px;
+      line-height: 1.36;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 1.55mm;
+    }
+
+    li {
+      position: relative;
+      padding-left: 4mm;
+      font-size: 10.55px;
+      line-height: 1.25;
+    }
+
+    li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.46em;
+      width: 1.35mm;
+      height: 1.35mm;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+
+    .relief {
+      margin-top: 3.3mm;
+      border-left: 3px solid var(--aubergine);
+      border-radius: 5px;
+      padding: 3mm 3.8mm;
+      box-shadow: inset 0 0 0 1px rgba(110, 73, 100, 0.17);
+      background: #fff;
+    }
+
+    .relief strong,
+    .note strong {
+      display: block;
+      margin-bottom: 1.1mm;
+      font-family: var(--sans);
+      font-size: 9.4px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .relief strong {
+      color: var(--aubergine);
+    }
+
+    .relief p,
+    .note p {
+      margin-bottom: 0;
+      font-size: 10.65px;
+      line-height: 1.32;
+    }
+
+    .visual-card {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 4.2mm;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      gap: 2.6mm;
+      background: #fff;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .visual-title {
+      margin: 0;
+      font-family: var(--sans);
+      font-size: 10px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+
+    .battery-wrap {
+      display: grid;
+      grid-template-columns: 33mm 1fr;
+      gap: 4mm;
+      align-items: center;
+    }
+
+    .battery-svg {
+      width: 33mm;
+      height: 42mm;
+      overflow: visible;
+    }
+
+    .battery-legend {
+      display: grid;
+      gap: 1mm;
+    }
+
+    .battery-item {
+      display: grid;
+      grid-template-columns: 7mm 1fr;
+      gap: 2mm;
+      align-items: start;
+      padding: 1mm 0;
+      border-bottom: 1px solid rgba(45, 40, 35, 0.1);
+    }
+
+    .battery-item:last-child {
+      border-bottom: 0;
+    }
+
+    .battery-dot {
+      width: 5.4mm;
+      height: 5.4mm;
+      border-radius: 50%;
+      display: inline-grid;
+      place-items: center;
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 8.2px;
+      font-weight: 800;
+      background: var(--teal);
+    }
+
+    .battery-dot.green {
+      background: var(--green);
+    }
+
+    .battery-dot.amber {
+      background: var(--amber);
+    }
+
+    .battery-dot.rose {
+      background: var(--rose);
+    }
+
+    .battery-copy strong {
+      display: block;
+      margin-bottom: 0.4mm;
+      font-family: var(--sans);
+      font-size: 8.7px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .battery-copy span {
+      display: block;
+      font-size: 9.6px;
+      line-height: 1.2;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 0.86fr;
+      gap: 4mm;
+      align-items: start;
+    }
+
+    .mini-block {
+      border-top: 2px solid var(--teal);
+      padding-top: 2mm;
+    }
+
+    .mini-block.warn {
+      border-top-color: var(--rose);
+    }
+
+    .mini-block p {
+      font-size: 9.7px;
+      line-height: 1.22;
+      margin-bottom: 0;
+    }
+
+    .note {
+      border-left: 3px solid var(--teal);
+      border-radius: 5px;
+      padding: 2.3mm 3.2mm;
+      background: #fff;
+      box-shadow: inset 0 0 0 1px rgba(40, 127, 135, 0.18);
+    }
+
+    .note strong {
+      color: var(--teal);
+    }
+
+    .footer {
+      display: grid;
+      gap: 1.2mm;
+      padding-top: 2.4mm;
+      border-top: 1px solid var(--line);
+      font-family: var(--sans);
+      font-size: 8.1px;
+      line-height: 1.25;
+      color: var(--muted);
+    }
+
+    .footer-main {
+      display: flex;
+      justify-content: space-between;
+      gap: 8mm;
+    }
+
+    .sources {
+      font-size: 7.35px;
+      line-height: 1.22;
+      color: #7c746d;
+    }
+
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="handout">
+    <article class="print-page" aria-label="Die eigenen Kräfte schützen">
+      <header class="sheet-header">
+        <div>
+          <p class="eyebrow">Fachstelle Angehörigenarbeit · Orientierungsblatt</p>
+          <h1>Die eigenen Kräfte schützen</h1>
+          <p class="lead">Wenn Sorge lange dauert, geraten die eigenen Reserven leicht aus dem Blick. Dieses Blatt ersetzt keine Behandlung oder persönliche Beratung.</p>
+        </div>
+        <div class="tag">A4 quer · visueller Anker</div>
+      </header>
+
+      <div class="content-grid">
+        <section aria-labelledby="worum-es-geht">
+          <h2 id="worum-es-geht">Worum es geht</h2>
+          <p>Selbstfürsorge klingt schnell nach Luxus. In Angehörigenrealitäten ist sie oft eher Belastungsmanagement: Wenn Sie dauerhaft zu viel tragen, zu wenig schlafen, sich zurückziehen und nur noch reagieren, wird nicht nur die Situation schwerer — auch die eigenen Kräfte werden knapper.</p>
+          <p>Ihre Gesundheit hat einen Eigenwert. Nicht erst, wenn Sie zusammenbrechen. Und nicht nur, damit Sie weiter funktionieren können.</p>
+
+          <h2>Woran Sie merken können, dass eigene Kräfte knapp werden</h2>
+          <ul>
+            <li>Schlaf, Essen und Pausen kommen immer wieder zu kurz</li>
+            <li>Kontakte werden abgesagt, weil Erklären zu viel Kraft braucht</li>
+            <li>Sie funktionieren nach aussen, fühlen sich innen aber leer oder gereizt</li>
+            <li>eigene Arzttermine, Pausen oder Bedürfnisse rutschen nach hinten</li>
+            <li>der Alltag besteht fast nur noch aus Reagieren auf die Erkrankung</li>
+          </ul>
+
+          <div class="relief">
+            <strong>Entlastender Kernsatz</strong>
+            <p>Selbstfürsorge ist kein Rückzug aus der Beziehung. Sie hilft, verbunden zu bleiben, ohne sich selbst zu verlieren.</p>
+          </div>
+        </section>
+
+        <section class="visual-card" aria-labelledby="akku-title">
+          <h2 class="visual-title" id="akku-title">Der Akku · vier Stellen, die Kraft kosten oder schützen</h2>
+          <div class="battery-wrap">
+            <svg class="battery-svg" viewBox="0 0 170 210" role="img" aria-labelledby="battery-title battery-desc">
+              <title id="battery-title">Akku-Metapher für eigene Kräfte</title>
+              <desc id="battery-desc">Ein stehender Akku mit vier Segmenten: Körper, Seele, Beziehung und Entlastung. Die Segmente zeigen, wo Kraft verloren gehen oder geschützt werden kann.</desc>
+              <rect x="45" y="13" width="80" height="16" rx="6" fill="#fff" stroke="#287f87" stroke-width="3"/>
+              <rect x="25" y="28" width="120" height="164" rx="16" fill="#fff" stroke="#287f87" stroke-width="4"/>
+              <rect x="39" y="147" width="92" height="29" rx="7" fill="#47735b" opacity="0.88"/>
+              <rect x="39" y="110" width="92" height="29" rx="7" fill="#287f87" opacity="0.82"/>
+              <rect x="39" y="73" width="92" height="29" rx="7" fill="#76540d" opacity="0.78"/>
+              <rect x="39" y="44" width="92" height="21" rx="7" fill="#9a4f45" opacity="0.78"/>
+              <line x1="25" y1="69" x2="145" y2="69" stroke="#2d2823" stroke-opacity="0.16"/>
+              <line x1="25" y1="106" x2="145" y2="106" stroke="#2d2823" stroke-opacity="0.16"/>
+              <line x1="25" y1="143" x2="145" y2="143" stroke="#2d2823" stroke-opacity="0.16"/>
+              <text x="85" y="58" text-anchor="middle" font-family="DM Sans, Arial, sans-serif" font-size="11" font-weight="700" fill="#fff">Entlastung</text>
+              <text x="85" y="91" text-anchor="middle" font-family="DM Sans, Arial, sans-serif" font-size="11" font-weight="700" fill="#fff">Beziehung</text>
+              <text x="85" y="128" text-anchor="middle" font-family="DM Sans, Arial, sans-serif" font-size="11" font-weight="700" fill="#fff">Seele</text>
+              <text x="85" y="165" text-anchor="middle" font-family="DM Sans, Arial, sans-serif" font-size="11" font-weight="700" fill="#fff">Körper</text>
+            </svg>
+
+            <div class="battery-legend">
+              <div class="battery-item">
+                <span class="battery-dot green">1</span>
+                <div class="battery-copy"><strong>Körper</strong><span>Schlaf, Essen, Bewegung und eigene Termine sind Basisversorgung.</span></div>
+              </div>
+              <div class="battery-item">
+                <span class="battery-dot">2</span>
+                <div class="battery-copy"><strong>Seele</strong><span>Ein Gespräch, eine Notiz oder eine ruhige Pause halten Gefühle nicht nur im Inneren.</span></div>
+              </div>
+              <div class="battery-item">
+                <span class="battery-dot amber">3</span>
+                <div class="battery-copy"><strong>Beziehung</strong><span>Krankheitsfreie Inseln schützen, dass die Beziehung nicht nur aus Sorge, Kontrolle und Reaktion besteht.</span></div>
+              </div>
+              <div class="battery-item">
+                <span class="battery-dot rose">4</span>
+                <div class="battery-copy"><strong>Entlastung</strong><span>Eine Person oder Stelle früh einzubeziehen ist Prävention, nicht Scheitern.</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="two-col">
+            <div class="mini-block">
+              <h2>Was eher hilft</h2>
+              <ul>
+                <li>eine verlässliche Person wieder kontaktieren</li>
+                <li>Entlastung terminieren, nicht nur vage vornehmen</li>
+                <li>eine kleine Routine eine Woche schützen</li>
+                <li>eine krankheitsfreie Insel benennen: 20 Minuten, ein Ort, ein Thema</li>
+              </ul>
+            </div>
+            <div class="mini-block warn">
+              <h2>Was Erschöpfung verstärkt</h2>
+              <p>Selbstfürsorge auf «später» verschieben, Erschöpfung als Liebesbeweis verstehen, Kontakte abbrechen und Entlastung erst erlauben, wenn nichts mehr geht.</p>
+            </div>
+          </div>
+
+          <div class="note" data-required="next-action">
+            <strong>Konkreter nächster Schritt</strong>
+            <p>Setzen Sie heute einen geschützten Termin in dieser Woche, der nur Ihrer Stabilität dient: Schlaf nachholen, ein kurzer Weg, ein Gespräch, eine Mahlzeit in Ruhe oder eine Pause ohne Erklärung.</p>
+          </div>
+        </section>
+      </div>
+
+      <footer class="footer">
+        <div class="footer-main">
+          <span>Fachstelle Angehörigenarbeit · Psychiatrische Universitätsklinik Zürich</span>
+          <span>c6-selbstfuersorge v01 · Stand 17. Mai 2026 · Seite 1 von 1</span>
+        </div>
+        <div class="sources">
+          Quellen: Karambelas et al. 2022, DOI: 10.1186/s12888-022-04069-w · Cham et al. 2022, DOI: 10.3390/healthcare10122423 · NICE CG185
+        </div>
+      </footer>
+    </article>
+  </main>
+</body>
+</html>
