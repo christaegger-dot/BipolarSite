@@ -110,7 +110,8 @@ describe("PDF manifest audit helpers", () => {
     assert.ok(requiredPdfTextSnippets("b5_loyalitaetskonflikte").includes("Loyalität hat mehr als eine Richtung"));
     assert.ok(requiredPdfTextSnippets("b7_behandlung_ambivalenz").includes("Gesprächsspielraum oder Notfallpfad"));
     assert.ok(requiredPdfTextSnippets("b9_depression_partner").includes("Von Überlastung zu eigener Abklärung"));
-    assert.ok(requiredPdfTextSnippets("c6_selbstfuersorge").includes("Mini-Plan für diese Woche"));
+    assert.ok(requiredPdfTextSnippets("c6_selbstfuersorge").includes("Der Akku"));
+    assert.ok(requiredPdfTextSnippets("c6_selbstfuersorge").includes("Konkreter nächster Schritt"));
     assert.ok(requiredPdfTextSnippets("d4_solidaritaet_wellen").includes("Fünf Säulen langfristiger Tragfähigkeit"));
     assert.ok(requiredPdfTextSnippets("expressed_emotions").includes("Der EE-Kreislauf"));
     assert.ok(requiredPdfTextSnippets("grenzsetzungPraxis").includes("Formulierungsbaukasten"));
