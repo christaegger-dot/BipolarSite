@@ -51,7 +51,7 @@ jobs:
           python3 -m venv .venv-handout
           . .venv-handout/bin/activate
           python -m pip install --upgrade pip
-          python -m pip install pdfplumber weasyprint
+          python -m pip install fonttools pdfplumber pikepdf pillow pyyaml reportlab weasyprint
           echo "$PWD/.venv-handout/bin" >> "$GITHUB_PATH"
 
       - name: Install Playwright browsers
