@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bipolarer Phasenverlauf</title>
+  <style>
+    :root {
+      --page-w: 297mm;
+      --page-h: 210mm;
+      --margin-x: 14mm;
+      --margin-y: 14mm;
+      --ink: #2d2823;
+      --muted: #6d645d;
+      --line: rgba(45, 40, 35, 0.15);
+      --teal: #287f87;
+      --aubergine: #6e4964;
+      --rose: #9a4f45;
+      --green: #47735b;
+      --amber: #8a650f;
+      --blue: #3f6f8f;
+      --paper: #fff;
+      --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+      --sans: "DM Sans", Arial, Helvetica, sans-serif;
+    }
+
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+
+    html,
+    body {
+      width: var(--page-w);
+      min-height: var(--page-h);
+      margin: 0;
+      background: #fff;
+      color: var(--ink);
+      font-family: var(--serif);
+    }
+
+    body {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .handout {
+      width: var(--page-w);
+      min-height: var(--page-h);
+    }
+
+    .print-page {
+      width: var(--page-w);
+      height: var(--page-h);
+      box-sizing: border-box;
+      overflow: hidden;
+      background: var(--paper);
+      padding: var(--margin-y) var(--margin-x);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 5mm;
+    }
+
+    .sheet-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 11mm;
+      align-items: start;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 4mm;
+    }
+
+    .eyebrow {
+      margin: 0 0 3mm;
+      font-family: var(--sans);
+      font-size: 9px;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 17ch;
+      font-size: 34px;
+      line-height: 0.98;
+      font-weight: 700;
+      letter-spacing: 0;
+      color: #746a62;
+    }
+
+    .lead {
+      margin: 4mm 0 0;
+      max-width: 68ch;
+      font-size: 14px;
+      line-height: 1.34;
+      font-style: italic;
+      color: #4d463f;
+    }
+
+    .tag {
+      justify-self: end;
+      padding: 2mm 3mm;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      font-family: var(--sans);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal);
+      background: #fff;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 0.78fr 1.36fr;
+      gap: 8mm;
+      min-height: 0;
+    }
+
+    section {
+      min-width: 0;
+    }
+
+    h2 {
+      margin: 0 0 2.2mm;
+      font-family: var(--sans);
+      font-size: 9.5px;
+      line-height: 1.18;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    p {
+      margin: 0 0 2.35mm;
+      font-size: 10.75px;
+      line-height: 1.32;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 1.25mm;
+    }
+
+    li {
+      position: relative;
+      padding-left: 4mm;
+      font-size: 9.95px;
+      line-height: 1.22;
+    }
+
+    li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.47em;
+      width: 1.35mm;
+      height: 1.35mm;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+
+    .relief {
+      margin-top: 3mm;
+      border-left: 3px solid var(--aubergine);
+      border-radius: 5px;
+      padding: 2.7mm 3.4mm;
+      box-shadow: inset 0 0 0 1px rgba(110, 73, 100, 0.17);
+      background: #fff;
+    }
+
+    .relief strong,
+    .note strong {
+      display: block;
+      margin-bottom: 1mm;
+      font-family: var(--sans);
+      font-size: 9.1px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .relief strong {
+      color: var(--aubergine);
+    }
+
+    .relief p,
+    .note p {
+      margin-bottom: 0;
+      font-size: 10.15px;
+      line-height: 1.27;
+    }
+
+    .visual-card {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 4mm;
+      display: grid;
+      grid-template-rows: auto auto auto;
+      gap: 2.8mm;
+      background: #fff;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .visual-title {
+      margin: 0;
+      font-family: var(--sans);
+      font-size: 10px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+
+    .curve-area {
+      display: grid;
+      grid-template-columns: 1fr 43mm;
+      gap: 3.5mm;
+      align-items: center;
+    }
+
+    .curve-svg {
+      width: 100%;
+      height: 78mm;
+      overflow: visible;
+    }
+
+    .legend {
+      display: grid;
+      gap: 1.1mm;
+    }
+
+    .legend-item {
+      display: grid;
+      grid-template-columns: 7mm 1fr;
+      gap: 2mm;
+      align-items: start;
+      padding: 1mm 0;
+      border-bottom: 1px solid rgba(45, 40, 35, 0.1);
+    }
+
+    .legend-item:last-child {
+      border-bottom: 0;
+    }
+
+    .legend-dot {
+      width: 5.3mm;
+      height: 5.3mm;
+      border-radius: 50%;
+      display: inline-grid;
+      place-items: center;
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 8px;
+      font-weight: 800;
+      background: var(--teal);
+    }
+
+    .legend-dot.amber {
+      background: var(--amber);
+    }
+
+    .legend-dot.green {
+      background: var(--green);
+    }
+
+    .legend-dot.blue {
+      background: var(--blue);
+    }
+
+    .legend-dot.rose {
+      background: var(--rose);
+    }
+
+    .legend-copy strong {
+      display: block;
+      margin-bottom: 0.4mm;
+      font-family: var(--sans);
+      font-size: 8.2px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .legend-copy span {
+      display: block;
+      font-size: 9.15px;
+      line-height: 1.16;
+    }
+
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.16fr;
+      gap: 3mm;
+      align-items: stretch;
+    }
+
+    .mini-block {
+      border-top: 2px solid var(--teal);
+      padding-top: 2mm;
+    }
+
+    .mini-block p {
+      font-size: 9.35px;
+      line-height: 1.22;
+      margin-bottom: 0;
+    }
+
+    .note {
+      border-left: 3px solid var(--teal);
+      border-radius: 5px;
+      padding: 2.35mm 3.1mm;
+      background: #fff;
+      box-shadow: inset 0 0 0 1px rgba(40, 127, 135, 0.18);
+    }
+
+    .note strong {
+      color: var(--teal);
+    }
+
+    .footer {
+      display: grid;
+      gap: 1.2mm;
+      padding-top: 2.4mm;
+      border-top: 1px solid var(--line);
+      font-family: var(--sans);
+      font-size: 8.1px;
+      line-height: 1.25;
+      color: var(--muted);
+    }
+
+    .footer-main {
+      display: flex;
+      justify-content: space-between;
+      gap: 8mm;
+    }
+
+    .sources {
+      font-size: 7.35px;
+      line-height: 1.22;
+      color: #7c746d;
+    }
+
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="handout">
+    <article class="print-page" aria-label="Bipolarer Phasenverlauf">
+      <header class="sheet-header">
+        <div>
+          <p class="eyebrow">Fachstelle Angehörigenarbeit · Orientierungsblatt</p>
+          <h1>Bipolarer Phasenverlauf</h1>
+          <p class="lead">Manie, Hypomanie, Depression und stabilere Phasen sind im Alltag oft nicht klar voneinander getrennt. Eine Kurve hilft, Veränderungen über Zeit einzuordnen. Dieses Blatt ersetzt keine fachliche Abklärung, Diagnose oder Behandlung.</p>
+        </div>
+        <div class="tag">A4 quer · Kurvenblatt</div>
+      </header>
+
+      <div class="content-grid">
+        <section aria-labelledby="worum-es-geht">
+          <h2 id="worum-es-geht">Worum es geht</h2>
+          <p>Bipolare Verläufe sind für Angehörige oft schwer lesbar, weil Veränderungen schleichend beginnen können: Schlaf wird kürzer, Tempo steigt, Kontakt bricht ab, Hoffnung kippt oder scheinbare Normalität kehrt zurück.</p>
+          <p>Wichtig ist nicht nur, ob jemand gehobener, gereizter, gedrückter oder erschöpfter wirkt. Entscheidend ist die Bewegung über Zeit: Was verändert sich, wie deutlich, wie lange und im Vergleich zu welchem üblichen Zustand?</p>
+
+          <h2>Vier Phasen im Alltag</h2>
+          <ul>
+            <li><strong>Manie:</strong> Tempo, Ideen, Rededrang oder Risikobereitschaft nehmen deutlich zu. Der Schlafbedarf sinkt oft stark, Einsicht kann fehlen.</li>
+            <li><strong>Hypomanie:</strong> abgeschwächter als Manie und nach aussen manchmal produktiv, charmant oder energiegeladen. Trotzdem kann sie ein Kipppunkt im Verlauf sein.</li>
+            <li><strong>Stabile Phase:</strong> nicht automatisch «alles gelöst», aber meist der beste Moment für Erholung, Behandlung, Absprachen und Orientierung.</li>
+            <li><strong>Depression:</strong> Antrieb, Hoffnung, Kontakt und Alltag können schwer erreichbar werden. Es geht oft um echtes Nicht-Können.</li>
+          </ul>
+
+          <div class="relief">
+            <strong>Entlastender Kernsatz</strong>
+            <p>Eine Phase ist kein Charakterurteil. Sie beschreibt, was sich über Zeit verdichtet, abklingt oder wieder stabilisiert.</p>
+          </div>
+        </section>
+
+        <section class="visual-card" aria-labelledby="curve-title">
+          <h2 class="visual-title" id="curve-title">Phasenwelle · Manie, Hypomanie, stabile Phase, Depression</h2>
+          <div class="curve-area">
+            <svg class="curve-svg" viewBox="0 0 500 285" role="img" aria-labelledby="curve-svg-title curve-svg-desc">
+              <title id="curve-svg-title">Phasenverlauf der bipolaren Störung als Kurve</title>
+              <desc id="curve-svg-desc">Eine Kurve bewegt sich über Zeit durch die Bereiche Manie, Hypomanie, stabiler Bereich, Depression und schwere Depression. Die Darstellung ist ein vereinfachtes Modell, kein individueller Verlauf.</desc>
+              <rect x="0" y="0" width="500" height="48" rx="8" fill="#fff7e6"/>
+              <rect x="0" y="48" width="500" height="48" rx="8" fill="#fffaf0"/>
+              <rect x="0" y="96" width="500" height="48" rx="8" fill="#edf5ef"/>
+              <rect x="0" y="144" width="500" height="48" rx="8" fill="#eef5f8"/>
+              <rect x="0" y="192" width="500" height="48" rx="8" fill="#f3eff2"/>
+              <line x1="56" y1="120" x2="484" y2="120" stroke="#47735b" stroke-width="1" stroke-dasharray="6 5" opacity="0.45"/>
+              <line x1="0" y1="48" x2="500" y2="48" stroke="#2d2823" stroke-opacity="0.12"/>
+              <line x1="0" y1="96" x2="500" y2="96" stroke="#2d2823" stroke-opacity="0.12"/>
+              <line x1="0" y1="144" x2="500" y2="144" stroke="#2d2823" stroke-opacity="0.12"/>
+              <line x1="0" y1="192" x2="500" y2="192" stroke="#2d2823" stroke-opacity="0.12"/>
+              <line x1="56" y1="0" x2="56" y2="240" stroke="#2d2823" stroke-opacity="0.12"/>
+              <line x1="484" y1="0" x2="484" y2="240" stroke="#2d2823" stroke-opacity="0.12"/>
+              <text x="12" y="29" font-family="DM Sans, Arial, sans-serif" font-size="11" font-weight="700" fill="#8a650f">Manie</text>
+              <text x="12" y="77" font-family="DM Sans, Arial, sans-serif" font-size="11" font-weight="700" fill="#9a4f45">Hypomanie</text>
+              <text x="12" y="125" font-family="DM Sans, Arial, sans-serif" font-size="11" font-weight="700" fill="#47735b">Stabile Phase</text>
+              <text x="12" y="173" font-family="DM Sans, Arial, sans-serif" font-size="11" font-weight="700" fill="#3f6f8f">Depression</text>
+              <text x="12" y="221" font-family="DM Sans, Arial, sans-serif" font-size="11" font-weight="700" fill="#6e4964">Schwere Depression</text>
+              <text x="65" y="255" font-family="DM Sans, Arial, sans-serif" font-size="9.5" fill="#6d645d">Zeit</text>
+              <path d="M 62 121 C 90 119, 105 70, 132 70 C 160 70, 174 17, 205 17 C 238 17, 248 120, 282 120 C 314 120, 325 214, 360 214 C 391 214, 402 121, 430 121 C 452 121, 458 72, 478 72 C 489 72, 494 110, 498 121" fill="none" stroke="#287f87" stroke-width="4.3" stroke-linecap="round"/>
+              <path d="M 62 121 C 90 119, 105 70, 132 70 C 160 70, 174 17, 205 17 C 238 17, 248 120, 282 120 C 314 120, 325 214, 360 214 C 391 214, 402 121, 430 121 C 452 121, 458 72, 478 72 C 489 72, 494 110, 498 121" fill="none" stroke="#ffffff" stroke-width="1.1" stroke-linecap="round" opacity="0.85"/>
+              <circle cx="132" cy="70" r="7.2" fill="#9a4f45" stroke="#fff" stroke-width="2"/>
+              <circle cx="205" cy="17" r="7.2" fill="#8a650f" stroke="#fff" stroke-width="2"/>
+              <circle cx="282" cy="120" r="7.2" fill="#47735b" stroke="#fff" stroke-width="2"/>
+              <circle cx="360" cy="214" r="7.2" fill="#6e4964" stroke="#fff" stroke-width="2"/>
+              <circle cx="430" cy="121" r="7.2" fill="#47735b" stroke="#fff" stroke-width="2"/>
+              <circle cx="478" cy="72" r="7.2" fill="#9a4f45" stroke="#fff" stroke-width="2"/>
+              <text x="270" y="276" text-anchor="middle" font-family="DM Sans, Arial, sans-serif" font-size="9.2" fill="#6d645d">vereinfachtes Modell — individuelle Verläufe unterscheiden sich deutlich</text>
+            </svg>
+
+            <div class="legend">
+              <div class="legend-item">
+                <span class="legend-dot amber">↑↑</span>
+                <div class="legend-copy"><strong>Manie</strong><span>deutlich mehr Tempo, wenig Schlaf, Risiko, oft weniger Einsicht</span></div>
+              </div>
+              <div class="legend-item">
+                <span class="legend-dot rose">↑</span>
+                <div class="legend-copy"><strong>Hypomanie</strong><span>milder, manchmal attraktiv wirkend, trotzdem verlaufsrelevant</span></div>
+              </div>
+              <div class="legend-item">
+                <span class="legend-dot green">→</span>
+                <div class="legend-copy"><strong>Stabile Phase</strong><span>Planung, Behandlung, Erholung und Absprachen werden leichter</span></div>
+              </div>
+              <div class="legend-item">
+                <span class="legend-dot blue">↓</span>
+                <div class="legend-copy"><strong>Depression</strong><span>Rückzug, Schwere, Hoffnungslosigkeit oder echtes Nicht-Können</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bottom-grid">
+            <div class="mini-block">
+              <h2>Nicht nur Hoch oder Tief sehen</h2>
+              <p>Schlaf, Tempo, Kontakt, Risiko, Stimmung, Dauer und Abweichung vom Üblichen gehören zusammen.</p>
+            </div>
+            <div class="mini-block">
+              <h2>Übergänge ernst nehmen</h2>
+              <p>Mischbilder und schleichende Wechsel sind oft schwerer zu verstehen als klare Hoch- oder Tiefphasen.</p>
+            </div>
+            <div class="note" data-required="next-action">
+              <strong>Konkreter nächster Schritt</strong>
+              <p>Wählen Sie eine frühere Veränderung. Markieren Sie: Beginn, deutliche Zuspitzung, Stabilisierung. Notieren Sie ein Muster, das nächstes Mal früher auffallen könnte.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <footer class="footer">
+        <div class="footer-main">
+          <span>Fachstelle Angehörigenarbeit · Psychiatrische Universitätsklinik Zürich</span>
+          <span>a2-phasenverlauf v01 · Stand 17. Mai 2026 · Seite 1 von 1</span>
+        </div>
+        <div class="sources">
+          Quellen: NICE CG185, Bipolar disorder: assessment and management, aktualisiert 2025 · DGBS/DGPPN S3-Leitlinie Bipolare Störungen, 2019/2020 · CANMAT/ISBD Guidelines Bipolar Disorder, 2018
+        </div>
+      </footer>
+    </article>
+  </main>
+</body>
+</html>

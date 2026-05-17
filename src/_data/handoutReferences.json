@@ -27,6 +27,7 @@
   },
   "bySlug": {
     "a1_bipolare_stoerung_verstehen": ["nice_bipolar", "s3_bipolar", "canmat_isbd"],
+    "a2_phasenverlauf": ["nice_bipolar", "s3_bipolar", "canmat_isbd"],
     "a3_ambivalente_loyalitaet": ["nice_bipolar", "caregiver_burden", "family_focused"],
     "a4_ambiguous_loss": ["nice_bipolar", "ambiguous_loss", "caregiver_burden"],
     "a5_affiliate_stigma": ["stigma", "affiliate_stigma", "caregiver_burden"],

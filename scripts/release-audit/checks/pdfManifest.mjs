@@ -39,6 +39,7 @@ const CRITICAL_LANGUAGE_METADATA_KEYS = new Set([
   "kurzblattStabilisiert",
   "grenzsetzungPraxis",
   "a1_bipolare_stoerung_verstehen",
+  "a2_phasenverlauf",
   "a3_ambivalente_loyalitaet",
   "a4_ambiguous_loss",
   "a5_affiliate_stigma",
@@ -154,6 +155,12 @@ const REQUIRED_PDF_TEXT_SNIPPETS = {
     "Phasenwelle",
     "Verlauf statt Charakterfrage",
     "Vier wichtige Einordnungen",
+    "Konkreter nächster Schritt",
+  ],
+  a2_phasenverlauf: [
+    "Phasenwelle",
+    "Manie",
+    "Hypomanie",
     "Konkreter nächster Schritt",
   ],
   warnsignale: [

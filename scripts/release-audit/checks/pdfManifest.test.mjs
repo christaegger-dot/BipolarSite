@@ -106,6 +106,8 @@ describe("PDF manifest audit helpers", () => {
     assert.ok(requiredPdfTextSnippets("b1_18_belastungen").includes("Vier Belastungsfelder"));
     assert.ok(requiredPdfTextSnippets("a1_bipolare_stoerung_verstehen").includes("Phasenwelle"));
     assert.ok(requiredPdfTextSnippets("a1_bipolare_stoerung_verstehen").includes("Konkreter nächster Schritt"));
+    assert.ok(requiredPdfTextSnippets("a2_phasenverlauf").includes("Phasenwelle"));
+    assert.ok(requiredPdfTextSnippets("a2_phasenverlauf").includes("Konkreter nächster Schritt"));
     assert.ok(requiredPdfTextSnippets("b10_trennung_scheidung").includes("Schutz- und Abstandspfade"));
     assert.ok(requiredPdfTextSnippets("b2_erosion_solidaritaet").includes("Erosion als Verlauf"));
     assert.ok(requiredPdfTextSnippets("b4_mechanismen_erosion").includes("Co-Isolation"));
