@@ -36,11 +36,13 @@ visuelle Linie bringen:
 | Aktive Web-Handouts | 25 | Hauptquelle für die Migration. |
 | Legacy-Aliasse | 4 | Behalten, solange alte Direktlinks existieren. |
 | Markdown-Drafts | 28 | Inhaltliche Rohquelle, nicht ungeprüft übernehmen. |
-| Neue A4-quer-Referenzen | 2 | `a9_schlaf_fruehwarnsystem`, `b11_hypervigilanz_erschoepfung`. |
+| Neue A4-quer-Referenzen | 5 | `a8_warnsignale`, `a3_ambivalente_loyalitaet`, `a4_ambiguous_loss`, `a9_schlaf_fruehwarnsystem`, `b11_hypervigilanz_erschoepfung`. |
 
 Die lokalen HTML-Vorläufer zu HO-27/HO-28 sind als Herkunftsmaterial unter
 `docs/handout-design-archive/ho-27-ho-28-source-html/` archiviert. Sie sind
-Referenz, aber keine kanonische Produktionsquelle.
+Referenz, aber keine kanonische Produktionsquelle. Die neu gebauten
+Produktionsquellen für HO-01, HO-06 und HO-13 liegen je als eigenes
+Source-HTML unter `docs/handout-design-archive/`.
 
 ## Arbeits-Spuren
 
@@ -64,37 +66,49 @@ klar sein, welche Datei künftig die kanonische Version ist.
 
 | Cluster | Dateien | Entscheidung vor Neubau |
 |---|---|---|
-| Warnsignale | DL-08, HO-01, HO-27 | Allgemeines Warnsignale-Blatt neu bauen; DL-08 ersetzen oder separat behalten? |
+| Warnsignale | DL-08, HO-01, HO-27 | HO-01 ist als A4-quer-Handout neu gebaut. DL-08 bleibt vorerst als kuratierter Download parallel, bis ein eigener Ersatz-/Alias-PR entschieden ist. |
 | Krisenplan | DL-02, DL-09, HO-14 | Vorlage, Guide und Handout getrennt halten oder reduzieren? |
 | Grenzsetzung | DL-10, HO-12 | Praxisblatt/Formulierungsbaukasten oder kompaktes Orientierungsblatt? |
-| Loyalität | HO-10, HO-13 | Ein Orientierungsblatt plus späteres Praxisblatt oder zwei getrennte Blätter? |
+| Loyalität | HO-10, HO-13 | HO-13 ist als Orientierungsblatt neu gebaut. HO-10 bleibt als separater Kandidat nur dann sinnvoll, wenn daraus ein klar anderes Praxis- oder Entscheidungsblatt wird. |
 | Sichtbarkeit/Rollen | DL-13, HO-26 | Kanonische Version bestimmen, bevor erweitert wird. |
 | Erosion/Schonhaltung | HO-07, HO-08, HO-28 | Als Familie ordnen; HO-28 bleibt Stilanker. |
 
-### Spur C: Jetzt Bauen
+### Spur C: Gebaut und Als Referenz Verwenden
+
+Diese Handouts sind bereits im neuen A4-quer-Stil im Repo und dienen als
+Referenz für weitere Neubauten. Sie müssen nicht erneut konzipiert werden;
+offen bleibt nur der separate PDF/UA-Finalschritt.
+
+| Handout | Status | Rolle für weitere Arbeit |
+|---|---|---|
+| `a8_warnsignale` | neu gebaut und gemerged | Referenz für Ampel-/Handlungslogik. |
+| `a3_ambivalente_loyalitaet` | neu gebaut und gemerged | Referenz für Spannungsfeld-Metaphern und warme Entlastungssprache. |
+| `a4_ambiguous_loss` | neu gebaut und gemerged | Referenz für Zwischenlage-/Verlustlogik und vorsichtige Moralwort-Reduktion. |
+| `a9_schlaf_fruehwarnsystem` | aktiv im Repo, Source-Vorläufer archiviert | Fachlich wertvoll, aber bei späterer Überarbeitung erst gegen neue Starter-/Verifier-Kette prüfen. |
+| `b11_hypervigilanz_erschoepfung` | aktiv im Repo, Source-Vorläufer archiviert | Stilanker für Erschöpfungs-/Erosionsfamilie, aber noch nicht kanonische Produktionsquelle. |
+
+### Spur D: Jetzt Bauen
 
 Diese Reihenfolge ist die beste Startbahn für den Neubau, weil sie fachlichen
 Nutzen, Visualisierbarkeit und geringe technische Risiken verbindet.
 
 | Rang | Ziel | Ausgangsmaterial | Visualisierung | Vor Start klären |
 |---:|---|---|---|---|
-| 1 | `a8_warnsignale` neu als A4-quer-Orientierungsblatt | HO-01, DL-08, Draft `a8_warnsignale.md`, Referenz HO-27 | Ampel, Tacho oder Frühwarn-Leiter | Ersetzt das neue PDF DL-08 oder bleibt DL-08 parallel? |
-| 2 | `a3_ambivalente_loyalitaet` neu bauen | HO-13, ggf. HO-10 | Spannungsfeld, Kompass oder Doppelbindung | Verhältnis zu `b5_loyalitaetskonflikte`. |
-| 3 | `c6_selbstfuersorge` neu bauen | HO-22 | Werkzeugkasten, Akku oder Wochen-Mini-Plan | Orientierungsblatt oder Praxisblatt? |
-| 4 | `expressed_emotions` neu bauen | HO-11 | Kreislauf Sorge - Kontrolle - Stress - Symptomdruck | Schuldentlastende Formulierung besonders sorgfältig setzen. |
-| 5 | Erosion-Familie ordnen | HO-07, HO-08, HO-28 | Beziehungserosion, Schonhaltung, Co-Isolation | Erst Cluster-Entscheid, dann bauen. |
+| 1 | `c6_selbstfuersorge` neu bauen | HO-22, Draft `c6_selbstfuersorge.md` | Werkzeugkasten, Akku oder Wochen-Mini-Plan | Orientierungsblatt oder Praxisblatt? Empfehlung: Praxisblatt, wenn Formulierungen/Minischritte dominieren; sonst Orientierungsblatt. |
+| 2 | `expressed_emotions` neu bauen | HO-11, Draft `expressed_emotions.md` | Kreislauf Sorge - Kontrolle - Stress - Symptomdruck | Schuldentlastende Formulierung besonders sorgfältig setzen; keine Schuldspirale visualisieren, ohne Ausstiegspunkt. |
+| 3 | Erosion-Familie ordnen | HO-07, HO-08, HO-28 | Beziehungserosion, Schonhaltung, Co-Isolation | Erst Cluster-Entscheid: ein Familien-Set aus 2-3 Blättern statt ein überladenes Sammelblatt. |
+| 4 | `a5_affiliate_stigma` neu bauen | HO-03, Draft `a5_affiliate_stigma.md` | Stigma-Schichten, Scham-Mantel oder Schweigespirale | Sensible Sprache: Beschämung benennen, ohne Angehörige erneut zu beschämen. |
+| 5 | `b7_behandlung_ambivalenz` neu bauen | HO-19, Draft `b7_behandlung_ambivalenz.md` | Waage, Türschwelle oder Annäherungs-/Vermeidungskurve | Dokumenttyp klären: Orientierungsblatt zu Ambivalenz oder Praxisblatt für Gesprächsvorbereitung. |
 
-### Spur D: Danach Migrieren
+### Spur E: Danach Migrieren
 
-Diese Themen sind geeignet, aber weniger dringlich als Spur C:
+Diese Themen sind geeignet, aber weniger dringlich als Spur D:
 
-- `a4_ambiguous_loss`
-- `a5_affiliate_stigma`
-- `b7_behandlung_ambivalenz`
 - `b9_depression_partner`
 - `d4_solidaritaet_wellen`
 - `trialog`
 - `transformationsreise`
+- `b5_loyalitaetskonflikte`, falls nach HO-13 noch ein eigenständiger Nutzen bleibt
 
 ## Definition Of Ready
 
@@ -127,32 +141,37 @@ Ein Migrations-PR ist erst fertig, wenn:
 9. PDF/UA-Status ehrlich dokumentiert ist, falls das finale PDF noch
    `Tagged: no` ist.
 
-## Empfohlener Erster PR
+## Empfohlener Nächster PR
 
-**PR 1: Warnsignale-Familie**
+**PR: Selbstfürsorge / Eigene Mittel**
 
-Ziel: Das allgemeine Warnsignale-Blatt als A4-quer-Handout neu bauen und als
-Gegenstück zu `a9_schlaf_fruehwarnsystem` etablieren.
+Ziel: `c6_selbstfuersorge` aus dem regenerierten 2-Seiten-Bestand in ein
+neues, einseitiges A4-quer-Handout überführen. Das Blatt soll nicht als
+allgemeiner Appell «achten Sie auf sich» funktionieren, sondern als konkrete
+Orientierung: Woran merke ich, dass eigene Mittel knapp werden, und welcher
+kleine nächste Schritt schützt mich heute?
 
 Arbeitsfolge:
 
-1. `src/handout-drafts/a8_warnsignale.md`, HO-01 und DL-08 vergleichen.
-2. Entscheiden, ob der neue Stand DL-08 ersetzt oder als separate Web-Version
-   neben DL-08 bleibt.
-3. Visualisierung wählen: Ampel ist wahrscheinlich am klarsten und am
-   druckökonomischsten.
-4. Einseitiges HTML aus dem Starter bauen.
-5. Render-/Measure-/Verify-Kette laufen lassen.
-6. Erst danach Datenverweise, Suchindex und alte Dateien anfassen.
+1. `src/handout-drafts/c6_selbstfuersorge.md` und das aktive PDF HO-22
+   redaktionell vergleichen.
+2. Dokumenttyp festlegen: Orientierungsblatt, wenn die Kernlogik
+   Belastungsmanagement ist; Praxisblatt, wenn Formulierungen und konkrete
+   Wochenplanung dominieren.
+3. Visualisierung wählen: Akku, Werkzeugkasten oder Wochen-Mini-Plan.
+4. Inhalt zuerst als freigegebenen Markdown-Draft straffen.
+5. Einseitiges HTML aus der aktuellen Starter-/Workflow-Vorlage bauen.
+6. Render-/Measure-/Verify-Kette laufen lassen und PDF/UA-Status ehrlich
+   dokumentieren.
 
-Warum dieser PR zuerst:
+Warum dieser PR jetzt:
 
-- Das Thema ist zentral.
-- Die Visualisierung ist klar.
-- Es gibt mit HO-27 bereits eine Spezialvariante, an die das neue Blatt
-  logisch anschliessen kann.
-- Der PR testet den neuen Workflow an einem repräsentativen, aber gut
-  begrenzbaren Thema.
+- Er ergänzt die bereits gebauten Belastungsblätter logisch.
+- Das Thema ist für Angehörige unmittelbar handlungsrelevant.
+- Die Visualisierung ist gut lösbar, ohne Spezialwissen oder akute
+  Krisenlogik zu berühren.
+- Er testet, ob der neue Workflow nicht nur reine Orientierungs-, sondern
+  auch handlungsnähere Blätter sauber trägt.
 
 ## Nicht Löschen Ohne Eigenen PR
 
