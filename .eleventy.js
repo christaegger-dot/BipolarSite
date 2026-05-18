@@ -2,6 +2,7 @@ const Image = require("@11ty/eleventy-img");
 const fs = require("fs");
 const path = require("path");
 const { execFileSync } = require("child_process");
+const pdfs = require("./src/_data/pdfs.js");
 
 module.exports = function (eleventyConfig) {
   const handoutPreviewRoot = "../../";
@@ -66,11 +67,19 @@ module.exports = function (eleventyConfig) {
     return Image.generateHTML(metadata, attrs, { whitespaceMode: "inline" });
   });
 
+  const isProductionBuild = process.env.CONTEXT === "production";
+  const publicHandoutCopies = Object.fromEntries(
+    pdfs.groups.canonicalHandouts.map((pdf) => [
+      `src/handouts/${pdf.filename}`,
+      `handouts/${pdf.filename}`,
+    ])
+  );
+
   // Passthrough copy — static assets
   eleventyConfig.addPassthroughCopy("src/fonts");
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/js");
-  eleventyConfig.addPassthroughCopy("src/handouts");
+  eleventyConfig.addPassthroughCopy(isProductionBuild ? publicHandoutCopies : "src/handouts");
   eleventyConfig.addPassthroughCopy("src/downloads");
   eleventyConfig.addPassthroughCopy("src/visuals");
   eleventyConfig.addPassthroughCopy("src/favicon.svg");
