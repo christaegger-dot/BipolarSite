@@ -77,6 +77,20 @@ Dieses Paket ist fuer neue visuelle Handouts gedacht: A4 quer, 14mm Rand symmetr
 
    Das Skript schreibt Screenshot, Layout-PDF und Report nach `_handout_build/`. Sichtpruefung bleibt Pflicht: keine Ueberlaeufe, Handlungsausgang sichtbar, Footer korrekt, Quellen plausibel.
 
+   Zusaetzlich zur normalen Sichtpruefung immer die technischen Print-Fallen
+   pruefen: Ligatur-Woerter (`ff`, `ffi`, `ffl`), Satzstriche und
+   Quellenbegriffe mit Bindestrichen. Beispiel:
+
+   ```bash
+   pdftotext _handout_build/mein-handout.layout-draft.pdf - \
+     | rg -n "betrif t|Diagnosebegrif e|trif t|Family-TalkMetaanalyse| - "
+   ```
+
+   Falls ein Quellenbegriff mit Bindestrich durch Umbruch zerstoert wird,
+   den Term zusammenhalten (`white-space: nowrap`) oder geschuetzte
+   Bindestriche testen. Keine Quellenzeile inhaltlich veraendern, nur um den
+   Umbruch zu retten.
+
 7. Finales PDF/UA-PDF erzeugen und verifizieren.
 
    Das automatisch gerenderte Playwright-PDF ist ein Layout-Draft und typischerweise `Tagged: no`. Fuer finale Freigabe braucht es ein remediated/tagged PDF aus einem PDF/UA-faehigen Prozess. Danach:
@@ -159,6 +173,22 @@ veraendern. Deshalb gilt nach jeder sichtbaren Textaenderung:
 5. Build, HTML-Lint und Release-Audit pruefen.
 
 Kein PDF im Repo soll hinter dem Source-HTML zurueckbleiben.
+
+### Technische Print-Checks sind eigene Gates
+
+Das Eltern-Handout zeigte drei technische Fallen, die normale Layout-Gates
+nicht zuverlaessig abfangen:
+
+- defekte Ligaturen trotz formal sauberer PDF-Erzeugung (`betrif t`,
+  `Diagnosebegrif e`);
+- zerstoerte Bindestrich-Terme im Quellenfooter (`Family-TalkMetaanalyse`);
+- zu helle Sekundaertexte, die erst durch gemessene Kontrastwerte sicher
+  beurteilt werden.
+
+Deshalb gilt: Nach Rendern nicht nur Seite, Hoehe und Ueberlauf pruefen,
+sondern die PDF-Textebene gezielt nach bekannten Fehlerformen durchsuchen,
+kritische Woerter im PDF stark vergroessert anschauen und Kontrastwerte
+dokumentieren, wenn Sekundaertext oder getoente Flaechen im Spiel sind.
 
 ### PR-Abschluss nicht vor Lighthouse
 

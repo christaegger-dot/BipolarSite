@@ -23,6 +23,9 @@ Diese Checkliste gilt fuer jedes Diagramm, bevor `approvalStatus` in `DIAGRAM_RE
 - [ ] Mess-Gate bestanden, inklusive Rand- und Inhaltsbreite.
 - [ ] Druckoekonomie geprueft: weisser Grund, keine vollflaechigen getoenten Karten, Farbe nur als sparsame Orientierung.
 - [ ] Keine Ueberlaeufe, verdeckten Texte oder unlesbaren Labels.
+- [ ] PDF-Textebene gezielt auf Ligatur-/Umbruch-Defekte geprueft (`ff`, `ffi`, `ffl`, Satzstriche, Quellenbegriffe mit Bindestrich).
+- [ ] Kritische Woerter mit Ligaturen bei starker Vergroesserung visuell geprueft, wenn der Font-/Renderer-Pfad neu oder geaendert ist.
+- [ ] Quellenbegriffe mit internen Bindestrichen bleiben im Footer lesbar und extrahierbar, z. B. kein `Family-TalkMetaanalyse`.
 - [ ] Visuelle Gegenpruefung aller Seiten abgeschlossen.
 
 ## 4. Accessibility-Gate
@@ -30,6 +33,7 @@ Diese Checkliste gilt fuer jedes Diagramm, bevor `approvalStatus` in `DIAGRAM_RE
 - [ ] Alt-Text im Registry-Eintrag fachlich passend.
 - [ ] Lesereihenfolge schriftlich in `readingOrder` dokumentiert.
 - [ ] Finale PDF-Textextraktion ist verstaendlich.
+- [ ] Sekundaertexte auf Flaechen wurden gegen WCAG AA gemessen; Werte unter 4.5:1 fuer Fliesstext wurden korrigiert.
 - [ ] `pdfinfo` zeigt `Tagged: yes`.
 - [ ] Screenreader-relevante Struktur ist nicht durch Spalten- oder SVG-Mischung zerstoert.
 
