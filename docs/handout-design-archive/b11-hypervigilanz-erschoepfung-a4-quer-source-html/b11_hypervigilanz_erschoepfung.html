@@ -188,7 +188,7 @@
 
     .stack {
       display: grid;
-      gap: 3mm;
+      gap: 2.6mm;
     }
 
     .warning-box,
@@ -235,8 +235,9 @@
     .visual-card {
       padding: 4mm;
       display: grid;
-      grid-template-rows: auto auto auto 1fr;
-      gap: 2.8mm;
+      grid-template-rows: auto auto auto auto;
+      align-content: start;
+      gap: 2.5mm;
       min-height: 0;
     }
 
@@ -248,17 +249,32 @@
       color: var(--teal-text);
     }
 
+    .cycle-note {
+      padding: 1.7mm 2.1mm;
+      border-left: 3px solid rgba(40, 127, 135, 0.7);
+      border-radius: 5px;
+      background: rgba(40, 127, 135, 0.045);
+      font-size: 8.8px;
+      line-height: 1.22;
+      color: #4d463f;
+      font-style: italic;
+    }
+
     .cycle-wrap {
       border: 1px solid rgba(45, 40, 35, 0.12);
       border-radius: 6px;
       padding: 3mm;
       background: var(--sand-soft);
+      display: grid;
+      grid-template-columns: 1.68fr 0.62fr;
+      gap: 2.2mm;
+      align-items: center;
     }
 
     .cycle-svg {
       display: block;
       width: 100%;
-      height: 67mm;
+      height: 66mm;
     }
 
     .force-grid {
@@ -291,16 +307,6 @@
       font-size: 9.4px;
       line-height: 1.18;
       color: #554c45;
-    }
-
-    .visual-foot {
-      margin: 0;
-      padding-top: 2mm;
-      border-top: 1px solid var(--line);
-      font-size: 10.2px;
-      line-height: 1.25;
-      color: #4d463f;
-      font-style: italic;
     }
 
     .footer {
@@ -373,45 +379,45 @@
           <section class="visual-card">
             <p class="visual-title">Radar-Kreislauf · wie Wachsamkeit Kraft bindet</p>
             <div class="cycle-wrap">
-              <svg class="cycle-svg" viewBox="0 0 660 235" role="img" aria-label="Runder Radar-Kreislauf: Sorge, Scannen, Erschöpfung und weniger Erholung verstärken sich gegenseitig.">
-                <rect x="76" y="12" width="508" height="211" rx="18" fill="#fffaf4" stroke="#eee6dc"></rect>
-                <circle cx="330" cy="118" r="93" fill="none" stroke="#ddd7cf" stroke-width="17" opacity="0.45"></circle>
-                <g transform="rotate(-90 330 118)">
-                  <circle cx="330" cy="118" r="93" fill="none" stroke="#8a650f" stroke-width="17" stroke-linecap="round" pathLength="100" stroke-dasharray="18 82" stroke-dashoffset="-2"></circle>
-                  <circle cx="330" cy="118" r="93" fill="none" stroke="#287f87" stroke-width="17" stroke-linecap="round" pathLength="100" stroke-dasharray="18 82" stroke-dashoffset="-27"></circle>
-                  <circle cx="330" cy="118" r="93" fill="none" stroke="#a34b3f" stroke-width="17" stroke-linecap="round" pathLength="100" stroke-dasharray="18 82" stroke-dashoffset="-52"></circle>
-                  <circle cx="330" cy="118" r="93" fill="none" stroke="#6e4964" stroke-width="17" stroke-linecap="round" pathLength="100" stroke-dasharray="18 82" stroke-dashoffset="-77"></circle>
+              <svg class="cycle-svg" viewBox="0 0 360 250" role="img" aria-label="Runder Radar-Kreislauf: Sorge, Scannen, Erschöpfung und weniger Erholung verstärken sich gegenseitig.">
+                <rect x="18" y="18" width="324" height="214" rx="18" fill="#fffaf4" stroke="#eee6dc"></rect>
+                <circle cx="180" cy="125" r="76" fill="none" stroke="#ddd7cf" stroke-width="15" opacity="0.45"></circle>
+                <g transform="rotate(-90 180 125)">
+                  <circle cx="180" cy="125" r="76" fill="none" stroke="#8a650f" stroke-width="15" stroke-linecap="round" pathLength="100" stroke-dasharray="18 82" stroke-dashoffset="-2"></circle>
+                  <circle cx="180" cy="125" r="76" fill="none" stroke="#287f87" stroke-width="15" stroke-linecap="round" pathLength="100" stroke-dasharray="18 82" stroke-dashoffset="-27"></circle>
+                  <circle cx="180" cy="125" r="76" fill="none" stroke="#a34b3f" stroke-width="15" stroke-linecap="round" pathLength="100" stroke-dasharray="18 82" stroke-dashoffset="-52"></circle>
+                  <circle cx="180" cy="125" r="76" fill="none" stroke="#6e4964" stroke-width="15" stroke-linecap="round" pathLength="100" stroke-dasharray="18 82" stroke-dashoffset="-77"></circle>
                 </g>
-                <circle cx="330" cy="118" r="58" fill="#fff" stroke="#ddd7cf" stroke-width="2"></circle>
-                <text x="330" y="105" text-anchor="middle" font-family="DM Sans, Arial, sans-serif" font-size="13" font-weight="800" fill="#1f676d">DAS RADAR</text>
-                <text x="330" y="124" text-anchor="middle" font-family="DM Sans, Arial, sans-serif" font-size="13" font-weight="800" fill="#1f676d">BLEIBT</text>
-                <text x="330" y="143" text-anchor="middle" font-family="DM Sans, Arial, sans-serif" font-size="13" font-weight="800" fill="#1f676d">AN</text>
-                <g font-family="DM Sans, Arial, sans-serif" font-size="12" font-weight="800">
+                <circle cx="180" cy="125" r="47" fill="#fff" stroke="#ddd7cf" stroke-width="2"></circle>
+                <text x="180" y="114" text-anchor="middle" font-family="DM Sans, Arial, sans-serif" font-size="11" font-weight="800" fill="#1f676d">DAS RADAR</text>
+                <text x="180" y="130" text-anchor="middle" font-family="DM Sans, Arial, sans-serif" font-size="11" font-weight="800" fill="#1f676d">BLEIBT</text>
+                <text x="180" y="146" text-anchor="middle" font-family="DM Sans, Arial, sans-serif" font-size="11" font-weight="800" fill="#1f676d">AN</text>
+                <g font-family="DM Sans, Arial, sans-serif" font-size="10" font-weight="800">
                   <g>
-                    <rect x="139" y="43" width="130" height="24" rx="12" fill="#fff" stroke="#eadfcf"></rect>
-                    <text x="204" y="59" text-anchor="middle" fill="#6e4964">weniger Erholung</text>
+                    <rect x="40" y="48" width="114" height="22" rx="11" fill="#fff" stroke="#eadfcf"></rect>
+                    <text x="97" y="63" text-anchor="middle" fill="#6e4964">weniger Erholung</text>
                   </g>
                   <g>
-                    <rect x="410" y="43" width="74" height="24" rx="12" fill="#fff" stroke="#eadfcf"></rect>
-                    <text x="447" y="59" text-anchor="middle" fill="#8a650f">Sorge</text>
+                    <rect x="222" y="48" width="62" height="22" rx="11" fill="#fff" stroke="#eadfcf"></rect>
+                    <text x="253" y="63" text-anchor="middle" fill="#8a650f">Sorge</text>
                   </g>
                   <g>
-                    <rect x="406" y="169" width="78" height="24" rx="12" fill="#fff" stroke="#eadfcf"></rect>
-                    <text x="445" y="185" text-anchor="middle" fill="#287f87">Scannen</text>
+                    <rect x="220" y="180" width="72" height="22" rx="11" fill="#fff" stroke="#eadfcf"></rect>
+                    <text x="256" y="195" text-anchor="middle" fill="#287f87">Scannen</text>
                   </g>
                   <g>
-                    <rect x="157" y="169" width="106" height="24" rx="12" fill="#fff" stroke="#eadfcf"></rect>
-                    <text x="210" y="185" text-anchor="middle" fill="#a34b3f">Erschöpfung</text>
+                    <rect x="66" y="180" width="92" height="22" rx="11" fill="#fff" stroke="#eadfcf"></rect>
+                    <text x="112" y="195" text-anchor="middle" fill="#a34b3f">Erschöpfung</text>
                   </g>
                 </g>
               </svg>
+              <p class="cycle-note">Anhaltende Wachsamkeit schützt kurzfristig. Langfristig braucht sie Gegengewichte, sonst wird sie selbst zur Belastung.</p>
             </div>
             <div class="force-grid">
               <div class="force-card"><b>Teilen</b><span>Nicht eine Person trägt die ganze Beobachtung und Entscheidungslast.</span></div>
               <div class="force-card"><b>Pausieren</b><span>Kurze Inseln ohne Prüfen helfen dem Körper, wieder herunterzufahren.</span></div>
               <div class="force-card"><b>Abgrenzen</b><span>Begleitung bleibt Beziehung. Sie ersetzt nicht Behandlung und Verantwortung der Fachpersonen.</span></div>
             </div>
-            <p class="visual-foot">Anhaltende Wachsamkeit schützt kurzfristig. Langfristig braucht sie Gegengewichte, sonst wird sie selbst zur Belastung.</p>
           </section>
         </div>
 
