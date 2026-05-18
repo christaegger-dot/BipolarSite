@@ -91,8 +91,8 @@ offen bleibt nur der separate PDF/UA-Finalschritt.
 | `wenn_behandlung_abgelehnt_wird` | v02 geschärft | Referenz für Praxisblätter an der Grenze von Selbstbestimmung, Vorsorge und akutem Sicherheitsweg. |
 | `a3_ambivalente_loyalitaet` | neu gebaut und gemerged | Referenz für Spannungsfeld-Metaphern und warme Entlastungssprache. |
 | `a4_ambiguous_loss` | neu gebaut und gemerged | Referenz für Zwischenlage-/Verlustlogik und vorsichtige Moralwort-Reduktion. |
-| `a9_schlaf_fruehwarnsystem` | aktiv im Repo, Source-Vorläufer archiviert | Fachlich wertvoll, aber bei späterer Überarbeitung erst gegen neue Starter-/Verifier-Kette prüfen. |
-| `b11_hypervigilanz_erschoepfung` | aktiv im Repo, Source-Vorläufer archiviert | Stilanker für Erschöpfungs-/Erosionsfamilie, aber noch nicht kanonische Produktionsquelle. |
+| `a9_schlaf_fruehwarnsystem` | neu gebaut | Referenz für Schlaf-/Rhythmuslogik als frühes Warnmuster ohne vorschnelle Episoden-Deutung. |
+| `b11_hypervigilanz_erschoepfung` | neu gebaut | Referenz für Radar-/Kreislauf-Metaphern, Entlastung bei Dauer-Wachsamkeit und erste Gegengewichte. |
 | `c6_selbstfuersorge` | neu gebaut und gemerged | Referenz für Akku-Metapher, Selbstfürsorge und handlungsnahe Orientierungsblätter. |
 
 ### Spur D: Jetzt Bauen
