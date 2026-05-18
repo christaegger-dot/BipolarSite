@@ -454,9 +454,9 @@ test.describe('high-risk content flows', () => {
   });
 
   test('download PDF cards are not intercepted by the preview dialog handler', async ({ page }) => {
-    await page.goto('/materialien/');
+    await page.goto('/notfall/');
 
-    const downloadLink = page.locator('a[data-pdf-mode="download"][href="/downloads/notfallkarte-kanton-zuerich-puk.pdf"]').first();
+    const downloadLink = page.locator('a[data-pdf-mode="download"][href="/downloads/umgang-mit-suizidgedanken-puk-zuerich.pdf"]').first();
     await expect(downloadLink).toBeVisible();
 
     const defaultWasNotPrevented = await downloadLink.evaluate((link) =>
@@ -468,32 +468,40 @@ test.describe('high-risk content flows', () => {
     await expect(page.locator('body')).not.toHaveClass(/pdf-preview-open/);
   });
 
-  test('materials download PDFs bypass the in-page preview and point to built files', async ({ page }) => {
+  test('materials page exposes only the canonical rebuilt handout set', async ({ page }) => {
     await page.goto('/materialien/');
 
-    const downloadLinks = page.locator('a[data-pdf-mode="download"][href^="/downloads/"]');
-    await expect(downloadLinks.first()).toBeVisible();
+    await expect(page.locator('a[data-pdf-mode="download"][href^="/downloads/"]')).toHaveCount(0);
 
-    const downloadHrefs = await downloadLinks.evaluateAll((links) =>
-      links.map((link) => ({
-        href: link.getAttribute('href') || '',
-        target: link.getAttribute('target') || '',
-        rel: link.getAttribute('rel') || '',
-        label: link.textContent?.replace(/\s+/g, ' ').trim() || '',
-      })),
+    const handoutLinks = page.locator('a[data-pdf-mode="preview"][href^="/handouts/"]');
+    await expect(handoutLinks).toHaveCount(14);
+
+    const handoutHrefs = await handoutLinks.evaluateAll((links) =>
+      links.map((link) => link.getAttribute('href') || ''),
     );
 
-    expect(downloadHrefs.length).toBeGreaterThanOrEqual(5);
-    expect(downloadHrefs.every((link) => link.href.startsWith('/downloads/') && link.href.endsWith('.pdf'))).toBe(true);
-    expect(downloadHrefs.every((link) => link.target === '_blank')).toBe(true);
-    expect(downloadHrefs.every((link) => link.rel.includes('noopener'))).toBe(true);
-    expect(downloadHrefs.some((link) => /Notfallkarte Kanton Zürich/.test(link.label))).toBe(true);
+    expect(handoutHrefs).toEqual([
+      '/handouts/a1_bipolare_stoerung_verstehen.pdf',
+      '/handouts/a2_phasenverlauf.pdf',
+      '/handouts/a6_bipolar_i_ii_mischzustaende.pdf',
+      '/handouts/behandlung_verstehen.pdf',
+      '/handouts/a9_schlaf_fruehwarnsystem.pdf',
+      '/handouts/a8_warnsignale.pdf',
+      '/handouts/absprachen_bevor_es_kippt.pdf',
+      '/handouts/schwieriges_ruhig_ansprechen.pdf',
+      '/handouts/wenn_behandlung_abgelehnt_wird.pdf',
+      '/handouts/a3_ambivalente_loyalitaet.pdf',
+      '/handouts/a4_ambiguous_loss.pdf',
+      '/handouts/eltern_mit_bipolarer_stoerung.pdf',
+      '/handouts/b11_hypervigilanz_erschoepfung.pdf',
+      '/handouts/c6_selbstfuersorge.pdf',
+    ]);
 
     for (const href of [
       '/downloads/notfallkarte-kanton-zuerich-puk.pdf',
       '/downloads/krisenplan-vorlage-bipolare-stoerung-puk-zuerich.pdf',
       '/downloads/rechtliche-orientierung-angehoerige-puk-zuerich.pdf',
-      '/handouts/c2_suizidgedanken.pdf',
+      '/handouts/a1_bipolare_stoerung_verstehen.pdf',
     ]) {
       await expectPdfResponse(page, href);
     }
