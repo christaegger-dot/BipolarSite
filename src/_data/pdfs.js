@@ -310,7 +310,7 @@ const handouts = {
   eltern_mit_bipolarer_stoerung: asset({
     key: "eltern_mit_bipolarer_stoerung",
     url: "/handouts/eltern_mit_bipolarer_stoerung.pdf",
-    title: "Eltern bleiben - auch mit bipolarer Erkrankung",
+    title: "Eltern bleiben – auch mit bipolarer Erkrankung",
     subtitle: "Schutzkreis, Kinder-Plan und altersgerechte Worte",
     assetId: "HO-36",
     version: "web_v02",

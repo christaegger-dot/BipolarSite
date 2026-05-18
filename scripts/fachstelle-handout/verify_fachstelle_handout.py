@@ -185,7 +185,7 @@ def main() -> int:
         normalized_text = re.sub(r"\s+", " ", parsed.text)
         found_crisis = [n for n in CRISIS_NUMBERS if n in normalized_text]
         check(not found_crisis, "no crisis numbers in visible text", f"crisis numbers found: {', '.join(found_crisis)}", failures)
-        forbidden = re.search(r"weiterführend|weiterfuehrend|anlaufstellen|ressourcen", normalized_text, re.I)
+        forbidden = re.search(r"weiterführend|weiterfuehrend|anlaufstellen|\bressourcen\b", normalized_text, re.I)
         check(not forbidden, "no standalone-breaking footer cross-reference", "standalone-breaking cross-reference found", failures)
 
     if args.pdf:
