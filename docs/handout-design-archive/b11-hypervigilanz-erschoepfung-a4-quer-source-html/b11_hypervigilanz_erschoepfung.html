@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ständige Wachsamkeit und Erschöpfung</title>
+  <style>
+    :root {
+      --page-w: 297mm;
+      --page-h: 210mm;
+      --margin-x: 14mm;
+      --margin-y: 14mm;
+      --ink: #2d2823;
+      --muted: #625a53;
+      --line: rgba(45, 40, 35, 0.15);
+      --teal: #287f87;
+      --teal-text: #1f676d;
+      --aubergine: #6e4964;
+      --blue: #3f6f8e;
+      --rose: #a34b3f;
+      --green: #3f7357;
+      --amber: #8a650f;
+      --sand-soft: #fbf7f1;
+      --paper: #fff;
+      --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+      --sans: "DM Sans", Arial, Helvetica, sans-serif;
+    }
+
+    @page { size: A4 landscape; margin: 0; }
+
+    *,
+    *::before,
+    *::after {
+      font-variant-ligatures: none;
+      font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "hlig" 0, "calt" 0;
+    }
+
+    html,
+    body {
+      width: var(--page-w);
+      min-height: var(--page-h);
+      margin: 0;
+      background: #fff;
+      color: var(--ink);
+      font-family: var(--serif);
+    }
+
+    body {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .handout {
+      width: var(--page-w);
+      min-height: var(--page-h);
+      background: #fff;
+      font-variant-ligatures: none;
+      font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "hlig" 0, "calt" 0;
+    }
+
+    .print-page {
+      width: var(--page-w);
+      height: var(--page-h);
+      box-sizing: border-box;
+      overflow: hidden;
+      background: var(--paper);
+      padding: var(--margin-y) var(--margin-x);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 5mm;
+    }
+
+    .sheet-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12mm;
+      align-items: start;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 4mm;
+    }
+
+    .eyebrow,
+    h2,
+    h3,
+    .tag,
+    .visual-title,
+    .footer {
+      font-family: var(--sans);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow {
+      margin: 0 0 3.2mm;
+      font-size: 8.8px;
+      line-height: 1;
+      font-weight: 800;
+      color: var(--muted);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 15ch;
+      font-size: 32px;
+      line-height: 0.98;
+      color: #746a62;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      margin: 4.2mm 0 0;
+      max-width: 67ch;
+      font-size: 14px;
+      line-height: 1.32;
+      font-style: italic;
+      color: #4d463f;
+    }
+
+    .tag {
+      justify-self: end;
+      padding: 2mm 3mm;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      font-size: 8.3px;
+      line-height: 1.12;
+      font-weight: 800;
+      color: var(--teal-text);
+      background: #fff;
+      white-space: nowrap;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 0.86fr 1.18fr;
+      gap: 9mm;
+      min-height: 0;
+    }
+
+    section { min-width: 0; }
+
+    h2 {
+      margin: 0 0 2.2mm;
+      font-size: 9.4px;
+      line-height: 1.18;
+      font-weight: 800;
+      color: var(--muted);
+    }
+
+    h3 {
+      margin: 0 0 1.1mm;
+      font-size: 8.7px;
+      line-height: 1.18;
+      font-weight: 800;
+      color: var(--teal-text);
+    }
+
+    p {
+      margin: 0 0 2.55mm;
+      font-size: 10.9px;
+      line-height: 1.33;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 1.45mm;
+    }
+
+    li {
+      position: relative;
+      padding-left: 4mm;
+      font-size: 10.25px;
+      line-height: 1.23;
+    }
+
+    li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.45em;
+      width: 1.25mm;
+      height: 1.25mm;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+
+    .stack {
+      display: grid;
+      gap: 3mm;
+    }
+
+    .warning-box,
+    .relief,
+    .next-action,
+    .visual-card,
+    .force-card {
+      border-radius: 6px;
+      background: #fff;
+      box-shadow: inset 0 0 0 1px var(--line);
+    }
+
+    .warning-box {
+      padding: 3mm 3.4mm;
+      border-left: 3px solid var(--rose);
+    }
+
+    .relief,
+    .next-action {
+      padding: 3mm 3.5mm;
+      border-left: 3px solid var(--teal);
+      background: rgba(40, 127, 135, 0.045);
+    }
+
+    .relief strong,
+    .next-action strong {
+      display: block;
+      margin-bottom: 1mm;
+      font-family: var(--sans);
+      font-size: 8.9px;
+      line-height: 1.15;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal-text);
+    }
+
+    .relief p,
+    .next-action p {
+      margin-bottom: 0;
+      font-size: 10.25px;
+      line-height: 1.28;
+    }
+
+    .visual-card {
+      padding: 4mm;
+      display: grid;
+      grid-template-rows: auto auto auto 1fr;
+      gap: 2.8mm;
+      min-height: 0;
+    }
+
+    .visual-title {
+      margin: 0;
+      font-size: 9.2px;
+      line-height: 1.2;
+      font-weight: 800;
+      color: var(--teal-text);
+    }
+
+    .cycle-wrap {
+      border: 1px solid rgba(45, 40, 35, 0.12);
+      border-radius: 6px;
+      padding: 3mm;
+      background: var(--sand-soft);
+    }
+
+    .cycle-svg {
+      display: block;
+      width: 100%;
+      height: 67mm;
+    }
+
+    .force-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.3mm;
+    }
+
+    .force-card {
+      padding: 2.5mm;
+      border-top: 4px solid var(--teal);
+      background: #fff;
+    }
+
+    .force-card:nth-child(2) { border-top-color: var(--green); }
+    .force-card:nth-child(3) { border-top-color: var(--aubergine); }
+
+    .force-card b {
+      display: block;
+      margin-bottom: 1mm;
+      font-family: var(--sans);
+      font-size: 8.6px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .force-card span {
+      display: block;
+      font-size: 9.4px;
+      line-height: 1.18;
+      color: #554c45;
+    }
+
+    .visual-foot {
+      margin: 0;
+      padding-top: 2mm;
+      border-top: 1px solid var(--line);
+      font-size: 10.2px;
+      line-height: 1.25;
+      color: #4d463f;
+      font-style: italic;
+    }
+
+    .footer {
+      display: grid;
+      gap: 1mm;
+      border-top: 1px solid var(--line);
+      padding-top: 2mm;
+      font-size: 6.8px;
+      line-height: 1.15;
+      color: var(--muted);
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .footer-top,
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 5mm;
+    }
+
+    .sources {
+      font-size: 6.35px;
+      line-height: 1.12;
+    }
+  </style>
+</head>
+<body>
+  <main class="handout" aria-label="Ständige Wachsamkeit und Erschöpfung">
+    <article>
+      <section class="print-page" aria-label="Ständige Wachsamkeit und Erschöpfung">
+        <header class="sheet-header">
+          <div>
+            <p class="eyebrow">Fachstelle Angehörigenarbeit · Orientierungsblatt</p>
+            <h1>Ständige Wachsamkeit und Erschöpfung</h1>
+            <p class="lead">Nach Krisen bleibt das innere Radar oft an. Das ist verständlich — aber auf Dauer kann genau diese Wachsamkeit die eigene Kraft aufbrauchen. Dieses Blatt ersetzt keine persönliche Beratung oder Behandlung.</p>
+          </div>
+          <div class="tag">A4 quer · Radar-Kreislauf<br>Stand 17. Mai 2026</div>
+        </header>
+
+        <div class="content-grid">
+          <div class="stack">
+            <section>
+              <h2>Worum es geht</h2>
+              <p>Viele Angehörige beginnen nach belastenden Phasen, Stimmung, Schlaf, Tonfall und Rückzug dauernd zu scannen. Das innere Radar will Sicherheit herstellen: lieber zu früh reagieren als noch einmal überrascht werden.</p>
+              <p>Diese Reaktion ist kein persönliches Versagen. Sie ist eine nachvollziehbare Antwort auf Unberechenbarkeit. Schwierig wird sie, wenn kaum noch Erholung möglich ist und jedes Signal sofort geprüft werden muss.</p>
+            </section>
+
+            <section class="warning-box">
+              <h2>Woran Dauer-Wachsamkeit sichtbar wird</h2>
+              <ul>
+                <li>Sie prüfen Stimmung oder Schlaf fast automatisch.</li>
+                <li>Ruhige Momente fühlen sich nicht mehr richtig ruhig an.</li>
+                <li>Eigene Pläne werden aufgeschoben, bis „alles stabil genug“ wirkt.</li>
+                <li>Kleine Veränderungen lösen sofort innere Alarmbereitschaft aus.</li>
+              </ul>
+            </section>
+
+            <section class="relief">
+              <strong>Entlastender Kernsatz</strong>
+              <p>Wachsamkeit zeigt, dass Sie viel erlebt haben. Sie beweist nicht, dass Sie allein verantwortlich sind, die nächste Phase zu verhindern.</p>
+            </section>
+
+            <section class="next-action" data-required="next-action">
+              <strong>Konkreter nächster Schritt</strong>
+              <p>Wählen Sie heute eine Radar-Pause von 20 Minuten: kein Prüfen, kein Nachfragen, kein inneres Protokoll. Notieren Sie danach nur, ob die Pause möglich war — nicht, ob sie perfekt gelungen ist.</p>
+            </section>
+          </div>
+
+          <section class="visual-card">
+            <p class="visual-title">Radar-Kreislauf · wie Wachsamkeit Kraft bindet</p>
+            <div class="cycle-wrap">
+              <svg class="cycle-svg" viewBox="0 0 660 235" role="img" aria-label="Runder Radar-Kreislauf: Sorge, Scannen, Erschöpfung und weniger Erholung verstärken sich gegenseitig.">
+                <rect x="76" y="12" width="508" height="211" rx="18" fill="#fffaf4" stroke="#eee6dc"></rect>
+                <circle cx="330" cy="118" r="93" fill="none" stroke="#ddd7cf" stroke-width="17" opacity="0.45"></circle>
+                <g transform="rotate(-90 330 118)">
+                  <circle cx="330" cy="118" r="93" fill="none" stroke="#8a650f" stroke-width="17" stroke-linecap="round" pathLength="100" stroke-dasharray="18 82" stroke-dashoffset="-2"></circle>
+                  <circle cx="330" cy="118" r="93" fill="none" stroke="#287f87" stroke-width="17" stroke-linecap="round" pathLength="100" stroke-dasharray="18 82" stroke-dashoffset="-27"></circle>
+                  <circle cx="330" cy="118" r="93" fill="none" stroke="#a34b3f" stroke-width="17" stroke-linecap="round" pathLength="100" stroke-dasharray="18 82" stroke-dashoffset="-52"></circle>
+                  <circle cx="330" cy="118" r="93" fill="none" stroke="#6e4964" stroke-width="17" stroke-linecap="round" pathLength="100" stroke-dasharray="18 82" stroke-dashoffset="-77"></circle>
+                </g>
+                <circle cx="330" cy="118" r="58" fill="#fff" stroke="#ddd7cf" stroke-width="2"></circle>
+                <text x="330" y="105" text-anchor="middle" font-family="DM Sans, Arial, sans-serif" font-size="13" font-weight="800" fill="#1f676d">DAS RADAR</text>
+                <text x="330" y="124" text-anchor="middle" font-family="DM Sans, Arial, sans-serif" font-size="13" font-weight="800" fill="#1f676d">BLEIBT</text>
+                <text x="330" y="143" text-anchor="middle" font-family="DM Sans, Arial, sans-serif" font-size="13" font-weight="800" fill="#1f676d">AN</text>
+                <g font-family="DM Sans, Arial, sans-serif" font-size="12" font-weight="800">
+                  <g>
+                    <rect x="139" y="43" width="130" height="24" rx="12" fill="#fff" stroke="#eadfcf"></rect>
+                    <text x="204" y="59" text-anchor="middle" fill="#6e4964">weniger Erholung</text>
+                  </g>
+                  <g>
+                    <rect x="410" y="43" width="74" height="24" rx="12" fill="#fff" stroke="#eadfcf"></rect>
+                    <text x="447" y="59" text-anchor="middle" fill="#8a650f">Sorge</text>
+                  </g>
+                  <g>
+                    <rect x="406" y="169" width="78" height="24" rx="12" fill="#fff" stroke="#eadfcf"></rect>
+                    <text x="445" y="185" text-anchor="middle" fill="#287f87">Scannen</text>
+                  </g>
+                  <g>
+                    <rect x="157" y="169" width="106" height="24" rx="12" fill="#fff" stroke="#eadfcf"></rect>
+                    <text x="210" y="185" text-anchor="middle" fill="#a34b3f">Erschöpfung</text>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div class="force-grid">
+              <div class="force-card"><b>Teilen</b><span>Nicht eine Person trägt die ganze Beobachtung und Entscheidungslast.</span></div>
+              <div class="force-card"><b>Pausieren</b><span>Kurze Inseln ohne Prüfen helfen dem Körper, wieder herunterzufahren.</span></div>
+              <div class="force-card"><b>Abgrenzen</b><span>Begleitung bleibt Beziehung. Sie ersetzt nicht Behandlung und Verantwortung der Fachpersonen.</span></div>
+            </div>
+            <p class="visual-foot">Anhaltende Wachsamkeit schützt kurzfristig. Langfristig braucht sie Gegengewichte, sonst wird sie selbst zur Belastung.</p>
+          </section>
+        </div>
+
+        <footer class="footer">
+          <div class="footer-top"><span>Fachstelle Angehörigenarbeit · Psychiatrische Universitätsklinik Zürich</span></div>
+          <div class="sources">Quellen: Phillips et al. 2022 · Karambelas et al. 2022 · NICE CG185 · Wiesheu 2009</div>
+          <div class="footer-bottom"><span>b11-hypervigilanz-erschoepfung v02 · Stand 17. Mai 2026</span><span>Seite 1 von 1</span></div>
+        </footer>
+      </section>
+    </article>
+  </main>
+</body>
+</html>

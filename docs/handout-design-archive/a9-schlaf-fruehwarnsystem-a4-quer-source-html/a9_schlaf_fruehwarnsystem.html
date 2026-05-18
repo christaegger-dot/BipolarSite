@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Schlaf als Frühwarnsystem</title>
+  <style>
+    :root {
+      --page-w: 297mm;
+      --page-h: 210mm;
+      --margin-x: 14mm;
+      --margin-y: 14mm;
+      --ink: #2d2823;
+      --muted: #625a53;
+      --line: rgba(45, 40, 35, 0.15);
+      --teal: #287f87;
+      --teal-text: #1f676d;
+      --blue: #3f6f8e;
+      --amber: #8a650f;
+      --rose: #a34b3f;
+      --green: #3f7357;
+      --sand-soft: #fbf7f1;
+      --paper: #fff;
+      --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+      --sans: "DM Sans", Arial, Helvetica, sans-serif;
+    }
+
+    @page { size: A4 landscape; margin: 0; }
+
+    *,
+    *::before,
+    *::after {
+      font-variant-ligatures: none;
+      font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "hlig" 0, "calt" 0;
+    }
+
+    html,
+    body {
+      width: var(--page-w);
+      min-height: var(--page-h);
+      margin: 0;
+      background: #fff;
+      color: var(--ink);
+      font-family: var(--serif);
+    }
+
+    body {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .handout {
+      width: var(--page-w);
+      min-height: var(--page-h);
+      background: #fff;
+      font-variant-ligatures: none;
+      font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "hlig" 0, "calt" 0;
+    }
+
+    .print-page {
+      width: var(--page-w);
+      height: var(--page-h);
+      box-sizing: border-box;
+      overflow: hidden;
+      background: var(--paper);
+      padding: var(--margin-y) var(--margin-x);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 5.2mm;
+    }
+
+    .sheet-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12mm;
+      align-items: start;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 4mm;
+    }
+
+    .eyebrow,
+    h2,
+    h3,
+    .tag,
+    .visual-title,
+    .mini-label,
+    .footer {
+      font-family: var(--sans);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow {
+      margin: 0 0 3.2mm;
+      font-size: 8.8px;
+      line-height: 1;
+      font-weight: 800;
+      color: var(--muted);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 17ch;
+      font-size: 33px;
+      line-height: 0.98;
+      color: #746a62;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      margin: 4.2mm 0 0;
+      max-width: 67ch;
+      font-size: 14px;
+      line-height: 1.32;
+      font-style: italic;
+      color: #4d463f;
+    }
+
+    .tag {
+      justify-self: end;
+      padding: 2mm 3mm;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      font-size: 8.3px;
+      line-height: 1.12;
+      font-weight: 800;
+      color: var(--teal-text);
+      background: #fff;
+      white-space: nowrap;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 0.86fr 1.18fr;
+      gap: 9mm;
+      min-height: 0;
+    }
+
+    section { min-width: 0; }
+
+    h2 {
+      margin: 0 0 2.3mm;
+      font-size: 9.4px;
+      line-height: 1.18;
+      font-weight: 800;
+      color: var(--muted);
+    }
+
+    h3 {
+      margin: 0 0 1.1mm;
+      font-size: 8.7px;
+      line-height: 1.18;
+      font-weight: 800;
+      color: var(--teal-text);
+    }
+
+    p {
+      margin: 0 0 2.7mm;
+      font-size: 11px;
+      line-height: 1.34;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 1.45mm;
+    }
+
+    li {
+      position: relative;
+      padding-left: 4mm;
+      font-size: 10.3px;
+      line-height: 1.24;
+    }
+
+    li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.45em;
+      width: 1.25mm;
+      height: 1.25mm;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+
+    .stack {
+      display: grid;
+      gap: 3.2mm;
+    }
+
+    .signal-box,
+    .relief,
+    .next-action,
+    .visual-card {
+      border-radius: 6px;
+      background: #fff;
+      box-shadow: inset 0 0 0 1px var(--line);
+    }
+
+    .signal-box {
+      padding: 3mm 3.4mm;
+      border-left: 3px solid var(--rose);
+    }
+
+    .relief,
+    .next-action {
+      padding: 3mm 3.5mm;
+      border-left: 3px solid var(--teal);
+      background: rgba(40, 127, 135, 0.045);
+    }
+
+    .relief strong,
+    .next-action strong {
+      display: block;
+      margin-bottom: 1mm;
+      font-family: var(--sans);
+      font-size: 8.9px;
+      line-height: 1.15;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal-text);
+    }
+
+    .relief p,
+    .next-action p {
+      margin-bottom: 0;
+      font-size: 10.3px;
+      line-height: 1.28;
+    }
+
+    .visual-card {
+      padding: 4mm;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      gap: 3mm;
+      min-height: 0;
+    }
+
+    .visual-title {
+      margin: 0;
+      font-size: 9.2px;
+      line-height: 1.2;
+      font-weight: 800;
+      color: var(--teal-text);
+    }
+
+    .sleep-meter {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2.2mm;
+    }
+
+    .sleep-card {
+      min-height: 25mm;
+      padding: 2.4mm;
+      border: 1px solid rgba(45, 40, 35, 0.12);
+      border-top: 4px solid var(--green);
+      border-radius: 6px;
+      background: var(--sand-soft);
+    }
+
+    .sleep-card:nth-child(2) { border-top-color: var(--amber); }
+    .sleep-card:nth-child(3) { border-top-color: var(--rose); }
+    .sleep-card:nth-child(4) { border-top-color: var(--blue); }
+
+    .sleep-card b {
+      display: block;
+      margin-bottom: 1mm;
+      font-family: var(--sans);
+      font-size: 8.8px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .sleep-card span {
+      display: block;
+      font-size: 9.5px;
+      line-height: 1.18;
+      color: #554c45;
+    }
+
+    .curve-wrap {
+      border: 1px solid rgba(45, 40, 35, 0.12);
+      border-radius: 6px;
+      padding: 3mm;
+      background: #fff;
+    }
+
+    .curve-svg {
+      display: block;
+      width: 100%;
+      height: 53mm;
+    }
+
+    .visual-foot {
+      margin: 0;
+      padding-top: 2mm;
+      border-top: 1px solid var(--line);
+      font-size: 10.2px;
+      line-height: 1.25;
+      color: #4d463f;
+      font-style: italic;
+    }
+
+    .footer {
+      display: grid;
+      gap: 1mm;
+      border-top: 1px solid var(--line);
+      padding-top: 2mm;
+      font-size: 6.8px;
+      line-height: 1.15;
+      color: var(--muted);
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .footer-top,
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 5mm;
+    }
+
+    .sources {
+      font-size: 6.35px;
+      line-height: 1.12;
+    }
+  </style>
+</head>
+<body>
+  <main class="handout" aria-label="Schlaf als Frühwarnsystem">
+    <article>
+      <section class="print-page" aria-label="Schlaf als Frühwarnsystem">
+        <header class="sheet-header">
+          <div>
+            <p class="eyebrow">Fachstelle Angehörigenarbeit · Orientierungsblatt</p>
+            <h1>Schlaf als Frühwarnsystem</h1>
+            <p class="lead">Wenn sich Schlaf, Energie und Tempo gemeinsam verändern, kann das früh auf eine neue Phase hinweisen. Dieses Blatt ersetzt keine fachliche Abklärung, Diagnose oder Behandlung.</p>
+          </div>
+          <div class="tag">A4 quer · Schlaf-Taktgeber<br>Stand 17. Mai 2026</div>
+        </header>
+
+        <div class="content-grid">
+          <div class="stack">
+            <section>
+              <h2>Worum es geht</h2>
+              <p>Bei bipolarer Erkrankung ist Schlaf nicht nur Erholung. Der Schlaf-Wach-Rhythmus stabilisiert Stimmung, Energie und Reizbarkeit mit. Für Angehörige wird Schlaf deshalb oft zu einem der frühesten beobachtbaren Muster.</p>
+              <p>Wichtig ist nicht eine einzelne schlechte Nacht. Entscheidend ist, ob Schlaf deutlich vom üblichen Zustand abweicht und ob gleichzeitig Tempo, Antrieb, Rückzug, Gereiztheit oder Verzweiflung kippen.</p>
+            </section>
+
+            <section class="signal-box">
+              <h2>Worauf achten</h2>
+              <ul>
+                <li>deutlich weniger Schlaf und trotzdem ungewöhnlich viel Energie</li>
+                <li>späteres Zubettgehen, frühes Aufstehen, viele neue Pläne</li>
+                <li>viel mehr Schlaf und trotzdem Erschöpfung oder Rückzug</li>
+                <li>Schlaflosigkeit mit Grübeln, Verzweiflung oder starker Unruhe</li>
+              </ul>
+            </section>
+
+            <section class="relief">
+              <strong>Entlastender Kernsatz</strong>
+              <p>Schlaf zu beobachten heisst nicht, jemanden zu kontrollieren. Es heisst, ein frühes Muster ernst zu nehmen, bevor alle zu erschöpft sind.</p>
+            </section>
+
+            <section class="next-action" data-required="next-action">
+              <strong>Konkreter nächster Schritt</strong>
+              <p>Notieren Sie für sieben Tage nur drei Dinge: Schlafdauer, Energie am nächsten Tag und eine sichtbare Veränderung. Danach lässt sich ruhiger besprechen, ob eine vereinbarte Unterstützung früh dazukommen soll.</p>
+            </section>
+          </div>
+
+          <section class="visual-card">
+            <p class="visual-title">Schlaf-Taktgeber · vier Signale getrennt sehen</p>
+            <div class="sleep-meter">
+              <div class="sleep-card"><b>Stabil</b><span>Schlaf passt zum üblichen Rhythmus, Energie und Alltag bleiben tragfähig.</span></div>
+              <div class="sleep-card"><b>Erste Risse</b><span>Schlaf verschiebt sich, aber Alltag und Gespräch sind noch erreichbar.</span></div>
+              <div class="sleep-card"><b>Verdichtung</b><span>Schlaf und Energie kippen zusammen: Tempo, Risiko oder Rückzug nehmen zu.</span></div>
+              <div class="sleep-card"><b>Klärung</b><span>Jetzt zählt die vorherige Absprache, nicht eine neue Grundsatzdiskussion.</span></div>
+            </div>
+            <div class="curve-wrap">
+              <svg class="curve-svg" viewBox="0 0 660 190" role="img" aria-label="Vereinfachtes Modell: Schlaf verändert sich oft zuerst, Energie, Stimmung und Alltag folgen zeitversetzt.">
+                <rect x="24" y="28" width="612" height="118" rx="18" fill="#fbf7f1" stroke="#ddd7cf"></rect>
+                <line x1="62" y1="118" x2="608" y2="118" stroke="#bfb6aa" stroke-width="2"></line>
+                <path d="M70 111 C145 112 175 92 226 86 C279 80 305 106 352 103 C418 99 436 55 492 50 C542 45 575 69 604 88" fill="none" stroke="#287f87" stroke-width="8" stroke-linecap="round"></path>
+                <path d="M70 110 C148 112 177 111 226 108 C278 105 307 102 352 91 C419 74 437 42 492 39 C542 37 575 58 604 83" fill="none" stroke="#a34b3f" stroke-width="4" stroke-linecap="round" opacity="0.9"></path>
+                <circle cx="226" cy="86" r="9" fill="#8a650f" stroke="#fff" stroke-width="4"></circle>
+                <circle cx="492" cy="50" r="9" fill="#a34b3f" stroke="#fff" stroke-width="4"></circle>
+                <text x="63" y="152" font-family="DM Sans, Arial, sans-serif" font-size="13" font-weight="800" fill="#3f7357">Rhythmus</text>
+                <text x="198" y="152" font-family="DM Sans, Arial, sans-serif" font-size="13" font-weight="800" fill="#8a650f">Schlaf kippt</text>
+                <text x="341" y="152" font-family="DM Sans, Arial, sans-serif" font-size="13" font-weight="800" fill="#287f87">Energie folgt</text>
+                <text x="477" y="152" font-family="DM Sans, Arial, sans-serif" font-size="13" font-weight="800" fill="#a34b3f">Muster verdichtet</text>
+                <text x="44" y="50" font-family="DM Sans, Arial, sans-serif" font-size="12" fill="#625a53">Schlaf / Rhythmus</text>
+                <text x="44" y="72" font-family="DM Sans, Arial, sans-serif" font-size="12" fill="#625a53">Energie / Tempo</text>
+              </svg>
+            </div>
+            <p class="visual-foot">Eine Schlafveränderung ist noch keine Episode. Hilfreich wird sie, wenn sie ruhig, konkret und im Verlauf betrachtet wird.</p>
+          </section>
+        </div>
+
+        <footer class="footer">
+          <div class="footer-top"><span>Fachstelle Angehörigenarbeit · Psychiatrische Universitätsklinik Zürich</span></div>
+          <div class="sources">Quellen: NICE CG185 · Harvey, Kaplan &amp; Soehner 2015 · Perry et al. 1999</div>
+          <div class="footer-bottom"><span>a9-schlaf-fruehwarnsystem v02 · Stand 17. Mai 2026</span><span>Seite 1 von 1</span></div>
+        </footer>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
