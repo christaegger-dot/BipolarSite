@@ -45,6 +45,7 @@ const CRITICAL_LANGUAGE_METADATA_KEYS = new Set([
   "schwieriges_ruhig_ansprechen",
   "behandlung_verstehen",
   "wenn_behandlung_abgelehnt_wird",
+  "eltern_mit_bipolarer_stoerung",
   "a3_ambivalente_loyalitaet",
   "a4_ambiguous_loss",
   "a5_affiliate_stigma",
@@ -209,6 +210,12 @@ const REQUIRED_PDF_TEXT_SNIPPETS = {
     "Drei Spuren",
     "Stabil vorsorgen",
     "Was sich zu dokumentieren lohnt",
+    "Konkreter nächster Schritt",
+  ],
+  eltern_mit_bipolarer_stoerung: [
+    "Schutzkreis",
+    "Kinder brauchen keine perfekten Eltern",
+    "Der Kinder-Plan",
     "Konkreter nächster Schritt",
   ],
   a3_ambivalente_loyalitaet: [
