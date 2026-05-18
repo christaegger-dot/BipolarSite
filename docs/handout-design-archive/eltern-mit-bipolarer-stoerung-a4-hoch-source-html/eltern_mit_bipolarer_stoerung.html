@@ -32,7 +32,7 @@
     *::before,
     *::after {
       font-variant-ligatures: none;
-      font-feature-settings: "liga" 0, "clig" 0;
+      font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "hlig" 0, "calt" 0;
       text-rendering: geometricPrecision;
     }
 
@@ -54,6 +54,8 @@
     .handout {
       width: var(--page-w);
       background: #fff;
+      font-variant-ligatures: none;
+      font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "hlig" 0, "calt" 0;
     }
 
     .print-page {
@@ -525,6 +527,10 @@
       line-height: 1.12;
     }
 
+    .keep-together {
+      white-space: nowrap;
+    }
+
     b,
     strong { font-weight: 700; }
   </style>
@@ -702,7 +708,7 @@
 
       <footer class="footer">
         <div class="footer-top"><span>Fachstelle Angehörigenarbeit · Psychiatrische Universitätsklinik Zürich</span></div>
-        <div class="sources">Quellen: WHO-Leitlinie Parenting-Interventionen · Zürcher Leitfaden Kindeswohlgefährdung 2019 · NICE CG185 (Families and carers) · systematische Reviews zu Kindern psychisch erkrankter Eltern und parentaler Bipolarität · Family-Talk-Metaanalyse 2024</div>
+        <div class="sources">Quellen: WHO-Leitlinie Parenting-Interventionen · Zürcher Leitfaden Kindeswohlgefährdung 2019 · NICE CG185 (Families and carers) · systematische Reviews zu Kindern psychisch erkrankter Eltern und parentaler Bipolarität · <span class="keep-together">Family-Talk-Metaanalyse 2024</span></div>
         <div class="footer-bottom"><span>eltern-mit-bipolarer-stoerung v02 · Stand 17. Mai 2026</span><span>Seite 2 von 2</span></div>
       </footer>
     </section>
