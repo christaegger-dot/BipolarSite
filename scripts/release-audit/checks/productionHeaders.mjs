@@ -114,7 +114,7 @@ export async function runProductionHeadersCheck(context) {
 
     const staticPdfUrls = [
       `${baseUrl}/downloads/notfallkarte-kanton-zuerich-puk.pdf`,
-      `${baseUrl}/handouts/grenzsetzung.pdf`,
+      `${baseUrl}/handouts/a1_bipolare_stoerung_verstehen.pdf`,
     ];
     for (const url of staticPdfUrls) {
       const response = await fetchResponse(url);
