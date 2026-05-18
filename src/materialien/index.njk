@@ -1,8 +1,8 @@
 ---
 layout: "base"
-title: "Materialien zum Mitnehmen | PUK Zürich"
+title: "Handouts zum Mitnehmen | PUK Zürich"
 navCurrent: "materialien"
-description: "Druckbare A4-Handouts zu Notfall, Beziehung, Recht, Selbstfürsorge und mehr — für Angehörige von Menschen mit bipolarer Störung."
+description: "Das kuratierte Set von 14 druckbaren A4-Handouts für Angehörige von Menschen mit bipolarer Störung."
 permalink: "/materialien/"
 useSharedCSS: true
 useNavJS: true
@@ -17,74 +17,45 @@ breadcrumbs:
 {% from "pdf-macros.njk" import handoutCard %}
 {% set materialSections = [
   {
-    id: "akut",
-    title: "Wenn es akut ist",
-    lead: "Für Krisen, unklare Gefahr oder Momente, in denen Sie nur noch das Nötigste brauchen: Nummern, kurze Handlungsblätter und klare erste Schritte.",
+    id: "verstehen",
+    title: "Die Erkrankung und den Verlauf verstehen",
+    lead: "Für psychoedukative Orientierung: Was Bipolarität bedeutet, wie Phasen verlaufen, warum Schlaf wichtig ist und wann Warnsignale genauer angeschaut werden sollten.",
     assets: [
-      pdfs.downloads.notfallkarte,
-      pdfs.downloads.suizidgedanken,
-      pdfs.downloads.psychoseWahn,
-      pdfs.downloads.manie,
-      pdfs.downloads.depression,
-      pdfs.handouts.c2_suizidgedanken,
-      pdfs.handouts.c3_psychose_wahn,
-      pdfs.handouts.c4_manie,
-      pdfs.handouts.c5_depression,
+      pdfs.handouts.a1_bipolare_stoerung_verstehen,
+      pdfs.handouts.a2_phasenverlauf,
+      pdfs.handouts.a6_bipolar_i_ii_mischzustaende,
+      pdfs.handouts.behandlung_verstehen,
+      pdfs.handouts.a9_schlaf_fruehwarnsystem,
       pdfs.handouts.a8_warnsignale
     ]
   },
   {
-    id: "vorbereiten",
-    title: "Wenn Sie sich vorbereiten oder etwas festhalten wollen",
-    lead: "Für ruhigere Phasen, in denen Sie Warnzeichen, Absprachen und die nächste Krise besser vorbereiten möchten — bevor wieder alles gleichzeitig drängt.",
+    id: "handeln",
+    title: "Absprechen, ansprechen und handlungsfähig bleiben",
+    lead: "Für Situationen, in denen Sorge nicht beim Grübeln stehen bleiben soll: vorher absprechen, Schwieriges ruhig ansprechen und bei Behandlungsablehnung die passende Spur wählen.",
     assets: [
-      pdfs.downloads.krisenplanVorlage,
-      pdfs.downloads.krisenplanGuide,
-      pdfs.downloads.warnsignale,
-      pdfs.handouts.c1_krisenplan,
-      pdfs.handouts.b7_behandlung_ambivalenz,
-      pdfs.downloads.kritischeZeitpunkte
+      pdfs.handouts.absprachen_bevor_es_kippt,
+      pdfs.handouts.schwieriges_ruhig_ansprechen,
+      pdfs.handouts.wenn_behandlung_abgelehnt_wird
     ]
   },
   {
     id: "beziehung",
-    title: "Wenn Gespräche, Loyalität oder Grenzen unter Druck stehen",
-    lead: "Für Situationen, in denen Beziehung nicht nur trägt, sondern auch erschöpft: Gespräche, Konflikte, Trennung, Grenzen, Loyalität und wiederkehrende Eskalationsmuster.",
+    title: "Beziehung, Trauer und Familie einordnen",
+    lead: "Für ambivalente Gefühle, uneindeutige Trauer und Elternschaft unter Belastung: nicht moralisieren, sondern verstehen, was Kinder und Angehörige jetzt trägt.",
     assets: [
-      pdfs.downloads.grenzsetzungPraxis,
-      pdfs.handouts.grenzsetzung,
-      pdfs.handouts.expressed_emotions,
-      pdfs.handouts.b10_trennung_scheidung,
-      pdfs.handouts.b5_loyalitaetskonflikte,
-      pdfs.handouts.a3_ambivalente_loyalitaet
+      pdfs.handouts.a3_ambivalente_loyalitaet,
+      pdfs.handouts.a4_ambiguous_loss,
+      pdfs.handouts.eltern_mit_bipolarer_stoerung
     ]
   },
   {
     id: "belastung",
-    title: "Wenn Sie selbst erschöpft sind oder die lange Strecke tragen",
-    lead: "Für anhaltende Belastung, schleichende Erschöpfung, Trauer ohne klaren Abschluss und die Frage, wie eigene Stabilität über längere Zeit erhalten werden kann.",
+    title: "Die eigene Belastung und Kraft schützen",
+    lead: "Für die lange Strecke: ständige Wachsamkeit erkennen und eigene Kräfte schützen, bevor Belastung alles bestimmt.",
     assets: [
-      pdfs.downloads.kurzblattStabilisiert,
-      pdfs.handouts.b1_18_belastungen,
-      pdfs.handouts.a4_ambiguous_loss,
-      pdfs.handouts.b2_erosion_solidaritaet,
-      pdfs.handouts.b4_mechanismen_erosion,
-      pdfs.handouts.c6_selbstfuersorge,
-      pdfs.handouts.d4_solidaritaet_wellen,
-      pdfs.handouts.transformationsreise,
-      pdfs.handouts.trialog,
-      pdfs.downloads.sichtbarkeitBelastung,
-      pdfs.handouts.b9_depression_partner,
-      pdfs.handouts.a5_affiliate_stigma,
-      pdfs.handouts.b6_geschlechtsspezifisch
-    ]
-  },
-  {
-    id: "recht",
-    title: "Wenn Recht oder Versorgungssystem blockieren",
-    lead: "Für Schweigepflicht, Vorsorge, FU-Fragen, Kostengutsprachen und andere Momente, in denen nicht die Beziehung, sondern das System selbst die nächste Hürde ist.",
-    assets: [
-      pdfs.downloads.rechtlicheOrientierung
+      pdfs.handouts.b11_hypervigilanz_erschoepfung,
+      pdfs.handouts.c6_selbstfuersorge
     ]
   }
 ] %}
@@ -97,8 +68,8 @@ breadcrumbs:
 <header class="hub-hero">
   <div class="hub-hero-inner">
     <div class="breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><span>Materialien</span></div>
-    <h1>Materialien zum Mitnehmen</h1>
-    <p class="hub-hero-lead">Druckbare A4-Handouts zu Notfall, Beziehung, Recht, Selbstfürsorge und mehr — zum Aushändigen, Mitnehmen, Ankleben an den Kühlschrank.</p>
+    <h1>Handouts zum Mitnehmen</h1>
+    <p class="hub-hero-lead">Das kuratierte Set von 14 druckbaren A4-Handouts — zum Aushändigen, Mitnehmen, Ankleben an den Kühlschrank.</p>
   </div>
 </header>
 
