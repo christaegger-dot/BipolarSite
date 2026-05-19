@@ -159,45 +159,45 @@ breadcrumbs:
     <div class="erosion-chart">
       <svg role="img" aria-label="Erosionsmodell: Vertrauen, Nähe und Leichtigkeit nehmen mit jeder Episode ab" viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg">
         <!-- Legend (top, always visible) -->
-        <line x1="60" y1="24" x2="84" y2="24" stroke="#5b7fa5" stroke-width="3"/>
-        <text x="90" y="28" fill="#5b7fa5" font-size="14" font-weight="600" font-family="DM Sans, sans-serif">Vertrauen</text>
-        <line x1="200" y1="24" x2="224" y2="24" stroke="#B45309" stroke-width="3"/>
-        <text x="230" y="28" fill="#B45309" font-size="14" font-weight="600" font-family="DM Sans, sans-serif">Nähe</text>
-        <line x1="310" y1="24" x2="334" y2="24" stroke="#0d7a5f" stroke-width="3"/>
-        <text x="340" y="28" fill="#0d7a5f" font-size="14" font-weight="600" font-family="DM Sans, sans-serif">Leichtigkeit</text>
+        <line x1="60" y1="24" x2="84" y2="24" stroke="var(--blue-phase)" stroke-width="3"/>
+        <text x="90" y="28" fill="var(--blue-phase)" font-size="14" font-weight="600" font-family="DM Sans, sans-serif">Vertrauen</text>
+        <line x1="200" y1="24" x2="224" y2="24" stroke="var(--amber)" stroke-width="3"/>
+        <text x="230" y="28" fill="var(--amber)" font-size="14" font-weight="600" font-family="DM Sans, sans-serif">Nähe</text>
+        <line x1="310" y1="24" x2="334" y2="24" stroke="var(--phase-green)" stroke-width="3"/>
+        <text x="340" y="28" fill="var(--phase-green)" font-size="14" font-weight="600" font-family="DM Sans, sans-serif">Leichtigkeit</text>
 
         <!-- Axes -->
-        <line x1="55" y1="55" x2="55" y2="355" stroke="#a7d9d5" stroke-width="1.5"/>
-        <line x1="55" y1="355" x2="575" y2="355" stroke="#a7d9d5" stroke-width="1.5"/>
+        <line x1="55" y1="55" x2="55" y2="355" stroke="var(--teal-light)" stroke-width="1.5"/>
+        <line x1="55" y1="355" x2="575" y2="355" stroke="var(--teal-light)" stroke-width="1.5"/>
 
         <!-- Y labels -->
-        <text x="44" y="75" fill="#94a3b8" font-size="13" font-weight="600" text-anchor="end" font-family="DM Sans, sans-serif">Hoch</text>
-        <text x="44" y="350" fill="#94a3b8" font-size="13" font-weight="600" text-anchor="end" font-family="DM Sans, sans-serif">Tief</text>
+        <text x="44" y="75" fill="var(--text-soft)" font-size="13" font-weight="600" text-anchor="end" font-family="DM Sans, sans-serif">Hoch</text>
+        <text x="44" y="350" fill="var(--text-soft)" font-size="13" font-weight="600" text-anchor="end" font-family="DM Sans, sans-serif">Tief</text>
 
         <!-- Episode bands -->
-        <rect x="130" y="55" width="55" height="300" fill="#B45309" opacity="0.1" rx="5"/>
-        <rect x="290" y="55" width="55" height="300" fill="#B45309" opacity="0.1" rx="5"/>
-        <rect x="450" y="55" width="55" height="300" fill="#B45309" opacity="0.1" rx="5"/>
+        <rect x="130" y="55" width="55" height="300" fill="var(--amber)" opacity="0.1" rx="5"/>
+        <rect x="290" y="55" width="55" height="300" fill="var(--amber)" opacity="0.1" rx="5"/>
+        <rect x="450" y="55" width="55" height="300" fill="var(--amber)" opacity="0.1" rx="5"/>
 
         <!-- Episode labels -->
-        <text x="158" y="380" fill="#B45309" font-size="13" font-weight="600" text-anchor="middle" font-family="DM Sans, sans-serif">Episode 1</text>
-        <text x="318" y="380" fill="#B45309" font-size="13" font-weight="600" text-anchor="middle" font-family="DM Sans, sans-serif">Episode 2</text>
-        <text x="478" y="380" fill="#B45309" font-size="13" font-weight="600" text-anchor="middle" font-family="DM Sans, sans-serif">Episode 3</text>
+        <text x="158" y="380" fill="var(--amber)" font-size="13" font-weight="600" text-anchor="middle" font-family="DM Sans, sans-serif">Episode 1</text>
+        <text x="318" y="380" fill="var(--amber)" font-size="13" font-weight="600" text-anchor="middle" font-family="DM Sans, sans-serif">Episode 2</text>
+        <text x="478" y="380" fill="var(--amber)" font-size="13" font-weight="600" text-anchor="middle" font-family="DM Sans, sans-serif">Episode 3</text>
 
         <!-- X label -->
-        <text x="315" y="408" fill="#94a3b8" font-size="13" text-anchor="middle" font-family="DM Sans, sans-serif">→ Zeit</text>
+        <text x="315" y="408" fill="var(--text-soft)" font-size="13" text-anchor="middle" font-family="DM Sans, sans-serif">→ Zeit</text>
 
         <!-- Vertrauen (blue) -->
         <path d="M55,80 L130,80 L158,195 L185,115 L290,110 L318,230 L345,155 L450,148 L478,265 L505,195 L575,192"
-          fill="none" stroke="#5b7fa5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          fill="none" stroke="var(--blue-phase)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 
         <!-- Nähe (amber) -->
         <path d="M55,95 L130,95 L158,215 L185,140 L290,135 L318,250 L345,180 L450,175 L478,285 L505,220 L575,217"
-          fill="none" stroke="#B45309" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          fill="none" stroke="var(--amber)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 
         <!-- Leichtigkeit (green) -->
         <path d="M55,110 L130,110 L158,235 L185,165 L290,162 L318,270 L345,210 L450,207 L478,305 L505,250 L575,248"
-          fill="none" stroke="#0d7a5f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          fill="none" stroke="var(--phase-green)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </div>
     <div class="erosion-caption">Die orangen Bänder markieren Episoden. Dieser kumulative Effekt erklärt, warum langjährige Angehörige weniger Ressourcen haben als am Anfang. <strong>Dieser Prozess ist umkehrbar</strong> — mit bewusster Arbeit und professioneller Begleitung.</div>
@@ -237,7 +237,7 @@ breadcrumbs:
       <img src="/visuals/modul3-nachwirkungen.svg"
            alt="Zwei Verlaufskurven: Nach Manien folgt ein steiler Einbruch durch Vertrauensbruch, dann langsame Erholung. Nach Depressionen ein flacherer, zäherer Wiederaufstieg durch anhaltende Erschöpfung."
            width="720" height="400" loading="lazy" decoding="async"
-           style="width:100%;height:auto;border-radius:12px;">
+           class="module-inline-image">
     </div>
     <div class="erosion-caption">Nach Manien bricht das Vertrauen oft abrupt ein — der Schock sitzt tief, die Erholung ist aber möglich. Nach Depressionen ist der Einbruch flacher, doch die Erschöpfung bleibt zäher. Beide Muster sind normal — und beide brauchen Zeit und bewusste Arbeit.</div>
   </div>
@@ -277,13 +277,13 @@ breadcrumbs:
   <div class="taboo-item reveal">
     <h3>Finanzielle Schäden und existenzielle Folgen</h3>
     <p>Unkontrollierte Geldausgaben, die Existenzen gefährden. In einer manischen Phase kann ein Mensch in wenigen Tagen die Ersparnisse einer Familie auflösen.</p>
-    <p class="text-soft-sm" style="margin-top:8px">→ Konkrete Vorkehrungen (Ausgabenlimit, Vorsorgeauftrag, Bankabsprachen): <a href="/modul/6/#finanzen" class="link-teal">Modul 6, Abschnitt «Finanzen absichern»</a></p>
+    <p class="text-soft-sm module-note-gap-sm">→ Konkrete Vorkehrungen (Ausgabenlimit, Vorsorgeauftrag, Bankabsprachen): <a href="/modul/6/#finanzen" class="link-teal">Modul 6, Abschnitt «Finanzen absichern»</a></p>
   </div>
 
   <div class="taboo-item reveal">
     <h3>Sexuelle Enthemmung</h3>
     <p>Grenzüberschreitungen, die die Beziehung tief verletzen. Das ist ein Thema für professionelle Begleitung — nicht für Alleinbewältigung.</p>
-    <p class="text-soft-sm" style="margin-top:8px">→ Professionelle Begleitung (Paar- oder Sexualberatung): Anlaufstellen nach Situation auf der <a href="/anlaufstellen/" class="link-teal">Anlaufstellen-Seite</a></p>
+    <p class="text-soft-sm module-note-gap-sm">→ Professionelle Begleitung (Paar- oder Sexualberatung): Anlaufstellen nach Situation auf der <a href="/anlaufstellen/" class="link-teal">Anlaufstellen-Seite</a></p>
   </div>
 
   <div class="taboo-item reveal">

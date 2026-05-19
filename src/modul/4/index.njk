@@ -163,24 +163,24 @@ breadcrumbs:
     <div class="chart-wrap">
       <svg role="img" aria-label="Belastungsverlauf: Belastungsreserve und Stimmung der erkrankten Person über mehrere Episoden, konzeptionelles Modell" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
         <!-- Legend top -->
-        <line x1="60" y1="22" x2="84" y2="22" stroke="#5b7fa5" stroke-width="3"/>
-        <text x="90" y="26" fill="#5b7fa5" font-size="13" font-weight="600" font-family="DM Sans, sans-serif">Stimmung</text>
-        <line x1="200" y1="22" x2="224" y2="22" stroke="#9A3412" stroke-width="3"/>
-        <text x="230" y="26" fill="#9A3412" font-size="13" font-weight="600" font-family="DM Sans, sans-serif">Belastbarkeit</text>
-        <line x1="370" y1="22" x2="394" y2="22" stroke="#0d7a5f" stroke-width="3" stroke-dasharray="6 4"/>
-        <text x="400" y="26" fill="#0d7a5f" font-size="13" font-weight="600" font-family="DM Sans, sans-serif">Mit Unterstützung</text>
+        <line x1="60" y1="22" x2="84" y2="22" stroke="var(--blue-phase)" stroke-width="3"/>
+        <text x="90" y="26" fill="var(--blue-phase)" font-size="13" font-weight="600" font-family="DM Sans, sans-serif">Stimmung</text>
+        <line x1="200" y1="22" x2="224" y2="22" stroke="var(--amber-dark-text)" stroke-width="3"/>
+        <text x="230" y="26" fill="var(--amber-dark-text)" font-size="13" font-weight="600" font-family="DM Sans, sans-serif">Belastbarkeit</text>
+        <line x1="370" y1="22" x2="394" y2="22" stroke="var(--phase-green)" stroke-width="3" stroke-dasharray="6 4"/>
+        <text x="400" y="26" fill="var(--phase-green)" font-size="13" font-weight="600" font-family="DM Sans, sans-serif">Mit Unterstützung</text>
 
         <!-- Axes -->
-        <line x1="55" y1="50" x2="55" y2="320" stroke="#a7d9d5" stroke-width="1.5"/>
-        <line x1="55" y1="320" x2="575" y2="320" stroke="#a7d9d5" stroke-width="1.5"/>
+        <line x1="55" y1="50" x2="55" y2="320" stroke="var(--teal-light)" stroke-width="1.5"/>
+        <line x1="55" y1="320" x2="575" y2="320" stroke="var(--teal-light)" stroke-width="1.5"/>
 
         <!-- Crisis bands (unequal widths + spacing = asymmetric) -->
-        <rect x="110" y="50" width="35" height="270" fill="#B45309" opacity="0.08" rx="4"/>
-        <rect x="240" y="50" width="55" height="270" fill="#B45309" opacity="0.08" rx="4"/>
-        <rect x="430" y="50" width="65" height="270" fill="#B45309" opacity="0.08" rx="4"/>
-        <text x="128" y="345" fill="#B45309" font-size="12" font-weight="600" text-anchor="middle" font-family="DM Sans, sans-serif">Hypomanie</text>
-        <text x="268" y="345" fill="#B45309" font-size="12" font-weight="600" text-anchor="middle" font-family="DM Sans, sans-serif">Schwere Manie</text>
-        <text x="463" y="345" fill="#B45309" font-size="12" font-weight="600" text-anchor="middle" font-family="DM Sans, sans-serif">Depression</text>
+        <rect x="110" y="50" width="35" height="270" fill="var(--amber)" opacity="0.08" rx="4"/>
+        <rect x="240" y="50" width="55" height="270" fill="var(--amber)" opacity="0.08" rx="4"/>
+        <rect x="430" y="50" width="65" height="270" fill="var(--amber)" opacity="0.08" rx="4"/>
+        <text x="128" y="345" fill="var(--amber)" font-size="12" font-weight="600" text-anchor="middle" font-family="DM Sans, sans-serif">Hypomanie</text>
+        <text x="268" y="345" fill="var(--amber)" font-size="12" font-weight="600" text-anchor="middle" font-family="DM Sans, sans-serif">Schwere Manie</text>
+        <text x="463" y="345" fill="var(--amber)" font-size="12" font-weight="600" text-anchor="middle" font-family="DM Sans, sans-serif">Depression</text>
 
         <!-- Stimmung (blue — IRREGULAR: short hypomania, big mania, long depression) -->
         <path d="M55,185
@@ -194,7 +194,7 @@ breadcrumbs:
           C445,290 460,295 475,290
           C490,280 510,200 535,190
           C550,185 565,188 575,185"
-          fill="none" stroke="#5b7fa5" stroke-width="2.5" stroke-linecap="round"/>
+          fill="none" stroke="var(--blue-phase)" stroke-width="2.5" stroke-linecap="round"/>
 
         <!-- Belastbarkeit (red — drops vary: small after hypomanie, big after mania, medium after depression) -->
         <path d="M55,85
@@ -205,16 +205,16 @@ breadcrumbs:
           L430,155
           L463,245 L495,210
           L575,208"
-          fill="none" stroke="#9A3412" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          fill="none" stroke="var(--amber-dark-text)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 
         <!-- Mit Unterstützung (green dashed — starts after 2nd crisis, stabilises) -->
         <path d="M295,162
           L430,148
           L463,205 L495,172
           L575,165"
-          fill="none" stroke="#0d7a5f" stroke-width="2.5" stroke-dasharray="7 5" stroke-linecap="round" stroke-linejoin="round"/>
+          fill="none" stroke="var(--phase-green)" stroke-width="2.5" stroke-dasharray="7 5" stroke-linecap="round" stroke-linejoin="round"/>
 
-        <text x="315" y="378" fill="#94a3b8" font-size="12" text-anchor="middle" font-family="DM Sans, sans-serif">→ Zeit (individuell verschieden)</text>
+        <text x="315" y="378" fill="var(--text-soft)" font-size="12" text-anchor="middle" font-family="DM Sans, sans-serif">→ Zeit (individuell verschieden)</text>
       </svg>
     </div>
     <div class="chart-caption"><strong>Konzeptionelles Modell</strong> — der tatsächliche Verlauf variiert individuell. Nicht jede Episode belastet gleich. Entscheidend ist: Belastung fällt oft nicht vollständig auf Null zurück. Die gestrichelte grüne Linie zeigt, dass Unterstützung die Ausgangslage nicht ungeschehen macht, aber Belastbarkeit wieder tragfähiger werden kann. <em>Basierend auf: Perlick et al. (2007); Reinares et al. (2016); Miklowitz et al. (2003).</em></div>
@@ -263,7 +263,7 @@ breadcrumbs:
       <img src="/visuals/modul4-identitaetsverlust.svg"
            alt="Flächendiagramm: Das eigene Ich (teal) schrumpft über die Jahre, während die Begleit- und Betreuungsrolle (rose) immer mehr Raum einnimmt. Am Anfang überwiegt das eigene Ich; nach Jahren ist es auf einen schmalen Streifen reduziert. Ein grüner Pfeil zeigt: Umkehrbar mit Arbeit."
            width="720" height="380" loading="lazy" decoding="async"
-           style="width:100%;height:auto;border-radius:12px;">
+           class="module-inline-image">
     </div>
     <div class="erosion-caption">Konzeptionelles Modell — individuelle Verläufe variieren stark. Dieser Prozess ist <strong>nicht unausweichlich</strong>: Bewusste Gegensteuerung, Therapie und Peer-Kontakt können den eigenen Raum wieder zurückgewinnen.</div>
   </div>

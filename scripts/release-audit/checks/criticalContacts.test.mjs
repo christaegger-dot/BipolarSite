@@ -3,6 +3,7 @@ import { describe, it } from "node:test";
 import {
   comparableSwissPhone,
   fetchExternalUrl,
+  findEmergencyNumberPolicyViolations,
   isAllowedExternalStatus,
   isValidEmail,
 } from "./criticalContacts.mjs";
@@ -27,6 +28,23 @@ describe("critical contact audit helpers", () => {
     assert.equal(isValidEmail("angehoerigenarbeit@pukzh.ch"), true);
     assert.equal(isValidEmail("angehoerigenarbeit@pukzh"), false);
     assert.equal(isValidEmail("not an email"), false);
+  });
+
+  it("keeps emergency numbers out of normal content pages", () => {
+    const findings = findEmergencyNumberPolicyViolations([
+      { url: "/notfall/", html: "<p>Bei akuter Gefahr 144.</p>" },
+      { url: "/anlaufstellen/", html: "<p>Dargebotene Hand 143.</p>" },
+      { url: "/quellen/", html: "<main><p>Dargebotene Hand 143.</p></main>" },
+      { url: "/tools/krisenplan/", html: "<main><p>Bevorzugte Klinik: 058 384 20 00.</p></main>" },
+      { url: "/modul/1/", html: "<p>Bei akuter Gefahr 144.</p>" },
+      { url: "/modul/2/", html: "<main><p>Bei akuter Suizidgefahr 0800 33 66 55.</p></main>" },
+      { url: "/modul/3/", html: "<main><p>Kontaktieren Sie in einer Krise 143.</p></main><footer>144</footer>" },
+      { url: "/materialien/", html: "<script>const hidden = '144';</script><p>Keine Nummer sichtbar.</p>" },
+      { url: "/module/", html: "<main><p>Rufen Sie bei Fragen 144 an.</p></main>" },
+    ]);
+
+    assert.equal(findings.length, 1);
+    assert.match(findings[0].message, /\/module\//);
   });
 
   it("falls back to GET when HEAD fails for a critical contact URL", async () => {

@@ -162,6 +162,11 @@ a:hover {
   display: none;
 }
 
+.home-direct-help-note {
+  margin-top: var(--space-lg);
+  max-width: var(--measure-prose);
+}
+
 .nav-toggle {
   display: none;
   background: none;

@@ -66,7 +66,17 @@ export async function runProductionHeadersCheck(context) {
     expectHeader(findings, baseUrl, home.response.headers, "x-frame-options", "SAMEORIGIN");
     expectHeader(findings, baseUrl, home.response.headers, "x-content-type-options", "nosniff");
     expectHeader(findings, baseUrl, home.response.headers, "content-security-policy", "default-src 'self'");
+    expectHeader(findings, baseUrl, home.response.headers, "content-security-policy", "style-src 'self'");
+    expectHeader(findings, baseUrl, home.response.headers, "content-security-policy", "style-src-elem 'self'");
     expectHeader(findings, baseUrl, home.response.headers, "cache-control", "max-age=300", "medium");
+
+    const csp = home.response.headers.get("content-security-policy") || "";
+    if (/style-src\s+[^;]*'unsafe-inline'/.test(csp)) {
+      findings.push({
+        severity: "high",
+        message: "Production CSP still allows broad inline CSS via style-src 'unsafe-inline'.",
+      });
+    }
 
     const canonical = extractCanonical(home.text);
     if (canonical !== `${baseUrl}/`) {

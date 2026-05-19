@@ -37,7 +37,7 @@ useNavJS: true
     <p>{{ group.blurb }}</p>
     <ol>
       {% for entry in group.items %}
-      <li id="quelle-{{ entry.id }}" style="margin-bottom:1.4rem">
+      <li id="quelle-{{ entry.id }}" class="source-list-item">
         <p><strong>{{ entry.short }}</strong> - {{ entry.title }}</p>
         <p>{{ entry.authors }} ({{ entry.year }}) - {{ entry.publisher }}</p>
         {% if entry.note %}<p>{{ entry.note }}</p>{% endif %}

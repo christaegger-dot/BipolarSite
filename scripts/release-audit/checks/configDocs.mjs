@@ -9,6 +9,7 @@ export async function runConfigDocsCheck(context) {
   const readme = await readFile(path.join(context.repoRoot, "README.md"), "utf8");
   const qaChecklist = await readFile(path.join(context.repoRoot, "docs", "qa-checklist.md"), "utf8");
   const netlifyToml = await readFile(path.join(context.repoRoot, "netlify.toml"), "utf8");
+  const searchPage = await readFile(path.join(context.repoRoot, "src", "suche", "index.njk"), "utf8");
 
   const findings = [];
 
@@ -44,6 +45,20 @@ export async function runConfigDocsCheck(context) {
     findings.push({
       severity: "medium",
       message: "README.md or netlify.toml still references sw.js although the file is no longer part of the project.",
+    });
+  }
+
+  if (/style-src\s+[^;"]*'unsafe-inline'/.test(netlifyToml)) {
+    findings.push({
+      severity: "high",
+      message: "netlify.toml still allows broad inline CSS via `style-src 'unsafe-inline'`; use style-src-elem/style-src-attr scoping instead.",
+    });
+  }
+
+  if (/pagefind-ui\.(?:css|js)|new\s+PagefindUI/.test(searchPage)) {
+    findings.push({
+      severity: "medium",
+      message: "Search page still loads Pagefind's default UI assets; use the site-owned search component instead.",
     });
   }
 
