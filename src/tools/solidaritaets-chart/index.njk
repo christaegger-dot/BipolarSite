@@ -27,7 +27,7 @@ breadcrumbs:
   <div class="legend">
     <div class="legend-item"><div class="legend-line legend-line--amber"></div>Belastungsreserve</div>
     <div class="legend-item"><div class="legend-line legend-line--blue"></div>Stimmung der erkrankten Person</div>
-    <div class="legend-item" id="legSupport" style="display:none"><div class="legend-line legend-line--green"></div>Mit Unterstützung abgefedert</div>
+    <div class="legend-item is-hidden" id="legSupport"><div class="legend-line legend-line--green"></div>Mit Unterstützung abgefedert</div>
   </div>
   <div class="mobile-chart-note">Auf kleinen Screens ist das Diagramm ausgeblendet, damit die Episode-Auswahl und die Erklärung ruhiger bleiben. Wählen Sie unten direkt eine Episode.</div>
   <div class="chart-wrap">
@@ -55,9 +55,9 @@ breadcrumbs:
     </svg>
   </div>
   <div class="episodes">
-    <button class="ep-btn" type="button" style="--c:var(--amber)" data-ep="0" aria-pressed="false">Hypomanie</button>
-    <button class="ep-btn" type="button" style="--c:var(--alert)" data-ep="1" aria-pressed="false">Schwere Manie</button>
-    <button class="ep-btn" type="button" style="--c:var(--blue-phase)" data-ep="2" aria-pressed="false">Lange Depression</button>
+    <button class="ep-btn ep-btn--hypomania" type="button" data-ep="0" aria-pressed="false">Hypomanie</button>
+    <button class="ep-btn ep-btn--mania" type="button" data-ep="1" aria-pressed="false">Schwere Manie</button>
+    <button class="ep-btn ep-btn--depression" type="button" data-ep="2" aria-pressed="false">Lange Depression</button>
   </div>
   <div class="detail" id="detail" aria-live="polite"></div>
   <div class="toggle-wrap"><button class="toggle-btn" id="toggleBtn" type="button" aria-pressed="false">Mit Entlastung vergleichen</button></div>

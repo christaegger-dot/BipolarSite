@@ -57,6 +57,39 @@
 }
 .module-meta span { display: flex; align-items: center; gap: 6px; }
 
+.module-note-no-margin {
+  margin-bottom: 0;
+}
+
+.module-note-gap-sm {
+  margin-top: 8px;
+}
+
+.module-note-gap-md {
+  margin-top: 16px;
+}
+
+.module-inline-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.module-subheading-compact {
+  font-size: var(--text-base);
+  margin-top: var(--space-xl);
+  margin-bottom: 8px;
+}
+
+.hub-emergency-link-note {
+  font-size: var(--text-base);
+  margin-top: var(--space-md);
+}
+
+.source-list-item {
+  margin-bottom: 1.4rem;
+}
+
 /* P3.10 Audit: Icons in der Modul-Meta-Zeile (Emoji ⏱ 📖 🛠 🌿) sollen
    bei jedem Renderer sichtbar bleiben. Wrap mit explizitem Font-Stack
    für Color-Emoji + leichte Anhebung der Schriftgrösse. aria-hidden,
@@ -2003,6 +2036,8 @@ body.notfall-page .pdf-preview-frame{display:block;width:100%;height:60vh;min-he
 .surface-explain-card__label{font-size:var(--text-xs);font-weight:800;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px}
 .surface-explain-card__label--accent{color:var(--amber)}
 .surface-explain-card__marker{width:36px;height:36px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:var(--text-xs);font-weight:800;flex-shrink:0;background:var(--success-soft);color:var(--teal-text)}
+.surface-explain-card__marker--blue{background:var(--old-blue-accent);color:var(--card)}
+.surface-explain-card__marker--amber{background:var(--sand-ink);color:var(--card)}
 .surface-explain-card__badge{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;font-size:var(--text-sm);font-weight:700;letter-spacing:0.04em;margin-bottom:var(--space-sm)}
 .surface-explain-card :is(h3,h4){font-size:var(--text-base);color:var(--text);margin-bottom:var(--heading-gap-h4)}
 .surface-explain-card__title--serif{font-family:'DM Serif Display',serif;font-size:var(--text-xl);font-weight:400;color:var(--navy);margin-bottom:4px}

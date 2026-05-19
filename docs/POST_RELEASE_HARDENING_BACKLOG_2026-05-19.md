@@ -1,33 +1,33 @@
 # Post-Release Hardening Backlog
 
 **Datum:** 2026-05-19  
-**Status:** nicht release-blockierend; automatisierte Gates sind gruen.
+**Status:** L-01 bis L-04 umgesetzt; automatisierte Gates bleiben verbindlich.
 
-Dieser Backlog haelt die verbleibenden Low-Themen aus dem Pre-Release-Audit fest. Sie sollen bewusst geplant werden und nicht im schnellen Audit-Fix-Pass mit groesseren Seiteneffekten erledigt werden.
+Dieser Backlog hielt die verbleibenden Low-Themen aus dem Pre-Release-Audit fest. L-01 bis L-04 wurden im Hardening-Pass geschlossen oder in eine engere Restaufgabe ueberfuehrt. Der Repo-Cleanup bleibt bewusst separat.
 
 ## L-01: Notfallnummern ausserhalb `/notfall/`
 
-**Status:** Editorial-Regel dokumentiert.
+**Status:** erledigt.
 
-Notfallnummern duerfen ausserhalb der Notfallseite oder eines Krisen-Handouts nur erscheinen, wenn der konkrete Abschnitt eine unmittelbare Sicherheitslogik hat. Allgemeine Psychoedukationsseiten sollen keine Krisennummern streuen.
+Notfallnummern duerfen ausserhalb der Notfallseite oder eines Krisen-Handouts nur erscheinen, wenn der konkrete Abschnitt eine unmittelbare Sicherheitslogik hat. Allgemeine Psychoedukationsseiten sollen keine Krisennummern streuen. Der Release-Audit prueft diese Regel nun fuer sichtbare Inhalte ausserhalb der erlaubten Pfade.
 
 ## L-02: Pagefind Component UI pruefen
 
-**Status:** spaetere Suche-Iteration.
+**Status:** erledigt.
 
-Der Build-Hinweis zur Pagefind Default UI ist kein Blocker. Bei einer naechsten Suche-Iteration soll die Component UI geprueft werden, weil sie laut Pagefind-Hinweis fuer neue Integrationen die bessere Basis fuer Accessibility und Customizing ist.
+Die Suche nutzt nicht mehr die Pagefind Default UI. Stattdessen rendert die Website eine eigene, schlanke Suchoberflaeche mit Pagefind als Index-Backend. Damit entfaellt der Default-UI-Hinweis und das Styling bleibt im eigenen Designsystem.
 
 ## L-03: CSP weiter haerten
 
-**Status:** groesserer Refactor.
+**Status:** gehaertet; Rest ist bewusste Tool-Altlast.
 
-`style-src 'unsafe-inline'` bleibt vorerst bewusst aktiv, weil mehrere Templates und generierte Tool-UIs noch Inline-Styles verwenden. Eine Haertung auf `style-src 'self'` ist erst sinnvoll, wenn diese Inline-Styles systematisch in CSS-Klassen, Tokens oder kontrollierte CSS-Variablen ueberfuehrt sind.
+Die breite Direktive `style-src 'unsafe-inline'` wurde entfernt. `style-src` und `style-src-elem` erlauben nur noch `self`; `style-src-attr 'unsafe-inline'` bleibt eng begrenzt fuer bestehende interaktive Tool-Styles, die per Runtime gesetzt werden. Ein vollstaendiges Entfernen dieser Rest-Erlaubnis waere ein separater Tool-Refactor.
 
 ## L-04: Design-Token-Drift reduzieren
 
-**Status:** schrittweise bei Modul- und Diagrammpflege.
+**Status:** fuer aktive Modul-SVGs/Marker erledigt.
 
-Mehrere aeltere Inline-SVGs und Marker enthalten noch hartkodierte Hex-Farben. Kein Big-Bang-Refactor: Bei der naechsten Pflege der betroffenen Module sollen Farben auf vorhandene Tokens oder semantische CSS-Variablen umgestellt werden.
+Die aktiven Inline-SVGs in den Modulen 1 bis 5 sowie die Marker in Modul 7 wurden auf vorhandene Tokens oder semantische CSS-Variablen umgestellt. Einzelne externe Marken-, OG- oder Archiv-Assets koennen weiterhin feste Farben enthalten; sie sind nicht Teil dieses Release-Blockers.
 
 ## Repo-Cleanup: historische Handout-Quellen
 

@@ -131,6 +131,74 @@ function createHtmlHrefSet(pages) {
   return hrefs;
 }
 
+const EMERGENCY_NUMBER_PATTERNS = [
+  { label: "144", regex: /\b144\b/g },
+  { label: "117", regex: /\b117\b/g },
+  { label: "143", regex: /\b143\b/g },
+  { label: "147", regex: /\b147\b/g },
+  { label: "0800 33 66 55", regex: /\b0800\s*33\s*66\s*55\b/g },
+  { label: "058 384 20 00", regex: /\b058\s*384\s*20\s*00\b/g },
+  { label: "058 384 66 66", regex: /\b058\s*384\s*66\s*66\b/g },
+];
+
+const EMERGENCY_NUMBER_ALLOWED_PATHS = [
+  /^\/notfall\//,
+  /^\/anlaufstellen\//,
+  /^\/quellen\//,
+  /^\/tools\/krisenplan\//,
+];
+
+const SAFETY_CONTEXT_TERMS = /(?:akut|gefahr|gefährd|suizid|notfall|notfallnummer|krise|krisenplan|sicherheit|gewalt|schutz|bedrohlich|lebensgefahr|selbst-\/fremdgefährdung|selbstgefährdung|fremdgefährdung)/i;
+
+function stripNonVisibleHtml(html) {
+  return html
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/g, " ");
+}
+
+function extractMainHtml(html) {
+  const mainMatch = html.match(/<main\b[\s\S]*?<\/main>/i);
+  return mainMatch ? mainMatch[0] : html;
+}
+
+function hasImmediateSafetyContext(text, index) {
+  const contextStart = Math.max(0, index - 180);
+  const contextEnd = Math.min(text.length, index + 180);
+  return SAFETY_CONTEXT_TERMS.test(text.slice(contextStart, contextEnd));
+}
+
+export function findEmergencyNumberPolicyViolations(pages) {
+  const findings = [];
+
+  for (const page of pages) {
+    if (EMERGENCY_NUMBER_ALLOWED_PATHS.some((pattern) => pattern.test(page.url))) {
+      continue;
+    }
+
+    const visibleText = stripNonVisibleHtml(extractMainHtml(page.html));
+    const matches = [];
+    for (const { label, regex } of EMERGENCY_NUMBER_PATTERNS) {
+      regex.lastIndex = 0;
+      for (const match of visibleText.matchAll(regex)) {
+        if (!hasImmediateSafetyContext(visibleText, match.index ?? 0)) {
+          matches.push(label);
+        }
+      }
+    }
+
+    if (matches.length > 0) {
+      findings.push({
+        severity: "medium",
+        message: `${page.url} exposes emergency phone number(s) outside the Notfall/Anlaufstellen safety context: ${[...new Set(matches)].join(", ")}.`,
+      });
+    }
+  }
+
+  return findings;
+}
+
 export async function runCriticalContactsCheck(context) {
   const require = createRequire(path.join(context.repoRoot, "package.json"));
   const sources = require(path.join(context.repoRoot, "src/_data/sources.js"));
@@ -249,6 +317,8 @@ export async function runCriticalContactsCheck(context) {
       });
     }
   }
+
+  findings.push(...findEmergencyNumberPolicyViolations(pages));
 
   const hasBlockingFindings = findings.some((f) => f.severity === "high");
   if (findings.length > 0) {

@@ -12,7 +12,6 @@ breadcrumbs:
     url: "/suche/"
 ---
 {% block headCSS %}
-<link href="/pagefind/pagefind-ui.css" rel="stylesheet">
 <link rel="stylesheet" href="/css/suche.css?v={{ site.assetVersion }}">
 {% endblock %}
 {% block nav %}
@@ -27,26 +26,25 @@ breadcrumbs:
   </div>
 </header>
 <main id="main-content" class="suche-container">
-  <div id="search"></div>
+  <section class="search-card" data-search-app aria-labelledby="search-title">
+    <form class="search-form" role="search" data-search-form>
+      <label id="search-title" class="search-label" for="searchInput">Suchbegriff</label>
+      <div class="search-row">
+        <input id="searchInput" class="search-input pagefind-ui__search-input" name="q" type="search" autocomplete="off" placeholder="Suche nach Themen, z. B. «Krisenplan» oder «Schlaf»" data-search-input>
+        <button class="search-submit" type="submit">Suchen</button>
+        <button class="search-clear" type="button" data-search-clear hidden>Löschen</button>
+      </div>
+      <p class="search-status" data-search-status>Geben Sie einen Begriff ein, um die Website zu durchsuchen.</p>
+    </form>
+    <div class="search-results pagefind-ui__results" data-search-results aria-live="polite"></div>
+  </section>
+  <noscript>
+    <div class="search-noscript">
+      <p>Die Suche benötigt JavaScript. Die wichtigsten Einstiege finden Sie über die Navigation, die Modulübersicht und die Materialien-Seite.</p>
+    </div>
+  </noscript>
 </main>
 {% endblock %}
 {% block scripts %}
-<script src="/pagefind/pagefind-ui.js"></script>
-<script>
-  window.addEventListener('DOMContentLoaded', function() {
-    new PagefindUI({
-      element: '#search',
-      showSubResults: true,
-      translations: {
-        placeholder: 'Suche nach Themen, z. B. «Krisenplan» oder «Schlaf»',
-        zero_results: 'Keine Ergebnisse für [SEARCH_TERM]',
-        many_results: '[COUNT] Ergebnisse für [SEARCH_TERM]',
-        one_result: '1 Ergebnis für [SEARCH_TERM]',
-        alt_search: 'Keine Ergebnisse für [SEARCH_TERM]. Ergebnisse für [DIFFERENT_TERM]:',
-        search_suggestion: 'Keine Ergebnisse für [SEARCH_TERM]. Ähnliche Suche:',
-        searching: 'Suche läuft…',
-      }
-    });
-  });
-</script>
+<script type="module" src="/js/search.js?v={{ site.assetVersion }}"></script>
 {% endblock %}

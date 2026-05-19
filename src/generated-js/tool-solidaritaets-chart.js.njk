@@ -56,7 +56,7 @@ eleventyExcludeFromCollections: true
     toggleButton.classList.toggle('on', showSupport);
     toggleButton.setAttribute('aria-pressed', showSupport ? 'true' : 'false');
     toggleButton.textContent = showSupport ? 'Entlastungsvergleich ausblenden' : 'Mit Entlastung vergleichen';
-    supportLegend.style.display = showSupport ? 'flex' : 'none';
+    supportLegend.classList.toggle('is-hidden', !showSupport);
   };
 
   [0, 1, 2].forEach((index) => {
