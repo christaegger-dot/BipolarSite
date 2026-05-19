@@ -12,6 +12,7 @@ Diese Checkliste gilt fuer jedes Diagramm, bevor `approvalStatus` in `DIAGRAM_RE
 ## 2. Inhaltsregeln
 
 - [ ] Keine Krisennummern in allgemeinen Orientierungsblaettern.
+- [ ] Notfallnummern ausserhalb der Notfallseite oder eines Krisen-Handouts erscheinen nur bei unmittelbarer Sicherheitslogik; die Ausnahme ist im Review bewusst begruendet.
 - [ ] Krisenbegriffe sind nur dort enthalten, wo der Dokumenttyp sie erlaubt.
 - [ ] Keine Cross-References im Footer oder im Diagramm, die das Standalone-Prinzip brechen.
 - [ ] Keine erfundenen URLs, Quellen oder Vollbibliographie-Angaben.
