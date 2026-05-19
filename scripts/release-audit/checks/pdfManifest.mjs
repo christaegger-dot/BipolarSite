@@ -5,6 +5,7 @@ import {
   fileExists,
   loadHtmlPages,
   normalizeWhitespace,
+  outputFileToUrl,
   relativeToRepo,
   runCommand,
   walkFiles,
@@ -359,8 +360,10 @@ const SOURCE_REFERENCE_MARKERS = [
   "dargebotene hand",
 ];
 
-function flattenAssets(pdfs) {
-  return [...Object.values(pdfs.downloads), ...Object.values(pdfs.handouts)];
+function flattenPublicAssets(pdfs) {
+  const publicHandouts = pdfs.groups?.canonicalHandouts || [];
+  const publicDownloads = pdfs.groups?.publicDownloads || Object.values(pdfs.downloads);
+  return [...publicDownloads, ...publicHandouts];
 }
 
 function sourcePathFromPdfUrl(repoRoot, url) {
@@ -373,6 +376,11 @@ export function findUntrackedPdfSourceFiles(repoRoot, sourcePdfFiles, trackedPdf
   );
 
   return sourcePdfFiles.filter((filePath) => !trackedSourcePaths.has(filePath));
+}
+
+export function findUntrackedPdfOutputFiles(siteDir, outputPdfFiles, trackedPdfs) {
+  const trackedUrls = new Set(trackedPdfs.map((pdf) => pdf.url));
+  return outputPdfFiles.filter((filePath) => !trackedUrls.has(outputFileToUrl(siteDir, filePath)));
 }
 
 async function findSourcePdfFiles(repoRoot) {
@@ -624,9 +632,8 @@ async function validateCriticalLanguageMetadata(context, pdfKey, sourcePath, fin
 export async function runPdfManifestCheck(context) {
   const requireFromRepo = createRepoRequire(context.repoRoot);
   const pdfs = requireFromRepo("./src/_data/pdfs.js");
-  const assets = flattenAssets(pdfs);
+  const assets = flattenPublicAssets(pdfs);
   const legacyPdfAliases = pdfs.legacyPdfAliases || [];
-  const trackedPdfs = [...assets, ...legacyPdfAliases];
   const pages = await loadHtmlPages(context.siteDir);
   const htmlIndex = pages.map((page) => page.html).join("\n");
 
@@ -680,16 +687,15 @@ export async function runPdfManifestCheck(context) {
   }
 
   const sourcePdfFiles = await findSourcePdfFiles(context.repoRoot);
-  const untrackedPdfFiles = findUntrackedPdfSourceFiles(context.repoRoot, sourcePdfFiles, trackedPdfs);
+  const outputPdfFiles = await walkFiles(context.siteDir, (filePath) => filePath.endsWith(".pdf"));
+  const untrackedPdfFiles = findUntrackedPdfOutputFiles(context.siteDir, outputPdfFiles, assets);
 
   for (const filePath of untrackedPdfFiles) {
     findings.push({
       severity: "high",
-      message: `${relativeToRepo(context.repoRoot, filePath)} is copied into the public site but is not declared in src/_data/pdfs.js as an active PDF or legacy alias.`,
+      message: `${outputFileToUrl(context.siteDir, filePath)} exists in the public build but is not declared in src/_data/pdfs.js as a public PDF asset.`,
     });
   }
-
-  const activeAssetUrls = new Set(assets.map((asset) => asset.url));
 
   for (const asset of assets) {
     const expectedFilename = path.posix.basename(asset.url);
@@ -781,79 +787,6 @@ export async function runPdfManifestCheck(context) {
     await validateCriticalLanguageMetadata(context, asset.key, sourcePath, findings);
   }
 
-  for (const alias of legacyPdfAliases) {
-    const sourcePath = sourcePathFromPdfUrl(context.repoRoot, alias.url);
-    const buildPath = path.join(context.siteDir, alias.url.replace(/^\/+/, ""));
-
-    if (!activeAssetUrls.has(alias.currentUrl)) {
-      findings.push({
-        severity: "high",
-        message: `${alias.key} points to currentUrl ${alias.currentUrl}, but that URL is not declared as an active PDF asset.`,
-      });
-    }
-
-    if (!(await fileExists(sourcePath))) {
-      findings.push({
-        severity: "high",
-        message: `${alias.key} is missing its legacy source PDF at ${relativeToRepo(context.repoRoot, sourcePath)}.`,
-      });
-      continue;
-    }
-
-    if (!(await fileExists(buildPath))) {
-      findings.push({
-        severity: "high",
-        message: `${alias.key} is missing from the Eleventy output at ${relativeToRepo(context.repoRoot, buildPath)}.`,
-      });
-    }
-
-    const pdfInfoResult = await runCommand("pdfinfo", [sourcePath], { cwd: context.repoRoot });
-    if (!pdfInfoResult.ok) {
-      findings.push({
-        severity: "high",
-        message: `${alias.key} could not be inspected via pdfinfo (${pdfInfoResult.message || "unknown error"}).`,
-      });
-      continue;
-    }
-
-    const pdfInfo = parsePdfInfo(pdfInfoResult.stdout);
-    const declaredPages = parseDeclaredPageCount(alias.pages);
-    const actualPages = Number.parseInt(pdfInfo.Pages || "", 10);
-
-    if (declaredPages && Number.isFinite(actualPages) && declaredPages !== actualPages) {
-      findings.push({
-        severity: "high",
-        message: `${alias.key} declares ${declaredPages} pages but the real legacy PDF has ${actualPages}.`,
-      });
-    }
-
-    const minRequiredPages = minRequiredPdfPages(alias.key);
-    if (minRequiredPages && Number.isFinite(actualPages) && actualPages < minRequiredPages) {
-      findings.push({
-        severity: "high",
-        message: `${alias.key} is an acute clinical handout and must stay at least ${minRequiredPages} pages so the core visual and sources remain readable; real legacy PDF has ${actualPages}.`,
-      });
-    }
-
-    if (alias.title && pdfInfo.Title && normalizeWhitespace(pdfInfo.Title) !== normalizeWhitespace(alias.title)) {
-      findings.push({
-        severity: "medium",
-        message: `${alias.key} title drift: metadata says "${pdfInfo.Title}", legacy alias says "${alias.title}".`,
-      });
-    }
-
-    if (!isA4(pdfInfo["Page size"])) {
-      findings.push({
-        severity: "high",
-        message: `${alias.key} is not A4 according to pdfinfo (${pdfInfo["Page size"] || "unknown size"}).`,
-      });
-    }
-
-    await validateExtractableText(context, alias.key, sourcePath, findings);
-    await validateAcutePdfLayoutBalance(context, alias.key, sourcePath, findings);
-    await validateCriticalLanguageMetadata(context, alias.key, sourcePath, findings);
-  }
-
   const hasBlockingFindings = findings.some((finding) => finding.severity === "high");
 
   return createCheckResult({
@@ -862,17 +795,18 @@ export async function runPdfManifestCheck(context) {
     status: hasBlockingFindings ? "fail" : findings.length > 0 ? "warn" : "pass",
     summary:
       findings.length > 0
-        ? `Checked ${assets.length} active PDFs and ${legacyPdfAliases.length} legacy aliases, and found ${findings.length} manifest or file issues.`
-        : `Checked ${assets.length} active PDFs and ${legacyPdfAliases.length} legacy aliases with matching filenames, output files, metadata, A4 sizes, and extractable text.`,
+        ? `Checked ${assets.length} public PDFs and found ${findings.length} manifest or file issues.`
+        : `Checked ${assets.length} public PDFs with matching filenames, output files, metadata, A4 sizes, and extractable text.`,
     findings,
     metrics: {
       assets: assets.length,
-      legacyPdfAliases: legacyPdfAliases.length,
+      legacyPdfAliasesDeclared: legacyPdfAliases.length,
       minimumExtractableTextChars: MIN_EXTRACTABLE_TEXT_CHARS,
       criticalLanguageMetadataAssets: CRITICAL_LANGUAGE_METADATA_KEYS.size,
       requiredPdfTextSnippetAssets: Object.keys(REQUIRED_PDF_TEXT_SNIPPETS).length,
       sourceReferenceMarkers: SOURCE_REFERENCE_MARKERS.length,
       sourcePdfFiles: sourcePdfFiles.length,
+      publicPdfFiles: outputPdfFiles.length,
       sourceDownloadsDir: relativeToRepo(context.repoRoot, path.join(context.repoRoot, "src", "downloads")),
       sourceHandoutsDir: relativeToRepo(context.repoRoot, path.join(context.repoRoot, "src", "handouts")),
     },

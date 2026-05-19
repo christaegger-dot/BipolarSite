@@ -30,6 +30,7 @@ function extractLastReviewed(html) {
 export async function runSeoLocalCheck(context) {
   const requireFromRepo = createRepoRequire(context.repoRoot);
   const site = requireFromRepo("./src/_data/site.js");
+  const expectNoIndex = context.localBuildContext !== "production";
   const findings = [];
 
   const robotsPath = path.join(context.siteDir, "robots.txt");
@@ -81,7 +82,7 @@ export async function runSeoLocalCheck(context) {
     }
 
     const robotsMeta = extractMetaContent(html, "name", "robots");
-    if (site.noIndexDeploy) {
+    if (expectNoIndex) {
       if (!robotsMeta || !robotsMeta.includes("noindex")) {
         findings.push({
           severity: "high",
@@ -134,7 +135,9 @@ export async function runSeoLocalCheck(context) {
     findings,
     metrics: {
       samplePages: samplePages.length,
-      noIndexDeploy: site.noIndexDeploy,
+      expectedNoIndex: expectNoIndex,
+      localBuildContext: context.localBuildContext || null,
+      noIndexDeployFromDataFile: site.noIndexDeploy,
       siteUrl: context.baseUrl || site.url,
     },
   });

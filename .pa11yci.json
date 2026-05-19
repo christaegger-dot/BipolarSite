@@ -10,6 +10,8 @@
   },
   "urls": [
     "http://localhost:8080/",
+    "http://localhost:8080/anlaufstellen/",
+    "http://localhost:8080/materialien/",
     "http://localhost:8080/modul/1/",
     "http://localhost:8080/modul/2/",
     "http://localhost:8080/modul/3/",
@@ -18,6 +20,8 @@
     "http://localhost:8080/modul/6/",
     "http://localhost:8080/modul/7/",
     "http://localhost:8080/modul/8/",
+    "http://localhost:8080/suche/",
+    "http://localhost:8080/werkzeuge/",
     "http://localhost:8080/tools/durchatmen/",
     "http://localhost:8080/tools/eisberg/",
     "http://localhost:8080/tools/ee-kreislauf/",

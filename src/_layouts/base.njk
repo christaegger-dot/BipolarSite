@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de"{% if noJs %} class="no-js"{% endif %}>
+<html lang="de-CH"{% if noJs %} class="no-js"{% endif %}>
 <head>
 <meta charset="UTF-8">
 {% if noJs %}<script src="/js/no-js.js?v={{ site.assetVersion }}"></script>{% endif %}
@@ -131,7 +131,7 @@
 {% if useModuleCSS and not skipModuleUiJS %}<script src="/js/module-ui.js?v={{ site.assetVersion }}"></script>{% endif %}
 {% if usePdfPreviewJS %}<script src="/js/pdf-preview.js?v={{ site.assetVersion }}"></script>{% endif %}
 {% endif %}
-<script src="/js/reading-progress.js?v={{ site.assetVersion }}" defer></script>
+{% if enableReadingHistory %}<script src="/js/reading-progress.js?v={{ site.assetVersion }}" defer></script>{% endif %}
 {% block scripts %}{% endblock %}
 </body>
 </html>

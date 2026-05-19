@@ -628,6 +628,13 @@ const groups = {
     { badge: "M6", asset: handouts.wenn_behandlung_abgelehnt_wird },
   ],
   notfall: [downloads.suizidgedanken, downloads.manie, downloads.depression, downloads.psychoseWahn],
+  publicDownloads: [
+    downloads.krisenplanVorlage,
+    downloads.suizidgedanken,
+    downloads.manie,
+    downloads.depression,
+    downloads.psychoseWahn,
+  ],
 };
 
 const legacyPdfAliases = [

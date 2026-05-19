@@ -71,6 +71,11 @@
     document.body.classList.remove("pdf-preview-open");
     setPageInert(false);
     if (pdfPreviewFrame) pdfPreviewFrame.src = "about:blank";
+    [pdfPreviewOpen, pdfPreviewDownload].forEach((action) => {
+      action.href = "#pdf-preview";
+      action.setAttribute("aria-disabled", "true");
+      action.setAttribute("tabindex", "-1");
+    });
     if (pdfPreviewTrigger) pdfPreviewTrigger.focus();
   };
 
@@ -81,8 +86,11 @@
     pdfPreviewTrigger = link;
     pdfPreviewTitle.textContent = getPdfTitle(link);
     pdfPreviewFrame.src = `${href}#view=FitH`;
-    pdfPreviewOpen.href = href;
-    pdfPreviewDownload.href = href;
+    [pdfPreviewOpen, pdfPreviewDownload].forEach((action) => {
+      action.href = href;
+      action.removeAttribute("aria-disabled");
+      action.removeAttribute("tabindex");
+    });
     pdfPreview.hidden = false;
     document.body.classList.add("pdf-preview-open");
     setPageInert(true);

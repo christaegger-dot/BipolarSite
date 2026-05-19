@@ -755,7 +755,7 @@ const contactEntries = [
     url: "https://www.depressionen.ch/",
     urlLabel: "depressionen.ch",
     availability: "Schweizweites Angebot",
-    description: "Selbsthilfe- und Informationsangebot für Menschen mit Depressionen und bipolaren Erkrankungen, einschließlich Angehörigenangeboten.",
+    description: "Selbsthilfe- und Informationsangebot für Menschen mit Depressionen und bipolaren Erkrankungen, einschliesslich Angehörigenangeboten.",
     sourceId: "equilibrium",
   },
 ];

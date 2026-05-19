@@ -120,16 +120,16 @@
   [headers.values]
     Cache-Control = "public, max-age=604800, must-revalidate"
 
-# Downloadable PDFs — cache for 7 days
+# Downloadable PDFs — short-lived while the handout set is actively curated
 [[headers]]
   for = "/handouts/*"
   [headers.values]
-    Cache-Control = "public, max-age=604800"
+    Cache-Control = "public, max-age=300, must-revalidate"
 
 [[headers]]
   for = "/downloads/*"
   [headers.values]
-    Cache-Control = "public, max-age=604800"
+    Cache-Control = "public, max-age=300, must-revalidate"
 
 # P3 Audit: Generierte Bild-Assets (AVIF/WebP/JPEG) — lang cachen (content-hashed)
 [[headers]]

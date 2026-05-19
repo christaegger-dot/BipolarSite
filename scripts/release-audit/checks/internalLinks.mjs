@@ -6,7 +6,7 @@ import {
   relativeToRepo,
 } from "../lib/shared.mjs";
 
-const IGNORE_PROTOCOLS = ["http:", "https:", "mailto:", "tel:", "javascript:", "data:"];
+const IGNORE_PROTOCOLS = ["http:", "https:", "mailto:", "tel:", "data:"];
 
 export async function runInternalLinksCheck(context) {
   const pages = await loadHtmlPages(context.siteDir);
