@@ -74,13 +74,19 @@ module.exports = function (eleventyConfig) {
       `handouts/${pdf.filename}`,
     ])
   );
+  const publicDownloadCopies = Object.fromEntries(
+    pdfs.groups.publicDownloads.map((pdf) => [
+      `src/downloads/${pdf.filename}`,
+      `downloads/${pdf.filename}`,
+    ])
+  );
 
   // Passthrough copy — static assets
   eleventyConfig.addPassthroughCopy("src/fonts");
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy(isProductionBuild ? publicHandoutCopies : "src/handouts");
-  eleventyConfig.addPassthroughCopy("src/downloads");
+  eleventyConfig.addPassthroughCopy(isProductionBuild ? publicDownloadCopies : "src/downloads");
   eleventyConfig.addPassthroughCopy("src/visuals");
   eleventyConfig.addPassthroughCopy("src/favicon.svg");
   eleventyConfig.addPassthroughCopy("src/favicon.png");

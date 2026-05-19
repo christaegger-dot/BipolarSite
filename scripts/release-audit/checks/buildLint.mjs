@@ -1,13 +1,16 @@
 import { createCheckResult, runCommand } from "../lib/shared.mjs";
 
 export async function runBuildLintCheck(context) {
-  const buildResult = await runCommand("npm", ["run", "build"], { cwd: context.repoRoot });
+  const buildResult = await runCommand("npm", ["run", "build"], {
+    cwd: context.repoRoot,
+    env: { CONTEXT: "production" },
+  });
   if (!buildResult.ok) {
     return createCheckResult({
       id: "build-lint",
       title: "Build and lint",
       status: "fail",
-      summary: "`npm run build` failed.",
+      summary: "`CONTEXT=production npm run build` failed.",
       findings: [
         {
           severity: "high",
@@ -17,7 +20,7 @@ export async function runBuildLintCheck(context) {
           ? [{ severity: "medium", message: buildResult.stderr.trim().split("\n").slice(-4).join(" | ") }]
           : []),
       ],
-      metrics: { command: "npm run build" },
+      metrics: { command: "CONTEXT=production npm run build" },
     });
   }
 
@@ -45,10 +48,10 @@ export async function runBuildLintCheck(context) {
     id: "build-lint",
     title: "Build and lint",
     status: "pass",
-    summary: "`npm run build` and `npm run lint` completed successfully.",
+    summary: "`CONTEXT=production npm run build` and `npm run lint` completed successfully.",
     findings: [],
     metrics: {
-      buildCommand: "npm run build",
+      buildCommand: "CONTEXT=production npm run build",
       lintCommand: "npm run lint",
     },
   });

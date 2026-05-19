@@ -28,7 +28,7 @@
     "assert": {
       "assertMatrix": [
         {
-          "matchingUrlPattern": "^http://127\\.0\\.0\\.1:8080/modul/1/$",
+          "matchingUrlPattern": "^http://127\\.0\\.0\\.1:\\d+/modul/1/$",
           "assertions": {
             "categories:accessibility": [
               "error",
@@ -57,7 +57,7 @@
           }
         },
         {
-          "matchingUrlPattern": "^http://127\\.0\\.0\\.1:8080/anlaufstellen/$",
+          "matchingUrlPattern": "^http://127\\.0\\.0\\.1:\\d+/anlaufstellen/$",
           "assertions": {
             "categories:accessibility": [
               "error",
@@ -86,7 +86,7 @@
           }
         },
         {
-          "matchingUrlPattern": "^http://127\\.0\\.0\\.1:8080/notfall/$",
+          "matchingUrlPattern": "^http://127\\.0\\.0\\.1:\\d+/notfall/$",
           "assertions": {
             "categories:accessibility": [
               "error",
@@ -115,7 +115,7 @@
           }
         },
         {
-          "matchingUrlPattern": "^http://127\\.0\\.0\\.1:8080/(?!modul/1/|anlaufstellen/|notfall/).*$",
+          "matchingUrlPattern": "^http://127\\.0\\.0\\.1:\\d+/(?!modul/1/|anlaufstellen/|notfall/).*$",
           "assertions": {
             "categories:accessibility": [
               "error",

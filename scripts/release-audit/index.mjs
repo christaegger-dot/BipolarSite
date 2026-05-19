@@ -37,7 +37,8 @@ async function main() {
   const repoRoot = path.resolve(scriptDir, "..", "..");
   const siteDir = path.join(repoRoot, "_site");
   const baseUrl = process.env.SITE_URL || null;
-  const context = { repoRoot, siteDir, args, baseUrl };
+  const localBuildContext = "production";
+  const context = { repoRoot, siteDir, args, baseUrl, localBuildContext };
   const results = [];
 
   if (args.productionOnly) {
