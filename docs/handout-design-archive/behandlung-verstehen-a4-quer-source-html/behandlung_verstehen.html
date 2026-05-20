@@ -153,6 +153,7 @@
 
     .page-2-grid {
       grid-template-columns: 1.12fr 0.88fr;
+      grid-template-rows: auto 1fr;
       align-items: stretch;
     }
 
@@ -179,7 +180,7 @@
 
     .intro-stack {
       display: grid;
-      grid-template-rows: auto auto 1fr;
+      grid-template-rows: auto 1fr;
       gap: 4mm;
     }
 
@@ -394,13 +395,38 @@
 
     .right-stack {
       display: grid;
-      grid-template-rows: auto 1fr;
+      grid-template-rows: auto;
       gap: 4mm;
+    }
+
+    .bottom-row {
+      grid-column: 1 / -1;
+      align-self: end;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7mm;
+      align-items: stretch;
+    }
+
+    .bottom-row .quote,
+    .bottom-row .next-action {
+      align-self: stretch;
     }
 
     .questions-panel {
       display: grid;
-      gap: 3mm;
+      gap: 2.4mm;
+    }
+
+    .role-note {
+      margin: 0;
+      padding: 2.2mm 2.6mm;
+      border-radius: 7px;
+      color: var(--muted);
+      background: rgba(40, 127, 135, 0.055);
+      box-shadow: inset 0 0 0 1px rgba(40, 127, 135, 0.16);
+      font-size: 9.25px;
+      line-height: 1.22;
     }
 
     .question-card {
@@ -408,7 +434,7 @@
       grid-template-columns: auto 1fr;
       gap: 2.4mm;
       align-items: start;
-      padding: 3mm;
+      padding: 2.7mm 3mm;
       border-radius: 8px;
       background: #fff;
       box-shadow: inset 0 0 0 1px var(--line);
@@ -498,11 +524,6 @@
             <p>Für Angehörige wirkt Behandlung manchmal unübersichtlich: Medikamente, Psychotherapie, Schlaf, Blutkontrollen, Frühwarnzeichen, Angehörigengespräche und Krisenwege stehen nebeneinander.</p>
             <p>Hilfreicher ist eine phasenorientierte Sicht. Nicht jede Massnahme zielt auf dasselbe — und nicht alles ist gleichzeitig dran. Wenn klar ist, welche Phase gerade trägt und welches Ziel sie hat, lässt sich im Behandlungsgespräch mitdenken, statt nur zuzusehen.</p>
           </div>
-
-          <div class="quote">
-            <strong>Entlastender Kernsatz</strong>
-            <p>Behandlung ist kein Entweder-oder. Sie ist ein Zusammenspiel aus fachlicher Therapie, Rhythmus, Beobachtung und Absprachen.</p>
-          </div>
         </section>
 
         <section class="visual-card" aria-labelledby="behandlungskompass">
@@ -531,11 +552,11 @@
             <div class="phase-grid">
               <div class="phase-card acute">
                 <h3>Akut behandeln</h3>
-                <p>Sicherheit, Schlaf, Risiko und deutliche Symptomverdichtung brauchen fachliche Einschätzung. Hier geht es ums Beruhigen und Schützen, nicht ums Vorbeugen.</p>
+                <p>Wenn Symptome deutlich zunehmen, Schlaf wegbricht oder Risiken entstehen, braucht es fachliche Einschätzung. Hier geht es um Schutz, Reizreduktion und Sicherheit — nicht um lange Gespräche oder Vorbeugung.</p>
               </div>
               <div class="phase-card stabilize">
                 <h3>Stabilisieren</h3>
-                <p>Was in der akuten Phase gewirkt hat, wird weitergeführt. Nebenwirkungen, Schlaf und Alltag werden mitbeobachtet, bis Tragfähigkeit zurückkehrt.</p>
+                <p>Was in der akuten Phase geholfen hat, wird überprüft, weitergeführt oder angepasst. Nebenwirkungen, Schlaf und Alltag werden mitbeobachtet, bis wieder mehr Tragfähigkeit entsteht.</p>
               </div>
               <div class="phase-card prevent">
                 <h3>Vorbeugen</h3>
@@ -574,7 +595,7 @@
           <p>Wahl und Dosierung der Medikamente gehören in fachliche Hände. Verstehen hilft trotzdem:</p>
           <ul>
             <li><b>Behandlung ist phasengerecht.</b> Was in der Manie sinnvoll ist, ist es in der Depression oder Vorbeugung nicht zwingend — unterschiedliche Mittel und Ziele sind kein Widerspruch, sondern die Logik.</li>
-            <li><b>Antidepressiva spielen bei Bipolarität eine andere, vorsichtigere Rolle</b> als bei einer unipolaren Depression. «Mehr» oder «ein anderes» Antidepressivum ist keine Standardantwort — das ist kein Versäumnis der Behandlung, sondern Teil der phasengerechten Vorsicht.</li>
+            <li><b>Antidepressiva spielen bei Bipolarität eine andere, vorsichtigere Rolle</b> als bei einer unipolaren Depression. Sie sind nicht einfach die Standardantwort auf jede depressive Phase und werden je nach Situation besonders sorgfältig abgewogen, kombiniert und überwacht.</li>
             <li><b>Anpassungen brauchen Zeit und Begleitung.</b> Ein abruptes Absetzen einer stabilisierenden Medikation ist ungünstig; Veränderungen werden begleitet, nicht erzwungen.</li>
             <li><b>Schlaf und Rhythmus sind ein eigener Hebel</b> — und der, den Angehörige am ehesten beobachten können. Verlauf, Schlaf, Nebenwirkungen, Absprachen und frühe Veränderungen sichtbar zu halten, ist ein realer Beitrag.</li>
           </ul>
@@ -583,19 +604,26 @@
         <section class="right-stack" aria-labelledby="fragen">
           <div class="panel questions-panel">
             <h2 id="fragen">Fragen fürs nächste Behandlungsgespräch</h2>
+            <p class="role-note">Klären Sie möglichst früh, welche Informationen mit Angehörigen geteilt werden dürfen und welche Beobachtungen für das Behandlungsteam hilfreich sind.</p>
             <div class="questions-list">
               <div class="question-card"><span class="question-number">1</span><p>Welche Phase steht gerade im Vordergrund — Hochphase, Depression, Stabilisierung oder Vorbeugung?</p></div>
               <div class="question-card"><span class="question-number">2</span><p>Was ist das Behandlungsziel dieser Phase — beruhigen, aktivieren, stabilisieren oder vorbeugen?</p></div>
-              <div class="question-card"><span class="question-number">3</span><p>Welche Kontrollen sind vereinbart — Blutwerte, Gewicht, Stoffwechsel, Nieren, Schilddrüse oder Spiegel?</p></div>
+              <div class="question-card"><span class="question-number">3</span><p>Welche Kontrollen sind vereinbart — Blutwerte, Gewicht, Stoffwechsel, Nieren- und Schilddrüsenwerte oder Medikamentenspiegel?</p></div>
               <div class="question-card"><span class="question-number">4</span><p>Woran würden wir gemeinsam merken, dass nachjustiert werden sollte?</p></div>
             </div>
           </div>
+        </section>
 
+        <div class="bottom-row">
+          <div class="quote">
+            <strong>Entlastender Kernsatz</strong>
+            <p>Behandlung ist kein Entweder-oder. Sie ist ein Zusammenspiel aus fachlicher Therapie, Rhythmus, Beobachtung und Absprachen.</p>
+          </div>
           <div class="next-action" data-required="next-action">
             <strong>Konkreter nächster Schritt</strong>
             <p>Bestimmen Sie für heute nur eines: Welche Phase steht gerade im Vordergrund? Notieren Sie eine sichtbare Veränderung mit Datum — und nehmen Sie die vier Fragen ins nächste Behandlungsgespräch mit.</p>
           </div>
-        </section>
+        </div>
       </div>
 
       <footer class="footer">
@@ -603,7 +631,7 @@
           <span>Fachstelle Angehörigenarbeit · Psychiatrische Universitätsklinik Zürich</span>
           <span>behandlung-verstehen v02 · Stand 17. Mai 2026 · Seite 2 von 2</span>
         </div>
-        <div>Quellen: SGPP/SGBS Behandlungsempfehlungen Bipolare Störungen, Revision 2019 · NICE CG185, zuletzt aktualisiert 2025 · Adjunctive Psychotherapy for Bipolar Disorder, JAMA Psychiatry 2021 · Miklowitz &amp; Chung 2016</div>
+        <div>Quellen: NICE CG185, zuletzt aktualisiert 2025 · S3-Leitlinie DGBS/DGPPN/AWMF Bipolare Störungen, 2019/2020 · Miklowitz et al. 2021: Adjunctive Psychotherapy for Bipolar Disorder · Miklowitz &amp; Chung 2016: Family-Focused Therapy for Bipolar Disorder</div>
       </footer>
     </article>
   </main>
