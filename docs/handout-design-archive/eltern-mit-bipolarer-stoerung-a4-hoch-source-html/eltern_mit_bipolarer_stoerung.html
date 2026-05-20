@@ -421,13 +421,18 @@
 
     .support-list {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.4mm 2mm;
+      grid-template-columns: 1fr;
+      gap: 1.05mm;
     }
 
     .support-list li {
-      font-size: 8.55px;
-      line-height: 1.16;
+      min-height: 0;
+      padding: 1.25mm 1.7mm 1.25mm 4mm;
+      border-radius: 4px;
+      background: #fff;
+      box-shadow: inset 0 0 0 1px rgba(47, 41, 37, 0.1);
+      font-size: 8.25px;
+      line-height: 1.12;
     }
 
     .pm-grid {
@@ -471,7 +476,7 @@
     .minus .marker { background: var(--aubergine); }
 
     .pm-card li {
-      font-size: 8.45px;
+      font-size: 8.35px;
       line-height: 1.16;
     }
 
@@ -544,7 +549,7 @@
         <div>
           <p class="eyebrow">Fachstelle Angehörigenarbeit · Praxisblatt</p>
           <h1>Eltern bleiben – auch mit bipolarer Erkrankung</h1>
-          <p class="lead">Eine bipolare Erkrankung eines Elternteils betrifft oft die ganze Familie – das heisst nicht, dass Eltern versagen oder Kinder zwangsläufig Schaden nehmen. Es heisst: Kinder brauchen Orientierung, verlässliche Erwachsene und einen Plan für schwierige Phasen. Dieses Blatt ersetzt keine fachliche Abklärung, Diagnose oder persönliche Beratung.</p>
+          <p class="lead">Eine bipolare Erkrankung eines Elternteils betrifft oft die ganze Familie – das heisst nicht, dass Eltern versagen oder Kinder zwangsläufig dauerhaft belastet werden. Es heisst: Kinder brauchen Orientierung, verlässliche Erwachsene und einen Plan für schwierige Phasen. Dieses Blatt ersetzt keine fachliche Abklärung, Diagnose oder persönliche Beratung.</p>
         </div>
         <div class="tag">A4 hoch · 2 Seiten<br>Stand 17. Mai 2026</div>
       </header>
@@ -556,13 +561,13 @@
             <p>Viele Eltern mit bipolarer Erkrankung nehmen ihre Rolle sehr ernst – und sorgen sich, ob sie ihren Kindern schaden. Hilfreich ist, die Frage zu drehen:</p>
             <div class="quote-reframe">Nicht: «Ist dieser Elternteil als Mutter oder Vater ungeeignet?» – sondern: «Was braucht dieses Kind, damit es sich trotz Belastung sicher, gesehen und altersgerecht begleitet fühlt?»</div>
             <p>Für Kinder ist meist nicht die Diagnose entscheidend, sondern der Alltag: verlässliche Routinen, jemand, der erklärt, was los ist, und Erwachsene, die Verantwortung übernehmen, wenn ein Elternteil gerade nicht genug Kraft oder Übersicht hat.</p>
-            <p>Depressive, hypomane, manische oder gemischte Phasen können Schlaf, Geduld, Verlässlichkeit und Organisation zeitweise verschieben – ausserhalb akuter Phasen gelingt Elternschaft oft deutlich stabiler.</p>
+            <p>Depressive, hypomane, manische oder gemischte Phasen können Schlaf, Geduld, Verlässlichkeit und Organisation zeitweise verschieben – in stabileren Phasen können viele Eltern ihre Rolle wieder deutlich verlässlicher wahrnehmen.</p>
           </section>
 
           <section class="subtle-box">
             <h2>Risiko heisst nicht Schicksal</h2>
-            <p>Kinder von Eltern mit bipolarer Erkrankung haben ein erhöhtes Risiko für eigene psychische Belastungen. Das heisst aber nicht, dass sie selbst bipolar erkranken – die grosse Mehrheit entwickelt keine bipolare Störung.</p>
-            <p>Viele Kinder bleiben unauffällig, und Schutzfaktoren wie Erklärung, Routinen, stabile Bezugspersonen und frühe Unterstützung erhöhen diese Chancen zusätzlich.</p>
+            <p>Kinder von Eltern mit bipolarer Erkrankung haben ein erhöhtes Risiko für eigene psychische Belastungen. Das heisst aber nicht, dass sie selbst bipolar erkranken.</p>
+            <p>Viele Kinder entwickeln sich stabil, besonders wenn sie verstehen dürfen, was los ist, und verlässliche Erwachsene an ihrer Seite haben.</p>
           </section>
         </div>
 
@@ -648,26 +653,30 @@
               <li>Wer darf Schule, Kita oder Hort informieren?</li>
               <li>Was soll das Kind ausdrücklich nicht übernehmen müssen?</li>
             </ul>
-            <div class="child-signs"><b>Worauf beim Kind achten:</b> Wird das Kind unruhiger, stiller oder klammernder? Übernimmt es zu viel? Geraten Schule oder Schlaf durcheinander? Das sind keine automatischen Zeichen einer Kindeswohlgefährdung – aber Hinweise, dass Erklärung oder Entlastung fehlt.</div>
+            <div class="child-signs"><b>Worauf beim Kind achten:</b> Wird das Kind unruhiger, stiller oder klammernder? Übernimmt es zu viel? Geraten Schule oder Schlaf durcheinander? Das sind keine automatischen Zeichen einer Kindeswohlgefährdung – aber Hinweise, dass Erklärung oder Entlastung nötig sein kann.</div>
           </section>
         </div>
 
         <div>
           <section class="tight">
             <h2>Wann es um Kindeswohl geht</h2>
-            <p>Eine psychische Erkrankung bedeutet nicht automatisch, dass ein Kind gefährdet ist. Entscheidend ist die konkrete Lage: Ist das Kind versorgt und sicher? Gibt es eine verlässliche erwachsene Person? Sind Aufsicht, Schutz und emotionale Begleitung ausreichend gesichert?</p>
-            <p>Wenn Betreuung, Sicherheit oder Versorgung nicht zuverlässig gewährleistet sind, braucht es Hilfe – möglichst früh und einvernehmlich. Kindesschutz soll nicht stigmatisieren, sondern Kinder schützen und Eltern passende Unterstützung geben.</p>
-            <p>Bei akuter Gefahr oder unsicherer Betreuung nicht abwarten – dann braucht es sofort eine geeignete Notfall- oder Fachstelle.</p>
+            <p>Eine psychische Erkrankung bedeutet nicht automatisch, dass ein Kind gefährdet ist. Entscheidend ist die konkrete Lage:</p>
+            <ul>
+              <li><b>Belastung:</b> Das Kind merkt Veränderungen, stellt Fragen oder braucht Erklärung.</li>
+              <li><b>Unterstützungsbedarf:</b> Das Kind trägt zu viel mit, bekommt Angst oder Routinen brechen wiederholt weg.</li>
+              <li><b>Dringlichkeit:</b> Betreuung, Aufsicht, Sicherheit oder Versorgung sind nicht mehr zuverlässig gewährleistet.</li>
+            </ul>
+            <p>Unterstützung im Kindesschutz soll nicht bestrafen oder stigmatisieren. Sie soll helfen, dass Kinder geschützt sind und Eltern passende Unterstützung bekommen. Bei akuter Gefahr oder unsicherer Betreuung nicht abwarten – dann braucht es sofort eine geeignete Notfall- oder Fachstelle.</p>
           </section>
 
           <section class="subtle-box">
-            <h2>Beratungsstellen im Kanton Zürich</h2>
+            <h2>Wenn Sie Unterstützung brauchen</h2>
             <ul class="support-list">
-              <li><b>PUK Fachstelle Angehörigenarbeit / Elternberatung</b> – Beratung für erkrankte Eltern, Kinder und Angehörige; Gruppenangebot «Psychisch belastete Eltern und ihre Kinder stärken».</li>
-              <li><b>Institut Kinderseele Schweiz</b> – Beratung für Eltern, Kinder und Angehörige.</li>
-              <li><b>Kinder- und Jugendhilfezentren Kanton Zürich (kjz)</b> – regionale Beratung zu Familienalltag und Notlagen.</li>
-              <li><b>Elternnotruf</b> – Beratung bei Krise und Überforderung.</li>
-              <li><b>PUK KJPP</b> – Abklärung und Behandlung, wenn ein Kind selbst deutlich belastet ist.</li>
+              <li><b>Eltern überfordert / Erziehungsnot:</b> Elternnotruf oder kjz.</li>
+              <li><b>Kind oder Jugendliche:r möchte selbst reden:</b> Pro Juventute Beratung für Kinder und Jugendliche.</li>
+              <li><b>Familie mit psychisch belastetem Elternteil:</b> Institut Kinderseele Schweiz.</li>
+              <li><b>Kinder- oder jugendpsychiatrische Krise:</b> PUK KJPP/KANT.</li>
+              <li><b>Elternteil in PUK-Behandlung:</b> PUK Fachstelle Angehörigenarbeit; Gruppenangebot «Psychisch belastete Eltern und ihre Kinder stärken».</li>
             </ul>
           </section>
 
@@ -675,20 +684,19 @@
             <div class="pm-card">
               <div class="pm-head"><span class="marker">+</span><span>Was Kindern guttut</span></div>
               <ul>
-                <li>Altersgerecht informieren, nicht mit Details überfordern</li>
-                <li>Schuld klar entlasten: «Du bist nicht verantwortlich»</li>
+                <li>erklären und entlasten: «Du bist nicht verantwortlich»</li>
+                <li>Routinen sichern und vertraute Erwachsene einbeziehen</li>
                 <li>Eltern ressourcenorientiert ansprechen, nicht nur über Defizite</li>
-                <li>Schule, Kita oder Hort behutsam einbeziehen, bevor es kippt</li>
+                <li>Schule, Kita oder Hort behutsam informieren, bevor es kippt</li>
               </ul>
             </div>
             <div class="pm-card minus">
               <div class="pm-head"><span class="marker">−</span><span>Was Kinder zusätzlich belasten kann</span></div>
               <ul>
-                <li>So tun, als würden Kinder nichts merken</li>
-                <li>Kinder zur Vertrauensperson der Erwachsenen machen</li>
-                <li>Scham und Schweigen als Schutz verwechseln</li>
-                <li>Erst in der Krise organisieren, wer sich kümmert</li>
-                <li>Jede kindliche Reaktion sofort als Krankheit deuten</li>
+                <li>Schweigen, obwohl Kinder Veränderungen spüren</li>
+                <li>Schuld, Scham oder Erwachsenenrolle beim Kind lassen</li>
+                <li>erst in der Krise organisieren, wer sich kümmert</li>
+                <li>jede kindliche Reaktion sofort als Krankheit deuten</li>
               </ul>
             </div>
           </section>
@@ -709,7 +717,7 @@
 
       <footer class="footer">
         <div class="footer-top"><span>Fachstelle Angehörigenarbeit · Psychiatrische Universitätsklinik Zürich</span></div>
-        <div class="sources">Quellen: WHO-Leitlinie Parenting-Interventionen · Zürcher Leitfaden Kindeswohlgefährdung 2019 · NICE CG185 (Families and carers) · systematische Reviews zu Kindern psychisch erkrankter Eltern und parentaler Bipolarität · <span class="keep-together">Family-Talk-Metaanalyse 2024</span></div>
+        <div class="sources">Quellen: WHO Parenting Interventions 2023 · Zürcher Leitfaden Kindeswohlgefährdung 2019 · NICE CG185 (Families and carers) · Moltrecht et al. 2024 zu Whole-Family-Programmen · Lapalme et al. 1997 zu Kindern bipolar erkrankter Eltern</div>
         <div class="footer-bottom"><span>eltern-mit-bipolarer-stoerung v02 · Stand 17. Mai 2026</span><span>Seite 2 von 2</span></div>
       </footer>
     </section>
