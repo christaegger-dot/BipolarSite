@@ -2,7 +2,7 @@
 layout: "base"
 title: "Handouts zum Mitnehmen | PUK Zürich"
 navCurrent: "materialien"
-description: "Das kuratierte Set von 14 druckbaren A4-Handouts für Angehörige von Menschen mit bipolarer Störung."
+description: "Das kuratierte Set von 14 druckbaren A4-Handouts plus Kern-Downloads für Krise, Vorbereitung und Recht."
 permalink: "/materialien/"
 useSharedCSS: true
 useNavJS: true
@@ -15,6 +15,31 @@ breadcrumbs:
     url: "/materialien/"
 ---
 {% from "pdf-macros.njk" import handoutCard %}
+{% set downloadSections = [
+  {
+    id: "downloads-krise",
+    title: "Krise, Vorbereitung und Recht",
+    lead: "Kern-Downloads für Momente, in denen ein Blatt griffbereit sein sollte: Notfallweg, Krisenplan, Stabilisierung, kritische Zeitpunkte und rechtliche Orientierung.",
+    assets: [
+      pdfs.downloads.notfallkarte,
+      pdfs.downloads.krisenplanVorlage,
+      pdfs.downloads.kurzblattStabilisiert,
+      pdfs.downloads.kritischeZeitpunkte,
+      pdfs.downloads.rechtlicheOrientierung
+    ]
+  },
+  {
+    id: "downloads-akut",
+    title: "Akutblätter nach Situation",
+    lead: "Kurze PDF-Hilfen für zugespitzte Situationen. Bei unmittelbarer Gefahr gilt zuerst der Notfallweg.",
+    assets: [
+      pdfs.downloads.suizidgedanken,
+      pdfs.downloads.manie,
+      pdfs.downloads.depression,
+      pdfs.downloads.psychoseWahn
+    ]
+  }
+] %}
 {% set materialSections = [
   {
     id: "verstehen",
@@ -69,7 +94,7 @@ breadcrumbs:
   <div class="hub-hero-inner">
     <div class="breadcrumb"><a href="/">Startseite</a><span class="sep" aria-hidden="true">›</span><span>Materialien</span></div>
     <h1>Handouts zum Mitnehmen</h1>
-    <p class="hub-hero-lead">Das kuratierte Set von 14 druckbaren A4-Handouts — zum Aushändigen, Mitnehmen, Ankleben an den Kühlschrank.</p>
+    <p class="hub-hero-lead">Das kuratierte Set von 14 druckbaren A4-Handouts — ergänzt durch Kern-Downloads für Krise, Vorbereitung und Recht.</p>
   </div>
 </header>
 
@@ -79,6 +104,23 @@ breadcrumbs:
       <div class="stelle-header"><h2>Brauchen Sie ein Gegenüber statt eines Handouts?</h2><div class="stelle-badge beratung">Beratung</div></div>
       <p>Auf der <a href="/anlaufstellen/" class="link-teal">Anlaufstellen-Seite</a> finden Sie Beratung, Austausch und rechtliche Orientierung — für Momente, in denen Resonanz hilfreicher ist als ein weiteres Blatt.</p>
     </div>
+  </section>
+
+  <section class="hub-section reveal">
+    <h2>Wichtige Downloads</h2>
+    <p>Diese PDFs sind keine zusätzlichen Lernmodule, sondern praktische Begleiter für Krise, Vorbereitung, Recht und akute Situationen.</p>
+
+    {% for section in downloadSections %}
+    <div class="handouts handouts--list">
+      <h3 id="{{ section.id }}">{{ section.title }}</h3>
+      <p>{{ section.lead }}</p>
+      <div class="handouts-grid">
+        {% for asset in section.assets %}
+        {{ handoutCard(asset, { icon: 'DL', actionLabel: 'Direkt öffnen oder herunterladen' }) }}
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
   </section>
 
   {% for section in materialSections %}

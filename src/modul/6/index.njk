@@ -17,7 +17,7 @@ breadcrumbs:
 {% block nav %}
 {% include "nav-full.njk" %}
 {% endblock %}
-{% from "pdf-macros.njk" import handoutCard %}
+{% from "pdf-macros.njk" import handoutCard, directDownloadButton %}
 {% block content %}
 <div class="reading-progress"><div class="reading-progress-fill" id="readingProgress"></div></div>
 
@@ -150,7 +150,8 @@ breadcrumbs:
     <p><strong>Massnahmen:</strong> Termin bei Psychiaterin und Psychiater vorziehen, Reize reduzieren</p>
     <p><strong>Klinikwunsch:</strong> Wenn möglich PUK Zürich</p>
     <p><strong>Kontaktpersonen:</strong> Partnerin und Partner (Tel: ...), Geschwister (Tel: ...)</p>
-    <p class="download-label">↓ Download: Krisenplan-Vorlage (PDF) — Füllen Sie diese Vorlage gemeinsam in einer stabilen Phase aus.</p>
+    <p class="download-label">Füllen Sie diese Vorlage gemeinsam in einer stabilen Phase aus.</p>
+    {{ directDownloadButton(pdfs.downloads.krisenplanVorlage, "Krisenplan-Vorlage herunterladen") }}
   </div>
 
   <!-- 2. SCHWEIGEPFLICHT -->

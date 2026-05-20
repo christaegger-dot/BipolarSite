@@ -20,7 +20,7 @@ breadcrumbs:
 {% block nav %}
 {% include "nav-full.njk" %}
 {% endblock %}
-{% from "pdf-macros.njk" import guidePdfLink %}
+{% from "pdf-macros.njk" import guidePdfLink, directDownloadButton %}
 {% block content %}
 <header class="hero notfall-hero"><div class="hero-inner">
   <div class="hero-copy">
@@ -62,6 +62,11 @@ breadcrumbs:
 </div></header>
 
 <main class="content" id="main-content">
+  <section class="surface-callout surface-callout--crosslink notfall-crosslink">
+    <p><strong>Notfallkarte Kanton Zürich:</strong> Die wichtigsten Wege auf einem Blatt — 144 bei Lebensgefahr, 117 bei akuter Gewalt oder unmittelbarer Fremdgefährdung, Ärztefon bei schwerer psychischer Krise ohne unmittelbare Lebensgefahr.</p>
+    {{ directDownloadButton(pdfs.downloads.notfallkarte, "Notfallkarte Kanton Zürich herunterladen", "dl-btn dl-btn-sos") }}
+  </section>
+
   <div class="grauzone notfall-uncertainty surface-callout surface-callout--warm">
     <h2 class="grauzone-h2">Wenn Sie unsicher sind, ob es schon ein Notfall ist</h2>
 

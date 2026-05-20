@@ -176,6 +176,7 @@ test.describe('core user paths', () => {
     await expect(page.getByRole('heading', { level: 1, name: /Notfall/i })).toBeVisible();
     await expect(page.locator('a[href="tel:144"]').first()).toBeVisible();
     await expect(page.locator('a[href="tel:144"]').first()).toHaveAttribute('href', 'tel:144');
+    await expect(page.locator('a[data-pdf-asset-id="DL-01"][href="/downloads/notfallkarte-kanton-zuerich-puk.pdf"]').first()).toBeVisible();
     await expectNoHorizontalScroll(page);
 
     await context.close();
@@ -471,10 +472,27 @@ test.describe('high-risk content flows', () => {
     await expect(page.locator('body')).not.toHaveClass(/pdf-preview-open/);
   });
 
-  test('materials page exposes only the canonical rebuilt handout set', async ({ page }) => {
+  test('materials page exposes core downloads and the canonical rebuilt handout set', async ({ page }) => {
     await page.goto('/materialien/');
 
-    await expect(page.locator('a[data-pdf-mode="download"][href^="/downloads/"]')).toHaveCount(0);
+    const downloadLinks = page.locator('a[data-pdf-mode="download"][href^="/downloads/"]');
+    await expect(downloadLinks).toHaveCount(9);
+
+    const downloadHrefs = await downloadLinks.evaluateAll((links) =>
+      links.map((link) => link.getAttribute('href') || ''),
+    );
+
+    expect(downloadHrefs).toEqual([
+      '/downloads/notfallkarte-kanton-zuerich-puk.pdf',
+      '/downloads/krisenplan-vorlage-bipolare-stoerung-puk-zuerich.pdf',
+      '/downloads/kurzblatt-was-stabilisiert-was-schadet-puk-zuerich.pdf',
+      '/downloads/kritische-zeitpunkte-angehoerige-puk-zuerich.pdf',
+      '/downloads/rechtliche-orientierung-angehoerige-puk-zuerich.pdf',
+      '/downloads/umgang-mit-suizidgedanken-puk-zuerich.pdf',
+      '/downloads/umgang-mit-manie-puk-zuerich.pdf',
+      '/downloads/umgang-mit-depression-puk-zuerich.pdf',
+      '/downloads/umgang-mit-psychose-wahn-puk-zuerich.pdf',
+    ]);
 
     const handoutLinks = page.locator('a[data-pdf-mode="preview"][href^="/handouts/"]');
     await expect(handoutLinks).toHaveCount(14);
@@ -500,12 +518,7 @@ test.describe('high-risk content flows', () => {
       '/handouts/c6_selbstfuersorge.pdf',
     ]);
 
-    for (const href of [
-      '/downloads/notfallkarte-kanton-zuerich-puk.pdf',
-      '/downloads/krisenplan-vorlage-bipolare-stoerung-puk-zuerich.pdf',
-      '/downloads/rechtliche-orientierung-angehoerige-puk-zuerich.pdf',
-      '/handouts/a1_bipolare_stoerung_verstehen.pdf',
-    ]) {
+    for (const href of [...downloadHrefs, '/handouts/a1_bipolare_stoerung_verstehen.pdf']) {
       await expectPdfResponse(page, href);
     }
   });
