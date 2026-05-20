@@ -8,7 +8,7 @@ show_priority_badge: false
 type: "Orientierungsblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
 goal: "Angehörigen helfen, bipolare Behandlung als phasenorientiertes Zusammenspiel aus Medikation, Psychoedukation, Psychotherapie, Rhythmus und Rückfallprävention zu verstehen"
-target_format: "A4 quer, 1 Seite"
+target_format: "A4 quer, 2 Seiten"
 priority: "P1"
 last_updated: "2026-05-17"
 visual_metaphor: "Behandlungskompass"
@@ -31,7 +31,7 @@ Die vier Phasen sind kein Weg mit Ziellinie, sondern ein Kreis. Vorbeugen ist ni
 
 - **Akut behandeln:** Sicherheit, Schlaf, Risiko und deutliche Symptomverdichtung brauchen fachliche Einschätzung. Hier geht es ums Beruhigen und Schützen, nicht ums Vorbeugen.
 - **Stabilisieren:** Was in der akuten Phase gewirkt hat, wird weitergeführt. Nebenwirkungen, Schlaf und Alltag werden mitbeobachtet, bis Tragfähigkeit zurückkehrt.
-- **Vorbeugen:** Rückfallprophylaxe, Psychoedukation, Psychotherapie, Schlaf- und Rhythmusstabilisierung und Angehörigeneinbezug greifen zusammen. Das ist die längste Phase — und die, in der Angehörige am meisten beitragen können.
+- **Vorbeugen:** Rückfallprophylaxe, Psychoedukation, Psychotherapie, Schlaf- und Rhythmusstabilisierung und Angehörigeneinbezug greifen zusammen. Das ist die längste Phase — und die, in der Angehörige viel beitragen können.
 - **Früh reagieren:** Warnzeichen werden nicht dramatisiert, aber rechtzeitig und konkret besprochen. Eine kleine frühe Anpassung erspart oft eine grosse späte.
 
 ## Nicht nur Medikation
