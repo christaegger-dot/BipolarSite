@@ -7,7 +7,7 @@ show_status_badge: false
 show_priority_badge: false
 type: "Praxisblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
-goal: "Angehörige darin unterstützen, bei abgelehnter Behandlung zwischen Selbstbestimmung, dokumentierter Sorge, vorsorglichen Absprachen und akutem Sicherheitsweg zu unterscheiden"
+goal: "Angehörige darin unterstützen, bei abgelehnter Behandlung zwischen freiwilliger Hilfe, vorsorglichen Absprachen, dokumentierter Sorge und akutem Sicherheitsweg zu unterscheiden"
 target_format: "A4 quer, 1 Seite"
 priority: "P1"
 last_updated: "2026-05-17"
@@ -17,13 +17,13 @@ document_decision: "Praxisblatt, weil das Blatt eine konkrete Sortierhilfe und D
 
 # Wenn Behandlung abgelehnt wird
 
-Zwischen Sorge, Respekt und Druck bleibt Handlungsspielraum — sobald freiwillige Hilfe, Vorsorge und akute Sicherheit getrennt werden. Dieses Blatt ersetzt keine rechtliche, medizinische oder persönliche Beratung.
+Wenn Hilfe abgelehnt wird, geraten Angehörige zwischen Respekt, Sorge und Druck. Handlungsspielraum entsteht, wenn freiwillig anbieten, vorsorgen und bei Gefahr schützen getrennt bleiben. Dieses Blatt ersetzt keine rechtliche, medizinische oder persönliche Beratung.
 
 ## Worum es geht
 
-Selbstbestimmung bleibt der Ausgangspunkt. Behandlung gegen den Willen ist in der Schweiz nur unter engen Voraussetzungen und über zuständige fachliche bzw. behördliche Wege möglich — nie als Abkürzung für ein schwieriges Gespräch.
+Selbstbestimmung bleibt der Ausgangspunkt. Angehörige können Behandlung nicht erzwingen, nur weil sie sich Sorgen machen. Behandlung gegen den Willen ist in der Schweiz nur unter engen gesetzlichen Voraussetzungen und durch zuständige Stellen möglich — nicht als Abkürzung für ein schwieriges Gespräch.
 
-Angehörige müssen trotzdem nicht passiv bleiben. Hilfreich ist, freiwillige Hilfe, Vorsorge und akute Sicherheit sauber zu trennen: Welche Spur trägt gerade?
+Trotzdem müssen Angehörige nicht passiv bleiben: beobachten, dokumentieren, Absprachen anregen, Hilfewege vorbereiten. Entscheidend ist: Welche Spur passt zur Lage?
 
 ## Woran die Lage ernster wird
 
@@ -35,44 +35,46 @@ Angehörige müssen trotzdem nicht passiv bleiben. Hilfreich ist, freiwillige Hi
 
 ## Drei Spuren
 
-Die Lage entscheidet, nicht eine feste Reihenfolge: in ruhigen Zeiten vorsorgen, bei Sorge freiwillig anbieten, bei Gefahr schützen.
+**1 · Freiwillig anbieten**
 
-**Stabil vorsorgen:** Patientenverfügung, Vorsorgeauftrag, Vertretung, Informationsweitergabe und Frühzeichen klären, bevor Druck entsteht.
+Ein Thema, ruhiger Zeitpunkt, kurze Sätze. Keine Diagnose als Einstieg, keine Beweisführung.
 
-**Freiwillig anbieten:** Ein Thema, ruhiger Zeitpunkt, kurze Sätze — ohne Beweisführung.
+> «Du schläfst kaum. Ich mache mir Sorgen. Können wir heute einen sicheren nächsten Schritt vereinbaren?»
 
-> „Mir fällt auf, dass du kaum schläfst. Lass uns heute einen sicheren Schritt vereinbaren.“
+**2 · Stabil vorsorgen**
 
-**Akut schützen:** Wenn Sicherheit gefährdet ist, gilt der Notfallweg, nicht lange Verhandlung.
+In ruhigeren Phasen klären: Frühwarnzeichen, Vertrauensperson, Informationsweitergabe, Patientenverfügung, Vorsorgeauftrag und Krisenplan.
+
+**3 · Akut schützen**
+
+Wenn Sicherheit, Selbstversorgung, Kinderbetreuung oder Schutz anderer gefährdet sind, zählt Sicherheit mehr als Überzeugungsarbeit: Krisen- oder Notfallplan aktivieren und Hilfe holen.
 
 ## Was eher hilft
 
-- Beobachten statt diagnostizieren
-- Ein Thema statt fünf, ruhiger Zeitpunkt
-- Kurze Sätze, ein klarer nächster Schritt
+- beobachten statt diagnostizieren
+- ein Thema statt fünf
 - Sorge benennen, ohne recht behalten zu wollen
+- kurze Notizen führen: Datum, Schlaf, Verhalten, Risiken, wer einbezogen wurde
+- früh eine Fachperson oder Beratungsstelle um Einordnung bitten
 
 ## Was eher schadet
 
-- Grundsatzkampf, Diagnose als Einstieg
-- Heimliches Kontrollieren
-- Zwang als Ersatz für eine tragfähige Absprache
-- Fünf Themen gleichzeitig im aufgeladenen Moment
-
-## Was sich zu dokumentieren lohnt
-
-Datum, Dauer, Schlaf, Aussagen, Risiken, Ausgaben, Substanzen, Termine, Selbstversorgung — und wer einbezogen wurde.
+- Grundsatzkampf oder Diagnose als Einstieg
+- heimliches Kontrollieren
+- immer längere Gespräche im aufgeladenen Moment
+- Zwang als Ersatz für Absprachen
+- bei akuter Gefahr weiterverhandeln
 
 ## Konkreter nächster Schritt
 
-Beginnen Sie heute mit einer Ereignisnotiz:
+Beginnen Sie heute mit einer kurzen Ereignisnotiz:
 
 > Datum · sichtbar · Sorge · versucht · wer kann mitbeurteilen?
 
 ## Entlastender Kernsatz
 
-Respekt vor Selbstbestimmung heisst nicht, Gefahr zu übersehen. Es heisst, Sorge konkret zu dokumentieren und den passenden Weg zu wählen.
+Respekt vor Selbstbestimmung heisst nicht, Gefahr zu übersehen. Es heisst, Sorge konkret zu machen und den passenden Weg zu wählen.
 
 ## Quellenbasis
 
-SGPP/SGBS Behandlungsempfehlungen Bipolare Störungen, Revision 2019 · NICE CG185 · ZGB Art. 426 ff. zur fürsorgerischen Unterbringung und Art. 434 zur Behandlung ohne Zustimmung · Pro Mente Sana, Psychiatrische Patientenverfügung
+NICE CG185 · ZGB Art. 426 ff. zur fürsorgerischen Unterbringung und Art. 434 zur Behandlung ohne Zustimmung · Pro Mente Sana, Psychiatrische Patientenverfügung

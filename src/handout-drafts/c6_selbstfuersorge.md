@@ -12,7 +12,7 @@ target_format: "A4 quer, 1 Seite"
 priority: "P1"
 last_updated: "2026-05-17"
 visual_metaphor: "Akku / eigene Kräfte"
-document_decision: "Orientierungsblatt, weil die Kernaufgabe Einordnung und Entlastung ist; der konkrete Schritt bleibt Pflicht, macht das Blatt aber nicht zum Praxisblatt."
+document_decision: "Orientierungsblatt, weil die Kernaufgabe Einordnung und Entlastung ist; ein konkreter nächster Schritt ist bewusst enthalten, macht das Blatt aber nicht zum Praxisblatt."
 ---
 
 # Die eigenen Kräfte schützen
@@ -21,7 +21,7 @@ Wenn Sorge lange dauert, geraten die eigenen Reserven leicht aus dem Blick. Dies
 
 ## Worum es geht
 
-Selbstfürsorge klingt schnell nach Luxus. In Angehörigenrealitäten ist sie Belastungsmanagement: Wer dauerhaft zu viel trägt, zu wenig schläft und nur noch reagiert, verliert eigene Kraft.
+Selbstfürsorge klingt schnell nach Luxus. Im Alltag von Angehörigen ist sie Belastungsmanagement: Wer dauerhaft zu viel trägt, zu wenig schläft und nur noch reagiert, verliert eigene Kraft.
 
 Ihre Gesundheit hat einen Eigenwert. Nicht erst, wenn Sie zusammenbrechen. Und nicht nur, damit Sie weiter funktionieren können.
 
@@ -33,9 +33,9 @@ Ihre Gesundheit hat einen Eigenwert. Nicht erst, wenn Sie zusammenbrechen. Und n
 - eigene Arzttermine, Pausen oder Bedürfnisse rutschen nach hinten
 - der Alltag besteht fast nur noch aus Reagieren auf die Erkrankung
 
-Diese Zeichen bedeuten nicht Versagen. Sie zeigen, dass Belastung mehr Raum einnimmt, als ein Mensch auf Dauer tragen kann.
+Diese Zeichen bedeuten nicht Versagen. Wenn Erschöpfung, Schlaflosigkeit oder Verzweiflung anhalten, dürfen Sie fachliche Hilfe für sich holen.
 
-## Der Akku: vier Stellen, die Kraft kosten oder schützen
+## Der Akku: vier Bereiche, die Kraft kosten oder schützen
 
 **Körper**
 
@@ -43,30 +43,30 @@ Schlaf, Essen, Bewegung und eigene Termine sind Basisversorgung.
 
 **Seele**
 
-Gespräch, Notiz oder Pause helfen, Gefühle nicht kreisen zu lassen.
+Gespräch, Notiz oder Pause helfen, Gefühle zu sortieren.
 
 **Beziehung**
 
-Krankheitsfreie Inseln schützen vor nur Sorge und Reaktion.
+Krankheitsfreie Inseln schützen davor, dass die Beziehung nur noch aus Sorge besteht.
 
 **Entlastung**
 
-Früh jemanden einzubeziehen ist Prävention, nicht Scheitern.
+Früh jemanden einzubeziehen ist Prävention.
 
 ## Was hilft
 
-- eine verlässliche Person wieder kontaktieren
-- Entlastung konkret terminieren, nicht nur vage vornehmen
-- eine kleine Routine auswählen und diese eine Woche lang schützen
+- verlässliche Person kontaktieren
+- Entlastung konkret terminieren
+- eine kleine Routine eine Woche schützen
 - eine krankheitsfreie Insel benennen
 
 ## Was die Erschöpfung oft verstärkt
 
-Auf «später» verschieben, Erschöpfung als Liebesbeweis verstehen, Kontakte abbrechen, Entlastung erst erlauben, wenn nichts mehr geht.
+Selbstfürsorge auf «später» verschieben, Liebe mit Aushalten verwechseln, Kontakte abbrechen, Entlastung erst erlauben, wenn nichts mehr geht.
 
 ## Konkreter nächster Schritt
 
-Setzen Sie heute einen geschützten Termin in dieser Woche: Schlaf nachholen, ein kurzer Weg, ein Gespräch, Essen in Ruhe oder Pause ohne Erklärung.
+Setzen Sie heute einen geschützten Termin in dieser Woche: Schlaf, ein kurzer Weg, ein Gespräch, Essen in Ruhe oder Pause ohne Erklärung.
 
 ## Entlastender Kernsatz
 

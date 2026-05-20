@@ -5,32 +5,37 @@ source_pdf: "/handouts/a2_phasenverlauf.pdf"
 status: "draft"
 type: "Orientierungsblatt"
 audience: "Angehörige von Menschen mit bipolarer Störung"
-goal: "Manie, Hypomanie, Depression und stabilere Phasen als Verlaufsmuster verständlich machen"
+goal: "Manie, Hypomanie, Depression und stabilere Phasen als Verlaufsmuster verständlich machen, ohne Angehörige zu Diagnosen anzuleiten"
 target_format: "A4 quer, 1 Seite"
 priority: "P1"
 last_updated: "2026-05-17"
 visual_model:
   kind: "phasenkurve"
-  title: "Phasenwelle: Manie, Hypomanie, Stabilität, Depression"
+  title: "Phasenwelle: Manie, Hypomanie, stabilere Phase, Depression"
   note: "Die Visualisierung zeigt Phasen als Bewegung über Zeit, nicht als starre Schubladen."
+document_decision: "Orientierungsblatt, weil das Blatt Veränderungen über Zeit einordnet und Angehörige beim Beobachten unterstützt, ohne Diagnostik oder Behandlung zu ersetzen."
 ---
 
 # Bipolarer Phasenverlauf
 
-Manie, Hypomanie, Depression und stabilere Phasen sind im Alltag oft nicht klar voneinander getrennt. Eine Kurve hilft, Veränderungen über Zeit einzuordnen. Dieses Blatt ersetzt keine fachliche Abklärung, Diagnose oder Behandlung.
+Manie, Hypomanie, Depression und stabilere Phasen sind im Alltag oft nicht klar voneinander getrennt. Eine Kurve zeigt, was zunimmt, nachlässt oder zurückkehrt. Dieses Blatt ersetzt keine fachliche Abklärung, Diagnose oder Behandlung.
 
 ## Worum es geht
 
-Bipolare Verläufe sind oft schwer lesbar, weil Veränderungen schleichend beginnen: Schlaf wird kürzer, Tempo steigt, Kontakt bricht ab, Hoffnung kippt oder Normalität kehrt scheinbar zurück.
+Bipolare Verläufe beginnen oft schleichend: Schlaf wird kürzer, Tempo steigt, Kontakt verändert sich, Hoffnung kippt oder Reizbarkeit nimmt zu.
 
-Entscheidend ist die Bewegung über Zeit: Was verändert sich, wie deutlich, wie lange und im Vergleich zu welchem üblichen Zustand?
+Entscheidend ist die Bewegung über Zeit: Was ist anders als sonst? Seit wann? Wird es stärker oder schwächer?
+
+Angehörige müssen daraus keine Diagnose ableiten. Hilfreich ist, Muster wahrzunehmen und früh genug besprechbar zu machen.
 
 ## Vier Phasen im Alltag
 
-- **Manie:** Tempo, Ideen, Rededrang oder Risiko nehmen deutlich zu; Schlafbedarf sinkt, Einsicht kann fehlen.
-- **Hypomanie:** abgeschwächter als Manie, manchmal produktiv wirkend, trotzdem verlaufsrelevant.
-- **Stabile Phase:** nicht «alles gelöst», aber guter Moment für Erholung, Behandlung und Absprachen.
+- **Manie:** Tempo, Rededrang, Ideen, Aktivität oder Risiko nehmen deutlich zu; Schlafbedarf sinkt, Einsicht kann fehlen.
+- **Hypomanie:** weniger ausgeprägt als Manie, manchmal produktiv oder erleichtert wirkend.
+- **Stabilere Phase:** Alltag, Schlaf und Beziehung werden wieder verlässlicher.
 - **Depression:** Antrieb, Hoffnung, Kontakt und Alltag werden schwer erreichbar.
+
+Manchmal mischen sich Zeichen. Auch Übergänge gehören zur Verlaufskurve.
 
 ## Entlastender Kernsatz
 
@@ -38,7 +43,7 @@ Eine Phase ist kein Charakterurteil. Sie beschreibt, was sich über Zeit verdich
 
 ## Konkreter nächster Schritt
 
-Wählen Sie eine frühere Veränderung und markieren Sie auf einer gedanklichen Kurve: Beginn, deutliche Zuspitzung, Stabilisierung. Notieren Sie ein Muster, das beim nächsten Mal früher auffallen könnte.
+Wählen Sie eine frühere Veränderung. Markieren Sie: Beginn · Zuspitzung · Wendepunkt · Stabilisierung. Notieren Sie ein Muster fürs nächste Mal.
 
 ## Quellen
 
