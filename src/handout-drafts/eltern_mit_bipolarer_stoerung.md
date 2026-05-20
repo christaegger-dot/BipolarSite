@@ -6,7 +6,7 @@ status: "draft"
 show_status_badge: false
 show_priority_badge: false
 type: "Praxisblatt"
-audience: "Eltern mit bipolarer Erkrankung, Angehörige und nahestehende Bezugspersonen"
+audience: "Eltern mit bipolarer Erkrankung, Angehörige und Bezugspersonen von Kindern"
 goal: "Familien darin unterstützen, Kinder altersgerecht zu entlasten, Schutzfaktoren sichtbar zu machen und Betreuung für schwierige Phasen konkret zu planen"
 target_format: "A4 hoch, 2 Seiten"
 priority: "P1"
@@ -17,7 +17,7 @@ document_decision: "Praxisblatt, weil das Blatt konkrete Gesprächssätze, einen
 
 # Eltern bleiben – auch mit bipolarer Erkrankung
 
-Eine bipolare Erkrankung eines Elternteils betrifft oft die ganze Familie – das heisst nicht, dass Eltern versagen oder Kinder zwangsläufig Schaden nehmen. Es heisst: Kinder brauchen Orientierung, verlässliche Erwachsene und einen Plan für schwierige Phasen. Dieses Blatt ersetzt keine fachliche Abklärung, Diagnose oder persönliche Beratung.
+Eine bipolare Erkrankung eines Elternteils betrifft oft die ganze Familie – das heisst nicht, dass Eltern versagen oder Kinder zwangsläufig dauerhaft belastet werden. Es heisst: Kinder brauchen Orientierung, verlässliche Erwachsene und einen Plan für schwierige Phasen. Dieses Blatt ersetzt keine fachliche Abklärung, Diagnose oder persönliche Beratung.
 
 ## Worum es geht
 
@@ -25,11 +25,11 @@ Viele Eltern mit bipolarer Erkrankung nehmen ihre Rolle sehr ernst – und sorge
 
 > Nicht: «Ist dieser Elternteil als Mutter oder Vater ungeeignet?» – sondern: «Was braucht dieses Kind, damit es sich trotz Belastung sicher, gesehen und altersgerecht begleitet fühlt?»
 
-Für Kinder ist meist nicht die Diagnose entscheidend, sondern der Alltag: verlässliche Routinen, jemand, der erklärt, was los ist, und Erwachsene, die Verantwortung übernehmen, wenn ein Elternteil gerade nicht genug Kraft oder Übersicht hat. Depressive, hypomane, manische oder gemischte Phasen können Schlaf, Geduld, Verlässlichkeit und Organisation zeitweise verschieben – ausserhalb akuter Phasen gelingt Elternschaft oft deutlich stabiler.
+Für Kinder ist meist nicht die Diagnose entscheidend, sondern der Alltag: verlässliche Routinen, jemand, der erklärt, was los ist, und Erwachsene, die Verantwortung übernehmen, wenn ein Elternteil gerade nicht genug Kraft oder Übersicht hat. Depressive, hypomane, manische oder gemischte Phasen können Schlaf, Geduld, Verlässlichkeit und Organisation zeitweise verschieben – in stabileren Phasen können viele Eltern ihre Rolle wieder deutlich verlässlicher wahrnehmen.
 
 ## Risiko heisst nicht Schicksal
 
-Kinder von Eltern mit bipolarer Erkrankung haben ein erhöhtes Risiko für eigene psychische Belastungen. Das heisst aber nicht, dass sie selbst bipolar erkranken – die grosse Mehrheit entwickelt keine bipolare Störung. Viele Kinder bleiben unauffällig, und Schutzfaktoren wie Erklärung, Routinen, stabile Bezugspersonen und frühe Unterstützung erhöhen diese Chancen zusätzlich.
+Kinder von Eltern mit bipolarer Erkrankung haben ein erhöhtes Risiko für eigene psychische Belastungen. Das heisst aber nicht, dass sie selbst bipolar erkranken. Viele Kinder entwickeln sich stabil, besonders wenn sie verstehen dürfen, was los ist, und verlässliche Erwachsene an ihrer Seite haben.
 
 ## Schutzkreis
 
@@ -73,38 +73,39 @@ Gemeinsam und schriftlich, in einer ruhigen Phase festhalten:
 - Wer darf Schule, Kita oder Hort informieren?
 - Was soll das Kind ausdrücklich **nicht** übernehmen müssen?
 
-**Worauf beim Kind achten:** Wird das Kind unruhiger, stiller oder klammernder? Übernimmt es zu viel? Geraten Schule oder Schlaf durcheinander? Das sind keine automatischen Zeichen einer Kindeswohlgefährdung – aber Hinweise, dass Erklärung oder Entlastung fehlt.
+**Worauf beim Kind achten:** Wird das Kind unruhiger, stiller oder klammernder? Übernimmt es zu viel? Geraten Schule oder Schlaf durcheinander? Das sind keine automatischen Zeichen einer Kindeswohlgefährdung – aber Hinweise, dass Erklärung oder Entlastung nötig sein kann.
 
 ## Wann es um Kindeswohl geht
 
-Eine psychische Erkrankung bedeutet nicht automatisch, dass ein Kind gefährdet ist. Entscheidend ist die konkrete Lage: Ist das Kind versorgt und sicher? Gibt es eine verlässliche erwachsene Person? Sind Aufsicht, Schutz und emotionale Begleitung ausreichend gesichert?
+Eine psychische Erkrankung bedeutet nicht automatisch, dass ein Kind gefährdet ist. Entscheidend ist die konkrete Lage:
 
-Wenn Betreuung, Sicherheit oder Versorgung nicht zuverlässig gewährleistet sind, braucht es Hilfe – möglichst früh und einvernehmlich. Kindesschutz soll nicht stigmatisieren, sondern Kinder schützen und Eltern passende Unterstützung geben.
+- **Belastung:** Das Kind merkt Veränderungen, stellt Fragen oder braucht Erklärung.
+- **Unterstützungsbedarf:** Das Kind trägt zu viel mit, bekommt Angst oder Routinen brechen wiederholt weg.
+- **Dringlichkeit:** Betreuung, Aufsicht, Sicherheit oder Versorgung sind nicht mehr zuverlässig gewährleistet.
 
-Bei akuter Gefahr oder unsicherer Betreuung nicht abwarten – dann braucht es sofort eine geeignete Notfall- oder Fachstelle.
+Unterstützung im Kindesschutz soll nicht bestrafen oder stigmatisieren. Sie soll helfen, dass Kinder geschützt sind und Eltern passende Unterstützung bekommen. Bei akuter Gefahr oder unsicherer Betreuung nicht abwarten – dann braucht es sofort eine geeignete Notfall- oder Fachstelle.
 
-## Beratungsstellen im Kanton Zürich
+## Wenn Sie Unterstützung brauchen
 
-- **PUK Fachstelle Angehörigenarbeit / Elternberatung:** Beratung für erkrankte Eltern, Kinder und Angehörige; Gruppenangebot «Psychisch belastete Eltern und ihre Kinder stärken».
-- **Institut Kinderseele Schweiz:** Beratung für Eltern, Kinder und Angehörige.
-- **Kinder- und Jugendhilfezentren Kanton Zürich (kjz):** kostenlose regionale Beratung zu Familienalltag und Notlagen.
-- **Elternnotruf:** Beratung bei Krise und Überforderung, rund um die Uhr.
-- **PUK KJPP:** Abklärung und Behandlung, wenn ein Kind selbst deutlich belastet ist.
+- **Eltern überfordert / Erziehungsnot:** Elternnotruf oder kjz.
+- **Kind oder Jugendliche:r möchte selbst reden:** Pro Juventute Beratung für Kinder und Jugendliche.
+- **Familie mit psychisch belastetem Elternteil:** Institut Kinderseele Schweiz.
+- **Kinder- oder jugendpsychiatrische Krise:** PUK KJPP/KANT.
+- **Elternteil in PUK-Behandlung:** PUK Fachstelle Angehörigenarbeit; Gruppenangebot «Psychisch belastete Eltern und ihre Kinder stärken».
 
 ## Was Kindern guttut
 
-- Altersgerecht informieren, nicht mit Details überfordern
-- Schuld klar entlasten: «Du bist nicht verantwortlich»
+- erklären und entlasten: «Du bist nicht verantwortlich»
+- Routinen sichern und vertraute Erwachsene einbeziehen
 - Eltern ressourcenorientiert ansprechen, nicht nur über Defizite
-- Schule, Kita oder Hort behutsam einbeziehen, bevor es kippt
+- Schule, Kita oder Hort behutsam informieren, bevor es kippt
 
 ## Was Kinder zusätzlich belasten kann
 
-- So tun, als würden Kinder nichts merken
-- Kinder zur Vertrauensperson der Erwachsenen machen
-- Scham und Schweigen als Schutz verwechseln
-- Erst in der Krise organisieren, wer sich kümmert
-- Jede kindliche Reaktion sofort als Krankheit deuten
+- Schweigen, obwohl Kinder Veränderungen spüren
+- Schuld, Scham oder Erwachsenenrolle beim Kind lassen
+- erst in der Krise organisieren, wer sich kümmert
+- jede kindliche Reaktion sofort als Krankheit deuten
 
 ## Konkreter nächster Schritt
 
@@ -120,4 +121,4 @@ Und ergänzen Sie einen Satz für das Kind:
 
 ## Quellenbasis
 
-WHO-Leitlinie Parenting-Interventionen · Zürcher Leitfaden Kindeswohlgefährdung 2019 · NICE CG185 (Families and carers) · systematische Reviews/Metaanalysen zu Kindern psychisch erkrankter Eltern und parentaler Bipolarität · Family-Talk-Metaanalyse 2024
+WHO Parenting Interventions 2023 · Zürcher Leitfaden Kindeswohlgefährdung 2019 · NICE CG185 (Families and carers) · Moltrecht et al. 2024 zu Whole-Family-Programmen · Lapalme et al. 1997 zu Kindern bipolar erkrankter Eltern

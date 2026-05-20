@@ -12,7 +12,7 @@ Gleichzeitig ist die Serie an mehreren Stellen am oberen Dichtelimit. Das betrif
 
 **Am dichtesten / kritischsten nach P1-/P2-Fix:**
 
-1. `eltern_mit_bipolarer_stoerung.pdf`, Seite 2 — nach Entlastung noch 593 Wörter; gut gegliedert, aber weiterhin die dichteste Einzelseite.
+1. `eltern_mit_bipolarer_stoerung.pdf`, Seite 2 — nach erneuter Entlastung noch 576 Wörter; gut gegliedert, aber weiterhin die dichteste Einzelseite.
 2. `wenn_behandlung_abgelehnt_wird.pdf` — nach Kürzung 414 Wörter; komplexes Entscheidungs-/Rechtsthema, aber nicht mehr über der 450er-Risikomarke.
 3. `a6_bipolar_i_ii_mischzustaende.pdf` — 407 Wörter; fachlich dicht, durch Schwellen-/Mischmodell aber tragfähig.
 4. `schwieriges_ruhig_ansprechen.pdf` / `a2_phasenverlauf.pdf` — 405 bzw. 396 Wörter; im Beobachtungsbereich, aber nach Kürzung deutlich ruhiger.
@@ -72,7 +72,7 @@ Bewertungskriterien:
 | `c6_selbstfuersorge.pdf` | Die eigenen Kräfte schützen | A4 quer | 1 | 370 | 370 | gut | Akku-Metapher trägt, Entlastungs-/Warntexte gestrafft | P2/P3-Kürzung umgesetzt; behalten |
 | `a3_ambivalente_loyalitaet.pdf` | Ambivalente Loyalität | A4 quer | 1 | 282 | 282 | gut | Kein relevanter Dichtebefund | Behalten |
 | `a4_ambiguous_loss.pdf` | Trauer ohne klaren Abschied | A4 quer | 1 | 329 | 329 | gut | Einzelne Modellbeschriftungen klein, aber stimmig | Behalten |
-| `eltern_mit_bipolarer_stoerung.pdf` | Eltern bleiben – auch mit bipolarer Erkrankung | A4 hoch | 2 | 972 | 379 / 593 | beobachten | Seite 2 bleibt stoffreich, ist aber entlastet und der Kinder-Plan stärker priorisiert | Behalten; langfristig Anlaufstellen-Kompaktblatt prüfen |
+| `eltern_mit_bipolarer_stoerung.pdf` | Eltern bleiben – auch mit bipolarer Erkrankung | A4 hoch | 2 | 966 | 390 / 576 | beobachten | Seite 2 bleibt stoffreich, ist aber klarer gegliedert; Kindeswohl-Dreistufung und Kontaktmatrix verbessern die Praxisführung | Behalten; keine Telefonnummern im Praxisblatt ergänzen |
 | `absprachen_bevor_es_kippt.pdf` | Absprachen, bevor es kippt | A4 quer | 1 | 374 | 374 | gut | Absprachekarte und Wenn-dann-Zeile stehen stärker im Vordergrund | P2-Kürzung umgesetzt; behalten |
 | `schwieriges_ruhig_ansprechen.pdf` | Schwieriges ruhig ansprechen | A4 quer | 1 | 405 | 405 | gut bis beobachten | Satzbaukasten stark; linke Stolperstellen auf 4 Punkte reduziert; Akut-Grenze bleibt sichtbar | P2-Kürzung umgesetzt; behalten |
 | `wenn_behandlung_abgelehnt_wird.pdf` | Wenn Behandlung abgelehnt wird | A4 quer | 1 | 414 | 414 | beobachten | Drei-Spuren-Logik klarer; Thema bleibt rechtlich/ethisch anspruchsvoll | P2-Kürzung umgesetzt; langfristig 2-Seiten-Variante nur bei Bedarf |
@@ -91,9 +91,9 @@ Bewertungskriterien:
 
 **Ursprünglicher Befund:** Zwei Seiten A4 hoch, insgesamt 1004 Wörter. Seite 2 hatte 625 Wörter und bündelte Gesprächsskripte, Kindeswohl, Kinder-Plan, Beratungsstellen, Was-guttut/Was-belastet und den konkreten nächsten Schritt.
 
-**Umsetzung:** Seite 2 wurde sprachlich gestrafft; Gesprächsskripte, Kindeswohl-Absatz und Beratungsstellen sind kompakter. Der Kinder-Plan ist visuell stärker als Arbeitsblock gewichtet.
+**Umsetzung:** Seite 2 wurde sprachlich gestrafft; Gesprächsskripte, Kindeswohl-Absatz und Beratungsstellen sind kompakter. Der Kinder-Plan ist visuell stärker als Arbeitsblock gewichtet. Die erneute Überarbeitung formuliert Kindeswohl als Belastung / Unterstützungsbedarf / Dringlichkeit und ersetzt die Beratungsstellenliste durch eine situationsbezogene Kontaktmatrix ohne Telefonnummern-Leak.
 
-**Aktueller Stand:** 972 Wörter gesamt, verteilt auf 379 / 593 Wörter. Seite 2 bleibt die dichteste Seite des Sets, ist aber ruhiger und funktionaler. Eine spätere Auslagerung der Beratungsstellen in ein separates Kompaktblatt bleibt sinnvoll, aber ist kein Release-Blocker.
+**Aktueller Stand:** 966 Wörter gesamt, verteilt auf 390 / 576 Wörter. Seite 2 bleibt die dichteste Seite des Sets, ist aber ruhiger und funktionaler. Explizite Telefonnummern bleiben aus Taxonomiegründen auf Krisen-/Kontaktmaterialien und werden nicht in dieses Praxisblatt gezogen.
 
 ### 4.3 `wenn_behandlung_abgelehnt_wird.pdf` — P2 gekürzt, bleibt anspruchsvoll
 

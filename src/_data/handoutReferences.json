@@ -1,7 +1,7 @@
 {
   "references": {
     "nice_bipolar": "NICE (CG185): Bipolar disorder: assessment and management. Updated 2025-09-02. https://www.nice.org.uk/guidance/cg185",
-    "who_parenting_interventions": "WHO (2022): WHO guidelines on parenting interventions to prevent maltreatment and enhance parent-child relationships with children aged 0-17 years. https://www.who.int/publications/i/item/9789240065505",
+    "who_parenting_interventions": "WHO (2023): WHO guidelines on parenting interventions to prevent maltreatment and enhance parent-child relationships with children aged 0-17 years. https://www.who.int/publications/i/item/9789240065505",
     "zh_kindeswohl_leitfaden": "Kanton Zürich (2019): Leitfaden Kindeswohlgefährdung - Für Fachpersonen, die mit Kindern arbeiten. https://www.zh.ch/content/dam/zhweb/bilder-dokumente/organisation/bildungsdirektion/ajb/kindesschutzkommission/leitfaden_kindeswohlgefaehrdung_2019.pdf",
     "whole_family_programmes": "Moltrecht et al. (2024): Whole-family programmes for families living with parental mental illness: a systematic review and meta-analysis. European Child & Adolescent Psychiatry. https://doi.org/10.1007/s00787-024-02380-3",
     "bipolar_parent_offspring": "Lapalme et al. (1997): Children of Parents with Bipolar Disorder: A Metaanalysis of Risk for Mental Disorders. Canadian Journal of Psychiatry. https://doi.org/10.1177/070674379704200609",
@@ -44,7 +44,7 @@
     "schwieriges_ruhig_ansprechen": ["nice_bipolar", "perry_early_warning", "family_focused"],
     "behandlung_verstehen": ["nice_bipolar", "s3_bipolar", "adjunctive_psychotherapy_bipolar", "family_focused"],
     "wenn_behandlung_abgelehnt_wird": ["sgpp_sgbs_bipolar", "nice_bipolar", "fedlex_zgb", "promente_patientenverfuegung"],
-    "eltern_mit_bipolarer_stoerung": ["who_parenting_interventions", "zh_kindeswohl_leitfaden", "nice_bipolar", "whole_family_programmes", "bipolar_parent_offspring"],
+    "eltern_mit_bipolarer_stoerung": ["who_parenting_interventions", "zh_kindeswohl_leitfaden", "nice_bipolar", "whole_family_programmes", "bipolar_parent_offspring", "pro_juventute"],
     "a3_ambivalente_loyalitaet": ["nice_bipolar", "caregiver_burden", "family_focused"],
     "a4_ambiguous_loss": ["nice_bipolar", "ambiguous_loss", "caregiver_burden"],
     "a5_affiliate_stigma": ["stigma", "affiliate_stigma", "caregiver_burden"],
