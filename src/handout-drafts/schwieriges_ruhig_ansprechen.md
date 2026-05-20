@@ -21,18 +21,16 @@ Wenn Sorge da ist, hilft oft nicht mehr Druck, sondern ein Satz, der beobachtet 
 
 ## Worum es geht
 
-Angehörige sprechen schwierige Veränderungen selten leichtfertig an. Oft geht es um Schlaf, Tempo, Rückzug, Gereiztheit, Risiko, Hoffnungslosigkeit oder Aussagen, die beunruhigen.
+Angehörige sprechen schwierige Veränderungen selten leichtfertig an: Schlaf, Tempo, Rückzug, Gereiztheit, Risiko, Hoffnungslosigkeit oder beunruhigende Aussagen.
 
-Gespräche kippen schneller, wenn Sorge wie Kontrolle klingt oder wenn aus einer Beobachtung sofort eine Diagnose, ein Vorwurf oder eine Grundsatzdiskussion wird. Hilfreich ist oft ein kurzer Satz, der sichtbar macht: Was fällt auf? Warum macht es Sorge? Was wäre ein kleiner nächster Schritt?
+Gespräche kippen schneller, wenn Sorge wie Kontrolle klingt — oder aus einer Beobachtung sofort Diagnose, Vorwurf oder Grundsatzdiskussion wird.
 
 ## Woran Gespräche oft kippen
 
 - Es werden fünf Themen gleichzeitig angesprochen.
 - Aus einer Beobachtung wird sofort eine Deutung: «Du bist wieder …»
 - Der Zeitpunkt ist ungünstig: mitten in Streit, Übermüdung, Aktivierung oder Rückzug.
-- Angehörige versuchen zu beweisen, dass ihre Wahrnehmung stimmt.
-- Die betroffene Person hört vor allem Kontrolle, Kritik oder Misstrauen.
-- Sorgen werden so lange wiederholt, bis beide Seiten gereizt oder erschöpft sind.
+- Sorge wird bewiesen, wiederholt oder lauter, bis beide Seiten erschöpft sind.
 
 ## Das Drei-Satz-Modell
 
@@ -59,9 +57,9 @@ Gespräche kippen schneller, wenn Sorge wie Kontrolle klingt oder wenn aus einer
 
 ## Konkreter nächster Schritt
 
-Schreiben Sie heute einen Satz auf, der nur beschreibt: «Mir fällt auf, dass …» Ohne Diagnose. Ohne Vorwurf.
+Schreiben Sie heute nur drei Satzanfänge auf:
 
-Dann ergänzen Sie: «Ich mache mir Sorgen, weil …» und «Können wir als nächsten kleinen Schritt …?»
+> „Mir fällt auf, dass …“ „Ich mache mir Sorgen, weil …“ „Können wir als nächsten kleinen Schritt …?“
 
 Bei akuter Gefahr gilt der Notfallweg, nicht das Gespräch.
 

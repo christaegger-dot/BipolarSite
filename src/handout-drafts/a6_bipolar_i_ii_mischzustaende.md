@@ -21,15 +21,15 @@ Die Begriffe klingen technisch, beschreiben aber eine häufige Verwirrung: Wie s
 
 ## Worum es geht
 
-Angehörige sehen meist keine Diagnosekriterien, sondern Alltag: wenig Schlaf, mehr Tempo, Rückzug, Gereiztheit, Risikoverhalten, Scham oder Verzweiflung. Die Begriffe Bipolar I, Bipolar II und Mischbilder helfen, solche Muster vorsichtiger einzuordnen.
+Angehörige sehen meist Alltag, nicht Diagnosekriterien: wenig Schlaf, mehr Tempo, Rückzug, Gereiztheit, Risiko, Scham oder Verzweiflung. Die Begriffe helfen, Muster vorsichtig einzuordnen.
 
-Bipolar I, Bipolar II und Mischbilder sind keine Rangliste von «leicht» bis «schwer». Entscheidend ist, welche Muster zusammenkommen: Schlaf, Tempo, Stimmung, Risiko, Rückzug, Verzweiflung — und wie stark sie Alltag, Beziehung und Sicherheit verändern.
+Bipolar I, Bipolar II und Mischbilder sind keine Rangliste von «leicht» bis «schwer». Entscheidend ist, was zusammenkommt — und wie stark Alltag, Beziehung und Sicherheit kippen.
 
 ## Drei Unterscheidungen
 
 - **Bipolar I:** Mindestens eine Manie verändert Alltag, Urteil, Schlaf, Risiko oder Realitätsbezug deutlich.
 - **Bipolar II:** Hypomanien erreichen keine Manie. Depressive Episoden können trotzdem schwer, lang und alltagsprägend sein.
-- **Mischbild:** Aktivierung und depressive Belastung treten gleichzeitig auf: Unruhe, Schlafverlust, dunkle Stimmung, Gereiztheit oder Verzweiflung.
+- **Mischbild:** Aktivierung und depressive Belastung treten gleichzeitig auf.
 
 ## Entlastender Kernsatz
 
@@ -37,7 +37,7 @@ Weniger sichtbar bedeutet nicht weniger ernst. Für Angehörige zählt zuerst: W
 
 ## Konkreter nächster Schritt
 
-Bei einer verwirrenden Veränderung getrennt notieren: Schlaf, Tempo, Stimmung, Risiko und Rückzug. So wird sichtbarer, ob mehrere Muster gleichzeitig kippen.
+Bei verwirrenden Veränderungen getrennt notieren: Schlaf, Tempo, Stimmung, Risiko und Rückzug.
 
 ## Quellen
 
