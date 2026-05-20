@@ -29,8 +29,8 @@ Hilfreicher ist eine phasenorientierte Sicht. Nicht jede Massnahme zielt auf das
 
 Die vier Phasen sind kein Weg mit Ziellinie, sondern ein Kreis. Vorbeugen ist nie «erledigt», und früh reagieren führt bei Bedarf zurück in die akute Behandlung. Der Kompass zeigt, was gerade im Vordergrund steht — nicht eine feste Reihenfolge.
 
-- **Akut behandeln:** Sicherheit, Schlaf, Risiko und deutliche Symptomverdichtung brauchen fachliche Einschätzung. Hier geht es ums Beruhigen und Schützen, nicht ums Vorbeugen.
-- **Stabilisieren:** Was in der akuten Phase gewirkt hat, wird weitergeführt. Nebenwirkungen, Schlaf und Alltag werden mitbeobachtet, bis Tragfähigkeit zurückkehrt.
+- **Akut behandeln:** Wenn Symptome deutlich zunehmen, Schlaf wegbricht oder Risiken entstehen, braucht es fachliche Einschätzung. Hier geht es um Schutz, Reizreduktion und Sicherheit — nicht um lange Gespräche oder Vorbeugung.
+- **Stabilisieren:** Was in der akuten Phase geholfen hat, wird überprüft, weitergeführt oder angepasst. Nebenwirkungen, Schlaf und Alltag werden mitbeobachtet, bis wieder mehr Tragfähigkeit entsteht.
 - **Vorbeugen:** Rückfallprophylaxe, Psychoedukation, Psychotherapie, Schlaf- und Rhythmusstabilisierung und Angehörigeneinbezug greifen zusammen. Das ist die längste Phase — und die, in der Angehörige viel beitragen können.
 - **Früh reagieren:** Warnzeichen werden nicht dramatisiert, aber rechtzeitig und konkret besprochen. Eine kleine frühe Anpassung erspart oft eine grosse späte.
 
@@ -39,7 +39,7 @@ Die vier Phasen sind kein Weg mit Ziellinie, sondern ein Kreis. Vorbeugen ist ni
 Wahl und Dosierung der Medikamente gehören in fachliche Hände. Verstehen hilft trotzdem:
 
 - **Behandlung ist phasengerecht.** Was in der Manie sinnvoll ist, ist es in der Depression oder Vorbeugung nicht zwingend — unterschiedliche Mittel und Ziele sind kein Widerspruch, sondern die Logik.
-- **Antidepressiva spielen bei Bipolarität eine andere, vorsichtigere Rolle** als bei einer unipolaren Depression. «Mehr» oder «ein anderes» Antidepressivum ist keine Standardantwort — das ist kein Versäumnis der Behandlung, sondern Teil der phasengerechten Vorsicht.
+- **Antidepressiva spielen bei Bipolarität eine andere, vorsichtigere Rolle** als bei einer unipolaren Depression. Sie sind nicht einfach die Standardantwort auf jede depressive Phase und werden je nach Situation besonders sorgfältig abgewogen, kombiniert und überwacht.
 - **Anpassungen brauchen Zeit und Begleitung.** Ein abruptes Absetzen einer stabilisierenden Medikation ist ungünstig; Veränderungen werden begleitet, nicht erzwungen.
 - **Schlaf und Rhythmus sind ein eigener Hebel** — und der, den Angehörige am ehesten beobachten können. Verlauf, Schlaf, Nebenwirkungen, Absprachen und frühe Veränderungen sichtbar zu halten, ist ein realer Beitrag.
 
@@ -49,8 +49,10 @@ Vier Fragen, die im gemeinsamen Gespräch mit der behandelnden Person Orientieru
 
 - Welche Phase steht gerade im Vordergrund — Hochphase, Depression, Stabilisierung oder Vorbeugung?
 - Was ist das Behandlungsziel dieser Phase — beruhigen, aktivieren, stabilisieren oder vorbeugen?
-- Welche Kontrollen sind vereinbart — Blutwerte, Gewicht, Stoffwechsel, Nieren, Schilddrüse oder Spiegel?
+- Welche Kontrollen sind vereinbart — Blutwerte, Gewicht, Stoffwechsel, Nieren- und Schilddrüsenwerte oder Medikamentenspiegel?
 - Woran würden wir gemeinsam merken, dass nachjustiert werden sollte?
+
+Klären Sie möglichst früh, welche Informationen mit Angehörigen geteilt werden dürfen und welche Beobachtungen für das Behandlungsteam hilfreich sind.
 
 ## Konkreter nächster Schritt
 
@@ -62,4 +64,4 @@ Behandlung ist kein Entweder-oder. Sie ist ein Zusammenspiel aus fachlicher Ther
 
 ## Quellenbasis
 
-SGPP/SGBS Behandlungsempfehlungen Bipolare Störungen, Revision 2019 · NICE CG185, zuletzt aktualisiert 2025 · Adjunctive Psychotherapy for Bipolar Disorder, JAMA Psychiatry 2021 · Miklowitz & Chung 2016
+NICE CG185, zuletzt aktualisiert 2025 · S3-Leitlinie DGBS/DGPPN/AWMF Bipolare Störungen, 2019/2020 · Miklowitz et al. 2021: Adjunctive Psychotherapy for Bipolar Disorder · Miklowitz & Chung 2016: Family-Focused Therapy for Bipolar Disorder

@@ -65,7 +65,7 @@ Bewertungskriterien:
 | `a1_bipolare_stoerung_verstehen.pdf` | Die bipolare Störung verstehen | A4 quer | 1 | 393 | 393 | gut bis beobachten | Gute Phasenwelle; Grundwissen bleibt anspruchsvoll, aber gekürzt | P2-Kürzung umgesetzt; keine weitere Sofortmassnahme |
 | `a2_phasenverlauf.pdf` | Bipolarer Phasenverlauf | A4 quer | 1 | 396 | 396 | gut bis beobachten | Kurve trägt; Legende und Unterboxen wurden gestrafft | P2-Kürzung umgesetzt; keine weitere Sofortmassnahme |
 | `a6_bipolar_i_ii_mischzustaende.pdf` | Bipolar I, II und Mischbilder verstehen | A4 quer | 1 | 407 | 407 | beobachten | Fachlich komplexe Sortierung, aber Modelltexte knapper | P2-Kürzung umgesetzt; Modell behalten |
-| `behandlung_verstehen.pdf` | Behandlung gemeinsam verstehen | A4 quer | 2 | 683 | 356 / 327 | gut | P1-Dichtebefund behoben; Inhalt auf Kompass-Seite und Gesprächsseite verteilt | Behalten; bei künftigen Änderungen keine zusätzliche Verdichtung |
+| `behandlung_verstehen.pdf` | Behandlung gemeinsam verstehen | A4 quer | 2 | 751 | 348 / 403 | gut | P1-Dichtebefund behoben; Inhalt auf Kompass-Seite und Gesprächsseite verteilt | Behalten; bei künftigen Änderungen keine zusätzliche Verdichtung |
 | `a9_schlaf_fruehwarnsystem.pdf` | Schlaf als Frühwarnsystem | A4 quer | 1 | 307 | 307 | gut | Kein relevanter Dichtebefund | Behalten |
 | `a8_warnsignale.pdf` | Warnsignale früh erkennen | A4 quer | 1 | 314 | 314 | gut | Kein relevanter Dichtebefund | Behalten |
 | `b11_hypervigilanz_erschoepfung.pdf` | Ständige Wachsamkeit und Erschöpfung | A4 quer | 1 | 329 | 329 | gut | Radar-Metapher braucht Raum, ist aber gut lesbar | Behalten |
@@ -83,9 +83,9 @@ Bewertungskriterien:
 
 **Ursprünglicher Befund:** 569 Wörter auf einer A4-Querformat-Seite. Kompass, vier Phasen, Fragenblock und Medikationsteil konkurrierten auf engem Raum.
 
-**Umsetzung:** Das Blatt wurde auf zwei A4-Quer-Seiten verteilt. Seite 1 trägt jetzt Behandlungskompass, vier Phasen, Einordnung und Kernsatz. Seite 2 trägt «Nicht nur Medikation», die vier Gesprächsfragen und den konkreten nächsten Schritt.
+**Umsetzung:** Das Blatt wurde auf zwei A4-Quer-Seiten verteilt. Seite 1 trägt jetzt Behandlungskompass, vier Phasen und Einordnung. Seite 2 trägt «Nicht nur Medikation», die vier Gesprächsfragen, den Kernsatz und den konkreten nächsten Schritt.
 
-**Aktueller Stand:** 683 Wörter gesamt, verteilt auf 356 / 327 Wörter pro Seite. Das ist für ein komplexes Orientierungsblatt deutlich lesefreundlicher und nicht mehr der Dichte-Ausreisser der Serie.
+**Aktueller Stand:** 751 Wörter gesamt, verteilt auf 348 / 403 Wörter pro Seite. Das ist für ein komplexes Orientierungsblatt gut tragfähig, weil die fachliche Behandlungssystematik und die Gesprächsfragen nicht mehr auf einer Seite konkurrieren.
 
 ### 4.2 `eltern_mit_bipolarer_stoerung.pdf` — Seite 2 entlastet, bleibt aber stoffreich
 
@@ -140,7 +140,7 @@ Bewertungskriterien:
 ### P1 — Umgesetzt
 
 1. **`behandlung_verstehen.pdf` entschärft.**
-   Das Blatt ist jetzt zweisaitig im Querformat und nicht mehr der Dichte-Ausreisser.
+   Das Blatt ist jetzt zweiseitig im Querformat und nicht mehr der Dichte-Ausreisser.
 
 2. **`eltern_mit_bipolarer_stoerung.pdf`, Seite 2 entlastet.**
    Seite 2 wurde gekürzt und der Kinder-Plan stärker gewichtet; langfristige Auslagerung der Beratungsstellen bleibt optional.
