@@ -43,7 +43,7 @@
     "absprachen_bevor_es_kippt": ["nice_bipolar", "perry_early_warning", "s3_bipolar"],
     "schwieriges_ruhig_ansprechen": ["nice_bipolar", "perry_early_warning", "family_focused"],
     "behandlung_verstehen": ["nice_bipolar", "s3_bipolar", "adjunctive_psychotherapy_bipolar", "family_focused"],
-    "wenn_behandlung_abgelehnt_wird": ["sgpp_sgbs_bipolar", "nice_bipolar", "fedlex_zgb", "promente_patientenverfuegung"],
+    "wenn_behandlung_abgelehnt_wird": ["nice_bipolar", "fedlex_zgb", "promente_patientenverfuegung"],
     "eltern_mit_bipolarer_stoerung": ["who_parenting_interventions", "zh_kindeswohl_leitfaden", "nice_bipolar", "whole_family_programmes", "bipolar_parent_offspring", "pro_juventute"],
     "a3_ambivalente_loyalitaet": ["nice_bipolar", "caregiver_burden", "family_focused"],
     "a4_ambiguous_loss": ["nice_bipolar", "ambiguous_loss", "caregiver_burden"],

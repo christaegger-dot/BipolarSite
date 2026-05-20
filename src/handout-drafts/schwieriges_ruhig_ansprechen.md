@@ -21,7 +21,7 @@ Wenn Sorge da ist, hilft oft nicht mehr Druck, sondern ein Satz, der beobachtet 
 
 ## Worum es geht
 
-Angehörige sprechen schwierige Veränderungen selten leichtfertig an: Schlaf, Tempo, Rückzug, Gereiztheit, Risiko, Hoffnungslosigkeit oder beunruhigende Aussagen.
+Angehörige sprechen schwierige Veränderungen selten leichtfertig an: Schlaf, Tempo, Rückzug, Gereiztheit, Risiko, Hoffnungslosigkeit oder Aussagen, die Sorge um Sicherheit auslösen.
 
 Gespräche kippen schneller, wenn Sorge wie Kontrolle klingt — oder aus einer Beobachtung sofort Diagnose, Vorwurf oder Grundsatzdiskussion wird.
 
@@ -30,7 +30,7 @@ Gespräche kippen schneller, wenn Sorge wie Kontrolle klingt — oder aus einer 
 - Es werden fünf Themen gleichzeitig angesprochen.
 - Aus einer Beobachtung wird sofort eine Deutung: «Du bist wieder …»
 - Der Zeitpunkt ist ungünstig: mitten in Streit, Übermüdung, Aktivierung oder Rückzug.
-- Sorge wird bewiesen, wiederholt oder lauter, bis beide Seiten erschöpft sind.
+- Sorge wird immer wieder erklärt, bewiesen oder lauter, bis beide Seiten erschöpft sind.
 
 ## Das Drei-Satz-Modell
 
@@ -53,15 +53,15 @@ Gespräche kippen schneller, wenn Sorge wie Kontrolle klingt — oder aus einer 
 - diskutieren, wer die Situation richtig sieht
 - Warnzeichen sammeln und dann als Liste vorwerfen
 - immer lauter, länger oder dringlicher werden
-- bei akuter Gefahr weiterverhandeln, statt den Notfallweg zu nutzen
+- bei akuter Gefahr weiterverhandeln, statt Hilfe zu holen
 
 ## Konkreter nächster Schritt
 
-Schreiben Sie heute nur drei Satzanfänge auf:
+Schreiben Sie heute drei Satzanfänge auf:
 
 > „Mir fällt auf, dass …“ „Ich mache mir Sorgen, weil …“ „Können wir als nächsten kleinen Schritt …?“
 
-Bei akuter Gefahr gilt der Notfallweg, nicht das Gespräch.
+Bei akuter Gefahr zählt Sicherheit, nicht das Gespräch: Hilfe holen und Krisen- oder Notfallplan aktivieren.
 
 ## Entlastender Kernsatz
 
@@ -69,4 +69,4 @@ Ruhig ansprechen heisst nicht, alles richtig sagen zu müssen. Es heisst, Sorge 
 
 ## Quellenbasis
 
-NICE CG185 · Perry et al. 1999 · evidenzbasierte Frühwarnzeichenarbeit, Rückfallprävention, Familieninterventionen und Kommunikations-/Problemlöseansätze bei bipolarer Störung
+NICE CG185 · Perry et al. 1999 · Miklowitz & Chung 2016 zu familienfokussierter Kommunikation bei bipolarer Störung

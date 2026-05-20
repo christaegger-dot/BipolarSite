@@ -13,9 +13,9 @@ Gleichzeitig ist die Serie an mehreren Stellen am oberen Dichtelimit. Das betrif
 **Am dichtesten / kritischsten nach P1-/P2-Fix:**
 
 1. `eltern_mit_bipolarer_stoerung.pdf`, Seite 2 — nach erneuter Entlastung noch 576 Wörter; gut gegliedert, aber weiterhin die dichteste Einzelseite.
-2. `wenn_behandlung_abgelehnt_wird.pdf` — nach Kürzung 414 Wörter; komplexes Entscheidungs-/Rechtsthema, aber nicht mehr über der 450er-Risikomarke.
-3. `a6_bipolar_i_ii_mischzustaende.pdf` — 407 Wörter; fachlich dicht, durch Schwellen-/Mischmodell aber tragfähig.
-4. `schwieriges_ruhig_ansprechen.pdf` / `a2_phasenverlauf.pdf` — 405 bzw. 396 Wörter; im Beobachtungsbereich, aber nach Kürzung deutlich ruhiger.
+2. `wenn_behandlung_abgelehnt_wird.pdf` — nach erneuter Praxis-Schärfung 442 Wörter; komplexes Entscheidungs-/Rechtsthema, aber noch knapp unter der 450er-Risikomarke.
+3. `a2_phasenverlauf.pdf` / `schwieriges_ruhig_ansprechen.pdf` — 413 bzw. 411 Wörter; im Beobachtungsbereich, aber durch starke Visuals gut geführt.
+4. `a6_bipolar_i_ii_mischzustaende.pdf` — 407 Wörter; fachlich dicht, durch Schwellen-/Mischmodell aber tragfähig.
 5. `a1_bipolare_stoerung_verstehen.pdf` — 393 Wörter; Grundwissen bleibt dicht, aber die Phasenwelle trägt.
 
 **Layoutseitig besonders gelungen:**
@@ -63,19 +63,19 @@ Bewertungskriterien:
 | Datei | Titel | Format | Seiten | Wörter gesamt | Wörter pro Seite | Layouturteil | Hauptproblem | Empfohlene Massnahme |
 |---|---|---:|---:|---:|---|---|---|---|
 | `a1_bipolare_stoerung_verstehen.pdf` | Die bipolare Störung verstehen | A4 quer | 1 | 393 | 393 | gut bis beobachten | Gute Phasenwelle; Grundwissen bleibt anspruchsvoll, aber gekürzt | P2-Kürzung umgesetzt; keine weitere Sofortmassnahme |
-| `a2_phasenverlauf.pdf` | Bipolarer Phasenverlauf | A4 quer | 1 | 396 | 396 | gut bis beobachten | Kurve trägt; Legende und Unterboxen wurden gestrafft | P2-Kürzung umgesetzt; keine weitere Sofortmassnahme |
+| `a2_phasenverlauf.pdf` | Bipolarer Phasenverlauf | A4 quer | 1 | 413 | 413 | gut bis beobachten | Kurve trägt; Angehörige werden klarer vom Diagnostizieren entlastet; «stabilere Phase» und Übergänge präzisiert | Hybrid-Überarbeitung umgesetzt; keine weitere Sofortmassnahme |
 | `a6_bipolar_i_ii_mischzustaende.pdf` | Bipolar I, II und Mischbilder verstehen | A4 quer | 1 | 407 | 407 | beobachten | Fachlich komplexe Sortierung, aber Modelltexte knapper | P2-Kürzung umgesetzt; Modell behalten |
 | `behandlung_verstehen.pdf` | Behandlung gemeinsam verstehen | A4 quer | 2 | 751 | 348 / 403 | gut | P1-Dichtebefund behoben; Inhalt auf Kompass-Seite und Gesprächsseite verteilt | Behalten; bei künftigen Änderungen keine zusätzliche Verdichtung |
 | `a9_schlaf_fruehwarnsystem.pdf` | Schlaf als Frühwarnsystem | A4 quer | 1 | 307 | 307 | gut | Kein relevanter Dichtebefund | Behalten |
 | `a8_warnsignale.pdf` | Warnsignale früh erkennen | A4 quer | 1 | 314 | 314 | gut | Kein relevanter Dichtebefund | Behalten |
 | `b11_hypervigilanz_erschoepfung.pdf` | Ständige Wachsamkeit und Erschöpfung | A4 quer | 1 | 329 | 329 | gut | Radar-Metapher braucht Raum, ist aber gut lesbar | Behalten |
-| `c6_selbstfuersorge.pdf` | Die eigenen Kräfte schützen | A4 quer | 1 | 370 | 370 | gut | Akku-Metapher trägt, Entlastungs-/Warntexte gestrafft | P2/P3-Kürzung umgesetzt; behalten |
+| `c6_selbstfuersorge.pdf` | Die eigenen Kräfte schützen | A4 quer | 1 | 385 | 385 | gut | Akku-Metapher trägt; Textfassung ist gekürzt und sprachlich geglättet | P2/P3-Überarbeitung umgesetzt; behalten |
 | `a3_ambivalente_loyalitaet.pdf` | Ambivalente Loyalität | A4 quer | 1 | 282 | 282 | gut | Kein relevanter Dichtebefund | Behalten |
 | `a4_ambiguous_loss.pdf` | Trauer ohne klaren Abschied | A4 quer | 1 | 329 | 329 | gut | Einzelne Modellbeschriftungen klein, aber stimmig | Behalten |
 | `eltern_mit_bipolarer_stoerung.pdf` | Eltern bleiben – auch mit bipolarer Erkrankung | A4 hoch | 2 | 966 | 390 / 576 | beobachten | Seite 2 bleibt stoffreich, ist aber klarer gegliedert; Kindeswohl-Dreistufung und Kontaktmatrix verbessern die Praxisführung | Behalten; keine Telefonnummern im Praxisblatt ergänzen |
 | `absprachen_bevor_es_kippt.pdf` | Absprachen, bevor es kippt | A4 quer | 1 | 374 | 374 | gut | Absprachekarte und Wenn-dann-Zeile stehen stärker im Vordergrund | P2-Kürzung umgesetzt; behalten |
-| `schwieriges_ruhig_ansprechen.pdf` | Schwieriges ruhig ansprechen | A4 quer | 1 | 405 | 405 | gut bis beobachten | Satzbaukasten stark; linke Stolperstellen auf 4 Punkte reduziert; Akut-Grenze bleibt sichtbar | P2-Kürzung umgesetzt; behalten |
-| `wenn_behandlung_abgelehnt_wird.pdf` | Wenn Behandlung abgelehnt wird | A4 quer | 1 | 414 | 414 | beobachten | Drei-Spuren-Logik klarer; Thema bleibt rechtlich/ethisch anspruchsvoll | P2-Kürzung umgesetzt; langfristig 2-Seiten-Variante nur bei Bedarf |
+| `schwieriges_ruhig_ansprechen.pdf` | Schwieriges ruhig ansprechen | A4 quer | 1 | 411 | 411 | gut bis beobachten | Satzbaukasten stark; linke Stolperstellen auf 4 Punkte reduziert; Sicherheitsgrenze konkreter ohne Krisennummern | P2-Kürzung umgesetzt; behalten |
+| `wenn_behandlung_abgelehnt_wird.pdf` | Wenn Behandlung abgelehnt wird | A4 quer | 1 | 442 | 442 | beobachten | Drei-Spuren-Logik ist handlungsnäher; Thema bleibt rechtlich/ethisch anspruchsvoll | P2-Kürzung und Praxis-Schärfung umgesetzt; langfristig 2-Seiten-Variante nur bei Bedarf |
 
 ## 4. Einzelbefunde
 
@@ -99,9 +99,9 @@ Bewertungskriterien:
 
 **Ursprünglicher Befund:** 447 Wörter auf einer Seite. Die Drei-Spuren-Karte war klarer als ein Fliesstextblatt, aber für ein rechtlich, ethisch und akut geprägtes Thema knapp.
 
-**Umsetzung:** Worum-es-geht, Warnzeichenliste, Drei-Spuren-Texte, Dokumentationsblock und nächster Schritt wurden gekürzt. Die Karte bleibt ein 1-Seiter, aber die drei Spuren lesen sich schneller.
+**Umsetzung:** Worum-es-geht, Warnzeichenliste, Drei-Spuren-Texte, Dokumentationsblock und nächster Schritt wurden gekürzt. In der erneuten Überarbeitung wurde die Logik stärker auf «freiwillig anbieten / stabil vorsorgen / akut schützen» gestellt; die Sicherheitsgrenze lautet jetzt gedruckt verständlicher «Krisen- oder Notfallplan aktivieren und Hilfe holen».
 
-**Aktueller Stand:** 414 Wörter. Kein Release-Blocker. Eine 2-Seiten-Fassung wäre nur nötig, falls das Blatt später mehr Rechts-/Dokumentationslogik aufnehmen soll.
+**Aktueller Stand:** 442 Wörter. Kein Release-Blocker, aber weiterhin ein Beobachtungsblatt am oberen Rand für A4 quer. Eine 2-Seiten-Fassung wäre nur nötig, falls das Blatt später mehr Rechts-/Dokumentationslogik aufnehmen soll.
 
 ### 4.4 `absprachen_bevor_es_kippt.pdf` — P2 gekürzt, Arbeitsfläche gestärkt
 
@@ -117,23 +117,23 @@ Bewertungskriterien:
 
 **Umsetzung:** Einleitung gekürzt, Kippstellen von sechs auf vier Punkte reduziert, nächster Schritt auf drei Satzanfänge fokussiert.
 
-**Aktueller Stand:** 405 Wörter. Das Blatt bleibt substanzreich, aber die Gesprächsformel tritt klarer hervor; die kurze Akut-Grenze bleibt erhalten.
+**Aktueller Stand:** 411 Wörter im PDF-Textauszug; der Markdown-Body liegt bei 292 Wörtern. Das Blatt bleibt substanzreich, aber die Gesprächsformel tritt klarer hervor; die Akut-Grenze ist jetzt konkreter formuliert, ohne Krisennummern aufzunehmen.
 
 ### 4.6 `a1_bipolare_stoerung_verstehen.pdf`, `a2_phasenverlauf.pdf`, `a6_bipolar_i_ii_mischzustaende.pdf`
 
 **Ursprünglicher Befund:** Alle drei lagen bei 428-435 Wörtern. Nach reiner Wortzahl waren sie kritisch zu prüfen, visuell aber deutlich besser als klassische Textblätter.
 
-**Umsetzung:** A1 und A2 wurden in Legende, Erklärblöcken und nächstem Schritt gestrafft. A6 wurde in Worum-es-geht, Mischbild-Erklärung, Callouts und nächstem Schritt gekürzt.
+**Umsetzung:** A1 wurde in Legende, Erklärblöcken und nächstem Schritt gestrafft. A2 wurde nachträglich als Hybrid-Fassung geschärft: Kurvenlogik, Nicht-Diagnostizieren, «stabilere Phase» und Misch-/Übergangszustände sind klarer; der vollständige zusätzliche Warnzeichenblock wurde bewusst nicht übernommen, damit A2 nicht mit A8 konkurriert. A6 wurde in Worum-es-geht, Mischbild-Erklärung, Callouts und nächstem Schritt gekürzt.
 
-**Aktueller Stand:** A1 393 Wörter, A2 396 Wörter, A6 407 Wörter. Keine weitere Sofortkorrektur.
+**Aktueller Stand:** A1 393 Wörter, A2 413 Wörter, A6 407 Wörter. Keine weitere Sofortkorrektur.
 
 ### 4.7 `c6_selbstfuersorge.pdf` — P2/P3 gekürzt
 
 **Ursprünglicher Befund:** 412 Wörter. Der Akku war ein starkes Modell, aber für ein Entlastungsthema eher am oberen Rand.
 
-**Umsetzung:** Worum-es-geht, Akku-Legende, Hilfs-/Warnblock und nächster Schritt wurden gekürzt.
+**Umsetzung:** Worum-es-geht, Akku-Legende, Hilfs-/Warnblock und nächster Schritt wurden gekürzt. In der erneuten Überarbeitung wurde der Reframe «nicht Versagen» mit einem kurzen Hinweis auf eigene fachliche Hilfe ergänzt; die Quellen bleiben mit DOI im Footer.
 
-**Aktueller Stand:** 370 Wörter. Das Blatt liegt jetzt im Zielbereich für A4-Quer-Einseiter.
+**Aktueller Stand:** 385 Wörter im PDF-Textauszug; der Markdown-Body liegt bei 286 Wörtern. Das Blatt liegt im Zielbereich für A4-Quer-Einseiter.
 
 ## 5. Priorisierte Empfehlungen
 
