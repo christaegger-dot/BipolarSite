@@ -13,10 +13,10 @@ Gleichzeitig ist die Serie an mehreren Stellen am oberen Dichtelimit. Das betrif
 **Am dichtesten / kritischsten nach P1-/P2-Fix:**
 
 1. `eltern_mit_bipolarer_stoerung.pdf`, Seite 2 — nach erneuter Entlastung noch 576 Wörter; gut gegliedert, aber weiterhin die dichteste Einzelseite.
-2. `wenn_behandlung_abgelehnt_wird.pdf` — nach erneuter Praxis-Schärfung 442 Wörter; komplexes Entscheidungs-/Rechtsthema, aber noch knapp unter der 450er-Risikomarke.
+2. `a1_bipolare_stoerung_verstehen.pdf` / `a6_bipolar_i_ii_mischzustaende.pdf` / `wenn_behandlung_abgelehnt_wird.pdf` — 447 / 444 / 442 Wörter; alle liegen knapp unter der 450er-Risikomarke, werden aber von klaren Modellen getragen.
 3. `a2_phasenverlauf.pdf` / `schwieriges_ruhig_ansprechen.pdf` — 413 bzw. 411 Wörter; im Beobachtungsbereich, aber durch starke Visuals gut geführt.
-4. `a6_bipolar_i_ii_mischzustaende.pdf` — 407 Wörter; fachlich dicht, durch Schwellen-/Mischmodell aber tragfähig.
-5. `a1_bipolare_stoerung_verstehen.pdf` — 393 Wörter; Grundwissen bleibt dicht, aber die Phasenwelle trägt.
+4. `behandlung_verstehen.pdf`, Seite 2 — 403 Wörter; komplexes Thema, durch Zweiteilung nicht mehr überladen.
+5. `c6_selbstfuersorge.pdf` — 385 Wörter; Akku-Modell trägt, bei künftigen Änderungen aber nicht wieder ausbauen.
 
 **Layoutseitig besonders gelungen:**
 
@@ -62,9 +62,9 @@ Bewertungskriterien:
 
 | Datei | Titel | Format | Seiten | Wörter gesamt | Wörter pro Seite | Layouturteil | Hauptproblem | Empfohlene Massnahme |
 |---|---|---:|---:|---:|---|---|---|---|
-| `a1_bipolare_stoerung_verstehen.pdf` | Die bipolare Störung verstehen | A4 quer | 1 | 393 | 393 | gut bis beobachten | Gute Phasenwelle; Grundwissen bleibt anspruchsvoll, aber gekürzt | P2-Kürzung umgesetzt; keine weitere Sofortmassnahme |
+| `a1_bipolare_stoerung_verstehen.pdf` | Die bipolare Störung verstehen | A4 quer | 1 | 447 | 447 | beobachten | Gute Phasenwelle; Grundwissen ist klarer von Diagnostik abgegrenzt, aber am Dichtelimit | Hybrid-Schärfung umgesetzt; bei künftigen Änderungen nicht weiter verdichten |
 | `a2_phasenverlauf.pdf` | Bipolarer Phasenverlauf | A4 quer | 1 | 413 | 413 | gut bis beobachten | Kurve trägt; Angehörige werden klarer vom Diagnostizieren entlastet; «stabilere Phase» und Übergänge präzisiert | Hybrid-Überarbeitung umgesetzt; keine weitere Sofortmassnahme |
-| `a6_bipolar_i_ii_mischzustaende.pdf` | Bipolar I, II und Mischbilder verstehen | A4 quer | 1 | 407 | 407 | beobachten | Fachlich komplexe Sortierung, aber Modelltexte knapper | P2-Kürzung umgesetzt; Modell behalten |
+| `a6_bipolar_i_ii_mischzustaende.pdf` | Bipolar I, II und Mischbilder verstehen | A4 quer | 1 | 444 | 444 | beobachten | Mischmerkmale und Nicht-Diagnostizieren sind klarer, aber das Blatt liegt wieder am Dichtelimit | Hybrid-Schärfung umgesetzt; bei künftigen Änderungen nicht weiter verdichten |
 | `behandlung_verstehen.pdf` | Behandlung gemeinsam verstehen | A4 quer | 2 | 751 | 348 / 403 | gut | P1-Dichtebefund behoben; Inhalt auf Kompass-Seite und Gesprächsseite verteilt | Behalten; bei künftigen Änderungen keine zusätzliche Verdichtung |
 | `a9_schlaf_fruehwarnsystem.pdf` | Schlaf als Frühwarnsystem | A4 quer | 1 | 307 | 307 | gut | Kein relevanter Dichtebefund | Behalten |
 | `a8_warnsignale.pdf` | Warnsignale früh erkennen | A4 quer | 1 | 314 | 314 | gut | Kein relevanter Dichtebefund | Behalten |
@@ -123,9 +123,9 @@ Bewertungskriterien:
 
 **Ursprünglicher Befund:** Alle drei lagen bei 428-435 Wörtern. Nach reiner Wortzahl waren sie kritisch zu prüfen, visuell aber deutlich besser als klassische Textblätter.
 
-**Umsetzung:** A1 wurde in Legende, Erklärblöcken und nächstem Schritt gestrafft. A2 wurde nachträglich als Hybrid-Fassung geschärft: Kurvenlogik, Nicht-Diagnostizieren, «stabilere Phase» und Misch-/Übergangszustände sind klarer; der vollständige zusätzliche Warnzeichenblock wurde bewusst nicht übernommen, damit A2 nicht mit A8 konkurriert. A6 wurde in Worum-es-geht, Mischbild-Erklärung, Callouts und nächstem Schritt gekürzt.
+**Umsetzung:** A1 wurde nachträglich als Grundlagenblatt geschärft: «bipolare Störung» ersetzt «Bipolarität», «wieder vertraute Normalität» ersetzt «scheinbare Normalität», «stabilere Phasen» sind präziser gefasst und Angehörige werden explizit vom Diagnostizieren entlastet. A2 wurde als Hybrid-Fassung geschärft: Kurvenlogik, Nicht-Diagnostizieren, «stabilere Phase» und Misch-/Übergangszustände sind klarer; der vollständige zusätzliche Warnzeichenblock wurde bewusst nicht übernommen, damit A2 nicht mit A8 konkurriert. A6 wurde als Sortierblatt für Bipolar I, Bipolar II und Mischmerkmale geschärft: keine «leicht/schwer»-Rangliste, keine Diagnose-Rolle für Angehörige, konkretere Mischmerkmale und Selbstversorgung/Sicherheit als Belastungsmarker.
 
-**Aktueller Stand:** A1 393 Wörter, A2 413 Wörter, A6 407 Wörter. Keine weitere Sofortkorrektur.
+**Aktueller Stand:** A1 447 Wörter, A2 413 Wörter, A6 444 Wörter. Keine weitere Sofortkorrektur, aber A1 und A6 dürfen bei künftigen Änderungen nicht weiter wachsen.
 
 ### 4.7 `c6_selbstfuersorge.pdf` — P2/P3 gekürzt
 
@@ -153,8 +153,8 @@ Bewertungskriterien:
 2. **Praxisblätter stärker als Arbeitsflächen gestaltet.**
    `absprachen_bevor_es_kippt.pdf` fokussiert stärker auf die Wenn-dann-Zeile; `schwieriges_ruhig_ansprechen.pdf` fokussiert stärker auf die drei Satzanfänge.
 
-3. **Fachliche Orientierungsblätter leicht entschlackt.**
-   A1, A2 und A6 wurden um ca. 7-10 % gestrafft, ohne ihre Modelle zu verändern.
+3. **Fachliche Orientierungsblätter redaktionell geschärft.**
+   A1 wurde als Grundlagenblatt präzisiert, A2 wurde gestrafft, A6 wurde als I/II/Mischmerkmale-Sortierblatt geschärft; die Modelle bleiben unverändert.
 
 ### P3 — Langfristige Optimierungen
 
