@@ -1440,6 +1440,7 @@ p.surface-callout--positive {
 .surface-callout--crosslink,.notfall-crosslink{margin:var(--space-lg) 0 var(--space-xl);padding:var(--space-md) var(--space-lg);background:var(--surface-alt);border:1px solid var(--border-warm);border-radius:var(--radius-md)}
 .surface-callout--crosslink p,.notfall-crosslink p{margin:0;font-size:var(--text-base);line-height:1.65;color:var(--slate)}
 .surface-callout--crosslink strong,.notfall-crosslink strong{color:var(--navy-mid)}
+.notfall-crosslink .dl-btn{margin-top:var(--space-base)}
 @media(max-width:600px){.surface-callout-grid,.grauzone-grid{grid-template-columns:1fr}}
 
 /* ── Notfall Inline-Style Replacements ── */

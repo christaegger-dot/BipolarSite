@@ -25,7 +25,7 @@ export default defineConfig({
     },
   })),
   webServer: {
-    command: `npm run build && npx http-server _site -p ${port} --silent`,
+    command: `CONTEXT=production npm run build && npx http-server _site -p ${port} --silent`,
     url: baseURL,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,

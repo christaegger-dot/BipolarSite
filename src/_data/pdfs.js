@@ -629,11 +629,15 @@ const groups = {
   ],
   notfall: [downloads.suizidgedanken, downloads.manie, downloads.depression, downloads.psychoseWahn],
   publicDownloads: [
+    downloads.notfallkarte,
     downloads.krisenplanVorlage,
+    downloads.kurzblattStabilisiert,
     downloads.suizidgedanken,
     downloads.manie,
     downloads.depression,
     downloads.psychoseWahn,
+    downloads.kritischeZeitpunkte,
+    downloads.rechtlicheOrientierung,
   ],
 };
 
