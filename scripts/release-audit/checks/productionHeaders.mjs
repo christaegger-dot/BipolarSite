@@ -135,7 +135,7 @@ export async function runProductionHeadersCheck(context) {
         });
         continue;
       }
-      expectHeader(findings, url, response.headers, "cache-control", "max-age=604800", "medium");
+      expectHeader(findings, url, response.headers, "cache-control", "max-age=300", "medium");
       const contentType = response.headers.get("content-type") || "";
       if (!contentType.includes("application/pdf")) {
         findings.push({
