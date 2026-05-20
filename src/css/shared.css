@@ -1977,6 +1977,9 @@ a:visited {
 .entry-path-link--crisis:visited,
 .entry-path-link--understand:visited,
 .entry-path-link--limit:visited,
+.entry-path-link--relationship:visited,
+.entry-path-link--action:visited,
+.entry-path-link--longterm:visited,
 .tools-all-link:visited,
 .invitation-phone:visited,
 .invitation-email:visited,
@@ -2933,6 +2936,51 @@ body.impressum-page .surface-callout-box--quiet strong {
 
 .home-page .entry-path-link--limit:hover .entry-path-destination {
   color: var(--amber-dark);
+}
+
+/* ── Entry Path: «Beziehung» (Aubergine accent) ── */
+.home-page .entry-path-link--relationship::before {
+  background: var(--purple-dark);
+}
+
+.home-page .entry-path-link--relationship:hover {
+  background: var(--purple-light);
+  border-color: var(--purple-mid);
+  color: var(--purple-dark);
+}
+
+.home-page .entry-path-link--relationship:hover .entry-path-destination {
+  color: var(--purple-dark);
+}
+
+/* ── Entry Path: «Handeln» (Green accent) ── */
+.home-page .entry-path-link--action::before {
+  background: var(--phase-green);
+}
+
+.home-page .entry-path-link--action:hover {
+  background: var(--success-soft);
+  border-color: var(--teal-light);
+  color: var(--phase-green);
+}
+
+.home-page .entry-path-link--action:hover .entry-path-destination {
+  color: var(--phase-green);
+}
+
+/* ── Entry Path: «Langfristigkeit» (Teal accent) ── */
+.home-page .entry-path-link--longterm::before {
+  background: var(--teal-cta);
+}
+
+.home-page .entry-path-link--longterm:hover {
+  background: var(--surface-teal-mist);
+  border-color: var(--teal-muted);
+  color: var(--teal-text);
+}
+
+.home-page .entry-path-link--longterm:hover .entry-path-destination {
+  color: var(--teal-text);
 }
 
 .home-page .tools-highlight {
