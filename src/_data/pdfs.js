@@ -237,7 +237,7 @@ const handouts = {
     version: "web_v02",
     updated: "2026-05-17",
     filename: "behandlung_verstehen.pdf",
-    pages: "A4 quer · 1 Seite",
+    pages: "A4 quer · 2 Seiten",
     mode: "preview",
     quality: "new",
   }),

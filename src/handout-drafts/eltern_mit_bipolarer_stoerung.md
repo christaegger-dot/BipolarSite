@@ -51,15 +51,15 @@ Kinder brauchen keine Diagnosen, sondern altersgerechte Sätze ohne Schuldzuweis
 
 **Jüngere Kinder**
 
-> „Mama/Papa hat eine Krankheit, die manchmal die Stimmung, den Schlaf und die Kraft durcheinanderbringt. Du hast nichts falsch gemacht. Erwachsene helfen.“
+> „Mama/Papa hat eine Krankheit, die manchmal Stimmung, Schlaf und Kraft durcheinanderbringt. Du hast nichts falsch gemacht. Erwachsene helfen.“
 
 **Schulkinder**
 
-> „Die bipolare Erkrankung kann machen, dass Mama/Papa manchmal sehr wenig Kraft hat oder sehr viel Tempo. Das ist nicht deine Aufgabe zu lösen. Wir haben einen Plan, wer hilft.“
+> „Die bipolare Erkrankung kann machen, dass Mama/Papa manchmal sehr wenig Kraft hat oder sehr viel Tempo. Das musst du nicht lösen. Wir haben einen Plan, wer hilft.“
 
 **Jugendliche**
 
-> „Du darfst Fragen stellen. Du musst nicht die erwachsene Rolle übernehmen. Es gibt Fachpersonen und andere Erwachsene, die Verantwortung tragen.“
+> „Du darfst Fragen stellen. Du musst nicht die erwachsene Rolle übernehmen. Fachpersonen und andere Erwachsene tragen Verantwortung.“
 
 Kinder sollen wissen, dass sie reden dürfen – mit Eltern, Angehörigen oder einer vertrauten Fachperson.
 
@@ -73,20 +73,20 @@ Gemeinsam und schriftlich, in einer ruhigen Phase festhalten:
 - Wer darf Schule, Kita oder Hort informieren?
 - Was soll das Kind ausdrücklich **nicht** übernehmen müssen?
 
-**Worauf beim Kind achten:** Wird das Kind unruhiger, stiller oder klammernder? Übernimmt es zu viel Verantwortung? Zieht es sich zurück? Geraten Schule oder Schlaf durcheinander? Hat es Angst, etwas falsch zu machen? Das sind keine automatischen Zeichen einer Kindeswohlgefährdung – aber Hinweise, dass ein Kind Erklärung oder Entlastung braucht.
+**Worauf beim Kind achten:** Wird das Kind unruhiger, stiller oder klammernder? Übernimmt es zu viel? Geraten Schule oder Schlaf durcheinander? Das sind keine automatischen Zeichen einer Kindeswohlgefährdung – aber Hinweise, dass Erklärung oder Entlastung fehlt.
 
 ## Wann es um Kindeswohl geht
 
 Eine psychische Erkrankung bedeutet nicht automatisch, dass ein Kind gefährdet ist. Entscheidend ist die konkrete Lage: Ist das Kind versorgt und sicher? Gibt es eine verlässliche erwachsene Person? Sind Aufsicht, Schutz und emotionale Begleitung ausreichend gesichert?
 
-Wenn Betreuung, Sicherheit oder Versorgung nicht mehr zuverlässig gewährleistet sind, braucht es Hilfe – möglichst früh und möglichst einvernehmlich. Unterstützung beginnt deutlich vor einschneidenden Schritten. Kindesschutz soll nicht stigmatisieren, sondern sicherstellen, dass Kinder geschützt sind und Eltern passende Unterstützung bekommen.
+Wenn Betreuung, Sicherheit oder Versorgung nicht zuverlässig gewährleistet sind, braucht es Hilfe – möglichst früh und einvernehmlich. Kindesschutz soll nicht stigmatisieren, sondern Kinder schützen und Eltern passende Unterstützung geben.
 
-Bei akuter Gefahr oder wenn die Betreuung nicht mehr sicher ist, soll nicht abgewartet werden – dann braucht es sofort eine geeignete Notfall- oder Fachstelle.
+Bei akuter Gefahr oder unsicherer Betreuung nicht abwarten – dann braucht es sofort eine geeignete Notfall- oder Fachstelle.
 
 ## Beratungsstellen im Kanton Zürich
 
-- **PUK Fachstelle Angehörigenarbeit / Elternberatung:** Beratung für erkrankte Eltern, ihre Kinder und Angehörige; auch Gruppenangebot «Psychisch belastete Eltern und ihre Kinder stärken».
-- **Institut Kinderseele Schweiz:** kostenlose Beratung für Eltern, Kinder und Angehörige.
+- **PUK Fachstelle Angehörigenarbeit / Elternberatung:** Beratung für erkrankte Eltern, Kinder und Angehörige; Gruppenangebot «Psychisch belastete Eltern und ihre Kinder stärken».
+- **Institut Kinderseele Schweiz:** Beratung für Eltern, Kinder und Angehörige.
 - **Kinder- und Jugendhilfezentren Kanton Zürich (kjz):** kostenlose regionale Beratung zu Familienalltag und Notlagen.
 - **Elternnotruf:** Beratung bei Krise und Überforderung, rund um die Uhr.
 - **PUK KJPP:** Abklärung und Behandlung, wenn ein Kind selbst deutlich belastet ist.

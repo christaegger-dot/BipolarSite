@@ -13,6 +13,7 @@
       --ink: #2f2a26;
       --muted: #6d645d;
       --soft: #f6f0e7;
+      --soft-2: #fbf7f1;
       --line: rgba(47, 42, 38, 0.16);
       --paper: #fff;
       --teal: #287f87;
@@ -27,6 +28,15 @@
     }
 
     @page { size: A4 landscape; margin: 0; }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      font-variant-ligatures: none;
+      font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "hlig" 0, "calt" 0;
+      text-rendering: geometricPrecision;
+    }
 
     html,
     body {
@@ -45,27 +55,29 @@
 
     .handout {
       width: var(--page-w);
-      min-height: var(--page-h);
+      background: #fff;
     }
 
     .print-page {
       width: var(--page-w);
       height: var(--page-h);
-      box-sizing: border-box;
       overflow: hidden;
       padding: var(--margin-y) var(--margin-x);
       background: var(--paper);
       display: grid;
       grid-template-rows: auto 1fr auto;
-      gap: 3.6mm;
+      gap: 4.4mm;
+      break-after: page;
     }
+
+    .print-page:last-child { break-after: auto; }
 
     .sheet-header {
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 12mm;
       align-items: start;
-      padding-bottom: 3.2mm;
+      padding-bottom: 3.4mm;
       border-bottom: 1px solid var(--line);
     }
 
@@ -77,7 +89,7 @@
     .quote strong,
     .next-action strong,
     .compass-center,
-    .compass-label {
+    .question-number {
       font-family: var(--sans);
       text-transform: uppercase;
     }
@@ -93,16 +105,21 @@
 
     h1 {
       margin: 0;
-      max-width: 24ch;
+      max-width: 25ch;
       color: #746a62;
       font-size: 31px;
       line-height: 0.98;
       letter-spacing: 0;
     }
 
+    .page-2 h1 {
+      font-size: 27px;
+      max-width: 28ch;
+    }
+
     .lead {
       margin: 3.4mm 0 0;
-      max-width: 76ch;
+      max-width: 80ch;
       color: #4c453f;
       font-size: 12.45px;
       line-height: 1.29;
@@ -117,77 +134,74 @@
       color: var(--teal-dark);
       background: #fff;
       font-size: 8.3px;
-      line-height: 1;
+      line-height: 1.05;
       font-weight: 800;
       letter-spacing: 0.08em;
       white-space: nowrap;
     }
 
-    .content-grid {
-      display: grid;
-      grid-template-columns: 0.78fr 1.22fr;
-      gap: 8mm;
+    .page-grid {
       min-height: 0;
+      display: grid;
+      gap: 7mm;
     }
 
-    section {
+    .page-1-grid {
+      grid-template-columns: 0.72fr 1.28fr;
+      align-items: stretch;
+    }
+
+    .page-2-grid {
+      grid-template-columns: 1.12fr 0.88fr;
+      align-items: stretch;
+    }
+
+    section,
+    .panel,
+    .visual-card {
       min-width: 0;
     }
 
     h2 {
       margin: 0 0 2mm;
       color: var(--muted);
-      font-size: 9.2px;
+      font-size: 9.4px;
       line-height: 1.18;
       font-weight: 900;
       letter-spacing: 0.12em;
     }
 
     p {
-      margin: 0 0 2.5mm;
-      font-size: 10.3px;
-      line-height: 1.24;
+      margin: 0 0 2.6mm;
+      font-size: 10.7px;
+      line-height: 1.28;
     }
 
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
+    .intro-stack {
       display: grid;
-      gap: 1.05mm;
+      grid-template-rows: auto auto 1fr;
+      gap: 4mm;
     }
 
-    li {
-      position: relative;
-      padding-left: 4.1mm;
-      font-size: 9.05px;
-      line-height: 1.18;
+    .intro-card,
+    .panel,
+    .visual-card,
+    .quote,
+    .next-action {
+      border-radius: 8px;
+      box-shadow: inset 0 0 0 1px var(--line);
+      background: #fff;
     }
 
-    li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 1.15mm;
-      width: 1.35mm;
-      height: 1.35mm;
-      border-radius: 999px;
-      background: var(--teal);
-    }
-
-    .intro-block {
-      margin-bottom: 3.2mm;
-    }
-
-    .questions {
-      margin-top: 3.5mm;
+    .intro-card,
+    .panel {
+      padding: 4mm;
     }
 
     .quote {
-      margin-top: 3.8mm;
-      padding: 3mm 3.4mm;
-      border-left: 3px solid var(--teal);
-      border-radius: 6px;
+      align-self: end;
+      padding: 4mm 4.4mm;
+      border-left: 4px solid var(--teal);
       background: rgba(40, 127, 135, 0.06);
       box-shadow: inset 0 0 0 1px rgba(40, 127, 135, 0.16);
     }
@@ -195,9 +209,9 @@
     .quote strong,
     .next-action strong {
       display: block;
-      margin-bottom: 1mm;
+      margin-bottom: 1.2mm;
       color: var(--teal-dark);
-      font-size: 8.7px;
+      font-size: 8.9px;
       line-height: 1.15;
       font-weight: 900;
       letter-spacing: 0.1em;
@@ -206,32 +220,29 @@
     .quote p,
     .next-action p {
       margin: 0;
-      font-size: 10.2px;
-      line-height: 1.22;
+      font-size: 11px;
+      line-height: 1.27;
     }
 
     .visual-card {
       min-height: 0;
-      overflow: hidden;
       display: grid;
-      grid-template-rows: auto auto auto 1fr;
-      gap: 1.6mm;
-      padding: 2.7mm;
+      grid-template-rows: auto auto 1fr;
+      gap: 3.2mm;
+      padding: 4mm;
       border: 1px solid var(--line);
-      border-radius: 7px;
-      background: #fff;
     }
 
     .visual-title {
       margin: 0;
       color: var(--teal-dark);
-      font-size: 9.6px;
+      font-size: 9.7px;
       letter-spacing: 0.13em;
     }
 
     .compass-frame {
-      padding: 1.7mm 2.2mm;
-      border-radius: 6px;
+      padding: 2.3mm 2.8mm;
+      border-radius: 7px;
       background: var(--soft);
       color: var(--muted);
       box-shadow: inset 0 0 0 1px rgba(47, 42, 38, 0.12);
@@ -239,65 +250,60 @@
 
     .compass-frame p {
       margin: 0;
-      font-size: 8.65px;
-      line-height: 1.18;
+      font-size: 9.2px;
+      line-height: 1.2;
     }
 
-    .compass-grid {
+    .compass-layout {
+      min-height: 0;
       display: grid;
-      grid-template-columns: 45mm 1fr;
-      gap: 2.7mm;
-      align-items: stretch;
+      grid-template-columns: 75mm 1fr;
+      gap: 4.4mm;
+      align-items: center;
     }
 
     .compass-graphic {
       position: relative;
-      min-height: 50mm;
+      min-height: 72mm;
       display: grid;
       place-items: center;
-      border-radius: 7px;
+      border-radius: 8px;
       background: linear-gradient(180deg, rgba(40, 127, 135, 0.025), rgba(246, 240, 231, 0.22));
       border: 1px solid rgba(47, 42, 38, 0.11);
     }
 
     .compass-svg {
-      width: 40mm;
-      height: 40mm;
+      width: 64mm;
+      height: 64mm;
       overflow: visible;
     }
 
     .compass-center {
-      font-size: 6.3px;
+      font-size: 6.8px;
       font-weight: 900;
       letter-spacing: 0.08em;
       fill: var(--teal-dark);
     }
 
-    .compass-label {
-      font-size: 5.4px;
-      font-weight: 900;
-      letter-spacing: 0.05em;
-    }
-
     .phase-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.45mm;
+      gap: 2.4mm;
     }
 
     .phase-card {
-      min-height: 22mm;
-      padding: 1.8mm 2mm;
+      min-height: 30mm;
+      padding: 3mm;
       border: 1px solid rgba(47, 42, 38, 0.13);
-      border-left: 3px solid var(--teal);
-      border-radius: 6px;
+      border-left: 4px solid var(--teal);
+      border-radius: 7px;
       background: #fff;
     }
 
     .phase-card h3 {
-      margin: 0 0 0.8mm;
+      margin: 0 0 1.3mm;
       color: var(--ink);
-      font-size: 8.3px;
+      font-size: 8.8px;
       line-height: 1.1;
       font-weight: 900;
       letter-spacing: 0.08em;
@@ -306,15 +312,14 @@
     .phase-card p {
       margin: 0;
       color: var(--muted);
-      font-size: 7.65px;
-      line-height: 1.1;
+      font-size: 9.15px;
+      line-height: 1.22;
     }
 
     .phase-card.acute { border-left-color: var(--rose); background: rgba(154, 79, 69, 0.055); }
     .phase-card.stabilize { border-left-color: var(--amber); background: rgba(138, 101, 15, 0.055); }
     .phase-card.prevent {
       border-left-color: var(--green);
-      border-left-width: 4px;
       background: rgba(63, 115, 87, 0.1);
       box-shadow: inset 0 0 0 1px rgba(63, 115, 87, 0.18);
     }
@@ -323,54 +328,118 @@
 
     .knowledge-box {
       display: grid;
-      grid-template-rows: auto auto 1fr;
-      padding: 2.4mm 2.9mm;
-      border-radius: 6px;
+      align-content: start;
+      align-self: start;
+      padding: 4mm;
+      border-radius: 8px;
       background: var(--soft);
       box-shadow: inset 0 0 0 1px rgba(47, 42, 38, 0.12);
     }
 
     .kicker {
-      margin: 0 0 1.2mm;
+      margin: 0 0 2mm;
       color: var(--teal-dark);
-      font-size: 9.2px;
+      font-size: 9.6px;
       font-weight: 900;
       letter-spacing: 0.1em;
     }
 
     .knowledge-box p {
-      margin: 0 0 1.4mm;
+      margin: 0 0 2.6mm;
       color: var(--muted);
-      font-size: 9px;
-      line-height: 1.18;
+      font-size: 10.45px;
+      line-height: 1.24;
     }
 
-    .knowledge-box ul {
+    .knowledge-box ul,
+    .questions-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2mm 3.2mm;
+      gap: 2.2mm;
       align-content: start;
     }
 
+    .knowledge-box ul {
+      grid-template-columns: 1fr 1fr;
+      gap: 3mm;
+    }
+
     .knowledge-box li {
-      min-height: 17mm;
-      padding-top: 1.25mm;
-      padding-right: 1mm;
-      border-top: 1px solid rgba(47, 42, 38, 0.12);
-      font-size: 8.2px;
-      line-height: 1.16;
+      min-height: 34mm;
+      padding: 3mm 3mm 3mm 7mm;
+      position: relative;
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: inset 0 0 0 1px rgba(47, 42, 38, 0.1);
+      font-size: 10px;
+      line-height: 1.24;
+    }
+
+    .knowledge-box li::before {
+      content: "";
+      position: absolute;
+      left: 3mm;
+      top: 3.2mm;
+      width: 1.6mm;
+      height: 1.6mm;
+      border-radius: 999px;
+      background: var(--teal);
     }
 
     .knowledge-box b {
       color: var(--ink);
     }
 
-    .next-action {
-      margin-top: 3.2mm;
-      padding: 1.7mm 2.5mm;
-      border-left: 3px solid var(--teal);
-      border-radius: 6px;
+    .right-stack {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 4mm;
+    }
+
+    .questions-panel {
+      display: grid;
+      gap: 3mm;
+    }
+
+    .question-card {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 2.4mm;
+      align-items: start;
+      padding: 3mm;
+      border-radius: 8px;
       background: #fff;
+      box-shadow: inset 0 0 0 1px var(--line);
+    }
+
+    .question-number {
+      display: inline-flex;
+      width: 6.3mm;
+      height: 6.3mm;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: var(--teal);
+      color: #fff;
+      font-size: 8px;
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: 0.03em;
+    }
+
+    .question-card p {
+      margin: 0;
+      font-size: 10.25px;
+      line-height: 1.23;
+    }
+
+    .next-action {
+      align-self: end;
+      padding: 4mm;
+      border-left: 4px solid var(--teal);
+      background: rgba(40, 127, 135, 0.055);
       box-shadow: inset 0 0 0 1px rgba(40, 127, 135, 0.18);
     }
 
@@ -412,19 +481,19 @@
 </head>
 <body>
   <main class="handout">
-    <article class="print-page" aria-label="Behandlung gemeinsam verstehen">
+    <article class="print-page page-1" aria-label="Behandlung gemeinsam verstehen, Seite 1">
       <header class="sheet-header">
         <div>
           <p class="eyebrow">Fachstelle Angehörigenarbeit · Orientierungsblatt</p>
           <h1>Behandlung gemeinsam verstehen</h1>
           <p class="lead">Wer die Logik dahinter kennt — welche Phase, welches Ziel, woran sich etwas zeigt — kann mitdenken und mitsprechen, ohne fachliche Entscheidungen übernehmen zu müssen. Dieses Blatt ersetzt keine fachliche Abklärung, Diagnose oder Behandlung.</p>
         </div>
-        <div class="tag">A4 quer · Behandlungskompass · Stand 17. Mai 2026</div>
+        <div class="tag">A4 quer · Behandlungskompass<br>Stand 17. Mai 2026</div>
       </header>
 
-      <div class="content-grid">
-        <section aria-labelledby="worum-es-geht">
-          <div class="intro-block">
+      <div class="page-grid page-1-grid">
+        <section class="intro-stack" aria-labelledby="worum-es-geht">
+          <div class="intro-card">
             <h2 id="worum-es-geht">Worum es geht</h2>
             <p>Für Angehörige wirkt Behandlung manchmal unübersichtlich: Medikamente, Psychotherapie, Schlaf, Blutkontrollen, Frühwarnzeichen, Angehörigengespräche und Krisenwege stehen nebeneinander.</p>
             <p>Hilfreicher ist eine phasenorientierte Sicht. Nicht jede Massnahme zielt auf dasselbe — und nicht alles ist gleichzeitig dran. Wenn klar ist, welche Phase gerade trägt und welches Ziel sie hat, lässt sich im Behandlungsgespräch mitdenken, statt nur zuzusehen.</p>
@@ -433,21 +502,6 @@
           <div class="quote">
             <strong>Entlastender Kernsatz</strong>
             <p>Behandlung ist kein Entweder-oder. Sie ist ein Zusammenspiel aus fachlicher Therapie, Rhythmus, Beobachtung und Absprachen.</p>
-          </div>
-
-          <div class="questions">
-            <h2>Fragen fürs nächste Behandlungsgespräch</h2>
-            <ul>
-              <li>Welche Phase steht gerade im Vordergrund — Hochphase, Depression, Stabilisierung oder Vorbeugung?</li>
-              <li>Was ist das Behandlungsziel dieser Phase — beruhigen, aktivieren, stabilisieren oder vorbeugen?</li>
-              <li>Welche Kontrollen sind vereinbart — Blutwerte, Gewicht, Stoffwechsel, Nieren, Schilddrüse oder Spiegel?</li>
-              <li>Woran würden wir gemeinsam merken, dass nachjustiert werden sollte?</li>
-            </ul>
-          </div>
-
-          <div class="next-action" data-required="next-action">
-            <strong>Konkreter nächster Schritt</strong>
-            <p>Bestimmen Sie für heute nur eines: Welche Phase steht gerade im Vordergrund? Notieren Sie eine sichtbare Veränderung mit Datum — und nehmen Sie die vier Fragen ins nächste Behandlungsgespräch mit.</p>
           </div>
         </section>
 
@@ -458,9 +512,9 @@
             <p>Die vier Phasen sind kein Weg mit Ziellinie, sondern ein Kreis. Vorbeugen ist nie «erledigt», und früh reagieren führt bei Bedarf zurück in die akute Behandlung. Der Kompass zeigt, was gerade im Vordergrund steht — nicht eine feste Reihenfolge.</p>
           </div>
 
-          <div class="compass-grid">
-            <div class="compass-graphic" aria-hidden="true">
-              <svg class="compass-svg" viewBox="0 0 180 180" role="img" aria-label="Kreisförmiger Behandlungskompass">
+          <div class="compass-layout">
+            <div class="compass-graphic">
+              <svg class="compass-svg" viewBox="0 0 180 180" role="img" aria-label="Kreisförmiger Behandlungskompass mit vier Phasen: akut behandeln, stabilisieren, vorbeugen, früh reagieren.">
                 <circle cx="90" cy="90" r="70" fill="none" stroke="rgba(47,42,38,0.1)" stroke-width="14"></circle>
                 <circle cx="90" cy="90" r="70" fill="none" stroke="#9a4f45" stroke-width="14" stroke-linecap="round" pathLength="100" stroke-dasharray="21 79" stroke-dashoffset="25" transform="rotate(-90 90 90)"></circle>
                 <circle cx="90" cy="90" r="70" fill="none" stroke="#8a650f" stroke-width="14" stroke-linecap="round" pathLength="100" stroke-dasharray="19 81" stroke-dashoffset="0" transform="rotate(-90 90 90)"></circle>
@@ -485,7 +539,7 @@
               </div>
               <div class="phase-card prevent">
                 <h3>Vorbeugen</h3>
-                <p>Rückfallprophylaxe, Psychoedukation, Psychotherapie, Schlaf- und Rhythmusstabilisierung und Angehörigeneinbezug greifen zusammen. Das ist die längste Phase — und die, in der Angehörige am meisten beitragen können.</p>
+                <p>Rückfallprophylaxe, Psychoedukation, Psychotherapie, Schlaf- und Rhythmusstabilisierung und Angehörigeneinbezug greifen zusammen. Das ist die längste Phase — und die, in der Angehörige viel beitragen können.</p>
               </div>
               <div class="phase-card react">
                 <h3>Früh reagieren</h3>
@@ -493,16 +547,53 @@
               </div>
             </div>
           </div>
+        </section>
+      </div>
 
-          <div class="knowledge-box">
-            <p class="kicker">Nicht nur Medikation — was gut zu wissen hilft</p>
-            <p>Wahl und Dosierung der Medikamente gehören in fachliche Hände. Verstehen hilft trotzdem:</p>
-            <ul>
-              <li><b>Behandlung ist phasengerecht.</b> Was in der Manie sinnvoll ist, ist es in der Depression oder Vorbeugung nicht zwingend — unterschiedliche Mittel und Ziele sind kein Widerspruch, sondern die Logik.</li>
-              <li><b>Antidepressiva spielen bei Bipolarität eine andere, vorsichtigere Rolle</b> als bei einer unipolaren Depression. «Mehr» oder «ein anderes» Antidepressivum ist keine Standardantwort — das ist kein Versäumnis der Behandlung, sondern Teil der phasengerechten Vorsicht.</li>
-              <li><b>Anpassungen brauchen Zeit und Begleitung.</b> Ein abruptes Absetzen einer stabilisierenden Medikation ist ungünstig; Veränderungen werden begleitet, nicht erzwungen.</li>
-              <li><b>Schlaf und Rhythmus sind ein eigener Hebel</b> — und der, den Angehörige am ehesten beobachten können. Verlauf, Schlaf, Nebenwirkungen, Absprachen und frühe Veränderungen sichtbar zu halten, ist ein realer Beitrag.</li>
-            </ul>
+      <footer class="footer">
+        <div class="footer-main">
+          <span>Fachstelle Angehörigenarbeit · Psychiatrische Universitätsklinik Zürich</span>
+          <span>behandlung-verstehen v02 · Stand 17. Mai 2026 · Seite 1 von 2</span>
+        </div>
+      </footer>
+    </article>
+
+    <article class="print-page page-2" aria-label="Behandlung gemeinsam verstehen, Seite 2">
+      <header class="sheet-header">
+        <div>
+          <p class="eyebrow">Fachstelle Angehörigenarbeit · Orientierungsblatt</p>
+          <h1>Im Gespräch sortieren</h1>
+          <p class="lead">Die fachlichen Entscheidungen bleiben beim Behandlungsteam. Angehörige können trotzdem Orientierung beitragen: Was ist sichtbar? Was verändert sich? Was sollte gemeinsam nachgefragt werden?</p>
+        </div>
+        <div class="tag">A4 quer · Behandlungskompass<br>Stand 17. Mai 2026</div>
+      </header>
+
+      <div class="page-grid page-2-grid">
+        <section class="knowledge-box" aria-labelledby="nicht-nur-medikation">
+          <p id="nicht-nur-medikation" class="kicker">Nicht nur Medikation — was gut zu wissen hilft</p>
+          <p>Wahl und Dosierung der Medikamente gehören in fachliche Hände. Verstehen hilft trotzdem:</p>
+          <ul>
+            <li><b>Behandlung ist phasengerecht.</b> Was in der Manie sinnvoll ist, ist es in der Depression oder Vorbeugung nicht zwingend — unterschiedliche Mittel und Ziele sind kein Widerspruch, sondern die Logik.</li>
+            <li><b>Antidepressiva spielen bei Bipolarität eine andere, vorsichtigere Rolle</b> als bei einer unipolaren Depression. «Mehr» oder «ein anderes» Antidepressivum ist keine Standardantwort — das ist kein Versäumnis der Behandlung, sondern Teil der phasengerechten Vorsicht.</li>
+            <li><b>Anpassungen brauchen Zeit und Begleitung.</b> Ein abruptes Absetzen einer stabilisierenden Medikation ist ungünstig; Veränderungen werden begleitet, nicht erzwungen.</li>
+            <li><b>Schlaf und Rhythmus sind ein eigener Hebel</b> — und der, den Angehörige am ehesten beobachten können. Verlauf, Schlaf, Nebenwirkungen, Absprachen und frühe Veränderungen sichtbar zu halten, ist ein realer Beitrag.</li>
+          </ul>
+        </section>
+
+        <section class="right-stack" aria-labelledby="fragen">
+          <div class="panel questions-panel">
+            <h2 id="fragen">Fragen fürs nächste Behandlungsgespräch</h2>
+            <div class="questions-list">
+              <div class="question-card"><span class="question-number">1</span><p>Welche Phase steht gerade im Vordergrund — Hochphase, Depression, Stabilisierung oder Vorbeugung?</p></div>
+              <div class="question-card"><span class="question-number">2</span><p>Was ist das Behandlungsziel dieser Phase — beruhigen, aktivieren, stabilisieren oder vorbeugen?</p></div>
+              <div class="question-card"><span class="question-number">3</span><p>Welche Kontrollen sind vereinbart — Blutwerte, Gewicht, Stoffwechsel, Nieren, Schilddrüse oder Spiegel?</p></div>
+              <div class="question-card"><span class="question-number">4</span><p>Woran würden wir gemeinsam merken, dass nachjustiert werden sollte?</p></div>
+            </div>
+          </div>
+
+          <div class="next-action" data-required="next-action">
+            <strong>Konkreter nächster Schritt</strong>
+            <p>Bestimmen Sie für heute nur eines: Welche Phase steht gerade im Vordergrund? Notieren Sie eine sichtbare Veränderung mit Datum — und nehmen Sie die vier Fragen ins nächste Behandlungsgespräch mit.</p>
           </div>
         </section>
       </div>
@@ -510,7 +601,7 @@
       <footer class="footer">
         <div class="footer-main">
           <span>Fachstelle Angehörigenarbeit · Psychiatrische Universitätsklinik Zürich</span>
-          <span>behandlung-verstehen v02 · Stand 17. Mai 2026 · Seite 1 von 1</span>
+          <span>behandlung-verstehen v02 · Stand 17. Mai 2026 · Seite 2 von 2</span>
         </div>
         <div>Quellen: SGPP/SGBS Behandlungsempfehlungen Bipolare Störungen, Revision 2019 · NICE CG185, zuletzt aktualisiert 2025 · Adjunctive Psychotherapy for Bipolar Disorder, JAMA Psychiatry 2021 · Miklowitz &amp; Chung 2016</div>
       </footer>
