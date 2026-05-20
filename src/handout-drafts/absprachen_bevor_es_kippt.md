@@ -21,32 +21,32 @@ Wenn sich Warnzeichen verdichten, ist es oft zu spät für ruhiges Verhandeln. A
 
 ## Worum es geht
 
-Viele Angehörige merken rückblickend: Es gab frühe Zeichen. Schlaf wurde kürzer, Tempo nahm zu, Rückzug wurde stärker, Hoffnungslosigkeit dichter, Risiko grösser oder Gespräche kippten schneller.
+Viele Angehörige merken rückblickend: Es gab frühe Zeichen — weniger Schlaf, mehr Tempo, Rückzug, Hoffnungslosigkeit, Risiko oder Gespräche, die schneller kippten.
 
-Eine Absprache ist deshalb keine Kontrolle und kein Misstrauen. Sie hält kurz fest: Welche Zeichen zählen? Wie darf Sorge angesprochen werden? Wer wird wann einbezogen? Und was gilt, wenn Sicherheit, Schlaf, Geld, Beziehung oder Alltag spürbar gefährdet sind?
+Eine Absprache ist keine Kontrolle. Sie hält kurz fest: Welche Zeichen zählen? Wie sprechen wir Sorge an? Wer kommt wann dazu? Was gilt, wenn Sicherheit, Schlaf, Geld oder Alltag kippen?
 
 ## Woran Sie merken können, dass eine Absprache fehlt
 
 - Alle warten, bis es «eindeutig genug» ist.
 - Gespräche drehen sich darum, wer recht hat, statt was als Nächstes hilft.
-- Angehörige wissen nicht, ob sie jemanden informieren dürfen.
-- Themen wie Schlaf, Geld, Autofahren, Termine, Medikamente, Kinderbetreuung oder Social Media werden erst in der Zuspitzung verhandelt.
+- Niemand weiss, wer informiert werden darf.
+- Schlaf, Geld, Autofahren, Termine oder Kinderbetreuung werden erst in der Zuspitzung verhandelt.
 - Nach einer Krise bleibt unklar, was beim nächsten Mal früher geschehen soll.
 
 ## Die Absprachekarte: vier Dinge vorher klären
 
 1. **Frühzeichen:** Welche drei Veränderungen sind bei uns besonders wichtig? Schlaf, Tempo, Rückzug, Hoffnungslosigkeit, Risiko oder Erreichbarkeit.
-2. **Satz:** Wie darf Sorge ruhig, konkret und kurz angesprochen werden?
-3. **Einbeziehen:** Wer darf früh dazukommen, und welche Informationen dürfen geteilt werden?
-4. **Schutzweg:** Was wird bei deutlicher Verdichtung nicht erst neu verhandelt: Schlafschutz, Geld, Autofahren, Unterstützung oder Notfallweg?
+2. **Satz:** Wie klingt Sorge ruhig und kurz — ohne Diagnose oder Vorwurf?
+3. **Einbeziehen:** Wer darf früh dazukommen? Was darf weitergegeben werden?
+4. **Schutzweg:** Was wird nicht neu verhandelt: Schlafschutz, Geld, Autofahren, Unterstützung oder Notfallweg?
 
 ## Konkreter nächster Schritt
 
-Wählen Sie heute eine Situation, die beim letzten Mal schwierig war. Formulieren Sie daraus eine kleine Absprache:
+Wählen Sie eine schwierige Situation und füllen Sie nur die Wenn-dann-Zeile aus:
 
 Wenn **[Frühzeichen]** an **[mehreren Tagen / deutlich]** sichtbar wird, dann machen wir **[konkreter Schritt]** und beziehen **[Person oder Stelle]** ein.
 
-Beispiel: Wenn Schlaf und Tempo drei Tage deutlich kippen, sprechen wir es ruhig an und beziehen die Fachperson ein. Bei akuter Gefahr gilt der Notfallweg, nicht Verhandeln.
+Bei akuter Gefahr gilt der Notfallweg, nicht Verhandeln.
 
 ## Entlastender Kernsatz
 

@@ -21,7 +21,7 @@ Wenn Sorge lange dauert, geraten die eigenen Reserven leicht aus dem Blick. Dies
 
 ## Worum es geht
 
-Selbstfürsorge klingt schnell nach Luxus. In Angehörigenrealitäten ist sie oft eher Belastungsmanagement: Wenn Sie dauerhaft zu viel tragen, zu wenig schlafen, sich sozial zurückziehen und nur noch reagieren, wird nicht nur die Situation schwerer — auch die eigenen Kräfte werden knapper.
+Selbstfürsorge klingt schnell nach Luxus. In Angehörigenrealitäten ist sie Belastungsmanagement: Wer dauerhaft zu viel trägt, zu wenig schläft und nur noch reagiert, verliert eigene Kraft.
 
 Ihre Gesundheit hat einen Eigenwert. Nicht erst, wenn Sie zusammenbrechen. Und nicht nur, damit Sie weiter funktionieren können.
 
@@ -29,46 +29,44 @@ Ihre Gesundheit hat einen Eigenwert. Nicht erst, wenn Sie zusammenbrechen. Und n
 
 - Schlaf, Essen und Pausen kommen immer wieder zu kurz
 - Kontakte werden abgesagt, weil Erklären zu viel Kraft braucht
-- Sie funktionieren nach aussen, fühlen sich innen aber leer oder gereizt
+- Sie funktionieren nach aussen, fühlen sich innen leer oder gereizt
 - eigene Arzttermine, Pausen oder Bedürfnisse rutschen nach hinten
 - der Alltag besteht fast nur noch aus Reagieren auf die Erkrankung
-- Entlastung fühlt sich erst erlaubt an, wenn gar nichts mehr geht
 
-Diese Zeichen bedeuten nicht, dass Sie versagt haben. Sie zeigen, dass Belastung gerade mehr Raum einnimmt, als ein Mensch auf Dauer tragen kann.
+Diese Zeichen bedeuten nicht Versagen. Sie zeigen, dass Belastung mehr Raum einnimmt, als ein Mensch auf Dauer tragen kann.
 
 ## Der Akku: vier Stellen, die Kraft kosten oder schützen
 
 **Körper**
 
-Schlaf, Essen, Bewegung und eigene medizinische Termine sind keine Nebensache. Sie sind Basisversorgung.
+Schlaf, Essen, Bewegung und eigene Termine sind Basisversorgung.
 
 **Seele**
 
-Ein Gespräch, eine Notiz oder eine ruhige Pause helfen, Gefühle nicht nur innerlich kreisen zu lassen.
+Gespräch, Notiz oder Pause helfen, Gefühle nicht kreisen zu lassen.
 
 **Beziehung**
 
-Kleine krankheitsfreie Inseln schützen, dass die Beziehung nicht nur aus Sorge, Kontrolle und Reaktion besteht.
+Krankheitsfreie Inseln schützen vor nur Sorge und Reaktion.
 
 **Entlastung**
 
-Eine Person oder Stelle früh einbeziehen ist Prävention, nicht Scheitern. Entlastung muss nicht erst im Zusammenbruch beginnen.
+Früh jemanden einzubeziehen ist Prävention, nicht Scheitern.
 
 ## Was hilft
 
-- eine einzige verlässliche Person wieder kontaktieren
+- eine verlässliche Person wieder kontaktieren
 - Entlastung konkret terminieren, nicht nur vage vornehmen
 - eine kleine Routine auswählen und diese eine Woche lang schützen
-- eine krankheitsfreie Insel konkret benennen: 20 Minuten, ein Ort, ein Thema
-- sich sagen: Unterstützung ist nicht erst dann erlaubt, wenn alles kippt
+- eine krankheitsfreie Insel benennen
 
 ## Was die Erschöpfung oft verstärkt
 
-Selbstfürsorge auf «später» verschieben, Erschöpfung als Liebesbeweis verstehen, Kontakte abbrechen und Entlastung erst erlauben, wenn nichts mehr geht.
+Auf «später» verschieben, Erschöpfung als Liebesbeweis verstehen, Kontakte abbrechen, Entlastung erst erlauben, wenn nichts mehr geht.
 
 ## Konkreter nächster Schritt
 
-Setzen Sie heute einen geschützten Termin in dieser Woche, der nur Ihrer Stabilität dient: Schlaf nachholen, ein kurzer Weg, ein Gespräch, eine Mahlzeit in Ruhe oder eine Pause ohne Erklärung. Behandeln Sie ihn wie einen Arzttermin.
+Setzen Sie heute einen geschützten Termin in dieser Woche: Schlaf nachholen, ein kurzer Weg, ein Gespräch, Essen in Ruhe oder Pause ohne Erklärung.
 
 ## Entlastender Kernsatz
 

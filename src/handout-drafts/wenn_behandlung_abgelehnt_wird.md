@@ -21,30 +21,29 @@ Zwischen Sorge, Respekt und Druck bleibt Handlungsspielraum — sobald freiwilli
 
 ## Worum es geht
 
-Selbstbestimmung bleibt der Ausgangspunkt. Eine Behandlung gegen den Willen einer Person ist in der Schweiz nur unter engen gesetzlichen Voraussetzungen und durch zuständige fachliche bzw. behördliche Wege möglich. Sie ist nie eine Abkürzung für ein schwieriges Gespräch.
+Selbstbestimmung bleibt der Ausgangspunkt. Behandlung gegen den Willen ist in der Schweiz nur unter engen Voraussetzungen und über zuständige fachliche bzw. behördliche Wege möglich — nie als Abkürzung für ein schwieriges Gespräch.
 
-Trotzdem müssen Angehörige nicht passiv bleiben. Hilfreich ist, freiwillige Hilfe, vorsorgliche Absprachen und akute Sicherheit sauber zu trennen — und zu wissen, welche Spur gerade trägt.
+Angehörige müssen trotzdem nicht passiv bleiben. Hilfreich ist, freiwillige Hilfe, Vorsorge und akute Sicherheit sauber zu trennen: Welche Spur trägt gerade?
 
 ## Woran die Lage ernster wird
 
-- Schlaf fällt über mehrere Nächte deutlich weg.
-- Tempo, Gereiztheit, Enthemmung oder Risikoverhalten nehmen stark zu.
+- Schlaf fällt weg; Tempo, Gereiztheit oder Risiko nehmen stark zu.
 - Rückzug, Verzweiflung oder Hoffnungslosigkeit verdichten sich.
 - Geld, Autofahren, Substanzen, Gewalt, Kinderbetreuung oder Selbstversorgung werden unsicher.
-- Die Person wirkt kaum erreichbar, psychotisch, massiv verwirrt oder nicht mehr ausreichend versorgt.
-- Frühere Absprachen greifen nicht mehr oder werden nicht mehr erinnert.
+- Die Person wirkt kaum erreichbar, psychotisch, verwirrt oder nicht ausreichend versorgt.
+- Frühere Absprachen greifen nicht mehr.
 
 ## Drei Spuren
 
-Welche Spur trägt, hängt von der Lage ab, nicht von einer festen Reihenfolge. In ruhigen Zeiten vorsorgen; bei wachsender Sorge freiwillig anbieten; bei akuter Gefahr schützen.
+Die Lage entscheidet, nicht eine feste Reihenfolge: in ruhigen Zeiten vorsorgen, bei Sorge freiwillig anbieten, bei Gefahr schützen.
 
-**Stabil vorsorgen:** In ruhigen Phasen klären, solange nichts unter Druck steht: Psychiatrische Patientenverfügung, Vorsorgeauftrag, Vertretungsperson, Informationsweitergabe und Frühwarnzeichen. Die Patientenverfügung kann bei der Klinik, der Hausärztin oder beim behandelnden Psychiater hinterlegt werden, damit sie im Ernstfall greifbar ist.
+**Stabil vorsorgen:** Patientenverfügung, Vorsorgeauftrag, Vertretung, Informationsweitergabe und Frühzeichen klären, bevor Druck entsteht.
 
-**Freiwillig anbieten:** Kurz, konkret und ohne Diagnose. Ein Thema, nicht fünf. Ruhiger Zeitpunkt, kurze Sätze. Nicht beweisen, dass Sie recht haben — einen klaren, kleinen nächsten Schritt anbieten.
+**Freiwillig anbieten:** Ein Thema, ruhiger Zeitpunkt, kurze Sätze — ohne Beweisführung.
 
-> „Mir fällt auf, dass du seit ein paar Nächten kaum schläfst und heute sehr angespannt wirkst. Mir wäre wichtig, dass wir heute einen nächsten sicheren Schritt vereinbaren — zum Beispiel gemeinsam einen Termin organisieren.“
+> „Mir fällt auf, dass du kaum schläfst. Lass uns heute einen sicheren Schritt vereinbaren.“
 
-**Akut schützen:** Wenn Sicherheit gefährdet ist, gilt der Notfallweg. Dann ist nicht der Moment für lange Verhandlungen — Sicherheit kommt vor Diskussion.
+**Akut schützen:** Wenn Sicherheit gefährdet ist, gilt der Notfallweg, nicht lange Verhandlung.
 
 ## Was eher hilft
 
@@ -62,13 +61,13 @@ Welche Spur trägt, hängt von der Lage ab, nicht von einer festen Reihenfolge. 
 
 ## Was sich zu dokumentieren lohnt
 
-Datum, Dauer, Schlaf, konkrete Aussagen, Risiken, Ausgaben, Substanzen, Termine, Selbstversorgung — und wer bereits einbezogen wurde. Notizen mit Datum und Beispielen helfen bei der fachlichen Einschätzung und, wenn es nötig wird, bei weiteren Schritten.
+Datum, Dauer, Schlaf, Aussagen, Risiken, Ausgaben, Substanzen, Termine, Selbstversorgung — und wer einbezogen wurde.
 
 ## Konkreter nächster Schritt
 
-Sie müssen nicht alles auf einmal. Beginnen Sie heute mit einer kurzen Ereignisnotiz:
+Beginnen Sie heute mit einer Ereignisnotiz:
 
-> Datum · Was war sichtbar? · Was macht Sorge? · Was wurde versucht? · Wer könnte fachlich mitbeurteilen?
+> Datum · sichtbar · Sorge · versucht · wer kann mitbeurteilen?
 
 ## Entlastender Kernsatz
 

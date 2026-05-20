@@ -21,16 +21,16 @@ Manie, Hypomanie, Depression und stabilere Phasen sind im Alltag oft nicht klar 
 
 ## Worum es geht
 
-Bipolare Verläufe sind für Angehörige oft schwer lesbar, weil Veränderungen schleichend beginnen können: Schlaf wird kürzer, Tempo steigt, Kontakt bricht ab, Hoffnung kippt oder scheinbare Normalität kehrt zurück.
+Bipolare Verläufe sind oft schwer lesbar, weil Veränderungen schleichend beginnen: Schlaf wird kürzer, Tempo steigt, Kontakt bricht ab, Hoffnung kippt oder Normalität kehrt scheinbar zurück.
 
-Wichtig ist nicht nur, ob jemand gehobener, gereizter, gedrückter oder erschöpfter wirkt. Entscheidend ist die Bewegung über Zeit: Was verändert sich, wie deutlich, wie lange und im Vergleich zu welchem üblichen Zustand?
+Entscheidend ist die Bewegung über Zeit: Was verändert sich, wie deutlich, wie lange und im Vergleich zu welchem üblichen Zustand?
 
 ## Vier Phasen im Alltag
 
-- **Manie:** Tempo, Ideen, Rededrang oder Risikobereitschaft nehmen deutlich zu. Der Schlafbedarf sinkt oft stark, Einsicht kann fehlen.
-- **Hypomanie:** abgeschwächter als Manie und nach aussen manchmal produktiv, charmant oder energiegeladen. Trotzdem kann sie ein Kipppunkt im Verlauf sein.
-- **Stabile Phase:** nicht automatisch «alles gelöst», aber meist der beste Moment für Erholung, Behandlung, Absprachen und gemeinsame Orientierung.
-- **Depression:** Antrieb, Hoffnung, Kontakt und Alltag können schwer erreichbar werden. Es geht oft nicht um Wollen, sondern um echtes Nicht-Können.
+- **Manie:** Tempo, Ideen, Rededrang oder Risiko nehmen deutlich zu; Schlafbedarf sinkt, Einsicht kann fehlen.
+- **Hypomanie:** abgeschwächter als Manie, manchmal produktiv wirkend, trotzdem verlaufsrelevant.
+- **Stabile Phase:** nicht «alles gelöst», aber guter Moment für Erholung, Behandlung und Absprachen.
+- **Depression:** Antrieb, Hoffnung, Kontakt und Alltag werden schwer erreichbar.
 
 ## Entlastender Kernsatz
 
