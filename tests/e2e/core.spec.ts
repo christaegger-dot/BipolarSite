@@ -139,7 +139,7 @@ function isMobileProject(testInfo: TestInfo) {
 }
 
 test.describe('core user paths', () => {
-  test('homepage introduces the site clearly and exposes three direct entry paths', async ({ page }) => {
+  test('homepage introduces the site clearly and exposes the full entry matrix', async ({ page }) => {
     await page.goto('/');
 
     await expect(page.getByRole('heading', { level: 1 })).toContainText(/Wenn eine bipolare Störung auch Ihr Leben mitbetrifft/i);
@@ -148,7 +148,10 @@ test.describe('core user paths', () => {
     await expect(page.locator('.home-hero-link')).toHaveCount(0);
     await expect(page.locator('.entry-paths-list a[href="/notfall/"]').first()).toContainText(/Notfallweg/i);
     await expect(page.locator('.entry-paths-list a[href="/modul/1/"]').first()).toContainText(/verstehen, was passiert/i);
-    await expect(page.locator('.entry-paths-list a[href="/modul/2/"]').first()).toContainText(/selbst am Limit/i);
+    await expect(page.locator('.entry-paths-list a[href="/modul/4/"]').first()).toContainText(/kaum noch aus/i);
+    await expect(page.locator('.entry-paths-list a[href="/modul/3/"]').first()).toContainText(/Beziehung/i);
+    await expect(page.locator('.entry-paths-list a[href="/modul/6/"]').first()).toContainText(/konkret handeln/i);
+    await expect(page.locator('.entry-paths-list a[href="/modul/7/"]').first()).toContainText(/langfristig tragfähig/i);
     await expect(page.locator('.invitation-section')).toContainText(/Reden, ohne wissen zu müssen, was Sie sagen wollen/i);
     await expect(page.locator('.invitation-section a[href^="tel:"]')).toBeVisible();
   });
